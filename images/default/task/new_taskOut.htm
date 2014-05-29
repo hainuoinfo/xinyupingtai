@@ -1,0 +1,188 @@
+{teval
+	$cssList = array(css::getUrl('task', 'task'));
+	$jsList  = array(javascript::getUrl('task', 'index'));
+	echo string::getStaticCode(array('cssList'=>$cssList, 'jsList' => $jsList));
+}
+{sub ../header}
+
+<div class="main">
+  {if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+  <div class="h_10"></div>
+  <div class="pub_tip1">
+      <strong>已发任务：</strong><br />
+      1. 在已发任务区，您可以操作所有自己已经发布且未完成的任务，也可以查看所有已完成任务流程的已发布任务；<br />
+      2. 通过点击快捷过滤按钮【所有任务】【进行中任务】【到期好评任务】【已完成任务】可以快速过滤出您想要查看的相应已发任务列表
+  </div>
+  <div class="info">  
+    <div class="info_l">
+      <div>
+        {sub tao_info}
+      </div>
+    </div>
+    <div class="info_r" style="padding:30px 10px 0px 0px; text-align:right;"><a href="#"><span class="msg_ann">官方提醒：谨防淘宝客！</span></a></div>
+  </div>
+  <div class="h_10"></div>
+  {sub new_tab}
+  <div class="lst_info">
+  <table class="lst_query" width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td valign="middle"><strong>任务状态：</strong><select name="status" id="status">
+          <option value="all"{if $t=='all'} selected{/if}>所有任务</option>
+          <option value="pause"{if $t=='pause'} selected{/if}>暂停的任务</option>
+          <option value="ing"{if $t=='ing'} selected{/if}>进行中任务</option>
+          <option value="expire"{if $t=='expire'} selected{/if}>到期好评任务</option>
+          <option value="complate"{if $t=='complate'} selected{/if}>已经完成任务</option>
+        </select>       
+        <strong>任务编号：</strong><input name="sid" type="text" id="sid" value="$sid" class="text_small" />
+        <strong>接手人：</strong><input name="busername" type="text" id="busername" value="$busername" class="text_small" />
+        <strong>接手人QQ：</strong><input name="bqq" type="text" id="bqq" value="$bqq" class="text_small" />
+        <strong>接手买号：</strong><input name="bnickname" type="text" id="bnickname" value="$bnickname" class="text_small" />
+      </td>
+      <td><input id="btnQuery" type="image" src="{$weburl2}images/btn/menu_search.gif" align="middle" /></td>
+    </tr>
+  </table>
+</div>
+<script language="javascript">
+$(function(){
+	$('#btnQuery').click(function(){
+		var sid=$('#sid').val();
+		if (sid) sid = '&sid='+sid;
+		var busername=$('#busername').val();
+		if (busername) busername = '&busername='+busername;
+		var bqq=$('#bqq').val();
+		if (bqq) bqq = '&bqq='+bqq;
+		var bnickname=$('#bnickname').val();
+		if (bnickname) bnickname = '&bnickname='+bnickname;
+		location.href='$thisUrl&t='+$('#status').val()+sid+busername+bqq+bnickname;
+	});
+});
+</script>
+<div class="h_10"></div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="state_b1"><div class="state_b2"></div></td>
+    <td {if $t=='all'}class="state_on"{else}class="state_no"{/if} onclick="window.location.href='$thisUrl&t=all'">所有任务($memberTask[out4])</td>
+    <td class="state_s"><div class="state_d"></div></td>
+    <td {if $t=='waiting'}class="state_on"{else}class="state_no"{/if} onclick="window.location.href='$thisUrl&t=waiting'">待接手任务($memberTask[outWaiting4])</td>
+    <td class="state_s"><div class="state_d"></div></td>
+    <td {if $t=='pause'}class="state_on"{else}class="state_no"{/if} onclick="window.location.href='$thisUrl&t=pause'">暂停中任务($memberTask[outPause4])</td>
+    <td class="state_s"><div class="state_d"></div></td>
+    <td {if $t=='ing'}class="state_on"{else}class="state_no"{/if} onclick="window.location.href='$thisUrl&t=ing'">进行中任务($memberTask[outing4])</td>
+    <td class="state_s"><div class="state_d"></div></td>
+    <td {if $t=='expire'}class="state_on"{else}class="state_no"{/if} onclick="window.location.href='$thisUrl&t=expire'">到期收货与好评任务($memberTask[outExpire4])</td>
+    <td class="state_s"><div class="state_d"></div></td>
+    <td {if $t=='complate'}class="state_on"{else}class="state_no"{/if} onclick="window.location.href='$thisUrl&t=complate'">已经完成任务($memberTask[outComplate4])</td>
+    <td class="state_l" style="width:200px;">
+		<img src="{$weburl2}images/btn/task_reflesh.gif" alt="点击刷新任务" onclick="window.location.reload();" />
+		{if $t=='pause'}
+		<a href="$thisUrl&t=$t&resumeAll=1" onclick="return confirm('您确定要恢复所有暂停中的任务么');" class="link_t">恢复所有</a>
+		{elseif $t=='waiting'}
+		<a href="$thisUrl&t=$t&pauseAll=1" onclick="return confirm('您确定要暂停所有待接手任务么');" class="link_t">暂停所有</a>
+		{/if}
+      </td>
+  </tr>
+</table>
+<table class="tbl" width="100%" border="0" cellspacing="0" cellpadding="2">
+	{eval $allPrice = 0;}
+	{loop $tList $v}
+    <tr>
+			<td>{if $v[isCart]}<span class='task_cart' title='购物车任务—$v[shopCount]个商品'></span>{elseif $v[isExpress]}<span class='task_express' title='真实快递任务—$v[shopCount]个商品'></span>{else}$lang[times_ico][$v[times]]{/if}{if $v[isEnsure]}<span class='task_sure' title='商保任务'></span>{/if}</td>
+      <td>任务编号：$v[id]<br />
+				发布时间：{echo date('m-d H:i:s', $v[stimestamp])}<br />
+        <span class="f_orange">{if $v[isExpress] && $v[status]>6}快递名称：$v[expressName]<br />快递单号：$v[expressNum]{/if}</span></td>
+      <td><span class="s1">平台担保</span>：<span class="dm_gold">$v[price]</span>元<br />
+        <span class="s1">修改价格</span>：<span class='f_orange'>$lang[isPriceFit][$v[isPriceFit]]</span><br />
+        <span class="s1">奖励发布点</span>：$v[point]个</td>
+      <td>掌柜：$v[nickname]<br />
+				商品：<span title="$v[title]" class="mouse">{cutstr $v[title],10}</span><br />
+				网址：<a href="javascript:;" onclick="return copyComment('$v[itemurl]')" class="link_o">复制网址</a><!--<a href="javascript:;" onclick="return openPrdUrl('$v[itemurl]')" class="link_o">打开网址</a>--><br />　　　<a href='javascript:;' class='link_o' title='$v[tips]' onclick="alert('发布方的留言提醒：\n\n{echo string::formatAlert($v[tips])}');return false;">查看留言提醒</a></td>
+      <td>接手人：{if $v[buid]}<a href="{rewrite}/member/info/?username={url $v[busername]}" target="_blank">$v[busername]</a>
+        <a href="javascript:;"><img src="$v[blevel][icon]" alt="积分：$v[credits]" /></a>
+		{if $v[buyerIsEnsure]}<span class='ensure' title='商保'></span>{/if}
+        <a href="javascript:;" onclick="dialog(460,460,'给卖家发送手机短信','{rewrite}/dialog/sendsms/?username={url $v[busername]}');return false;"><img src="{$weburl2}images/btn/sms.gif" /></a>{/if}<br />
+				买号：{if $v[bid]}$v[bnickname] $v[bico]{/if}<br />
+				时间：{if $v[buid]}{echo date('m-d H:i:s', $v[btimestamp])}{/if}<br />
+				<span class='btn_gl cursor' title='$v[address]' onclick='return copyComment($(this).attr("title"))'>复制收货地址</span><br />	
+				{if $v[buid]}QQ号：<a href='tencent://message/?uin=$v[qq]'><img width='25' height='17' border='0' src='http://wpa.qq.com/pa?p=1:$v[qq]:17' alt='' /></a> $v[qq]{/if}</td>
+      <td>任务要求：$lang[times][$v[times]],{if $v[isRemark]}带字,{/if}{if $v[visitWay]}<span class='f_red'>来路</span>,{/if}{if $v[isReal]}<span class='f_red'>{if $v[realname] == 1}实名{else}掌柜{/if}</span>,{/if}{if $v[isChat]}<span class='f_red f_b'>拍前聊</span>,{/if}{if $v[isChatDone]}<span class='f_red'>聊后收</span>,{/if}{if $v[isShare]}<span class='f_blue f_b'>分享</span><br />　　　　　{/if}$lang[scores][$v[scores]]<br />{if $v[isRemark]}　　　　　<span class='btn_gl cursor' title='$v[remark]' onclick='return copyComment($(this).attr("title"))'>复制好评内容</span><br />{/if}
+        任务状态：<span class="f_orange">$lang[status][$v[status]]</span><br />
+        　　操作：
+			{if $v[complain]}
+			<span class="s1">申诉裁定中,任务锁定</span>
+			{else}
+			{if $v[status]==0}
+			<a href="$thisUrl&resume=$v[id]" onclick="return confirm('您确定要恢复任务么？');" class="link_t">恢复任务</a>
+			<a href="$thisUrl&repost=$v[id]" onclick="return IsReTask();" class="link_t">重新发布</a>
+			{elseif $v[status]==1}
+			<a href="$thisUrl&del=$v[id]" onclick="return IsDelTask();" class="link_t">取消发布</a>
+			<a href="$thisUrl&pause=$v[id]" onclick="return confirm('您确定要暂停任务么？')" class="link_t">暂停任务</a>
+			{elseif $v[status]==2}
+				{if $v[isVerify]}
+			接手方剩余<script type="text/javascript">fleshTime({echo 180-$v[runTimestamp]})</script>分钟可绑定买号<br />
+			<a href="$thisUrl&reject=$v[id]" onclick="return IsRejectTask($v[reject]);" class="link_ta">辞退接手方</a>
+			 已辞退$v[reject]人
+				{else}
+			<a href="javascript:;" class="link_t" onclick="dialog(950,550,'发起申诉','{rewrite}/dialog/complain/?sid=$v[id]');return false;">发起申诉</a>
+			 	{/if}
+			{elseif $v[status]==3}
+			<span class="f_orange">已绑定买号，等待发布方审核</span><br />
+        　　操作：<a href="$thisUrl&verify=$v[id]" class="link_t">通过审核</a> <a href="$thisUrl&reject=$v[id]" onclick="return IsRejectTask($v[reject]);" class="link_ta">辞退接手方</a><br />　　　　　已辞退$v[reject]人
+			{elseif $v[status]==4}
+			接手方剩余<span class="f_b_red">{echo time::minutes($v[runTimestamp2])}</span>分钟可支付<br />　　　　　<a href="$thisUrl&addtime=$v[id]" class="link_ta">为接手方加时</a>
+			{elseif $v[status]==5}
+			<a href="javascript:;" onclick="dialog(500,400,'核对快递地址','{rewrite}/dialog/confirmExpress/?sid=$v[id]');return false;" class="link_t">核对快递</a>
+			<a href="javascript:;" class="link_t" onclick="dialog(950,550,'发起申诉','{rewrite}/dialog/complain/?sid=$v[id]');return false;">发起申诉</a>
+			{elseif $v[status]==7}
+			<a href="$thisUrl&send=$v[id]" onclick="return IsSendTask()" class="link_t">我已发货</a>
+			<a href="javascript:;" class="link_t" onclick="dialog(950,550,'发起申诉','{rewrite}/dialog/complain/?sid=$v[id]');return false;">发起申诉</a>
+			{elseif $v[status]==8}
+			<a href="javascript:;" class="link_t" onclick="dialog(950,550,'发起申诉','{rewrite}/dialog/complain/?sid=$v[id]');return false;">发起申诉</a>
+			{elseif $v[status]==9}
+			<a href="$thisUrl&confirm=$v[id]" onclick="return IsConfirmTask('淘宝')" class="link_ta">已核实货款</a>
+			<a href="javascript:;" class="link_t" onclick="dialog(950,550,'发起申诉','{rewrite}/dialog/complain/?sid=$v[id]');return false;">发起申诉</a>
+			{elseif $v[status]==10}
+			<a href="javascript:;" onclick="dialog(600,500,'{$web_name}商联盟任务满意度评分','{rewrite}/dialog/grade/?sid=$v[id]');return false;" class="link_ta">{if !($v[credit]&2)}给接手方打分{else}修改评分{/if}</a>
+			<br />　　　　　　$lang[cStatus][$v[credit]]
+			{/if}
+			{if $v[isEnsure]}
+			<br />
+			　　　　　　{if !$v[ensureStatus]}{if $timestamp - $v[ctimestamp] < 16 * 86400}<a class="link_r_1" onclick="dialog(800,500,'任务商保索赔','{r}/dialog/ensure/?sid=$v[id]');return false;" href="javascript:;">商保索赔</a>{/if}
+			{else}
+			<span class="f_red">
+				{if !($v[ensureStatus] & 1 << 1)}
+				索赔进行中...
+				{else}
+					{if !($v[ensureStatus] & 1 << 2)}
+						{if !($v[ensureStatus] & 1 << 3)}
+						索赔失败
+						{else}
+						索赔成功
+						{/if}
+					{else}
+					已经撤销索赔
+					{/if}
+				{/if}
+			</span>
+			{/if}
+			{/if}
+		{/if}	
+        </td>
+    </tr>
+	{eval $allPrice += $v[price];}
+	{/loop}
+	
+  <tbody>
+    <tr>
+      <td colspan="6">　本页任务的资金合计：<span class="f_b_red">$allPrice</span> 元</td>
+    </tr>
+  </tbody>
+</table>
+<div class="h_10"></div>
+<div class="pages">$multipage</div>
+<div class="h_20"></div>
+</div>
+<script type="text/javascript">
+
+</script>
+{sub ../footer}

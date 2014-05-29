@@ -1,0 +1,21 @@
+{sub h}
+{if $method=='index'}
+	{adminList
+		删？    |id     |del
+		排序    |sort   |sort
+		快递名称|name
+		标记    |marker
+		创建时间|timestamp|flag,date
+		状态    |         |code,{if $v[status]}禁用(<a href="$base_url&status=$v[id]">可用</a>){else}可用(<a href="$base_url&status=$v[id]">禁用</a>){/if}
+				|id     |link,edit=编辑;link,view=查看
+	}
+{elseif $method=='add' || $method=='edit'}
+	{adminForm
+		快递名称,null=请输入快递名称|name|text|240|16
+		快递员标记,null=请输入快递员标记|marker|text|240|16
+		收货地址,null=请输入买号收货地址|city1|textarea
+		官方推荐收货地址,null=请输入买号的官方推荐地址|city2|textarea
+		发货地址,null=请输入卖号发货地址|city3|textarea
+	}
+{/if}
+{sub f}

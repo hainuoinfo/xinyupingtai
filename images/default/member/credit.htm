@@ -1,0 +1,114 @@
+{teval
+	$title       = '账户维护日志 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{ad2 ad_memberHeadTop}
+{sub ../header}
+<div class="main">
+  <div class="h_10"></div>
+  <div class="a">
+    {sub menu}
+  </div>
+  <div class="b"> 
+	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+	{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+    <div class="tip_gun">1. 本信用中心展示了您在联盟中的信用记录，让您随时了解自己的个人信用额度；<br />
+      2. 联盟信用记录对于您非常重要；作为对方了解您平台信用的第一指标，它将直接影响您在接发任务时的速度与成功率；<br />
+      3. 您在每完成一个任务后，任务对方可以为您在任务中的表现进行满意度打分；该分数直接加权到您现有的信用度上； <br />
+      4. 当您的信用度过低时，系统将会发出警告信，同时限制您的接发任务权限；情节严重者联盟将会做封号处理封号；<br />
+      5. <a href="#" class="link_o">刷客满意度与刷客权利关系</a><br />
+    </div>
+    <div class="h_10"></div>
+    <div class="h_10"></div>
+    <div>
+      <div class="remit_a_X">
+        <div>
+          <div class="box_t">
+            <div class="box_t_l"></div>
+            <div class="box_t_r"></div>
+          </div>
+          <div class="box_main">
+            <div id="box_1">
+              <div class="f_b_org">我的当前信用值为：$memberFields[credit]</div>
+              <div class="box_s">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td align="center"><strong>刷客满意度</strong></td>
+                    <td class="f_b_green">满意<img src="{$weburl2}images/face/dg_1.gif" width="24" height="24" align="absmiddle" /></td>
+                    <td class="f_b_org">一般<img src="{$weburl2}images/face/dg_2.gif" width="24" height="24" align="absmiddle" /></td>
+                    <td class="f_b_red">很差<img src="{$weburl2}images/face/dg_3.gif" width="24" height="24" align="absmiddle" /></td>
+                  </tr>
+                  <tr>
+                    <td align="center">作为发布者：</td>
+                    <td class="f_b_green">{echo sprintf('%.2f%%', $memberFields[sgrade]==0?0:$memberFields[sgrade1] * 100 / $memberFields[sgrade])}</td>
+                    <td class="f_b_org">{echo sprintf('%.2f%%', $memberFields[sgrade]==0?0:$memberFields[sgrade2] * 100 / $memberFields[sgrade])}</td>
+                    <td class="f_b_red">{echo sprintf('%.2f%%', $memberFields[sgrade]==0?0:$memberFields[sgrade3] * 100 / $memberFields[sgrade])}</td>
+                  </tr>
+                  <tr>
+                    <td align="center">作为接手者：</td>
+                    <td class="f_b_green">{echo sprintf('%.2f%%', $memberFields[bgrade]==0?0:$memberFields[bgrade1] * 100 / $memberFields[bgrade])}</td>
+                    <td class="f_b_org">{echo sprintf('%.2f%%', $memberFields[bgrade]==0?0:$memberFields[bgrade2] * 100 / $memberFields[bgrade])}</td>
+                    <td class="f_b_red">{echo sprintf('%.2f%%', $memberFields[bgrade]==0?0:$memberFields[bgrade3] * 100 / $memberFields[bgrade])}</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="bar_edit">我的信用记录</div>
+              <table class="tbl_lst" width="100%" border="0" cellspacing="0" cellpadding="0">
+                <thead>
+                  <tr>
+                    <td width="150" class="tbl_s">任务ID </td>
+                    <td width="80">评价人</td>
+                    <td width="60">评分</td>
+                    <td>评价详情</td>
+                    <td width="150">　评价时间</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  {loop $cList $v}
+                  <tr>
+                    <td class="tbl_s">$v[id]</td>
+                    <td>{if $v[isHide]}匿名{else}$v[fusername]{/if}</td>
+                    <td>$v[score]</td>
+                    <td>$v[remark]&nbsp;</td>
+                    <td align="center">{date $v[timestamp]}</td>
+                  </tr>
+                  {/loop}
+                </tbody>
+              </table>
+              <div class="pages">$multipage</div>
+              <div class="h_10"></div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div>
+            <div class="box_b_l"></div>
+            <div class="box_b_r"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="h_10"></div>
+  </div>
+</div>
+<script type="text/javascript">
+function checkForm() {
+   var checks = [
+		["isNumber", "num", "兑换发布点个数"],
+		["isEmpty", "optCode", "操作码"] ];
+	var result = doCheck(checks);
+	if (result && getValue("from") == getValue("to")) {
+	    alert("发布点不能兑换到相同的平台");
+	    return false;
+	}
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+</script>
+{sub ../footer}

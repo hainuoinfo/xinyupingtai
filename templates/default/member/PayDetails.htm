@@ -1,0 +1,367 @@
+﻿{teval
+	$title       = '记录查询 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{sub ../header}
+<link href="/css/jquery-ui.css" rel="stylesheet" type="text/css">
+<SCRIPT type="text/javascript" src="/css/jquery-ui.min.js"></SCRIPT>
+<DIV id="content">
+{sub menu}
+<DIV class="right">
+<DIV class="bq_menu">
+<A {if $type==1} class="nov"{/if} href="{rewrite}/member/PayDetails/?type=1">存款</A>
+<A {if $type==2} class="nov"{/if} href="{rewrite}/member/PayDetails/?type=2">麦点</A>
+<A {if $type==3} class="nov"{/if} href="{rewrite}/member/PayDetails/?type=3">积分</A>
+<A {if $type==4} class="nov"{/if} href="{rewrite}/member/PayDetails/?type=4">任务</A>
+<A {if $type==5} class="nov"{/if} href="{rewrite}/member/PayDetails/?type=5">充值</A>
+<A {if $type==6} class="nov"{/if} href="{rewrite}/member/PayDetails/?type=6">提现</A>
+<A {if $type==7} class="nov"{/if} href="{rewrite}/member/PayDetails/?type=7">登录</A>
+</DIV>
+<DIV class="cle"></DIV>
+<!--存款查询-->
+ {if $type==1}
+<DIV class="f_text">
+<SPAN class="img0"></SPAN>
+<P class="f16">存款流动查询</P>
+<P>查查您今天获得了多少存款吧</P></DIV>
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+  <FORM><INPUT id="type" name="type" value="$type" type="hidden">
+  <TBODY>
+  <TR>
+    <TD height="25" vAlign="middle" width="370" align="right">日期：              
+    <INPUT id="dateStart" class="i_bk" name="dateStart" readOnly="readonly" value="{echo date('Y-m-d',time())}" type="text">-
+	<INPUT id="dateEnd" class="i_bk" name="dateEnd" readOnly="readonly" value="{echo date('Y-m-d',time())}" type="text"></TD>
+    <TD><INPUT style="cursor: pointer;" id="btnQuery" class="s_btn" type="button"></TD>
+	</TR>
+	</TBODY>
+	</FORM>
+  <TBODY></TBODY></TABLE>
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+  <TBODY>
+  <TR>
+    <TD class="titbg1" height="43" vAlign="middle" width="5" align="center"></TD>
+    <TD class="titbg" height="43" vAlign="middle" width="10%" align="center">类型</TD>
+    <TD class="titbg" vAlign="middle" width="33%" align="center">详细内容</TD>
+    <TD class="titbg" vAlign="middle" width="15%" align="center">数量</TD>
+    <TD class="titbg" vAlign="middle" width="15%" align="center">总数量</TD>
+    <TD class="titbg" vAlign="middle" width="15%" align="center">时间</TD>
+    <TD class="titbg2" height="43" vAlign="middle" width="5" align="center"></TD>
+	</TR>
+	 {loop $logList $v}
+	 {if $v[type]=='money'} 
+  <TR>
+    <TD class="x_xian" height="25">&nbsp;</TD>
+    <TD class="xuxian" vAlign="middle" width="10%" align="center">存款</TD>
+    <TD class="xuxian" vAlign="middle" width="33%" 
+      align="center">$v[remark]</TD>
+    <TD class="xuxian" vAlign="middle" width="15%" align="center"><STRONG 
+      class="lvse">{if $v[val]>0}+{/if}$v[val]</STRONG></TD>
+    <TD class="xuxian" vAlign="middle" width="15%" align="center"><STRONG 
+      class="lvse">$memberFields[money]</STRONG></TD>
+    <TD class="time xuxian" vAlign="middle" width="15%" 
+      align="center">{date $v[timestamp]}</TD>
+    <TD class="x_xian" height="25">&nbsp;</TD>
+   </TR>
+   {/if}
+  {/loop}
+  </TBODY></TABLE>
+<DIV id="page">$multipage</DIV>
+  <!--麦点流动查询-->
+  {elseif $type=='2'}
+
+<DIV class="f_text">
+<SPAN class="img"></SPAN>
+<P class="f16">麦点流动查询</P>
+<P>发布点就是麦点，在这里，查查您获得了多少麦点吧</P></DIV>
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+  <FORM>
+  <INPUT id="type" name="type" value="$type" type="hidden">
+  <TBODY>
+  <TR>
+    <TD height="25" vAlign="middle" width="370" align="right">日期：              
+    <INPUT id="dateStart" class="i_bk" name="dateStart" readOnly="readonly" value="{echo date('Y-m-d',time())}" type="text">-
+	<INPUT id="dateEnd" class="i_bk" name="dateEnd" readOnly="readonly" value="{echo date('Y-m-d',time())}" type="text"></TD>
+    <TD><INPUT style="cursor: pointer;" id="btnQuery" class="s_btn" type="button"></TD></TR>
+	</TBODY>
+	</FORM>
+  <TBODY></TBODY></TABLE>
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+  <TBODY>
+  <TR>
+    <TD class="titbg1" height="43" vAlign="middle" width="5" 
+align="center"></TD>
+    <TD class="titbg" height="43" vAlign="middle" width="10%" 
+    align="center">类型</TD>
+    <TD class="titbg" vAlign="middle" width="33%" align="center">详细内容</TD>
+    <TD class="titbg" vAlign="middle" width="15%" align="center">数量</TD>
+    <TD class="titbg" vAlign="middle" width="15%" align="center">总数量</TD>
+    <TD class="titbg" vAlign="middle" width="15%" align="center">时间</TD>
+    <TD class="titbg2" height="43" vAlign="middle" width="5" 
+  align="center"></TD></TR>
+   {loop $logList $v}
+	{if $v[type]=='fabudian'} 
+  <TR>
+    <TD class="x_xian" height="25">&nbsp;</TD>
+    <TD class="xuxian" vAlign="middle" width="10%" align="center">麦点</TD>
+    <TD class="xuxian" vAlign="middle" width="33%" 
+      align="center">$v[remark]</TD>
+    <TD class="xuxian" vAlign="middle" width="15%" align="center"><STRONG 
+      class="lvse">{if $v[val]>0}+{/if}$v[val]</STRONG></TD>
+    <TD class="xuxian" vAlign="middle" width="15%" align="center"><STRONG 
+      class="lvse">$memberFields[fabudian]</STRONG></TD>
+    <TD class="time xuxian" vAlign="middle" width="15%" 
+      align="center">{date $v[timestamp]}</TD>
+    <TD class="x_xian" height="25">&nbsp;</TD></TR>
+  {/if}
+  {/loop}
+	</TBODY></TABLE>
+	<DIV id="page">$multipage</DIV>
+	<!--积分流动查询-->
+	{elseif $type=='3'}
+	<DIV class="f_text">
+<SPAN class="img1"></SPAN>
+<P class="f16">积分流动查询</P>
+<P>做一个任务可以获得一个积分，充值也有奖励积分噢</P></DIV>
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+  <FORM>
+  <INPUT id="type" name="type" value="$type" type="hidden">
+  <TBODY>
+  <TR>
+    <TD height="25" vAlign="middle" width="370" align="right">日期：              
+    <INPUT id="dateStart" class="i_bk" name="dateStart" readOnly="readonly" value="{echo date('Y-m-d',time())}" type="text">-
+	<INPUT id="dateEnd" class="i_bk" name="dateEnd" readOnly="readonly" value="{echo date('Y-m-d',time())}" type="text"></TD>
+    <TD><INPUT style="cursor: pointer;" id="btnQuery" class="s_btn" type="button"></TD></TR>
+	</TBODY>
+	</FORM>
+  <TBODY></TBODY></TABLE>
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+  <TBODY>
+  <TR>
+    <TD class="titbg1" height="43" vAlign="middle" width="5" align="center"></TD>
+    <TD class="titbg" height="43" vAlign="middle" width="10%" 
+    align="center">类型</TD>
+    <TD class="titbg" vAlign="middle" width="33%" align="center">详细内容</TD>
+    <TD class="titbg" vAlign="middle" width="15%" align="center">数量</TD>
+    <TD class="titbg" vAlign="middle" width="15%" align="center">总数量</TD>
+    <TD class="titbg" vAlign="middle" width="15%" align="center">时间</TD>
+    <TD class="titbg2" height="43" vAlign="middle" width="5" 
+  align="center"></TD></TR>
+ {loop $logList $v}
+ {if $v[type]=='credits'}	 
+  <TR>
+    <TD class="x_xian" height="25">&nbsp;</TD>
+    <TD class="xuxian" vAlign="middle" width="10%" align="center">积分</TD>
+    <TD class="xuxian" vAlign="middle" width="33%" 
+      align="center">$v[remark]</TD>
+    <TD class="xuxian" vAlign="middle" width="15%" align="center"><STRONG 
+      class="lvse">{if $v[val]>0}+{/if}$v[val]</STRONG></TD>
+    <TD class="xuxian" vAlign="middle" width="15%" align="center"><STRONG 
+      class="lvse">$memberFields[credits]</STRONG></TD>
+    <TD class="time xuxian" vAlign="middle" width="15%" 
+      align="center">{date $v[timestamp]}</TD>
+    <TD class="x_xian" height="25">&nbsp;</TD>
+  </TR>
+  {/if}
+  {/loop}
+  
+  </TBODY></TABLE>
+  <DIV id="page">$multipage</DIV>
+  <!--任务日志查询-->
+  {elseif $type=='4'}
+  <DIV class="f_text">
+<SPAN class="img2"></SPAN>
+<P class="f16">任务日志查询</P>
+<P>您在过去三个月做过任务的日志，都在这里</P></DIV>
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+  <FORM><INPUT id="type" name="type" value="$type" type="hidden">
+  <TBODY>
+  <TR>
+    <TD height="25" vAlign="middle" width="370" align="right">日期：              
+          <INPUT id="dateStart" class="i_bk" name="dateStart" readOnly="readonly" 
+      value="{echo date('Y-m-d',time())}" type="text">-<INPUT id="dateEnd" class="i_bk" name="dateEnd" 
+      readOnly="readonly" value="{echo date('Y-m-d',time())}" type="text"></TD>
+    <TD><INPUT style="cursor: pointer;" id="btnQuery" class="s_btn" type="button"></TD></TR></TBODY></FORM>
+  <TBODY></TBODY></TABLE>
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+  <TBODY>
+  <TR>
+    <TD class="titbg1" height="43" vAlign="middle" width="5" align="center"></TD>
+    <TD class="titbg" height="43" vAlign="middle" width="22%" align="center">任务Id</TD>
+    <TD class="titbg" vAlign="middle" width="10%" align="center">操作类型</TD>
+    <TD class="titbg" vAlign="middle" width="40%" align="center">详细内容</TD>
+    <TD class="titbg" vAlign="middle" width="15%" align="center">时间</TD>
+    <TD class="titbg2" height="43" vAlign="middle" width="5" align="center"></TD></TR>
+  {loop $lList $v}
+  <TR>
+    <TD class="xuxian" vAlign="middle" width="5" align="center"></TD>
+    <TD class="xuxian" vAlign="middle" width="22%" align="center">$v[tid]</TD>
+    <TD class="xuxian" vAlign="middle" width="10%" align="center">$v[title]</TD>
+    <TD class="xuxian" vAlign="middle" width="40%" align="center">$v[message]</TD>
+    <TD class="time xuxian" vAlign="middle" width="15%" align="center">{date $v[timestamp]}</TD>
+    <TD class="x_xian" height="25" width="5">&nbsp;</TD>
+   </TR>
+   {/loop}
+  </TBODY></TABLE>
+  <DIV id="page">$multipage</DIV>
+  <!--充值记录查询-->
+  {elseif $type=='5'}
+  <DIV class="f_text">
+<SPAN class="img3"></SPAN>
+<P class="f16">充值记录查询</P>
+<P>目前支持网银在线，淘宝店铺购卡，财付通转账充值，充值都是免手续费的哦</P></DIV>
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+  <FORM><INPUT id="type" name="type" value="$type" type="hidden">
+  <TBODY>
+  <TR>
+    <TD height="25" vAlign="middle" width="370" align="right">日期：              
+          <INPUT id="dateStart" class="i_bk" name="dateStart" readOnly="readonly" 
+      value="{echo date('Y-m-d',time())}" type="text">-<INPUT id="dateEnd" class="i_bk" name="dateEnd" 
+      readOnly="readonly" value="{echo date('Y-m-d',time())}" type="text"></TD>
+    <TD><INPUT style="cursor: pointer;" id="btnQuery" class="s_btn" type="button"></TD></TR></TBODY></FORM>
+  <TBODY></TBODY></TABLE>
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+  <TBODY>
+  <TR>
+    <TD class="titbg1" height="43" vAlign="middle" width="5" align="center"></TD>
+    <TD class="titbg tbl_s" height="43" vAlign="middle" width="10%" align="center">充值单号</TD>
+    <TD class="titbg" vAlign="middle" align="center">充值方式</TD>
+    <TD class="titbg" vAlign="middle" align="center">充值金额</TD>
+    <TD class="titbg" vAlign="middle" align="center">帐户余额</TD>
+    <TD class="titbg" vAlign="middle" align="center">奖励积分</TD>
+    <TD class="titbg" vAlign="middle" align="center">充值时间</TD>
+    <TD class="titbg">充值状态</TD>
+    <TD class="titbg2" height="43" vAlign="middle" width="5" align="center"></TD>
+	</TR>
+	
+	{loop $tList $v}
+  <TR>
+    <TD class="x_xian" height="25">&nbsp;</TD>
+    <TD class="xuxian" vAlign="middle" align="center">$v[id]</TD>
+    <TD class="xuxian" vAlign="middle" align="center">{if $v[type]=='chinabank'}网银在线{elseif $v[type]=='card'}充值卡{elseif $v[type]=='alipay'}支付宝转账{elseif $v[type]=='tenpay'}财付通转账{elseif $v[type]=='yeepay'}易宝支付{/if}</TD>
+    <TD class="xuxian" vAlign="middle" align="center">$v[money1]</TD>
+    <TD class="xuxian" vAlign="middle" align="center">$v[money]</TD>
+    <TD class="xuxian" vAlign="middle" align="center">$v[credit]</TD>
+    <TD class="xuxian" vAlign="middle" align="center">{date $v[ptimestamp]}</TD>
+    <TD class="xuxian" vAlign="middle" align="center">{if $v[status]}充值成功{else}
+					{if $v[type]=='chinabank'}
+					未支付
+					{else}
+					未处理
+					{/if}{/if}
+					</TD>
+    <TD class="x_xian" height="25">&nbsp;</TD>
+	</TR>
+	{/loop}
+	</TBODY>
+	</TABLE>
+	<DIV id="page">$multipage</DIV>
+	<!--提现明细查询-->
+	{elseif $type=='6'}
+	<DIV class="f_text"><SPAN class="img4"></SPAN>
+<P class="f16">提现明细查询</P>
+<P>哇，算一算，今天挣了多少？</P></DIV>
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+  <FORM><INPUT id="type" name="type" value="$type" type="hidden">
+  <TBODY>
+  <TR>
+    <TD height="25" vAlign="middle" width="370" align="right">日期：              
+          <INPUT id="dateStart" class="i_bk" name="dateStart" readOnly="readonly" 
+      value="{echo date('Y-m-d',time())}" type="text">-<INPUT id="dateEnd" class="i_bk" name="dateEnd" 
+      readOnly="readonly" value="{echo date('Y-m-d',time())}" type="text"></TD>
+    <TD><INPUT style="cursor: pointer;" id="btnQuery" class="s_btn" type="button"></TD></TR></TBODY></FORM>
+  <TBODY></TBODY></TABLE>
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+  <TBODY>
+  <TR>
+    <TD class="titbg1" height="43" vAlign="middle" width="5" 
+align="center"></TD>
+    <TD class="titbg" height="43" vAlign="middle" align="center">提现流水号</TD>
+    <TD class="titbg" vAlign="middle" width="10%" align="center">提现方式</TD>
+    <TD class="titbg" vAlign="middle" align="center">金额</TD>
+    <TD class="titbg" vAlign="middle" align="center">申请时间</TD>
+    <TD class="titbg" vAlign="middle" align="center">处理时间</TD>
+    <TD class="titbg" vAlign="middle" align="center">状态</TD>
+    <TD class="titbg2" height="43" vAlign="middle" width="5" 
+  align="center"></TD></TR>
+  
+  	{loop $txList $v}
+  <TR>
+    <TD class="x_xian" height="25">&nbsp;</TD>
+    <TD class="xuxian" vAlign="middle" align="center">$v[id]</TD>
+    <TD class="xuxian" vAlign="middle" align="center">{if $v[type]=='taobao'}淘宝商品{elseif $v[type]=='alipay'}支付宝转账{elseif $v[type] == 'bank'}银行卡提现{elseif $v[type] == 'yeepay'}易宝提现{/if}</TD>
+    <TD class="xuxian" vAlign="middle" align="center">$v[money]</TD>
+    <TD class="xuxian" vAlign="middle" align="center">{date $v[timestamp1]}</TD>
+    <TD class="xuxian" vAlign="middle" align="center">{if !$v[status]}处理中{else}{date $v[timestamp2]}{/if}</TD>
+    <TD class="xuxian" vAlign="middle" align="center">$status[$v[status]]</TD>
+    <TD class="xuxian" vAlign="middle" align="center"></TD>
+    <TD class="x_xian" height="25">&nbsp;</TD>
+	</TR>
+	{/loop}
+  
+  
+  </TBODY></TABLE>
+  <DIV id="page">$multipage</DIV>
+<!--登陆查询-->
+{elseif $type=='7'}
+<DIV class="f_text">
+<SPAN class="img5"></SPAN>
+<P class="f16">登录日志查询</P>
+<P>最近在哪里登录过？在什么时间修改过资料，请看下文...</P>
+</DIV>
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+  <FORM>
+  <INPUT id="type" name="type" value="$type" type="hidden">
+  <TBODY>
+  <TR>
+    <TD height="25" vAlign="middle" width="370" align="right">日期：              
+          <INPUT id="dateStart" class="i_bk" name="dateStart" readOnly="readonly" 
+      value="{echo date('Y-m-d',time())}" type="text">-<INPUT id="dateEnd" class="i_bk" name="dateEnd" 
+      readOnly="readonly" value="{echo date('Y-m-d',time())}" type="text"></TD>
+    <TD><INPUT style="cursor: pointer;" id="btnQuery" class="s_btn" type="button"></TD></TR></TBODY>
+	</FORM>
+  <TBODY></TBODY></TABLE>
+  
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+  <TBODY>
+  <TR>
+    <TD class="x_xian" height="25">&nbsp;</TD>
+    <TD class="titbg" height="43" vAlign="middle" align="center">操作类型</TD>
+    <TD class="titbg" vAlign="middle" align="center">详细信息</TD>
+    <TD class="titbg" vAlign="middle" align="center">ip地址</TD>
+    <TD class="titbg" vAlign="middle" align="center">时间</TD>
+    <TD class="x_xian" height="25">&nbsp;</TD></TR>
+	
+	{loop $accList $v}
+  <TR>
+    <TD class="x_xian" height="25">&nbsp;</TD>
+    <TD class="xuxian" vAlign="middle" align="center">$v[title]</TD>
+    <TD class="xuxian" vAlign="middle" align="center">$v[content]</TD>
+    <TD class="xuxian" vAlign="middle" align="center">{echo long2ip ($v[ip])}</TD>
+    <TD class="xuxian" vAlign="middle" align="center">{date $v[timestamp]}</TD>
+    <TD class="x_xian" height="25">&nbsp;</TD>
+  </TR>
+    {/loop}
+
+  </TBODY></TABLE>
+  <DIV style="padding: 5px 0px 30px;" id="page">$multipage</DIV>
+  {/if}
+</DIV>
+</DIV>
+<script language="javascript"> 
+$(function(){
+	$('#dateStart').datepicker({dateFormat: 'yy-mm-dd'});
+	$('#dateEnd').datepicker({dateFormat: 'yy-mm-dd'});
+	$('#btnQuery').click(function(){
+		location.href='$baseUrl?type='+$('#type').val()+'&dateStart='+$('#dateStart').val()+'&dateEnd='+$('#dateEnd').val();
+	});
+});
+</script>
+<DIV class="cle"></DIV>
+{sub ../footer}
+

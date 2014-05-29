@@ -1,0 +1,170 @@
+{teval
+	$title       = '找回密码 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('reg', 'member'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{sub ../header}
+
+<link href="/css/selfservice.css" rel="stylesheet" type="text/css">
+<div class="cle"></div>
+<div id="service">
+    {if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+	{if $_showmessage}<div class='error_panel'><div>$_showmessage</div></div>{/if}
+	<div class="box">
+      <div class="top">您可以方便快捷地自助完成修改联系方式、找回登录密码、找回操作密码等服务。</div>
+      <div class="con">
+        <ul>
+          <li class="l_pas">
+            <h4><em></em>找回登录密码</h4>
+            <div class="gray">通过账号与绑定的手机号码，自助找回登录密码。</div>
+            <div class="but">
+              <button onclick="openurl('/help/forpassword/','iframe');">点击开始</button>
+            </div>
+          </li>
+          <li class="p_pas">
+            <h4><em></em>找回操作密码</h4>
+            <div class="gray">通过账号与绑定的手机号码，自助找回操作密码。</div>
+            <div class="but">
+              <button onclick="openurl('/help/forpassword2/');">点击开始</button>
+            </div>
+          </li>
+          <li class="count">
+            <h4><em></em>修改联系方式</h4>
+            <div class="gray">自助修改QQ号码、联系邮箱等个人联系信息。</div>
+            <div class="but">
+              <button onclick="openurl('/help/userdata/');">点击开始</button>
+            </div>
+          </li>
+          <li class="tixian">
+            <h4><em></em>账户充值</h4>
+            <div class="gray">通过网银在线、淘宝店铺等方式给账户在线充值。</div>
+            <div class="but">
+              <button onclick="openurl('/member/topup/');">点击开始</button>
+            </div>
+          </li>
+          <li class="renz">
+            <h4><em class="icon5"></em>账号认证</h4>
+            <div class="gray">进行手机认证、绑定掌柜、绑定买号等操作。</div>
+            <div class="but">
+              <button onclick="openurl('/member/smsactivation/');">点击开始</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="ico"></div>
+    <div class="tab2">
+    	<div class="tops" style="display: block;">更多自助服务</div>
+    	<div class="zhpass" style="display: block;">
+	    	<div class="top">
+				<span class="icos"></span>
+				<div class="title">
+					<strong>找回登录密码</strong><br>忘记登录密码了？不用着急，您可以在这里找回来：）
+				</div>
+			</div>
+			<div class="con">
+				<div class="item1">
+				<FORM name="myform2" onsubmit="return checkmyform();" method="post">
+				  $sys_hash_code2
+				   <input type="hidden" value="mobilephone" name="type">
+					<table cellspacing="0" cellpadding="0">
+						<tbody><tr>
+							<td class="t1"><strong>手机找回密码</strong></td>
+							<td colspan="2">&nbsp;</td>
+						</tr>
+						<tr>
+							<td class="t1">请输入您的账号:</td>
+							<td class="t2">
+								<input type="text" maxlength="15" class="input" name="username" id="username">
+							</td>
+							<td class="t3"> </td>
+						</tr>
+						<tr>
+							<td class="t1">请输入您的手机:</td>
+							<td class="t2">
+								<input type="text" maxlength="11" class="input" name="mobile" id="mobile">
+							</td>
+							<td class="t3">输入绑定的手机号</td>
+						</tr>
+						<tr>
+							<td class="t1"> </td>
+							<td colspan="2">
+								<button class="slefsub" id="sendToMobile">确定</button>
+							</td>
+						</tr>
+					</tbody>
+					</table>
+				</FORM>
+				</div>
+			</div>
+			<div style="float:left;" class="con">
+				<div class="item1">
+				<FORM name="myform" onsubmit="return checkmyform();" method="post">
+				    $sys_hash_code2
+					<input type="hidden" value="email" name="type">
+					<table cellspacing="0" cellpadding="0">
+						<tbody><tr>
+							<td class="t1"><strong>邮箱找回密码</strong></td>
+							<td colspan="2">&nbsp;</td>
+						</tr>
+						<tr>
+							<td class="t1">请输入您的账号:</td>
+							<td class="t2">
+								<input type="text" maxlength="15" class="input" name="username" tabindex="4" id="username2">
+							</td>
+							<td class="t3"> </td>
+						</tr>
+						<tr>
+							<td class="t1">请输入Email地址:</td>
+							<td class="t2">
+								<input type="text" maxlength="26" class="input" name="email" tabindex="4" id="email">
+							</td>
+							<td class="t3">输入绑定的邮箱地址</td>
+						</tr>
+						<tr>
+							<td class="t1"> </td>
+							<td colspan="2">
+							<input type="hidden" value="1">
+									<button class="slefsub" id="sendToEmail">确定</button>
+							</td>
+						</tr>
+					</tbody>
+					</table>
+				</FORM>
+				</div>
+			</div>
+		</div>
+    </div>
+    <div style="clear:both; margin:10px 0px;">
+  <div style="float:left; width:480px;"><a href="{rewrite}/help/taskin/" target="_blank"><img src="/images/gg_02.gif" width="480"></a></div>
+  <div style="float:right; width:480px;"><a href="{rewrite}/help/taskout/" target="_blank"><img src="/images/gg_05.gif" width="480"></a></div>
+  </div>
+</div>
+<div class="cle"></div>
+<script type="text/javascript">
+function checkForm() {
+    var checks = [
+		["isEmpty", "username", "用户名"],
+		["isEmail", "email", "您的Email地址", "true"] ];
+	var result = doCheck(checks);
+	if (result)
+		return avoidReSubmit("btnEmail");
+	return result;
+}
+
+function checkForm2() {
+    var checks = [
+		["isEmpty", "username2", "用户名"],
+		["isNumber", "mobile", "您的手机号码"] ];
+	var result = doCheck(checks);
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+</script>
+{sub ../footer}

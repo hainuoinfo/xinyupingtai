@@ -1,0 +1,123 @@
+{if $id}
+{teval
+	$cssList     = array(css::getUrl('index', 'index'));
+	echo string::getStaticCode(array('cssList'=>$cssList));
+}
+{eval
+	$title = $video[title].'视频 - '.$web_name.'淘宝刷信誉平台';
+}
+{else}
+{teval
+	$title       = '淘宝刷信誉,淘宝刷钻的视频教程 - {webName}淘宝刷信誉平台';
+	$keywords    = '淘宝刷信誉,刷信誉平台,淘宝刷钻平台,淘宝刷信用,刷信誉视频,刷钻视频,视频教程,{webName2},{webName}';
+	$description = '淘宝怎么刷信誉？如何提升卖家的信誉呢？刷信誉平台哪个好？{webName}全新打造的淘宝刷信誉视频教程将带您一步一步成为淘宝刷信誉的老手';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('index', 'index'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList, 'jsList'=>$jsList));
+}
+{/if}
+{eval
+	$ad_memberHeadTop = '<img src="'.$__tplUrl.'video/images/video.jpg" />';
+}
+{sub ../header}
+{if $id}
+<style type="text/css">
+.head_left	{float:left; padding-top:10px;}
+.head_right	{float:right; position:relative; border:1px solid #CDE0FE; background:#ECF3FB; line-height:22px; margin-top:18px; padding:0px 10px;}
+.h_10	{clear:both; height:10px;}
+.hide   {display:none;}
+.info   {margin:10px auto; width:950px; clear:both; text-align:left;}
+.foot		{margin:30px auto; width:1024px; clear:both;}
+.foot_line	{margin-top:7px; border-top:1px solid #D1D1D1; height:10px;}
+.foot_info	{margin-bottom:30px; text-align:center; line-height:20px; font-family:arial;}
+#player{
+	margin:auto;
+	width:950px;
+	text-align:center;
+}
+.player{
+	width:480px;
+	height:400px;
+	margin:auto;
+}
+</style>
+	<div class="head">
+		<div class="head_left">当前视频：$video[title]</div>
+        <div class="head_right">{loop $list $k0 $v0}{if $k0 > 0}<br />{/if}{loop $v0 $k1 $v1}{if $k1 > 0} | {/if}<a href="$v1[url]" class="link_b_1">$v1[title]</a>{/loop}{/loop}</div>
+    </div>
+	<div class="hide">$vide[des]</div>
+	
+	
+    <div id="player">
+	
+		<div class="player"><embed align="center" src="$video[url]" quality="high" width="480" height="400" allowScriptAccess="always" allowFullScreen="true" mode="transparent" type="application/x-shockwave-flash"></embed></div>
+	</div>
+{else}
+<style type="text/css">
+body		{text-align:center; margin:0; font-family:宋体, serif, 'Lucida Grande', Verdana, Lucida, Arial, Helvetica, sans-serif; font-size: 12px;}
+p 			{margin:0px; padding:0px;}
+.top		{margin:0px auto; width:950px; height:24px; line-height:24px; background:#F8F8F8; border-bottom:1px solid #E6E6E6;}
+.top_left	{float:left; padding:0 10px;}
+.top_right	{float:right; padding:0 10px;}
+.head		{margin:0px auto; width:950px; height:60px; clear:both;}
+.head_left	{float:left; padding-top:10px;}
+.head_right	{float:right; position:relative; border:1px solid #CDE0FE; background:#ECF3FB; line-height:22px; margin-top:18px; padding:0px 10px;}
+.good {margin:0 auto; width:950px; text-align:left; clear:both;}
+.good_new {float:left; width:310px; border:1px solid #a6cbe7;}
+.good_ann {float:left; width:310px; margin-left:10px; border:1px solid #a6cbe7;}
+.good_exc {float:right; width:310px; border:1px solid #a6cbe7;}
+.good_bar {height:30px; line-height:30px; border-bottom:1px solid #C5D8E8; background:url({$__tplUrl}video/images/bg.png) left top repeat-x;}
+.good_bar strong {padding-left:10px; font-size:14px;}
+.good_box {height:135px; clear:both; padding:15px; font-size:11pt; line-height:18px;}
+.h_10	{clear:both; height:10px;}
+.h_20	{clear:both; height:20px;}
+.h_30	{clear:both; height:30px;}
+.hide   {display:none;}
+.nav		{margin:0px auto; width:950px; clear:both; height:25px; }
+.foot		{margin:0px auto; width:950px; clear:both;}
+.foot_line	{margin-top:7px; border-top:1px solid #D1D1D1; height:10px;}
+.foot_info	{margin-bottom:30px; text-align:center; line-height:20px; font-family:arial;}
+</style>
+<div class="hide">
+	<p><a href="$weburl/">刷信誉</a> <a href="$weburl/">淘宝刷信誉平台</a> <a href="$weburl/">刷钻平台</a> <a href="$weburl/">淘宝刷钻</a> <a href="$weburl/">怎么刷钻</a></p>
+</div>
+
+{eval $cssNames = array('new', 'ann', 'exc');}
+{loop $list $k $v}
+<div class="h_10"></div>
+<div class="good">{loop $v $k2 $v2}
+	<div class="good_$cssNames[$k2]">
+		<div class="good_bar"><strong>$v2[title]</strong></div>
+		<div class="good_box"><div style="height:90px;">$v2[des]</div><br />
+			<br />
+			<a href="{r}/html/video/?id=$v2[id]" target="_blank" class="link_b_1">点击查看在线视频</a></div>
+	</div>{/loop}
+</div>
+{/loop}
+<div class="h_20"></div>
+{/if}
+<div class="guarantee">
+  <div class="foot_line"></div>
+  <table width="100%" border="0" cellspacing="1" cellpadding="2">
+    <tr>
+      <td><strong>商家保障</strong></td>
+      <td><strong>信誉保障</strong></td>
+      <td><strong>买号保障</strong></td>
+      <td rowspan="2" style="vertical-align:top; padding-top:12px"><a href="bbs/Thread.aspx?id=11059"><img src="{u}images/guarantee.gif" width="80" alt="商家服务" /></a></td>
+      <td><strong>流程保障</strong></td>
+      <td><strong>配套保障</strong></td>
+      <td><strong>安全保障</strong></td>
+    </tr>
+    <tr>
+      <td>恶意维权赔付<br />淘宝客佣金赔付<br />信用卡手续费赔付<br />默认好评任务保障<br />店家延迟回评保障</td>
+      <td>真实快递任务<br />来路订制任务<br />拍前聊、聊后收<br />拍收双重IP限制<br />支持商城无名良品</td>
+      <td>实名买号<br />动态寿命值<br />购买量动态限制<br />资料不全举报<br />序列相似买号举报</td>
+      <td>随身申诉<br />卡任务短信提醒<br />任务预定<br />购物车热销任务<br />支持秒杀折扣</td>
+      <td>实名支付宝供应<br />手机验证码服务<br />客户端自动收藏<br />流量互动<br />周周排行榜</td>
+      <td>安保问题<br />双重密码<br />绑定掌柜短信认证<br />提现短信验证<br />账户变动提醒</td>
+    </tr>
+  </table>
+</div>
+{sub ../footer}

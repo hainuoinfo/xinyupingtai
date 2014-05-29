@@ -1,0 +1,64 @@
+﻿{teval
+	$title       = '麦点秒杀 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{sub ../header}
+<DIV id="content">
+{sub menu}
+<DIV class="right">
+{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+{if $_showmessage}<div class='msg_panel' style="border: 1px dashed rgb(204, 204, 204); background:#FFC; margin-top:5px;padding:10px 5px; color:#0F3; font-weight:bold;"><div>$_showmessage</div></div>{/if}
+<FORM method="post" action="">
+$sys_hash_code2
+<DIV class="SecKill">
+<P class="SecKill_down">
+<SPAN class="dleft">
+<SPAN id="SecKill_times">正在读取数据...</SPAN>　开始秒杀！</SPAN>
+<SPAN class="dright">当前时间：星期{echo date('w',time())}</SPAN></P>
+<P class="SecKill_sub">麦点秒杀<SPAN>{$kill_price}</SPAN>元一个</P>
+<P class="SecKill_txt">
+<SPAN class="SecKill_txt1">
+<INPUT id="nums" name="nums" maxLength="4" type="text"></SPAN>
+<INPUT name="jiage" value="{$kill_price}" type="hidden">
+<SPAN id="SecKill_buy" class="SecKill_buy">
+<INPUT type="button"></SPAN></P>
+<P class="SecKill_explain"><SPAN>1</SPAN>个起售（剩余<SPAN>{$seckill}</SPAN>个）<BR>拥有麦点，就可以发布自己的任务，获得好评</P>
+</DIV>
+</FORM>
+<DIV class="SecKill_ftCon">活动介绍：<BR>麦点惊喜特惠价！每个<SPAN>麦点低至{$kill_price}</SPAN>元，低到不行的麦点，小成本涨信誉有木有<BR>每周五0:00起，大麦户特别发送<SPAN>{$kill_all}个麦点供秒杀</SPAN>，数量有限，真的是先到先得咯！<BR></DIV></DIV></DIV>
+<DIV class="cle"></DIV>
+<SCRIPT type="text/javascript">
+function SecKillRefreshTime(t) {
+var t=20
+    if (t <0 ) t = 0;
+    var id = "#SecKill_times";
+	var sub = $("#SecKill_buy input");
+	$(id).html(parseInt(t/3600) + ":" + parseInt((t-(parseInt(t/3600))*3600)/60) + ":" + (t-(parseInt(t/3600))*3600)%60 +"后");
+    var uptime = function() {
+        t = t - 1;
+		m = parseInt((t-(parseInt(t/3600))*3600)/60);
+		s = (t-(parseInt(t/3600))*3600)%60;
+		if(m<10)m='0'+m;
+		if(s<10)s='0'+s;
+        if (t <= 0) {
+		    window.clearInterval(tt_0);
+			$(".dleft").html("秒杀活动进行中！");
+			$("#SecKill_buy").removeClass("SecKill_buy").addClass("SecKill_buy1").html("<input type=\"submit\" />");
+            t = 0;
+        }
+		$(id).html(parseInt(t/3600) + ":" + m + ":" + s +"后" );
+    }
+    var tt_0 = window.setInterval(uptime, 1000);
+}
+SecKillRefreshTime(484868);
+</SCRIPT>
+
+<DIV class="cle"></DIV>
+{sub ../footer}
+</BODY></HTML>

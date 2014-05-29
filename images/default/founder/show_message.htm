@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=7" />
+{tpl_eval
+echo css::get_css('founder','founder');
+echo javascript::get_js('common');
+}
+</head>
+<body>
+<div id="append_parent"></div>
+<div class="container" id="cpcontainer">
+	<h3>{eval echo SYSTEM_NAME;} 提示</h3>
+	<div class="infobox">
+		<h4 class="infotitle2">$message</h4>
+		<p class="marginbot"><a href="$goto" class="lightlink"{if $parent} target="_top"{/if}>如果您的浏览器没有自动跳转，请点击这里</a></p>
+		<script type="text/JavaScript">setTimeout(function(){
+			{if $parent}parent.{/if}location.href='$goto';
+		}, 2000);</script>
+	</div>
+</div>
+</body>
+</html>

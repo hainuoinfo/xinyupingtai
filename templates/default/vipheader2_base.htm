@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>$title</title>
+<meta name="description" content="$description" />
+<meta name="keywords" content="$keywords" />
+{loop $cssList $v}
+<link rel="stylesheet" type="text/css" href="$v" />
+{/loop}
+{js_select jquery,common}
+
+<style type="text/css">
+.kd a:hover { text-decoration:underline;}
+#content table tr td{padding-left:13px;_padding-left:6px;*padding-left:6px!important;}
+.buyerspages a {background:#F8F8F8; border: 1px solid #E8E8E8;display: block; float: left;height: 25px;margin: 0 2px;text-align: center;width: 25px}
+.buyerspages a:hover,.buyerspages a.nov{ background:#EAF4FD; border-color: #B0D0E9;}
+.autotk {position:absolute; top:55px; right:30px; }
+.autotk input {margin-top:5px;}
+.autotk strong { color:#FF5500;}
+.rwdt_dexpress{background:url(/images/tx_ico_28.png) no-repeat;float:left;display:block;width:145px;text-indent:20px;height:17px;line-height:17px;color:#333;}
+</style>
+
+<style type="text/css">* html body{margin:0}.ui_title_icon,.ui_content,.ui_dialog_icon,.ui_btns span{display:inline-block;*zoom:1;*display:inline}.ui_dialog{text-align:left;display:none;position:absolute;top:0;left:-99999em;_overflow:hidden}.ui_dialog table{border:0;margin:0;border-collapse:collapse}.ui_dialog td{padding:0}.ui_title_icon{vertical-align:middle}.ui_title_text{overflow:hidden;cursor:default;-moz-user-select:none;user-select:none}.ui_close{display:block;position:absolute;outline:none}.ui_content_wrap{height:auto;text-align:center}.ui_content{margin:10px;text-align:left}.ui_dialog_icon{vertical-align:middle}.ui_content.ui_iframe{margin:0;*padding:0;display:block;height:100%}.ui_iframe iframe{width:100%;height:100%;border:none;overflow:auto}.ui_bottom{position:relative}.ui_resize{position:absolute;right:0;bottom:0;z-index:1;cursor:nw-resize;_font-size:0}.ui_btns{text-align:right;white-space:nowrap}.ui_btns span{margin:5px 10px}.ui_content em{font-weight:700;font-style:normal;color:#ff5500;}.ui_btns button{cursor:pointer}.ui_overlay{display:none;position:absolute;top:0;left:0;width:100%;height:100%;filter:alpha(opacity=0);opacity:0;_overflow:hidden}.ui_overlay div{height:100%}* html .ui_ie6_select_mask{width:99999em;height:99999em;position:absolute;top:0;left:0;z-index:-1}.ui_move .ui_title_text{cursor:move}html >body .ui_dialog_wrap.ui_fixed .ui_dialog{position:fixed}* html .ui_dialog_wrap.ui_fixed .ui_dialog{fixed:true}* html.ui_ie6_fixed{background:url(*) fixed}* html.ui_ie6_fixed body{height:100%}* html .ui_dialog_wrap.ui_fixed{width:100%;height:100%;position:absolute;left:expression(documentElement.scrollLeft+documentElement.clientWidth-this.offsetWidth);top:expression(documentElement.scrollTop+documentElement.clientHeight-this.offsetHeight)}html.ui_page_lock >body{overflow:hidden}* html.ui_page_lock{overflow:hidden}* html.ui_page_lock select,* html.ui_page_lock .ui_ie6_select_mask{visibility:hidden}html.ui_page_lock >body .ui_dialog_wrap.ui_lock{width:100%;height:100%;position:fixed;top:0;left:0}</style></head>
+
+<body>
+	<!--头部开始-->
+	<style>
+#dmh_head {background: #EFF6FE;border-bottom: 1px solid #DBEBFA;height: 25px;left: 0;position: fixed;width: 100%;z-index: 9999;}
+#dmh_head .kd {position: relative;}
+#dmh_head .kd, #m_banner .kd {margin: 0 auto;width: 980px;}
+#dmh_head .kmain {position: absolute;top: 0;width: 898px;}
+#dmh_head .hy {float: left;}
+#dmh_head .kd .dmhtel {background: url("/images/dmhtel.png") no-repeat scroll 7px center transparent;float: left;height: 22px;padding-left: 25px;width: 36px;}
+#dmh_head .hy a {color: #1595DE;margin: 0 5px;}
+#dmh_head .hy a.col3 {color: #666666;margin: 0 10px;}
+#dmh_head .top_btn {color: #1595DE;float: right;}
+#dmh_head .top_btn a {color: #1595DE;margin: 0 10px;}
+#dmh_head .menu_qq {text-align: right;}
+#dmh_head .menu_qq a {color: #1595DE;font-family: Tahoma,​Helvetica,​Arial,​宋体;font-size: 12px;padding-left: 26px;}
+#dmh_head .menu_qq .qq_help {background: url("/images/tx_ico.gif") no-repeat scroll 0 -958px transparent;}
+#dmh_head .help_down {background: none repeat scroll 0 0 #FFFFFF;border: 3px solid #7FC3F4;padding: 0 10px;position: absolute;right: 0;top: 25px;width: 500px;z-index: 9999;height:255px;*height:270px;}
+#dmh_head .help_down ul {border-bottom: 1px dashed #DDDDDD;padding-left: 10px;padding-top: 6px;}
+#dmh_head a:hover{color:#FE5500}
+#dmh_head b{color:#FE5500}
+#dmh_head .quick-menu {margin: 2px 0 0 0;}
+#dmh_head .quick-menu li.menu-item {padding: 1px 0 0;position: relative;margin-right: 1px;}
+#dmh_head .quick-menu li {background-position: right 6px;float: left;margin-left: -1px;background:none;border:1px solid #EFF6FE;}
+#menu-0{display:none;}	
+#dmh_head .menu {position: relative;float: left;line-height: 140%;}
+#dmh_head .menu-hd {cursor: pointer;height: 20px;padding: 1px 22px 0 16px;position: relative;z-index: 10002;}
+#dmh_head .menu-hd b {border-color: #666666 #EFF6FE #EFF6FE;border-style: solid;border-width: 4px;font-size: 0;height: 0;line-height: 0;position: absolute;right: 10px;top: 6px;transition: transform 0.2s ease-in 0s;width: 0;}
+/*针对客服帮助*/
+#dmh_head .help_down {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 3px solid #7FC3F4;
+    height:195px;
+    padding: 0 10px;
+    position: absolute;
+    right: 0;
+    top: 25px;
+    width: 500px;
+    z-index: 9999;
+}
+</style>
+</head>
+<body>
+<!--头部开始-->
+<div id="dmh_head">
+	<div class="kd">
+	    <div class="kmain">
+			<div class="hy">
+				<a href="###" class="dmhtel">手机版</a>
+				
+				<div style="float:left;">
+					<span style="color:#1595DE">|</span>
+					<a href="{rewrite}/member/info/?username=$member[username]">$member[username]</a>
+					<img src="/images/b_red_1.gif" alt="积分：$memberFields[credits]" title="积分：$memberFields[credits]">
+					<a href="{rewrite}/member/logout/" class="col3">退出</a>
+				</div>
+				
+			</div>
+			<div class="top_btn">
+				
+				<ul class="quick-menu">
+					<li class="menu-item">
+						<div class="menu">
+							<a href="{rewrite}/html/express/" style="width:50px;margin:0;" class="menu-hd" tabindex="0">单号搜索<b></b></a>
+							<div style="width: 88px;line-height:1.7;" class="menu-bd" id="menu-0">
+							  <div style="padding:8px 5px;" class="menu-bd-panel">
+								  <a rel="nofollow" target="_top" href="{rewrite}/bbs/t730/">使用教程</a>
+								  <a rel="nofollow" target="_top" href="{rewrite}/bbs/t730/">如何激活</a>
+							  </div>
+							</div>
+						</div>
+					</li>
+					<li style="margin-top: -2px;">|</li>
+					<li class="menu-item">
+						<div class="menu">
+							<a href="{rewrite}/member/topup/" style="margin:0;" class="menu-hd" tabindex="0">存款：<span class="chengse moneyAll" style="font-weight:700;">$memberFields[money]</span><b></b></a>
+							<div style="width: 88px;line-height:1.7;" class="menu-bd" id="menu-0">
+							  <div style="padding:8px 5px;" class="menu-bd-panel">
+								  <a rel="nofollow" target="_top" href="{rewrite}/member/topup/">账号充值</a>
+								  <a rel="nofollow" target="_top" href="{rewrite}/member/PayDetails/?type=index">存款明细</a>
+							  </div>
+							</div>
+						</div>
+					</li>
+					<li style="margin-top: -2px;">|</li>
+					<li class="menu-item">
+						<div class="menu">
+							<a href="{rewrite}/BuyPoint/" style="margin:0;" class="menu-hd" tabindex="0">麦点：<span class="chengse moneyAll" style="font-weight:700;">1.00</span><b></b></a>
+							<div style="width: 88px;line-height:1.7;" class="menu-bd" id="menu-0">
+							  <div style="padding:8px 5px;" class="menu-bd-panel">
+								  <a rel="nofollow" target="_top" href="{rewrite}/BuyPoint/">购买麦点</a>
+								  <a rel="nofollow" target="_top" href="{rewrite}/member/PayDetails/?type=logpoint">麦点明细</a>
+							  </div>
+							</div>
+						</div>
+					</li>
+					<li style="margin-top: -2px;">|</li>
+					<li class="menu-item">
+						<div class="menu">
+							<a href="{rewrite}/member/message/" style="margin:0;" class="menu-hd" tabindex="0">信息：<span class="chengse moneyAll" style="font-weight:700;">0</span><b></b></a>
+							<div style="width: 90px;line-height:1.7;" class="menu-bd" id="menu-0">
+							  <div style="padding:8px 5px;" class="menu-bd-panel">
+								  <a rel="nofollow" target="_top" href="{rewrite}/member/message/?type=inUser">私人收件箱</a>
+								  <a rel="nofollow" target="_top" href="{rewrite}/member/message/?type=inSys">官方收件箱</a>
+								  <a rel="nofollow" target="_top" href="{rewrite}/member/message/?type=setting">提醒设置</a>
+							  </div>
+							</div>
+						</div>
+					</li>
+					<li style="margin-top: -2px;">|</li>
+					<li class="menu-item">
+						<div class="menu">
+							<a href="{rewrite}/help/selfservice/" style="width:52px;margin:0;" class="menu-hd" tabindex="0">账号设置<b></b></a>
+							<div style="width: 90px;line-height:1.7;" class="menu-bd" id="menu-0">
+							  <div style="padding:8px 5px;" class="menu-bd-panel">
+								  <a rel="nofollow" target="_top" href="{rewrite}/help/selfservice/#moreservice">找回密码</a>
+								  <a rel="nofollow" target="_top" href="{rewrite}/help/selfservice/#moreservice">找回操作码</a>
+								  <a rel="nofollow" target="_top" href="{rewrite}/help/selfservice/">更多操作</a>
+							  </div>
+							</div>
+						</div>
+					</li>
+					<li style="margin-top: -2px;">|</li>
+					<a href="{rewrite}/rank.html" style="margin-top: -2px;">大麦户排行榜</a>
+				</ul>
+				
+			</div>
+		</div>
+		
+		<div class="menu_qq">
+			<a class="qq_help" onmouseover="showcsqq();" href="javascript:;">客服帮助</a>
+		</div>
+		<div id="service_qq" class="help_down" style="display:none;"></div>
+	</div>
+</div>
+<!--头部结束-->
+<!--logo开始-->
+	<div id="m_logo">
+		<a href="/" class="logo"><img src="$web_logo" alt="大麦户_淘宝刷信誉" /></a>
+		<a href="default/DmSEO.html" class="gg" target="_blank"><img src="/images/bkzl.jpg" alt="爆款教程" title="爆款教程" height="67" border="0" width="689"></a>
+	</div>
+<!--头部结束-->
+<!--菜单开始-->
+<div id="m_menu" style="position:relative; z-index:2;">
+	  <div class="menu_nav">
+		  <div class="m_menu_nav">
+			<ul>
+			<li{if $action=='index'} class="current"{/if}><a href="$weburl2" class="current">首页</a></li>
+			<li{if $action=='task' && $operation=='tao'} class="current"{/if}><a href="{rewrite}/task/tao/">淘宝大厅</a></li>
+			<li{if $action=='task' && $operation=='pai'} class="current"{/if}><a href="{rewrite}/task/pai/">拍拍大厅</a></li>
+			<li{if $action=='task' && $operation=='reflow'} class="current"{/if}><a href="{rewrite}/task/reflow/">收藏流量</a></li>
+			<li{if $action=='member' && $operation=='card'} class="current"{/if}><a href="{rewrite}/member/card/">购买麦点</a></li>
+			<li><a href="{rewrite}/Tuoguanfuwu/">网店托管</a></li>
+			<li><a href="{rewrite}/DmSEO/">淘宝推广</a></li>
+			<li{if $action=='bbs'} class="current"{/if}><a href="{rewrite}/bbs/">有问必答</a></li>
+			<li{if $action=='member' && $operation=='member'} class="current"{/if}><a href="{rewrite}/member/card">会员中心</a></li>
+			</ul>
+		   </div>
+	  </div>
+</div>
+{sub service}
+<script type="text/javascript" src="//images/jquery.js"></script>
+<script type="text/javascript" src="//images/common.js"></script>
+<script type="text/javascript" src="//images/tinyslider.js"></script>
+<script type="text/javascript" src="//images/index.js"></script>
+<script type="text/javascript" src="//images/service.js"></script>
+<script>
+
+var webqq = 176682996;
+var webnoticeurl = "bbs/t6155";
+var webnoticetit = "大麦户平台中秋放假通知";
+var quick_qq = '<a target="_blank" href="http://wp.qq.com/wpa/qunwpa?idkey=ad5f1355638bee53a8bef1d3161c1c6b6988bb993096ba3f2460434640462aaf"><img border="0" src="http://pub.idqqimg.com/wpa//images/group.png" alt="大麦户刷钻平台24群" title="大麦户刷钻平台24群"></a>';
+var z_userinfo = $.cookie('userinfo');
+if (z_userinfo){
+	z_userinfo = z_userinfo.split(',');
+}
+if (z_userinfo){
+		var login_info='<a href="###" class="dmhtel">手机版</a><div style="float:left;"><span style="color:#1595DE">|</span><a href="/user/info/?username='+z_userinfo[1]+'">'+z_userinfo[1]+'</a> <img src="'+z_userinfo[0]+'" alt="积分：'+z_userinfo[2]+'" title="积分：'+z_userinfo[2]+'"> 　<a href="/user/logout/" class="col3">退出</a></div>';
+		var login_info2=login_info2 = '<ul class="quick-menu"><li class="menu-item"><div class="menu"><a  href="/html/express/" style="width:50px;margin:0;" class="menu-hd" tabindex="0" >单号搜索<b></b></a><div style="width: 88px;line-height:1.7;" class="menu-bd" id="menu-0"><div style="padding:8px 5px;" class="menu-bd-panel"><a rel="nofollow" target="_top" href="{rewrite}/bbs/t730/">使用教程</a><br><a rel="nofollow" target="_top" href="{rewrite}/bbs/t730/">如何激活</a></div></div></div></li><li style="margin-top: -2px;">|</li><li class="menu-item"><div class="menu"><a  href="/user/topup/" style="margin:0;" class="menu-hd" tabindex="0" >存款：<span class="chengse moneyAll" style="font-weight:700;">'+z_userinfo[4]+'</span><b></b></a><div style="width: 88px;line-height:1.7;" class="menu-bd" id="menu-0"><div style="padding:8px 5px;" class="menu-bd-panel"><a rel="nofollow" target="_top" href="{rewrite}/member/topup/">账号充值</a><br><a rel="nofollow" target="_top" href="{rewrite}/member/PayDetails/?type=index">存款明细</a></div></div></div></li><li style="margin-top: -2px;">|</li><li class="menu-item"><div class="menu"><a  href="/BuyPoint/" style="margin:0;" class="menu-hd" tabindex="0" >麦点：<span class="chengse moneyAll" style="font-weight:700;">'+z_userinfo[5]+'</span><b></b></a><div style="width: 88px;line-height:1.7;" class="menu-bd" id="menu-0"><div style="padding:8px 5px;" class="menu-bd-panel"><a rel="nofollow" target="_top" href="{rewrite}/BuyPoint/">购买麦点</a><br><a rel="nofollow" target="_top" href="{rewrite}/member/PayDetails/?type=logpoint">麦点明细</a></div></div></div></li><li style="margin-top: -2px;">|</li><li class="menu-item"><div class="menu"><a  href="/user/message/" style="margin:0;" class="menu-hd" tabindex="0" >信息：<span class="chengse moneyAll" style="font-weight:700;">'+z_userinfo[3]+'</span><b></b></a><div style="width: 90px;line-height:1.7;" class="menu-bd" id="menu-0"><div style="padding:8px 5px;" class="menu-bd-panel"><a rel="nofollow" target="_top" href="{rewrite}/member/message/?type=inUser">私人收件箱</a><br><a rel="nofollow" target="_top" href="{rewrite}/member/message/?type=inSys">官方收件箱</a><br><a rel="nofollow" target="_top" href="{rewrite}/member/message/?type=setting">提醒设置</a></div></div></div></li><li style="margin-top: -2px;">|</li><li class="menu-item"><div class="menu"><a href="/help/selfservice/" style="width:52px;margin:0;" class="menu-hd" tabindex="0" >账号设置<b></b></a><div style="width: 90px;line-height:1.7;" class="menu-bd" id="menu-0"><div style="padding:8px 5px;" class="menu-bd-panel"><a rel="nofollow" target="_top" href="{rewrite}/help/selfservice/">找回密码</a><br><a rel="nofollow" target="_top" href="{rewrite}/help/selfservice/">找回操作码</a><br><a rel="nofollow" target="_top" href="{rewrite}/help/selfservice/">更多操作</a></div></div></div></li><li style="margin-top: -2px;">|</li><a href="/rank.html" style="margin-top: -2px;">大麦户排行榜</a></ul>';
+		$('.kmain .hy').html(login_info);
+		$('.kmain .top_btn').html(login_info2);
+		
+	}
+</script>
+<script>
+	var slideshow=new TINY.slider.slide('slideshow',{
+		id:'slider',
+		auto:4,
+		resume:true,
+		vertical:false,
+		navid:'slider_nav',
+		activeclass:'activeSlide',
+		position:0,
+		rewind:false,
+		elastic:true
+	});
+
+</script>
+<script type="text/javascript">
+
+$('#tool_footer')
+	.css({
+	    'top': $(window).height()-270,
+		'left':"auto",
+	    'right': ($(window).width() - 1000)>0?($(window).width() - 1000)/2-$('#tool_footer').width()-5:0 ,
+		'position':"fixed"
+	});
+function To_top(){
+    $("html,body").animate({scrollTop: $("#m_menu").offset().top}, 100);
+}
+</script>
+<script type="text/javascript">
+$(function(){
+
+	if (z_userinfo){
+		
+		if(z_userinfo[7] == 1){
+			touimg = "boy";
+		}else if(z_userinfo[7] == 2){
+			touimg = "girl";
+		}
+		
+		var htmcont = "<ul id='goone'>";
+		htmcont += "<li style=''><span style='width: 100%; float: left; text-align: center; font-size: 14px;'>一个真实的淘宝信誉平台期待您的加入</span></li>";
+		htmcont += "<li style='margin: 10px 0 5px 5px;font-size:16px;display:inline;'>用户名：<font style='font-size: 14px;color:#fe5500'>"+z_userinfo[1]+"</font></li>";	
+		htmcont += "<li style='margin: 5px 0 5px 5px;font-size:16px;display:inline;'>存款：<a href='/user/PayDetails/' style='font-size: 14px;color:#fe5500'>"+z_userinfo[4]+"</a></li>";
+		htmcont += "<li style='margin: 5px 0 5px 5px;font-size:16px;display:inline;'>麦点：<a href='/user/PayDetails/?type=logpoint' style='font-size: 14px;color:#fe5500'>"+z_userinfo[5]+"</a></li>";
+		htmcont += "<li style='margin: 5px 0 5px 5px;font-size:16px;display:inline;'>积分：<a href='/user/PayDetails/?type=logcredit' style='font-size: 14px;color:#fe5500'>"+z_userinfo[2]+"</a></li>";
+		htmcont += "<li style='margin: 5px 0 5px 5px;font-size:16px;display:inline;'>登陆次数：<a href='/user/PayDetails/?type=logAccount' style='font-size: 14px;color:#fe5500'>"+z_userinfo[6]+"</a></li>";
+		htmcont += "<li style='text-align: center;margin-top: 10px ;font-size:16px;'><a href='/task/tao/'><img src='/images/goone.png' width=275 height=49/></a></li>";
+		htmcont += "<div class='touimg'>";
+		htmcont += "<a href='/user/'><img src='//images/user/"+ touimg +".jpg' width=100 height=100 /></a>";
+		htmcont += "</div>";
+		htmcont += "</ul>";
+						
+		$(".login").html(htmcont)
+	}
+})
+
+</script>
+
+	<script type="text/javascript">(function(){document.getElementById('___szfw_logo___').oncontextmenu = function(){return false;}})();</script>
+	<script type="text/javascript">
+	<!-- 
+	(function (d) {
+	window.bd_cpro_rtid="rjfLrj6";
+	var s = d.createElement("script");s.type = "text/javascript";s.async = true;s.src = location.protocol + "//cpro.baidu.com/cpro/ui/rt.js";
+	var s0 = d.getElementsByTagName("script")[0];s0.parentNode.insertBefore(s, s0);
+	})(document);
+	//-->
+	</script>
+<script type="text/javascript">
+$(function(){
+	$(".menu-item .menu-hd").hover(function(){
+		$(this).next('#menu-0').show();
+		$(this).children('b').css({borderColor:'#666666 white white',transform:'rotate(180deg',transformOrigin:'50% 30% 0px'});
+		$(this).parents(".menu-item").css({background:'rgb(255, 255, 255)',border:'1px solid rgb(191, 191, 191)'})
+	});
+	$(".menu-item .menu").mouseleave(function(){
+		$(this).children('#menu-0').hide();
+		$(this).children('.menu-hd').children('b').css({borderColor:'#666666 #EFF6FE #EFF6FE',transform:'none',transformOrigin:'none'});
+		$(this).parent(".menu-item").css({background:'none',border:'1px solid #EFF6FE'})
+	}); 
+})	
+</script>
+
+<script type="text/javascript" src="/images/common.js"></script>
+<script type="text/javascript" src="/images/service.js"></script>
+
+</body>
+<!--<div class="global">
+	<div class="top">
+		<div class="top_left">{if $memberLogined}<span class="f_gray">您的当前IP：{$intip}，当前服务器时间：{date $timestamp}</span>{/if}</div>
+		<div class="top_right">
+		{if $memberLogined}
+		您好 <span class="f_b_org">$member[username]</span> 欢迎回来！　<a href="{rewrite}/member/message/" target="_blank" class="top_msg">站内信<span class='f_red'>($memberFields[msg])</span></a> 　<a href="{rewrite}/member/logout/">[安全退出]</a>
+		{else}
+		您好，欢迎来到力豪互刷网平台！ <a href="{rewrite}/member/login/?referer=$baseUrl2">登录</a> | <a href="{rewrite}/member/reg/">快速注册</a> | <a href="{rewrite}/member/forgotpwd/">找回密码</a>
+		{/if}
+		</div>
+	</div>
+	<div class="sys_ann"><strong style='color:#0051C1'>【真实快递任务】【来路订制任务】【实名买号任务】【买号动态寿命】【任务随身申诉】【卡任务短信提醒】【旺旺聊天收货】【手机验证码服务】<br />
+		力豪互刷网平台独创八大金刚为您信誉安全保驾护航！！</strong></div>
+	<div class="head">
+		<div class="head_left"><a href="$weburl/"><img src="{$weburl2}/images/help/logo_help.png" title="$web_name" alt="$web_name" border="0" /></a></div>
+		<div class="head_right"> <a href="{rewrite}/member/">个人中心</a> | <a href="{rewrite}/member/topup/">存款充值</a> | <a href="{rewrite}/help/">帮助中心</a> | <a href="{rewrite}/info/service.html">客户服务</a> | <a href="javascript:;" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('$weburl/')">收藏本站</a> </div>
+	</div>
+	<div class="help_head">如果不能在帮助中心找到答案，或者您有其他建议与投诉，您还可以到联盟论坛，与力豪互刷网对话。 <a href="{$weburl2}bbs/" class="link_o">进入{$web_name2}联盟论坛</a></div>
+	<div class="nav">
+		{if $nav_bar}<div class="nav_bar"><strong>当前位置：</strong>
+		{loop $nav_bar $k $v}
+		{if $k>0} &raquo; {/if}
+		{if $v[url]}
+		<a href="$v[url]" class="link_b_1">$v[title]</a>
+		{else}
+		$v[title]
+		{/if}
+		{/loop}
+		</div>
+		{/if}
+	</div>-->

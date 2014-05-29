@@ -1,0 +1,36 @@
+{sub header}
+
+    <table class="tbl" width="100%" border="0" cellspacing="0" cellpadding="4">
+      <tr class="f_red">
+        <td align="right" class="f_b" width="100" valign="top">店铺掌柜名：</td>
+        <td class="f_b">$seller[nickname]</td>
+      </tr>
+      <tr class="f_blue">
+        <td align="right" class="f_b" width="100" valign="top">消保属性：</td>
+        <td><label for="is_t_1"><input name="isTruth" type="radio" value="1" id="is_t_1"{if $seller[truth]} checked{/if} />是</label>　　
+            <label for="is_t_-1"><input name="isTruth" type="radio" value="-1" id="is_t_-1"{if !$seller[truth]} checked{/if} />否</label></td>
+      </tr>
+      <tr>
+				<td>&nbsp;</td>
+				<td class="f_b_green">请认真正确设置消保属性，如果您在淘宝上加入或退出了消保请记得重新设置此属性；平台以后会根据您的店铺属性在发任务时给予相应的提示</td>
+      </tr>
+      <tr>
+				<td>&nbsp;</td>
+        <td style="padding-top:20px;"><input name="btnSubmit" type="submit" class="btn_2" id="btnSubmit" value="确定" />
+          <input name="btnCancel" type="button" class="btn_2" onclick="parent.doCut();" id="btnCancel" value="取消" /></td>
+      </tr>
+    </table>
+<script type="text/javascript">
+	function checkForm() {
+		var i = getRV("isTruth");
+		if (i == "") {
+			alert("请认真选择是否加入了淘宝消保");
+			return false;
+		}
+		if (i == 1)
+			return confirm("您确定您的掌柜【$seller[nickname]】加入了淘宝消保么？");
+		else
+			return confirm("您确定您的掌柜【$seller[nickname]】没有加入淘宝消保么");
+	}
+</script>
+{sub footer}

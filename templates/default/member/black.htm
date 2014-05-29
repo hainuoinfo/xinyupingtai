@@ -1,0 +1,271 @@
+{teval
+	$title       = '我的黑名单 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{sub ../header}
+<DIV id="content">
+    {sub menu}
+ <DIV class="right">
+<DIV class="mh_tishi">
+<SPAN>1、0可添加6个，1-100可添加8个，101-1000可添加10个，1001-5000可添加12个，5001积分以上可添加14个，VIP用户不受积分限制，最多可添加60个。</SPAN>
+<BR>2、被拉进黑名单的用户需扣1-2积分作为惩罚。
+</DIV>
+<DIV class="bq_menu2">
+{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+	{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+<A {if $type=='index'} class="nov"{/if} href="$baseUrl?type=index">用户黑名单</A>
+<A {if $type=='taobao'} class="nov"{/if} href="$baseUrl?type=taobao">淘宝买号黑名单</A>
+<A {if $type=='paipai'} class="nov"{/if} href="$baseUrl?type=paipai">拍拍买号黑名单</A>
+<A {if $type=='top'} class="nov"{/if} class="hongse" href="$baseUrl?type=top">黑名单排行榜</A>
+</DIV><BR>
+{if $type=='index'}
+<FORM id="myForm" onSubmit="return checkForm();" method="post" name="myForm">
+$sys_hash_code2
+<INPUT name="from_clientId" value="HMD" type="hidden">
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+  <TBODY>
+  <TR>
+    <TD height="35">&nbsp;&nbsp;&nbsp; 您目前还可以添加 <STRONG 
+      class="chengse2">6</STRONG> 个用户买到黑名单</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD height="35"> &nbsp;&nbsp; <SELECT name="types">
+	<OPTION value="1">用户名</OPTION>
+	<OPTION value="2">任务编号</OPTION>
+	</SELECT>&nbsp; 
+	<INPUT id="typesname" class="xginfo_bk" name="typesname" maxLength="25" type="text">&nbsp; 
+	<SELECT name="blackDays"><OPTION value="1">1天</OPTION>
+	<OPTION value="3">3天</OPTION>
+	<OPTION value="5">5天</OPTION>
+	<OPTION value="10">10天</OPTION>
+	<OPTION value="15">15天</OPTION>
+	<OPTION value="30">30天</OPTION>
+	</SELECT></TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD height="35" colSpan="2">
+      <TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+        <TBODY>
+        <TR>
+          <TD style="padding-top: 10px;" vAlign="top">&nbsp;&nbsp;&nbsp; 
+            <STRONG>拉黑原因：</STRONG></TD>
+          <TD><TEXTAREA class="hmd_bk" name="complain"></TEXTAREA></TD>
+          <TD>&nbsp;</TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD height="55"><INPUT class="hmd_btn" value="提交查询内容" type="submit"></TD>
+    <TD>&nbsp;</TD></TR></TBODY></TABLE>
+</FORM>
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%" align="center">
+  <TBODY>
+  <TR>
+    <TD height="15">&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+        <TBODY>
+        <TR>
+          <TD class="txjl_bg1" height="37" width="10"></TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="15%" align="center">黑名单</TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="20%" align="center">被拉总数</TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="20%" align="center">被我拉入数</TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="20%" align="center">已拉/总天数</TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="13%" align="center">操作</TD>
+          <TD class="txjl_bg3" height="37" width="10"></TD>
+		  </TR>
+		  {loop $bList $v}
+		  <TR>
+          <TD>&nbsp;</TD>
+          <TD class="mh_xxian" height="35" vAlign="middle" align="center">$v[tusername]</TD>
+          <TD class="mh_xxian" height="35" vAlign="middle" align="center">$v[black2]</TD>
+		   <TD class="mh_xxian" height="35" vAlign="middle" align="center">$v[count]</TD>
+          <TD class="mh_xxian" height="35" vAlign="middle" align="center">
+		  {if $v[days]}{echo time::days($timestamp - $v[timestamp])}/$v[days]{else}永久{/if}</TD>
+		   <TD class="mh_xxian" height="35" vAlign="middle" align="center"><a href="$baseUrl?remove={url $v[tusername]}" onclick="return IsRemove();" class="link_o">移出黑名单</a></TD>
+          <TD></TD>
+		  </TR>
+		   {/loop}
+  </TBODY></TABLE>
+  </TD></TR>
+  </TBODY></TABLE>
+<!--淘宝拉黑-->
+{elseif $type=='taobao'}
+<FORM id="myForm" onsubmit="return checkForm();" method="post" name="myForm">
+$sys_hash_code2
+<INPUT name="from_clientId" value="b2655925f583285c53f9fe8b93a5fe91" type="hidden">
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+  <TBODY>
+  <TR>
+    <TD height="35">&nbsp;&nbsp;&nbsp; 您目前还可以添加 <STRONG 
+      class="chengse2">24</STRONG> 个买号到黑名单</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD height="35"> &nbsp;                  &nbsp; <SELECT 
+        name="types"><OPTION value="1">淘宝买号</OPTION><OPTION 
+        value="2">淘宝任务编号</OPTION></SELECT>                  &nbsp; <INPUT id="typesname" 
+      class="xginfo_bk" name="typesname" maxLength="25" type="text">             
+           &nbsp; <SELECT name="blackDays"><OPTION 
+        value="1">1天</OPTION><OPTION value="3">3天</OPTION><OPTION 
+        value="5">5天</OPTION><OPTION value="10">10天</OPTION><OPTION 
+        value="15">15天</OPTION><OPTION value="30">30天</OPTION></SELECT></TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD height="35" colSpan="2">
+      <TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+        <TBODY>
+        <TR>
+          <TD style="padding-top: 10px;" vAlign="top">&nbsp;&nbsp;&nbsp; 
+            <STRONG>拉黑原因：</STRONG></TD>
+          <TD><TEXTAREA class="hmd_bk" name="complain"></TEXTAREA></TD>
+          <TD>&nbsp;</TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD height="55"><INPUT class="hmd_btn" value="提交查询内容" type="submit"></TD>
+    <TD>&nbsp;</TD></TR></TBODY></TABLE>
+</FORM>
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%" align="center">
+  <TBODY>
+  <TR>
+    <TD height="15">&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+        <TBODY>
+        <TR>
+          <TD class="txjl_bg1" height="37" width="10"></TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="15%" align="center">黑名单</TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="20%" align="center">被拉总数</TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="20%" align="center">被我拉入数</TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="20%" align="center">已拉/总天数</TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="13%" align="center">操作</TD>
+          <TD class="txjl_bg3" height="37" width="10"></TD>
+		  </TR>
+		  {loop $bList $v}
+		  <TR>
+          <TD>&nbsp;</TD>
+          <TD class="mh_xxian" height="35" vAlign="middle" align="center">$v[tusername]</TD>
+          <TD class="mh_xxian" height="35" vAlign="middle" align="center">$v[black2]</TD>
+		   <TD class="mh_xxian" height="35" vAlign="middle" align="center">$v[count]</TD>
+          <TD class="mh_xxian" height="35" vAlign="middle" align="center">
+		  {if $v[days]}{echo time::days($timestamp - $v[timestamp])}/$v[days]{else}永久{/if}</TD>
+		   <TD class="mh_xxian" height="35" vAlign="middle" align="center"><a href="$baseUrl?remove={url $v[tusername]}" onclick="return IsRemove();" class="link_o">移出黑名单</a></TD>
+          <TD></TD>
+		  </TR>
+		   {/loop}
+  </TBODY></TABLE>
+  </TD></TR>
+  </TBODY></TABLE>
+<!--拍拍拉黑-->
+{elseif $type=='paipai'}
+<FORM id="myForm" onsubmit="return checkForm();" method="post" name="myForm">
+$sys_hash_code2
+<INPUT name="from_clientId" value="b2655925f583285c53f9fe8b93a5fe91" type="hidden">
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+  <TBODY>
+  <TR>
+    <TD height="35">&nbsp;&nbsp;&nbsp; 您目前还可以添加 <STRONG 
+      class="chengse2">24</STRONG> 个买号到黑名单</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD height="35"> &nbsp;                  &nbsp; <SELECT 
+        name="types"><OPTION value="1">拍拍买号</OPTION><OPTION 
+        value="2">拍拍任务编号</OPTION></SELECT>                  &nbsp; <INPUT id="typesname" 
+      class="xginfo_bk" name="typesname" maxLength="25" type="text">             
+           &nbsp; <SELECT name="blackDays"><OPTION 
+        value="1">1天</OPTION><OPTION value="3">3天</OPTION><OPTION 
+        value="5">5天</OPTION><OPTION value="10">10天</OPTION><OPTION 
+        value="15">15天</OPTION><OPTION value="30">30天</OPTION></SELECT></TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD height="35" colSpan="2">
+      <TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+        <TBODY>
+        <TR>
+          <TD style="padding-top: 10px;" vAlign="top">&nbsp;&nbsp;&nbsp; 
+            <STRONG>拉黑原因：</STRONG></TD>
+          <TD><TEXTAREA class="hmd_bk" name="complain"></TEXTAREA></TD>
+          <TD>&nbsp;</TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD height="55"><INPUT class="hmd_btn" value="提交查询内容" type="submit"></TD>
+    <TD>&nbsp;</TD></TR></TBODY></TABLE></FORM>
+	<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%" align="center">
+  <TBODY>
+  <TR>
+    <TD height="15">&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+        <TBODY>
+        <TR>
+          <TD class="txjl_bg1" height="37" width="10"></TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="15%" align="center">黑名单</TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="20%" align="center">被拉总数</TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="20%" align="center">被我拉入数</TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="20%" align="center">已拉/总天数</TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="13%" align="center">操作</TD>
+          <TD class="txjl_bg3" height="37" width="10"></TD>
+		  </TR>
+		   {loop $bList $v}
+		  <TR>
+          <TD>&nbsp;</TD>
+          <TD class="mh_xxian" height="35" vAlign="middle" align="center">$v[tusername]</TD>
+          <TD class="chengse2 mh_xxian" vAlign="middle" align="center"><STRONG>$v[black2]</STRONG></TD>
+          <TD class="mh_xxian" vAlign="middle" align="center"><STRONG>$v[count]</STRONG></TD>
+          <TD class="mh_xxian" vAlign="middle" align="center">{if $v[days]}{echo time::days($timestamp - $v[timestamp])}/$v[days]{else}永久{/if}</TD>
+          <TD class="mh_xxian" vAlign="middle" align="center">
+		  <A class="link_o" onclick="return IsRemove();" href="$baseUrl?remove={url $v[tusername]}">移出黑名单</A></TD>
+          <TD>&nbsp;</TD>
+		  </TR>
+		    {/loop}
+
+  </TBODY>
+  </TABLE>
+  </TD></TR>
+  </TBODY></TABLE>
+	<!--拉黑排行榜-->
+	{elseif $type=='top'}
+	<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+        <TBODY>
+        <TR>
+          <TD class="txjl_bg1" height="37" width="10"></TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" align="center">黑名单</TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" align="center">被拉总数</TD>
+          <TD class="txjl_bg3" height="37" width="10"></TD>
+		  </TR>
+		  {loop $newList $v}   
+        <TR>
+          <TD>&nbsp;</TD>
+          <TD class="mh_xxian" height="35" vAlign="middle" align="center">$v[username]</TD>
+          <TD class="mh_xxian" height="35" vAlign="middle" align="center">$v[black2]</TD>
+          <TD></TD>
+		  </TR>
+		  {/loop}
+      </TBODY></TABLE>
+		  {/if}
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<DIV class="rwdt_dlm">
+<DIV id="page"></DIV>
+</DIV>
+</DIV>
+<DIV class="cle"></DIV>
+<SCRIPT type="text/javascript">
+function checkForm() {
+    var typesname=$('#typesname').val();
+    if (typesname.length=='') return false;
+	return true;
+}
+
+function IsRemove() {
+    return confirm("您确定要移出黑名单么？");
+}
+</SCRIPT>
+
+<DIV class="cle"></DIV>
+</DIV>
+{sub ../footer}

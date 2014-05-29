@@ -1,0 +1,441 @@
+{teval
+	
+	$cssList     = array(css::getUrl('task', 'task'));
+	echo string::getStaticCode(array('cssList'=>$cssList));
+}
+{sub ../header}
+{teval
+echo javascript::get_js('WdatePicker', 'index');
+}
+	<div class="main">
+	<div class="h_10"></div>
+	{if $_showmessage}
+	<div class='msg_panel'>
+			<div>$_showmessage</div>
+		</div>
+	{/if}
+	{if $indexMessage}
+	<div class='error_panel'>
+			<div>$indexMessage</div>
+		</div>
+	{/if}
+	<div id="tip" style="display:none">
+			<div class='msg_panel'>
+			<div>该掌柜是消保店，建议您选择审核接手人或是适当过滤接手人，具体详情请咨询客服或查看【<a href='/bbs/t67/' class='link_o'>消保建议</a>】</div>
+		</div>
+		</div>
+	<div class="info2">
+			<div class="wel">尊敬的<span class='f_orange'> $member[truename]</span>{if $member[sex]==1}先生{elseif $member[sex]==2}女士{/if}，欢迎您！</div>
+			<div class="stat">VIP：{if $isVip}是{else}否{/if} , 卡信托：{if $isVip2}是{else}否{/if} ， 积分：<span class='f_b_org'>$memberFields[credits]</span> <img src='$memberLevel[icon]' alt='当前等级' /> ， <img src='{$weburl2}images/ico/ico_gold_2.gif' alt='' /> 存款余额：<span class='f_b_org'>$memberFields[money]</span>元 　　　　　<img src="{$weburl2}images/ico/ico_gold_3.gif" /> 拍拍发布点：<span class="f_b_org">$memberFields[fabudian2]</span>个</div>
+		</div>
+	<div class='tpl_from'><strong>从任务模板中创建：</strong>
+			<select name='fromTpl' class='task_slt' onchange='getTpl(this);'>
+			<option value='0'>请从下拉框中选择</option>
+			{loop $tplList $v}
+			<option value="$v[id]"{if $tplId==$v[id]} selected{/if}>$v[name]</option>
+			{/loop}
+		</select>
+			<strong>　 注释：</strong>您可以选择从已存的发布任务模板中选择一个，实现快捷方便的发布任务</div>
+	<form name="myForm" method="post" id="myForm" onsubmit="return checkForm();">
+			<div>$sys_hash_code2</div>
+			<div class="bar">任务基本信息区</div>
+			<table class="tbl" width="100%" border="0" cellspacing="0" cellpadding="6">
+			<tr>
+					<td width="120" align="right">您的拍拍掌柜名称：</td>
+					<td colspan="2"> {loop $sellers $k $v}
+					<label for='__nickname__$k'>
+						<input type='radio' name='nickname' id='__nickname__$k' value='$v[nickname]' onclick='isTruth($v[truth])'{if $datas[nickname]==$v[nickname]} checked="checked"{/if} />
+						$v[nickname]</label>
+					{/loop} </td>
+				</tr>
+			<tr>
+					<td align="right">您的商品网址：</td>
+					<td width="210"><input name="itemurl" type="text" class="task_text" id="itemurl" value="$datas[itemurl]" onblur="showWayTip();" /></td>
+					<td><a href="javascript:;" class="link_g4" onclick="dialog(650,500,'设置来路','{rewrite}/dialog/setTaskQuery/?visitWay='+$('#visitWay').val()+'&visitKey='+encodeURI($('#visitKey').val())+'&visitTip='+encodeURI($('#visitTip').val()));return false;">设置来路</a> 为了您网店账号安全请尽量发布不同的任务时使用不同的商品</td>
+				</tr>
+			<tr id="DwayTip" style="display:none">
+					<td>&nbsp;</td>
+					<td colspan="2" class="f_b_red">掌柜热卖任务不设置来路宝贝容易被搜索降权，请尽量发布设置来路任务；</td>
+				</tr>
+			<tr class="f_blue">
+					<td align="right">来路方式：</td>
+					<td><span id="s_way" class="f_red">{if !$datas || $datas[visitWay]==0}直接访问{elseif $datas[visitWay]==1}拍拍店铺搜索{elseif $datas[visitWay]==2}拍拍宝贝搜索{elseif $datas[visitWay]==3}买家信用评价地址{/if}</span></td>
+					<td>关键字：<span id="s_key" class="f_red">$datas[visitKey]</span><br />
+					提　示：<span id="s_tip" class="f_red">$datas[visitTip]</span></td>
+				</tr>
+			<tr>
+					<td align="right">任务商品担保价格：</td>
+					<td><input name="price" type="text" class="task_text" id="price" onblur="cutPoint(this)" onpropertychange="cutPoint(this)" value="$datas[price]" /></td>
+					<td>此价格为您发布的宝贝改价后包括邮费的总价，1-1999元之间，接手者购买商品时支付给你的价钱总和！</td>
+				</tr>
+			<tr>
+					<td align="right">是否需要改价：</td>
+					<td><input type="checkbox" name="isPriceFit" id="isPriceFit" value="1"{if $datas[isPriceFit]} checked="checked"{/if}  /></td>
+					<td>如果您的商品价格加上邮费高于担保价，请勾选</td>
+				</tr>
+			<tr>
+					<td align="right">基本发布点：</td>
+					<td><input name="point" type="text" class="task_text txt_d" id="point" readonly="readonly" value="1" /></td>
+					<td>发布该价格任务需要扣除发布点数 <a href="/bbs/t30/" target="_blank" class="link_o">基本发布商品价格与扣除基本发布点数的对应关系</a></td>
+				</tr>
+			<tr>
+				<td align="right">追加竞价发布点：</td>
+					<td><input name="pointExt" type="text" class="task_text" value="$datas[pointExt]" id="pointExt" /></td>
+					<td>发布点数越多排名越靠前，越快被人接手，刷钻效率越高！</td>
+			</tr>
+			{if $isHot}
+			<tr>
+				<td align="right">发布任务次数：</td>
+				<td><input name="count" type="text" class="task_text" value="10" id="count" /></td>
+				<td>填写您希望该热卖商品被购买的次数，5-100之间整数</td>
+			</tr>
+			{/if}
+		</table>
+			<div class="bar">任务要求信息区</div>
+			<table class="tbl" width="100%" border="0" cellspacing="0" cellpadding="6">
+			<tr>
+					<td width="120" align="right">好评时限要求：</td>
+					<td title="24、48、72小时好评平台强制接手方延迟收货"><label for='__times__0'><input name='times' type='radio' value='1' id='__times__0'{if !$datas || $datas[times]==1} checked='checked'{/if} />马上好评</label>&nbsp;&nbsp;<label for='__times__1000'><input name='times' type='radio' value='2' id='__times__1000'{if $datas[times]==2} checked='checked'{/if} /><span class='f_b_red'>24小时好评(基本发布点×1.8)</span></label>&nbsp;&nbsp;<label for='__times__2000'><input name='times' type='radio' value='3' id='__times__2000'{if $datas[times]==3} checked='checked'{/if} /><span class='f_b_red'>48小时好评(基本发布点×1.8+1)</span></label>&nbsp;&nbsp;<label for='__times__3000'><input name='times' type='radio' value='4' id='__times__3000'{if $datas[times]==4} checked='checked'{/if} /><span class='f_b_red'>72小时好评(基本发布点×1.8+2)</span></label>&nbsp;&nbsp;</td>
+					<td width="30"><img src="{$weburl2}images/ico/tip2.gif" title="24、48、72小时好评平台强制接手方延迟收货" onclick="alert(this.title)" class="cursor" /></td>
+				</tr>
+			<tr>
+					<td align="right">店铺动态评分：</td>
+					<td><label for='__scores__0'>
+						<input name='scores' type='radio' value='5' id='__scores__0'{if !$datas || $datas[scores]==5} checked='checked'{/if} />
+						全部5分</label>
+					&nbsp;&nbsp;
+					<label for='__scores__1000'>
+						<input name='scores' type='radio' value='0' id='__scores__1000'{if $datas && $datas[scores]==0} checked='checked'{/if} />
+						全部不打分</label>
+					&nbsp;&nbsp;　　　　 规定拍拍交易店铺动态评分</td>
+					<td>&nbsp;</td>
+				</tr>
+		</table>
+			<div class="ex">
+			<div class="ex_top"><strong>任务增值功能区</strong><span class="f_orange">增值功能区中的功能需要额外支付发布点！详情请查看功能右侧注释；</span></div>
+			<div class="ex_main">
+					<table class="tbl" width="100%" border="0" cellspacing="0" cellpadding="6">
+					<tr>
+							<td  width="108" align="right">规定好评内容： </td>
+							<td nowrap="nowrap"><input name="isRemark" type="checkbox" id="isRemark" value="1"{if $datas[isRemark]} checked="checked"{/if} /></td>
+							<td nowrap="nowrap"><textarea name="remark" class="txt_normal f_gray" id="remark" 
+					onclick="if(this.value.indexOf('此处填写您希望接手')>=0) this.value='';this.style.color='#333';" title="此处填写您希望接手人对您的任务商品的评语内容，&#13;例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”&#13;&#13;请不要填写“请带字好评”等引导的文字&#13;" {if $datas} style="color:#333"{/if}>{if $datas}$datas[remark]{else}此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字{/if}</textarea></td>
+							<td>您可以规定接手方在拍拍交易好评时填写规定的内容。额外支付的<span class="f_b_red">0.1</span>个发布点将奖励给接手方</td>
+						</tr>
+					<tr>
+							<td align="right">购物分享</td>
+							<td><input name="isShare" type="checkbox" id="isShare" value="1"{if $datas[isShare]} checked="checked"{/if} /></td>
+							<td><input type="radio" name="share" value="1"{if !$datas || $datas[share]==1} checked='checked'{/if} id="share_1" />
+							<label for="share_1">非匿名分享(<span class="f_b_red">0.2</span>发布点)</label>
+　
+							<input type="radio" name="share" value="2"{if $datas[share]==2} checked="checked"{/if}  id="share_2" />
+							<label for="share_2">匿名分享(<span class="f_b_red">0.5</span>发布点)</label></td>
+							<td><span class="f_b_red">【分享内容同好评内容】</span>，请认真填写好评内容；匿名分享的勾选了非匿名分享，接手人可不理会</td>
+						</tr>
+					<tr>
+							<td align="right">留言提醒：</td>
+							<td><input type="checkbox" checked="checked" disabled="disabled" name="isTipss" value="1" /></td>
+							<td><textarea name="tips" class="txt_normal" id="tips" >$datas[tips]</textarea></td>
+							<td>您可以在此给接手方留言提醒，比如：希望接手方不用在收货后立即好评而是默认好评，提醒接手方购买商品的数量，提醒买家购买虚拟物品的帐号、QQ号等；留言最多允许100字。 <span class="f_red">留言提醒不能作为申诉理由，但总不理会留言的接手方客服酌情处罚；广告留言则重罚；</span><a href="/bbs/t70/" target="_blank" class="link_b">留言规范</a></td>
+						</tr>
+					<tr>
+							<td align="right">审核接手人：</td>
+							<td><input name="isVerify" type="checkbox" id="isVerify" value="1"{if $datas[isVerify]} checked="checked"{/if} /></td>
+							<td colspan="2">接手者接您任务后，要您亲自审核才可看到商品地址，对刷实物商家特别有用哦！额外支付的<span class="f_b_red">0.3</span>个发布点将奖励给接手方</td>
+						</tr>
+					<tr>
+							<td align="right" class="f_b_green">限制接手人：</td>
+							<td><input name="isLimit" type="checkbox" id="isLimit" value="1"{if $datas[isLimit]} checked="checked"{/if} /></td>
+							<td colspan="2"><input type="radio" name="limit" value="1"{if !$datas || $datas[limit]==1} checked="checked"{/if} id="limit_1" />
+							<label for="limit_1">1天接1个(<span class="f_b_red">0.5</span>个发布点)</label>
+　
+							<input type="radio" name="limit" value="2"{if !$datas || $datas[limit]==2} checked="checked"{/if} id="limit_2" />
+							<label for="limit_2">1天接2个(<span class="f_b_red">0.2</span>个发布点)</label>
+							限制同一天内接手人不允许重复接手相同掌柜的任务，需额外支付发布点</td>
+						</tr>
+					<tr>
+							<td align="right" class="f_b_red">买号实名认证：</td>
+							<td><input name="isReal" type="checkbox" id="isReal" value="1"{if $datas[isReal]} checked="checked"{/if} /></td>
+							<td colspan="2">限制接手买号必须是通过了支付宝实名认证才可以绑定此任务；需额外支付<span class="f_b_red">0.5</span>个发布点给接手方</td>
+						</tr>
+					<tr>
+							<td align="right" class="f_b_red">需要旺旺聊天：</td>
+							<td><input type="checkbox" id="isChat" value="1" name="isChat"{if $datas[isChat]} checked="checked"{/if} /></td>
+							<td colspan="2">要求接手方先在旺旺上聊几句，需额外支付<span class="f_b_red">1</span>个发布点给接手方</td>
+						</tr>
+					<tr>
+							<td align="right" class="f_b_red">旺旺确认收货：</td>
+							<td><input type="checkbox" id="isChatDone" value="1" name="isChatDone"{if $datas[isChatDone]} checked="checked"{/if} /></td>
+							<td colspan="2"> 要求接手方收货前登录旺旺与卖家确认到“货物/服务”同时声明对收到“货物/服务”满意以作为收货证据，需额外支付<span class="f_b_red">0.5</span>个发布点给接手方</td>
+						</tr>
+						<tr>
+						<td align="right" class="f_b_green">星级买号任务：</td>
+						<td><input name="isStar" type="checkbox" id="isStar" value="1"{if $datas[isStar]} checked{/if}  /></td>
+						<td colspan="2">
+						{eval
+							$__buyerList = cfg::getList('sys', 'buyer_level_list');
+						}
+							{loop $__buyerList $__k $__v}
+							<input type="radio" name="lvlStar" value="$__v[key]"  id="lvlStar$__v[key]"{if !$datas && $__v[checked] || $datas && $datas[lvlStar] == $__v[key]} checked{/if} /><label for="lvlStar3">$__v[key]星(<span class="f_b_red">$__v[value]</span>个发布点)</label>　
+							{/loop} 　<a href="#" target="_blank" class="link_b">了解星级买号>></a></td>
+					  </tr>
+					  
+					  <tr>
+						<td align="right" class="f_b_green">商保：</td>
+						<td><input type="checkbox" id="isEnsure" value="1" name="isEnsure"{if $datas[isEnsure]} checked{/if}  /><input type="hidden" name="ensurePoint" value="$ensurePoint" /></td>
+						<td colspan="2" class="f_b_green">要求接手方缴纳保证金后成为平台的商保用户才可以接手，需额外支付<span class="f_b_red">$ensurePoint</span>个发布点给接手方；<a href="#" target="_blank" class="link_b">了解保护发布方的商保>></a></td>
+					  </tr>
+					<tr>
+							<td align="right">接手人自动过滤：<br />
+							<div class="f_red" style="padding-right:12px"></div></td>
+							<td nowrap="nowrap"><div>
+									<input name="isScore" type="checkbox" id="isScore"  value="1"{if $datas[isScore]} checked="checked"{/if} />
+									&nbsp; </div>
+							<div>
+									<input name="isCredit" type="checkbox" id="isCredit"  value="1"{if $datas[isCredit]} checked="checked"{/if} />
+									&nbsp; </div>
+							<div>
+									<input name="isGood" type="checkbox" id="isGood"  value="1"{if $datas[isGood]} checked="checked"{/if} />
+									&nbsp; </div>
+							<div>
+									<input name="isBlack" type="checkbox" id="isBlack"  value="1"{if $datas[isBlack]} checked="checked"{/if} />
+									&nbsp; </div>
+							<div>
+									<input name="isFame" type="checkbox" id="isFame"  value="1"{if $datas[isFame]} checked="checked"{/if} />
+									&nbsp; </div></td>
+							<td nowrap="nowrap"><div> 接手人积分不低于：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<input name="scoreLvl" type="radio" id="radio" value="100"{if !$datas || $datas[scoreLvl]==100} checked='checked'{/if} />
+									100
+									<input type="radio" name="scoreLvl" id="radio2" value="400"{if $datas[scoreLvl]==400} checked='checked'{/if} />
+									400
+									<input type="radio" name="scoreLvl" id="radio3" value="900"{if $datas[scoreLvl]==900} checked='checked'{/if} />
+									900</div>
+							<div> 接手人信用额度不低于：&nbsp;&nbsp;&nbsp;&nbsp;
+									<input name="creditLvl" type="radio" id="radio4" value="30"{if !$datas || $datas[creditLvl]==30} checked='checked'{/if} />
+									30&nbsp;
+									<input type="radio" name="creditLvl" id="radio5" value="100"{if $datas[creditLvl]==100} checked='checked'{/if} />
+									100
+									<input type="radio" name="creditLvl" id="radio6" value="300"{if $datas[creditLvl]==300} checked='checked'{/if} />
+									300</div>
+							<div> 接手人刷客满意度不低于：&nbsp;&nbsp;
+									<input type="radio" name="goodLvl" id="radio7" value="99"{if $datas[goodLvl]==99} checked='checked'{/if} />
+									99%&nbsp;
+									<input type="radio" name="goodLvl" id="radio8" value="95"{if $datas[goodLvl]==95} checked='checked'{/if} />
+									95%&nbsp;
+									<input name="goodLvl" type="radio" id="radio9" value="90"{if !$datas || $datas[goodLvl]==90} checked='checked'{/if} />
+									90%</div>
+							<div> 接手人被拉黑名单数不大于：
+									<input type="radio" name="blackLvl" id="radio10" value="1"{if $datas[blackLvl]==1} checked='checked'{/if} />
+									1&nbsp;&nbsp;
+									<input name="blackLvl" type="radio" id="radio11" value="3"{if !$datas || $datas[blackLvl]==3} checked='checked'{/if} />
+									3&nbsp;&nbsp;
+									<input type="radio" name="blackLvl" id="radio12" value="10"{if $datas[blackLvl]==10} checked='checked'{/if} />
+									10</div>
+							<div> 接手买号买家信誉度不高于：
+									<input type="radio" name="fameLvl" id="radio13" value="90"{if !$datas || $datas[fameLvl]==90} checked='checked'{/if} />
+									90&nbsp;
+									<input type="radio" name="fameLvl" id="radio14" value="150"{if $datas[fameLvl]==150} checked='checked'{/if} />
+									150
+									<input name="fameLvl" type="radio" id="radio15" value="220"{if $datas[fameLvl]==220} checked='checked'{/if} />
+									220</div></td>
+							<td>您可以设置接手人的最低资质要求，系统将自动为您过滤掉不合格的接手人。每条任务需额外支付<span class="f_b_red">0.1</span>个发布点</td>
+						</tr>
+					<tr>
+							<td align="right">计划发布任务：</td>
+							<td><input name="isPlan" type="checkbox" id="isPlan" value="1"{if $datas[isPlan]} checked="checked"{/if}  /></td>
+							<td colspan="2"><input type="text" name="planDate" id="planDate" class="task_text" value="$datas[planDate]" readonly="readonly" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'});" />
+							设定任务计划发布的时间，平台将在您规定的时间自动为您发布到互动区。额外支付的<span class="f_b_red">0.1</span>个发布点</td>
+						</tr>
+				</table>
+				</div>
+			<div class="ex_bottom"></div>
+		</div>
+			<div class="tpl_to">将该任务保存到任务模板中：
+			<input name="isTpl" type="checkbox" id="isTpl" value="1"  />
+			<input name="tplTo" type="text" class="task_text" id="tplTo"  maxlength="50" />
+		</div>
+			<div class="pub_tip3"> <strong>注释：</strong>将您要发布的任务存入“发布任务模板中”您以后发布类似任务时就可选择从模板发布，实现快捷方便的发布任务；普通用户最多可保存三个任务发布模板，信托会员可保存五个任务发布模板尊享VIP可拥有十个任务发布模板 <a href="/bbs/t54/" class="link_o">了解VIP特权</a> <a href="{rewrite}/member/vip/" class="link_o">现在就成为VIP</a> </div>
+			<div class="publish">
+			<table class="tbl" border="0" width="100%" cellspacing="0" cellpadding="3">
+					<tr>
+					<td align="right" width="48%"><input type="image" name="btnSave" id="imageField" src="{$weburl2}images/btn/task_submit.gif" /></td>
+					<td align="left">　　<a href="/bbs/t68/" class="link_o" target="_blank">安全发布指南</a>　<a href="/bbs/t69/" class="link_o" target="_blank">卖家安全刷钻教程</a></td>
+				</tr>
+				</table>
+		</div>
+			{if $memberTask[outComplate1] < 2}
+			<script type="text/javascript">
+ alert("系统检查到您的刷钻经验尚浅\n\n为了您的店铺安全，建议您先阅读【安全刷钻教程】或【咨询客服】\n\n本提示在您完成2个发布任务后不再提示");
+</script>
+			{/if}
+			<input type="hidden" name="visitTip" id="visitTip" value="$datas[visitTip]" />
+			<input type="hidden" name="visitKey" id="visitKey" value="$datas[visitKey]" />
+			<input type="hidden" name="visitWay" id="visitWay" value="{if $datas[visitWay]}$datas[visitWay]{else}0{/if}" />
+		</form>
+	<div class="h_20"></div>
+</div>
+	<script type="text/javascript">
+var buyerLevelPoint = {{loop $__buyerList $__k $__v}{if $__k > 0},{/if}'$__v[key]':$__v[value]{/loop}};
+$(function(){
+	if (!$('[name=nickname]').checked()) {
+		$('[name=nickname]').checked(0);
+	}
+	{if $datas}
+	$('#price').blur();
+	{/if}
+});
+function showWayTip() {
+	
+}
+
+function checkForm() {
+    if ($('[name=nickname]').rVal() == '') {
+        alert('请选择掌柜');
+        return false;
+    }
+    var checks = [
+        ['isEmpty', 'itemurl', '商品网址'],
+        ['isStock', 'price', '商品价格'],
+        ['isRange', 'price', '商品价格', 1,1999],
+        ['isNum', 'pointExt', '追加发布点'],{if $isHot}
+		['isRange', 'count', '发布任务次数', 5, 100],{/if}
+        ['isRange', 'pointExt', '追加发布点', 0, 10],
+        ['isLength', 'remark', '规定好评内容', 0, 200],
+        ['isLength', 'tips', '留言提醒', 0, 100]];
+    var result = doCheck(checks);            
+    if (!result) return result;
+    var str = getValue('itemurl');
+    var urlPattern = /http:\/\/auction1\.paipai\.com\/(.)+/i;
+        if (!urlPattern.test(str)) { return doAlert('商品网址不正确，商品网址格式应为：\n\nhttp://auction1.paipai.com/xxxxx\n\n请在店铺首页打开商品然后再复制商品网址', $('#itemurl'));}
+    if (!getObj('isRemark').disabled && getObj('isRemark').checked) {
+         if (getValue('remark').indexOf('带字') >= 0 || getValue('remark').indexOf('好评') >= 0 || getValue('remark').indexOf('评分') >= 0 || getValue('remark').indexOf('评价') >= 0 || getValue('remark').indexOf('收藏') >= 0 || getValue('remark').indexOf('请') >= 0) {
+            alert('评价内容不允许含有“带字”、“好评”、“评价”、“评分”、“收藏”、“请”等字眼\n\n如果您是新手，为了保障您的利益，最好先请教客服人员该如何写评语', getObj('remark'));
+            return false;
+         }   
+         if (!isEmpty('remark', '规定好评内容')) return false;
+    }
+    if (getObj('isShare') && getObj('isShare').checked && !getObj('isRemark').checked) {
+        alert('购物分享的分享内容即是好评内容，请勾选好评内容，并认真填写，不了解的请咨询客服');
+        return false;
+    }
+	if (getObj('isStar') && getObj('isStar').checked && getRV('lvlStar') == '') {
+        alert('请选择星级买号的等级');
+        return false;
+    }
+    if (getObj('visitWay') && getValue('visitWay') == '2') {
+	    var unlen = getValue('visitKey').replace(/[^\x00-\xff]/g, '**').length;
+	    if (unlen < 8) {
+		    alert('宝贝搜索关键字不能少于8个字符，1个汉字相当于2个字符');
+		    return false;
+	    }
+    }
+    if (getObj('isPlan').checked)
+         if (!isEmpty('planDate', '计划发布日期')) return false;
+    if (getObj('isTpl').checked) 
+        if (!isEmpty('tplTo', '模板名称')) return false;
+    if (result && getValue('itemurl').indexOf('http://item.taobao.com/meal_detail.htm?meal_id=') < 0)
+        result = countPoint();
+    if (result)avoidReSubmit();
+    return result;
+}
+function getTpl(obj) {
+    if (obj.value == '0')
+        return ;
+    var url = '$thisUrl&{if $isHot}isHot=1&{/if}tplId=' + obj.value;
+    window.location.href = url;
+}
+function getFloat(id) {
+	var d = parseFloat(getValue(id));
+	if (isNaN(d))
+		return 0;
+	else
+		return d;
+}
+function countPoint() {
+	var p = getFloat('point');
+	var p2 = getFloat('price');
+    var t = getRV('times');
+    if (t==2) p = p * 1.8;
+    if (t==3) p = p * 1.8 + 1;
+    if (t==4) p = p * 1.8 + 2;
+    p += getFloat('pointExt');
+    if (getObj('isRemark').checked) p += 0.1;
+    if (getObj('isVerify').checked) p += 0.3;
+    if (getObj('isLimit').checked) { 
+        if (getRV('limit') == '2')
+            p += 0.2;
+        else
+            p += 0.5;
+    }
+    if (getObj('isShare') && getObj('isShare').checked) { 
+        if (getRV('share') == '1')
+            p += 0.2;
+        else
+            p += 0.5;
+    }
+	//限制买号等级
+	if (getObj('isStar') && getObj('isStar').checked) {
+        p += buyerLevelPoint[getRV('lvlStar')];
+    }
+	//TNE END
+    if (getObj('isScore').checked) p += 0.1;
+    if (getObj('isCredit').checked) p += 0.1;
+    if (getObj('isGood').checked) p += 0.1;
+    if (getObj('isBlack').checked) p += 0.1;
+    if (getObj('isFame').checked) p += 0.1;
+    if (getObj('isPlan').checked) p += 0.1;
+    if (getObj('isChat') && getObj('isChat').checked) p += 1;
+    if (getObj('isChatDone') && getObj('isChatDone').checked) p += 0.5;
+	if (getObj('isEnsure') && getObj('isEnsure').checked) p += $ensurePoint;//商保附加的
+    if (getObj('isReal') && getObj('isReal').checked) p += 0.5;
+    var s = '请确认任务信息：\n\n';
+    if (getObj('visitWay')) {
+        if (getValue('visitWay') != '0') p += 0.3;
+        s += '来路方式：' + getObj('s_way').innerText + '\n';
+    }
+    if (getObj('nums')) {
+    	p = p * getFloat('nums');
+    	p2 = p2 * getFloat('nums');
+    	s += '任务个数：' + getFloat('nums') + '\n';
+    }
+    s += '好评时限：';
+    if (t == 1) s += '马上好评';
+    if (t == 2) s += '24小时好评';
+    if (t == 3) s += '48小时好评';
+    if (t == 4) s += '72小时好评';
+	{if $isHot}
+	p2 *= $('#count').val();
+	p *= $('#count').val();
+	{/if}
+    return confirm(s + '\n商品价格：' + p2 + '\n耗发布点：' + p.toFixed(2));
+}
+function cutPoint(obj) {
+    if (obj.value <= 40)
+        setValue('point', 1);
+    if (obj.value > 40 && obj.value <= 80)
+        setValue('point', 1.5);
+    if (obj.value > 80 && obj.value <= 120)
+        setValue('point', 2);
+    if (obj.value > 120 && obj.value <= 200)
+        setValue('point', 3);
+    if (obj.value > 200 && obj.value <= 500)
+        setValue('point', 4);
+    if (obj.value > 500 && obj.value <= 1000)
+        setValue('point', 5);
+    if (obj.value > 1000 && obj.value <= 1500)
+        setValue('point', 6);
+    if (obj.value > 1500)
+        setValue('point', 7);
+}
+function isTruth(i) {
+    if (i == 1) {
+		$('#tip').show();
+		alert('该掌柜是消保店，建议您选择审核接手人或是适当过滤接手人，具体详情请咨询客服')
+	} else {
+		$('#tip').hide();
+	}
+}
+</script>
+{sub ../footer}

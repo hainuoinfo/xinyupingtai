@@ -1,0 +1,78 @@
+{teval
+	
+	$cssList     = array(css::getUrl('task', 'task'));
+	echo string::getStaticCode(array('cssList'=>$cssList));
+}
+{sub ../header}
+{teval
+echo javascript::get_js('task', 'index');
+}
+<div class="main">
+  {if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+  <div class="info">  
+    <div class="info_l">
+      <div>
+        {sub tao_info}
+      </div>
+    </div>
+    <div class="info_r"> </div>
+  </div>
+  <div class="h_10"></div>
+  {sub collect_tab}
+  <div class="lst_info">
+    <table class="lst_query" width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="middle"><strong>任务状态：</strong>
+          <select name="status" id="status">
+            <option value="all"{if $t=='all'} selected{/if}>所有任务</option>
+            <option value="ing"{if $t=='ing'} selected{/if}>进行中</option>
+            <option value="complate"{if $t=='complate'} selected{/if}>已完成</option>
+            <option value="pause"{if $t=='pause'} selected{/if}>暂停中</option>
+          </select>       
+          <strong>任务编号：</strong>
+          <input name="sid" type="text" id="sid" value="$sid" class="text_small" />
+        </td>
+        <td width="50"><input id="btnQuery" type="image" src="{$weburl2}images/btn/menu_search.gif" align="middle" /></td>
+        <td width="80"><img src="{$weburl2}images/btn/task_reflesh.gif" alt="点击刷新任务" class="cursor" onclick="window.location.reload();" /></td>
+      </tr>
+    </table>
+  </div>
+<script language="javascript">
+$(function(){
+	$('#btnQuery').click(function(){
+		var sid=$('#sid').val();
+		var d1 = $('#dateStart').val();
+		var d2 = $('#dateEnd').val();
+		if (sid) sid = '&sid='+sid;
+		location.href='$thisUrl&t='+$('#status').val()+sid;
+	});
+});
+</script>
+  <table class="tbl" width="100%" border="0" cellspacing="0" cellpadding="4">
+    {loop $cList $v}
+	<tr>
+	  <td width="200" class="p_l_20">任务编号：$v[id]<br />
+	  发布时间：{date $v[timestamp]}</td>
+	  <td>分配收藏：$v[total]，已实现收藏：<span class="f_b_org">$v[totalComplate]</span>个<br />
+		 正在收藏：$v[totalIng]，剩余收藏：{echo $v[total]-$v[totalIng]-$v[totalComplate]}个</td>   
+	  <td>掌柜名称：$v[nickname]<br />
+					店铺地址：<a href="javascript:;" onclick="return openPrdUrl('$v[url]')" class="link_o" title="$v[url]">打开网址</a>
+					<span class="f_blue"></span><br />
+					</td>       
+	  <td>任务状态：<span class="f_orange">{if $v[status]==0}暂停中{elseif $v[status]==1}{if $v[totalIng]>0}进行中{else}等待接手{/if}{elseif $v[status]==2}已完成{/if}</span> <br />
+		操作：
+		{if $v[status]==1}
+		<a href="$thisUrl&pause=$v[id]"><img src="{$weburl2}images/btn/suspend.gif" /></a>
+		{elseif $v[status]==0}
+		<a href="$thisUrl&resume=$v[id]" class="link_t">恢复任务</a>
+		{/if}
+		</td>
+	</tr>
+	{/loop}
+   </table>
+  <div class="h_10"></div>
+  <div class="pages">$multipage</div>
+  <div class="h_20"></div>
+</div>
+{sub ../footer}

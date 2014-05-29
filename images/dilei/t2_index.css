@@ -1,0 +1,330 @@
+html {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+body {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+div {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+span {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+object {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+iframe {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+h1 {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+h2 {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+h3 {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+h4 {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+h5 {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+h6 {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+p {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+blockquote {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+pre {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+a {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+abbr {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+acronym {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+address {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+big {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+cite {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+code {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+del {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+dfn {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+em {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+font {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+img {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+ins {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+kbd {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+q {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+s {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+samp {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+small {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+strike {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+strong {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+sub {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+sup {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+tt {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+var {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+dl {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+dt {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+dd {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+ol {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+ul {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+li {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+fieldset {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+form {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+label {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+legend {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+table {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+caption {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+tbody {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+tfoot {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+thead {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+tr {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+th {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+td {
+	margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor;
+}
+body {
+	margin: 0px auto; width: 100%; color: rgb(102, 102, 102);
+}
+ul {
+	margin: 0px; padding: 0px; float: left; list-style-type: none;
+}
+u {
+	margin-left: 5px;
+}
+a {
+	color: rgb(15, 152, 202); text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+.imgtext {
+	background: url("../images/fannzi.png");
+}
+#wrap {
+	margin: 0px auto; width: 980px; text-align: left; position: relative;
+}
+#head {
+	background: url("../images/jb.png") repeat-x; width: 980px; height: 160px; float: left;
+}
+#head .lsi {
+	background: rgb(255, 187, 0); width: 290px; height: 100%; float: left;
+}
+#head .lsi img {
+	margin: 49px 59px;
+}
+#head .rsi {
+	background: rgb(246, 212, 118); width: 690px; height: 100%; float: right;
+}
+#head .rsi img {
+	margin: 27px 108px;
+}
+#head_two {
+	background: url("../images/599.gif") no-repeat; width: 980px; height: 481px; float: left; position: relative;
+}
+#head_two a {
+	left: 385px; bottom: 40px; position: absolute;
+}
+#head_three {
+	background: url("../images/1212.gif") no-repeat; width: 980px; height: 334px; float: left; position: relative;
+}
+#head_three span {
+	left: 120px; bottom: 90px; position: absolute;
+}
+#head_four {
+	background: url("../images/shangdfh.gif") no-repeat; width: 980px; height: 446px; float: left; position: relative;
+}
+#head_four span {
+	left: 120px; bottom: 90px; position: absolute;
+}
+#head_five {
+	background: rgb(211, 237, 208); width: 980px; height: 417px; float: left; position: relative;
+}
+#head_five img {
+	margin: 42px 0px 0px 107px;
+}
+#head_six {
+	background: rgb(231, 249, 249); width: 980px; height: 560px; float: left; position: relative;
+}
+#head_six .jtou {
+	background: url("../images/jiantou.png") no-repeat; margin: 65px 0px 0px 240px; width: 493px; height: 372px; float: left; display: inline; position: relative;
+}
+#head_six .jtou .jtou_text1 {
+	left: -50px; top: 122px; width: 155px; height: 80px; position: absolute;
+}
+#head_six .jtou .jtou_text2 {
+	background-position: -421px -143px; left: 37px; width: 155px; height: 80px; bottom: -17px; position: absolute;
+}
+#head_six .jtou .jtou_text3 {
+	background-position: -209px -144px; width: 155px; height: 80px; right: 34px; bottom: -36px; position: absolute;
+}
+#head_six .jtou .jtou_text4 {
+	background-position: -420px -5px; top: 185px; width: 155px; height: 80px; right: -50px; position: absolute;
+}
+#head_six .jtou .jtou_text5 {
+	background-position: -210px 0px; top: 14px; width: 155px; height: 100px; right: 25px; position: absolute;
+}
+#head_six .jtou .jtou_text6 {
+	background-position: 0px -133px; left: 95px; top: -15px; width: 155px; height: 80px; position: absolute;
+}
+#head_six .jtou .jtou_icon {
+	background: url("../images/fannren.png") no-repeat 0px 0px; left: 160px; top: 100px; width: 169px; height: 208px; position: absolute;
+}
+#_footer {
+	background: rgb(231, 249, 249); width: 980px; height: 790px; float: left; position: relative;
+}
+#_footer .footer_hed {
+	background: url("../images/fangxin.png") no-repeat 0px 0px; width: 653px; height: 57px; margin-left: 150px;
+}
+#_footer p {
+	background: url("../images/15512256.png") no-repeat 0px 0px; margin: 12px 0px 20px 32px; width: 919px; height: 14px; float: left; display: inline;
+}
+#_footer .footer_cont {
+	background: rgb(195, 143, 0); width: 880px; height: 660px; margin-left: 50px; float: left; display: inline;
+}
+#_footer .footer_jiage {
+	background: url("../images/jiage.png") no-repeat; margin: 20px 0px 0px 130px; width: 517px; height: 61px; float: left; display: inline;
+}
+#_footer a {
+	margin: 20px 0px 0px 10px; float: left;
+}
+#footer_one {
+	background: rgb(180, 0, 0); width: 980px; height: 143px; float: left; position: relative;
+}
+#footer_one img {
+	margin: 45px 0px 0px 65px;
+}
+#footer_two {
+	background: rgb(211, 255, 255); width: 980px; height: 730px; float: left; position: relative;
+}
+#footer_two .guanggao {
+	background: url("../images/newgg.png") no-repeat 0px 0px; margin: 25px 0px 50px 40px; width: 909px; height: 99px;
+}
+#footer_two img {
+	margin-left: 75px; float: left;
+}
+#footer_two .renwudh {
+	background: url("../images/hbji.png") no-repeat 0px 0px; margin: 0px; width: 404px; height: 439px; right: 30px; position: absolute;
+}
+#footer_three {
+	background: rgb(252, 233, 219); width: 980px; height: 730px; float: left; position: relative;
+}
+#footer_three .bkuang1 {
+	background: url("../images/jitsx.png") no-repeat 0px 30px; border-width: 2px 2px 2px 0px; border-style: dotted dotted dotted none; border-color: rgb(232, 209, 193) rgb(232, 209, 193) rgb(232, 209, 193) currentColor; margin: 20px 0px 0px 40px; width: 440px; height: 318px; float: left; display: inline;
+}
+#footer_three .bkuang2 {
+	background: url("../images/dxgch.png") no-repeat 22px 30px; border-width: 2px 0px; border-style: dotted none; border-color: rgb(232, 209, 193) currentColor; width: 460px; height: 318px; margin-top: 20px; float: left;
+}
+#footer_three .imgzi {
+	margin: 25px 0px 0px 75px;
+}
+#footer_three a {
+	margin: 25px 0px 0px 175px; float: left;
+}
+#footer_four {
+	background: rgb(1, 41, 168); width: 980px; height: 1090px; float: left; position: relative;
+}
+#footer_four img {
+	margin: 25px 0px 30px 52px;
+}
+#footer_four .boot_img {
+	background: url("../images/xfffffff.png") no-repeat 0px 0px; margin: 35px 0px 0px 128px; width: 707px; height: 166px; position: relative;
+}
+#footer_four .boot_img ul {
+	width: 577px; height: 25px; right: -70px; bottom: 8px; color: red; float: left; position: absolute;
+}
+#footer_four .boot_img ul li {
+	width: 120px; height: 25px; color: red; float: left;
+}
+#footer_four .boot_img ul li img {
+	margin: 0px;
+}
+#footer_four .boot_img ul li a {
+	color: rgb(1, 41, 168);
+}

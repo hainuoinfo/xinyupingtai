@@ -1,0 +1,280 @@
+﻿{teval
+	$title       = '申请提现 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	$jsList      = array(javascript::getUrl('task', 'index'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList,'jsList'=>$jsList));
+}
+{sub ../headerbase}
+<LINK rel="stylesheet" type="text/css" href="/css/task.css">
+<DIV id="content"> 
+	{sub menu}
+<DIV class="right">
+<TABLE style="height: 150px;" class="tiebuy_t" border="0" cellSpacing="0" 
+cellPadding="0" width="100%">
+  <TBODY>
+  <TR vAlign="top">
+    <TD style="padding: 10px 15px 15px 17px;">
+      <DIV class="tiebuy">
+      <H1>温馨提示：</H1>
+      <P 
+      style='color: rgb(68, 68, 62); font-family: "宋体"; font-size: 13px;'>1、接发平台信誉任务，必须完成或者取消后才可以更换。请根据自身情况进行接手！<BR>
+      2、任务完成后需要您返回到任务中心进行奖品认领，系统在完成任务后会发站内邮件通知，无论任务是否完成，任务进度将会在周一凌晨自动清零，请您务必在此前领取奖励！<BR>
+      3、领取奖励时接发任务数量大于或者等于都可以，如果7天内某天或某几天小于任务数量，任务将失败。
+</P></DIV></TD></TR></TBODY></TABLE>
+<DIV class="space10"></DIV>
+<DIV class="space15"></DIV>
+<DIV id="userjob1" class="member-job1">
+<H1><SPAN>类型1</SPAN>接发平台信誉任务</H1>
+<UL>
+  <LI class="to1">
+  <SPAN class="li0">任务发不停，奖励送不断！</SPAN>共有12位用户完成此任务												 
+  <A id="ctl00_ContentPlaceHolder2_reTaskJob_ctl00_btnDetail" class="aa" href="javascript:__doPostBack('reTaskJob|ctl00|btnDetail','')" 
+  ></A>
+  <A id="ctl00_ContentPlaceHolder2_reTaskJob_ctl00_btnCancel" class="aa03" href="javascript:__doPostBack('reTaskJob|ctl00|btnCancel','')"></A></LI>
+  <LI>
+  <SPAN id="reTaskJob_ctl00_divState" class="li1">任务正在进行...</SPAN></LI>
+  <LI>您需要连续<SPAN class="li1">7</SPAN>天，每天发布<SPAN class="li1">5</SPAN>个任务，接手<SPAN 
+  class="li1">5</SPAN>个任务，任务完成后，平台奖励您<SPAN class="li1">4</SPAN>个麦点 </LI></UL>
+<P></P>
+<UL>
+  <LI class="to1">
+  <SPAN class="li0">任务发不停，奖励送不断！</SPAN>共有6位用户完成此任务												<A 
+  id="ctl00_ContentPlaceHolder2_reTaskJob_ctl01_btnOrderJob" class="a" href="javascript:__doPostBack('reTaskJob|ctl01|btnOrderJob','')"></A></LI>
+  <LI>
+  <SPAN id="ctl00_ContentPlaceHolder2_reTaskJob_ctl01_divState" 
+  class="li1">此任务等待着接手...</SPAN></LI>
+  <LI>您需要连续
+  <SPAN class="li1">7</SPAN>天，每天发布<SPAN 
+  class="li1">10</SPAN>个任务，接手<SPAN class="li1">10</SPAN>个任务，任务完成后，平台奖励您<SPAN 
+  class="li1">8</SPAN>个麦点 </LI></UL>
+<P></P>
+<UL> 
+  <LI class="to1">
+  <SPAN class="li0">任务发不停，奖励送不断！</SPAN>共有4位用户完成此任务												<A 
+  id="ctl00_ContentPlaceHolder2_reTaskJob_ctl02_btnOrderJob" class="a" href="javascript:__doPostBack('reTaskJob|ctl02|btnOrderJob','')"></A></LI>
+  <LI>
+  <SPAN id="ctl00_ContentPlaceHolder2_reTaskJob_ctl02_divState" 
+  class="li1">此任务等待着接手...</SPAN></LI>
+  <LI>您需要连续<SPAN class="li1">7</SPAN>天，每天发布
+  <SPAN class="li1">20</SPAN>个任务，接手<SPAN class="li1">20</SPAN>个任务，任务完成后，平台奖励您
+  <SPAN class="li1">16</SPAN>个麦点 </LI></UL>
+<P></P>
+<UL>
+  <LI class="to1">
+  <SPAN class="li0">任务发不停，奖励送不断！</SPAN>共有0位用户完成此任务												
+  <A id="ctl00_ContentPlaceHolder2_reTaskJob_ctl03_btnOrderJob" class="a" href="javascript:__doPostBack('reTaskJob|ctl03|btnOrderJob','')"></A></LI>
+  <LI>
+  <SPAN id="ctl00_ContentPlaceHolder2_reTaskJob_ctl03_divState" class="li1">此任务等待着接手...</SPAN></LI>
+  <LI>您需要连续<SPAN class="li1">7</SPAN>天，每天发布
+  <SPAN class="li1">40</SPAN>个任务，接手<SPAN class="li1">40</SPAN>个任务，任务完成后，平台奖励您
+  <SPAN class="li1">32</SPAN>个麦点 </LI></UL>
+<P></P>
+<UL>
+  <LI class="to1"><SPAN class="li0">任务发不停，奖励送不断！</SPAN>共有1位用户完成此任务												<A 
+  id="ctl00_ContentPlaceHolder2_reTaskJob_ctl04_btnOrderJob" class="a" href="javascript:__doPostBack('reTaskJob|ctl04|btnOrderJob','')"></A></LI>
+  <LI><SPAN id="ctl00_ContentPlaceHolder2_reTaskJob_ctl04_divState" 
+  class="li1">此任务等待着接手...</SPAN></LI>
+  <LI>您需要连续<SPAN class="li1">7</SPAN>天，每天发布<SPAN class="li1">5</SPAN>个任务，接手<SPAN 
+  class="li1">0</SPAN>个任务，任务完成后，平台奖励您<SPAN class="li1">5</SPAN>个麦点 </LI></UL>
+<P></P>
+<UL>
+  <LI class="to1"><SPAN class="li0">任务发不停，奖励送不断！</SPAN>共有1位用户完成此任务												<A 
+  id="ctl00_ContentPlaceHolder2_reTaskJob_ctl05_btnOrderJob" class="a" href="javascript:__doPostBack('reTaskJob|ctl05|btnOrderJob','')"></A></LI>
+  <LI><SPAN id="ctl00_ContentPlaceHolder2_reTaskJob_ctl05_divState" 
+  class="li1">此任务等待着接手...</SPAN></LI>
+  <LI>您需要连续<SPAN class="li1">7</SPAN>天，每天发布<SPAN 
+  class="li1">10</SPAN>个任务，接手<SPAN class="li1">0</SPAN>个任务，任务完成后，平台奖励您<SPAN 
+  class="li1">10</SPAN>个麦点 </LI></UL>
+<P></P>
+<UL>
+  <LI class="to1"><SPAN class="li0">任务发不停，奖励送不断！</SPAN>共有3位用户完成此任务								<A id="ctl00_ContentPlaceHolder2_reTaskJob_ctl06_btnOrderJob" 
+  class="a" 
+  href="javascript:__doPostBack('reTaskJob|ctl06|btnOrderJob','')"></A></LI>
+  <LI><SPAN id="ctl00_ContentPlaceHolder2_reTaskJob_ctl06_divState" 
+  class="li1">此任务等待着接手...</SPAN></LI>
+  <LI>您需要连续<SPAN class="li1">7</SPAN>天，每天发布<SPAN 
+  class="li1">20</SPAN>个任务，接手<SPAN class="li1">0</SPAN>个任务，任务完成后，平台奖励您<SPAN 
+  class="li1">20</SPAN>个麦点 </LI></UL>
+<P></P>
+<UL>
+  <LI class="to1"><SPAN class="li0">任务发不停，奖励送不断！</SPAN>共有6位用户完成此任务				<A id="ctl00_ContentPlaceHolder2_reTaskJob_ctl07_btnOrderJob" 
+  class="a" 
+  href="javascript:__doPostBack('reTaskJob|ctl07|btnOrderJob','')"></A></LI>
+  <LI><SPAN id="ctl00_ContentPlaceHolder2_reTaskJob_ctl07_divState" 
+  class="li1">此任务等待着接手...</SPAN></LI>
+  <LI>您需要连续<SPAN class="li1">7</SPAN>天，每天发布<SPAN 
+  class="li1">40</SPAN>个任务，接手<SPAN class="li1">0</SPAN>个任务，任务完成后，平台奖励您<SPAN 
+  class="li1">40</SPAN>个麦点 </LI></UL>
+<P></P>
+<UL>
+  <LI class="to1"><SPAN class="li0">任务发不停，奖励送不断！</SPAN>共有17位用户完成此任务				<A id="ctl00_ContentPlaceHolder2_reTaskJob_ctl08_btnOrderJob" 
+  class="a" 
+  href="javascript:__doPostBack('reTaskJob|ctl08|btnOrderJob','')"></A></LI>
+  <LI><SPAN id="ctl00_ContentPlaceHolder2_reTaskJob_ctl08_divState" 
+  class="li1">此任务等待着接手...</SPAN></LI>
+  <LI>您需要连续<SPAN class="li1">7</SPAN>天，每天发布<SPAN 
+  class="li1">80</SPAN>个任务，接手<SPAN class="li1">0</SPAN>个任务，任务完成后，平台奖励您<SPAN 
+  class="li1">80</SPAN>个麦点 </LI></UL>
+<DIV class="clear"></DIV></DIV>
+<DIV class="space15"></DIV>
+<DIV class="member-job2">
+<DIV class="space10"></DIV>
+<UL id="userjob2">
+  <LI class="to1"><SPAN class="li0"><A name="#fa">任务接不停，奖励送不断！</A></SPAN><A 
+  class="aa" href="javascript:location.href='/user/ShuaKe/'" jobid="1"></A></LI>
+  <LI><SPAN id="ctl00_ContentPlaceHolder2_reExtendJob_ctl09_divState" class="li1">任务正在进行...</SPAN></LI>
+  <LI>职业刷客在本周接手任务量达到<SPAN class="li1">500</SPAN>个，平台奖励您<SPAN 
+  class="li1">100</SPAN>元人民币</LI></UL>
+<DIV class="clear"></DIV></DIV></DIV>
+</DIV><!-- page content end and footer st --><!--弹出层-->
+<DIV style="display: none;" id="divinfo1">
+<DIV class="tan_lei01">
+<UL id="ulcon1">
+  <LI>正在读取数据，请稍侯...</LI></UL>
+<TABLE style="margin-left: 25px;" id="tlist1" border="0" cellSpacing="0" 
+cellPadding="0" width="100%"></TABLE></DIV></DIV>
+<DIV style="display: none;" id="divinfo2">
+<DIV class="tan_lei02">
+<UL id="ulcon2">
+  <LI>正在读取数据，请稍侯...</LI></UL>
+<TABLE style="margin-left: 25px;" id="tlist2" border="0" cellSpacing="0" 
+cellPadding="0" width="100%"></TABLE></DIV></DIV><!--弹出层结束-->
+<DIV>
+$sys_hash_code2</DIV>
+<DIV style="display: none;">
+<INPUT id="ctl00_ContentPlaceHolder2_btnGetGoldTask" name="ctl00|ContentPlaceHolder2|btnGetGoldTask" type="submit">
+<INPUT id="ctl00_ContentPlaceHolder2_btnGetGoldExtend" name="ctl00|ContentPlaceHolder2|btnGetGoldExtend" type="submit">
+</DIV>
+<SCRIPT type="text/javascript">
+var curTaskJobId = "13822";
+var curExtendJobId = "0";
+var isEndTask = "0";
+var isEndExtend = "0";
+$(document).ready(function(){
+    $("#userjob1 a[id$=_btnDetail]").click(function(){
+	    queryTaskJob(curTaskJobId);
+        return false;
+    });
+    $("#userjob1 a[id$=_btnGetGold]").click(function(){
+        queryTaskJob(curTaskJobId);
+        return false;
+    });
+    $("#userjob2 a[id$=_btnDetail]").click(function(){
+        queryExtendJob(curExtendJobId);
+        return false;
+    });
+	$("#userjob3 a[id$=_btnDetail]").click(function(){
+        queryExtendJob1(curExtendJobId);
+        return false;
+    });
+    $("#userjob2 a[id$=_btnGetGold]").click(function(){
+        queryExtendJob(curExtendJobId);
+        return false;
+    });
+	$("#userjob3 a[id$=_btnGetGold]").click(function(){
+        queryExtendJob1(curExtendJobId);
+        return false;
+    });
+});
+
+function queryTaskJob(jobid){
+    $("#ctl00_ContentPlaceHolder2_hJobId").val(jobid);
+    var html1 = $("#divinfo1").html();
+    var dialog=artDialog({content:html1,id:"alarm",fixed:true,lock:true,yesText:"确认并关闭"},function(){
+        if(isEndTask>0){
+            $("#ctl00_ContentPlaceHolder2_btnGetGoldTask").click();
+        }
+    });
+    $.post("/ajax/queryJobProgress.php",{"jobId":curTaskJobId,"jobType":1}, function(re){
+        if(re!=null){
+            var rehtml = "";
+            var relist = "";
+            rehtml += "<li><span>" + re.BeginAt + " 任务接手  " + re.EndAt + " 任务到期</span></li>";
+            rehtml += "<li class=\"li\"><span>" + re.StateMsg + "</span></li>";
+			/*for(i=0;i<re.jobtop.length;i++){
+                rehtml += "<li class=\"li\"><span>"+re.jobtop[i]+"</span></li>";
+            }*/
+            rehtml += "<li><strong>任务详细</strong></li>";
+            
+            for(i=0;i<re.PassList.length;i++){
+                relist += "<tr><td>"+re.PassList[i]+"</td></tr>";
+            }
+            $("#alarmContent ul[id=ulcon1]").html(rehtml);
+            $("#alarmContent table[id=tlist1]").html(relist);
+        }else{
+            $("#alarmContent ul[id=ulcon1]").html("<li>查询的信息不存在</li>");
+        }
+    },'json');
+}
+
+function queryExtendJob(jobid){
+     $("#ctl00_ContentPlaceHolder2_hJobId").val(jobid);
+    var html1 = $("#divinfo1").html();
+    var dialog=artDialog({content:html1,id:"alarm",fixed:true,lock:true,yesText:"确认并关闭"},function(){
+        if(isEndTask>0){
+            $("#ctl00_ContentPlaceHolder2_btnGetGoldTask").click();
+        }
+    });
+     $.post("/ajax/queryJobProgress.php",{"jobType":2}, function(re){
+        if(re!=null){
+            var rehtml = "";
+            var relist = "";
+            rehtml += "<li><span>" + re.BeginAt + " 任务接手  " + re.EndAt + " 任务到期</span></li>";
+            rehtml += "<li><span>" + re.StateMsg + "</span></li>";
+			for(i=0;i<re.jobtop.length;i++){
+                rehtml += "<li><span>"+re.jobtop[i]+"</span></li>";
+            }
+            rehtml += "<li><strong>任务详细</strong></li>";
+            
+            for(i=0;i<re.PassList.length;i++){
+               relist += "<tr><td>"+re.PassList[i]+"</td></tr>";
+            }
+			
+            $("#alarmContent ul[id=ulcon1]").html(rehtml);
+            $("#alarmContent table[id=tlist1]").html(relist);
+        }else{
+            $("#alarmContent ul[id=ulcon1]").html("<li>查询的信息不存在</li>");
+        }
+    },'json');
+}
+function queryExtendJob1(jobid){
+     $("#ctl00_ContentPlaceHolder2_hJobId").val(jobid);
+    var html1 = $("#divinfo1").html();
+    var dialog=artDialog({content:html1,id:"alarm",fixed:true,lock:true,yesText:"确认并关闭"},function(){
+        if(isEndTask>0){
+            $("#ctl00_ContentPlaceHolder2_btnGetGoldTask").click();
+        }
+    });
+     $.post("/ajax/queryJobProgress.php",{"jobType":3}, function(re){
+        if(re!=null){
+            var rehtml = "";
+            var relist = "";
+            rehtml += "<li><span>" + re.BeginAt + " 任务接手  " + re.EndAt + " 任务到期</span></li>";
+            rehtml += "<li><span>" + re.StateMsg + "</span></li>";
+			for(i=0;i<re.jobtop.length;i++){
+                rehtml += "<li><span>"+re.jobtop[i]+"</span></li>";
+            }
+			
+            rehtml += "<li><strong>任务详细</strong></li>";
+            
+            for(i=0;i<re.PassList.length;i++){
+                relist += "<tr><td>"+re.PassList[i]+"</td></tr>";
+            }
+			
+            $("#alarmContent ul[id=ulcon1]").html(rehtml);
+            $("#alarmContent table[id=tlist1]").html(relist);
+        }else{
+            $("#alarmContent ul[id=ulcon1]").html("<li>查询的信息不存在</li>");
+        }
+    },'json');
+}
+</SCRIPT>
+</FORM>
+<DIV class="cle"></DIV>
+{sub ../footer}
+</BODY></HTML>

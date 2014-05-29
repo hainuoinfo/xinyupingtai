@@ -1,0 +1,60 @@
+{teval
+	
+	$cssList     = array(css::getUrl('task', 'task'));
+	echo string::getStaticCode(array('cssList'=>$cssList));
+}
+{sub ../header}
+<div class="main">
+  {if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+  <div class="h_10"></div>
+  <div class="info">  
+    <div class="info_l">
+      <div>
+        {sub tao_info}
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="170">站内信<a href="{rewrite}/member/message/" class="link_o_b" target="_blank">$memberFields[msg]</a>封未读站内信数</td>
+          </tr>
+        </table>
+      </div>
+      <p>收藏互动区任务总条数：<span class="f_b_org">$allCount</span>条，未接手任务数<span class="f_b_org">{echo $allCount - $complateCollect}</span>条，已成功收藏了<span class="f_b_org">$collectAll</span>次</p>
+    </div>
+    <div class="info_r">
+		{sub ../quick}
+    </div>
+  </div>
+  <div class="h_10"></div>
+  {sub collect_tab}
+  <div class="lst_info">
+		<table class="lst_tip" width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td align="right">&nbsp;</td>
+				<td align="right" width="50"><img src="{$weburl2}images/btn/task_reflesh.gif" onclick="goPage(0);" class="cursor" /></td>
+				<td width="80">&nbsp;</td>
+			</tr>
+		</table>
+  </div>
+  <div id="taskList"></div>
+  <div class="h_20"></div>
+</div>
+<script type="text/javascript">
+function goPage(n) {
+	if (n==void(0) || n==0) n = 1;
+    var qs = 'page=' + n + '&now=' + (new Date()).getTime();
+    $('#taskList').html('<div class=\'submiting\'>任务加载中.....</div>');
+    var url = '{$weburl2}ajax/getCollect.php?type=$taskId&' + qs;    
+    $.ajax({
+		type : 'GET',
+		url  : url,
+		success : function(html){
+			$('#taskList').html(html);
+		},
+		error:function(){
+			$('#taskList').html('<p>&nbsp;</p><p>尊敬的会员，您遇到了一个未知的错误，请稍后重新点击。　　<a href="'+weburl2+'">返回主页</a></p>');
+		}
+	});
+}
+goPage(0);
+</script>
+{sub ../footer}

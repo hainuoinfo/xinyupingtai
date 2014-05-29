@@ -1,0 +1,73 @@
+{eval
+$title = '请登陆';
+}
+{sub header}
+    <table border="0" cellspacing="0" cellpadding="5">
+      <tr>
+        <td width="100" align="right">用 户 名：</td>
+        <td><input name="username" type="text" id="username" value="$username" class="text_normal" /></td>
+      </tr>
+      <tr>
+        <td align="right">登录密码：</td>
+        <td><input name="password" type="password" class="text_normal" id="password" /> 
+          <a href="{rewrite}/member/forgotpwd/" target="_blank" class="link_b_1">忘记密码？</a></td>
+      </tr>
+      <tr>
+        <td align="right">验 证 码：</td>
+        <td><input name="vcode" type="text" id="vcode" style="width:95px;" maxlength="4" />
+          <img id="imgCode" src="{$weburl2}images/vcode2.php" style="cursor:pointer" onclick="$('#imgCode').attr({src:'{$weburl2}images/vcode2.php?'+Math.random()});" alt="点击刷新校验码" align="absmiddle" /></td>
+      </tr>
+      <tr>
+        <td align="right">安全问题：</td>
+        <td><select name="questionid" id="questionid" class="text_normal" onchange="setQuestion()">
+				<option value='0' selected='selected' >无安全问题</option>
+				{loop $questions $k $v}
+				<option value='$k'>$v</option>
+				{/loop}
+			</select>
+		</td>
+      </tr>
+      <tr id="tr_an" style="display:none">
+        <td align="right" class="">回答：</td>
+        <td><input name="answer" type="text" class="text_normal" id="answer" /></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><input name="login_cookietime" type="checkbox" id="login_cookietime" value="{teval echo 365 * 86400;}" />
+          记住我的用户名</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><input name="btnSubmit" type="image" id="btnSubmit" src="{$weburl2}images/btn/btn_logon.gif" align="absmiddle"   />
+            &nbsp;
+          <a href="{rewrite}/member/reg/" target="_blank" class="link_b_1">快速注册</a></td>
+      </tr>
+    </table>
+<script type="text/javascript">
+$(function(){
+	$('#username').focus();
+});
+var setQuestion=function(){
+	var questionid = parseInt($('#questionid').val());
+	if (questionid > 0 ) {
+		$('#tr_an').show();
+	} else {
+		$('#tr_an').hide();
+	}
+}
+function checkForm() {
+    var checks = [
+		["isEmpty", "username", "用户名"],
+		["isEmpty", "password", "登录密码"],
+		["isEmpty", "vcode", "验证码"] ];
+	var result = doCheck(checks);
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+function changeTitle() {
+	parent.getObj("dialog_title").innerHTML = "请登录";
+}
+changeTitle();
+</script>
+{sub footer}

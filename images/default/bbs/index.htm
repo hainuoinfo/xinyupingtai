@@ -1,0 +1,163 @@
+{teval
+	$title       = '论坛 - {webName} - 中国最好的免费刷信誉,互刷信誉平台';
+	$keywords    = '刷信誉,刷信用,互刷信誉平台,刷收藏,刷流量,{webName2}';
+	$description = '刷信誉安全吗？{webName}不仅给淘宝卖家提供安全刷信誉的经验、教材和指导，还提供一个安全可靠的专业互刷信誉平台，同时还有淘宝刷收藏、刷流量等增值服务';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('bbs', 'bbs'));
+	echo string::getStaticCode(array('title'=>$title,'keywords'=>$keywords,'description'=>$description,'cssList'=>$cssList));
+}
+{subtemplate ../header}
+<div class="h_10"></div>
+<div class="good">
+	<div class="good_new">
+		<div class="good_bar">
+			<p>最新主题</p>
+			<span><a href="{rewrite}/bbs/?operation=list&type=new" class="link_b_1">更多>></a></span>
+		</div>
+		{eval $list=bbs_thread::getThreadList2('','timestamp desc',1,7);}
+		<div class="good_box">
+			<ul>
+				{loop $list $thread}
+				<li><a href="{rewrite}/bbs/t$thread[id]/" class="link_b_1" target="_blank" title="$thread[title]">{if $thread[title_style]}<span style="$thread[title_style]">{cutstr $thread[title],25}</span>{else}{cutstr $thread[title],25}{/if}</a></li>
+				{/loop}
+			</ul>
+		</div>
+	</div>
+	{eval
+		$forumSimple = bbs_forums::getForumSimple('gonggao', 'ename');
+		$list=bbs_thread::getThreadList2("fid='$forumSimple[id]'",'timestamp desc',1,7);
+	}
+	<div class="good_ann">
+		<div class="good_bar">
+			<p>$forumSimple[name]</p>
+			<span><a href="{rewrite}/bbs/$forumSimple[ename]/" class="link_b_1">更多>></a></span> </div>
+		<div class="good_box">
+			<ul>
+				{loop $list $thread}
+				<li><a href="{rewrite}/bbs/t$thread[id]/" class="link_b_1" target="_blank" title="$thread[title]">{if $thread[title_style]}<span style="$thread[title_style]">{cutstr $thread[title],25}</span>{else}{cutstr $thread[title],25}{/if}</a></li>
+				{/loop}
+			</ul>
+		</div>
+	</div>
+	{eval
+		$list=bbs_thread::getThreadList2("digest<>0",'timestamp desc',1,7);
+	}
+	<div class="good_exc">
+		<div class="good_bar">
+			<p>精华主题</p>
+			<span><a href="{rewrite}/bbs/?operation=list&type=digest" class="link_b_1">更多>></a></span> </div>
+		<div class="good_box">
+			<ul>
+				{loop $list $thread}
+				<li><a href="{rewrite}/bbs/t$thread[id]/" class="link_b_1" target="_blank" title="$thread[title]">{if $thread[title_style]}<span style="$thread[title_style]">{cutstr $thread[title],25}</span>{else}{cutstr $thread[title],25}{/if}</a></li>
+				{/loop}
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="h_10"></div>
+<div class="bbs">
+	<div class="bbsdforums">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<thead>
+				<tr>
+					<td class="forumimg">&nbsp;</td>
+					<td align="center">论坛栏目</td>
+					<td class="forumnums">主题 / 文章</td>
+					<td class="forumlast">最新发表</td>
+				</tr>
+			</thead>
+			{loop $forums $forum}
+			<tbody>
+				<tr>
+					<td class="forumimg"><a href="$forum[url]" target="_blank"><img src="{$weburl2}images/bbs/ico/5.gif" /></a></td>
+					<td class="forumname"><h2><a href="{rewrite}/bbs/{if $forum[ename]}$forum[ename]/{else}$forum[id].html{/if}" class="link_b_1">$forum[name]</a></h2>
+						<label class="f_orange">(今日:$forum[today_threads]/$forum[today_posts])</label>
+						<p>$forum[des]</p>
+						<div>版主：
+						{if $forum[moderator]}
+							{loop $forum[moderator] $k $v}
+								{if $k>0},{/if}
+						<a href='{rewrite}/member/info/?username={url $v[username]}' class='link_b_1' target='_blank'>$v[username]</a> 
+						{if $v[vip]}
+						<img src="$v[level][icon]" title="积分：$v[credits]" />
+						{/if}
+						{if $v[vip2]}
+						<span class='card' title='{echo card::$names2[$v[vip2]]}'></span>
+						{/if}
+						{if $v[isEnsure]}<span class='ensure' title='商保'></span>{/if}
+							{/loop}
+						{else}
+						暂无
+						{/if}
+						</div></td>
+					<td class="forumnums"><span class="f_orange">$forum[threads]</span> / $forum[posts]</td>
+					<td class="forumlast">
+						{if $forum[last_tid]}
+						<p><a href="{rewrite}/bbs/t$forum[last_tid]/" class="link_b_1" title="$forum[last_thread_title]">{cutstr $forum[last_thread_title],20}</a></p>
+						<cite>楼主：<a href="{rewrite}/member/info/?username={url $forum[last_thread_username]}">$forum[last_thread_username]</a> - <span>{echo date('m-d H:i', $forum[last_thread_timestamp]);}</span></cite> <em>回复：<a href="{rewrite}/member/info/?username={url $forum[last_post_username]}">$forum[last_post_username]</a> - <span>{echo date('m-d H:i', $forum[last_post_timestamp]);}</span></em>
+						{else}
+						暂无
+						{/if}
+					</td>
+				</tr>
+			</tbody>
+			{/loop}
+		</table>
+	</div>
+</div>
+<div class="h_10"></div>
+<div class="good">
+	{eval
+		$forumSimple = bbs_forums::getForumSimple('novice', 'ename');
+		$list=bbs_thread::getThreadList2("fid='$forumSimple[id]'",'timestamp desc',1,7);
+	}
+	<div class="good_new">
+		<div class="good_bar">
+			<p>$forumSimple[name]</p>
+			<span><a href="{rewrite}/bbs/$forumSimple[ename]/" class="link_b_1">更多>></a></span> </div>
+		<div class="good_box">
+			<ul>
+				{loop $list $thread}
+				<li><a href="{rewrite}/bbs/t$thread[id]/" class="link_b_1" target="_blank" title="$thread[title]">{if $thread[title_style]}<span style="$thread[title_style]">{cutstr $thread[title],25}</span>{else}{cutstr $thread[title],25}{/if}</a></li>
+				{/loop}
+			</ul>
+		</div>
+	</div>
+	{eval
+		$forumSimple = bbs_forums::getForumSimple('question', 'ename');
+		$list=bbs_thread::getThreadList2("fid='$forumSimple[id]'",'timestamp desc',1,7);
+	}
+	<div class="good_ann">
+		<div class="good_bar">
+			<p>$forumSimple[name]</p>
+			<span><a href="{rewrite}/bbs/$forumSimple[ename]/" class="link_b_1">更多>></a></span> </div>
+		<div class="good_box">
+			<ul>
+				{loop $list $thread}
+				<li><a href="{rewrite}/bbs/t$thread[id]/" class="link_b_1" target="_blank" title="$thread[title]">{if $thread[title_style]}<span style="$thread[title_style]">{cutstr $thread[title],25}</span>{else}{cutstr $thread[title],25}{/if}</a></li>
+				{/loop}
+			</ul>
+		</div>
+	</div>
+	{eval
+		$forumSimple = bbs_forums::getForumSimple('skill', 'ename');
+		$list=bbs_thread::getThreadList2("fid='$forumSimple[id]'",'timestamp desc',1,7);
+	}
+	<div class="good_exc">
+		<div class="good_bar">
+			<p>$forumSimple[name]</p>
+			<span><a href="{rewrite}/bbs/$forumSimple[ename]/" class="link_b_1">更多>></a></span> </div>
+		<div class="good_box">
+			<ul>
+				{loop $list $thread}
+				<li><a href="{rewrite}/bbs/t$thread[id]/" class="link_b_1" target="_blank" title="$thread[title]">{if $thread[title_style]}<span style="$thread[title_style]">{cutstr $thread[title],25}</span>{else}{cutstr $thread[title],25}{/if}</a></li>
+				{/loop}
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="h_20"></div>
+{subtemplate ../footer}

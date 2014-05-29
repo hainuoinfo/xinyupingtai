@@ -1,0 +1,29 @@
+@import url(../bbs/layout_wjh.css);
+
+.main_dl {padding:10px; text-align:left;}
+.bar_dl {line-height:30px; background:url(ico_1.gif) 20px center no-repeat; margin-top:10px; margin-bottom:10px; padding-left:40px; border-bottom:1px solid #A2C4E9; color:#FF6600; font-size:14px; font-weight:bold;}
+
+.linkbtn a{height:23px; color:#fff; background:#355582; padding:4px 15px; border-left:1px solid #fff; border-top:1px solid #fff; border-right:1px solid #6a6a6a; border-bottom:1px solid #6a6a6a;}
+.linkbtn a:hover {background:#C71E3A; text-decoration:none;}
+
+.tbl {}
+.tbl td {line-height:20px;}
+.tbl img {vertical-align:middle;}
+
+.tbl_t {}
+.tbl_t td {vertical-align:top; vertical-align:text-top; line-height:26px;}
+.tbl_t span {text-decoration:underline;}
+
+.tip_img {background:url(icon_now.gif) left center no-repeat; padding:3px 10px; cursor:pointer;}
+
+.tip_less {font-size:14px; font-weight:bold; text-align:center; margin-top:150px; line-height:30px; padding:0px 40px;}
+.tip_lot {font-size:14px; font-weight:bold; text-align:center; margin:50px auto; line-height:30px; padding:0px 40px;}
+
+.tip_gun {border:1px dashed #A1C5E9; padding:5px 10px 5px 60px; line-height:18px; background:url(task_ico_1.gif) 5px top no-repeat;}
+
+.tb{padding-left:10px;line-height:24px; height:25px; border-bottom:1px solid #A1C5E9; zoom:1;}
+.tb li{float:left;margin:0 7px -1px 0;}
+*html .tb .a{position:relative;}
+.tb a{display:block;padding:0 10px;border:1px solid #A1C5E9;background:#F0F9FE;}
+.tb .a a{border-bottom-color:#FFF;background:#FFF;font-weight:700;}
+

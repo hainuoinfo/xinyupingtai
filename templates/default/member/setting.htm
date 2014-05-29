@@ -1,0 +1,140 @@
+{teval
+	$title       = '网站提醒设置 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{sub ../header}
+<SCRIPT>
+$(function(){
+	$(".menu-item .menu-hd").hover(function(){
+		$(this).next('#menu-0').show();
+		$(this).children('b').css({borderColor:'#666666 white white',transform:'rotate(180deg',transformOrigin:'50% 30% 0px'});
+		$(this).parents(".menu-item").css({background:'rgb(255, 255, 255)',border:'1px solid rgb(191, 191, 191)'})
+	});
+	$(".menu-item .menu").mouseleave(function(){
+		$(this).children('#menu-0').hide();
+		$(this).children('.menu-hd').children('b').css({borderColor:'#666666 #EFF6FE #EFF6FE',transform:'none',transformOrigin:'none'});
+		$(this).parent(".menu-item").css({background:'none',border:'1px solid #EFF6FE'})
+	}); 
+})
+</SCRIPT>
+<SCRIPT type="text/javascript" src="message_files/service.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="message_files/Common.js"></SCRIPT>
+
+<DIV class="cle"></DIV>
+<DIV id="content">
+{sub menu}
+<DIV class="right">
+<DIV class="bq_menu2">
+	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+	{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+<A href="{rewrite}/member/message/?type=inUser">私人收件箱(<SPAN class="chengse2">0</SPAN>)</A>
+<A href="{rewrite}/member/message/?type=inSys">官方收件箱(<SPAN class="chengse2">0</SPAN>)</A>
+<A href="{rewrite}/member/message/?type=out">发件箱(<SPAN class="chengse2">0</SPAN>)</A>
+<A class="hongse" onClick="sendMsg()" href="javascript:;">+发新信息</A>
+<A class="nov" href="{rewrite}/member/message/?type=setting">站内提醒</A></DIV>
+<DIV class="h15"></DIV>
+<DIV class="mh_tishi">您希望获得哪些消息提醒？通过哪种方式获得？请在相应的选框内打勾。<BR>
+<INPUT disabled="disabled" name="checkbox" value="checkbox" CHECKED="checked" type="checkbox">          
+表示该项消息接收方式是必需的，不能取消；<BR><INPUT disabled="disabled" name="checkbox2" value="checkbox" 
+type="checkbox">表示该项消息暂时不支持这种接收方式。 部分消息可以通过手机短信接收。<BR>站内手机短信提醒： <SPAN 
+class="chengse2">普通用户每条七分钱；尊享VIP每条只要六分钱。
+{if $member[status]>0}{else}未通过短信认证账号激活  点击这里<a href="{rewrite}/$action/active/" 
+onclick="dialog(460,460,'手机短信激活帐户','{rewrite}/dialog/active/');return false;" class="link_o">点击这里绑定您的手机</a> {/if}
+</SPAN><BR></DIV>
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+  <TBODY>
+  <TR>
+    <TD class="txjl_bg1" height="37" width="10"></TD>
+    <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" 
+    width="63%" align="left">&nbsp; 信息内容</TD>
+    <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" 
+    width="20%" align="center">站内信</TD>
+    <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" 
+    width="15%" align="center">手机短信</TD>
+    <TD class="txjl_bg3" height="37" width="10"></TD></TR>
+   
+ <TR>
+    <TD colSpan="5">
+      <TABLE id="table" border="0" cellSpacing="0" cellPadding="0" width="100%">
+		  {loop $configArgs $v} 
+		  <TBODY>
+   <TR>
+    <TD bgColor="#eff6fd" height="35">&nbsp;</TD>
+    <TD bgColor="#eff6fd" vAlign="middle" colSpan="3" align="left">
+	<SPAN class="znx_sj"></SPAN>$v[name]</TD>
+    <TD bgColor="#eff6fd">&nbsp;</TD></TR>
+	  
+        {loop $v[sub] $k2 $v2}
+	   <TR>
+          <TD height="35">&nbsp;</TD>
+          <TD vAlign="middle" width="63%" align="left">&nbsp; {if is_array($v2)}$v2[title]{else}$v2{/if}</TD>
+		  <td>{if is_array($v2)}$v2[title]{else}$v2{/if}</td>
+          <td vAlign="middle" width="20%" align="center"><input name="{$k2}_pm" type="checkbox" value="1"{if $memberConfig[$k2.'_pm']} checked="checked"{/if}{if is_array($v2) && $v2[disabled]} disabled="disabled"{/if} /></td>
+          <td vAlign="middle" width="15%" align="center"><input name="{$k2}_sms" type="checkbox" value="1"{if $memberConfig[$k2.'_sms']} checked="checked"{/if} /></td>
+          <TD>&nbsp;</TD>
+		  </TR>
+		   {/loop}
+		  </TBODY>
+		 {/loop}
+		  </TABLE></TD>
+   </TR>
+    
+  <TR>
+  <TR>
+    <TD height="35">&nbsp;</TD>
+    <TD height="70" vAlign="middle" colSpan="3" align="left">
+	<INPUT id="btnSave2" class="znx_btn" name="btnSave" value="提交查询内容" type="submit">
+	<A class="znx_btn1" onClick="return IsDefault();" href="$baseUrl?setDefault=1" onclick="return IsDefault();""></A></TD>
+    <TD>&nbsp;</TD></TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<P>&nbsp;</P></DIV></DIV>
+<DIV class="cle"></DIV><!-- page content end and footer st -->
+<SCRIPT type="text/javascript">
+$(function() {
+	$("#table tr:odd").addClass("fbcolor");
+});
+</SCRIPT>
+
+<SCRIPT type="text/javascript">
+var viewMsg=function(id){
+	dialog(460,460,'查看站内短信','/dialog/viewmsg/?id='+id);
+}
+var sendMsg=function(){
+	dialog(460,460,'发送站内短信','/dialog/sendmsg/');
+}
+function sltAll(state) {
+  var boxs = document.getElementsByTagName("input");
+	for (var i=0; i<boxs.length; i++) {
+		if (boxs[i].name.indexOf("msg_")==0) {
+			boxs[i].checked = state;
+		}
+	}
+}
+
+function doMsg(act, obj) {
+	var str = "";
+  var boxs = document.getElementsByTagName("input");
+  for (var i=0; i<boxs.length; i++) {
+		if (boxs[i].name.indexOf("msg_")==0 && boxs[i].checked) {
+			str += boxs[i].value + ",";
+		}
+	}
+	if (str == "") {
+	  alert("您还没有勾选任何信息");
+		return false;
+	} else {
+		obj.href = "{rewrite}/member/message/?type=setting&ids=" + str + "&act=" + act;
+		return true;
+	}
+}
+</SCRIPT>
+
+<DIV class="cle"></DIV>
+</DIV>
+{sub ../footer}

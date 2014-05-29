@@ -1,0 +1,8 @@
+body{padding:10px}
+.header{height:50px;margin-bottom:10px;}
+.header .left,.header .right{}
+.content .left,.content .right{float:left}
+.content .left{width:200px;margin-right:10px;}
+.header,.content .left{
+	border: 5px solid #333333;padding:5px
+}

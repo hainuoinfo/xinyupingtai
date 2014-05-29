@@ -1,0 +1,150 @@
+{subtemplate header}
+<script language="javascript">
+var textareasize=function(obj, op) {
+	if(!op) {
+		if(obj.scrollHeight > 70) {
+			obj.style.height = (obj.scrollHeight < 300 ? obj.scrollHeight : 300) + 'px';
+			if(obj.style.position == 'absolute') {
+				obj.parentNode.style.height = obj.style.height;
+			}
+		}
+	} else {
+		if(obj.style.position == 'absolute') {
+			obj.style.position = '';
+			obj.style.width = '';
+			obj.parentNode.style.height = '';
+		} else {
+			obj.parentNode.style.height = obj.parentNode.offsetHeight + 'px';
+			obj.style.width = $.browser.version > 6 || !$.browser.msie ? '90%' : '600px';
+			obj.style.position = 'absolute';
+		}
+	}
+}
+var textareasize=function(obj, op) {
+	if(!op) {
+		if(obj.scrollHeight > 70) {
+			obj.style.height = (obj.scrollHeight < 300 ? obj.scrollHeight : 300) + 'px';
+			if(obj.style.position == 'absolute') {
+				obj.parentNode.style.height = obj.style.height;
+			}
+		}
+	} else {
+		if(obj.style.position == 'absolute') {
+			obj.style.position = '';
+			obj.style.width = '';
+			obj.parentNode.style.height = '';
+		} else {
+			obj.parentNode.style.height = obj.parentNode.offsetHeight + 'px';
+			obj.style.width = $.browser.version > 6 || !$.browser.msie ? '90%' : '600px';
+			obj.style.position = 'absolute';
+		}
+	}
+}
+$(function(){
+	/*$('input').each(function(){
+		if('radio|checkbox|'.indexOf($(this).attr('type')+'|')>=0){
+			if($(this).parent().parent().attr('tagName')=='LI'){
+				$(this).click(function(){
+					$(this).parent().parent().find('li.checked').removeClass('checked');
+					$(this).parent().addClass('checked');
+				});
+			}
+		}
+	});*/
+	$('.hasdropmenu').each(function(){
+		$('#'+$(this).attr('id')+'child').css({left:$(this).offset().left,top:$(this).offset().bottom,position:'absolute','z-index':1000})
+		$(this).hover(function(){
+			var id=$(this).attr('id')+'child';
+			$('#'+id).show();
+		},function(){
+			var id=$(this).attr('id')+'child';
+			$('#'+id).hide();
+		});
+	});
+});
+</script>
+<script language="javascript">
+$(function(){
+	var i={eval echo count($cache_sys_tpl_marker);};
+	$('#btn_add').click(function(){
+		i++;
+		var html='<tr class="hover">'+$('#tb_tpl_b_m').html()+'</tr>';
+		html=html.replace(/o\[0\]/g,'o['+i+']');
+		$('#tb_tpl_b').append(html);
+	});
+});
+</script>
+<div class="container" id="cpcontainer">
+	<form method="post" enctype="application/x-www-form-urlencoded">
+	$sys_hash_code
+		<table class="tb tb2 fixpadding" id="tb_tpl">
+			<tr>
+				<th colspan="5" class="partition">模板解析器</th>
+			</tr>
+			<tr>
+				<td colspan="5" class="tipsblock"><ul id="tipslis">
+						<li>注：该操作仅适合熟手，请谨慎操作。</li>
+						<li>修改模板解析标记，标记的开始和结束用{}表示，标记里面的数字代表该数字位置的数据，解析代码中的对应数字被替换成该数字对应的数据。</li>
+						<li>立即输出代表在解析模板的时候就生成静态数据。</li>
+					</ul></td>
+			</tr>
+			<tr class="header">
+				<th>模板标记</th>
+				<th>解析代码</th>
+				<th>立即输出</th>
+				<th>附加参数</th>
+				<th>备注</th>
+				<th>编辑</th>
+			</tr>
+			<tbody id="tb_tpl_b">
+				<tr class="hover" style="display:none" id="tb_tpl_b_m">
+					<td valign="top"><textarea cols="20" rows="2" name="m[]"></textarea></td>
+					<td><textarea  rows="2" cols="40" name="d[]"></textarea></td>
+					<td class="vtop rowform">
+						<ul>
+							<li>
+								<label><input name="o[0]" class="radio" type="radio" value="1" />
+								&nbsp;是</label>
+							</li>
+							<li class="checked">
+								<label><input name="o[0]" class="radio" type="radio" value="0" checked />
+								&nbsp;否</label>
+							</li>
+						</ul></td>
+					<td><textarea rows="2" cols="20" name="a[]"></textarea></td>
+					<td><input type="text" name="b[]" />
+					</td>
+					<td>[<a href="javascript:" onclick="$(this).parent().parent().remove()">删除</a>]</td>
+				</tr>
+				{loop $cache_sys_tpl_marker $k $v}
+				<tr class="hover">
+					<td valign="top"><textarea cols="20" rows="2" name="m[]">$v[m]</textarea></td>
+					<td><textarea  rows="2" cols="40" name="d[]">$v[d]</textarea></td>
+					<td class="vtop rowform">
+						<ul>
+							<li>
+								<label><input name="o[{++ $k}]" class="radio" type="radio" value="1"{if $v[o]} checked{/if} />
+								&nbsp;是</label>
+							</li>
+							<li class="checked">
+								<label><input name="o[{++ $k}]" class="radio" type="radio" value="0"{if !$v[o]} checked{/if} />
+								&nbsp;否</label>
+							</li>
+						</ul></td>
+					<td><textarea rows="2" cols="20" name="a[]">$v[a]</textarea></td>
+					<td><input type="text" name="b[]" value="$v[b]" />
+					</td>
+					<td>[<a href="javascript:" onclick="$(this).parent().parent().remove()">删除</a>]</td>
+				</tr>
+				{/loop}
+			</tbody>
+			<tr>
+				<td colspan="5"><div class="fixsel">
+						<input type="submit" class="btn" id="submit_tasksubmit" name="tasksubmit" title="按 Enter 键可随时提交您的修改" value="提交" />
+						<input type="button" class="btn" value="添加" id="btn_add" />
+					</div></td>
+			</tr>
+		</table>
+	</form>
+</div>
+{subtemplate footer}

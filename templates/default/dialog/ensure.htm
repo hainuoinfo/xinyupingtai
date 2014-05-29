@@ -1,0 +1,67 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{teval
+echo css::get_css('dialog', 'dialog');
+}
+{js_select jquery,common}
+<title>
+	我要写申诉
+</title></head>
+<body>
+<div class="main_dl"> 
+	{eval if($_showmessage)$indexMessage = $_showmessage;}
+	{if $indexShowMessage}<div class='msg_panel'><div>$indexShowMessage</div></div>{/if}
+	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+  <div class="tip_gun">任务编号：<span class="f_blue">$task[id]</span>，接手人：<span class="f_blue">$task[busername]</span>，接手买号：<span class="f_blue">$task[bnickname]</span><br />
+    商品名称：$task[title]<br /></div>
+  <div class="bar_dl" style="margin:3px;">商保任务索赔</div>
+  <form name="myForm" method="post" id="myForm" onsubmit="return checkForm();">
+<div>$sys_hash_code2</div>
+
+    <table border="0" cellspacing="0" cellpadding="2">
+      <tr>
+        <td align="right" class="f_14">索赔类别：</td>
+        <td valign="top"><select name="title" id="title">
+                <option value=""></option>
+            	{if $isBuyer}
+                <option value="恶意维权">恶意维权</option>
+				{else}
+				<option value="投诉接手方：接手方平台确认收货，但是淘宝上却未确认">恶意差评威胁</option>
+                <option value="接手人没有按任务合理要求评价">接手人没有按任务合理要求评价</option>
+                <option value="被淘宝客赚取佣金">被淘宝客赚取佣金</option>
+				<option value="买家使用信用卡购买恶意退款">买家使用信用卡购买恶意退款</option>
+                <option value="辱骂会员">辱骂会员</option>
+                <option value="辱骂客服">辱骂客服</option>
+				<option value="其它类型">其它类型</option>
+            	{/if}
+        </select> 　　　（请选择申诉的类型）</td>
+      </tr>
+      <tr>
+        <td align="right" valign="top" class="f_14">投诉详细描述：</td>
+        <td valign="top">{xheditor article,remark,600,290}</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><input name="btnSubmit" type="submit" class="btn_2" id="btnSubmit" value="确定" />
+          <input name="btnCancel" type="button" class="btn_2" onclick="parent.doCut();" id="btnCancel" value="取消" /></td>
+      </tr>
+    </table>
+  </form>
+</div>
+<script type="text/javascript">
+function checkForm() {
+    //var str = editor.getSource();
+    var checks = [
+        ["isEmpty", "title", "投诉类别"],
+		["isEmpty", "remark", "投诉详细描述"] ];
+	var result = doCheck(checks);
+	if (result) 
+	    result = confirm("您确定要发起商保索赔吗？");
+	if (result)avoidReSubmit();
+	return result;
+}
+</script>
+</body>
+</html>

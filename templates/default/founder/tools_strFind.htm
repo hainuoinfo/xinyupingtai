@@ -1,0 +1,63 @@
+{sub h}
+{if $method=='find'}
+<form method="post" enctype="application/x-www-form-urlencoded">
+$sys_hash_code
+	<table class="tab_view">
+		<tr>
+			<th>字符串</th>
+			<td><input type="text" name="keys" value="$keys" class="txt" style="width:240px" /></td>
+		</tr>
+		<tbody>
+		{if $files}
+			<tr>
+				<th>文件列表</th>
+				<td>
+					<ul>
+					{loop $files $file}
+						<li>$file</li>
+					{/loop}
+					</ul>
+				</td>
+			</tr>
+		{/if}
+		</tbody>
+		<tr>
+			<th></th>
+			<td><input type="submit" value="查找" class="btn" /></td>
+		</tr>
+	</table>
+</form>
+{elseif $method=='replace'}
+<form method="post" enctype="application/x-www-form-urlencoded">
+$sys_hash_code
+	<table class="tab_view">
+		<tr>
+			<th>字符串</th>
+			<td><input type="text" name="keys" value="$keys" class="txt" style="width:240px" /></td>
+		</tr>
+		<tr>
+			<th>替换为</th>
+			<td><input type="text" name="replace" value="$replace" class="txt" style="width:240px" /></td>
+		</tr>
+		<tbody>
+		{if $files}
+			<tr>
+				<th>替换结果</th>
+				<td>
+					<ul>
+					{loop $files $file}
+						<li>$file</li>
+					{/loop}
+					</ul>
+				</td>
+			</tr>
+		{/if}
+		</tbody>
+		<tr>
+			<th></th>
+			<td><input type="submit" value="替换" class="btn" /></td>
+		</tr>
+	</table>
+</form>
+{/if}
+{sub f}

@@ -1,0 +1,28 @@
+{subtemplate h}
+{if $method=='index'}
+{adminList
+	删？    |id  |del
+	排序    |sort|sort
+	版块名称|name
+	版主    |moderator|code,{loop $v[moderator] $k2 $v2}{if $k2>0}{echo "&nbsp\x3b\x7c&nbsp\x3b"}{/if}$v2[username](<a href="$base_url&method=delModerator&fid=$v[id]&mid=$v2[uid]">删除</a>){/loop}
+	最近修改|timestamp|datetime
+	        |id  |link2,添加版主,method=addModerator&fid=$v[id];link,edit=编辑
+}
+{elseif $method=='add' || $method=='edit'}
+
+{adminForm
+	添加新模板|tip
+	版块名称,null=请输入版块名称|name|text|240|64
+	英文名,null=请输入版块英文名或拼音|ename|text|240|32
+	版块简介,null=请输入版块简介|des|xheditor,simple,300,80
+	浏览权限|view_group_id|select,$groups
+	发帖权限|post_group_id|select,$groups
+	浏览所需积分,number=请输入浏览所需积分，0为不限制|view_credits|text|64|32
+	发帖所需积分,number=请输入发帖所需积分，0为不限制|post_credits|text|64|32
+}
+{elseif $method=='addModerator'}
+{adminForm
+	用户名,null=请输入你要添加的版主用户名|username|text|240|16
+}
+{/if}
+{subtemplate f}

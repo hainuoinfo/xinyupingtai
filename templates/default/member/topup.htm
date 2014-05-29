@@ -1,0 +1,587 @@
+﻿{teval
+	$title       = '存款充值 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	$jsList      = array(javascript::getUrl('task', 'index'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList,'jsList'=>$jsList));
+}
+{sub ../header}
+<SCRIPT type="text/javascript" src="/css/jquer.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="/css/common.func.js"></SCRIPT>
+<SCRIPT type="text/javascript">
+  $(function(){
+	  $(".left_tit").hover(function(){
+		  $(this).css("background-image","url(images/login/bg_2.png)");
+		  $(".left_alert").css("display","block");
+		  },function(){
+			  $(this).css("background-image","url(images/login/bg_1.png)");
+		  $(".left_alert").css("display","none")
+			  })
+	  });
+	  
+
+</SCRIPT>
+<SCRIPT type="text/javascript">
+	$(function(){
+		$(".a_father_1").each(function(i){
+			$(this).hover(function(){
+				$(this).eq(i).css("background-image","url(images/login/icon_17.png)");
+				$(".a_son_1").css("display","block");
+				},function(){
+					$(this).eq(i).css("background-image","url(images/login/icon_23.png)");
+				$(".a_son_1").css("display","none");
+				})
+			})
+		});
+</SCRIPT>
+<SCRIPT type="text/javascript">
+		$(function(){
+		$(".a_father_2").each(function(e){
+			$(this).hover(function(){
+				$(this).eq(e).css("background-image","url(images/login/icon_18.png)");
+				$(".a_son_2").css("display","block");
+				},function(){
+					$(this).eq(e).css("background-image","url(images/login/icon_24.png)");
+				$(".a_son_2").css("display","none");
+				})
+			})
+		});
+</SCRIPT>
+<SCRIPT>
+$(function(){
+	$(".menu-item .menu-hd").hover(function(){
+		$(this).next('#menu-0').show();
+		$(this).children('b').css({borderColor:'#666666 white white',transform:'rotate(180deg',transformOrigin:'50% 30% 0px'});
+		$(this).parents(".menu-item").css({background:'rgb(255, 255, 255)',border:'1px solid rgb(191, 191, 191)'})
+	});
+	$(".menu-item .menu").mouseleave(function(){
+		$(this).children('#menu-0').hide();
+		$(this).children('.menu-hd').children('b').css({borderColor:'#666666 #EFF6FE #EFF6FE',transform:'none',transformOrigin:'none'});
+		$(this).parent(".menu-item").css({background:'none',border:'1px solid #EFF6FE'})
+	}); 
+})
+</SCRIPT>
+<!--菜单开始-->
+<DIV class="cle"></DIV>
+<DIV id="content">
+  <!-- 左边栏 -->
+  {sub menu}
+  <DIV class="right">
+  	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+		{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+  {eval
+	$payStatus0 = $payStatus1 = $onlinePayType = array();
+	foreach(db::get_list('payfor_interface', 'name,ename,type', "status='1'", 'sort,type', 0) as $v) {
+		$payStatus0[$v[ename]] = true;
+		$payStatus1[$v[type]]  = true;
+		if ($v[type] == '1') {
+			$onlinePayType[$v[ename]] = $v[name];
+		}
+	}
+	$payforTabs = array();
+	if (isset($payStatus0[card])) $payforTabs[card] = 1;
+	if (isset($payStatus1[1])) $payforTabs[chinabank] = 2;
+	if (isset($payStatus0[alipay])) $payforTabs[alipay] = 3;
+	if (isset($payStatus0[tenpay])) $payforTabs[tenpay] = 4;
+	$__keys = array_keys($payforTabs);
+	($tab && in_array($tab, $__keys)) || $tab = $__keys[0];
+}
+    <DIV class="Top_box">
+      <DIV class="Top_h">
+        <H2></H2>
+      </DIV>
+      <UL class="Top_list">
+        <A id="nov0" class="nov0" href="javascript:;">
+		<SPAN class="Top_list_yeepay"></SPAN>
+        <P class="Top_list_txt0 Top_13"></P>
+        </A>
+		<A style="margin-left: 10px;" id="nov1" href="javascript:;">
+		<SPAN class="Top_list_alipay"></SPAN>
+        <P class="Top_list_txt1 Top_22"></P>
+        </A>
+		<A id="nov2" href="javascript:;">
+		<SPAN class="Top_list_taobao"></SPAN>
+        <P class="Top_list_txt2 Top_22"></P>
+        </A>
+		<A style="margin-left: 10px;" href="javascript:;">
+		<SPAN class="Top_list_other"></SPAN>
+        <P class="Top_list_txt3 Top_22"></P>
+        </A>
+      </UL>
+	  {eval
+	$payStatus0 = $payStatus1 = $onlinePayType = array();
+	foreach(db::get_list('payfor_interface', 'name,ename,type', "status='1'", 'sort,type', 0) as $v) {
+		$payStatus0[$v[ename]] = true;
+		$payStatus1[$v[type]]  = true;
+		if ($v[type] == '1') {
+			$onlinePayType[$v[ename]] = $v[name];
+		}
+	}
+	$payforTabs = array();
+	if (isset($payStatus0[card])) $payforTabs[card] = 1;
+	if (isset($payStatus1[1])) $payforTabs[chinabank] = 2;
+	if (isset($payStatus0[alipay])) $payforTabs[alipay] = 3;
+	if (isset($payStatus0[tenpay])) $payforTabs[tenpay] = 4;
+	$__keys = array_keys($payforTabs);
+	($tab && in_array($tab, $__keys)) || $tab = $__keys[0];
+}
+      <UL class="Top_cun_box">
+        <LI>
+          <TABLE border="0" cellSpacing="0" cellPadding="0" width="100%" align="center">
+            <TBODY>
+            <TR>
+              <TD><TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+                  <TBODY>
+                    <TR>
+                      <TD bgColor="#c3e5b3" width="30">&nbsp;</TD>
+                      <TD style="padding: 10px 0px;" class="mh_xxian" bgColor="#c3e5b3" height="35" vAlign="middle" align="left"><P style='background: url("images/zhifubao/chu.png") no-repeat 1px 1px; width: 680px; height: 25px; font-size: 14px; border-bottom-color: rgb(102, 102, 102); border-bottom-width: 1px; border-bottom-style: dotted;'></P></TD>
+                      <TD bgColor="#c3e5b3" vAlign="middle" align="left">&nbsp;</TD>
+                    </TR>
+                  <FORM id="q_f_2" onSubmit="return checkForm1();" method="post" target="_blank">
+                     $sys_hash_code2
+                    <INPUT id="username" name="username" value="$member[username]" type="hidden">
+                    <INPUT name="type" value="yeepay" type="hidden">
+                    <TR>
+                      <TD bgColor="#c3e5b3" width="30">&nbsp;</TD>
+                      <TD bgColor="#c3e5b3" height="35" vAlign="middle" align="left">
+					  <TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+                          <TBODY>
+                            <TR>
+                              <TD height="35" width="25%"><LABEL style="padding: 4px; height: 25px; float: left;">
+                                <INPUT class="inlineblock" name="radiobutton" value="radiobutton" type="radio">
+                                <SPAN  class="gs_yh inlineblock"></SPAN></LABEL></TD>
+                              <TD width="25%"><LABEL style="padding: 4px; height: 25px; float: left;">
+                                <INPUT class="inlineblock" name="radiobutton" value="radiobutton" type="radio">
+                                <SPAN class="js_yh inlineblock"></SPAN></LABEL></TD>
+                              <TD width="25%"><LABEL style="padding: 4px; height: 25px; float: left;">
+                                <INPUT class="inlineblock" name="radiobutton" value="radiobutton" type="radio">
+                                <SPAN class="ry_yh inlineblock"></SPAN></LABEL></TD>
+                              <TD width="25%"><LABEL style="padding: 4px; height: 25px; float: left;">
+                                <INPUT class="inlineblock" name="radiobutton" value="radiobutton" type="radio">
+                                <SPAN class="zg_yh inlineblock"></SPAN></LABEL></TD>
+                            </TR>
+                            <TR>
+                              <TD height="35"><LABEL style="padding: 4px; height: 25px; float: left;">
+                                <INPUT class="inlineblock" name="radiobutton" value="radiobutton" type="radio">
+                                <SPAN class="zs_yh inlineblock"></SPAN></LABEL></TD>
+                              <TD>
+							  <LABEL style="padding: 4px; height: 25px; float: left;">
+                                <INPUT class="inlineblock" name="radiobutton" value="radiobutton" type="radio">
+                                <SPAN class="ms_yh inlineblock"></SPAN></LABEL></TD>
+                              <TD><LABEL style="padding: 4px; height: 25px; float: left;">
+                                <INPUT class="inlineblock" name="radiobutton" value="radiobutton" type="radio">
+                                <SPAN class="jt_yh inlineblock"></SPAN></LABEL></TD>
+                              <TD><LABEL style="padding: 4px; height: 25px; float: left;">
+                                <INPUT class="inlineblock" name="radiobutton" value="radiobutton" type="radio">
+                                <SPAN class="zx_yh inlineblock"></SPAN></LABEL></TD>
+                            </TR>
+                            <TR>
+                              <TD height="35">
+							  <LABEL style="padding: 4px; height: 25px; float: left;">
+                                <INPUT class="inlineblock" name="radiobutton" value="radiobutton" type="radio">
+                                <SPAN class="gh_yh inlineblock"></SPAN></LABEL></TD>
+                              <TD><LABEL style="padding: 4px; height: 25px; float: left;">
+                                <INPUT class="inlineblock" name="radiobutton" value="radiobutton" type="radio">
+                                <SPAN class="hz_yh inlineblock"></SPAN></LABEL></TD>
+                              <TD><LABEL style="padding: 4px; height: 25px; float: left;">
+                                <INPUT class="inlineblock" name="radiobutton" value="radiobutton" type="radio">
+                                <SPAN class="np_yh inlineblock"></SPAN></LABEL></TD>
+                              <TD><LABEL style="padding: 4px; height: 25px; float: left;">
+                                <INPUT class="inlineblock" name="radiobutton" value="radiobutton" type="radio">
+                                <SPAN class="yz_yh inlineblock"></SPAN></LABEL></TD>
+                            </TR>
+                            <TR>
+                              <TD height="35"><LABEL style="padding: 4px; height: 25px; float: left;">
+                                <INPUT class="inlineblock" name="radiobutton" value="radiobutton" type="radio">
+                                <SPAN class="szfz_yh inlineblock"></SPAN></LABEL></TD>
+                              <TD><LABEL style="padding: 4px; height: 25px; float: left;">
+                                <INPUT class="inlineblock" name="radiobutton" value="radiobutton" type="radio">
+                                <SPAN class="sh_yh inlineblock"></SPAN></LABEL></TD>
+                              <TD><LABEL style="padding: 4px; height: 25px; float: left;">
+                                <INPUT class="inlineblock" name="radiobutton" value="radiobutton" type="radio">
+                                <SPAN class="shpd_yh inlineblock"></SPAN></LABEL></TD>
+                              <TD>
+							  <LABEL style="padding: 4px; height: 25px; float: left;">
+                                <INPUT class="inlineblock" name="radiobutton" value="radiobutton" type="radio">
+                                <SPAN class="xy_yh inlineblock"></SPAN></LABEL></TD>
+                            </TR>
+                          </TBODY>
+                        </TABLE></TD>
+                      <TD bgColor="#c3e5b3" vAlign="middle" align="left">&nbsp;</TD>
+                    </TR>
+                    <TR>
+                      <TD bgColor="#c3e5b3" width="30">&nbsp;</TD>
+                      <TD bgColor="#c3e5b3" vAlign="middle" align="left">
+					  <TABLE border="0" cellSpacing="0" cellPadding="0" width="100%" height="40">
+                          <TBODY>
+                            <TR>
+                              <TD class="Top_tit" height="80" width="150" align="right">充值金额：</TD>
+                              <TD><DIV class="Top_submit">
+                                  <INPUT id="money" class="Top_nums" name="money" maxLength="4" value="100" type="text">
+                                  <INPUT class="Top_sub"  name="btnGotobank"  value="提交查询内容" type="submit">
+                                </DIV></TD>
+                            </TR>
+                          </TBODY>
+                        </TABLE></TD>
+                      <TD bgColor="#c3e5b3" vAlign="middle"  align="left">&nbsp;</TD>
+                    </TR>
+                  </FORM>
+                  </TBODY>
+                </TABLE></TD>
+            </TR>
+            </TBODY>
+          </TABLE>
+          <P style="background: rgb(195, 229, 179); padding-left: 75px;">普通用户网银充值手续费为1%，VIP会员充值手续费为0.6%。</P>
+          <P class="Msg_tip_box">易宝网银充值 
+            -无需人工充值，自动到账，支持国内20余家银行，充值立即发布任务吧。<BR>
+            充值如有问题请联系充值帮助客服：<IMG border="0" src="/images/button_old_170.gif"> <A style="color: rgb(31, 52, 21);" href="http://wpa.qq.com/msgrd?v=3&amp;uin={kefu_qq}&amp;site=qq&amp;menu=yes" target="_blank">{kefu_qq}</A></P>
+        </LI>
+        <LI style="display: none;">
+          <TABLE style="border-width: medium 1px; border-style: none solid; border-color: currentColor rgb(149, 186, 222);" 
+  border="0" cellSpacing="0" cellPadding="0" width="100%" align="center">
+            <TBODY>
+              <TR>
+                <TD><TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+                    <TBODY>
+                      <TR vAlign="top">
+                        <TD bgColor="#80b6f5">&nbsp;</TD>
+                          
+                          <TD bgColor="#80b6f5" align="left">
+						  <TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+                              <TBODY>
+                                <TR>
+                        <TD style="line-height: 28px; padding-top: 15px; padding-left: 15px;" colSpan="3">
+						<FONT style="width: 725px; height: 35px; color: white; letter-spacing: 2px; font-size: 16px; font-weight: bold; border-bottom-color: white; border-bottom-width: 1px; border-bottom-style: dotted; float: left;">提别提醒：支付宝转账请在付款说明中填写平台登录名，否则无法自动充值。</FONT><BR>
+                        <SPAN style='padding: 9px 90px; color: rgb(0, 0, 0); font-family: "Microsoft YaHei","微软雅黑"; font-size: 13px; float: left;'>支付宝转账地址：
+						<A style="color: black; font-weight: bold; cursor: pointer;"  href="https://me.alipay.com/wulanyang" 
+                    target="_blank">https://me.alipay.com/wulanyang</A> 姓名：<FONT style="font-weight: bold;" color="black">吴兰洋</FONT> <BR>
+                                    转账时请在付款说明填写： <SPAN style="color: black; font-weight: bold;">$member[username]</SPAN><BR>
+                                    转账完毕后，在此页面验证支付宝交易号，一分钟内自动到账。</SPAN></TD>
+                                </TR>
+								<form method="post" onsubmit="return checkForm3();">
+			                     $sys_hash_code2
+			                     <input type="hidden" name="type" value="alipay" />
+			                  <div>
+                                <TR>
+                                  <TD width="399" align="left">
+								  <DIV class="Top_tit2" align="left" height="80" width="150">提交支付宝的交易号：</DIV>
+                                    <DIV class="Top_submit2">
+                                      <INPUT id="alipayId" class="Top_nums2" name="alipayId" type="text">
+									 
+                                      <INPUT class="Top_sub2" value="提交查询内容" type="submit">
+                                    </DIV></TD>
+									
+                                </TR>
+								<tr>
+								<TD width="399" align="left">
+								  <DIV class="Top_tit5" align="right" height="80" width="150">充值金额：&nbsp;&nbsp;&nbsp;</DIV>
+                                    <DIV class="Top_submit2">
+                                      <INPUT id="alipayMoney" class="Top_nums5" name="alipayMoney" type="text">
+                                    </DIV>
+									</TD>
+								</tr>
+								</div>
+								</FORM>
+                              </TBODY>
+                            </TABLE></TD>
+                        
+                      </TR>
+                      <TR>
+                        <TD bgColor="#80b6f5" vAlign="middle" align="left">&nbsp;</TD>
+                        <TD bgColor="#80b6f5" height="50" vAlign="middle" align="right"><A 
+              style="color: white; padding-right: 75px; font-size: 14px; font-weight: bold;" 
+              href="{rewrite}/bbs/t1850/" 
+              target="_blank">如何获取支付宝交易号？</A></TD>
+                      </TR>
+                      <TR>
+                        <TD bgColor="#80b6f5" colSpan="3" align="center"><IMG src="/images/dsgf.gif"></TD>
+                      </TR>
+                    </TBODY>
+                  </TABLE></TD>
+              </TR>
+            </TBODY>
+          </TABLE>
+          <P class="Msg_tip_box2">支付宝转账充值 - 
+            自动充值，备注正确账户名验证交易号一分钟内自动到账。<BR>
+            充值如有问题请联系充值帮助客服：<IMG border="0" src="/images/button_old_170.gif"> <A style="color: rgb(31, 52, 21);" href="http://wpa.qq.com/msgrd?v=3&amp;uin=188239038&amp;site=qq&amp;menu=yes" 
+  target="_blank">188239038</A></P>
+          <!--<p><font style="color:#fd7601; letter-spacing:2px;font-size:15px; font-weight:bold;">提别提醒：支付宝升级，30分钟后开启。</font></p>-->
+        </LI>
+        <LI style="display: none;">
+          <TABLE style="border-width: medium 1px; border-style: none solid; border-color: currentColor rgb(255, 178, 126);" 
+  border="0" cellSpacing="0" cellPadding="0" width="100%" bgColor="#ffac90">
+            <TBODY>
+              <TR>
+                <TD width="20">&nbsp;</TD>
+                <TD style="line-height: 28px; padding-top: 15px;" vAlign="middle" align="left">
+				<form name="myForm" method="post" id="myForm" onsubmit="return checkForm();">
+									<div>$sys_hash_code2</div>
+									<input type="hidden" name="type" value="card" />
+                    <TABLE border="0" cellSpacing="0" cellPadding="0" width="100%" height="40">
+                      <TBODY>
+                        <TR>
+                          <TD style='color: rgb(0, 0, 0); font-family: "Microsoft YaHei","微软雅黑";' 
+            colSpan="5">点击复制充值卡商品地址： <STRONG style="color: rgb(253, 79, 19); font-size: 16px; font-weight: bold;" 
+              id="copy-100" onClick="alert();">100元</STRONG> | <STRONG 
+              style="color: rgb(253, 79, 19); font-size: 16px; font-weight: bold;" 
+              id="copy-1000">1000元</STRONG> | <STRONG style="color: rgb(253, 79, 19); font-size: 16px; font-weight: bold;" 
+              id="copy-2000">2000元</STRONG> | <STRONG style="color: rgb(253, 79, 19); font-size: 16px; font-weight: bold;" 
+              id="copy-3000">3000元</STRONG> | <STRONG style="color: rgb(253, 79, 19); font-size: 16px; font-weight: bold;" 
+              id="copy-5000">5000元</STRONG><BR>
+                            第一步：在官方淘宝店铺拍下对应充值金额卡。<BR>
+                            第二步：      
+                            拍下付款后，联系店主或是本站客服或获取卡号好密码。 
+                            <BR>
+                            第三步：   
+                            登录本站，提交验证卡号和密码，存款立即到账。 </TD>
+                        </TR>
+                        <TR>
+                          <TD class="Top_tit3" width="90" align="center">充值卡号：</TD>
+                          <TD width="370">
+						  <DIV class="Top_submit3">
+                              <INPUT id="cardId" class="Top_nums6" name="cardId" maxLength="28" type="text">
+                            </DIV></TD>
+                        </TR>
+						 <TD class="Top_tit3" width="90" align="center"></TD>
+						<TR>
+                          
+                          <TD class="Top_tit6" width="90" align="center">充值密码：</TD>
+                          <TD width="370">
+						  <DIV class="Top_submit3">
+                              <INPUT id="cardPwd" class="Top_nums7" name="cardPwd" maxLength="32" type="text">
+                              <INPUT class="Top_sub6"  name="btnRemitnow" id="btnRemitnow" value="提交查询内容" type="submit">
+                            </DIV></TD>
+                          
+                        </TR>
+                      </TBODY>
+                    </TABLE>
+                  </FORM></TD>
+                <TD bgColor="#ffac90" vAlign="middle" align="left">&nbsp;</TD>
+              </TR>
+            </TBODY>
+          </TABLE>
+          <P class="Msg_tip_box3">淘宝购卡 - 卡密充值区。<BR>
+            充值如有问题请联系充值帮助客服：<IMG 
+  border="0" src="/images/button_old_170.gif"> <A style="color: rgb(31, 52, 21);" 
+  href="http://wpa.qq.com/msgrd?v=3&amp;uin=1371752337&amp;site=qq&amp;menu=yes" 
+  target="_blank">1371752337</A></P>
+          <!--<p><font style="color:#fd7601; letter-spacing:2px;font-size:15px; font-weight:bold;">提别提醒：暂停淘宝购卡充值，请使用其他方式进行充值。</font></p>-->
+        </LI>
+        <LI style="display: none;">
+          <TABLE style="border-width: medium 1px; border-style: none solid; border-color: currentColor rgb(57, 130, 203);" 
+  border="0" cellSpacing="0" cellPadding="0" width="100%" align="center">
+            <TBODY>
+              <TR>
+                <TD><TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+                    <TBODY>
+                      <TR>
+                        <TD bgColor="#80b6f5" width="20">&nbsp;</TD>
+                        <TD bgColor="#80b6f5" vAlign="middle" align="left"><TABLE border="0" cellSpacing="0" cellPadding="0" width="100%" 
+              height="40">
+                            <TBODY>
+                              <TR>
+                                <TD style='color: rgb(0, 0, 0); line-height: 28px; padding-top: 15px; font-family: "Microsoft YaHei","微软雅黑";' 
+                  colSpan="3"><SPAN style="color: white; font-size: 16px; font-weight: bold;">财付通目前只接受直接转账，转账时请预留您的大麦户帐号名。</SPAN><BR>
+                                  转账需要在上班时间联系充值客服：<IMG border="0" 
+                    src="/images/button_old_170.gif"> <A style="color: rgb(0, 0, 0);" 
+                    href="http://wpa.qq.com/msgrd?v=3&amp;uin=188239038&amp;site=qq&amp;menu=yes" 
+                    target="_blank">188239038</A><BR>
+                                  大麦户平台唯一财付通收款帐号：<STRONG 
+                    style="color: black; font-size: 16px; font-weight: bold;">273334116</STRONG> 姓名：<STRONG><SPAN style="color: black; font-size: 16px; font-weight: bold;">刘杨</SPAN><BR>
+                                  <BR>
+                                  </STRONG></TD>
+                              </TR>
+                              <TR height="100">
+                                <TD width="100" align="center"><SPAN 
+                  class="zh_tbcai"></SPAN></TD>
+                                <TD class="Top_tit4" width="100" align="center">财付通帐号:</TD>
+                                <TD><DIV class="Top_submit4">
+                                    <INPUT class="Top_nums4" name="textfield22" 
+                    readOnly="" value="273334116" type="text">
+                                    <A class="Top_sub4" 
+                    onclick="return copyComment('273334116','复制成功')" href="javascript:;"></A></DIV></TD>
+                              </TR>
+                            </TBODY>
+                          </TABLE></TD>
+                        <TD bgColor="#80b6f5" vAlign="middle" 
+          align="left">&nbsp;</TD>
+                      </TR>
+                    </TBODY>
+                  </TABLE></TD>
+              </TR>
+            </TBODY>
+          </TABLE>
+          <P class="Msg_tip_box4">财付通转账 - 
+            转账请在客服上班时间进行操作，提供转账截图加平台账号。<BR>
+            充值如有问题请联系充值帮助客服：<IMG border="0" src="/images/button_old_170.gif"> <A style="color: rgb(31, 52, 21);" href="http://wpa.qq.com/msgrd?v=3&amp;uin=188239038&amp;site=qq&amp;menu=yes" 
+  target="_blank">188239038</A></P>
+        </LI>
+      </UL>
+    </DIV>
+  </DIV>
+</DIV>
+<DIV class="cle"></DIV>
+<SCRIPT type="text/javascript">
+$('.Top_list > a').click(function(){  
+            var tn = $('.Top_list > a').index(this);
+            $('.Top_list > a').removeClass();
+            $(this).addClass('nov'+tn);
+			$('.Top_list p:eq(' + $('.Top_list > a').index(this) + ')').removeClass();
+			$('.Top_list b:neq(' + $('.Top_list > a').index(this) + ')').hide();
+			$('.Top_list b:eq(' + $('.Top_list > a').index(this) + ')').show();
+			$('.Top_list p:eq(' + $('.Top_list > a').index(this) + ')').addClass('Top_13 Top_list_txt'+tn);
+			$('.Top_cun_box li').css({display:'none'});
+            $('.Top_cun_box li:eq(' + $('.Top_list > a').index(this) + ')').css({display:'block'});  
+			if (tn==2 && !_copay){
+				copy_all();
+				_copay = true;
+			}
+      });
+function copyComment(text,tip) {
+    if (tip == void(0)) tip = '复制成功';
+    if(is_ie) {
+		clipboardData.setData('Text', text);
+		alert(tip);
+	} else if(prompt('请你使用 Ctrl+C 复制到剪贴板', text)) {
+		alert(tip);
+	}
+	return false;
+}
+function checkForm1() {
+   var checks = [
+		["isNumber", "money", "充值金额"]];
+	var result = doCheck(checks);
+	if (result)
+		return true;
+	return result;
+}
+function checkForm2() {
+   var checks = [
+		["isNumber", "Tid", "订单编号"]];
+	var result = doCheck(checks);
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+function checkForm5(){
+        	var ordersn = document.getElementById('pay_order_sn').value;
+        	var ordersn = ordersn.replace(' ','');
+        	if(isNum(ordersn) && (ordersn.length==8 || ordersn.length==16 || ordersn.length==28)){
+        		return avoidReSubmit();
+        	}
+        	document.getElementById('pay_order_sn').value = ordersn;
+        	alert('交易号必须是8位或16位或28位纯数字形式，注意不能含有空格，如果粘贴过来的不行请手工输入进去，还不行换个浏览器试下，如有疑问请联系客服帮忙解决');
+        	return false;
+        }
+
+</SCRIPT>
+<script type="text/javascript">
+var tab_0 = {if $tab=='card'}1{elseif $tab=='chinabank'}2{elseif $tab=='alipay'}3{elseif $tab=='tenpay'}4{/if};
+function setTab(i) {
+	getObj("tab_" + tab_0).className = "";
+	getObj("tab_" + i).className = "tab_on";
+	$("#box_" + tab_0).hide();
+	$("#box_" + i).show();
+	tab_0 = i;
+}
+
+function checkForm() {
+   var checks = [
+		["isNumber", "cardId", "充值卡号"],
+		["isEmpty", "cardPwd", "充值密码"] ];
+	var result = doCheck(checks);
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+
+function checkForm2(obj) {
+    var gold = parseInt(getValue("money"));
+    var tax = gold * {echo $memberFields[vip]?5:7} / 1000;
+    var all = gold + tax;
+    var str = "您选了充值" + gold + "元，另需支付手续费" + tax + "元\n\n本次充值共需支付" + all + "元\n\n";
+    
+    return confirm(str + "您确定要通过网上银行在线支付么？");
+}
+
+function checkForm3() {
+   var checks = [
+		["isEmpty", "alipayId", "支付宝交易号"],
+		["isEmpty", "alipayMoney", "充值金额"],
+		["isMoney", "alipayMoney", "充值金额"] ];
+	var result = doCheck(checks);
+	if (result) {
+	    if (!isMatch(/^[0-9]{16}$/, getValue("alipay")))
+	        return doAlert("支付宝交易号为16位数字，请在“支付宝”的“消费记录”中查看", $("#alipayId"));
+	}
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+
+function checkForm4() {
+   var checks = [
+		["isEmpty", "tenpay", "财付通帐号"] ];
+	var result = doCheck(checks);
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+
+function checkForm5() {
+    var result = true;
+    if (!isMatch(/^[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)*(\.)*@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/, getValue("alipay")) && !isMatch(/^[0-9]{11}$/, getValue("alipay")))
+        return doAlert("支付宝账号必须为Email地址或是11位手机号码", $("#alipay"));
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+
+function copyAccount(text) {
+    if(is_ie) {
+		clipboardData.setData('Text', text);
+		alert("复制成功");
+	} else if(prompt('请你使用 Ctrl+C 复制到剪贴板', text)) {
+		alert("复制成功");
+	}
+	return false;
+}
+function countTax(obj) {
+    //var num = parseInt(obj.value);
+    //var tax = parseInt(num * 7);
+    //getObj("yeeNum").innerHTML = num + parseFloat(tax / 1000);
+    //getObj("yeeTax").innerHTML = parseFloat(tax / 1000);
+}
+function showCardTip(url) {
+    var html = '<div style="font-size:14px; font-weight:bold; text-align:left; padding:20px;">购买时正确填写如图：<br /><img src="{$weburl2}images/ico/cardtip.png" alt="卡密购买正确填写图示" />' + 
+     '<div class="f_b_red f_14" style="padding-top:10px;">卡密自动发货已升级，请认真填写【所在区/服】和【游戏账号】，否则不能自动发货充值；<span class="f_blue">填写正确则自动把卡密发送到平台站内信；</span></div> ' + 
+     '<div><div style="padding-top:20px;text-align:center;"><input name="btnCancel" type="button" class="btn_2" onclick="parent.doCut();buyCard(\'' + url + '\');" id="btnCancel" value="我知道了【注：请勿使用掌柜号购买】" /></div>';
+    dialog(550, 550, "如何正确购买卡密", "", html);
+    return false;
+}
+function buyCard(url) {
+	copyComment(url, '复制链接成功');
+    //return openPrdUrl(url);
+}
+</script>
+
+<SCRIPT>
+$("input[name='radiobutton']").click(function(){ 
+	$("input[name='radiobutton']").each(function(){
+		$(this).parent('label').css('border','');
+	})
+	$(this).parent('label').css('border','1px solid #32870B');
+	
+})
+$("#nov0").click(function(){ $("#money").focus(); })
+$("#nov1").click(function(){ $("#pay_order_sn").focus(); })
+$("#nov2").click(function(){ $("#Tid").focus(); })
+
+</SCRIPT>
+<DIV class="cle"></DIV>
+{sub ../footer}
+

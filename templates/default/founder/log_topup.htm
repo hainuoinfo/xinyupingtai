@@ -1,0 +1,81 @@
+{sub h}
+<form method="post">
+$sys_hash_code
+<input type="hidden" name="m" value="search" />
+	<table class="tb tb2 fixpadding">
+		<tr>
+			<td width="60" align="right">用户名</td>
+			<td width="100"><input name="username" id="username" value="$username" maxlength="16" class="txt" style="width:100px" /></td>
+			<td><input type="submit" value="搜索" class="btn" /></td>
+		</tr>
+	</table>
+</form>
+{if $method=='chinabank'}
+	{adminList
+		删？        |id        |del
+		用户名      |username
+		当前余额    |money
+		充值金额    |money1
+		实际支付    |money2
+		手续费百分比|mp        |code,{echo ($v[mp]*100).'%'}
+		奖励积分    |credit
+		时间        |ptimestamp|flag,date
+		状态        |status    |code,{echo $v[status]?'<span style="color:green">已付款</span>':'<span style="color:red">未付款</span>'}
+	}
+{elseif $method=='card'}
+	{adminList
+		删？        |id        |del
+		用户名      |username
+		当前余额    |money
+		充值金额    |money1
+		奖励积分    |credit
+		时间        |ptimestamp|flag,date
+		状态        |status    |code,{echo $v[status]?'<span style="color:green">已付款</span>':'<span style="color:red">未付款</span>'}
+	}
+{elseif $method=='alipay' || $method=='tenpay'}
+	{adminList
+		删？        |id        |del
+		用户名      |username
+		当前余额    |money
+		充值金额    |money1
+		奖励积分    |credit
+		支付宝帐号  |remark1
+		支付宝交易号|remark2
+		时间        |ptimestamp|flag,date
+		状态        |status    |code,{if ($v[status] == 1)}<span style="color:green">已付款</span>{elseif $v[status]==2}无效{else}<span style="color:red">未付款(<a href="javascript:;" onclick="confirmPayfor('$v[id]')">确认付款</a>|<a href="javascript:;" onclick="badPayfor('$v[id]')">无效付款</a>)</span>{/if}
+	}
+<script language="javascript">
+var confirmPayfor=function(id){
+	if (confirm('您确定已经收到款了吗？')) {
+		location.href='$base_url&method=$method&confirm='+id;
+	}
+};
+var badPayfor=function(id){
+	if (confirm('您确定该订单无效吗？')) {
+		location.href='$base_url&method=$method&bad='+id;
+	}
+};
+</script>
+{elseif $method=='setting'}
+{eval
+	//$status=2;
+}
+	{adminForm
+		是否启用网银在线|chinabank_status|radio,1=是,2=否
+		网银在线商户号  |chinabank_id    |text|240|8
+		网银在线密钥    |chinabank_key   |text|240|64
+	}
+{else}
+	{adminList
+		删？        |id        |del
+		用户名      |username
+		当前余额    |money
+		充值金额    |money1
+		实际支付    |money2
+		手续费百分比|mp        |code,{echo ($v[mp]*100).'%'}
+		奖励积分    |credit
+		时间        |ptimestamp|flag,date
+		状态        |status    |code,{echo $v[status]?'<span style="color:green">已付款</span>':'<span style="color:red">未付款</span>'}
+	}
+{/if}
+{sub f}

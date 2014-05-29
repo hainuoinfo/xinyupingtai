@@ -1,0 +1,39 @@
+﻿{if cfg::getBoolean('ad_duilian', 'openLeft') || cfg::getBoolean('ad_duilian', 'openRight')}
+<style type="text/css">
+.ad_float_left,.ad_float_right{float:right;position:fixed;top:200px;z-index:300;}
+* html .ad_float_left,* html .ad_float_right{position:absolute;top:expression(offsetParent.scrollTop+200);}
+.ad_float_left{left:10px;}
+.ad_float_right{right:10px;}
+.ad_close{
+	float:left;
+	font-size:12px;
+	margin-top:10px;
+}
+.ad_close a{text-decoration:none;color:#1D50A1;}
+.ad_close a:hover{text-decoration:underline;color:#F54100;}
+.ad_clear{clear:both};
+</style>
+{/if}
+{if cfg::getBoolean('ad_duilian', 'openLeft')}
+<div class="ad_float_left">
+	<div class="ad_code">{if cfg::get('ad_duilian', 'leftUrl')}<a href="{echo cfg::get('ad_duilian', 'leftUrl')}" target="_blank"><img src="{u}{echo cfg::get('ad_duilian', 'leftPic')}" /></a>{else}<img src="{u}{echo cfg::get('ad_duilian', 'leftPic')}" />{/if}</div>
+	<div class="ad_close"><a href="javascript:;" onclick="$(this).parent().parent().remove()">关闭</a></div>
+	<div class="ad_clear"></div>
+</div>
+{/if}
+{if cfg::getBoolean('ad_duilian', 'openRight')}
+<div class="ad_float_right">
+	<div class="ad_code">{if cfg::get('ad_duilian', 'rightUrl')}<a href="{echo cfg::get('ad_duilian', 'rightUrl')}" target="_blank"><img src="{u}{echo cfg::get('ad_duilian', 'rightPic')}" /></a>{else}<img src="{u}{echo cfg::get('ad_duilian', 'rightPic')}" />{/if}</div>
+	<div class="ad_close"><a href="javascript:;" onclick="$(this).parent().parent().remove()">关闭</a></div>
+	<div class="ad_clear"></div>
+</div>
+{/if}
+<div class="foot">
+	<div class="foot_line"></div>
+	<div class="foot_info"> <a href="{rewrite}/info/aboutus.html">关于我们</a> | <a href="{rewrite}/info/service.html">客户服务</a> | <a href="{rewrite}/info/map.html">网站地图</a> | <a href="{rewrite}/info/sol.html">版权声明</a> | <a href="{rewrite}/info/private.html">隐私保证</a> | <a href="{rewrite}/info/duty.html">免责声明</a> | <a href="{rewrite}/info/cooperate.html">广告合作</a> | <a href="{rewrite}/info/hr.html">招贤纳士</a> | <a href="{rewrite}/simple/">无图版</a><br />
+		Copyright © 专业信誉互刷平台 　　　当前时间：{date $timestamp}<br />
+  $web_icp <br />
+<div style="display:none">$web_statcode</div>
+<script src="http://s9.cnzz.com/stat.php?id=4413119&web_id=4413119&show=pic" language="JavaScript"></script>
+<a href="http://webscan.360.cn/index/checkwebsite/url/pp.t0930.com"><img border="0" src="http://img.webscan.360.cn/status/pai/hash/0dfa1889c8b80141651f3456647b2094"/></a>
+</div></div>

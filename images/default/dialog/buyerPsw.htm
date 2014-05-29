@@ -1,0 +1,73 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1"><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{teval
+echo css::get_css('dialog', 'dialog');
+}
+{js_select jquery,common}
+<title>
+	设置地址
+</title></head>
+<body onload="getObj('password').focus();">
+<div class="main_dl">
+	{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+	<div style="padding:5px; line-height:18px; border:1px dashed #A3C5EA;">
+		1、买号密码当前平台并不要强制要求填写<br />
+		2、若您要接手淘宝刷收藏的任务，则接手的买号必须设置了密码<br />
+		3、淘宝刷收藏的买号要求两颗红心<img src="{$weburl2}images/lvl/b_red_2.gif" height="12" align="absmiddle" />以上，即信誉度要大于<span class="f_b_org">12</span><br />
+		4、您只需设置买号的登录密码，支付密码请不要填写也不要告知他人<br />
+		5、您可以点击当前买号信誉度后面的链接同步淘宝的最新信誉度
+	</div>
+  <div class="bar_dl">设置买号密码</div>
+  <form name="myForm" method="post" id="myForm" onsubmit="return checkForm();">
+<div>$sys_hash_code2</div>
+    
+    <table class="tbl" border="0" cellspacing="0" cellpadding="4">
+      <tr>
+        <td width="110" align="right" class="f_b">买号：</td>
+        <td class="f_b_red f_14">$buyer[nickname]</td>
+      </tr>
+      <tr>
+        <td align="right" class="f_b">买号信誉度：</td>
+        <td><strong id="b_score">$buyer[score]</strong>　　<a href="javascript:;" onclick="getScore();return false;" class="link_b">同步最新的买号信息</a></td>
+      </tr>
+      <tr>
+        <td align="right" class="f_b" valign="top">买号登录密码：</td>
+        <td><input type="text" name="password" id="password" class="text_normal" maxlength="20" />
+					<div>登录密码必须和淘宝上的一致，否则无法刷收藏</div></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center" style="padding-top:20px"><input name="btnSubmit" type="submit" class="btn_2" id="btnSubmit" value="确定" />
+          <input name="btnCancel" type="button" class="btn_2" onclick="parent.doCut();" id="btnCancel" value="取消" /></td>
+      </tr>
+    </table>
+  </form>
+  <div style="padding:10px; text-align:center; color:#F00; line-height:20px;">平台提醒您，平台不会以任何形式索要您的买号支付密码，和平台的帐户登录密码、操作密码，请注意谨防骗子</div>
+</div>
+<script type="text/javascript">
+function checkForm() {
+    var checks = [
+		["isLength", "password", "买号登录密码", 3, 20] ];
+	var result = doCheck(checks);
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+
+function getScore() {
+	$.ajax({
+		type:'POST',
+		url:'{$weburl2}ajax/getScore.php?id=$id',
+		success:function(html){
+			alert(html);
+			if (html.indexOf('：')) {
+				$('#b_score').html(html.split('：')[1]);
+			}
+		}
+	});
+}
+</script>
+</body>
+</html>

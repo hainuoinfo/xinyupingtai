@@ -1,0 +1,344 @@
+{teval
+	$title       = '申请提现 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	$jsList      = array(javascript::getUrl('task', 'index'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList,'jsList'=>$jsList));
+}
+{sub ../header}
+<DIV id="content"> 
+	{sub menu}
+  <DIV id="cash" class="right">
+  {if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+		{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+    <DIV class="tixian_text">
+      <P class="f16">下一个提现处理时间：<SPAN class="lvse">12:00点 </SPAN></P>
+      <P>请在<SPAN class="lanse"><STRONG>0小时59分</STRONG></SPAN>内申请提现，今日您还可以进行
+	  <SPAN class="hongse"><STRONG>$paymentCountMax</STRONG></SPAN>次提现。 $paymentMoneyMax
+      <A class="hongse" href="{rewrite}/member/vip/?type=add" target="_blank">立即申请
+      <SPAN style="font-weight: bold;">VIP</SPAN></A>提高提现次数。</P>
+      <P>提现客服 <IMG border="0" src="/images/button_old_170.gif"> 
+	  <A href="http://wpa.qq.com/msgrd?v=3&amp;uin={$kefu_qq}&amp;site=qq&amp;menu=yes" target="_blank">{$kefu_qq}</A></P>
+    </DIV>
+    <DIV class="bq_menu">
+	<A id="tab_1" {if $m=='bank'} class="nov"{/if} href="$baseUrl?m=bank">银行卡提现</A>
+	<A id="tab_2" {if $m=='alipay'} class="nov"{/if} href="$baseUrl?m=alipay">支付宝提现</A>
+	<A id="tab_3" {if $m=='taobao'} class="nov"{/if} href="$baseUrl?m=taobao">淘宝商品提现</A>
+	<A id="tab_4" {if $m=='paylog'} class="nov"{/if} href="$baseUrl?m=paylog">提现记录</A></DIV>
+	{if $m=='bank'}
+    <DIV id="box_1">
+	{if cfg::getBoolean('payment', 'bankStatus')}
+      <form method="post" onsubmit="return checkbank();">
+		<div>$sys_hash_code2</div>
+        <INPUT name="type" value="bank" type="hidden">
+        <TABLE style="font-size: 14px; margin-top: 20px;" border="0" cellSpacing="0" cellPadding="0" width="95%" align="center">
+          <TBODY>  
+		 
+            <TR>
+              <TD height="30" vAlign="middle" width="20%" align="right">提现用户：</TD>
+              <TD><STRONG id="bankname" class="lanse">$member[username]/$member[truename]</STRONG></TD>
+            </TR>
+            <TR>
+              <TD height="40" vAlign="middle" width="20%" align="right">银行卡号：</TD>
+              <TD>
+			  <INPUT id="bankId" class="txbk1" name="bankId" type="text"></TD>
+            </TR>
+			<TR>
+              <TD height="40" vAlign="middle" width="20%" align="right">银行户名：</TD>
+              <TD>
+			  <INPUT id="truename" class="txbk1" name="truename" type="text"></TD>
+            </TR>
+			<TR>
+              <TD height="40" vAlign="middle" width="20%" align="right">银行开户所在地：</TD>
+              <TD>
+			  <INPUT id="bankAddress" class="txbk1" name="bankAddress" type="text"></TD>
+            </TR>
+			<TR>
+              <TD height="40" vAlign="middle" width="20%" align="right">提现银行：</TD>
+              <TD>
+			  <select class="txbk" name="bankType">
+													{eval $__list = cfg::getList('payment', 'bankType');}
+													{loop $__list $v}
+													<option value="$v[value]"{if $v[checked]} selected="selected"{/if}>$v[key]</option>
+													{/loop}
+												</select>
+            </TR>
+            <TR>
+              <TD height="40" vAlign="middle" width="20%" align="right">提现金额：</TD>
+              <TD>
+			  <INPUT id="money" class="txbk" name="money" type="text">/元&nbsp;&nbsp;&nbsp;
+			  可用余额:<STRONG class="hongse">$memberFields[money]</STRONG>元</TD>
+            </TR>
+			<TR>
+              <TD height="40" vAlign="middle" width="20%" align="right">操作码：</TD>
+              <TD>
+			  <INPUT id="pwd2" class="txbk" name="pwd2" type="password"></TD>
+            </TR>
+            <TR>
+              <TD style="position: relative;" height="30" vAlign="middle" colSpan="2" align="left">
+	          <P style="left: 123px; width: 175px; position: relative;">
+                  <INPUT class="tjsq_btn" value="提交查询内容" type="submit">
+                </P></TD>
+            </TR>
+          </TBODY>
+        </TABLE>
+      </FORM>
+	  {else}
+	<div style="text-align:center" class="f_b_red">银行卡提现已禁用</div>
+		{/if}
+    </DIV>
+	{elseif $m=='alipay'}
+		<div id="box_2">
+			{if cfg::getBoolean('payment', 'alipayStatus')}
+			<form method="post" onsubmit="return checkalipay();">
+			<div>$sys_hash_code2</div>
+			<input name="type" value="alipay" type="hidden">
+	        <table style="margin-top:20px;font-size:14px;" align="center" border="0" cellpadding="0" cellspacing="0" width="95%">
+			  <tbody>
+			  <TR>
+              <TD height="30" vAlign="middle" width="20%" align="right">提现用户：</TD>
+              <TD><STRONG id="realname" class="lanse">$member[username]/$member[truename]</STRONG></TD>
+            </TR>
+            <TR>
+              <TD height="40" vAlign="middle" width="20%" align="right">支付宝账号：</TD>
+              <TD>
+			  <INPUT id="alipay" class="txbk1" name="alipay" type="text"></TD>
+            </TR>
+			<TR>
+              <TD height="40" vAlign="middle" width="20%" align="right">支付宝户名：</TD>
+              <TD>
+			  <INPUT id="nickname" class="txbk1" name="nickname" value="wulanyang" type="text"></TD>
+              <tr>
+                <td align="right" height="40" valign="middle" width="20%">提现金额：</td>
+                <td><input name="money" class="txbk" id="money" type="text">
+                  /元&nbsp;&nbsp;&nbsp; 可用余额:<strong class="hongse">$memberFields[money]</strong>元(手续费:0元)</td>
+              </tr>
+			  <TR>
+              <TD height="40" vAlign="middle" width="20%" align="right">操作码：</TD>
+              <TD>
+			  <INPUT id="pwd2" class="txbk" name="pwd2" type="password"></TD>
+            </TR>
+              <tr>
+                <td colspan="2" style="position:relative;" align="left" height="30" valign="middle"><p style="width:175px; position:relative; left:123px;"><input class="tjsq_btn" type="submit">
+				</p></td>
+              </tr>
+            </tbody></table>
+			</form>
+			{else}
+			<div style="text-align:center" class="f_b_red">支付宝提现已禁用</div>
+			{/if}
+			</div>
+			{elseif $m=='taobao'} 
+			 <div id="box_3">
+			{if cfg::getBoolean('payment', 'taobaoStatus')}
+			<form name="myForm" method="post" id="myForm" onsubmit="return checktao();">
+            <div>$sys_hash_code2</div>
+			<input name="type" value="taobao" type="hidden">
+	        <table style="margin-top:20px;font-size:14px;" align="center" border="0" cellpadding="0" cellspacing="0" width="95%">
+              
+			  <tbody>
+            <TR>
+              <TD height="30" vAlign="middle" width="20%" align="right">提现用户：</TD>
+              <TD><STRONG id="username" name="username" class="lanse">$member[username]/$member[truename]</STRONG></TD>
+            </TR>
+            <TR>
+              <TD height="40" vAlign="middle" width="20%" align="right">掌柜账号：</TD>
+              <TD>
+			  <INPUT id="nickname" class="txbk" name="nickname" type="text"></TD>
+            </TR>
+			<TR>
+              <TD height="40" vAlign="middle" width="20%" align="right">提现淘宝商品地址：</TD>
+              <TD>
+			  <INPUT id="shopurl" class="txbk2" name="shopurl" type="text"></TD>
+                
+              </tr>
+              
+              <tr>
+                <td align="right" height="40" valign="middle" width="20%">提现金额：</td>
+                <td><input name="money" class="txbk" id="money" type="text">
+                  /元&nbsp;&nbsp;&nbsp; 可用余额:<strong class="hongse">$memberFields[money]</strong>元</td>
+              </tr>
+			  <TR>
+              <TD height="40" vAlign="middle" width="20%" align="right">操作码：</TD>
+              <TD>
+			  <INPUT id="pwd2" class="txbk" name="pwd2" type="password"></TD>
+            </TR>
+              <tr>
+                <td colspan="2" style="position:relative;" align="left" height="30" valign="middle">
+				<p style="width:175px; position:relative; left:123px;">
+				<input class="tjsq_btn" type="submit">
+				</p>
+				</td>
+              </tr>
+            </tbody></table>
+			</form>
+			{else}
+			<div style="text-align:center" class="f_b_red">淘宝商品提现已禁用</div>
+			{/if}
+			</div>
+			{elseif $m=='paylog'}
+	      <div id="box_4">
+	        <table align="center" border="0" cellpadding="0" cellspacing="0" width="95%">
+              <tbody><tr>
+                <td height="45"><p class="tx_jl">提现记录&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 已成功提现：<strong class="hongse">{if $allMoney > 0}{$allMoney} {else} 0 {/if}</strong> 元</p> </td>
+              </tr>
+              <tr>
+                <td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody>
+				  <tr>
+                    <td class="txjl_bg1" height="37" width="10"></td>
+                    <td class="txjl_bg2" align="center" height="37" valign="middle" width="20%">流水号</td>
+                    <td class="txjl_bg2" align="center" height="37" valign="middle" width="25%">创建时间</td>
+                    <td class="txjl_bg2" align="center" height="37" valign="middle" width="12%">金额(元)</td>
+                    <td class="txjl_bg2" align="center" height="37" valign="middle" width="25%">资金渠道</td>
+                    <td class="txjl_bg2" align="center" height="37" valign="middle" width="25%">状态</td>
+                    <td class="txjl_bg3" height="37" width="10"></td>
+                  </tr>
+	{loop $payList $v} 
+	<TR>
+    <TD class="x_xian" height="25">&nbsp;</TD>
+    <TD class="xuxian" vAlign="middle" width="10%" align="center">$v[id]</TD>
+    <TD class="xuxian" vAlign="middle" width="33%" align="center">{date $v[timestamp1]}</TD>
+    <TD class="xuxian" vAlign="middle" width="15%" align="center">
+	<STRONG class="lvse">$v[money]</STRONG></TD>
+    <TD class="xuxian" vAlign="middle" width="15%" align="center">{if $v[type]=='taobao'}淘宝商品{elseif $v[type]=='alipay'}支付宝转账{elseif $v[type] == 'bank'}银行卡提现{elseif $v[type] == 'yeepay'}易宝提现{/if}</TD>
+    <TD class="time xuxian" vAlign="middle" width="15%" align="center">$status[$v[status]]</TD>
+    <TD class="x_xian" height="25">&nbsp;</TD>
+   </TR>
+	{/loop}			  
+                </tbody></table></td>
+              </tr>
+              
+            </tbody></table>
+			  <div id="page"></div>
+			  <div class="cle"></div>
+			</div>
+			
+    <P style="height: 25px;"></P>
+    <DIV>
+      <UL>
+        <LI style="font-size: 13px; font-weight: bold;" 
+  class="lanse">每天几次处理我的提现呢,多久到账？</LI>
+        <LI style="padding-bottom: 5px;">我们将在每天12点，19点，22点处理统一处理之前的提现申请，处理后1小时内完成。</LI>
+        <LI style="font-size: 13px; font-weight: bold;" class="lanse">为什么提现说：信息不符？</LI>
+        <LI style="padding-bottom: 5px;">此类情况分为两种，一是提现预留的真实姓名跟卡号不符，第二类是要旗帜鲜明执行的：不支持信用卡提现，提现资金来源必须是接手任务，推广奖励，回收麦点。充值的存款无法直接提现。</LI>
+        <LI style="font-size: 13px; font-weight: bold;" class="lanse">我的存款只有500以下，如何提现？</LI>
+        <LI>亲，由于提现量日益增大，500元以下请通过发布任务，或者财付通提现，500元以上支持网银免手续费提现。</LI>
+      </UL>
+    </DIV>
+    <P style="height: 35px;"></P>
+	{/if}
+  </DIV>
+</DIV>
+</DIV>
+    <DIV class="cle"></DIV>
+    <DIV class="cle"></DIV>
+<script type="text/javascript">
+$(function(){
+	$('#shopurl').blur(function(){
+		var obj=$(this);
+		var shopUrl=obj.val();
+		if (/^http:\/\/(?:[\w-]+\.)+(?:(?:taobao)|(?:tmall))\.com\/item\.htm\?(?:item_)?(?:num_)?id=(\d+).*$/i.test(shopUrl)){
+			var shopId=RegExp.$1
+			$('#nickname').waitImg().getData('{$weburl2}ajax/data.php?action=taobao&operation=nickName&shopId='+shopId,false,function(){
+				$('#nickname').waitImg(false);
+			});
+		}
+	});
+});
+var tab_0 = 1;
+function setTab(i) {
+	getObj("tab_" + tab_0).className = "";
+	getObj("tab_" + i).className = "tab_on";
+	$("#box_" + tab_0).hide();
+	$("#box_" + i).show();
+	tab_0 = i;
+}
+
+function checktao() {
+   var checks = [
+		["isEmpty", "nickname", "掌柜名"],
+		["isEmpty", "shopurl", "提现淘宝商品地址"],
+		["isNumber", "money", "提现金额"], 
+		["isEmpty", "pwd2", "操作码"] ];
+	var result = doCheck(checks);
+	var urlPattern = /^http:\/\/([\w-]+\.)+((taobao)|(tmall))\.com\/item\.htm\?(item_)?(num_)?id=\d+(.)*$/i;
+	if (result && !urlPattern.test(getValue("shopurl"))) {
+		return doAlert("商品网址不正确，商品网址格式应为：\n\nhttp://item.taobao.com/item.htm?id=xxxxx\n\n请在店铺首页打开商品然后再复制商品网址", getObj("shopurl"));		
+	}
+	if (result && getValue("money")<$taobaoMinMoney) {
+	    doAlert("淘宝商品地址提现金额不能低于{$taobaoMinMoney}元", getObj("money"));
+	    return false;
+	}
+	{if cfg::getFloat('payment', 'taobaoSXF') > 0}
+	if (result) {
+	    var gold = parseInt(getValue("money"));
+	    var tax = gold * {echo cfg::getFloat('payment', 'taobaoSXF')};
+	    var all = gold + tax;
+	    result = confirm("本次提现" + gold + "元，手续费" + tax + "元\n\n将扣除存款" + all + "元\n\n您确认要进行提现么？");
+	}
+	{/if}
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+
+function checkalipay() {
+   var checks = [
+		["isEmpty", "alipay", "提现支付宝账号"],
+		["isEmpty", "nickname", "支付宝真实姓名"],
+		["isNumber", "money", "提现金额"], 
+		["isEmpty", "pwd2", "操作码"] ];
+	var result = doCheck(checks);
+	if (result) {
+	    if (!isMatch(/^[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)*@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/, getValue("alipay")) && !isMatch(/^[0-9]{11}$/, getValue("alipay")))
+	        return doAlert("提现支付宝账号必须为Email地址或是11位手机号码", $("#alipay"));
+	    if (getValue("money")<$alipayMinMoney)
+	        return doAlert("支付宝提现金额不能低于{$alipayMinMoney}元", $("#money"));
+	}
+	if (result) {
+	    var gold = parseInt(getValue("money"));
+	    var tax = gold * {echo cfg::getFloat('payment', 'alipaySXF')};
+	    var all = gold + tax;
+	    result = confirm("本次提现" + gold + "元，手续费" + tax + "元\n\n将扣除存款" + all + "元\n\n您确认要进行提现么？");
+	}
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+function checkbank() {
+   var checks = [
+		["isEmpty", "bankId", "银行卡号"],
+		["isEmpty", "truename", "银行户名"],
+		['isEmpty', 'bankAddress', '银行卡开户地'],
+		["isNumber", "money", "提现金额"], 
+		["isEmpty", "pwd2", "操作码"] ];
+	var result = doCheck(checks);
+	if (result) {
+	    if (getValue("money")<$bankMinMoney)
+	        return doAlert("支付宝提现金额不能低于{$bankMinMoney}元", $("#money"));
+	}
+	if (result) {
+	    var gold = parseInt(getValue("money"));
+	    var tax = gold * {echo cfg::getFloat('payment', 'bankSXF')};
+	    var all = gold + tax;
+	    result = confirm("本次提现" + gold + "元，手续费" + tax + "元\n\n将扣除存款" + all + "元\n\n您确认要进行提现么？");
+	}
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+
+function getPswTwo(obj) {
+    if (!confirm("点击【确定】将会重置您的操作码\n\n您确定要重置您的操作码么？"))
+        return false;
+    obj.disabled = true;
+	
+	return false;
+}
+</script>
+{sub ../footer}

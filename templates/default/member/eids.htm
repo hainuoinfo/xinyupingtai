@@ -1,0 +1,125 @@
+﻿{teval
+	$title       = 'VIP会员免费获取真实快递单号 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{ad2 ad_memberHeadTop}
+{sub ../header}
+<div class="main">
+  <div class="h_10"></div>
+  <div class="a">
+    {sub menu}
+  </div>
+  <div class="b"> 
+  	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+	{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+    <div class="tip_gun">只有尊贵的VIP会员才能享受该项服务{if !$isVip}&nbsp;&nbsp;<a href="{r}/member/vip/?type=add" style="color:#0000FF">点此申请VIP</a>{/if}</div>
+    <div class="h_10"></div>
+    <div class="h_10"></div>
+    <div>
+      <div class="box_t">
+        <div class="box_t_l"></div>
+        <div class="box_t_r"></div>
+      </div>
+      <div class="box_main">
+        <div class="h_10"></div>
+        <div id="box_1">
+          <div class="bar_edit" style="margin-top:0;">免费获取真实快递单号［ＶＩＰ会员］&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;普通会员&nbsp;<a href="http://item.taobao.com/item.htm?id=17348387084">点击购买</a></div>
+          <form name="myForm" method="post">
+<div>$sys_hash_code2</div>
+
+            <div class="edit">
+              <table class="tbl_edit" width="100%" border="0" cellspacing="0" cellpadding="6">
+                <tr>
+                  <td align="right">&nbsp;</td>
+                  <td><input name="btnSave" type="submit" class="btn_1" id="btnSave" value="免费获取" /></td>
+                </tr>
+              </table>
+            </div>
+          </form>
+          <div class="bar_edit">我的快递单号列表</span>
+		  
+          </div>
+          <div id="buyList">
+            <table class="tbl_lst" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <thead>
+              <tr>
+                <td>快递单号</td>
+                <td>申请日期</td>
+              </tr>
+            </thead>
+            <tbody>
+              {loop $list $v}
+			  <tr>
+				<td>$v[eid]</td>
+				<td>{date $v[useTime]}</td>
+			  </tr>
+			  {/loop}
+            </tbody>
+          </table>
+          <div class="pages">$multipage</div>
+          </div>
+          <div class="h_10"></div>
+        </div>
+        <div class="h_30"></div>
+      </div>
+      <div>
+        <div class="box_b_l"></div>
+        <div class="box_b_r"></div>
+      </div>
+    </div>
+    <div class="h_10"></div>
+  </div>
+</div>
+<script type="text/javascript">
+function checkForm() {
+    var checks = [
+		["isEmpty", "account", "新注册淘宝账号"]];
+    var result = doCheck(checks);
+    if (result) {
+       if (getObj("isAlipay").checked)
+        result = confirm("您确定要购买手机号码注册验证码服务么？\n\n此服务1.5元一条");
+       else
+        result = confirm("您确定要购买手机号码注册验证码服务么？\n\n此服务1元一条");
+    }
+    if (result)
+		return avoidReSubmit();
+    return result;
+}
+
+function goPage(n) {
+    getObj('buyList').innerHTML = '<div class=\'submiting\'>数据加载中.....</div>';
+    var xml = makeXmlReq();
+    var url = '../ajax/GetAccMobile.aspx?page=' + n + '&now=' + (new Date()).getTime(); ;
+    xml.onreadystatechange = function() {
+        if (xml.readyState == 4) {
+            if (xml.status == 200 || xml.status == 304) {
+                getObj('buyList').innerHTML = xml.responseText;
+            }
+        }
+    }
+    xml.open('get', url, true);
+    xml.setRequestHeader('If-Modified-Since', '0');
+    xml.send('');
+}
+function autoTask() {
+    var chkAuto = getObj('isAuto');
+    var auto = function() {
+        if (chkAuto && chkAuto.checked) {
+            goPage(1);
+        }
+    };
+    var t = parseInt(getValue('isAuto'));
+    if (t < 5)
+        t = 20;
+    var tt_1 = window.setInterval(auto, t * 1000);
+}
+autoTask();
+
+</script>
+{sub ../footer}

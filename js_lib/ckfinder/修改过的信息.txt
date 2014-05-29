@@ -1,0 +1,4 @@
+./ckfinder.js祛除了版权信息
+./config.php调用了/class/index.php
+./core/connector/php/connector.php调用了/class/index.php
+./core/connector/php/php5/CommandHandler/FileUpload.php增加了image::watermark($sFilePath);//set watermark   ... this is 100fu add

@@ -1,0 +1,176 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{teval
+echo css::get_css('dialog', 'dialog');
+}
+{js_select jquery,common}
+<title>
+	设置地址
+</title></head>
+<body>
+<div class="main_dl"> 
+	{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+	<div style="padding:5px ; line-height:18px; border:1px dashed #A3C5EA;">
+	
+		1. 本页面填写的地址用来发布“批量快递任务”中的真实快递；请务必填写时与{echo language::get('qu'.$seller['type'])}上本掌柜号的发货地址保持一致！
+			<a href="/bbs/t72/" class="link_o" target="_blank">如何查看修改{echo language::get('qu'.$seller['type'])}账号发货地址</a>
+	
+	</div>
+  
+  <div class="h_10"></div>
+  <ul class="tb">
+  	{loop $eList $v}
+    <li{if $e==$v[id]} class="a"{/if}><a href="$baseUrl?e=$v[id]&id=$id" target="_self">$v[name]</a></li>
+	{/loop}
+  </ul>
+  <form name="myForm" method="post" id="myForm" class="clear" onsubmit="return checkForm();">
+<div>$sys_hash_code2</div>
+    <input type="hidden" name="area" id="area" value="$area" />
+	<input type="hidden" name="eid" id="eid" value="$e" />
+    <table class="tbl" border="0" cellspacing="0" cellpadding="4">
+      <tr>
+        <td width="110" align="right" class="f_b">{echo language::get('qu'.$seller['type'])}掌柜帐号：</td>
+        <td class="f_b_red f_14">$seller[nickname]</td>
+      </tr>
+      <tr>
+	  	<td align="right" class="f_b">省/市/区/街道</td>
+		<td class="f_14" id="area_box"></td>
+	  </tr>
+      
+      <tr>
+        <td align="right" class="f_b" valign="top">发货人详细地址：</td>
+        <td><input type="text" name="address" id="address" class="text_long" value="$address" maxlength="100" />
+					<div>无需重复填写省/市/区/街道(镇)，具体门牌号可到百度中搜索；
+					<br />不明白的可联系客服或<a href="/bbs/t73/" class="link_o" target="_blank">点这里</a>；但是<span class="f_red">必须要与{echo language::get('qu'.$seller['type'])}上一致</span></div></td>
+      </tr>
+      
+      <tr>
+        <td align="right" class="f_b" valign="top">发货人姓名：</td>
+        <td><input type="text" name="nickname" id="nickname" class="text_small" value="$nickname" maxlength="50" />
+					<br />一定要设置成一个中文姓名+<span class='f_red'>$express[marker]</span>（比如“陈<span class='f_red'>$express[marker]</span>”，“黄<span class='f_red'>$express[marker]</span>”，“李海<span class='f_red'>$express[marker]</span>”，“赵春华<span class='f_red'>$express[marker]</span>” ....都行）切记一定要已“<span class='f_red'>$express[marker]</span>”结尾这个是快递员识别的标记! <br /><span class="f_red">必须与{echo language::get('qu'.$seller['type'])}上发货人姓名相同</span></td>
+      </tr>
+      <tr>
+        <td align="right" class="f_b" valign="top">发货人手机号码：</td>
+        <td><input type="text" name="mobile" id="mobile" class="text_small"  value="$mobilephone" />
+					<div style="padding-top:5px;">请填写一个有效的手机号码，<span class="f_red">必须和{echo language::get('qu'.$seller['type'])}上登记的发货人信息一致</span></div></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center" style="padding-top:20px"><input name="btnSubmit" type="submit" class="btn_2" id="btnSubmit" value="确定" />
+          <input name="btnCancel" type="button" class="btn_2" onclick="parent.doCut();" id="btnCancel" value="取消" /></td>
+      </tr>
+    </table>
+  </form>
+</div>
+<script type="text/javascript">
+var citys=$express[city3];
+var area_number=0;
+var area_format=function(area,number){
+	var html='<select id="area'+number+'" aId="'+number+'"><option value="">选择</option>';
+	for(var i=0;i<area.length;i++){
+		html+='<option value="'+area[i].name+'" sub="'+(area[i].sub?1:0)+'">'+area[i].name+'</option>';
+	}
+	html+='</select>';
+	return html;
+};
+var set_area=function(){
+	var arr=[];
+	for(var i=0;i<area_number;i++){
+		arr[arr.length]=$('#area'+i).val();
+	}
+	$('#area').val(arr.join(' '));
+};
+var get_area=function(id){
+	if(id==void(0))id=-1;
+	var city;
+	if(id>=0){
+		var arr = [];
+		for(var i = 0; i <= id; i++){
+			arr[arr.length] = $('#area'+i).attr('selectedIndex') - 1;
+		}
+		j = arr.length;
+		city=citys;
+		for(var i=0;i<j;i++){
+			city=city[arr[i]];
+			if (city.sub) city=city.sub;
+		}
+		if(!city.length)return false;
+	} else city=citys;
+	$('#area_box').append($(area_format(city,area_number)));
+	$('#area'+area_number).change(function(){
+		var this_area_number=parseInt($(this).attr('aId'));//parseInt($(this).attr('id').substring(4));
+		for(var i=this_area_number+1;i<area_number;i++){
+			if($('#area'+i).length>0){
+				$('#area'+i).remove();
+				
+			}
+		}
+		area_number=this_area_number+1;
+		//$('#area').val($(this).val());
+		//if($('#area').val()==0&&this_area_number>0){
+		//	$('#area').val($('#area'+(this_area_number-1)).val());
+		//}
+		if($(this).find('@option[selected=true]').attr('sub')==1){
+			//get_area($(this).val());
+			get_area($(this).index());
+		} else {
+			
+		}
+	});
+	area_number++;
+		
+};
+$(function(){
+	var defArea = $('#area').val();
+	get_area();
+	if (defArea) {
+		var arr=defArea.split(' ');
+		var j = arr.length;
+		for (var i = 0; i < j; i++) {
+			var a = arr[i];
+			var k = 0;
+			$('#area'+i).find('option').each(function(){
+				if ($(this).val()==a){
+					k=$(this).index();
+					return false;
+				}
+			});
+			$('#area'+i).attr({selectedIndex:k});
+			get_area(i);
+		}
+	}
+	/*if (defArea){
+		var arr=defArea.split(' ');
+		
+	} else {
+		get_area();
+	}*/
+});
+function checkForm() {
+	set_area();
+    var checks = [
+        
+		//["isEmpty", "street", "街道镇"],
+		['isEmpty', 'area'+(area_number-1), '地址'],
+		["isEmpty", "address", "详细地址"],
+		["isLength", "address", "详细地址", 3, 50],
+		["isEmpty", "nickname", "姓名"],
+		["isLength", "nickname", "姓名", 1, 20],
+		["isNumber", "mobile", "手机号码"],
+		["isLength", "mobile", "手机号码", 11, 11] 
+	];
+	var result = doCheck(checks);
+	if (result && !isMatch(/^[\u4E00-\u9FA5]+$express[marker]$/i, getValue("nickname"))) {
+	    return doAlert("发货人姓名必须为 中文姓名+$express[marker]\n\n如：陈$express[marker]、黄$express[marker]、李海$express[marker]、赵春华$express[marker]", $("#nickname"));
+	}
+	
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+</script>
+</body>
+</html>

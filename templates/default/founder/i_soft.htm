@@ -1,0 +1,39 @@
+{sub h}
+{if $tab=='index'}
+	{if $method=='index'}
+	{adminList
+		删？    |id     |del
+		排序    |sort   |sort
+		分类名称|name
+		软件总数|total
+				|id     |link,edit=编辑;link,view=进入该分类
+	}
+	{elseif $method=='add' || $method=='edit'}
+	{adminForm
+		分类名,null=请输入软件分类名称|name|text|240|32
+	}
+	{/if}
+{elseif $tab=='sub'}
+	{if $method=='index'}
+		{adminList
+			删？    |id      |del
+			软件名  |title
+			软件大小|size     |code,{$v[size]}字节
+			下载次数|downloads
+			发布时间|timestamp|flag,date
+					|id        |link,edit=编辑
+		}
+	{elseif $method=='add' || $method=='edit'}
+		{adminForm
+			upload
+			软件名称,null=请输入软件名称 |title  |text|240|64
+			软件描述,null=请输入软件描述 |content|xheditor,full,600,400
+			软件封面                     |img    |code,<input type="file" name="img" id="img" class="txt" style="width:240px"{if $update} emptyRunReg="false"{/if} RegStr="/\.(jpg{echo "\x7c"}jpeg{echo "\x7c"}png{echo "\x7c"}gif)$/i" Message="请选择软件封面图片" />
+			软件程序                     |soft   |code,<input type="file" name="soft" id="soft" class="txt" style="width:240px"{if $update} emptyRunReg="false"{/if} RegStr="/\.(rar{echo "\x7c"}zip{echo "\x7c"}exe{echo "\x7c"}msi{echo "\x7c"}7z)$/i" Message="请选择软件程序" />
+			软件价格,money=请输入软件价格|price  |text|120
+			软件所需积分,number=请输入下载软件所需积分|credit|text|120|10
+			
+		}
+	{/if}
+{/if}
+{sub f}

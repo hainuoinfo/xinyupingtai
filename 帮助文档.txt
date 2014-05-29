@@ -1,0 +1,82 @@
+上传数据到服务器
+
+导入data目录下的 数据库 
+
+修改根目录config.php 文件链接路径
+
+
+缓存，生成 变量
+array(27) {
+  ["imgSavePath"]=>
+  string(6) "./img/"
+  ["sys_reg_add_credit"]=>
+  string(2) "20"
+  ["sys_msg_debug"]=>
+  string(1) "0"
+  ["sys_phone1"]=>
+  string(12) "400-600-7788"
+  ["msg_vcode_time"]=>
+  string(3) "180"
+  ["msg_vip_price"]=>
+  string(3) "0.1"
+  ["msg_price"]=>
+  string(3) "0.1"
+  ["msg_password"]=>
+  string(8) "dakun123"
+  ["msg_username"]=>
+  string(6) "906818"
+  ["sys_pwd2_err_count"]=>
+  string(1) "3"
+  ["msg_user_price"]=>
+  string(3) "0.1"
+  ["img_avatar"]=>
+  string(11) "img/avatar/"
+  ["sys_credit_post"]=>
+  string(1) "3"
+  ["sys_debug"]=>
+  string(1) "0"
+  ["sys_ensure_min_money"]=>
+  string(3) "200"
+  ["sys_ensure_max_money"]=>
+  string(4) "2000"
+  ["sys_time_space_getEid"]=>
+  string(4) "1200"
+  ["mail_server"]=>
+  string(11) "smtp.qq.com"
+  ["mail_port"]=>
+  string(2) "25"
+  ["mail_username"]=>
+  string(17) "1371752337@qq.com"
+  ["mail_from"]=>
+  string(17) "1371752337@qq.com"
+  ["mail_password"]=>
+  string(9) "5264003wu"
+  ["kill_price"]=>
+  string(3) "0.4"
+  ["kill_all"]=>
+  string(4) "4000"
+  ["v_num"]=>
+  string(2) "14"
+  ["is_v_num"]=>
+  string(1) "0"
+  ["r_num"]=>
+  string(2) "15"
+}
+
+get for 变量
+array(7) {
+  ["id"]=>
+  int(0)
+  ["cid"]=>
+  int(0)
+  ["fid"]=>
+  int(0)
+  ["tid"]=>
+  int(0)
+  ["pid"]=>
+  int(0)
+  ["page"]=>
+  int(0)
+  ["pagesize"]=>
+  int(0)
+}

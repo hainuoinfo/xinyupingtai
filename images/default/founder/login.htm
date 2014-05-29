@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{lang system,name}创始人登录</title>
+{tpl_eval
+echo css::get_css('main','founder');
+echo css::get_css('login','founder');
+}
+{js_select jquery}
+{tpl_eval
+echo javascript::get_js('form_hack','');
+}
+<script language="javascript">
+$(function(){
+	$('.msout').each(function(){
+		$(this).mousemove(function(){
+			$(this).removeClass('msout');
+			$(this).addClass('msmove');
+		});
+		$(this).mouseout(function(){
+			$(this).removeClass('msmove');
+			$(this).addClass('msout');
+		})
+	});
+	if(!$('#founder_name').val())$('#founder_name').focus();
+	else $('#founder_password').focus();
+});
+</script>
+</head>
+
+<body>
+	<div class="login">
+		<div class="left">
+			<div class="h">{lang system,name}</div>
+			<div class="d">力豪互刷网信息系统团队——打造更好的系统</div>
+		</div>
+		<div class="right">
+			<form method="post">
+			<div>Login</div>
+			{if $error}<div class="show_message">$error</div>{/if}
+			<table>
+				<tr>
+					<td>创始人：</td>
+					<td><input type="text" name="founder_name" id="founder_name" class="msout" preg="null=请输入创始人帐号|创始人帐号不能为空" value="$_POST[founder_name]" /></td>
+					<td id="founder_name_tip"></td>
+				</tr>
+				<tr>
+					<td>密	码：</td>
+					<td><input type="password" name="founder_password" id="founder_password" class="msout" preg="null=请输入创始人密码|创始人密码不能为空" value="" /></td>
+					<td id="founder_password_tip"></td>
+				</tr>
+				<tr>
+					<td>验证码：</td>
+					<td><input type="text" name="vcode" id="vcode" maxlength="4" class="msout" RegStr="/^\d{4}$/" Message="请输入四位数字验证码|请输入四位数字验证码" /></td>
+					<td id="vcode_tip"></td>
+				</tr>
+				<tr>
+					<td valign="top">验证码：</td>
+					<td><img id="img_vcode" src="/images/vcode.php" /></td>
+					<td><a href="javascript:;" onclick="$('#img_vcode').attr({src:'/images/vcode.php?'+Math.random()});$('#vcode').focus();">看不清，换一张</a></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="submit" /></td>
+					<td></td>
+				</tr>
+			</table>
+			</form>
+		</div>
+		<div class="clear"></div>
+	</div>
+</body>
+</html>

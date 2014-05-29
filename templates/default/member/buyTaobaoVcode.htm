@@ -1,0 +1,146 @@
+{teval
+	$title       = '购买手机号码注册验证码 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{ad2 ad_memberHeadTop}
+{sub ../header}
+<div class="main">
+  <div class="h_10"></div>
+  <div class="a">
+    {sub menu}
+  </div>
+  <div class="b"> 
+    <div class="tip_gun">1. 申请的注册号码必须手机号码注册方式绑定唯一手机号码的，而非邮箱验证的方式；<br />
+        2. 绑定手机号码的注册方式和邮箱验证的注册方式所收到的手机短信是不相同的，违者扣0.2元次；<br />
+        3. 购买手机号码注册的验证码为1元一个号码，此号码物有所值，购买者会通过以后特定的任务要求快速回收成本；<br />
+        4. 手机验证码每天供应量有限，售完即止，供应时间为工作日的9:00-18:00；<br />
+        5. 新注册的淘宝帐号请认真申请，请勿申请"abc1,"abc2"等名称给人举报封号；<br />
+        6. 为了保证整个购买过程一气呵成，建议用户在供应商在线时再去淘宝注册与发送验证码</div>
+    <div class="h_10"></div>
+    <div class="h_10"></div>
+    <div>
+      <div class="box_t">
+        <div class="box_t_l"></div>
+        <div class="box_t_r"></div>
+      </div>
+      <div class="box_main">
+        <div class="h_10"></div>
+        <div id="box_1">
+          <div class="bar_edit" style="margin-top:0;">购买手机号码注册验证码</div>
+          <form name="myForm" method="post" action="BuyMobile.aspx?referrer=http%3a%2f%2fwww.hiwinwin.com%2fmember%2fPersonal.aspx" id="myForm" onsubmit="return checkForm();">
+<div>$sys_hash_code2</div>
+
+            <div class="edit">
+              <table class="tbl_edit" width="100%" border="0" cellspacing="0" cellpadding="6">
+                <tr>
+                  <td width="110" align="right">新注册的淘宝账号：</td>
+                  <td><input name="account" type="text" class="text_normal" id="account" /> 此淘宝账号必须申请为<span class="f_b_red">绑定手机注册方式，非邮箱验证方式</span>，违者扣0.2元次</td>
+                </tr>
+                <tr>
+                  <td align="right" class="f_blue f_b">同步创建支付宝：</td>
+                  <td><input type="checkbox" name="isAlipay" id="isAlipay" value="1" checked="checked" /> <label for="isAlipay" class="f_blue f_b">（同步创建支付宝账户，需额外加0.5元；解封淘宝冻结小号无需勾选）</label></td>
+                </tr>
+                <tr>
+                  <td align="right">手机短信提醒：</td>
+                  <td><input type="checkbox" name="isRemind" id="isRemind" value="1" /> <label for="isRemind">（发放验证码时短信通知）</label></td>
+                </tr>
+                <tr>
+                  <td align="right">&nbsp;</td>
+                  <td><input name="btnSave" type="submit" class="btn_1" disabled='disabled' id="btnSave" value="购买手机验证码" />
+                  <span class="f_red">当前暂停购买淘宝手机注册验证码服务</span></td>
+                </tr>
+                <tr>
+                  <td align="right">&nbsp;</td>
+                  <td>购买注册淘宝小号绑定的手机验证码服务为<span class="f_b_red">1元/一条申请</span>，<span class="f_b f_blue">若需同步创建支付宝账户，则额外加0.5元</span></td>
+                </tr>
+              </table>
+            </div>
+          </form>
+          <div class="bar_edit">我的购买列表　　　　<input type="checkbox" name="isAuto" id="isAuto" value="8" /><span style="font-size:12px; color:#555">自动刷新</span>
+		  {eval $kf=kefu::getKefuList(3,1,1);}
+            <span class="f_gray f_12">供应商不在线</span><span class="f_gray f_12">，力豪互刷网沟通客服：$kf[0][qq] <a href='tencent://message/?uin=1343031545'><img width='25' height='17' border='0' src='http://wpa.qq.com/pa?p=1:$kf[0][qq]:17' alt='' /></a></span></div>
+          <div id="buyList">
+            <table class="tbl_lst" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <thead>
+              <tr>
+                <td>订单号</td>
+                <td>淘宝帐号</td>
+                <td>支付宝</td>
+                <td>购买日期</td>
+                <td>手机号码</td>
+                <td>验证码</td>
+                <td>状态</td>
+                <td>操作</td>
+              </tr>
+            </thead>
+            <tbody>
+              
+            </tbody>
+          </table>
+          <div class="pages"><strong>1</strong></div>
+          </div>
+          <div class="h_10"></div>
+        </div>
+        <div class="h_30"></div>
+      </div>
+      <div>
+        <div class="box_b_l"></div>
+        <div class="box_b_r"></div>
+      </div>
+    </div>
+    <div class="h_10"></div>
+  </div>
+</div>
+<script type="text/javascript">
+function checkForm() {
+    var checks = [
+		["isEmpty", "account", "新注册淘宝账号"]];
+    var result = doCheck(checks);
+    if (result) {
+       if (getObj("isAlipay").checked)
+        result = confirm("您确定要购买手机号码注册验证码服务么？\n\n此服务1.5元一条");
+       else
+        result = confirm("您确定要购买手机号码注册验证码服务么？\n\n此服务1元一条");
+    }
+    if (result)
+		return avoidReSubmit();
+    return result;
+}
+
+function goPage(n) {
+    getObj('buyList').innerHTML = '<div class=\'submiting\'>数据加载中.....</div>';
+    var xml = makeXmlReq();
+    var url = '../ajax/GetAccMobile.aspx?page=' + n + '&now=' + (new Date()).getTime(); ;
+    xml.onreadystatechange = function() {
+        if (xml.readyState == 4) {
+            if (xml.status == 200 || xml.status == 304) {
+                getObj('buyList').innerHTML = xml.responseText;
+            }
+        }
+    }
+    xml.open('get', url, true);
+    xml.setRequestHeader('If-Modified-Since', '0');
+    xml.send('');
+}
+function autoTask() {
+    var chkAuto = getObj('isAuto');
+    var auto = function() {
+        if (chkAuto && chkAuto.checked) {
+            goPage(1);
+        }
+    };
+    var t = parseInt(getValue('isAuto'));
+    if (t < 5)
+        t = 20;
+    var tt_1 = window.setInterval(auto, t * 1000);
+}
+autoTask();
+
+</script>
+{sub ../footer}

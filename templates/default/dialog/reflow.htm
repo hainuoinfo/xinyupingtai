@@ -1,0 +1,122 @@
+{sub header}
+{js_select jquery,common}
+{teval
+	echo css::get_css('task', 'task');
+	echo javascript::get_js('task', 'index');
+}
+<table width="100%" cellspacing="0" cellpadding="6" border="0" class="tbl">
+	<tbody>
+		{switch $task[wayId] '0'}
+		<tr>
+			<td width="80" valign="top" align="right" class="f_b_green">第一步：</td>
+			<td>请在淘宝首页搜索宝贝：<strong>$task[visitKey]</strong>　 <span onclick="return copy('$task[visitKey]')" class="btn_gl cursor">复制</span></td>
+		</tr>
+		<tr>
+			<td valign="top" align="right" class="f_b_green">第二步：</td>
+			<td>根据搜索提示打开搜索结果列表中掌柜名为：<strong>{echo string::getXin3($task[snickname],2)}</strong> 的商品</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right" class="f_b_green">第三步：</td>
+			<td>
+				{switch $task[checkType] '0'}
+				复制商品页面地址栏的地址，并黏贴到下面, 然后点击【验证商品】按钮；<span class="f_b_red"></span>
+				{case '1'}
+				复制商品页面的<span class="f_b_red">商品价格</span>，并粘贴到下面，然后点击【验证商品】按钮
+				{case '2'}
+				查找商品页面的<span class="f_b_org">字符串：</span><span class="f_b_red">{echo string::getXin3($task[checkValue],2)}</span>，并粘贴到下面，然后点击【验证商品】按钮
+				{/switch}
+			</td>
+		</tr>
+		{case '1'}
+		<tr>
+			<td width="80" valign="top" align="right" class="f_b_green">第一步：</td>
+			<td>请在淘宝首页搜索店铺：<strong>$task[visitKey]</strong>　 <span onclick="return copy('$task[visitKey]')" class="btn_gl cursor">复制</span></td>
+		</tr>
+		<tr>
+			<td valign="top" align="right" class="f_b_green">第二步：</td>
+			<td>根据搜索提示打开搜索结果列表中掌柜名为：<strong>{echo string::getXin3($task[snickname],2)}</strong> 的商品</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right" class="f_b_green">第三步：</td>
+			<td>
+				{switch $task[checkType] '0'}
+				复制商品页面地址栏的地址，并黏贴到下面, 然后点击【验证商品】按钮；<span class="f_b_red"></span>
+				{case '1'}
+				复制商品页面的<span class="f_b_red">商品价格</span>，并粘贴到下面，然后点击【验证商品】按钮
+				{case '2'}
+				查找商品页面的<span class="f_b_org">字符串：</span><span class="f_b_red">{echo string::getXin3($task[checkValue],3)}</span>，并粘贴到下面，然后点击【验证商品】按钮
+				{/switch}
+			</td>
+		</tr>
+		{case '2'}
+		<tr>
+			<td width="80" valign="top" align="right" class="f_b_green">第一步：</td>
+			<td><span onclick="return copy('$task[itemurl]')" class="btn_gl cursor">复制链接</span></td>
+		</tr>
+		<tr>
+			<td valign="top" align="right" class="f_b_green">第二步：</td>
+			<td>在浏览器地址栏打开链接</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right" class="f_b_green">第三步：</td>
+			<td>
+				{switch $task[checkType] '0'}
+				复制商品页面地址栏的地址，并黏贴到下面, 然后点击【验证商品】按钮；<span class="f_b_red"></span>
+				{case '1'}
+				复制商品页面的<span class="f_b_red">商品价格</span>，并粘贴到下面，然后点击【验证商品】按钮
+				{case '2'}
+				查找商品页面的<span class="f_b_org">字符串：</span><span class="f_b_red">{echo string::getXin3($task[checkValue],3)}</span>，并粘贴到下面，然后点击【验证商品】按钮
+				{/switch}
+			</td>
+		</tr>
+		{/switch}
+		<tr>
+			<td>&nbsp;</td>
+			<td><input type="text" style="width:400px" id="keys" name="keys" value="$keys" />
+				<input type="submit" value="验证商品" name="btnSubmit"></td>
+		</tr>
+		<tr>
+			<td valign="top" align="right" class="f_b_green">搜索提示：</td>
+			<td>$task[visitTip]</td>
+		</tr>
+	</tbody>
+</table>
+<div style="padding-top:20px;text-align:center;">
+	<input type="button" value="关闭" onclick="parent.doCut2();" id="goon" class="btn_2" name="goon">
+	{if $check_error && $task[errCount] >= $check_error}<input type="button" value="举报任务验证不符" onclick="location.href='{r}/dialog/reflow/?sid=$sid&lid=$lid&type=lock'" class="btn_2" />{/if}
+</div>
+</div>
+<script type="text/javascript">
+function checkForm() {
+	var checkType = $task[checkType];
+	var keyName = '';
+	if (checkType == 0) {
+		keyName = '商品网址';
+    	if (getValue("keys").indexOf("http://") != 0) {
+    	    return doAlert("商品网址不正确", $("#keys"));
+    	}
+	} else if (checkType == 1) {
+		keyName = '商品价格';
+		if ( !/^\d+(?:\.\d+)?$/.test(getValue("keys")) ) {
+    	    return doAlert("商品价格格式不正确", $("#keys"));
+    	}
+	} else if (checkType == 2) {
+		keyName = '验证关键词';
+		if (getValue("keys").replace(/^\s+|\s+$/g, '') == '') {
+			return doAlert("验证关键词不能为空", $("#keys"));
+		}
+	} else {
+		alert('程序版本已更新，当前不支持该参数！');
+	}
+	var checks = [
+    ["isEmpty", "keys", keyName] ];
+	var result = doCheck(checks);
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+function isReport() {
+    return confirm("您确定该来路是无效的么？");
+}
+</script>
+{sub footer}

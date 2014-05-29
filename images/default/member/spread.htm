@@ -1,0 +1,155 @@
+{teval
+	//$title       = '来路调查 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{ad2 ad_memberHeadTop}
+{sub ../header}
+<div class="main">
+  <div class="h_10"></div>
+  <div class="a">
+     {sub menu}
+  </div>
+  <div class="b">
+  	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+	{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+    <div class="tip_remit">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="120">&nbsp;</td>
+          <td valign="middle">每个联盟用户都会分配一个专属链接地址，您可以在QQ，百度，等论坛发布您的推广链接地址！只要是从你这个链接进来的玩家，将无法更改推荐人！每个通过链接地址在力豪互刷网注册的新朋友，只要接手并成功完成的任务数与发布并成功完成的任务数之和达到四条，您就可以即刻获得10个发布点作为推荐奖励； 快快联系您推荐的新朋友，帮助 他/她 们顺利完成刚入门的任务操作吧。10发布点价值十元存款哦！真金白银等着你拿还不行动起来！<a href="#" target="_blank" class="link_o">怎样获得更好的推荐效果？</a><br /></td>
+        </tr>
+      </table>
+    </div>
+    <div class="h_20"></div>
+    <div>
+  <div class="box_t">
+	<div class="box_t_l"></div>
+	<div class="box_t_r"></div>
+  </div>
+  <div class="box_main">
+	<h3>尊敬的<span class='f_orange'> $member[truename]</span>先生，欢迎您！</h3>
+	<h4>VIP：{if $isVip}是{else}否{/if}　卡信托：{if $isVip2}是{else}否{/if}　积分：<span class='f_b_org'>$memberFields[credits]</span> <img src='$memberLevel[icon]' alt='当前积分等级' />　<img src='{$weburl2}images/ico/ico_gold_2.gif' alt='' /> 存款余额：<span class='f_b_org'>$memberFields[money]</span>元</h4>
+  </div>
+  <div>
+	<div class="box_b_l"></div>
+	<div class="box_b_r"></div>
+  </div>
+</div>
+    <div class="h_20"></div>
+    <div class="tip_gun">
+      <p>联盟推广王活动：联盟对每月参加推广的朋友评比出前三名，额外奖励<span class="f_orange">158/88/38</span>发布点；<br />
+        推广大赛计算周期：每月一号00：00：00至当月最后一天23：59：59；<br />
+        我的推广链接：{echo common::getUrl('/member/reg.php?pusername='.urlencode($member[username]))} <span class="btn_gl" onclick="copy('{echo common::getUrl('/member/reg.php?pusername='.urlencode($member[username]))}')">复制推广链接地址</span></p>
+    </div>
+    <div class="h_20"></div>
+    <div>
+      <div class="remit_a">
+        <div class="tab" style="border:0; margin:0px;">
+          <ul>
+            <li{if $t=='my'} class="tab_on"{/if}>
+              <p><a href="$thisUrl?t=my"><strong>我推荐的会员</strong></a></p>
+            </li>
+            
+            <li{if $t=='month'} class="tab_on"{/if}>
+              <p><a href="$thisUrl?t=month"><strong>联盟推广月排行榜</strong></a></p>
+            </li>
+            <li{if $t=='top'} class="tab_on"{/if}>
+              <p><a href="$thisUrl?t=top"><strong>联盟推广总排行榜</strong></a></p>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div class="box_t">
+            <div class="box_t_l"></div>
+            <div class="box_t_r"></div>
+          </div>
+          <div class="box_main">
+		  	{if $t=='my'}
+            <table class="tbl_lst" style="border-top:1px solid #d5d5d5;" width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td class="tbl_s">被推荐朋友</td>
+                  <td>注册时间</td>
+                  <td>已接任务数</td>
+                  <td>已发任务数</td>
+                  <td>领取推荐奖励</td>
+                </tr>
+                {loop $sList $v}
+                <tr>
+                  <td class="tbl_s">$v[username] <img src="$v[level][icon]" title="积分：$v[credits]" />{if $v[vip]}<span class="vip" title="VIP"></span>{/if}{if $v[vip2]}<span class="card" title="{echo language::get('card'.$v[vip2])}"></span>{/if}{if $v[isEnsure]}<span class='ensure' title='商保'></span>{/if}<a target='_blank' href='http://wpa.qq.com/msgrd?v=3&uin=$v[qq]&site=qq&menu=yes'><img width='25' height='17' border='0' src='http://wpa.qq.com/pa?p=1:$v[qq]:17' alt='' /></a></td>
+                  <td>{date $v[reg_timestamp]}</td>
+                  <td align="center">$v[inComplate]</td>
+                  <td align="center">$v[outComplate]</td>
+                  <td>{if $v[rewordPoint2]>0}$v[rewordPoint2]{elseif $v[inComplate]+$v[outComplate]>=4}<a href="javascript:;" onclick="dialog(460,460,'激活发布点卡','/dialog/reword/?suid=$v[id]');return false;" class="link_b_2">领取</a>{else}&nbsp;{/if}</td>
+                </tr>
+                {/loop}
+            </table>
+			{elseif $t=='month'}
+			<table class="tbl_lst" style="border-top:1px solid #d5d5d5;" width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td class="tbl_s">界数</td>
+                  <td>推荐人</td>
+                  <td align="center">推荐人数</td>
+                  <td align="center">已获奖励发布点数</td>
+                </tr>
+                {loop $sList $v}
+                <tr>
+                  <td class="tbl_s">$v[monthCount]</td>
+                  <td>$v[username] <img src="$v[level][icon]" title="积分：$v[credits]" />{if $v[vip]}<span class="vip" title="VIP"></span>{/if}{if $v[vip2]}<span class="card" title="{echo language::get('card'.$v[vip2])}"></span>{/if}{if $v[isEnsure]}<span class='ensure' title='商保'></span>{/if}</td>
+                  <td align="center">$v[childMonth]</td>
+                  <td align="center">$v[rewordPointMonth]</td>
+                </tr>
+				{/loop}
+            </table>
+			{elseif $t=='top'}
+			<table class="tbl_lst" style="border-top:1px solid #d5d5d5;" width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td class="tbl_s">推荐人</td>
+                  <td align="center">推荐人数</td>
+                  <td align="center">已获奖励发布点数</td>
+                </tr>
+                {loop $sList $v}
+                <tr>
+                  <td class="tbl_s">$v[username] <img src="$v[level][icon]" title="积分：$v[credits]" />{if $v[vip]}<span class="vip" title="VIP"></span>{/if}{if $v[vip2]}<span class="card" title="{echo language::get('card'.$v[vip2])}"></span>{/if}{if $v[isEnsure]}<span class='ensure' title='商保'></span>{/if}</td>
+                  <td align="center">$v[child2]</td>
+                  <td align="center">$v[rewordPoint1]</td>
+                </tr>
+				{/loop}
+            </table>
+			{/if}
+            <div class="pages">
+              <div class="pages">$multipage</div>
+            </div>
+            <div class="h_10"></div>
+          </div>
+          <div>
+            <div class="box_b_l"></div>
+            <div class="box_b_r"></div>
+          </div>
+        </div>
+      </div>
+      <div class="remit_b">
+        <div class="remit_b_bar"><span class="f_b f_14">推荐动态</span></div>
+        <div class="remit_b_main">
+          <ul>
+            {loop $tops $v}
+            <li class="li_1">推荐人：$v[username1] <img src="$v[level1][icon]" title="积分：$v[credits1]" />{if $v[vip1]}<span class="vip" title="VIP"></span>{/if}{if $v[vip21]}<span class="card" title="{echo language::get('card'.$v[vip21])}"></span>{/if}{if $v[isEnsure1]}<span class='ensure' title='商保'></span>{/if}<br />
+              被推荐人：$v[username2] <img src="$v[level2][icon]" title="积分：$v[credits2]" />{if $v[vip2]}<span class="vip" title="VIP"></span>{/if}{if $v[vip22]}<span class="card" title="{echo language::get('card'.$v[vip22])}"></span>{/if}{if $v[isEnsure2]}<span class='ensure' title='商保'></span>{/if}<br />
+              {date $v[reg_timestamp]}</li>
+            {/loop}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="h_30"></div>
+  </div>
+</div>
+<script type="text/javascript">
+
+</script>
+{sub ../footer}

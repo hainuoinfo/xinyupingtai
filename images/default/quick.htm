@@ -1,0 +1,127 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+					<td class="quick_no" id="quick_1" onclick="showQuick(1)">卡密充值</td>
+					<td><div class="quick_s"></div></td>
+					<td class="quick_on" id="quick_2" onclick="showQuick(2)">网银充值</td>
+					<td><div class="quick_s"></div></td>
+					<td class="quick_no" id="quick_3" onclick="showQuick(3)">买发布点</td>
+					<td><div class="quick_s"></div></td>
+					<td class="quick_no" id="quick_4" onclick="showQuick(4)">发送短信</td>
+				</tr>
+				</table>
+			<div class="quick">
+					<script type="text/javascript">
+        var quick = 2;
+        function showQuick(i) {
+            getObj("quick_" + quick).className = "quick_no";
+            getObj("quick_" + i).className = "quick_on";
+            $("#q_f_" + quick).hide();
+            $("#q_f_" + i).show();
+            quick = i;
+        }
+        function checkForm() {
+            if (!memberLogined) {
+                alert("您尚未登录，请先登录再进行操作");
+                return false;
+            }
+            return true;
+        }
+      </script>
+					<form id="q_f_1" style="display:none;" action="{rewrite}/member/topup/" method="post" target="_blank" onsubmit="return checkForm();">
+				$sys_hash_code2
+				<input type="hidden" name="type" value="card" />
+					<table width="100%" border="0" cellpadding="1" cellspacing="0">
+					<tr>
+							<td align="right">充值卡号：</td>
+							<td align="left"><input name="cardId" id="cardId" type="text" size="10" /></td>
+						</tr>
+					<tr>
+							<td align="right">充值密码：</td>
+							<td align="left"><input name="cardPwd" id="cardPwd" type="text" size="10" /></td>
+						</tr>
+					<tr>
+							<td colspan="2" align="center"><span class="f_gray">&nbsp;</span></td>
+						</tr>
+					<tr>
+							<td colspan="2" align="center"><input type="image" name="imageField" src="{$weburl2}images/btn/btn_remit.gif" /></td>
+						</tr>
+				</table>
+				</form>
+			<form id="q_f_2" action="{rewrite}/member/topup/" method="post" target="_blank" onsubmit="return checkForm();">
+				$sys_hash_code2
+				<input type="hidden" name="type" value="chinabank" />
+					<table width="100%" border="0" cellpadding="1" cellspacing="0">
+					<tr>
+							<td align="right">充值用户名：</td>
+							<td align="left"><input name="username" id="username" value="$member[username]" disabled="disabled" type="text" size="10" /></td>
+						</tr>
+					<tr>
+							<td align="right">充值金额：</td>
+							<td align="left"><select name="money" id="money">
+									<option value='10'>10元</option>
+									<option value='50' selected='selected' >50元</option>
+									<option value='100'>100元</option>
+									<option value='200'>200元</option>
+									<option value='500'>500元</option>
+									<option value='1000'>1000元</option>
+									<option value='5000'>5000元</option>
+								</select></td>
+						</tr>
+					<!--<tr>
+							<td colspan="2" align="center"><span class="f_gray">注：充值用户名为自己用户名，不可改</span></td>
+						</tr>-->
+					<tr>
+						<td align="right">支付平台</td>
+						<td align="left">
+							<select name="type">
+							{sql SELECT `name`,`ename` FROM `{$pre}payfor_interface` WHERE `status`='1' AND `type`='1' ORDER BY `sort`}
+							<option value="$v[ename]">$v[name]</option>
+							{/sql}
+							</select>
+						</td>
+					</tr>
+					<tr>
+							<td colspan="2" align="center"><input type="image" name="imageField" src="{$weburl2}images/btn/btn_remit.gif" /></td>
+						</tr>
+				</table>
+				</form>
+			<form id="q_f_3" style="display:none;" action="{rewrite}/member/card/" method="post" target="_blank" onsubmit="return checkForm();">
+			$sys_hash_code2
+			<input type="hidden" name="cardType" value="1" />
+					<table width="100%" border="0" cellpadding="1" cellspacing="0">
+					<tr>
+							<td align="right">价格：</td>
+							<td align="left"><span class="f_orange">0.64元/张</span></td>
+						</tr>
+					<tr>
+							<td align="right">购买数量：</td>
+							<td align="left"><input name="nums" id="nums" value="10" type="text" size="10" /></td>
+						</tr>
+					<tr>
+							<td colspan="2" align="center"><span class="f_gray">注：单个发布点卡，一个起卖</span></td>
+						</tr>
+					<tr>
+							<td colspan="2" align="center">
+							<input type="image" name="imageField" src="{$weburl2}images/btn/buynow.gif" /></td>
+						</tr>
+				</table>
+				</form>
+			<form id="q_f_4" style="display:none;" action="{rewrite}/member/sms/" method="post" target="_blank" onsubmit="return checkForm();">
+				$sys_hash_code2
+					<table width="100%" border="0" cellpadding="1" cellspacing="0">
+					<tr>
+							<td align="right">收信人：</td>
+							<td align="left"><input name="username" id="username" type="text" size="10" />
+							<span class="f_gray">手机|用户名</span></td>
+						</tr>
+					<tr>
+							<td align="right">内容：</td>
+							<td align="left"><textarea name="message" id="message" style="height:45px; width:150px;"></textarea></td>
+						</tr>
+					<tr>
+							<td align="right">&nbsp;</td>
+							<td align="left"><input type="image" name="imageField" src="{$weburl2}images/btn/sendnow.gif" /></td>
+						</tr>
+				</table>
+				</form>
+				</div>

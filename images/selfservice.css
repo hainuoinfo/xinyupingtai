@@ -1,0 +1,41 @@
+em, i {
+    font-style: normal;
+}
+#service{margin: 15px auto;position: relative;width: 980px;}
+#service .box {background: url(../images/help/self_zz.png) no-repeat scroll 20px 20px #F8F9F9;border: 1px solid #E0E0E0;width: 978px;margin-bottom: 20px;}
+#service .box .top {height: 20px;margin: 75px auto 0;width: 930px;}
+#service .box .con {background: none repeat scroll 0 0 #FFFFFF;border: 1px solid #E0E0E0;margin: 10px auto;width: 940px;}
+#service .box .con ul {list-style: none outside none;margin: 10px 3px 0;overflow: hidden;}
+#service .box .con ul li.renz{border-right: 0;}
+#service .box .con ul li {border-right: 1px dotted #E0E0E0;float: left;width: 186px;}
+#service .box .con ul li h4 {font-size: 14px;height: 30px;margin: 5px auto;text-align: center;}
+#service .box .con ul li.l_pas em {background: url(../images/help/self_ser.png) repeat -91px 0;border: 0 none;display: inline-block;height: 30px;margin: 0 10px 0 0;padding: 0;vertical-align: middle;width: 30px;}
+#service .box .con ul li .gray {height: 54px;line-height: 18px;margin: 10px auto;width: 170px;}
+#service .box .con ul li .but {margin: 0 auto 10px;overflow: hidden;width: 80px;}
+#service .box .con ul li .but button {background: url(../images/help/self_butt.png) repeat;border: 0 none;color: #000000;cursor: pointer;float: inherit;height: 26px;line-height: 26px;margin: 0 auto;text-align: center;vertical-align: middle;width: 80px;}
+#service .box .con ul li.p_pas em {background: url(../images/help/self_ser.png) repeat scroll -120px 0 rgba(0, 0, 0, 0);border: 0 none;display: inline-block;height: 30px;margin: 0 10px 0 0;padding: 0;vertical-align: middle;width: 30px;}
+#service .box .con ul li.count em {background: url(../images/help/self_ser.png) repeat scroll -61px 0 rgba(0, 0, 0, 0);border: 0 none;display: inline-block;height: 30px;margin: 0 10px 0 0;padding: 0;vertical-align: middle;width: 30px;}
+#service .box .con ul li.tixian em {background: url(../images/help/self_ser.png) repeat 0 0;border: 0 none;display: inline-block;height: 30px;margin: 0 10px 0 0;padding: 0;vertical-align: middle;width: 30px;}
+#service .box .con ul li.renz em {background: url(../images/help/self_ser.png) repeat -32px 0;border: 0 none;display: inline-block;height: 30px;margin: 0 10px 0 0;padding: 0;vertical-align: middle;width: 30px;}
+#service .ico {background: url(../images/help/self_ri.png) no-repeat 0 0;height: 58px;position: absolute;right: 0;top: 0;width: 58px;z-index: 3;}
+#service .tab2 {position: relative;text-align: left;width: 980px;z-index: 1;}
+#service .tab2 .box {background: none repeat scroll 0 0 #F8F9F9;border: 1px solid #E0E0E0;width: 978px;}
+#service .tab2 .box .top {border-bottom: 1px solid #E0E0E0;font-weight: bold;height: 30px;line-height: 30px;margin: 0 auto;text-indent: 10px;width: 978px;}
+#service .tab2 .box #workdiv {background: none repeat scroll 0 0 #FFFFFF;margin: 0;width: 978px;}
+#service .tab2 .box #workdiv .default {background: none repeat scroll 0 0 #FFFFFF;margin: 10px;overflow: hidden;width: 958px;}
+#service .tab2 .box #workdiv .default li {height: 16px;line-height: 16px;margin-top: 15px;}
+#service .tab2 .box #workdiv .default li strong {margin-right: 10px;}
+#service .tab2 .box #workdiv .default li a {display: inline-block;margin-left: 10px;}
+#service .tab2 .tops {display: none;border: 1px solid #E0E0E0;font-weight: bold;height: 30px;line-height: 30px;margin: 0 auto;text-indent: 10px;width: 978px;background:#F8F9F9;border-bottom:0;}
+#service .zhpass{margin-bottom: 10px;background:#FFFFFF;margin: 0;width: 978px;float: left;border: 1px solid #E0E0E0;display:none;}
+#service .zhpass .top {border-bottom: 1px solid #E0E0E0;width: 958px;float: left;}
+#service .zhpass .top .icos {background: url(../images/help/self_ys.png) no-repeat 0 14px;float: left;height: 57px;margin: 10px 10px 5px 10px;width: 30px;}
+#service .zhpass .top .title {float: left;height: 40px;line-height: 20px;margin: 20px 10px 5px 0;}
+#service .zhpass .top .title strong {font-size: 14px;}
+#service .zhpass .con{float:left;padding-left:15px;}
+#service .zhpass .con table {margin: 30px;width: 382px;}
+#service .zhpass .con table td {height: 40px;text-align: left;}
+#service .zhpass .con table td.t1 {text-align: right;width: 100px;}
+#service .zhpass .con table td.t2 {width: 160px;}
+#service .zhpass .con table td input.input {border: 1px solid #E0E0E0;float: left;height: 24px;line-height: 24px;margin-left: 10px;vertical-align: middle;width: 140px;}
+#service .zhpass .con .slefsub {background: url(../images/help/self_butt.png) repeat;border: medium none;color: #000000;cursor: pointer;float: left;height: 26px;line-height: 26px;margin-left: 10px;text-align: center;vertical-align: middle;width: 80px;}

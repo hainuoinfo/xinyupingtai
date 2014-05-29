@@ -1,0 +1,135 @@
+{teval
+	$title       = '尊享VIP申请 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{ad2 ad_memberHeadTop}
+{sub ../header}
+<div class="main">
+  <div class="h_10"></div>
+  <div class="a">
+    {sub menu}
+  </div>
+  <div class="b"> 
+  	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+	{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+    <div class="tip_gun">
+      <p>您现在还不是联盟尊享VIP会员暂时无法享受会员精彩特权！您可以在这里申请成为联盟的尊享VIP会员；一天不到一块钱即可拥有强大的VIP特权哦！<a href="#" target="_blank" class="link_o">了解联盟VIP特权详情</a></p>
+    </div>
+    <div class="h_20"></div>
+    <div>
+      <div class="box_t">
+	    <div class="box_t_l"></div>
+	    <div class="box_t_r"></div>
+      </div>
+      <div class="box_main">
+	    <h3>尊敬的<span class='f_orange'> $member[truename]</span>{if $member[sex]==1}先生{elseif $member[sex]==2}女士{/if}，欢迎您！</h3>
+	    <h4>VIP：{if $isVip}是{else}否{/if} , 卡信托：{if $isVip2}是{else}否{/if} ， 积分：<span class='f_b_org'>$memberFields[credits]</span> <img src='$memberLevel[icon]' alt='当前积分等级' /> ， <img src='{$weburl2}images/ico/ico_gold_2.gif' alt='' /> 存款余额：<span class='f_b_org'>$memberFields[money]</span>元</h4>
+	    <h4>您的VIP状态：{if $memberFields[vip_expire]}已开通，到期时间：{date $memberFields[vip_expire]}{else}未开通{/if}</h4>
+	    <div class="clear"></div>
+      </div>
+      <div>
+	    <div class="box_b_l"></div>
+	    <div class="box_b_r"></div>
+      </div>
+    </div>
+    <div class="h_20"></div>
+    <div>
+      <div class="remit_a">
+        <div>
+          <div class="box_e">
+            <div class="box_e_l" style="width:30%;"><strong>VIP特权</strong></div>
+            <div class="box_e_r" style="width:70%; text-align:right; "><strong style="padding-right:20px;">您还不是尊贵的VIP会员？<a href="{rewrite}/$action/$operation/?type=add" class="btn_o">立即开通</a></strong></div>
+          </div>
+		  {if $type=='add'}
+		  <div class="box_main">
+            <div class="h_10"></div>
+            <div class="remit_tip">您可以选择以下方式开通/续费联盟尊享VIP会员</div>
+            <div class="bar_edit">填写申请</div>
+            <form name="myForm" method="post" id="myForm" enctype="multipart/form-data" onsubmit="return checkForm();">
+			<div>$sys_hash_code2</div>
+              <div class="edit">
+                <table class="tbl_edit" width="100%" border="0" cellspacing="0" cellpadding="10">
+                  <tr>
+                    <td><input name="isAgreed" type="checkbox" id="isAgreed" checked="checked" />
+                      同意并接受<a href="{r}/info/agreement.html" target="_blank" class="link_o">联盟会员服务条款</a></td>
+                  </tr>
+                  <tr>
+                    <td>请选择服务时长<br />
+                      {eval
+						$__list = cfg::getList('sys', 'vip_money_list');
+					}
+					{loop $__list $__v}
+					<label><input type="radio" name="months" value="$__v[key]"{if $__v[checked]} checked="checked"{/if} />$__v[key]个月($__v[value]元)</label>
+					{/loop}</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" name="isAuto" id="isAuto" value="1" />
+                      自动续费，续费时长与本次一致</td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input name="btnSave" type="submit" class="btn_1" id="btnSave" value="提交申请" /></td>
+                  </tr>
+                  <tr>
+                    <td>温馨提示：自动续费时系统将根据账户余额，自动调整开通服务时长。（如：您本次选择开3个月的，但余额仅够支付2个月，则开通1个月）</td>
+                  </tr>
+                </table>
+              </div>
+            </form>
+            <div class="h_30"></div>
+            <div class="h_30"></div>
+          </div>
+<script type="text/javascript">
+function checkForm() {
+    if(getObj("isAgreed").checked) {
+        if (confirm("您确定要开通VIP申请么？")) {
+		    return avoidReSubmit();        
+		}
+		return false;
+    } else {
+	    alert("开通VIP申请，需要同意联盟会员服务条款");
+	    return false;
+	}
+}
+</script>
+		  {else}
+          <div class="box_main">
+            <div class="h_10"></div>
+            <img src="{$weburl2}images/vip_info.jpg" alt="" />
+            <div class="h_10"></div>
+          </div>
+		  {/if}
+          <div>
+            <div class="box_b_l"></div>
+            <div class="box_b_r"></div>
+          </div>
+        </div>
+      </div>
+      <div class="remit_b">
+        <div class="remit_b_bar"><span class="f_b f_14">VIP申请动态</span></div>
+        <div class="remit_b_main">
+          <ul>
+		  	{cache 3600}
+		  	{eval
+				$newVips = db::select('log_vip|memberfields:uid=uid', 'username,month,timestamp|vip,vip2,isEnsure,credits', '', 't0.timestamp DESC', 13);
+			}
+            {loop $newVips $v}
+			{eval $v[level] = member_credit::getLevel($v[credits]);}
+            <li class="li_2">{echo string::getXin($v[username], 5)} <img src="$v[level][icon]" title="积分：$v[credits]" />{if $v[vip]}<span class='vip' title='VIP'></span>{/if}{if $v[vip2]}<span class="card" title="{echo card::$names2[$v[vip2]]}"></span>{/if}{if $v[isEnsure]}<span class='ensure' title='商保'></span>{/if}<br />
+                提交VIP申请<span class="f_b_org">$v[month]</span>个月<br />
+                {date $v[timestamp]}</li>
+            {/loop}
+            {/cache}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="h_30"></div>
+  </div>
+</div>
+{sub ../footer}

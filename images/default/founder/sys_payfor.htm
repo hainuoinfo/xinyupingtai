@@ -1,0 +1,51 @@
+{subtemplate header}
+<script language="javascript">
+$(function(){
+	$('table').addClass('tb tb2 fixpadding');
+	$('table tr').each(function(){
+		if($(this).addClass('hover').find('@input[type=text]').addClass('txt').css({width:'300px'}).length==1)
+			$(this).find('th').css({'text-align':'right'});
+	});
+});
+</script>
+<div class="container" id="cpcontainer">
+	<form method="post" enctype="application/x-www-form-urlencoded">
+	<input type="hidden" name="hash" value="$sys_hash" />
+		<table>
+			<tr>
+				<th colspan="3" class="partition">$menu_sub_name</th>
+			</tr>
+			{loop $payfor_list $k $v}
+			<tr>
+				<th valign="top" style="text-align:right">{if is_array($v[0])}$v[0][name]{else}$v[0]{/if}：</th>
+				<td>
+					{if is_array($v[0]) && $v[0][name]}
+					{if $v[0][type]=='textarea'}
+					<textarea name="$k" rows="6" cols="60"{if $v[0]['style']} style="$v[0]['style']"{/if}>{eval echo $payfor[$k]?htmlspecialchars($payfor[$k]):$v[2];}</textarea>
+					{elseif $v[0][type]=='radio'}
+					{loop $v[0][values] $k2 $v2}
+					{if $v2==='br'}
+					<br />
+					{else}
+					<label><input type="radio" name="$k" value="$v2" class="radio"{if (isset($payfor[$k]) && $payfor[$k]==$v2) || (!isset($payfor[$k]) && $v[0]['default']==$v2)} checked{/if} />$k2</label>
+					{/if}
+					{/loop}
+					{else}
+					<input type="text" name="$k" value="{eval echo $payfor[$k]?htmlspecialchars($payfor[$k]):$v[2];}" />
+					{/if}
+					{else}
+					<input type="text" name="$k" value="{eval echo $payfor[$k]?htmlspecialchars($payfor[$k]):$v[2];}" />
+					{/if}
+				</td>
+				<td>$v[1]</td>
+			</tr>
+			{/loop}
+			<tr>
+				<td></td>
+				<td><input type="submit" class="btn" id="submit_tasksubmit" name="tasksubmit" title="按 Enter 键可随时提交您的修改" value="提交" /></td>
+				<td></td>
+			</tr>
+		</table>
+	</form>
+</div>
+{subtemplate footer}

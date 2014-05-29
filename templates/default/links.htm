@@ -1,0 +1,8 @@
+{cache 86400}
+{sql select title,url,img from {$pre}related_links where status='1' and img<>'' order by sort}
+<a href="$v[url]" target="_blank"><img src="$v[img]" title="$v[title]" /></a>
+{/sql}
+{sql select title,url,img from {$pre}related_links where status='1' and img='' order by sort}
+<a href="$v[url]" target="_blank">$v[title]</a>
+{/sql}
+{/cache}

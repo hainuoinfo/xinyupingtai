@@ -1,0 +1,77 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{teval
+echo css::get_css('dialog', 'dialog');
+}
+{js_select jquery,common}
+<title>
+	我要写申诉
+</title></head>
+<body>
+<div class="main_dl"> 
+	{eval if($_showmessage)$indexMessage = $_showmessage;}
+	{if $indexShowMessage}<div class='msg_panel'><div>$indexShowMessage</div></div>{/if}
+	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+  <div class="tip_gun">1. 请准确选择您的投诉类型，若与实际内容不符，联盟将会按恶意申诉处理；<br />
+    2. 请真实反映您所遇到的情况，以共同维护一个诚信和公平的互动环境；<br />
+    3. 请您向平台详细描述投诉信息与提交证明资料；资料越详实越能早日获得申诉赔偿；<br /></div>
+  <div class="bar_dl" style="margin:3px;">我要写申诉</div>
+  <form name="myForm" method="post" id="myForm" onsubmit="return checkForm();">
+<div>$sys_hash_code2</div>
+
+    <table border="0" cellspacing="0" cellpadding="2">
+      <tr>
+        <td width="100" align="right" class="f_14">被投诉人：</td>
+        <td><input name="member" type="text" disabled="disabled" class="text_normal" id="member" value="$tusername" />
+					<input name="plat" type="text" disabled="disabled" class="text_normal" id="plat" value="{echo language::get('qu'.$task[type])}互动区" /></td>
+      </tr>
+      <tr>
+        <td align="right" class="f_14">任务ID：</td>
+        <td><input name="taskId" type="text" disabled="disabled" class="text_normal" id="textfield3" value="$task[id]" />
+					<span class="f_b_red">[注意]申诉人必须在下面的描述中上传申诉涉及淘宝交易的淘宝交易状态截图！否则将申诉将不能被受理！</span></td>
+      </tr>
+      <tr>
+        <td align="right" class="f_14">投诉类别：</td>
+        <td valign="top"><select name="title" id="title">
+                <option value=""></option>
+            	{if $isBuyer}
+                <option value="投诉发布方：我已确认收货，发布方平台不最后确认！">投诉发布方：我已确认收货，发布方平台不最后确认！</option>
+				{else}
+				<option value="投诉接手方：接手方平台确认收货，但是淘宝上却未确认">投诉接手方：接手方平台确认收货，但是淘宝上却未确认</option>
+                <option value="投诉接手方：接手方平台确认收货，但是淘宝上却为申请退款">投诉接手方：接手方平台确认收货，但是淘宝上却为申请退款</option>
+                <option value="投诉接手方，接手方未按任务规定内容好评！">投诉接手方，接手方未按任务规定内容好评！</option>
+                <option value="投诉接手方，接手方淘宝给我中评或者差评！">投诉接手方，接手方淘宝给我中评或者差评！</option>
+                <option value="投诉接手方，接手方恶意评语！">投诉接手方，接手方恶意评语！</option>
+                <option value="投诉接手方，接手人没按任务要求分享！">投诉接手方，接手人没按任务要求分享！</option>
+            	{/if}
+        </select> 　　　（请选择申诉的类型）</td>
+      </tr>
+      <tr>
+        <td align="right" valign="top" class="f_14">投诉详细描述：</td>
+        <td valign="top">{xheditor article,remark,800,290}</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><input name="btnSubmit" type="submit" class="btn_2" id="btnSubmit" value="确定" />
+          <input name="btnCancel" type="button" class="btn_2" onclick="parent.doCut();" id="btnCancel" value="取消" /></td>
+      </tr>
+    </table>
+  </form>
+</div>
+<script type="text/javascript">
+function checkForm() {
+    //var str = editor.getSource();
+    var checks = [
+        ["isEmpty", "title", "投诉类别"],
+		["isEmpty", "remark", "投诉详细描述"] ];
+	var result = doCheck(checks);
+	if (result) 
+	    result = confirm("您确定要发起申述么？");
+	if (result)avoidReSubmit();
+	return result;
+}
+</script>
+</body>
+</html>

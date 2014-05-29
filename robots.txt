@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /install/
+Disallow: /user/
+Disallow: /lib/
+Disallow: /class/
+Disallow: /ajax/

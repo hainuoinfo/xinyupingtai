@@ -1,0 +1,260 @@
+
+<div id="content">
+		<style type="text/css">
+.gold .yred { color:#D61810;}
+</style>
+<ul class="rwdt_info">
+			<li>
+			  <p class="fd">账户余额：<strong class="chengse">1.00</strong> 元</p>
+			<a title="将存款提取到我的网银或支付宝上" target="_blank" href="{rewrite}/user/payment/" class="rwdt_tx"></a></li>
+			<div class="cle"></div>
+			<li><p class="fd">麦点：<strong class="chengse">1.00</strong> 个</p><a href="{rewrite}/user/rechange/" title="将保证金兑换成能发布任务的麦点" target="_blank" class="rwdt_hs"></a></li>
+			<div class="cle"></div>
+			<li><p>积分：<strong class="chengse">0.90</strong> 个</p></li>
+			<li><p class="fd">属于：普通会员</p><span class=""></span></li>
+			<div class="cle"></div>
+			<li>好评率：<strong class="lvse">暂无评论信息</strong></li>
+			<li>有效投诉：<strong class="chengse">0</strong></li>
+		</ul>
+		<div class="rwdt_bk">
+			<p class="sub_bt"><a id="liInput1" class="nov" href="javascript:;">支付宝充值</a><a href="javascript:;" id="liInput2">网银充值</a><a href="javascript:;" id="liInput3">购买麦点</a><a href="javascript:;" id="liInput4">人工转账</a></p>
+			 <div id="buyboxcont">
+				<div class="task_header" style="display:block;">
+				  
+						<table style="margin-top:10px;" align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr><td>收款支付宝账号：<a href="javascript:;" onclick="return copy('xiaomaimaila@163.com')"><em>xiaomaimaila@163.com</em></a> (<span style="color:#FF9000;" onclick="return copy('胡可恬')">胡可恬</span>) </td></tr>
+							<tr><td>转账时只能备注：<span style="color:#FF9000;font-weight:700">wulanyang</span></td></tr>
+							<tr><td>(转账完毕后验证交易号，1分钟到账)</td></tr>
+							<tr>
+                        	   <td colspan="2"><a class="tc_b" href="{rewrite}/bbs/t1850/" target="_blank">查看充值教程</a><a class="tc_k" target="_blank" href="{rewrite}/user/topup/?type=alipay">验证订单号</a></td>
+                            </tr>
+						</tbody></table>
+				   
+		       </div>
+		       <div class="task_header" style="display:none">
+					<form id="q_f_2" action="/user/topup/" method="post" target="_blank" onsubmit="return checkForm1();">
+					<div> $sys_hash_code2 </div>
+					<table style="margin-top:10px;" align="left" border="0" cellpadding="0" cellspacing="0" width="90%">
+					  <tbody><tr>
+						<td height="30" align="right" valign="top" width="35%">充值用户名：</td>
+						<td><input name="username" id="username" class="rwdt_inp" style="color:#666" value="wulanyang" disabled="disabled" type="text"></td>
+					  </tr>
+					  <tr>
+						<td height="30" align="right" valign="top">充值金额：</td>
+						<td><input name="money" id="money" class="rwdt_inp" style="color:#666" value="100" type="text"> 
+						<span class="chengse">(1%手续费)</span></td>
+					  </tr>
+					  <tr>
+						<td>&nbsp;</td>
+						<td><input class="rwdt_cz" type="submit"></td>
+					  </tr>
+				  </tbody></table>
+				  </form>
+		       </div>
+			    <div class="task_header" style="display:none">
+							<form id="q_f_3" action="/BuyPoint/" method="post" onsubmit="return checkForm3();">
+							<div> $sys_hash_code2 </div>
+							<input name="cardType" value="1" type="hidden">
+							<input name="jiage" id="jiage" value="" type="hidden">
+									<table style="margin-top:10px;" align="left" border="0" cellpadding="0" cellspacing="0" width="90%">
+									<tbody><tr>
+											<td height="30" align="right" valign="middle" width="35%">购买价格：</td>
+											<td><span style="color:#D9281E; font-weight:bold;"><span id="jiage1">0.68</span>元=1个麦点</span></td>
+										</tr>
+									<tr>
+											<td height="30" align="right" valign="middle" width="35%">购买数量：</td>
+											<td><input name="nums" id="cardnums" value="1" size="10" maxlength="4" type="text">(最少购买1个)</td>
+										</tr>
+									<tr>
+										<td>&nbsp;</td>
+										<td><input class="rwdt_cz" type="submit"></td>
+									</tr>
+								</tbody></table>
+							</form>
+		       </div>
+			    <div class="task_header" style="display:none">
+					<table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+                      	<tbody>
+						<tr>
+                        	<td colspan="2" style="padding:5px 10px 5px 10px;">财付通直接转帐冲值，不收任何手续费用。仅接受大于100元以上的充值。充值前请联系客服，然后再打款，平台指定人工充财付通帐号：<em>273334116</em></td>
+                        </tr>
+                        <tr>
+                        	<td style="width:50%;padding-left:20px;"><a class="rwdt_kf" href="tencent://message/?uin=188239039" target="_blank">联系客服</a></td>
+                            <td><a class="rwdt_cht" target="_blank" href="https://www.tenpay.com/v2/">登录财付通</a></td>
+                        </tr>
+                      </tbody>
+					</table>
+		       </div>
+		  </div>
+		</div>
+		<div class="rwdt_bk2">
+			<a href="{rewrite}/user/safesz/" class="szsz_btn" target="_blank"></a>
+			<p class="ts">接实物任务后立即收货好评将 <span class="chengse">- 20 </span>麦点</p>
+			<p class="ts">任务过程中旺旺聊到刷信誉平台相关字眼 <span class="chengse">- 5 </span>麦点</p>
+			<p class="ts">为了您资金安全，接手方淘宝支付后务必在<span class="lanse">15</span>分钟内回到平台操作任务点击“已付款” </p>
+		</div>
+		<div class="rwdt_gg"><a href="{rewrite}/user/userjob/" target="_blank"><img src="images/jrw.gif"></a></div>
+		<div class="rwdt_gg2"><a href="{rewrite}/bbs/t1538/" target="_blank"><img src="images/frw.gif"></a></div>
+
+<script type="text/javascript">
+					$(function() {
+						bechange('.sub_bt a','#buyboxcont>.task_header');
+						$("table > tr:odd").addClass("tcolor");
+					});
+					</script>
+<script type="text/javascript">
+function checkForm1() {
+   var checks = [
+		["isNumber", "money", "充值金额"]];
+	var result = doCheck(checks);
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+function checkForm2(){
+  var checks = [
+		["isEmpty", "cardPwd", "订单号"]];
+	var result = doCheck(checks);
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+function checkForm3() {
+   var checks = [
+		["isNumber", "cardnums", "购买麦点数量"] ];
+	var result = doCheck(checks);
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+
+</script>
+		<div class="rwdt_menu">
+			<a href="{rewrite}/task/tao/" class="nov" title="淘宝任务大厅">淘宝任务大厅</a>
+			<a href="{rewrite}/task/tao/?m=taskIn" title="已接任务">已接任务</a>
+			<a href="{rewrite}/task/tao/?m=taskOut" title="已发任务">已发任务</a>
+			<a href="{rewrite}/task/tao/?m=tieBuyer" title="绑定买号">绑定买号</a>
+			<a href="{rewrite}/task/tao/?m=tieSeller" title="绑定掌柜">绑定掌柜</a>
+		</div>
+		<div class="rwdt_xx">
+			<p class="rwdt_lx"><a href="#" class="nov" seed="0">全部任务</a><a href="#" seed="1">虚拟任务</a><a href="#" seed="2">实物任务</a></p>
+			<ul class="rwdt_jg" id="rwdt_jg">
+				<li><span class="gdt1"></span></li>
+				<li><a href="#" jiages="0" title="不限" class="nov">不限</a></li>
+				<li><a href="#" title="1-30元" jiages="1">1-30元</a></li>
+				<li><a href="#" title="31-100元" jiages="2">31-100元</a></li>
+				<li><a href="#" title="101-400元" jiages="3">101-400元</a></li>
+				<li><a href="#" title="400以上" jiages="4">400以上</a></li>
+				<li><span class="gdt2"></span></li>
+			</ul>
+			<ul class="rwdt_jg" id="rwdt_jg2" style="display:none;">
+				<li><span class="gdt1"></span></li>
+				<li><a href="#" cid="6" title="不限" class="nov">不限</a></li>
+				<li><a href="#" title="1天收货" cid="2">1天收货</a></li>
+				<li><a href="#" title="2天收货" cid="3">2天收货</a></li>
+				<li><a href="#" title="3天收货" cid="4">3天收货</a></li>
+				<li><a href="#" title="4天以上收货" cid="5">4天以上收货</a></li>
+				<li><span class="gdt2"></span></li>
+			</ul>
+			<div class="rwdt_btn"><a href="{rewrite}/task/tao/?m=add" class="fb_btn"></a><a href="javascript:;" class="sx_btn"></a></div>
+		    <div class="autotk"><input id="nAuTotk" name="nAuTotk" type="checkbox"> <strong>自动接任务</strong><a href="{rewrite}/user/AutoAm/" target="_blank"><strong>（配置自动接任务筛选条件）</strong></a></div>
+		</div>
+		<div class="cle"></div>
+	    <div id="taobao-lists">
+		<div id="taskList">
+ <table class="tlisttable" border="0" cellpadding="0" cellspacing="0" width="100%">
+          <thead>
+            <tr><td class="rwdt_bt1" height="39" align="center" valign="middle" width="10"></td>
+            <td class="rwdt_bt2" align="center" valign="middle" width="21%">任务编号</td>
+            <td class="rwdt_bt2" align="left" valign="middle" width="12%">发布人</td>
+            <td class="rwdt_bt2" align="left" valign="middle" width="12%">任务价格</td>
+            <td class="rwdt_bt2" align="center" valign="middle" width="23%">发布者要求</td>
+            <td class="rwdt_bt2" align="left" valign="middle" width="22%">悬赏麦点</td>
+            <td class="rwdt_bt2" align="center" valign="middle" width="10%">操作</td>
+            <td class="rwdt_bt3" align="center" valign="middle" width="10"></td>
+          </tr>
+		</thead>
+		<tbody class="tlisttable">
+			
+          <tr class="rwdt_list" valign="top">
+            <td width="10">&nbsp;</td>
+            <td width="21%"><span class="rwdt_bh3" title="来路任务"><strong class="system1">TB0921125351034718</strong></span><br>
+            <span class="rwdt_xbh0 block">Post Time:12:53:50</span></td>
+            <td width="12%"><a title="接任务后方可查看到对方QQ号码" target="_blank" href="{rewrite}/user/info/?username=%E9%BA%A6%E6%88%B7%E7%B1%B3%E7%B1%B3" class="chengse"><strong>麦户米米</strong></a><br>
+            <span class="fb_vip1" title="一级VIP客户"></span></td>
+            <td width="12%"><span class="rwdt_db" title="平台担保：此任务卖家已缴纳全额担保存款，买家可放心购买，任务完成时，买家平台账号自动获得相应存款。">40.00</span></td>
+            <td class="noktime" width="23%"><p class="yred" title="任务接手付款后，立即对宝贝进行好评并打五星！">立即不带字五星好评</p>
+			<em title="接任务者需要发布者核审" class="rwdt_yq1">&nbsp;</em></td>
+            <td align="left" width="22%"><span class="chengse2"><strong>1.8个麦点</strong></span>
+			</td>
+            <td width="10%"><p class="yred"><a class="qrw_btn" balid="0" onclick="taskin('TB0921125351034718',false,this);" href="javascript:;" title="">&nbsp;</a></p></td>
+            <td width="10">&nbsp;</td>
+          </tr>
+         </tbody>
+</table>
+		
+		<div class="rwdt_dlm">
+			<a href="{rewrite}/bbs/t1509/" target="_blank" class="rwdt_tbhelp"></a>
+			<div id="page" style="float:right;">
+				
+				<a href="javascript:goPage(1);" class="nov">1</a><a href="javascript:goPage(2);">2</a><a href="javascript:goPage(3);">3</a><a href="javascript:goPage(4);">4</a><a href="javascript:goPage(5);">5</a><a href="javascript:goPage(6);">6</a><a href="javascript:goPage(7);">7</a><a href="javascript:goPage(8);">8</a><a href="javascript:goPage(9);">9</a><a href="javascript:goPage(10);">10</a><a href="javascript:goPage(11);">11</a><a href="javascript:goPage(12);">12</a><a href="javascript:goPage(13);">13</a><a href="javascript:goPage(14);">14</a><a href="javascript:goPage(15);">15</a>
+				
+				<a href="javascript:goPage(2);" class="next">&gt;</a>
+				
+				
+		  </div>
+		</div>
+<div id="divIDList" style="display:none;">
+<div class="divin">
+<div class="cont">
+<table class="namelist" style="margin-top:0px; margin-left:0px;" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr class="trListNormal">
+<td id="tdOpenNormalBa" style="background-color:#E1E1E1;color:Black; padding:6px 0px 5px 5px;cursor:pointer; border-bottom:solid 1px #FFFFFF;" onclick="OpenNormalBa(0)" colspan="2">
+<span id="spanNormalHead" style="color:black;">
+<img src="images/hidden.gif" style="margin-bottom:2px;">
+普通买号
+</span>
+</td>
+</tr>
+<tr id="trListNormal" class="trListNormal">
+<td colspan="2">
+
+
+<div id="divNoNormalBa" style="padding:10px 10px 10px 5px;color:#FF5500;">您未绑定或未启用普通买号　　　<span><a href="{rewrite}/user/buytao/" class="comlink" target="_blank">立即绑定买号</a></span></div>
+
+
+</td>
+</tr>
+<tr>
+<td id="tdOpenTrueNameBa" style="background-color:#E1E1E1;color:Black;padding:6px 0px 5px 5px;cursor:pointer;" onclick="OpenTrueNameBa(0)" colspan="2">
+<span id="spanTrueNameHead" style="color:black;">
+<img src="images/show.gif" style="margin-top:2px;">
+实名买号（可用0个，点击查看）
+</span>
+</td>
+</tr>
+<tr id="trListTrueName" style="display:none;">
+<td colspan="2">
+
+
+<div id="divNoNormalBa" style="padding:10px 10px 10px 5px;color:#FF5500;">您未绑定或未启用实名买号</div>　　　<span><a href="{rewrite}/user/buytao/" class="comlink" target="_blank">立即绑定买号</a></span>
+
+
+</td>
+</tr>
+</tbody>
+</table>
+<p>注：为了安全，买号淘宝信用大于2000时，无法使用该买号接任务。</p>
+</div>
+</div>
+</div></div>
+		<table id="reAutoAM" style="width:100%;height:150px;background-color:#FBFBFB;display:none;">
+            <tbody><tr>
+                <td style="width:30%" align="right"><img src="images/loading.gif"></td>
+                <td><span style="margin-left:20px;color:Red;font-weight:bold;"></span><input id="btnAutoAM" style="display:none;"></td>
+            </tr>
+          </tbody></table>
+
+		</div>
+	         </div>

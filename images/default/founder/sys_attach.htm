@@ -1,0 +1,692 @@
+{subtemplate header}
+<div class="container" id="cpcontainer">
+	<div class="floattop">
+		<div class="itemtitle">
+			<h3>$menu_sub_name</h3>
+			<ul class="tab1">
+				<li class="current" id="tab_basic"><a><span>基本设置</span></a></li>
+				<li id="tab_image"><a><span>图片附件</span></a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="floattopempty"></div>
+	<script language="javascript">
+	$('.tab1 li').each(function(){
+		$(this).find('a').attr({href:'javascript:;'}).click(function(){
+			if($(this).parent().hasClass('current'))return;
+			$(this).parent().parent().children().each(function(){
+				if($(this).hasClass('current')) {
+					$(this).removeClass('current');
+					$('#'+$(this).attr('id').substring(4)).hide();
+					return;
+				}
+			});
+			
+			var id=$(this).parent().addClass('current').attr('id').substring(4);
+			$('#'+id).show();
+		});
+	});
+	$(function(){
+		$('input').each(function(){
+			if('radio|checkbox|'.indexOf($(this).attr('type')+'|')>=0){
+				if($(this).parent().attr('tagName')=='LI'){
+					$(this).click(function(){
+						$(this).parent().parent().find('li.checked').removeClass('checked');
+						$(this).parent().addClass('checked');
+					});
+				}
+			}
+		});
+	});
+	</script>
+	<form name="cpform" method="post" id="cpform" >
+		<input type="hidden" name="hash" value="$sys_hash" />
+		<table class="tb tb2 " id="basic">
+			<tr>
+				<td colspan="2" class="td27">附件保存位置:</td>
+			</tr>
+			<tr class="noborder">
+				<td class="vtop rowform"><input name="settingsnew[attachdir]" value="$cache_attach[attachdir]" type="text" class="txt"   /></td>
+				<td class="vtop tips2">服务器路径, 属性 777, 必须为 web 可访问到的目录, 结尾不加 "/", 相对目录务必以 "./" 开头</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="td27">附件 URL 地址:</td>
+			</tr>
+			<tr class="noborder">
+				<td class="vtop rowform"><input name="settingsnew[attachurl]" value="$cache_attach[attachurl]" type="text" class="txt"   /></td>
+				<td class="vtop tips2">可为当前 URL 下的相对地址或 http:// 开头的绝对地址, 结尾不加 "/"</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="td27">帖子中显示图片附件:</td>
+			</tr>
+			<tr class="noborder">
+				<td class="vtop rowform"><ul>
+						<li class="checked">
+							<input class="radio" type="radio" name="settingsnew[attachimgpost]" value="1"{if $cache_attach[attachimgpost]} checked{/if} />
+							&nbsp;是</li>
+						<li>
+							<input class="radio" type="radio" name="settingsnew[attachimgpost]" value="0" {if !$cache_attach[attachimgpost]} checked{/if} />
+							&nbsp;否</li>
+					</ul></td>
+				<td class="vtop tips2">在帖子中直接将图片或动画附件显示出来，而不需要点击附件链接</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="td27">附件保存方式:</td>
+			</tr>
+			<tr class="noborder">
+				<td class="vtop rowform"><select name="settingsnew[attachsave]" >
+						<option value="0"{if $cache_attach[attachsave]==0} selected{/if}>标准(全部存入同一目录)</option>
+						<option value="1"{if $cache_attach[attachsave]==1} selected{/if}>按版块存入不同目录</option>
+						<option value="2"{if $cache_attach[attachsave]==2} selected{/if}>按文件类型存入不同目录</option>
+						<option value="3"{if $cache_attach[attachsave]==3} selected{/if}>按月份存入不同目录</option>
+						<option value="4"{if $cache_attach[attachsave]==4} selected{/if}>按天存入不同目录</option>
+					</select></td>
+				<td class="vtop tips2">本设置只影响新上传的附件，设置更改之前的附件仍存放在原来位置。如使用非标准的保存方式，请确认 mkdir() 函数可正常使用，否则将出现附件无法保存的问题</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="td27">上传方式:</td>
+			</tr>
+			<tr class="noborder">
+				<td class="vtop rowform"><ul class="nofloat">
+						<li class="checked">
+							<input class="checkbox" type="checkbox" name="settingsnew[http_upload]" value="1"{if $cache_attach[http_upload]} checked{/if} />
+							&nbsp;普通上传</li>
+						<li class="checked">
+							<input class="checkbox" type="checkbox" name="settingsnew[swf_upload]" value="1"{if $cache_attach[swf_upload]} checked{/if}>
+							&nbsp;批量上传</li>
+					</ul></td>
+				<td class="vtop tips2">批量上传采用 Flash 机制上传，可一次上传多个附件，上传时还会有进度显示</td>
+			</tr>
+			<tr>
+				<td colspan="15"><div class="fixsel">
+						<input type="submit" class="btn" id="submit_settingsubmit" name="settingsubmit" title="按 Enter 键可随时提交您的修改" value="提交" />
+					</div></td>
+			</tr>
+		</table>
+		<table class="tb tb2 " id="image" style="display: none">
+			<tr>
+				<td colspan="2" class="td27">图片处理库类型:</td>
+			</tr>
+			<tr class="noborder">
+				<td class="vtop rowform"><ul class="nofloat">
+						<li class="checked">
+							<input class="radio" type="radio" name="settingsnew[imagelib]" value="0"{if !$cache_attach[imagelib]} checked{/if} onclick="$('#imagelibext').hide();">
+							&nbsp;GD</li>
+						<li>
+							<input class="radio" type="radio" name="settingsnew[imagelib]" value="1"{if $cache_attach[imagelib]==1} checked{/if} onclick="$('#imagelibext').show();">
+							&nbsp;ImageMagick</li>
+					</ul></td>
+				<td class="vtop tips2">请选择 Discuz! 用来处理缩略图和水印的图像处理库。GD 是最广泛的处理库但是使用的系统资源较多。ImageMagick 速度快系统资源占用少，但需要服务器有执行命令行命令的权限。如果您的服务器有条件安装此程序，请到 <a href="http://www.imagemagick.org" target="_blank">http://www.imagemagick.org</a> 下载，安装后在下面指定安装的路径</td>
+			</tr>
+			<tbody class="sub" id="imagelibext"{if !$cache_attach[imagelib]} style="display: none"{/if}>
+				<tr>
+					<td colspan="2" class="td27">ImageMagick 程序安装路径:</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><input name="settingsnew[imageimpath]" value="$cache_attach[imageimpath]" type="text" class="txt"   /></td>
+					<td class="vtop tips2">ImageMagick 6 程序的安装路径。如果服务器的操作系统为 Windows，路径不要使用长文件名</td>
+				</tr>
+			</tbody>
+			<tr>
+				<td colspan="15"><div class="fixsel">
+						<input type="submit" class="btn" id="submit_settingsubmit" name="settingsubmit" title="按 Enter 键可随时提交您的修改" value="提交" />
+					</div></td>
+			</tr>
+		</table>
+	</form>
+</div>
+{subtemplate footer}
+{exit}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=7" />
+<link href="./images/admincp/admincp.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<script type="text/JavaScript">
+var admincpfilename = 'admincp.php', IMGDIR = 'images/default', STYLEID = '1', VERHASH = 'uiN', IN_ADMINCP = true, ISFRAME = 1;
+</script>
+<script src="include/js/common.js" type="text/javascript"></script>
+<script src="images/admincp/admincp.js" type="text/javascript"></script>
+<script type="text/javascript">
+if(ISFRAME && !parent.document.getElementById('leftmenu')) {
+	redirect(admincpfilename + '?frames=yes&' + document.URL.substr(document.URL.indexOf(admincpfilename) + 12));
+}
+</script>
+<div id="append_parent"></div>
+<div class="container" id="cpcontainer">
+	<script type="text/JavaScript">if(parent.$('admincpnav')) parent.$('admincpnav').innerHTML='全局&nbsp;&raquo;&nbsp;附件设置';if(parent.$('add2custom')) parent.$('add2custom').innerHTML='<a href="admincp.php?action=misc&operation=custommenu&do=add&title=cplog_settings_attach&url=action%3Dsettings%26operation%3Dattach" target="main"><img src="images/admincp/btn_add2menu.gif" title="添加到常用操作" width="19" height="18" /></a>';if(parent.$('custombar_add')) parent.$('custombar_add').innerHTML='<span onclick="ajaxget(\'admincp.php?action=misc&operation=custombar&title=cplog_settings_attach&url=action%3Dsettings%26operation%3Dattach\', \'custombar\', \'\', \'\', \'\', function () { top.custombar_resize();});" title="把当前页面添加到任务栏" />&nbsp;&nbsp;&nbsp;&nbsp;添加到任务栏</span>';top.custombar_resize();</script>
+	<script type="text/JavaScript">var currentAnchor = 'basic';</script>
+	<div class="floattop">
+		<div class="itemtitle">
+			<h3>附件设置</h3>
+			<ul class="tab1" id="submenu">
+				<li id="nav_basic" onclick="showanchor(this)" class="current"><a href="#"><span>基本设置</span></a></li>
+				<li id="nav_image" onclick="showanchor(this)"><a href="#"><span>图片附件</span></a></li>
+				<li id="nav_remote" onclick="showanchor(this)"><a href="#"><span>远程附件</span></a></li>
+				<li id="nav_antileech" onclick="showanchor(this)"><a href="#"><span>防盗链设置</span></a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="floattopempty"></div>
+	<script type="text/JavaScript">if(parent.$('custombar_add')) parent.$('custombar_add').innerHTML='<span onclick="ajaxget(\'admincp.php?action=misc&operation=custombar&title=settings_attach&url=action%3Dsettings%26operation%3Dattach\', \'custombar\', \'\', \'\', \'\', function () { top.custombar_resize();});doane(event);" title="把当前页面添加到任务栏" />&nbsp;&nbsp;&nbsp;&nbsp;添加到任务栏</span>';top.custombar_resize();</script>
+	<form name="cpform" method="post" action="admincp.php?action=settings&edit=yes" id="cpform" >
+		<input type="hidden" name="formhash" value="b7d6eb90" />
+		<input type="hidden" id="formscrolltop" name="scrolltop" value="" />
+		<input type="hidden" name="anchor" value="basic" />
+		<input type="hidden" name="operation" value="attach">
+		<table class="tb tb2 " id="basic">
+			<tr>
+				<td colspan="2" class="td27">附件保存位置:</td>
+			</tr>
+			<tr class="noborder">
+				<td class="vtop rowform"><input name="settingsnew[attachdir]" value="./attachments" type="text" class="txt"   /></td>
+				<td class="vtop tips2">服务器路径, 属性 777, 必须为 web 可访问到的目录, 结尾不加 "/", 相对目录务必以 "./" 开头</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="td27">附件 URL 地址:</td>
+			</tr>
+			<tr class="noborder">
+				<td class="vtop rowform"><input name="settingsnew[attachurl]" value="attachments" type="text" class="txt"   /></td>
+				<td class="vtop tips2">可为当前 URL 下的相对地址或 http:// 开头的绝对地址, 结尾不加 "/"</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="td27">帖子中显示图片附件:</td>
+			</tr>
+			<tr class="noborder">
+				<td class="vtop rowform"><ul onmouseover="altStyle(this);">
+						<li class="checked">
+							<input class="radio" type="radio" name="settingsnew[attachimgpost]" value="1" checked>
+							&nbsp;是</li>
+						<li>
+							<input class="radio" type="radio" name="settingsnew[attachimgpost]" value="0" >
+							&nbsp;否</li>
+					</ul></td>
+				<td class="vtop tips2">在帖子中直接将图片或动画附件显示出来，而不需要点击附件链接</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="td27">附件保存方式:</td>
+			</tr>
+			<tr class="noborder">
+				<td class="vtop rowform"><select name="settingsnew[attachsave]" >
+						<option value="0" >标准(全部存入同一目录)</option>
+						<option value="1" >按版块存入不同目录</option>
+						<option value="2" >按文件类型存入不同目录</option>
+						<option value="3" selected="selected">按月份存入不同目录</option>
+						<option value="4" >按天存入不同目录</option>
+					</select></td>
+				<td class="vtop tips2">本设置只影响新上传的附件，设置更改之前的附件仍存放在原来位置。如使用非标准的保存方式，请确认 mkdir() 函数可正常使用，否则将出现附件无法保存的问题</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="td27">上传方式:</td>
+			</tr>
+			<tr class="noborder">
+				<td class="vtop rowform"><ul class="nofloat" onmouseover="altStyle(this);">
+						<li class="checked">
+							<input class="checkbox" type="checkbox" name="settingsnew[swfupload][]" value="0" checked>
+							&nbsp;普通上传</li>
+						<li class="checked">
+							<input class="checkbox" type="checkbox" name="settingsnew[swfupload][]" value="1" checked>
+							&nbsp;批量上传</li>
+					</ul></td>
+				<td class="vtop tips2">批量上传采用 Flash 机制上传，可一次上传多个附件，上传时还会有进度显示</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="td27">附件 URL 地址、媒体附件播放:</td>
+			</tr>
+			<tr class="noborder">
+				<td class="vtop rowform"><ul onmouseover="altStyle(this);">
+						<li>
+							<input class="radio" type="radio" name="settingsnew[allowattachurl]" value="1" >
+							&nbsp;是</li>
+						<li class="checked">
+							<input class="radio" type="radio" name="settingsnew[allowattachurl]" value="0" checked>
+							&nbsp;否</li>
+					</ul></td>
+				<td class="vtop tips2">开启附件 URL 地址后，上传附件的地址可通过 "attach://aid" 方式在任何帖内引用，并支持媒体类附件的直接播放</td>
+			</tr>
+			<tr>
+				<td colspan="15"><div class="fixsel">
+						<input type="submit" class="btn" id="submit_settingsubmit" name="settingsubmit" title="按 Enter 键可随时提交您的修改" value="提交" />
+					</div></td>
+			</tr>
+			<script type="text/JavaScript">_attachEvent(document.documentElement, 'keydown', function (e) { entersubmit(e, 'settingsubmit'); });</script>
+		</table>
+		<table class="tb tb2 " id="image" style="display: none">
+			<tr>
+				<td colspan="2" class="td27">图片处理库类型:</td>
+			</tr>
+			<tr class="noborder">
+				<td class="vtop rowform"><ul class="nofloat" onmouseover="altStyle(this);">
+						<li class="checked">
+							<input class="radio" type="radio" name="settingsnew[imagelib]" value="0" checked onclick="$('imagelibext').style.display = 'none';">
+							&nbsp;GD</li>
+						<li>
+							<input class="radio" type="radio" name="settingsnew[imagelib]" value="1" onclick="$('imagelibext').style.display = '';">
+							&nbsp;ImageMagick</li>
+					</ul></td>
+				<td class="vtop tips2">请选择 Discuz! 用来处理缩略图和水印的图像处理库。GD 是最广泛的处理库但是使用的系统资源较多。ImageMagick 速度快系统资源占用少，但需要服务器有执行命令行命令的权限。如果您的服务器有条件安装此程序，请到 <a href="http://www.imagemagick.org" target="_blank">http://www.imagemagick.org</a> 下载，安装后在下面指定安装的路径</td>
+			</tr>
+			<tbody class="sub" id="imagelibext" style="display: none">
+				<tr>
+					<td colspan="2" class="td27">ImageMagick 程序安装路径:</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><input name="settingsnew[imageimpath]" value="" type="text" class="txt"   /></td>
+					<td class="vtop tips2">ImageMagick 6 程序的安装路径。如果服务器的操作系统为 Windows，路径不要使用长文件名</td>
+				</tr>
+			</tbody>
+			<tr>
+				<td colspan="2" class="td27">缩略图:</td>
+			</tr>
+			<tr class="noborder">
+				<td class="vtop rowform"><ul class="nofloat" onmouseover="altStyle(this);">
+						<li>
+							<input class="radio" type="radio" name="settingsnew[thumbstatus]" value="0" onclick="$('thumbext').style.display = 'none';">
+							&nbsp;不启用缩略图功能</li>
+						<li class="checked">
+							<input class="radio" type="radio" name="settingsnew[thumbstatus]" value="1" checked onclick="$('thumbext').style.display = '';">
+							&nbsp;生成不超过指定大小的缩略图</li>
+						<li>
+							<input class="radio" type="radio" name="settingsnew[thumbstatus]" value="3" onclick="$('thumbext').style.display = '';">
+							&nbsp;生成固定大小的缩略图</li>
+						<li>
+							<input class="radio" type="radio" name="settingsnew[thumbstatus]" value="2" onclick="$('thumbext').style.display = '';">
+							&nbsp;转换图片附件为不超过指定大小的图片</li>
+					</ul></td>
+				<td class="vtop tips2">您可以设置自动为用户上传的 JPG/PNG/GIF 图片附件添加缩略图或将图片附件缩到指定的大小。不支持动画 GIF 格式<br />
+					<input type="button" class="btn" onclick="$('cpform').action='admincp.php?action=checktools&operation=imagepreview&previewthumb=yes&frame=no';$('cpform').target='_blank';$('cpform').submit();$('cpform').action='admincp.php?action=settings&edit=yes';$('cpform').target='';return false;" value="预览缩略图效果" style="vertical-align: middle">
+					(无需保存设置即可预览)</td>
+			</tr>
+			<tbody class="sub" id="thumbext">
+				<tr>
+					<td colspan="2" class="td27">缩略图质量:</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><input name="settingsnew[thumbquality]" value="100" type="text" class="txt"   /></td>
+					<td class="vtop tips2">设置图片附件缩略图的质量参数，范围为 0～100 的整数，数值越大结果图片效果越好，但尺寸也越大</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="td27">缩略图大小:</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><input type="text" class="txt" name="settingsnew[thumbwidth]" value="100" style="width: 108px; margin-right: 5px;">
+						X
+						<input type="text" class="txt" name="settingsnew[thumbheight]" value="100"class="txt" style="width: 108px; margin-left: 5px;"></td>
+					<td class="vtop tips2">设置缩略图的大小，小于此尺寸的图片附件将不生成缩略图</td>
+				</tr>
+			</tbody>
+			<tr>
+				<td colspan="2" class="td27">水印:</td>
+			</tr>
+			<tr class="noborder">
+				<td class="vtop rowform"><table cellspacing="INNERBORDERWIDTH" cellpadding="TABLESPACE" style="margin-bottom: 3px; margin-top:3px;">
+						<tr>
+							<td colspan="3"><input class="radio" type="radio" name="settingsnew[watermarkstatus]" value="0" checked>
+								不启用水印功能</td>
+						</tr>
+						<tr>
+							<td><input class="radio" type="radio" name="settingsnew[watermarkstatus]" value="1" >
+								#1</td>
+							<td><input class="radio" type="radio" name="settingsnew[watermarkstatus]" value="2" >
+								#2</td>
+							<td><input class="radio" type="radio" name="settingsnew[watermarkstatus]" value="3" >
+								#3</td>
+						</tr>
+						<tr>
+							<td><input class="radio" type="radio" name="settingsnew[watermarkstatus]" value="4" >
+								#4</td>
+							<td><input class="radio" type="radio" name="settingsnew[watermarkstatus]" value="5" >
+								#5</td>
+							<td><input class="radio" type="radio" name="settingsnew[watermarkstatus]" value="6" >
+								#6</td>
+						</tr>
+						<tr>
+							<td><input class="radio" type="radio" name="settingsnew[watermarkstatus]" value="7" >
+								#7</td>
+							<td><input class="radio" type="radio" name="settingsnew[watermarkstatus]" value="8" >
+								#8</td>
+							<td><input class="radio" type="radio" name="settingsnew[watermarkstatus]" value="9" >
+								#9</td>
+						</tr>
+					</table></td>
+				<td class="vtop tips2">您可以设置自动为用户上传的 JPG/PNG/GIF 图片附件添加水印，请在此选择水印添加的位置(3x3 共 9 个位置可选)。不支持动画 GIF 格式<br />
+					<input type="button" class="btn" onclick="$('cpform').action='admincp.php?action=checktools&operation=imagepreview&frame=no';$('cpform').target='_blank';$('cpform').submit();$('cpform').action='admincp.php?action=settings&edit=yes';$('cpform').target='';return false;" value="预览水印效果" style="vertical-align: middle">
+					(无需保存设置即可预览)</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="td27">水印添加条件:</td>
+			</tr>
+			<tr class="noborder">
+				<td class="vtop rowform"><input type="text" class="txt" name="settingsnew[watermarkminwidth]" value="0" style="width: 108px; margin-right: 5px;">
+					X
+					<input type="text" class="txt" name="settingsnew[watermarkminheight]" value="0"class="txt" style="width: 108px; margin-left: 5px;"></td>
+				<td class="vtop tips2">小于此尺寸的图片附件将不添加水印，0 以水印图片大小为添加条件</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="td27">水印图片类型:</td>
+			</tr>
+			<tr class="noborder">
+				<td class="vtop rowform"><ul class="nofloat" onmouseover="altStyle(this);">
+						<li class="checked">
+							<input class="radio" type="radio" name="settingsnew[watermarktype]" value="0" checked onclick="$('watermarktypeext').style.display = 'none';">
+							&nbsp;GIF 类型水印</li>
+						<li>
+							<input class="radio" type="radio" name="settingsnew[watermarktype]" value="1" onclick="$('watermarktypeext').style.display = 'none';">
+							&nbsp;PNG 类型水印</li>
+						<li>
+							<input class="radio" type="radio" name="settingsnew[watermarktype]" value="2" onclick="$('watermarktypeext').style.display = '';">
+							&nbsp;文本类型水印</li>
+					</ul></td>
+				<td class="vtop tips2">如果设置 GIF 类型的文件作为水印，水印图片为 ./images/common/watermark.gif，如果设置 PNG 类型的文件作为水印，水印图片为 ./images/common/watermark.png，您可替换水印文件以实现不同的水印效果。如果设置文本类型的水印并且使用 GD 图片处理库，那么还需要 FreeType 库支持才能使用</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="td27">水印融合度:</td>
+			</tr>
+			<tr class="noborder">
+				<td class="vtop rowform"><input name="settingsnew[watermarktrans]" value="65" type="text" class="txt"   /></td>
+				<td class="vtop tips2">设置 GIF 类型水印图片与原始图片的融合度，范围为 1～100 的整数，数值越大水印图片透明度越低。PNG 类型水印本身具有真彩透明效果，无须此设置。本功能需要开启水印功能后才有效</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="td27">JPEG 水印质量:</td>
+			</tr>
+			<tr class="noborder">
+				<td class="vtop rowform"><input name="settingsnew[watermarkquality]" value="80" type="text" class="txt"   /></td>
+				<td class="vtop tips2">设置 JPEG 类型的图片附件添加水印后的质量参数，范围为 0～100 的整数，数值越大结果图片效果越好，但尺寸也越大。本功能需要开启水印功能后才有效</td>
+			</tr>
+			<tbody class="sub" id="watermarktypeext" style="display: none">
+				<tr>
+					<td colspan="2" class="td27">文本水印文字:</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><textarea  rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="settingsnew[watermarktext][text]" id="settingsnew[watermarktext][text]" cols="50" class="tarea" '..'></textarea></td>
+					<td class="vtop tips2">如果您指定的 TrueType 字体为中文字体文件，那么您可以在文本水印中书写中文<br />
+						双击输入框可扩大/缩小</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="td27">文本水印 TrueType 字体文件名</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><select name="settingsnew[watermarktext][fontpath]">
+							<option value="FetteSteinschrift.ttf" selected>FetteSteinschrift.ttf</option>
+							<option value="PilsenPlakat.ttf">PilsenPlakat.ttf</option>
+						</select></td>
+					<td class="vtop tips2">填写存放在 ./images/fonts/ch 或 ./images/fonts/en 目录下的 TTF 字体文件，支持中文字体。如使用中文 TTF 字体请使用包含完整中文汉字的字体文件。</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="td27">文本水印字体大小:</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><input name="settingsnew[watermarktext][size]" value="0" type="text" class="txt"   /></td>
+					<td class="vtop tips2">设置文本水印字体大小，请按照字体设置相应的大小</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="td27">文本水印显示角度:</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><input name="settingsnew[watermarktext][angle]" value="0" type="text" class="txt"   /></td>
+					<td class="vtop tips2">0 度为从左向右阅读文本</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="td27">文本水印字体颜色</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><input id="c1_v" type="text" class="txt" style="float:left; width:200px;" value="" name="settingsnew[watermarktext][color]" onchange="updatecolorpreview('c1')">
+						<input id="c1" onclick="c1_frame.location='images/admincp/getcolor.htm?c1';showMenu({'ctrlid':'c1'})" type="button" class="colorwd" value="" style="background: ">
+						<span id="c1_menu" style="display: none">
+						<iframe name="c1_frame" src="" frameborder="0" width="166" height="186" scrolling="no"></iframe>
+						</span> </td>
+					<td class="vtop tips2">输入 16 进制颜色代表文本水印字体颜色</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="td27">文本水印阴影横向偏移量:</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><input name="settingsnew[watermarktext][shadowx]" value="0" type="text" class="txt"   /></td>
+					<td class="vtop tips2">设置文本水印阴影横向偏移量，此数值不宜设置的太大</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="td27">文本水印阴影纵向偏移量:</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><input name="settingsnew[watermarktext][shadowy]" value="0" type="text" class="txt"   /></td>
+					<td class="vtop tips2">设置文本水印阴影纵向偏移量，此数值不宜设置的太大</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="td27">文本水印阴影颜色</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><input id="c2_v" type="text" class="txt" style="float:left; width:200px;" value="" name="settingsnew[watermarktext][shadowcolor]" onchange="updatecolorpreview('c2')">
+						<input id="c2" onclick="c2_frame.location='images/admincp/getcolor.htm?c2';showMenu({'ctrlid':'c2'})" type="button" class="colorwd" value="" style="background: ">
+						<span id="c2_menu" style="display: none">
+						<iframe name="c2_frame" src="" frameborder="0" width="166" height="186" scrolling="no"></iframe>
+						</span> </td>
+					<td class="vtop tips2">输入 16 进制颜色代表文本水印阴影字体颜色</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="td27">文本水印横向偏移量(ImageMagick)</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><input name="settingsnew[watermarktext][translatex]" value="" type="text" class="txt"   /></td>
+					<td class="vtop tips2">设置水印文本输出后向屏幕中央的横向的偏移值。本设置只适用于 ImageMagick 图片处理库</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="td27">文本水印纵向偏移量(ImageMagick)</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><input name="settingsnew[watermarktext][translatey]" value="" type="text" class="txt"   /></td>
+					<td class="vtop tips2">设置水印文本输出后向屏幕中央的纵向的偏移值。本设置只适用于 ImageMagick 图片处理库</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="td27">文本水印横向倾斜角度(ImageMagick)</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><input name="settingsnew[watermarktext][skewx]" value="" type="text" class="txt"   /></td>
+					<td class="vtop tips2">设置水印文本横向的倾斜角度。本设置只适用于 ImageMagick 图片处理库</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="td27">文本水印纵向倾斜角度(ImageMagick)</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><input name="settingsnew[watermarktext][skewy]" value="" type="text" class="txt"   /></td>
+					<td class="vtop tips2">设置水印文本纵向的倾斜角度。本设置只适用于 ImageMagick 图片处理库</td>
+				</tr>
+			</tbody>
+			<tr>
+				<td colspan="15"><div class="fixsel">
+						<input type="submit" class="btn" id="submit_settingsubmit" name="settingsubmit" title="按 Enter 键可随时提交您的修改" value="提交" />
+					</div></td>
+			</tr>
+			<script type="text/JavaScript">_attachEvent(document.documentElement, 'keydown', function (e) { entersubmit(e, 'settingsubmit'); });</script>
+		</table>
+		<table class="tb tb2 " id="remote" style="display: none">
+			<tr>
+				<td colspan="2" class="td27">启用远程附件:</td>
+			</tr>
+			<tr class="noborder">
+				<td class="vtop rowform"><ul onmouseover="altStyle(this);">
+						<li>
+							<input class="radio" type="radio" name="settingsnew[ftp][on]" value="1" onclick="$('ftpext').style.display = '';$('ftpcheckbutton').style.display = '';">
+							&nbsp;是</li>
+						<li class="checked">
+							<input class="radio" type="radio" name="settingsnew[ftp][on]" value="0" checked onclick="$('ftpext').style.display = 'none';$('ftpcheckbutton').style.display = 'none';">
+							&nbsp;否</li>
+					</ul></td>
+				<td class="vtop tips2"></td>
+			</tr>
+			<tbody class="sub" id="ftpext" style="display: none">
+				<tr>
+					<td colspan="2" class="td27">启用 SSL 连接:</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><ul onmouseover="altStyle(this);">
+							<li>
+								<input class="radio" type="radio" name="settingsnew[ftp][ssl]" value="1" >
+								&nbsp;是</li>
+							<li class="checked">
+								<input class="radio" type="radio" name="settingsnew[ftp][ssl]" value="0" checked>
+								&nbsp;否</li>
+						</ul></td>
+					<td class="vtop tips2">注意：FTP 服务器必需开启了 SSL</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="td27">FTP 服务器地址:</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><input name="settingsnew[ftp][host]" value="" type="text" class="txt"   /></td>
+					<td class="vtop tips2">可以是 FTP 服务器的 IP 地址或域名</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="td27">FTP 服务器端口:</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><input name="settingsnew[ftp][port]" value="21" type="text" class="txt"   /></td>
+					<td class="vtop tips2">默认为 21</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="td27">FTP 帐号:</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><input name="settingsnew[ftp][username]" value="" type="text" class="txt"   /></td>
+					<td class="vtop tips2">该帐号必需具有以下权限：读取文件、写入文件、删除文件、创建目录、子目录继承</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="td27">FTP 密码:</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><input name="settingsnew[ftp][password]" value="" type="text" class="txt"   /></td>
+					<td class="vtop tips2">基于安全考虑将只显示 FTP 密码的第一位和最后一位，中间显示八个 * 号</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="td27">被动模式(pasv)连接:</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><ul onmouseover="altStyle(this);">
+							<li>
+								<input class="radio" type="radio" name="settingsnew[ftp][pasv]" value="1" >
+								&nbsp;是</li>
+							<li class="checked">
+								<input class="radio" type="radio" name="settingsnew[ftp][pasv]" value="0" checked>
+								&nbsp;否</li>
+						</ul></td>
+					<td class="vtop tips2">一般情况下非被动模式即可，如果存在上传失败问题，可尝试打开此设置</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="td27">远程附件目录:</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><input name="settingsnew[ftp][attachdir]" value="." type="text" class="txt"   /></td>
+					<td class="vtop tips2">远程附件目录的绝对路径或相对于 FTP 主目录的相对路径，结尾不要加斜杠“/”，“.”表示 FTP 主目录</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="td27">远程访问 URL:</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><input name="settingsnew[ftp][attachurl]" value="" type="text" class="txt"   /></td>
+					<td class="vtop tips2">支持 HTTP 和 FTP 协议，结尾不要加斜杠“/”；如果使用 FTP 协议，FTP 服务器必需支持 PASV 模式，为了安全起见，使用 FTP 连接的帐号不要设置可写权限和列表权限</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="td27">FTP 传输超时时间:</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><input name="settingsnew[ftp][timeout]" value="0" type="text" class="txt"   /></td>
+					<td class="vtop tips2">单位：秒，0 为服务器默认</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="td27">附件镜像设置:</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><ul class="nofloat" onmouseover="altStyle(this);">
+							<li>
+								<input class="radio" type="radio" name="settingsnew[ftp][mirror]" value="1">
+								&nbsp;只允许上传到远程服务器</li>
+							<li class="checked">
+								<input class="radio" type="radio" name="settingsnew[ftp][mirror]" value="0" checked>
+								&nbsp;当且仅当上传到远程服务器失败时才上传到论坛服务器</li>
+						</ul></td>
+					<td class="vtop tips2">注意：如果选择“只允许上传到远程服务器”，当尝试上传附件至远程服务器失败时，将放弃上传附件并提示错误信息。</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="td27">允许的附件扩展名:</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><textarea  rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="settingsnew[ftp][allowedexts]" id="settingsnew[ftp][allowedexts]" cols="50" class="tarea" '..'></textarea></td>
+					<td class="vtop tips2">只允许这些扩展名结尾的附件使用远程附件功能，每行一个，不区分大小写，留空为不限制。<br />
+						双击输入框可扩大/缩小</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="td27">禁止的附件扩展名:</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><textarea  rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="settingsnew[ftp][disallowedexts]" id="settingsnew[ftp][disallowedexts]" cols="50" class="tarea" '..'></textarea></td>
+					<td class="vtop tips2">禁止这些扩展名结尾的附件使用远程附件功能，每行一个，不区分大小写，留空为不限制。<br />
+						双击输入框可扩大/缩小</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="td27">附件尺寸下限:</td>
+				</tr>
+				<tr class="noborder">
+					<td class="vtop rowform"><input name="settingsnew[ftp][minsize]" value="" type="text" class="txt"   /></td>
+					<td class="vtop tips2">单位：KB，只有尺寸大于当前设置的附件才使用远程附件功能，0 或留空为不限制。</td>
+				</tr>
+			</tbody>
+			<tr>
+				<td colspan="15"><div class="fixsel">
+						<input type="submit" class="btn" id="submit_settingsubmit" name="settingsubmit" title="按 Enter 键可随时提交您的修改" value="提交" />
+						&nbsp;<span id="ftpcheckbutton" style="display: none">
+						<input type="submit" class="btn" name="ftpcheck" value="检测远程附件设置" onclick="this.form.action='admincp.php?action=checktools&operation=ftpcheck&frame=no';this.form.target='ftpcheckiframe';">
+						</span>
+						<iframe name="ftpcheckiframe" style="display: none"></iframe>
+					</div></td>
+			</tr>
+			<script type="text/JavaScript">_attachEvent(document.documentElement, 'keydown', function (e) { entersubmit(e, 'settingsubmit'); });</script>
+		</table>
+		<table class="tb tb2 " id="antileech" style="display: none">
+			<tr>
+				<td colspan="2" class="td27">附件链接有效期</td>
+			</tr>
+			<tr class="noborder">
+				<td class="vtop rowform"><input name="settingsnew[attachexpire]" value="" type="text" class="txt"   /></td>
+				<td class="vtop tips2">单位：小时，0 或留空表示附件链接永久有效，过期后链接自动更新。本功能可有效防止附件被盗链或附件被软件批量下载，但是会给会员的正常下载带来不便</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="td27">下载附件来路检查:</td>
+			</tr>
+			<tr class="noborder">
+				<td class="vtop rowform"><ul onmouseover="altStyle(this);">
+						<li>
+							<input class="radio" type="radio" name="settingsnew[attachrefcheck]" value="1" >
+							&nbsp;是</li>
+						<li class="checked">
+							<input class="radio" type="radio" name="settingsnew[attachrefcheck]" value="0" checked>
+							&nbsp;否</li>
+					</ul></td>
+				<td class="vtop tips2">选择“是”将检查下载附件的来路，来自其他网站或论坛的下载请求将被禁止。注意: 本功能在开启“帖子中显示图片附件”时，会加重服务器负担</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="td27">隐藏远程附件真实路径:</td>
+			</tr>
+			<tr class="noborder">
+				<td class="vtop rowform"><ul onmouseover="altStyle(this);">
+						<li>
+							<input class="radio" type="radio" name="settingsnew[ftp][hideurl]" value="1" >
+							&nbsp;是</li>
+						<li class="checked">
+							<input class="radio" type="radio" name="settingsnew[ftp][hideurl]" value="0" checked>
+							&nbsp;否</li>
+					</ul></td>
+				<td class="vtop tips2">选择是，将加重论坛服务器负担，并明显增加论坛服务器流量；选择否，下载的附件与上传的附件文件名将会不一致。</td>
+			</tr>
+			<tr>
+				<td colspan="15"><div class="fixsel">
+						<input type="submit" class="btn" id="submit_settingsubmit" name="settingsubmit" title="按 Enter 键可随时提交您的修改" value="提交" />
+					</div></td>
+			</tr>
+			<script type="text/JavaScript">_attachEvent(document.documentElement, 'keydown', function (e) { entersubmit(e, 'settingsubmit'); });</script>
+		</table>
+	</form>
+</div>
+</body>
+</html>

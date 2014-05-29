@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>$title</title>
+<meta name="description" content="$description" />
+<meta name="keywords" content="$keywords" />
+<link href="main.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="rt.js" async=""></script>
+<script type="text/javascript" src="jquery_002.js"></script>
+{if $cssList}
+{loop $cssList $v}
+<link rel="stylesheet" type="text/css" href="$v" />
+{/loop}
+{else}
+{teval
+echo css::get_css('bbs', 'bbs');
+}
+{/if}
+{js_select jquery,common}
+{loop $jsList $v}
+<script type="text/javascript" src="$v"></script>
+{/loop}
+<script type="text/javascript">
+{if $showMessage }
+alert('{echo common::bf_addcslashes($showMessage)}');
+{/if}
+$.ajaxSetup({cache:false});
+var memberLogined={echo $memberLogined?'true':'false'};
+var loginUsername='{echo $memberLogined?$member['username']:''}';
+var weburl='$weburl';
+var weburl2='$weburl2';
+var sys_hash2='$sys_hash2';
+</script>
+</head>
+<body>
+<!--头部开始-->
+	<div id="dmh_head">
+	<div class="kd">
+	    <div class="kmain">
+			<div class="hy">
+				<a href="###" class="dmhtel">手机版</a>
+				<div style="float:left;">
+					<span style="color:#1595DE">|</span> 
+					<span style="color:#666">亲，欢迎来到大麦户！请</span>
+					<a href="{rewrite}/member/login/" class="chengse">登录</a>
+					<a href="{rewrite}/member/reg/" class="lvse">免费注册</a>
+				</div>
+			</div>
+			<div class="top_btn">
+				<ul class="quick-menu">
+					<a href="http://www.damaihu.com/user/reg/" style="float:left;margin-top: -1px;"><b>新手帮助</b></a>
+					<li style="margin-top: -2px;">|</li>
+					<li class="menu-item">
+						<div class="menu">
+							<a href="http://www.damaihu.com/html/express/" style="width:50px;margin:0;" class="menu-hd" tabindex="0">帮助中心<b></b></a>
+							<div style="width: 88px;line-height:1.7;" class="menu-bd" id="menu-0">
+							  <div style="padding:8px 5px;" class="menu-bd-panel">
+								  <a rel="nofollow" target="_top" href="http://www.damaihu.com/bbs/t730/">使用教程</a>
+								  <a rel="nofollow" target="_top" href="http://www.damaihu.com/bbs/t730/">如何激活</a>
+							  </div>
+							</div>
+						</div>
+					</li>
+					<li style="margin-top: -2px;">|</li>
+					<li class="menu-item">
+						<div class="menu">
+							<a href="http://www.damaihu.com/help/selfservice/" style="width:52px;margin:0;" class="menu-hd" tabindex="0">账号设置<b></b></a>
+							<div style="width: 90px;line-height:1.7;" class="menu-bd" id="menu-0">
+							  <div style="padding:8px 5px;" class="menu-bd-panel">
+								  <a rel="nofollow" target="_top" href="{rewrite}/member/forgotpwd/">找回密码</a>
+								  <a rel="nofollow" target="_top" href="http://www.damaihu.com/help/selfservice/">找回操作码</a>
+								  <a rel="nofollow" target="_top" href="http://www.damaihu.com/help/selfservice/">更多操作</a>
+							  </div>
+							</div>
+						</div>
+					</li>
+					<li style="margin-top: -2px;">|</li>
+					<a href="http://www.damaihu.com/rank.html" style="margin-top: -2px;">大麦户排行榜</a>
+				</ul>
+			</div>
+		</div>
+		<div class="menu_qq">
+		<a class="qq_help" onmouseover="showcsqq();" href="javascript:;">客服帮助</a>
+		</div>
+		<div id="service_qq" class="help_down" style="display:none;"></div>
+	</div>
+    aa
+</div>
+<!--logo开始-->
+	<div id="m_logo">
+		<a href="http://www.damaihu.com/" class="logo"><img src="$web_logo" alt="大麦户_淘宝刷信誉" /></a>
+		<a href="http://www.damaihu.com/DmSEO/default/" class="gg" target="_blank"><img src="/images/bkzl.jpg" alt="爆款教程" title="爆款教程" height="67" border="0" width="689"></a>
+	</div>
+<!--头部结束-->
+<!--菜单开始-->
+<div class="menu">
+	<div>
+		<ul class="menu_ul">
+			<li{if $action=='index'} class="on"{/if}><a href="$weburl2">首页</a></li>
+			<li{if $action=='task' && $operation=='new'} class="on"{/if}><a href="{rewrite}/task/new/">淘宝大厅</a></li>
+			<li{if $action=='task' && $operation=='reflow'} class="on"{/if}><a href="{rewrite}/task/reflow/">拍拍拍大厅</a></li>
+			<li{if $action=='task' && $operation=='tao'} class="on"{/if}><a href="{rewrite}/task/tao/">收藏流量</a></li>
+			<li{if $action=='task' && $operation=='pai'} class="on"{/if}><a href="{rewrite}/task/pai/">购买麦点</a></li>
+			<li{if $action=='topup' && $operation=='topup'} class="on"{/if}><a href="{rewrite}/member/topup/">网店托管</a></li>			
+			<li{if $action=='member' && $operation=='member'} class="on"{/if}><a href="{rewrite}/member/">会员中心</a></li>
+
+			<li{if $action=='bbs'} class="on"{/if}><a href="{rewrite}/bbs/">旺铺推广</a></li>
+			<li{if $action=='member' && $operation=='card'} class="on"{/if}><a href="{rewrite}/member/card/">有问必答</a></li>
+			<li{if $action=='member' && $operation=='soft'} class="on"{/if}><a href="{rewrite}/member/soft/">下载中心</a></li>
+		</ul>
+	</div>
+	
+</div>
+{sub service}
+<script type="text/javascript">
+{if $memberFields[isTyro]}
+var showTyroTask = function(){
+	dialog(700,350,'$web_name - 新手互动教学大厅','{r}/dialog/tyro/');
+}
+{/if}
+function slideLine(ul, delay, speed, lh) {
+	var slideBox = document.getElementById(ul);
+	var delay = delay, speed=speed, lh = lh;
+	var tid = null, pause = false;
+	var start = function() {
+		tid=setInterval(slide, speed);
+	}
+	var slide = function() {
+		if (pause) return;
+		slideBox.scrollTop += 2;	
+		if (slideBox.scrollTop % lh == 0) {
+			clearInterval(tid);
+			slideBox.appendChild(slideBox.getElementsByTagName('li')[0]);
+			slideBox.scrollTop = 0;
+			setTimeout(start, delay);
+		}
+	}
+	slideBox.onmouseover=function(){pause=true;}
+	slideBox.onmouseout=function(){pause=false;}
+	setTimeout(start, delay);
+}
+try{
+	slideLine('shuazuan_tips', 5000, 50, 14);
+}catch(e) {}
+</script>
+
+<script type="text/javascript" src="images/jquery.js"></script>
+<script type="text/javascript" src="images/common.js"></script>
+<script type="text/javascript" src="images/tinyslider.js"></script>
+<script type="text/javascript" src="images/index.js"></script>
+<script type="text/javascript" src="images/service.js"></script>
+<!--[if lte IE 6]>
+<script type="text/javascript" src="/javascript/cn/DD_belatedPNG_0.0.7a.js"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('*');
+</script>
+<![endif]-->
+<script>
+
+var webqq = 176682996;
+var webnoticeurl = "bbs/t6155";
+var webnoticetit = "大麦户平台中秋放假通知";
+var quick_qq = '<a target="_blank" href="http://wp.qq.com/wpa/qunwpa?idkey=ad5f1355638bee53a8bef1d3161c1c6b6988bb993096ba3f2460434640462aaf"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="大麦户刷钻平台24群" title="大麦户刷钻平台24群"></a>';
+var z_userinfo = $.cookie('userinfo');
+if (z_userinfo){
+	z_userinfo = z_userinfo.split(',');
+}
+if (z_userinfo){
+		var login_info='<a href="###" class="dmhtel">手机版</a><div style="float:left;"><span style="color:#1595DE">|</span><a href="/user/info/?username='+z_userinfo[1]+'">'+z_userinfo[1]+'</a> <img src="'+z_userinfo[0]+'" alt="积分：'+z_userinfo[2]+'" title="积分：'+z_userinfo[2]+'"> 　<a href="/user/logout/" class="col3">退出</a></div>';
+		var login_info2=login_info2 = '<ul class="quick-menu"><li class="menu-item"><div class="menu"><a  href="/html/express/" style="width:50px;margin:0;" class="menu-hd" tabindex="0" >单号搜索<b></b></a><div style="width: 88px;line-height:1.7;" class="menu-bd" id="menu-0"><div style="padding:8px 5px;" class="menu-bd-panel"><a rel="nofollow" target="_top" href="http://www.damaihu.com/bbs/t730/">使用教程</a><br><a rel="nofollow" target="_top" href="http://www.damaihu.com/bbs/t730/">如何激活</a></div></div></div></li><li style="margin-top: -2px;">|</li><li class="menu-item"><div class="menu"><a  href="/user/topup/" style="margin:0;" class="menu-hd" tabindex="0" >存款：<span class="chengse moneyAll" style="font-weight:700;">'+z_userinfo[4]+'</span><b></b></a><div style="width: 88px;line-height:1.7;" class="menu-bd" id="menu-0"><div style="padding:8px 5px;" class="menu-bd-panel"><a rel="nofollow" target="_top" href="http://www.damaihu.com/user/topup/">账号充值</a><br><a rel="nofollow" target="_top" href="http://www.damaihu.com/user/PayDetails/?type=index">存款明细</a></div></div></div></li><li style="margin-top: -2px;">|</li><li class="menu-item"><div class="menu"><a  href="/BuyPoint/" style="margin:0;" class="menu-hd" tabindex="0" >麦点：<span class="chengse moneyAll" style="font-weight:700;">'+z_userinfo[5]+'</span><b></b></a><div style="width: 88px;line-height:1.7;" class="menu-bd" id="menu-0"><div style="padding:8px 5px;" class="menu-bd-panel"><a rel="nofollow" target="_top" href="http://www.damaihu.com/BuyPoint/">购买麦点</a><br><a rel="nofollow" target="_top" href="http://www.damaihu.com/user/PayDetails/?type=logpoint">麦点明细</a></div></div></div></li><li style="margin-top: -2px;">|</li><li class="menu-item"><div class="menu"><a  href="/user/message/" style="margin:0;" class="menu-hd" tabindex="0" >信息：<span class="chengse moneyAll" style="font-weight:700;">'+z_userinfo[3]+'</span><b></b></a><div style="width: 90px;line-height:1.7;" class="menu-bd" id="menu-0"><div style="padding:8px 5px;" class="menu-bd-panel"><a rel="nofollow" target="_top" href="http://www.damaihu.com/user/message/?type=inUser">私人收件箱</a><br><a rel="nofollow" target="_top" href="http://www.damaihu.com/user/message/?type=inSys">官方收件箱</a><br><a rel="nofollow" target="_top" href="http://www.damaihu.com/user/message/?type=setting">提醒设置</a></div></div></div></li><li style="margin-top: -2px;">|</li><li class="menu-item"><div class="menu"><a href="/help/selfservice/" style="width:52px;margin:0;" class="menu-hd" tabindex="0" >账号设置<b></b></a><div style="width: 90px;line-height:1.7;" class="menu-bd" id="menu-0"><div style="padding:8px 5px;" class="menu-bd-panel"><a rel="nofollow" target="_top" href="http://www.damaihu.com/help/selfservice/">找回密码</a><br><a rel="nofollow" target="_top" href="http://www.damaihu.com/help/selfservice/">找回操作码</a><br><a rel="nofollow" target="_top" href="http://www.damaihu.com/help/selfservice/">更多操作</a></div></div></div></li><li style="margin-top: -2px;">|</li><a href="/rank.html" style="margin-top: -2px;">大麦户排行榜</a></ul>';
+		$('.kmain .hy').html(login_info);
+		$('.kmain .top_btn').html(login_info2);
+		
+	}
+</script>
+<script>
+	var slideshow=new TINY.slider.slide('slideshow',{
+		id:'slider',
+		auto:4,
+		resume:true,
+		vertical:false,
+		navid:'slider_nav',
+		activeclass:'activeSlide',
+		position:0,
+		rewind:false,
+		elastic:true
+	});
+
+</script>
+<script type="text/javascript">
+
+$('#tool_footer')
+	.css({
+	    'top': $(window).height()-270,
+		'left':"auto",
+	    'right': ($(window).width() - 1000)>0?($(window).width() - 1000)/2-$('#tool_footer').width()-5:0 ,
+		'position':"fixed"
+	});
+function To_top(){
+    $("html,body").animate({scrollTop: $("#m_menu").offset().top}, 100);
+}
+</script>
+<script type="text/javascript">
+$(function(){
+
+	if (z_userinfo){
+		
+		if(z_userinfo[7] == 1){
+			touimg = "boy";
+		}else if(z_userinfo[7] == 2){
+			touimg = "girl";
+		}
+		
+		var htmcont = "<ul id='goone'>";
+		htmcont += "<li style=''><span style='width: 100%; float: left; text-align: center; font-size: 14px;'>一个真实的淘宝信誉平台期待您的加入</span></li>";
+		htmcont += "<li style='margin: 10px 0 5px 5px;font-size:16px;display:inline;'>用户名：<font style='font-size: 14px;color:#fe5500'>"+z_userinfo[1]+"</font></li>";	
+		htmcont += "<li style='margin: 5px 0 5px 5px;font-size:16px;display:inline;'>存款：<a href='/user/PayDetails/' style='font-size: 14px;color:#fe5500'>"+z_userinfo[4]+"</a></li>";
+		htmcont += "<li style='margin: 5px 0 5px 5px;font-size:16px;display:inline;'>麦点：<a href='/user/PayDetails/?type=logpoint' style='font-size: 14px;color:#fe5500'>"+z_userinfo[5]+"</a></li>";
+		htmcont += "<li style='margin: 5px 0 5px 5px;font-size:16px;display:inline;'>积分：<a href='/user/PayDetails/?type=logcredit' style='font-size: 14px;color:#fe5500'>"+z_userinfo[2]+"</a></li>";
+		htmcont += "<li style='margin: 5px 0 5px 5px;font-size:16px;display:inline;'>登陆次数：<a href='/user/PayDetails/?type=logAccount' style='font-size: 14px;color:#fe5500'>"+z_userinfo[6]+"</a></li>";
+		htmcont += "<li style='text-align: center;margin-top: 10px ;font-size:16px;'><a href='/task/tao/'><img src='images/goone.png' width=275 height=49/></a></li>";
+		htmcont += "<div class='touimg'>";
+		htmcont += "<a href='/user/'><img src='/images/user/"+ touimg +".jpg' width=100 height=100 /></a>";
+		htmcont += "</div>";
+		htmcont += "</ul>";
+						
+		$(".login").html(htmcont)
+	}
+})
+
+</script>
+<div style="display: block;" class="_bottom_bg">
+	</div>
+	<div style="display: block;" class="_bottom">
+		<div class="_c">
+			<div class="_c_i">
+				<div style="background: url(images/zcfb.png) repeat scroll 0% 0% transparent; width: 500px; height: 25px; float: left; margin-top: 15px;"></div>
+			</div>
+			<div class="_c_b">
+			<a id="loginimg" href="http://www.damaihu.com/user/login/">
+				<img src="images/dxh.gif" style="margin: 10px 15px;">
+			</a>
+			<a id="zhuceimg" href="http://www.damaihu.com/user/reg/"></a></div>
+			<div class="_c_cl"></div>
+		</div>
+	</div>
+	<script>
+	$(window).scroll( function(){
+		var h = $(this).scrollTop(),o=$('._bottom_bg,._bottom');
+		if (h>=160 && z_userinfo==null){
+			o.show();
+		}else
+			o.hide();
+	});
+	$('._c_cl').click(function(){
+		$('._bottom_bg,._bottom').hide();
+	})
+	</script>
+	<script type="text/javascript">(function(){document.getElementById('___szfw_logo___').oncontextmenu = function(){return false;}})();</script>
+	<script type="text/javascript">
+	<!-- 
+	(function (d) {
+	window.bd_cpro_rtid="rjfLrj6";
+	var s = d.createElement("script");s.type = "text/javascript";s.async = true;s.src = location.protocol + "//cpro.baidu.com/cpro/ui/rt.js";
+	var s0 = d.getElementsByTagName("script")[0];s0.parentNode.insertBefore(s, s0);
+	})(document);
+	//-->
+	</script>
+<script type="text/javascript">
+$(function(){
+	$(".menu-item .menu-hd").hover(function(){
+		$(this).next('#menu-0').show();
+		$(this).children('b').css({borderColor:'#666666 white white',transform:'rotate(180deg',transformOrigin:'50% 30% 0px'});
+		$(this).parents(".menu-item").css({background:'rgb(255, 255, 255)',border:'1px solid rgb(191, 191, 191)'})
+	});
+	$(".menu-item .menu").mouseleave(function(){
+		$(this).children('#menu-0').hide();
+		$(this).children('.menu-hd').children('b').css({borderColor:'#666666 #EFF6FE #EFF6FE',transform:'none',transformOrigin:'none'});
+		$(this).parent(".menu-item").css({background:'none',border:'1px solid #EFF6FE'})
+	}); 
+})	
+</script>
+
+
+</body>

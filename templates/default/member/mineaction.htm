@@ -1,0 +1,425 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>$title</title>
+<meta name="description" content="$description" />
+<meta name="keywords" content="$keywords" />
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<LINK rel="stylesheet" type="text/css" href="/images/dilei/main.css">
+<LINK rel="stylesheet" type="text/css" href="/images/dilei/t2_index.css">
+<SCRIPT type="text/javascript" src="/images/dilei/jquery.js"></SCRIPT>
+<LINK rel="stylesheet" type="text/css" href="/images/dilei/twitter.css">
+<script type="text/javascript" src="jquery_002.js"></script>
+{if $cssList}
+{loop $cssList $v}
+<link rel="stylesheet" type="text/css" href="$v" />
+{/loop}
+{else}
+{teval
+echo css::get_css('bbs', 'bbs');
+}
+{/if}
+{js_select jquery,common}
+{loop $jsList $v}
+<script type="text/javascript" src="$v"></script>
+{/loop}
+<script type="text/javascript">
+{if $showMessage}
+alert('{echo common::bf_addcslashes($showMessage)}');
+{/if}
+$.ajaxSetup({cache:false});
+var memberLogined={echo $memberLogined?'true':'false'};
+var loginUsername='{echo $memberLogined?$member['username']:''}';
+var weburl='$weburl';
+var weburl2='$weburl2';
+var sys_hash2='$sys_hash2';
+</script>
+
+
+</head>
+<body>
+	<!--头部开始-->
+	<div id="dmh_head">
+	<div class="kd">
+	    <div class="kmain">
+			<div class="hy">
+				<a href="###" class="dmhtel">手机版</a>
+				{if $memberLogined}
+				<DIV style="float: left;">
+                    <SPAN style="color:#1595DE">|</SPAN>
+                    <A href="{rewrite}/info/?username=$member[username]">$member[username]</A>
+                    <IMG title="积分：$memberFields[credits]" alt="积分" src="$memberLevel[icon]">
+                    <A class="col3" href="{rewrite}/member/logout/">退出</A>	
+                    </div>
+				{else}亲，欢迎来到{$web_name}
+				<div style="float:left;">
+				    <SPAN style="color:#1595DE">|</SPAN>
+					<a href="{rewrite}/member/login/" class="chengse">登录</a>
+					<a href="{rewrite}/member/reg/" class="lvse">免费注册</a>
+				</div>
+				  {/if}	
+			</div>
+			<div class="top_btn">
+			
+			{if $memberLogined}
+			<ul class="quick-menu">
+			 <LI class="menu-item">
+                <DIV class="menu">
+                 <A style="margin: 0px; width: 50px;" class="menu-hd" tabIndex="0" href="{rewrite}/member/eids/">单号搜索<b></b></A>
+                <DIV style="width: 88px; line-height: 1.7;" id="menu-0" class="menu-bd">
+                <DIV style="padding: 8px 5px;" class="menu-bd-panel">
+                <A href="{rewrite}/bbs/t730/" rel="nofollow" target="_top">使用教程</A>
+                <A href="{rewrite}/bbs/t730/" rel="nofollow" target="_top">如何激活</A></DIV>
+                </DIV></DIV>
+			 </LI>
+ 
+               <LI style="margin-top: -2px;">|</LI>
+               <LI class="menu-item">
+                <DIV class="menu"><A style="margin: 0px;" class="menu-hd" tabIndex="0" href="{rewrite}/member/topup/">存款：<b></b>
+                <SPAN style="font-weight: 700;" class="chengse moneyAll">$memberFields[money]</SPAN></A>
+                <DIV style="width: 88px; line-height: 1.7;" id="menu-0" class="menu-bd">
+                <DIV style="padding: 8px 5px;" class="menu-bd-panel">
+                <A href="{rewrite}/member/member/topup/" rel="nofollow" target="_top">账号充值</A>
+                <A href="{rewrite}/member/topupLog/" rel="nofollow" target="_top">存款明细</A></DIV>
+                </DIV></DIV>
+			   </LI>
+               <LI style="margin-top: -2px;">|</LI>
+                <LI class="menu-item">
+               <DIV class="menu"><A style="margin: 0px;" class="menu-hd" tabIndex="0" href="{rewrite}/member/BuyPoint/">麦点：<b></b>
+                <SPAN style="font-weight: 700;"></SPAN>$memberFields[fabudian]</A>
+                <DIV style="width: 88px; line-height: 1.7;" id="menu-0" class="menu-bd">
+                <DIV style="padding: 8px 5px;" class="menu-bd-panel">
+                <A href="{rewrite}/member/BuyPoint/" rel="nofollow" target="_top">购买麦点</A>
+                <A href="{rewrite}/member" rel="nofollow" target="_top">麦点明细</A>
+           </DIV></DIV></DIV>
+		   </LI>
+           <LI style="margin-top: -2px;">|</LI>
+           <LI class="menu-item">
+           <DIV class="menu">
+           <A style="margin: 0px;" class="menu-hd" tabIndex="0" href="{rewrite}/member/message/">信息：<b></b>
+           <SPAN style="font-weight: 700;">($memberFields[msg])</SPAN></A>
+           <DIV style="width: 90px; line-height: 1.7;" id="menu-0" class="menu-bd">
+           <DIV style="padding: 8px 5px;" class="menu-bd-panel">
+           <A href="{rewrite}/member/message/?type=inUser" rel="nofollow" target="_top">私人收件箱</A>
+          <A href="{rewrite}/member/message/?type=inSys" rel="nofollow" target="_top">官方收件箱</A>
+          <A href="{rewrite}/member/message/message/?type=setting" rel="nofollow" target="_top">提醒设置</A>
+          </DIV></DIV>
+          </DIV>
+          </LI>
+					<li style="margin-top: -2px;">|</li>
+					<li class="menu-item">
+						<div class="menu">
+							<a href="{rewrite}/help/selfservice/" style="width:52px;margin:0;" class="menu-hd" tabindex="0">账号设置<b></b></a>
+							<div style="width: 90px;line-height:1.7;" class="menu-bd" id="menu-0">
+							  <div style="padding:8px 5px;" class="menu-bd-panel">
+								  <a rel="nofollow" target="_top" href="{rewrite}/help/selfservice/">找回密码</a>
+								  <a rel="nofollow" target="_top" href="{rewrite}/help/selfservice/">找回操作码</a>
+								  <a rel="nofollow" target="_top" href="{rewrite}/help/selfservice/">更多操作</a>
+							  </div>
+							</div>
+						</div>
+					</li>
+					
+				
+			</ul>
+			{else}
+			
+				<ul class="quick-menu">
+					<a href="{rewrite}/member/help/" style="float:left;margin-top: -1px;"><b>新手帮助</b></a>
+					<li style="margin-top: -2px;">|</li>
+					<li class="menu-item">
+						<div class="menu">
+							<a href="{rewrite}/member/eids/" style="width:50px;margin:0;" class="menu-hd" tabindex="0">单号搜索<b></b></a>
+							<div style="width: 88px;line-height:1.7;" class="menu-bd" id="menu-0">
+							  <div style="padding:8px 5px;" class="menu-bd-panel">
+								  <a rel="nofollow" target="_top" href="{rewrite}/bbs/t730/">使用教程</a>
+								  <a rel="nofollow" target="_top" href="{rewrite}/bbs/t730/">如何激活</a>
+							  </div>
+							</div>
+						</div>
+					</li>
+					<li style="margin-top: -2px;">|</li>
+					<li class="menu-item">
+						<div class="menu">
+							<a href="{rewrite}/help/selfservice/" style="width:52px;margin:0;" class="menu-hd" tabindex="0">账号设置<b></b></a>
+							<div style="width: 90px;line-height:1.7;" class="menu-bd" id="menu-0">
+							  <div style="padding:8px 5px;" class="menu-bd-panel">
+								  <a rel="nofollow" target="_top" href="{rewrite}/help/selfservice/">找回密码</a>
+								  <a rel="nofollow" target="_top" href="{rewrite}/help/selfservice/">找回操作码</a>
+								  <a rel="nofollow" target="_top" href="{rewrite}/help/selfservice/">更多操作</a>
+							  </div>
+							</div>
+						</div>
+					</li>
+					<li style="margin-top: -2px;">|</li>
+					<a href="{rewrite}/rank.html" style="margin-top: -2px;">大麦户排行榜</a>	
+				</ul>
+				 {/if}	
+			</div>
+		</div>
+		<div class="menu_qq">
+		<a class="qq_help" onmouseover="showcsqq();" href="javascript:;">客服帮助</a>
+		</div>
+		<div id="service_qq" class="help_down" style="display:none;"></div>
+	</div>
+</div>
+	<!--logo开始-->
+
+	<div id="m_logo">
+		<a href="/" class="logo"><img src="$web_logo" alt="大麦户_淘宝刷信誉" /></a>
+		<a href="default/DmSEO.html" class="gg" target="_blank"><img src="/images/bkzl.jpg" alt="爆款教程" title="爆款教程" height="67" border="0" width="689"></a>
+	</div>
+<STYLE type="text/css">
+ol, ul {list-style: none outside none;}
+a {color: #666666;text-decoration: none;}
+#wrap {
+background: url("/images/dilei/head.jpg") no-repeat 50% 0px ;
+margin: 0 auto;
+position: relative;
+width: 1600px;
+height:779px;
+background-color: #a47944;
+z-index:1000;
+}
+#wrap_foor{
+background: url("/images/dilei/foot.jpg") no-repeat 50% 0px ;
+margin: 0 auto;
+position: relative;
+text-align: left;
+width: 1600px;
+background-color: #a47944;
+height:458px;
+}
+#container {
+float: left;
+height: 350px;
+margin: 325px 0 0 510px;
+width: 625px;cursor:url("/images/dilei/chuizi.png");display: inline;
+}
+#container .xiang1{background: url(/images/dilei/dd.png) no-repeat; float: left; height: 340px; width: 339px;}
+#container .xiang1 img{margin:145px 0 0 75px;display: inline;}
+#container .xiang2{background: url(/images/dilei/xx.png) no-repeat; float: left; height: 236px; width: 233px; margin: 100px 15px;}
+#container .xiang2 img{margin:100px 0 0 45px;}
+.list1 {
+color: #4E2E12;
+margin-left: 350px;
+margin-top: 71px;
+width: 464px;
+display: inline;
+}
+.c {
+zoom: 1;
+}
+.l1-n {
+width: 16px;
+height: 17px;
+line-height: 17px;
+text-align: center;
+background-position: -126px -50px;
+float: left;
+margin-top: 3px;
+color: black;
+}
+.l1-t {
+padding-left: 25px;
+line-height: 23px;
+}
+.tb-hd {
+color: #e3ca96;
+text-align: center;
+font-size: 16px;
+font-weight: bold;
+margin: 73px 0 0 15px;
+}
+.tb-hd li {
+float: left;
+height: 35px;
+line-height: 35px;
+width: 145px;
+}
+.scrollBox{width: 440px; margin: 8px 10px;height: 90px;}
+.scrollBox li{padding-left: 25px;}
+.scrollBox li a{text-align:center;color: #4E2E12;width:110px;float:left;}
+.scrollBox li .md{color: #4E2E12;margin-left:55px;}
+.guanggao{margin: 0px auto; overflow: hidden; position: absolute; bottom: 60px; left: 325px;}
+.guanggao a{float:left; margin-right: 10px;}
+.help_down{width:500px;height: 290px;}
+</STYLE>
+<SCRIPT>
+$(function(){
+	$(".menu-item .menu-hd").hover(function(){
+		$(this).next('#menu-0').show();
+		$(this).children('b').css({borderColor:'#666666 white white',transform:'rotate(180deg',transformOrigin:'50% 30% 0px'});
+		$(this).parents(".menu-item").css({background:'rgb(255, 255, 255)',border:'1px solid rgb(191, 191, 191)'})
+	});
+	$(".menu-item .menu").mouseleave(function(){
+		$(this).children('#menu-0').hide();
+		$(this).children('.menu-hd').children('b').css({borderColor:'#666666 #EFF6FE #EFF6FE',transform:'none',transformOrigin:'none'});
+		$(this).parent(".menu-item").css({background:'none',border:'1px solid #EFF6FE'})
+	}); 
+})
+</SCRIPT>
+<DIV id="wrap">
+<A style="margin: 35px 0px 0px 347px; width: 195px; height: 50px; float: left;" href="{rewrite}/"></A>
+  <DIV id="container">
+  <form method="post" onsubmit="return checkForm();">
+    <DIV>$sys_hash_code2 </DIV> 
+    <DIV class="xiang1"><IMG src="/images/dilei/dd.gif"></DIV>
+    <DIV class="xiang2"><IMG src="/images/dilei/xx.gif"></DIV>
+	
+  </FORM>
+  </DIV>
+</DIV>
+<DIV id="wrap_foor">
+  <UL class="list1">
+    <LI class="c"><SPAN class="l1-n">1</SPAN>
+      <P class="l1-t">挑战麦点最低，疯狂到一颗价格0.1元，初始麦点价格为1元，活动折扣为1~9折</P>
+    </LI>
+    <LI class="c"><SPAN class="l1-n">2</SPAN>
+      <P class="l1-t">砸中地雷后，会根据打折卡立即扣款。扣款成功后麦点实时到帐</P>
+    </LI>
+    <LI class="c"><SPAN class="l1-n">3</SPAN>
+      <P class="l1-t">一次性操作为50个麦点，请在账号内预留充足存款</P>
+    </LI>
+    <LI class="c"><SPAN class="l1-n">4</SPAN>
+      <P class="l1-t">大麦户客服专线：400-6079159  活动最终解释权归大麦户所有</P>
+    </LI>
+    <LI class="c"><SPAN class="l1-n">5</SPAN>
+      <P class="l1-t">活动时间：暂不结束</P>
+    </LI>
+  </UL>
+  <DIV style="width: 465px; height: 215px; float: left;">
+    <UL class="tb-hd c">
+      <LI class="w1">大麦帐户</LI>
+      <LI class="w1">时间</LI>
+      <LI class="w2">奖品</LI>
+    </UL>
+    <UL class="scrollBox">
+      <LI> <A>qq38***</A><SPAN class="md">{echo date('Y-m-d',time())}</SPAN><SPAN 
+  class="md">获得了6折的麦点</SPAN></LI>
+      <LI> <A>thj***</A><SPAN class="md">{echo date('Y-m-d',time())}</SPAN><SPAN 
+  class="md">获得了7折的麦点</SPAN></LI>
+      <LI> <A>1063260***</A><SPAN class="md">{echo date('Y-m-d',time())}</SPAN><SPAN 
+  class="md">获得了5折的麦点</SPAN></LI>
+      <LI> <A>Tiia***</A><SPAN class="md">{echo date('Y-m-d',time())}</SPAN><SPAN 
+  class="md">获得了5折的麦点</SPAN></LI>
+      <LI> <A>lulichu***</A><SPAN class="md">{echo date('Y-m-d',time())}</SPAN><SPAN 
+  class="md">获得了5折的麦点</SPAN></LI>
+      <LI> <A>lulichu***</A><SPAN class="md">{echo date('Y-m-d',time())}</SPAN><SPAN 
+  class="md">获得了6折的麦点</SPAN></LI>
+      <LI> <A>阿拉丁***</A><SPAN class="md">{echo date('Y-m-d',time())}</SPAN><SPAN 
+  class="md">获得了5折的麦点</SPAN></LI>
+      <LI> <A>阿拉丁***</A><SPAN class="md">{echo date('Y-m-d',time())}</SPAN><SPAN 
+  class="md">获得了2折的麦点</SPAN></LI>
+      <LI> <A>阿拉丁***</A><SPAN class="md">{echo date('Y-m-d',time())}</SPAN><SPAN 
+  class="md">获得了4折的麦点</SPAN></LI>
+      <LI> <A>lg46072***</A><SPAN class="md">{echo date('Y-m-d',time())}</SPAN><SPAN 
+  class="md">获得了6折的麦点</SPAN></LI>
+    </UL>
+  </DIV>
+  <DIV class="guanggao">
+  <A href="{rewrite}/DmSEO/default/" target="_blank">
+  <IMG alt="活动广告-01" src="/images/dilei/11.jpg" width="140" height="85"></A>
+  <A href="{rewrite}/Shua/backdoor" target="_blank">
+  <IMG alt="活动广告-02" src="/images/dilei/56.jpg" width="140" height="85"></A>
+  <A href="{rewrite}/vip.html" target="_blank">
+  <IMG alt="活动广告-03" src="/images/dilei/cr54564.jpg" width="140" height="85"></A>
+  <A href="{rewrite}/user/ShuaKe/" target="_blank">
+  <IMG alt="活动广告-04" src="/images/dilei/vgfji.jpg" width="140" height="85"></A></DIV>
+</DIV>
+<DIV class="cle"></DIV>
+{sub ../footer}
+<SCRIPT type="text/javascript" src="/images/dilei/json2.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="/images/dilei/service.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="/images/dilei/artDialog.js"></SCRIPT>
+<SCRIPT type="text/javascript">
+(function($) {  
+$.fn.scroll = function(options) {
+  options = options || {};
+  this.css('overflow', 'hidden');
+  var scroll = (function(self) {
+	return function() {
+	  if (self.data('scroll_stop')) {
+		return;
+	  }
+	  var li = self.find('li:first');
+	  var t = parseInt(li.css('marginTop')) || 0;
+	  li.animate({
+		'marginTop': (t - li.outerHeight()) + 'px'
+	  }, options.speed || 'slow', function() {
+		self.append(li);
+		li.css('marginTop', t + 'px');
+	  });
+	};
+  })(this);
+  setInterval(scroll, options.delay || 2000);
+  this.hover(function() {
+	$(this).data('scroll_stop', true);
+  }, function() {
+	$(this).removeData('scroll_stop');
+  });
+};
+})(jQuery);
+</SCRIPT>
+<SCRIPT type="text/javascript">
+var demo = document.getElementById('wrap');
+if(window.addEventListener) {
+　　demo.setAttribute("style","cursor:url(/images/dilei/chuizi.ico),auto;");
+} else {
+	demo.style.cursor = 'url(/images/dilei/chuizi.ico),auto;';
+}
+$(document).ready(function(){
+    $('.scrollBox li:even').addClass('odd');
+    $('.scrollBox:first').scroll();
+	$("#container .xiang1,#container .xiang2").click(function(){
+		var	v = $(this).attr('class');
+		if(v == 'xiang1'){contstr = '大'}else{contstr = '小'}
+		if(confirm("确定砸开"+contstr+"地雷箱吗？")){
+			
+		}else{
+			return false;
+		}
+		var money = parseInt($(".kmain .moneyAll").text());
+		if(money < 50){
+			$.dialog({
+				title: '温馨提示',
+				content: "<div style='color:#666;font-size:13px;'><img src='/images/dilei/maidian.png' style='vertical-align: middle;'/>当前账号存款余额不足，请先充值(<font color='red'>账户内必须预留50元存款</font>)~</div>",
+				fixed: true,
+				lock: true,
+				cancelValue: '关闭',
+				cancel: function () { return true;}
+			});
+			return false;	
+		}
+		
+		$.ajax({
+		   type: "POST",
+		   dataType: "json",
+		   url: "/ajax/mineaction.php",
+		   data: "andmine=maidian",
+		   success: function(data){	
+			
+				if(data.error){
+					var cont = "<div style='color:#666;font-size:13px;'><img src='/images/dilei/maidian.png' style='vertical-align: middle;'/>"+data.error+"</div>";
+				}else{
+					var cont =  "<div style='color:#666;font-size:13px;'><img src='/images/dilei/maidian.png' style='vertical-align: middle;'/>恭喜，您获得"+data.sale+"折打折卡，已成功购买50个麦点~<p style='color:red;'>友情提示：已购买50个麦点，已扣除金额"+data.money+"元，帐户剩余"+data.surplus+"元。</p></div>";
+					$(".kmain .moneyAll").text(data.surplus);
+					$(".kmain .maidianAll").text(data.maidian1);
+				}
+				
+				$.dialog({
+					title: '温馨提示',
+					content: cont,
+					fixed: true,
+					lock: true,
+					cancelValue: '关闭',
+					cancel: function () { return true;}
+				});
+		   }
+		});
+	})
+});
+</SCRIPT>
+</BODY>
+</HTML>

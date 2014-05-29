@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>$title</title>
+<style type="text/css">
+.box{
+	width:598px;
+	height:auto;
+	margin:auto;
+	border:1px solid #CCCCCC;
+	background:#F5F5F5;
+}
+.title{
+	padding:5px;
+	height:20px;
+	line-height:20px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	color:#FF0000;
+	background:#DAE1FC;
+}
+.content{
+	border-top:1px solid #CCCCCC;
+	padding:10px;
+	background:#F5F5F5;
+	font:Arial, Helvetica, sans-serif;
+	font-size:24px;
+	color:#0000FF;
+}
+.button{
+	width:200px;
+	margin:auto;
+	background:#F5F5F5;
+	padding:10px;
+}
+</style>
+</head>
+<body>
+<script type="text/JavaScript">
+	if(parent.$('admincpnav')) parent.$('admincpnav').innerHTML='$menu_name&nbsp;&raquo;&nbsp;$menu_sub_name';
+	if(parent.$('add2custom')) parent.$('add2custom').innerHTML='<a href="admincp.php?action=misc&operation=custommenu&do=add&title=cplog_tasks&url=action%3Dtasks" target="main"><img src="images/admincp/btn_add2menu.gif" title="添加到常用操作" width="19" height="18" /></a>';
+if(parent.$('custombar_add')) parent.$('custombar_add').innerHTML='{if !$custom_menu_exists}<span onclick="add_admin_menu(\'$action\',\'$operation\')" title="把当前页面添加到任务栏" />&nbsp;&nbsp;&nbsp;&nbsp;添加到任务栏</span>{/if}';
+</script>
+	<form method="post">
+	$sys_hash_code
+	<div class="box">
+		<div class="title">{$title}提示</div>
+		<div class="content">$message</div>
+		<div class="button">
+			<input type="submit" value="确定" />
+			<input type="button" value="取消" onclick="history.back(-1)" />
+		</div>
+	</div>
+	</form>
+</body>
+</html>
+{exit}
+{subtemplate header}
+<div class="container" id="cpcontainer">
+<div class="floattop">
+	<div class="itemtitle">
+		<h3>{$title}提示</h3>
+		<ul class="tab1">
+			<li><a href="javascript:;" onclick="history.back(-1)"><span>返回</span></a></li>
+		</ul>
+	</div>
+</div>
+<div class="floattopempty"></div>
+<form method="post" enctype="application/x-www-form-urlencoded" onsubmit="return confirm('确定提交吗？')">
+$sys_hash_code
+<table class="tb tb2 fixpadding">
+	<tr>
+		<th  class="partition">$message</th>
+	</tr>
+	<tr>
+		<td colspan="7"><input type="submit" value="提交" class="btn" /></td>
+	</tr>
+</table>
+</div>
+{subtemplate footer}

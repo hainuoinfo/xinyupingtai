@@ -1,0 +1,31 @@
+.login{
+	width:600px;
+	height:300px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:150px;
+}
+.login .left{
+	float:left;
+	width:200px;
+}
+.login .right{
+	float:left;
+	width:400px;
+}
+.login .h{
+	font-size: 24px;
+	font-family: "微软雅黑";
+	font-weight: bold;
+	color: #0066FF;
+}
+.login .d{
+	font-family: "宋体";
+	font-size: 16px;
+	color: #999999;
+}
+.login input[type="text"],.login input[type="password"]{
+	width:200px;	
+}
+input.msmove{border: 1px solid #7B95FD;}
+input.msout{border: 1px solid #C5C9BE;}

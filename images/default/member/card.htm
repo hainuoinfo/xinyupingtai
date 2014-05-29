@@ -1,0 +1,258 @@
+{teval
+	$title       = '点卡中心 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{ad2 ad_memberHeadTop}
+{sub ../header}
+<style type="text/css">
+.tbl_card {}
+.tbl_card td {	line-height:20px;	border-bottom:1px dashed #999;}
+.tbl_card tr:hover td {	background-color:#F8F8F8}
+.tbl_card img {	vertical-align:middle;}
+</style>
+<div class="main">
+  <div class="h_10"></div>
+  <div class="a">
+    {sub menu}
+  </div>
+  <div class="b f_lg"> 
+  {if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+		{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+    <div style="border:1px dashed #A1C5E9; padding:5px 10px 5px 60px; line-height:18px; background:url({$weburl2}css/task_ico_1.gif) 5px top no-repeat;">欢迎你来到联盟点卡中心，您可以在这里放心选购需要的各种功能的平台用卡，并使用平台存款付账；在这里您可以买到发布任务需要的发布点，一步到位的钻石信托卡；快速增长积分或者优先抢任务的特权卡还有能让您体验更多强大平台功能的VIP体验卡哦！</div>
+    <div class="h_10"></div>
+    <div>
+  <div class="box_t">
+	<div class="box_t_l"></div>
+	<div class="box_t_r"></div>
+  </div>
+  <div class="box_main">
+	<h3>尊敬的<span class='f_orange'> $member[truename]</span>{if $member[sex]==1}先生{elseif $member[sex]==2}女士{/if}，欢迎您！</h3>
+	<h4>VIP：{if $isVip}是{else}否{/if} , 卡信托：{if $isVip2}是{else}否{/if} ， 积分：<span class='f_b_org'>$memberFields[credits]</span> <img src='$memberLevel[icon]' alt='积分：$memberFields[credits]' /> ， <img src='{$weburl2}images/ico/ico_gold_2.gif' alt='' /> 存款余额：<span class='f_b_org'>$memberFields[money]</span>元</h4>
+  </div>
+  <div>
+	<div class="box_b_l"></div>
+	<div class="box_b_r"></div>
+  </div>
+</div>
+    <div class="h_10"></div>
+    <div>
+      <div class="remit_a">
+        <div class="tab" style="border:0; margin:0px;">
+          <ul>
+            <li{if $type=='card1'} class="tab_on"{/if}>
+              <p><a href="$baseUrl?type=card1"><strong>发布点卡</strong></a></p>
+            </li>
+            <li{if $type=='card2'} class="tab_on"{/if}>
+              <p><a href="$baseUrl?type=card2"><strong>特权道具卡</strong></a></p>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div class="box_t">
+            <div class="box_t_l"></div>
+            <div class="box_t_r"></div>
+          </div>
+		  {if $type=='card1'}
+          <div class="box_main">
+            <div id="box_1">
+              <div class="remit_tip">购买发布点卡，可以马上发布自己的任务 注：你也可以通过在任务大厅接任务获得发布点，不一定需要购买的！购买信托卡，一步到位成为平台信托会员，专享会员特权；钻石皇冠你做主！<br />
+                <a href="/bbs/t58/" target="_blank" class="link_o">了解信托会员特权详情</a></div>
+              <div class="h_10"></div>
+              <div class="edit2">
+                <table class="tbl_card" width="100%" border="0" cellspacing="0" cellpadding="6">
+                  <tr>
+                    <td><img src="{$weburl2}images/card_0.gif" /></td>
+                    <td>立刻拥有发布点，就可以发布自己的任务，提升自己店铺信誉了。嫌接任务赚取发布点太慢么？请立即买发布点，一个起卖，灵活发售，按需购买</td>
+                    <td width="100" align="center"><form method="post" onsubmit="return checkForm()">
+					$sys_hash_code2
+                        <p>价格：<span class="f_orange">{echo card::$onePrice[1]}元/张</span><br />
+                          购买数量
+                          <input name="nums" type="text" value="10" style="width:30px;" />
+                          <br />
+                          <input type="image" id="btnSave1" src="{$weburl2}images/btn/buy_now.gif" style="margin-top:5px;" />
+                          <input name="cardType" type="hidden" value="1" />
+                        </p>
+                      </form></td>
+                  </tr>
+                  <tr>
+                    <td><img src="{$weburl2}images/card_flow.gif" /></td>
+                    <td>立刻拥有流量点，就可以发布自己的流量任务，快速提升自己商品浏览量。嫌接流量任务赚取流量点太慢么？请立即购买流量点，50个起卖，灵活发售，按需购买！</td>
+                    <td align="center"><form method="post" onsubmit="return checkForm()">
+					$sys_hash_code2
+                        <p>价格：<span class="f_orange">{echo card::$onePrice[2]}元/张</span><br />
+                          购买数量
+                          <input name="nums" type="text" value="50" style="width:30px;" />
+                          <br />
+                          <input type="image" id="btnSave2" src="{$weburl2}images/btn/buy_now.gif" style="margin-top:5px;" />
+                          <input name="cardType" type="hidden" value="2" />
+                        </p>
+                      </form></td>
+                  </tr>
+                  <tr>
+                    <td><img src="{$weburl2}images/card_1.gif" /></td>
+                    <td>刷出一钻，马上获得251个发布点，可获得251个好评；立刻成为一钻信托会员，专享信托会员特权；平台客服全程协助，优先响应，优先服务；一次投入立即升级为钻石卖家！</td>
+                    <td align="center"><form method="post" onsubmit="return checkForm()">
+					$sys_hash_code2
+                        <p>一钻卡 {echo card::$onePrice[3]}元</p>
+                        <p> <span class="f_orange">立省{echo card::$onePrice[1] * 251 - card::$onePrice[3]}元</span><br />
+                          <input type="image" id="btnSave3" src="{$weburl2}images/btn/buy_now.gif" />
+                          <input name="cardType" type="hidden" value="3" />
+                        </p>
+                      </form></td>
+                  </tr>
+                  <tr>
+                    <td><img src="{$weburl2}images/card_2.gif" /></td>
+                    <td>刷出双钻，501个发布点，可获得501个好评；立刻成为双钻信托会员，专享信托会员特权；平台客服全程协助，优先响应，优先服务；一次投入立即升级为双钻石卖家！</td>
+                    <td align="center"><form method="post" onsubmit="return checkForm()">
+					$sys_hash_code2
+                        <p>双钻卡 {echo card::$onePrice[4]}元<br />
+                          <span class="f_orange">立省{echo card::$onePrice[1] * 501 - card::$onePrice[4]}元</span><br />
+                          <input type="image" id="btnSave4" src="{$weburl2}images/btn/buy_now.gif" />
+                          <input name="cardType" type="hidden" value="4" />
+                        </p>
+                      </form></td>
+                  </tr>
+                  <tr>
+                    <td><img src="{$weburl2}images/card_3.gif" /></td>
+                    <td>刷出三钻，1001个发布点，可获得1001个好评；立刻成为三钻信托会员，专享信托会员特权；平台客服全程协助，优先响应，优先服务；一次投入立即升级为三钻石卖家！</td>
+                    <td align="center"><form method="post" onsubmit="return checkForm()">
+					$sys_hash_code2
+                        <p>三钻卡 {echo card::$onePrice[5]}元<br />
+                          <span class="f_orange">立省{echo card::$onePrice[1] * 1001 - card::$onePrice[5]}元</span><br />
+                          <input type="image" id="btnSave5" src="{$weburl2}images/btn/buy_now.gif" />
+                          <input name="cardType" type="hidden" value="5" />
+                        </p>
+                      </form></td>
+                  </tr>
+                  <tr>
+                    <td><img src="{$weburl2}images/card_4.gif" /></td>
+                    <td>刷出四钻，2001个发布点，可获得2001个好评；立刻成为四钻信托会员，专享信托会员特权；平台客服全程协助，优先响应，优先服务；一次投入立即升级为四钻石卖家！</td>
+                    <td align="center"><form method="post" onsubmit="return checkForm()">
+					$sys_hash_code2
+                        <p>四钻卡 {echo card::$onePrice[6]}元<br />
+                          <span class="f_orange">立省{echo card::$onePrice[1] * 2001 - card::$onePrice[6]}元</span><br />
+                          <input type="image" id="btnSave6" src="{$weburl2}images/btn/buy_now.gif" />
+                          <input name="cardType" type="hidden" value="6" />
+                        </p>
+                      </form></td>
+                  </tr>
+                  <tr>
+                    <td><img src="{$weburl2}images/card_5.gif" /></td>
+                    <td>刷出五钻，5001个发布点，可获得5001个好评；立刻成为五钻信托会员，专享信托会员特权；平台客服全程协助，优先响应，优先服务；一次投入立即升级为五钻石卖家！</td>
+                    <td align="center"><form method="post" onsubmit="return checkForm()">
+					$sys_hash_code2
+                        <p>五钻卡 {echo card::$onePrice[7]}元<br />
+                          <span class="f_orange">立省{echo card::$onePrice[1] * 5001 - card::$onePrice[7]}元</span><br />
+                          <input type="image" id="btnSave7" src="{$weburl2}images/btn/buy_now.gif" />
+                          <input name="cardType" type="hidden" value="7" />
+                        </p>
+                      </form></td>
+                  </tr>
+                  <tr>
+                    <td><img src="{$weburl2}images/card_crown.gif" /></td>
+                    <td>刷出皇冠，10001个发布点，可获得10001个好评立刻成为皇冠信托会员，专享信托会员特权；平台客服全程协助，优先响应，优先服务；一次投入立即升级为至尊皇冠卖家！</td>
+                    <td align="center"><form method="post" onsubmit="return checkForm()">
+					$sys_hash_code2
+                        <p>皇冠卡 {echo card::$onePrice[8]}元<br />
+                          <span class="f_orange">立省{echo card::$onePrice[1] * 10001 - card::$onePrice[8]}元</span><br />
+                          <input type="image" id="btnSave8" src="{$weburl2}images/btn/buy_now.gif" />
+                          <input name="cardType" type="hidden" value="8" />
+                        </p>
+                      </form></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+		  {elseif $type=='card2'}
+		  <div class="box_main">
+            <div id="box_1">
+              <div class="remit_tip">备注这里出售各种超级特权卡，拥有了这些特权卡，您就即刻拥有了无与伦比的超强大功能升级呢，快来看看吧！</div>
+              <div class="h_10"></div>
+              <div class="edit2">
+                <table class="tbl_card" width="100%" border="0" cellspacing="0" cellpadding="6">
+                  <tr>
+                    <td><img src="{$weburl2}images/card_day.gif" /></td>
+                    <td>新平台用户积分增长利器；早日成为万人敬仰的平台皇冠达人；多赚取得积分可以兑换成现金哦！还不赶快行动起来 拥有这个宝贝，在我的宝贝里激活24小时内，任何积分增长操作都将得到应奖励积分翻倍</td>
+                    <td width="100" align="center"><form method="post" onsubmit="return checkForm()">
+					$sys_hash_code2
+                        <p>价格：<span class="f_orange">3元/张</span><br />
+                          <input type="image" id="btnSave1" src="{$weburl2}images/btn/buy_now.gif" style="margin-top:5px;" />
+                          <input name="cardType" type="hidden" value="9" />
+                        </p>
+                      </form></td>
+                  </tr>
+                  <tr>
+                    <td><img src="{$weburl2}images/card_7day.gif" /></td>
+                    <td>新平台用户积分增长利器；早日成为万人敬仰的平台皇冠达人；多赚取得积分可以兑换成现金哦！还不赶快行动起来 拥有这个宝贝，在我的宝贝里激活七天内，任何积分增长操作都将得到应奖励积分翻倍</td>
+                    <td align="center"><form method="post" onsubmit="return checkForm()">
+					$sys_hash_code2
+                        <p>价格：<span class="f_orange">16元/张</span><br />
+                          <input type="image" id="btnSave2" src="{$weburl2}images/btn/buy_now.gif" style="margin-top:5px;" />
+                          <input name="cardType" type="hidden" value="10" />
+                        </p>
+                      </form></td>
+                  </tr>
+                  <tr>
+                    <td><img src="{$weburl2}images/card_task.gif" /></td>
+                    <td>平台任务那么快就被别人抢走了，又慢了一步？使用预定任务次卡可以享有单次任务优先预定权，坐等满足条件的任务自己送上门，节省宝贵时间省去麻烦的拼抢任务，<span class="f_red">【注：新手互动区不能使用】</span></td>
+                    <td align="center"><form method="post" onsubmit="return checkForm()">
+					$sys_hash_code2
+                      <p>价格：<span class="f_orange">0.2元/张</span><br />
+                        购买数量
+                        <input name="nums" type="text" value="10" style="width:30px;" />
+                        <br />
+                        <input type="image" id="btnSave3" src="{$weburl2}images/btn/buy_now.gif" style="margin-top:5px;" />
+                        <input name="cardType" type="hidden" value="11" />
+                      </p>
+                    </form></td>
+                  </tr>
+                  <tr>
+                    <td><img src="{$weburl2}images/card_vip.gif" /></td>
+                    <td>在真正申请VIP会员之前，您想不想体验平台VIP到底能得到多尊贵的服务，拥有多少强大的功能？就购买一张至尊VIP体验卡亲自体验一下吧！体验卡激活后，平台将开放您的尊享VIP权限72小时</td>
+                    <td align="center"><form method="post" onsubmit="return checkForm()">
+					$sys_hash_code2
+                      <p>价格：<span class="f_orange">5元/张</span><br />
+                        <input type="image" id="btnSave4" src="{$weburl2}images/btn/buy_now.gif" style="margin-top:5px;" />
+                        <input name="cardType" type="hidden" value="12" />
+                      </p>
+                    </form></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+		  {/if}
+          <div>
+            <div class="box_b_l"></div>
+            <div class="box_b_r"></div>
+          </div>
+        </div>
+      </div>
+      <div class="remit_b">
+        <div class="remit_b_bar"><span class="f_b f_14">购卡动态</span></div>
+        <div class="remit_b_main">
+          <ul>
+		  	{loop $newCards $v}      
+            <li class="li_2">{echo string::getXin($v[username], 5)} <img src="$v[level][icon]" title="积分：$v[credits]" />{if $v[vip]}<span class='vip' title='VIP'></span>{/if}{if $v[vip2]}<span class="card" title="{echo card::$names2[$v[vip2]]}"></span>{/if}{if $v[isEnsure]}<span class='ensure' title='商保'></span>{/if}<br />
+                花费$v[money]元购买了<span class="f_orange">[$v[name]]</span>$v[total1]张<br />
+                {date $v[timestamp]}</li>
+            {/loop}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+function checkForm() {
+    return confirm("您确定要购买么？");
+}
+</script>
+{sub ../footer}

@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{teval
+echo css::get_css('dialog', 'dialog');
+}
+{js_select jquery,common}
+<title>短信激活帐户</title>
+</head><body>
+<style type="text/css">
+.ds-price-table {
+    text-align: left;
+    width: 563px;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.ds-price-table th, .ds-price-table td {
+    color: #6C6C6C;
+    font: 12px Arial,微软雅黑,宋体;
+    height: 32px;
+    padding: 0 20px;
+}
+.ds-price-table th {
+    background: #93DCFF;
+}
+.odd td {
+    background:#DEF4FF;
+}
+.even td {
+    background:#F4FBFF;
+}
+</style>
+</head>
+<body>
+<div>
+  <form name="myForm" method="post" id="myForm" onsubmit="return checkForm();">
+  $sys_hash_code2
+<input name="referer" value="$referer" type="hidden">
+	  <table class="ds-price-table">
+	
+			<tbody><tr>
+			<td colspan="2" style="font-size:15px; ">平台任务那么快就被别人抢走了，又慢了一步？使用预定任务次卡可以享有单次任务优先预定权，坐等满足条件的任务自己送上门，节省宝贵时间省去麻烦的拼抢任务！</td></tr>
+	  <tr class="even">
+			<td colspan="2">价格：1元/天</td></tr>
+	  <tr class="even">
+			<td colspan="2">购买天数 <input name="nums" value="1" id="nums" maxlength="4" type="text"></td></tr>
+      <tr class="even">
+			<td style="padding-left:200px" colspan="2"><input class="btn_2" name="submit" value="确定" type="submit"> <input name="goon" class="btn_2" id="goon" onclick="parent.doCut();" value="关闭" type="button"></td></tr>
+		
+
+<script type="text/javascript">
+function checkForm(){
+var nums=$('#nums').val();
+var regu = "^[0-9]+$";
+var re = new RegExp(regu);
+if (nums.search(re) != -1) {
+return true;
+} else {
+alert('购买数量必须为整数');
+$("#nums").focus();
+return false;
+}
+}
+</script>
+</body>
+</html>

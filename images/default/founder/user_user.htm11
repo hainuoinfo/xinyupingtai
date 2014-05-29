@@ -1,0 +1,274 @@
+{subtemplate h}
+{if $method == 'index'}
+<form method="post">
+$sys_hash_code
+<input type="hidden" name="m" value="search" />
+	<table class="tb tb2 fixpadding">
+		<tr>
+			<td width="60" align="right">用户名</td>
+			<td width="100"><input name="username" id="username" value="$username" maxlength="16" class="txt" style="width:100px" /></td>
+			<td><input type="submit" value="搜索" class="btn" /></td>
+		</tr>
+	</table>
+</form>
+{adminList
+	删？        |id                  |del
+	用户名      |username
+	所属用户组  |groupid             |var,$userGroups2[$v[groupid]][name]
+	注册时间    |reg_timestamp       |flag,date
+	注册IP      |reg_ip                  |flag,ip
+	最近登陆时间|last_login_timestamp|flag,date
+	最近登陆IP  |last_login_ip       |flag,ip
+	是否禁用    |forbidden           |code,{if $v[forbidden]}<span style="color:red">是</span>{else}否{/if}
+	            |id                  |link,view=详情
+}
+{elseif $method=='add' || $method=='edit'}
+{adminForm
+	注意：添加后就不要随便删掉|tip
+	用户组名称,null=请输入用户组名称|f_name|text|240|32
+	用户组标记,null=请输入用户组标记|f_key|text|240|32
+}
+{elseif $method=='add_credits'}
+{adminForm
+	注：如果要减掉用户积分的话，就把积分写成负数
+	用户名,null=请输入要增加的用户名  |username|text|240|16
+	增加积分,float=要增加的积分|credits |text|240
+}
+{elseif $method=='add_money'}
+{adminForm
+	注：如果要减掉用户RMB的话，就把RMB写成负数
+	用户名,null=请输入要余额的用户名  |username|text|240|16
+	增加余额,float=要增加的余额|money |text|240
+}
+{elseif $method=='add_fabudian'}
+	{adminForm
+		注：如果要减掉用户发布点的话，就把发布点写成负数
+		用户名,null=请输入要余额的用户名  |username|text|240|16
+		增加发布点,float=要增加的发布点|fabudian |text|240
+		要增加的区域|type|code,<select name="type"><option value="1">淘宝区</option><option value="2">拍拍区</option><option value="3">有啊区</option></select>
+	}
+{elseif $method == 'minusPoint'}
+	{adminForm
+		扣除用户发布掉|tip
+		用户名,null=请输入要扣除发布点的用户名  |username|text|240|16
+		扣除发布点,null=请输入要扣除的发布点  |count|text|240|10
+		要扣除的区域|type|code,<select name="type"><option value="1">淘宝区</option><option value="2">拍拍区</option><option value="3">有啊区</option></select>
+		扣除理由|remark|textarea
+	}
+{elseif $method == 'addVip'}
+	{adminForm
+		赠送VIP|tip
+		用户名,null=请输入要怎送的用户名|username|text|240|16
+		赠送月数,null=请输入要赠送的月数|month|text|240|4
+	}
+{elseif $method == 'creActCode'}
+	{adminForm
+		给指定用户生成激活码|tip
+		用户名,null=请输入要怎送的用户名|username|text|240|16
+		激活码,null=请输入要激活码|code|text|240|6
+	}
+{elseif $method == 'view'}
+<script language="javascript">
+var resumePwd2 = function(obj, uid){
+	$(obj).attr({disabled : true});
+	$.ajax({
+		type : 'get',
+		url  : '{u}{echo $config['sys_admin_folder']}/ajax/index.php?action=data&operation=member&method=resumePwd2&id='+uid,
+		dataType:'json',
+		success:function(json){
+			$(obj).attr({disabled : false});
+			if (json.status) {
+				if (json.msg) alert(json.msg);
+				else alert('恢复成功！');
+			} else if (json.msg) alert(json.msg);
+			else alert('恢复失败！');
+		},
+		error:function(){
+			$(obj).attr({disabled : false});
+			alert('错误，请重试！');
+		}
+	});
+}
+</script>
+<form enctype="application/x-www-form-urlencoded" method="post" onsubmit="return confirm('确定吗？')">
+$sys_hash_code
+	<table class="tab_view">
+		<tr class="tip">
+			<td colspan="2">基本信息</td>
+		</tr>
+		<tr>
+			<th>所属用户组</th>
+			<td>
+				<select name="groupid">
+				{loop $userGroups $v}
+				<option value="$v[id]"{if $memberInfo[base][groupid]==$v[id]} selected="selected"{/if}>$v[name]</option>
+				{/loop}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<th><span style="color:red">所属快递</span></th>
+			<td>
+				<select name="expressId">
+				<option value="0">无</option>
+				{sql select id,name from {$pre}express order by sort}
+				<option value="$v[id]"{if $v[id]==$memberInfo[base][expressId]} selected="selected"{/if}>$v[name]</option>
+				{/sql}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<th>是否禁用</th>
+			<td>
+				<label><input type="radio" name="forbidden" value="1"{if $memberInfo[base][forbidden]==1} checked="checked"{/if} class="checkbox" />是</label>
+				<label><input type="radio" name="forbidden" value="0"{if $memberInfo[base][forbidden]==0} checked="checked"{/if} class="checkbox" />否</label>
+			</td>
+		</tr>
+		<tr>
+			<th>用户ID</th>
+			<td>$memberInfo[base][id]</td>
+		</tr>
+		<tr>
+			<th>用户名</th>
+			<td>$memberInfo[base][username]</td>
+		</tr>
+		<tr>
+			<th>性别</th>
+			<td>
+				<label><input type="radio" name="sex" value="1" class="radio"{if $memberInfo[base][sex]==1} checked="checked"{/if} />男</label>
+				<label><input type="radio" name="sex" value="2" class="radio"{if $memberInfo[base][sex]==2} checked="checked"{/if} />女</label>
+				</td>
+		</tr>
+		<tr>
+			<th>QQ</th>
+			<td><input type="text" name="qq" value="$memberInfo[base][qq]" class="txt" /></td>
+		</tr>
+		<tr>
+			<th>E-Mail</th>
+			<td><input type="text" name="email" value="$memberInfo[base][email]" class="txt" /></td>
+		</tr>
+		<tr>
+			<th>手机</th>
+			<td><input type="text" name="mobilephone" value="$memberInfo[base][mobilephone]" class="txt" /></td>
+		</tr>
+		<tr>
+			<th>地址</th>
+			<td><input type="text" name="address" value="$memberInfo[base][address]" class="txt" /></td>
+		</tr>
+		<tr>
+			<th>TA的推荐人</th>
+			<td>{if $memberInfo[base][parent]}{echo member_base::getUsername($memberInfo[base][parent])}{else}无{/if}</td>
+		</tr>
+		<tr>
+			<th>TA推荐的总人数</th>
+			<td>$memberInfo[base][child1]</td>
+		</tr>
+		<tr>
+			<th>TA成功推荐的总人数</th>
+			<td>$memberInfo[base][child2]</td>
+		</tr>
+		<tr>
+			<th>注册时间</th>
+			<td>{date $memberInfo[base][reg_timestamp]}</td>
+		</tr>
+		<tr>
+			<th>注册IP</th>
+			<td>{ip $memberInfo[base][ip]}</td>
+		</tr>
+		<tr>
+			<th>最后登陆时间</th>
+			<td>{date $memberInfo[base][last_login_timestamp]}</td>
+		</tr>
+		<tr>
+			<th>最后登陆IP</th>
+			<td>{ip $memberInfo[base][last_login_ip]}</td>
+		</tr>
+		<tr>
+			<th>密码提问</th>
+			<td>{if $memberInfo[base][questionid]}$questions[$memberInfo[base][questionid]]{else}未设置{/if}</td>
+		</tr>
+		{if $memberInfo[base][questionid]}
+		<tr>
+			<th>密码答案</th>
+			<td>$memberInfo[base][answer]</td>
+		</tr>
+		{/if}
+		<tr>
+			<th>状态</th>
+			<td>	
+				<label><input type="radio" name="status" value="1" class="radio"{if $memberInfo[base][status]==1} checked="checked"{/if} />已激活</label>
+				<label><input type="radio" name="status" value="0" class="radio"{if $memberInfo[base][status]==0} checked="checked"{/if} />未激活</label>
+			</td>
+		</tr>
+		<tr class="tip">
+			<td colspan="2">密码信息(留空表示不修改)</td>
+		</tr>
+		<tr>
+			<th>登录密码</th>
+			<td>
+				<input type="text" name="password" class="txt" />
+			</td>
+		</tr>
+		<tr>
+			<th>操作码</th>
+			<td>
+				<input type="text" name="password2" class="txt" />
+			</td>
+		</tr>
+		<tr class="tip">
+			<td colspan="2">其它信息</td>
+		</tr>
+		<tr>
+			<th>积分</th>
+			<td>$memberInfo[attach][credits]</td>
+		</tr>
+		<tr>
+			<th>余额</th>
+			<td>￥$memberInfo[attach][money]</td>
+		</tr>
+		<tr>
+			<th>淘宝区发布点</th>
+			<td>$memberInfo[attach][fabudian1]</td>
+		</tr>
+		<tr>
+			<th>拍拍区发布点</th>
+			<td>$memberInfo[attach][fabudian2]</td>
+		</tr>
+		<tr>
+			<th>有啊区发布点</th>
+			<td>$memberInfo[attach][fabudian3]</td>
+		</tr>
+		<tr class="tip">
+			<td colspan="2">任务信息</td>
+		</tr>
+		<tr>
+			<th>发布任务总数</th>
+			<td>{echo db::data_count('task', "suid='{$memberInfo[base][id]}'")}</td>
+		</tr>
+		<tr>
+			<th>发布任务完成数</th>
+			<td>{echo db::data_count('task', "suid='{$memberInfo[base][id]}' AND status='10'")}</td>
+		</tr>
+		<tr>
+			<th>接手任务总数</th>
+			<td>{echo db::data_count('task', "buid='{$memberInfo[base][id]}'")}</td>
+		</tr>
+		<tr>
+			<th>接手任务完成数</th>
+			<td>{echo db::data_count('task', "buid='{$memberInfo[base][id]}' AND status='10'")}</td>
+		</tr>
+		<tr class="tip">
+			<td colspan="2">日志信息</td>
+		</tr>
+		<tr>
+			<th>操作码错误剩余次数</th>
+			<td>{echo member_base::getPwd2ErrCount($memberInfo[base][id])}&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" onclick="resumePwd2(this, $memberInfo[base][id])">恢复初始状态</a></td>
+		</tr>
+		<tr>
+			<th></th>
+			<td><input type="submit" value="提交" class="btn" /><input type="button" value="返回" onclick="history.back(-1)" class="btn" /></td>
+		</tr>
+	</table>
+</form>
+{/if}
+{subtemplate f}

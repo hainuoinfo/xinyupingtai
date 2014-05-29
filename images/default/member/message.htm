@@ -1,0 +1,132 @@
+{teval
+	$title       = '站内信 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{ad2 ad_memberHeadTop}
+{sub ../header}
+	<div class="main">
+	<div class="h_10"></div>
+	<div class="a"> {sub menu} </div>
+	<div class="b">
+			<div class="bar">我的站内信息</div>
+			<div class="tab">
+			<ul>
+					<li{if $type=='inUser'} class="tab_on"{/if}>
+					<p><a href="$baseUrl?type=inUser"><strong>私人收件箱<span class='f_orange'>($userMsgCount)</span></strong></a> </p>
+					</li>
+					<li{if $type=='inSys'} class="tab_on"{/if}>
+					<p><a href="$baseUrl?type=inSys"><strong>官方收件箱<span class='f_orange'>($sysMsgCount)</span></strong></a> </p>
+					</li>
+					<li{if $type=='out'} class="tab_on"{/if}>
+					<p><a href="$baseUrl?type=out"><strong>发件箱</strong></a></p>
+					</li>
+					<li>
+					<p><a href="javascript:;" onclick="sendMsg()"><strong>+ 发新信息</strong></a></p>
+				</li>
+				</ul>
+		</div>
+			{if $type=='inUser'}
+			<table class="tbl_lst" width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="110" class="tbl_s"><span onclick="sltAll(true)" class="cursor">全选</span>/<span onclick="sltAll(false)" class="cursor">反选</span></td>
+					<td>标题</td>
+					<td width="100" align="center">发送者</td>
+					<td width="150">时间</td>
+				</tr>
+				{loop $list $k $v}
+				<tr>
+					<td class="tbl_s"><input name="msg_1" type="checkbox" id="msg_$v[id]" value="$v[id]" /></td>
+					<td><a href="javascript:;" {if $v[read]}class="link_b_1"{else}class="link_o_b"{/if} onclick="viewMsg($v[id]);return false;">$v[title]</a></td>
+					<td align="center">$v[from_username]</td>
+					<td>{date $v[timestamp]}</td>
+				</tr>
+				{/loop}
+			</table>
+			<div class="pageinfo">
+			<div class="pageact"><a href="javascript:;" onclick="return confirm('您确定要删除么？') && doMsg('del', this);" class="link_b_2">删除</a> | <a href="$baseUrl?type=$type&act=delAll" onclick="return confirm('看您确定要清空当前的站内信么？\n\n清空将全部删您收件箱内的所有站内信');" class="link_b_2">清空</a> | <a href="javascript:;" onclick="return doMsg('isRead',this);" class="btn_b">记为已读</a> | <a href="$baseUrl?type=$type&act=readAll" onclick="return confirm('确定要将所有未读的站内信标记为已读么？');" class="btn_b">全部已读</a> | <a href="$baseUrl?type=$type&act=allNotRead" onclick="return confirm('确定要将所有未读的站内信标记为未读么？');" class="btn_b">全部未读</a> | <a href="javascript:;" onclick="return doMsg('notRead',this);" class="btn_b">改为未读</a></div>
+			<div class="pages">$multipage</div>
+		</div>
+			{elseif $type=='inSys'}
+			<table class="tbl_lst" width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="110" class="tbl_s"><span onclick="sltAll(true)" class="cursor">全选</span>/<span onclick="sltAll(false)" class="cursor">反选</span></td>
+					<td>标题</td>
+					<td width="100" align="center">接手者</td>
+					<td width="150">时间</td>
+				</tr>
+				{loop $list $k $v}
+				<tr>
+					<td class="tbl_s"><input name="msg_1" type="checkbox" id="msg_$v[id]" value="$v[id]" /></td>
+					<td><a href="javascript:;" {if $v[read]}class="link_b_1"{else}class="link_o_b"{/if} onclick="viewMsg($v[id]);return false;">$v[title]</a></td>
+					<td align="center">$v[to_username]</td>
+					<td>{date $v[timestamp]}</td>
+				</tr>
+				{/loop}
+			</table>
+			<div class="pageinfo">
+			<div class="pageact"><a href="javascript:;" onclick="return confirm('您确定要删除么？') && doMsg('del', this);" class="link_b_2">删除</a> | <a href="$baseUrl?type=$type&act=delAll" onclick="return confirm('看您确定要清空当前的站内信么？\n\n清空将全部删您收件箱内的所有站内信');" class="link_b_2">清空</a> | <a href="javascript:;" onclick="return doMsg('isRead',this);" class="btn_b">记为已读</a> | <a href="$baseUrl?type=$type&act=readAll" onclick="return confirm('确定要将所有未读的站内信标记为已读么？');" class="btn_b">全部已读</a> | <a href="$baseUrl?type=$type&act=allNotRead" onclick="return confirm('确定要将所有未读的站内信标记为未读么？');" class="btn_b">全部未读</a> | <a href="javascript:;" onclick="return doMsg('notRead',this);" class="btn_b">改为未读</a></div>
+			<div class="pages">$multipage</div>
+		</div>
+			{elseif $type=='out'}
+			<table class="tbl_lst" width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="110" class="tbl_s"><span onclick="sltAll(true)" class="cursor">全选</span>/<span onclick="sltAll(false)" class="cursor">反选</span></td>
+					<td>标题</td>
+					<td width="100" align="center">接收者</td>
+					<td width="150">时间</td>
+				</tr>
+				{loop $list $k $v}
+				<tr>
+					<td class="tbl_s"><input name="msg_1" type="checkbox" id="msg_$v[id]" value="$v[id]" /></td>
+					<td><a href="javascript:;" {if $v[read]}class="link_b_1"{else}class="link_o_b"{/if} onclick="viewMsg($v[id]);return false;">$v[title]</a></td>
+					<td align="center">$v[to_username]</td>
+					<td>{date $v[timestamp]}</td>
+				</tr>
+				{/loop}
+			</table>
+			<div class="pageinfo">
+			<div class="pageact"><a href="javascript:;" onclick="return confirm('您确定要删除么？') && doMsg('del', this);" class="link_b_2">删除</a> | <a href="$baseUrl?type=$type&act=delAll" onclick="return confirm('看您确定要清空当前的站内信么？\n\n清空将全部删您收件箱内的所有站内信');" class="link_b_2">清空</a></div>
+			<div class="pages">$multipage</div>
+		</div>
+			{/if} </div>
+</div>
+	<script type="text/javascript">
+var viewMsg=function(id){
+	dialog(460,460,'查看站内短信','{rewrite}/dialog/viewmsg/?id='+id);
+}
+var sendMsg=function(){
+	dialog(460,460,'发送站内短信','{rewrite}/dialog/sendmsg/');
+}
+function sltAll(state) {
+  var boxs = document.getElementsByTagName("input");
+	for (var i=0; i<boxs.length; i++) {
+		if (boxs[i].name.indexOf("msg_")==0) {
+			boxs[i].checked = state;
+		}
+	}
+}
+
+function doMsg(act, obj) {
+	var str = "";
+  var boxs = document.getElementsByTagName("input");
+  for (var i=0; i<boxs.length; i++) {
+		if (boxs[i].name.indexOf("msg_")==0 && boxs[i].checked) {
+			str += boxs[i].value + ",";
+		}
+	}
+	if (str == "") {
+	  alert("您还没有勾选任何信息");
+		return false;
+	} else {
+		obj.href = "$baseUrl?type=$type&ids=" + str + "&act=" + act;
+		return true;
+	}
+}
+</script>
+{sub ../footer} 

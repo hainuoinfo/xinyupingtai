@@ -1,0 +1,44 @@
+{teval
+	
+	$cssList     = array(css::getUrl('task', 'task'));
+	echo string::getStaticCode(array('cssList'=>$cssList));
+}
+{sub ../header}
+<div class="main">
+  {if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+  <div class="info">  
+    <div class="info_l">
+      <div>
+        {sub tao_info}
+      </div>
+    </div>
+    <div class="info_r"> </div>
+  </div>
+  <div class="h_10"></div>
+  {sub collect_tab}
+  <div class="lst_info">
+    <table class="lst_query" width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td align="right"><strong>当前已完成但未结算任务：{$noChange}个，合计 {echo $noChange * 0.09}个发布点</strong>，<strong>$minChange</strong>个以上才可以结算</td>
+        <td width="50" style="padding:4px; text-align:center;"><a href="$thisUrl&change=all"{if $noChange < $minChange} disabled='disabled' onclick='return false;'{/if} class="link_b_2">结算</a></td>
+        <td width="80"><img src="{$weburl2}images/btn/task_reflesh.gif" alt="点击刷新任务" class="cursor" onclick="window.location.reload();" /></td>
+      </tr>
+    </table>
+  </div>
+  <table class="tbl" width="100%" border="0" cellspacing="0" cellpadding="4">
+    {loop $list $v}
+	<tr>
+	  <td width="200" class="p_l_20">任务编号：$v[tid]</td>
+	  <td>绑定买号：$v[nickname]</td>
+	  <td>接手时间：{date $v[timestamp1]}</td>
+	  <td>完成时间：{if $v[status]>0}{date $v[timestamp2]}{else}未完成{/if}</td>
+	  <td>任务状态：<span class="f_orange">{if $v[status]>0}已完成，{if $v[isChange]}已结算{else}未结算{/if}{else}未完成{/if}</span></td>
+	</tr>
+	{/loop}
+  </table>
+  <div class="h_10"></div>
+  <div class="pages">$multipage</div>
+  <div class="h_20"></div>
+</div>
+{sub ../footer}

@@ -1,0 +1,15 @@
+Ea=e.extend({},Ea,m.emots);改为：Ea=m.emots;
+a=a?a:Ua?Ua:"qq";改为：a=a?a:Ua?Ua:emot_default;
+Ea=sb,删掉
+sb={"default":{name:"\u9ed8\u8ba4",width:24,height:24,line:7,list:{smile:"\u5fae\u7b11",tongue:"\u5410\u820c\u5934",titter:"\u5077\u7b11",laugh:"\u5927\u7b11",sad:"\u96be\u8fc7",wronged:"\u59d4\u5c48",fastcry:"\u5feb\u54ed\u4e86",cry:"\u54ed",wail:"\u5927\u54ed",mad:"\u751f\u6c14",knock:"\u6572\u6253",curse:"\u9a82\u4eba",crazy:"\u6293\u72c2",angry:"\u53d1\u706b",ohmy:"\u60ca\u8bb6",awkward:"\u5c34\u5c2c",panic:"\u60ca\u6050",
+shy:"\u5bb3\u7f9e",cute:"\u53ef\u601c",envy:"\u7fa1\u6155",proud:"\u5f97\u610f",struggle:"\u594b\u6597",quiet:"\u5b89\u9759",shutup:"\u95ed\u5634",doubt:"\u7591\u95ee",despise:"\u9119\u89c6",sleep:"\u7761\u89c9",bye:"\u518d\u89c1"}}},删掉
+
+
+
+
+
+
+
+
+
+o.tools.match(/(^|,)\s*About\s*(,|$)/i)||(o.tools+=",About");//删掉About

@@ -1,0 +1,69 @@
+<script language="javascript">
+var modclickcount = 0;
+function tmodclick(obj) {
+	if(obj.checked) {
+		modclickcount++;
+	} else {
+		modclickcount--;
+	}
+	$('#modcount').html(modclickcount);
+	if(modclickcount > 0) {
+		if($('#modlayer').is(':hidden')){
+			$('#modlayer').show();
+			$('#modlayer').runfloatwin();
+		}
+	} else {
+		$('#modlayer').hide();
+	}
+}
+function tmodcheckall(f,name,checked){
+	$(f).find('input[name*='+name+']').each(function(){
+		this.checked=checked;
+	});
+	if(!checked)$('#modlayer').hide();
+}
+function tmodthreads(optgroup, operation) {
+	var checked = 0;
+	var operation = !operation ? '' : operation;
+	$('form[name=moderate] input[name*=moderate]').each(function(){
+		if(this.checked){
+			checked=1;
+			return;
+		}
+	});
+	if(!checked) {
+		alert('请选择需要操作的帖子');
+	} else {
+		$('form[name=moderate] input[name=optgroup]').val(optgroup);
+		$('form[name=moderate] input[name=op]').val(operation);
+		$('form[name=moderate]').submit();
+		//showWindow('mods', 'moderate', 'post');
+	}
+}
+</script>
+<div id="modlayer" class="floatwin" style="width:400px">
+	<div class="fw_title">
+		<div class="left">帖子管理</div>
+		<div class="right" onClick="javascript:$('#modlayer').hide('fast');"><img src="{$weburl2}images/close.gif" /></div>
+	</div>
+	<div class="fw_body">
+		<input type="hidden" name="optgroup" />
+		<input type="hidden" name="op" />
+		<label>
+		<input class="checkbox" type="checkbox" name="chkall" onClick="tmodcheckall(this.form,'moderate',this.checked)" />
+		全选</label>
+		<span>选中</span><strong onMouseOver="$('moremodoption').style.display='block'" onClick="$('modlayer').className=''" id="modcount"></strong><span>篇: </span>
+		<!--<strong><a href="javascript:;" onClick="tmodthreads(3, 'delete');return false;">删除</a></strong>
+		<span class="pipe">|</span>
+		<strong><a href="javascript:;" onClick="tmodthreads(2, 'move');return false;">移动</a></strong>
+		<span class="pipe">|</span> <strong><a href="javascript:;" onClick="tmodthreads(2, 'type');return false;">分类</a></strong>-->
+		<div id="moremodoption">
+			<hr class="solidline" />
+			<a href="javascript:;" onClick="tmodthreads(3, 'delete');return false;">删除</a>
+			<a href="javascript:;" onClick="tmodthreads(1, 'stick');return false;">置顶</a>
+			<a href="javascript:;" onClick="tmodthreads(1, 'digest');return false;">精华</a>
+			<a href="javascript:;" onClick="tmodthreads(1, 'highlight');return false;">高亮</a>
+			<!--<a href="javascript:;" onClick="tmodthreads(1, 'recommend');return false;">推荐</a>
+			<span class="pipe">|</span> <a href="javascript:;" onClick="tmodthreads(3, 'bump');return false;">提升下沉</a> &nbsp; <a href="javascript:;" onClick="tmodthreads(4);return false;">关闭打开</a> </div>-->
+	</div>
+</div>

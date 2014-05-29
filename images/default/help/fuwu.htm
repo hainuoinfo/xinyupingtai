@@ -1,0 +1,69 @@
+{teval
+$title       = '自助服务中心 - {webName}';
+$keywords    = '刷信誉,刷信用,互刷信誉平台,刷收藏,刷流量,{webName2}';
+$description = '帮助中心提供的各种刷信誉平台的自助服务，包括找回密码、加入门派、开通VIP、帐户充值、申诉处理等';
+$title       = common::replaceVars($title);
+$keywords    = common::replaceVars($keywords);
+$description = common::replaceVars($description);
+$cssList     = array(css::getUrl('help', 'help'));
+echo string::getStaticCode(array('title'=>$title,'keywords'=>$keywords,'description'=>$description,'cssList'=>$cssList));
+}
+{sub ../header2}
+  <div class="new_guide"><img src="{$weburl2}images/help/selfhelp.gif" alt="自助服务导航图" border="0" usemap="#Map" />
+    <map name="Map" id="Map">
+      <area shape="rect" coords="645,231,709,252" title="帐户充值" href="{rewrite}/member/topup/" />
+      <area shape="rect" coords="494,232,558,253" title="开通VIP" href="{rewrite}/member/vip/" />
+      <area shape="rect" coords="348,231,412,252" title="加入门派" href="{rewrite}/club/" />
+      <area shape="rect" coords="197,232,261,254" title="修改激活手机" href="javascript:alert('会员自己直接修改手机不太安全，应该先联系客服，客服确认后才可以修改');" />
+      <area shape="rect" coords="49,232,113,253" title="找回登陆密码" href="{rewrite}/member/gorgotpwd/" />
+    </map>
+  </div>
+  <div class="box">
+    <div class="box_e">
+      <div class="box_e_l"><strong>所有自助服务</strong></div>
+      <div class="box_e_r"></div>
+    </div>
+    <div class="box_main">
+      <div class="box_tbl">
+        <table class="tbl_self" width="100%" border="0" cellspacing="5" cellpadding="0">
+          <tr>
+            <td width="120"><strong>找回登陆密码</strong></td>
+            <td>| <span>通过手机或邮箱，自助找回密码</span></td>
+          </tr>
+          <tr>
+            <td><strong>找回操作码</strong></td>
+            <td>| <span>通过手机或客服人员，重置操作码</span></td>
+          </tr>
+          <tr>
+            <td><strong>修改激活手机</strong></td>
+            <td>| <span>通过发送短信认证码，绑定帐号手机</span></td>
+          </tr>
+          <tr>
+            <td><strong>加入门派</strong></td>
+            <td>| <span>进入江湖，选择门派，像掌门索要通行证后申请加入</span></td>
+          </tr>
+          <tr>
+            <td><strong>申请开通VIP</strong></td>
+            <td>| <span>自助开通VIP，激活强大平台功能</span></td>
+          </tr>
+          <tr>
+            <td><strong>帐户充值</strong></td>
+            <td>| <span>通过购买平台充值卡或者支付宝充值或者网银在线，给帐户自助充值</span></td>
+          </tr>
+          <tr>
+            <td><strong>处理任务申诉</strong></td>
+            <td>| <span>跟进处理任务过程中发起或者受到的任务申诉</span></td>
+          </tr>
+          <tr>
+            <td><strong>开通被冻结账户</strong></td>
+            <td>| <span>自助开通因为部分轻微违规操作被暂时冻结的账户</span></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="box_t">
+      <div class="box_b_l"></div>
+      <div class="box_b_r"></div>
+    </div>
+  </div>
+{sub ../footer2}

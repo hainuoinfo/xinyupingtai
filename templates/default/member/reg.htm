@@ -1,0 +1,98 @@
+{subtemplate ../regheader}
+<div id="content">
+<div>
+	<form name="myForm" method="post" id="myForm" enctype="multipart/form-data">
+	$sys_hash_code2
+	<ul id="reg_list">
+	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+		<li class="tit2"><span class="chengse">30秒</span>，加入全国最大的互动平台！</li>
+		<li>
+			<p class="tit3" id="zh">账号</p>
+			<p><input name="username" class="r_bk" id="username" onblur="check_username(this)" maxlength="14" type="text"   value="$datas[username]"></p>
+			<p id="username_tip" class="zq"></p>
+		</li>
+		<li>
+			<p class="tit3" id="pd">密码</p>
+			<p><input class="r_bk" id="password" name="password" onblur="check_password()" maxlength="20" type="password" /></p>
+			<div class="zq" id="password_tip"></div>
+		</li>
+		<li>
+			<p class="tit3" id="pdt">密码确认</p>
+			<p><input class="r_bk" id="password_" name="password_" onblur="check_password_()" maxlength="20" type="password"  />
+			</p><div class="zq" id="passwordt_tip"></div>
+		</li>
+		<li>
+			<p class="tit3" id="pd2">操作码</p>
+			<p><input class="r_bk" id="password2" name="password2" onblur="check_password2()" maxlength="20" type="password" /></p>
+			<div class="zq" id="password2_tip"></div>
+		</li>
+		<li>
+			<p class="tit3" id="pd2">确认操作码</p>
+			<p><input class="r_bk" id="password2_" name="password2_" onblur="check_password2_()" maxlength="20" type="password"  />
+			</p><div class="zq" id="password21_tip"></div>
+		</li>
+		<li>
+			<p class="tit3" id="telt">手机号码</p>
+			<p><input class="r_bk" id="mobilephone" name="mobilephone" onblur="check_mobil()" maxlength="11" type="text"></p>
+			<div class="zq" id="tel_tip"></div>
+		</li>
+		<li>
+			<p class="tit3" id="telt">真实姓名</p>
+			<p><input class="r_bk" id="truename" name="truename" onblur="check_truename()" maxlength="11" type="text"></p>
+			<div class="zq" id="truename_tip"></div>
+		</li>
+		<li>
+			<p class="tit3" id="qqt">QQ</p>
+			<p><input class="r_bk" id="qq" name="qq" onblur="check_qq()" maxlength="13" type="text"  value="$datas[qq]"></p>
+			<div class="zq" id="qq_tip"></div>
+		</li>
+		<li>
+			<p class="tit3" id="em">E-MAIL</p>
+			<p><input class="r_bk" id="email" name="email" onblur="check_email()" maxlength="30" type="text" value="$datas[email]"></p>
+			<div class="zq" id="em_tip"></div>
+		</li>
+		<li>
+			<p class="tit3" id="xb">性别</p>
+			<p><input name="sex" value="1" checked="checked" type="radio" id="sexBoy"{if (isset($datas) && $datas[sex]==1) || !isset($datas)} checked="checked"{/if}> 男
+             <input name="sex" value="2" type="radio" id="sexGirl"{if $datas[sex]==2} checked{/if}> 女</p>
+		</li>
+		<li>
+			<p class="tit3" id="tj">推荐人</p>
+			<p><input name="parent" id="parent" class="r_bk" onblur="check_parent()" maxlength="14" style="color:#999;" value="没有可不填写" onclick="if(this.value=='没有可不填写'){this.value='';}" type="text" emptyRunReg="false"></p>
+			<div class="zq" id="tj_tip"></div>
+		</li>
+		
+		<li>
+        <INPUT id="btnSubmit" class="reg_btn" name="btnSubmit" value="提交查询内容" type="submit">
+        </li>
+		<li><a href="###" class="STYLE1" id="agreement">《大麦户服务协议》</a></li>
+		
+	</ul>
+	</form>
+	</div>
+	<div>
+
+	<ul id="reg_list" style="border:none;width:440px;padding-left:50px;">
+		 <input name="referer" value="$referer" type="hidden">
+		<li class="tit2">已有账号？在此登录！</li>
+		<li>
+			<p class="tit3" id="loginaccount">账号</p>
+			<p><input name="username" id="username" class="r_bk" onblur="check_loginuser(this)" maxlength="20" type="text" value="{echo isset($username) ? $username : (isset($cookie[loginUsername]) ? $cookie[loginUsername] : '')}"></p>
+		</li>
+		<li>
+			<p class="tit3" id="loginpwd">密码</p>
+			<p><input name="password" id="password" class="r_bk" onblur="check_loginpassword(this)" maxlength="20" type="password"></p>
+		</li>
+		{if $indexMessage}<div style="color:#FF0000">$indexMessage</div>{/if}
+		<li class="login_tip" style="height:35px; clear:both; position:inherit"></li>
+		<li><input class="login_btn" style="margin-top:0px;" type="submit" id="btnSubmit" name="btnSubmit"></li>
+		<li onclick="alert('该功能正在完善中，亲，近期上线');">
+			<span style="font-size: 14px;">合作账户登录：</span>
+			<img alt="bt_blue_76X24.png" src="/images/qq.png" style="vertical-align: middle; margin-right: 10px;">
+			<img alt="bt_blue_76X24.png" src="/images/sina.png" style="margin-right: 4px;vertical-align: middle;">
+		</li>
+	</ul>
+		</div>
+</div>
+<div class="cle"></div>
+{subtemplate ../footer}

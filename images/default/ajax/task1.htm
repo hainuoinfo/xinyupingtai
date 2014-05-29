@@ -1,0 +1,32 @@
+﻿<table class='tbl' width='100%' border='0' cellspacing='0' cellpadding='4'>
+	{loop $list $v}
+	 <tr>
+		<td>{if $v[isCart]}<span class='task_cart' title='购物车任务—$v[shopCount]个商品'></span>{elseif $v[isExpress]}<span class='task_express' title='真实快递任务—$v[shopCount]个商品'></span>{else}$lang[times_ico][$v[times]]{/if}{if $v[isEnsure]}<span class='task_sure' title='商保任务'></span>{/if}</td>
+		<td width='200'>任务编号：$v[id]<br />
+			发布时间：{echo date('m-d H:i:s', $v[stimestamp])}</td>
+		<td>发布人：{echo string::getXin2($v[susername])} <a href='../../bbs/Thread.aspx?id=70' target='_blank' class='cursor'><img src="$v[slevel][icon]" title="积分：$v[credits]" /></a><br />
+			发布人类型：{if $v[vip]}<span class='vip' title='VIP'></span>{/if}
+			{if $v[vip2]}<span class='card' title='$lang[cardType][$v[vip2]]'></span>{/if}
+			{if $v[isEnsure]}<span class='ensure' title='商保'></span>{/if}
+		</td>
+		<td>任务价格：<span class='dm_gold'>$v[price]</span>元 <br />
+			发布点：$v[point]个</td>
+		<td>任务要求：
+		$lang[times][$v[times]]
+		{if $v[isRemark]},带字{/if} 
+                {if $v[isAddress]}, <span class='f_blue f_b'>改址</span>{/if}
+		{if $v[visitWay]},<span class='f_red'>来路</span>{/if}
+		{if $v[isReal]},<span class='f_red'>{if $v[realname] == 1}实名{else}掌柜{/if}</span>{/if}
+		{if $v[isChat]},<span class='f_red f_b'>拍前聊</span>{/if}
+		{if $v[isChatDone]},<span class='f_red'>聊后收</span>{/if}
+		{if $v[isShare]},<span class='f_blue f_b'>分享</span>{/if}
+		{if $v[isEnsure]},<span class='f_b_green'>商保</span>{/if}
+		{if $v[isStar]}<br /><span class='f_b_green'>$v[lvlStar]星</span>{/if}
+		<br />
+			任务状态：<span class='f_orange'>{if $v[status]==1}等待接手{else}已接手，任务进行中{/if}</span></td>
+		<td width='100'>操作：{if $v[status]==1}<a href='$thisUrl?m=taskIn&new=$v[id]' class='link_t'>接手任务</a>{/if}</td>
+	</tr>
+	{/loop}
+</table>
+<div class='h_10'></div>
+<div class='pages'>$multipage</div>

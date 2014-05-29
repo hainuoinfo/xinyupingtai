@@ -1,0 +1,112 @@
+{teval
+	$cssList     = array(css::getUrl('bbs', 'bbs'));
+	echo string::getStaticCode(array('cssList'=>$cssList));
+}
+{sub ../header}
+	<div class="h_10"></div>
+	<div class="forum">
+	<div class="forumheader">
+			<h1>$forum[name]</h1>
+			<p class="forumstats">[<strong>$forum[threads]</strong> 主题 / <strong>$forum[posts]</strong> 回复]</p>
+			<div class="foruminfo">版块介绍：$forum[des]</div>
+			<div class="forummanager">版主：
+			{if $forum[moderator]}
+			{loop $forum[moderator] $k $v}
+			{if $k>0}, {/if} <a href='{rewrite}/member/info/?username={url $v[username]}' class='link_b_1' target='_blank'>$v[username]</a> <img src="$v[level][icon]" title="积分：$v[credits]" /> {/loop}
+			{else}
+			暂无
+			{/if} </div>
+		</div>
+	<div class="pageinfo">
+			<div class="postbtn"><a href="{rewrite}/bbs/post.php?fid=$forum[id]"><img src="{$weburl2}images/btn/newtopic.gif" alt="发帖" /></a></div>
+			<div class="pages">$multipage</div>
+		</div>
+	<div class="threadlist">
+			<div class="threadtype">
+			<ul>
+					<li{if $type == 'all'} class='current'{/if}><a href="$forum[url]">全部</a></li>
+					<li{if $type == 'digest'} class='current'{/if}><a href="{echo common::getUrl('/bbs/threadlist.php?fid='.$forum[id].'&type=digest')}">精华</a></li>
+				</ul>
+		</div>
+			<div class="datalist">
+			<form method="post" action="{rewrite}/bbs/?operation=moderate" name="moderate">
+					<table class="datatable" width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tbody class="threadhead">
+							<tr>
+							<td class="folder">&nbsp;</td>
+							<td class="icon">&nbsp;</td>
+							<td>标题</td>
+							<td class="author">作者</td>
+							<td class="nums">回复/查看</td>
+							<td class="lastpost">最新发表</td>
+						</tr>
+						</tbody>
+					{loop $threadListTop $k $thread}
+					<tbody>
+							<tr>
+							<td class="folder"><a href="{rewrite}/bbs/t$thread[id]/" target="_blank"><img src="{$weburl2}images/bbs/icons/{if $thread[last_post_timestamp] >= $today_start}folder_newhot.gif{else}folder_oldhot.gif{/if}" alt="新窗口打开" /></a> </td>
+							<td class="icon">
+							{if $thread[top]}
+							<img src='{$weburl2}images/ico/headtopic_$thread[top].gif' alt='置顶帖标志' />
+							{else}
+							{if $thread[iconid]}{eval $icon=bbs_thread::getIcon($thread[iconid]);}<img src="$icon[icon]" />{else}&nbsp;{/if}
+							{/if}
+							</td>
+							<td class="subject"> 
+							{if $isAdmin || bbs_thread::isThreadAuthor($thread[id], $uid)}
+							{eval $oModerator = true;}
+							<input type="checkbox" name="moderate[]" value="$thread[id]" onclick="tmodclick(this)" />
+							{/if} 
+									{if $thread[digest]}<label><img src='{$weburl2}images/ico/digest_$thread[digest].gif' alt='精华帖标志' /></label>{/if}
+									<a href="{rewrite}/bbs/t$thread[id]/"><span{if $thread[title_style]} style="$thread[title_style]"{/if}>{cutstr $thread[title],20}</span></a></td>
+							<td class="author"><cite><a href="{rewrite}/member/info/?username={url $thread[username]}" target="_blank">$thread[username]</a></cite><em>{date $thread[timestamp]}</em></td>
+							<td class="nums"><strong>$thread[posts]</strong> / <em>$thread[clicks]</em></td>
+							<td class="lastpost"><cite><a href="{rewrite}/member/info/?username={url $thread[last_post_username]}" target="_blank">$thread[last_post_username]</a></cite><em><a href="{rewrite}/bbs/t$thread[id]/?go=last#t$thread[last_pid]">2011-03-20 14:35:24</a></em></td>
+						</tr>
+						</tbody>
+					{/loop}
+					<tbody class="threadhead">
+							<tr>
+							<td align="center" colspan="6">普通主题</td>
+						</tr>
+						</tbody>
+					{loop $threadList $k $thread}
+					<tbody>
+							<tr>
+							<td class="folder"><a href="{rewrite}/bbs/t$thread[id]/" target="_blank"><img src="{$weburl2}images/bbs/icons/{if $thread[last_post_timestamp] >= $today_start}folder_newhot.gif{else}folder_oldhot.gif{/if}" alt="新窗口打开" /></a> </td>
+							<td class="icon">
+							{if $thread[top]}
+							<img src='{$weburl2}images/ico/headtopic_$thread[top].gif' alt='置顶帖标志' />
+							{else}
+							{if $thread[iconid]}{eval $icon=bbs_thread::getIcon($thread[iconid]);}<img src="$icon[icon]" />{else}&nbsp;{/if}
+							{/if}
+							</td>
+							<td class="subject"> 
+							{if $isAdmin || $isModerator}
+							<input type="checkbox" name="moderate[]" value="$thread[id]" onclick="tmodclick(this)" />
+							{/if} 
+									{if $thread[digest]}<label><img src='{$weburl2}images/ico/digest_$thread[digest].gif' alt='精华帖标志' /></label>{/if}
+									<a href="{rewrite}/bbs/t$thread[id]/"><span{if $thread[title_style]} style="$thread[title_style]"{/if}>$thread[title]</span></a></td>
+							<td class="author"><cite><a href="{rewrite}/member/info/?username={url $thread[username]}" target="_blank">$thread[username]</a></cite><em>{date $thread[timestamp]}</em></td>
+							<td class="nums"><strong>$thread[posts]</strong> / <em>$thread[clicks]</em></td>
+							<td class="lastpost"><cite><a href="{rewrite}/member/info/?username={url $thread[last_post_username]}" target="_blank">$thread[last_post_username]</a></cite><em><a href="{rewrite}/bbs/t$thread[id]/?go=last#t$thread[last_pid]">2011-03-20 14:35:24</a></em></td>
+						</tr>
+						</tbody>
+					{/loop}
+				</table>
+					<div class="footopt">
+				</div>
+				{if $isAdmin || $isModerator || $oModerator}
+				{sub m}
+				{/if}
+				</form>
+		</div>
+		</div>
+	<div class="pageinfo">
+			<div class="postbtn"><a href="{rewrite}/bbs/post.php?fid=$forum[id]"><img src="{$weburl2}images/btn/newtopic.gif" alt="发帖" /></a></div>
+			<div class="pages">$multipage</div>
+		</div>
+</div>
+	<div class="h_10"></div>
+	<div class="h_20"></div>
+	{sub ../footer}

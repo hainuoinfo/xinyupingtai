@@ -1,0 +1,34 @@
+{teval
+	$title       = '{webName}论坛 - 提示';
+	$title       = common::replaceVars($title);
+	$cssList     = array(css::getUrl('bbs', 'bbs'));
+	echo string::getStaticCode(array('title'=> $title, 'cssList'=>$cssList));
+}
+{sub ../header}
+<div class="bbs">
+  <div class="h_30"></div> 
+  <div class="togobox">
+  	<div class="togobar">{$web_name}论坛 提示信息</div>
+    <div class="togotip">
+		<p>$message</p>
+		{if $gotoUrl}
+		<p><a href='$gotoUrl' class='link_b_1'>如果浏览器没有转向, 请点击这里</a></p>
+		{else}
+		<p><a href="javascript:;" onclick="history.back(-1)">返回</a></p>
+		{/if}
+	</div>
+  </div>
+  <div class="h_30"></div>
+  <div class="h_30"></div>
+</div>
+
+<script language="javascript">
+setTimeout(function(){
+{if $gotoUrl}
+	location.href='$gotoUrl';
+{else}
+	history.back(-1);
+{/if}
+}, 2000);
+</script>
+{sub ../footer}

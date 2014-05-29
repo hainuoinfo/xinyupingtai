@@ -1,0 +1,132 @@
+{teval
+	$title       = '网站提醒设置 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{ad2 ad_memberHeadTop}
+{sub ../header}
+<style type="text/css">
+.set {
+	clear:both;
+}
+.set td {
+	border-bottom:1px solid #d5d5d5;
+	line-height:26px;
+	vertical-align:middle;
+	padding-left:30px;
+}
+.set thead td {
+	margin-bottom:4px;
+	color:#666;
+	background:#F8F8F8;
+	font-weight:bold;
+}
+.set tbody tr:hover td {
+	background-color:#F8F8F8;
+}
+.set_bar td {
+	background:#F6FBFF url({$weburl2}css/ico_1.gif) 15px center no-repeat;
+	font-weight:bold;
+}
+</style>
+<div class="main">
+  <div class="h_10"></div>
+  <div class="a">
+    {sub menu}
+  </div>
+  <div class="b">
+  	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+	{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+    <div class="tip_remit">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="120">&nbsp;</td>
+          <td valign="middle" style="line-height:24px;">您希望获得哪些消息提醒？通过哪种方式获得？请在相应的选框内打勾。
+            <input name="ex" type="checkbox" disabled="disabled" id="ex" checked="checked" />
+            表示该项消息接收方式是必需的，不能取消；
+            <input type="checkbox" name="ex2" id="ex2" disabled="disabled" />
+            表示该项消息暂时不支持这种接收方式。 部分消息可以通过手机短信接收。站内手机短信提醒：普通用户每条七分钱；尊享VIP每条只要六分钱。<br />
+            
+			
+			{if $member[status]>0}{else}
+							未通过短信认证账号激活  点击这里<a href="{rewrite}/$action/active/" onclick="dialog(460,460,'手机短信激活帐户','{rewrite}/dialog/active/');return false;" class="link_o">点击这里绑定您的手机</a> {/if}
+			<br /></td>
+        </tr>
+      </table>
+    </div>
+    <div class="h_20"></div>
+    <div>
+      <div>
+        <div class="box_t">
+          <div class="box_t_l"></div>
+          <div class="box_t_r"></div>
+        </div>
+        <div class="box_main">
+          <form name="myForm" method="post" id="myForm" onsubmit="return checkForm();">
+<div>$sys_hash_code2</div>
+
+            <div>
+              <table width="100%" border="0" cellspacing="10" cellpadding="0">
+                <tr>
+                  <td width="48%" align="right"><input type="image" name="btnSave" id="btnSave" src="{$weburl2}images/btn/save_set.gif" /></td>
+                  <td><a href="$baseUrl?setDefault=1" onclick="return IsDefault();"><img src="{$weburl2}images/btn/defualt.gif" alt="" width="85" height="20" /></a></td>
+                </tr>
+              </table>
+            </div>
+            <table class="set" style="border-top:1px solid #d5d5d5;" width="100%" border="0" cellspacing="0" cellpadding="0">
+              <thead>
+                <tr>
+                  <td>信息内容</td>
+                  <td>站内信</td>
+                  <td>手机短信</td>
+                </tr>
+              </thead>
+			  {loop $configArgs $v}
+              <tbody>
+                <tr class="set_bar">
+                  <td colspan="3">$v[name]</td>
+                </tr>
+				{loop $v[sub] $k2 $v2}
+                <tr>
+                  <td>{if is_array($v2)}$v2[title]{else}$v2{/if}</td>
+                  <td><input name="{$k2}_pm" type="checkbox" value="1"{if $memberConfig[$k2.'_pm']} checked="checked"{/if}{if is_array($v2) && $v2[disabled]} disabled="disabled"{/if} /></td>
+                  <td><input name="{$k2}_sms" type="checkbox" value="1"{if $memberConfig[$k2.'_sms']} checked="checked"{/if} /></td>
+                </tr>
+				{/loop}
+              </tbody>
+			  {/loop}
+            </table>
+         	<div class="h_10"></div>
+            <div>
+              <table width="100%" border="0" cellspacing="10" cellpadding="0">
+                <tr>
+                  <td width="48%" align="right"><input type="image" name="btnSave" id="btnSave2" src="{$weburl2}images/btn/save_set.gif" /></td>
+                  <td><a href="$baseUrl?setDefault=1" onclick="return IsDefault();"><img src="{$weburl2}images/btn/defualt.gif" alt="" width="85" height="20" /></a></td>
+                </tr>
+              </table>
+            </div>
+          </form>
+        </div>
+        <div>
+          <div class="box_b_l"></div>
+          <div class="box_b_r"></div>
+        </div>
+      </div>
+    </div>
+    <div class="h_30"></div>
+  </div>
+</div>
+<script type="text/javascript">
+function checkForm() {
+	return true;
+}
+function IsDefault() {
+	return confirm("您确定要恢复到默认配置么？确认后当前设置将丢失，并变更为默认配置");
+}
+</script>
+{sub ../footer}

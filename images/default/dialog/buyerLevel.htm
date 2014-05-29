@@ -1,0 +1,63 @@
+{sub header}
+	<div style="padding:5px; line-height:18px; border:1px dashed #A3C5EA;">
+		1、五星买号接手任务数限制为：每日1个、每周 5个、每月20个<br />
+		2、四星买号接手任务数限制为：每日2个、每周10个、每月40个<br />
+		3、三星买号接手任务数限制为：每日3个、每周15个、每月60个<br />
+		4、升级、降级或取消星级买号需当日接手数为0，前7天内接手数也为0
+	</div>
+    
+    <table class="tbl" border="0" cellspacing="0" cellpadding="4">
+      <tr>
+        <td width="110" align="right" class="f_b">买号：</td>
+        <td class="f_b_red f_14">$buyer[nickname]</td>
+      </tr>
+      <tr>
+        <td align="right" class="f_b">当前买号信用：</td>
+        <td>平台：<strong>$buyer[score]</strong>，淘宝：<strong>$buyer[score0]</strong></td>
+      </tr>
+      <tr>
+        <td align="right" class="f_b">今日已接：</td>
+        <td><strong>$buyer[todayTask]</strong></td>
+      </tr>
+      <tr>
+        <td align="right" class="f_b">最近一周：</td>
+        <td><strong>$buyer[tswkTask]</strong> </td>
+      </tr>
+      <tr>
+        <td align="right" class="f_b">最近一月：</td>
+        <td><strong>$buyer[tsmTask]</strong> </td>
+      </tr>
+      <tr>
+        <td align="right" class="f_b">最近半年：</td>
+        <td><strong>$buyer[tsyTask]</strong> </td>
+      </tr>
+      <tr>
+        <td align="right" class="f_b">星级买号：</td>
+        <td>
+		{eval
+			$__list = cfg::getList('sys', 'buyer_level_list');
+		}
+		{loop $__list $__k $__v}
+		<input type="radio" name="level" id="level$__k" value="$__v[key]"{if $buyer[level] == $__v[key]} checked="checked"{/if} />$__v[key]星买号
+		{/loop}</td>
+      </tr>
+      <tr>
+        <td align="right" class="f_b">普通买号：</td>
+        <td><input type="radio" name="level" id="lvl-0" value="0"{if $buyer[level] == 0} checked="checked"{/if} />普通买号</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td align="center" style="padding-top:20px"><input name="btnSubmit" type="submit" class="btn_2" id="btnSubmit" value="确定" />
+          <input name="btnCancel" type="button" class="btn_2" onclick="parent.doCut();" id="btnCancel" value="取消" /></td>
+      </tr>
+    </table>
+<script type="text/javascript">
+function checkForm() {
+    if (getRV("level") == "") {
+        alert("请选择星级买号的星级");
+        return false;
+    }
+	return avoidReSubmit();
+}
+</script>
+{sub footer}

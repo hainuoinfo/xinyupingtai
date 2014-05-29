@@ -1,0 +1,123 @@
+{teval
+	$title       = '请登录 - {webName} -中国最好的免费刷信誉,互刷信誉平台';
+	$keywords    = '您还尚未登录{webName}刷信誉平台，请登录，登录后网站将为你提供最好的淘宝刷信誉服务、淘宝刷钻功能，同时还可以享受淘宝刷收藏，淘宝刷流量等互刷平台的专业服务';
+	$description = '刷信誉,刷信用,互刷信誉平台,刷收藏,刷流量,{webName2}';
+	$title       = addcslashes(common::replaceVars($title), '\'\\');
+	$keywords    = addcslashes(common::replaceVars($keywords), '\'\\');
+	$description = addcslashes(common::replaceVars($description), '\'\\');
+	echo '
+<?php $title=\''.$title.'\';$keywords=\''.$keywords.'\';$description=\''.$description.'\';?>
+';
+}
+{subtemplate ../header}
+<script language="javascript">
+var setQuestion=function(){
+	var questionid = parseInt($('#questionid').val());
+	if (questionid > 0 ) {
+		$('#tr_an').show();
+	} else {
+		$('#tr_an').hide();
+	}
+}
+</script>
+<div class="main">
+	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+	<div class="h_20"></div>
+	<div class="left">
+		<div class="logon">
+			<div class="bar">会员登录</div>
+			<form name="myForm" method="post" id="myForm" onsubmit="return checkForm();">
+				<div> $sys_hash_code2 </div>
+				<div><input type="hidden" name="referer" value="$referer" /></div>
+				<table width="100%" border="0" cellspacing="0" cellpadding="4">
+					<tr>
+						<td align="right" class="">用 户 名：</td>
+						<td><input name="username" type="text" id="username" value="{echo isset($username) ? $username : (isset($cookie[loginUsername]) ? $cookie[loginUsername] : '')}" class="text_normal" /></td>
+					</tr>
+					<tr>
+						<td align="right" class="">登录密码：</td>
+						<td><input name="password" type="password" class="text_normal" id="password" /></td>
+					</tr>
+					<tr>
+						<td align="right" class="">验 证 码：</td>
+						<td><input name="vcode" type="text" id="vcode" maxlength="4" style="width:95px;" />
+							<img id="imgCode" src="{$weburl2}images/vcode2.php" style="cursor:pointer" onclick="$(this).attr({src:'{$weburl2}images/vcode2.php?'+Math.random()});" alt="点击刷新校验码" align="absmiddle" /></td>
+					</tr>
+					<tr>
+						<td align="right" class="">安全问题：</td>
+						<td><select name="questionid" id="questionid" class="text_normal" onchange="setQuestion()">
+								<option value='0' selected='selected' >无安全问题</option>
+								{loop $questions $k $v}
+								<option value='$k'>$v</option>
+								{/loop}
+							</select>
+						</td>
+					</tr>
+					<tr id="tr_an" style="display:none">
+						<td align="right" class="">回答：</td>
+						<td><input name="answer" type="text" class="text_normal" id="answer" /></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td><input type="checkbox" name="login_cookietime" id="login_cookietime" value="{teval echo 365 * 86400;}" />
+							记住我的用户名</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td><input name="btnSubmit" type="image" id="btnSubmit" src="{$weburl2}images/btn/btn_logon.gif" /></td>
+					</tr>
+				</table>
+			</form>
+			<div class="line"></div>
+			<table class="tbl" border="0" cellspacing="0" cellpadding="2">
+				<tr>
+					<td>○ </td>
+					<td><a href="{rewrite}/member/forgotpwd/" class="link_o">忘记密码？马上取回！</a></td>
+				<tr>
+					<td>○ </td>
+					<td>您还没有注册力豪互刷网平台帐号？您只需十秒钟！</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>成功注册立刻奖发布点！<a href="{rewrite}/member/reg/"><img src="{$weburl2}images/btn/quick_reg.gif" border="0" align="absmiddle" /></a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="right">
+		<div class="bar_2">成为力豪商咨旗下好好互动会员，享受精彩服务</div>
+		<table class="tbl_2" width="100%" border="0" cellspacing="0" cellpadding="5">
+			<tr>
+				<td width="100" align="right"><img src="{$weburl2}images/ico/ico_5.gif" width="57" height="60" /></td>
+				<td><strong>力豪商咨有限公司旗下好好互动信誉互刷平台，打造最专业的淘宝刷信誉互助平台！</strong><br />
+					成为力豪互刷网平台淘宝刷钻用户，免费实现钻石梦想！<br />
+					功能强大卖家信誉互刷平台，选择我们，因为我们更专业！</td>
+			</tr>
+			<tr>
+				<td align="right"><img src="{$weburl2}images/ico/ico_6.gif" width="60" height="51" /></td>
+				<td><strong>发任务、提升网店信誉</strong><br />
+					覆盖面广，拥有大量承接用户，促进信誉度快速提升。 <br />
+					安全可靠，平台资金银行监管账户担保，升级更完善的任务接发流程，任务全程可控。<br /></td>
+			</tr>
+			<tr>
+				<td align="right"><img src="{$weburl2}images/ico/ico_7.gif" width="61" height="54" /></td>
+				<td><strong>接任务、赢取发布点及积分</strong><br />
+					任务透明，可随时观看任务进度，防止作弊和欺诈。 <br />
+					承接自由，任务量大，可随时承接任务，并通过任务赚取发布点以发布自己的任务或赚取现金</td>
+			</tr>
+		</table>
+	</div>
+	<div class="h_20"></div>
+</div>
+<script type="text/javascript">
+function checkForm() {
+    var checks = [
+		["isEmpty", "username", "用户名"],
+		["isEmpty", "password", "登录密码"],
+		["isEmpty", "vcode", "验证码"] ];
+	var result = doCheck(checks);
+	if (result)avoidReSubmit();
+	return result;
+}
+</script>
+{subtemplate ../footer}

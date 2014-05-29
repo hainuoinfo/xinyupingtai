@@ -1,0 +1,129 @@
+{teval
+	
+	$cssList     = array(css::getUrl('task', 'task'));
+	echo string::getStaticCode(array('cssList'=>$cssList));
+}
+{sub ../header}
+	<div class="main">
+	{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+	<div class="h_10"></div>
+	<div class="info">
+			<div class="info_l">
+			<div>
+					{sub pai_info}
+					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+							<td width="170">站内信<a href="{rewrite}/member/message/" class="link_o_b" target="_blank">$memberFields[msg]</a>封未读站内信数</td>
+							<td width="180">到期评价已接手任务<a href="javascript:;" onclick="dialog(460,460,'到期评价的已接任务','{rewrite}/dialog/taskComment/?in=$taskId');return false;" class="link_o_b">$memberTask['inExpire'.$taskId]</a>条 </td>
+							<td width="180">到期评价已发布任务<a href="javascript:;" onclick="dialog(460,460,'到期评价的已发任务','{rewrite}/dialog/taskComment/?out=$taskId');return false;" class="link_o_b">$memberTask['outExpire'.$taskId]</a>条</td>
+							<td>正在预定任务<a href="javascript:;" onclick="dialog(500,550,'预定任务设置','{rewrite}/dialog/taskBook/?type=$taskId');return false;" class="link_o_b">$taskBook[ing]</a>个</td>
+						</tr>
+				</table>
+				</div>
+			<p>淘宝区任务总条数：<span class="f_b_org">$allCount</span>条，未完成任务数<span class="f_b_org">{echo $allCount-$complateCount}</span>条，已成功打造<span class="f_b_org">{echo $complateCount>0?floor($complateCount/251):0}</span>颗信誉钻石 <span class="score_4"></span></p>
+		</div>
+			<div class="info_r">
+			{sub ../quick}
+		</div>
+		</div>
+	<div class="h_10"></div>
+	{sub pai_tab}
+	<div id="task_panel" style="display:none" class="lst_info">
+		<table class="lst_tip" width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td>任务默认排序规则：任务状态 （待接手；任务进行中）；任务发布时间（从近到远）</td>
+				<td align="right"><input type="checkbox" name="isAuto" id="isAuto" value="8" />
+					<label for="isAuto">自动刷新</label></td>
+				<td align="right"><a href="javascript:;" onclick="return viprob(this);"><img src="{$weburl2}images/btn/task_vip.gif" class="cursor hide2" /></a> <a href="javascript:;" onclick="dialog(600,550,'预定任务设置','{rewrite}/dialog/taskBook/?type=$taskId');return false;" class="link_t">预定任务</a> <img src="{$weburl2}images/btn/task_reflesh.gif" onclick="goPage(1);" class="cursor hide2" /> <img src="{$weburl2}images/btn/task_reflesh.gif" onclick="goPage(0);" class="cursor hide" />　　&nbsp;</td>
+				</tr>
+		</table>
+	</div>
+	<div id="taskList"> </div>
+	<div class="h_20"></div>
+	<div style="line-height:20px;background:#F8F8F8; padding:10px;border-top:1px solid #E8F2FC;"><strong>图释：</strong><a class='task_24' style="margin-top:0; padding-right:5px;"></a>24小时好评　<a class='task_48' style="margin-top:0; padding-right:5px;"></a>48小时好评　<a class='task_72' style="margin-top:0; padding-right:5px;"></a>72小时好评　 <a class='task_express' style="margin-top:0; padding-right:5px;"></a>真实快递　<a class='task_cart' style="margin-top:0; padding-right:5px;"></a>购物车　　 <a href="/bbs/t65/" class="link_b_1" target="_blank">带字</a>,<a href="/bbs/t65/" class="link_b_1" target="_blank">实名</a>,<a href="/bbs/t65/" class="link_b_1" target="_blank">分享</a>,<a href="/bbs/t65/" class="link_b_1" target="_blank">来路</a>, <a href="/bbs/t65/" class="link_b_1" target="_blank">拍前聊</a>,<a href="/bbs/t65/" class="link_b_1" target="_blank">聊后收</a>, <a href="/bbs/t65/" class="link_o" target="_blank">更多详细的解释>></a> </div>
+</div>
+	<script type="text/javascript">
+
+function sortTask(obj) {
+    getObj('btnQuery').click();
+}
+function changeSort(val) {
+    setValue('sort', val);
+    getObj('btnQuery').click();
+    return false;
+}
+var rob = 0;
+function viprob(obj) {
+    obj.href = 'javascript:;';
+    if (rob == 0) {
+        rob = 1;
+        obj.href = '$baseUrl?m=viprob&rob=' + rob;
+        return true;
+    } else { 
+        rob++;
+        obj.href = '$baseUrl?m=viprob&rob=' + rob;
+        if (rob <= 2) {
+			obj.href = '$baseUrl?m=taskIn';
+            alert('为了您的手指和鼠标，请勿太过于快速的重复点击');
+			return true;
+        } else {
+            alert('系统认为您使用了外挂点击，请自觉关闭，否则系统将会关闭您的VIP抢任务功能');
+            return false;
+        }  
+    }
+}
+function showPanel() {
+    $('#task_panel').show();
+}
+function viptake() {                        
+    alert('对不起，您当前不是VIP，请先申请成为VIP');
+}
+function goPage(n) {
+	if (n==void(0)) n = 1;
+    var pageSearch = '';
+    var page = new PageQuery(window.location.search);
+    for (var i=0; i<page.getLength(); i++) {
+        if (page.getParameters()[i] != 'page')
+            pageSearch += '&' + page.keyValuePairs[i];
+    }
+    pageSearch += '&page=' + n + '&now=' + (new Date()).getTime();
+    getObj('taskList').innerHTML = '<div class=\'submiting\'>任务加载中.....</div>';
+    getTask(pageSearch);
+}
+function getTask(qs) {
+    var url = '{$weburl2}ajax/getTask.php?type=$taskId' + '&au=' + $('#isAuto').val() + qs;    
+    $.ajax({
+		type : 'GET',
+		url  : url,
+		success : function(html){
+			if (html.indexOf('接手任务')<0)
+				html = '<div class=\'pub_tip5 f_b\'>对不起，本互动区里所有任务都被抢光了，请过会再 <span class=\'btn_gl\' onclick=\'goPage(1);\'>刷新</span> 试试...</div>' + html;
+			$('#taskList').html(html);
+		},
+		error:function(){
+			$('#taskList').html('<p>&nbsp;</p><p>尊敬的会员，您遇到了一个未知的错误，请稍后重新点击。　　<a href="'+weburl2+'">返回主页</a></p>');
+		}
+	});
+}
+function autoTask() {
+    $('#taskList').html('<div class=\'submiting\'>任务加载中.....</div>');
+	var chkAuto = getObj('isAuto');
+	var auto = function() {
+		if (chkAuto && chkAuto.checked) {
+			goPage(1);
+		}
+	};
+    var t = parseInt(getValue('isAuto'));
+    if (t < 5) t = 20;
+	var tt_1 = window.setInterval(auto, t * 1000);
+}
+$(function(){
+	autoTask();
+	showPanel();
+	goPage(1);
+});
+//window.setTimeout('showPanel();',500);
+//window.setTimeout('goPage(1);',500);
+</script>
+{sub ../footer}

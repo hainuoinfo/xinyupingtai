@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>$title</title>
+<meta name="description" content="$description" />
+<meta name="keywords" content="$keywords" />
+{if $cssList}
+{loop $cssList $v}
+<link rel="stylesheet" type="text/css" href="$v" />
+{/loop}
+{else}
+{teval
+echo css::get_css('bbs', 'bbs');
+}
+{/if}
+{js_select jquery,common}
+{loop $jsList $v}
+<script type="text/javascript" src="$v"></script>
+{/loop}
+<script type="text/javascript">
+{if $showMessage}
+alert('{echo common::bf_addcslashes($showMessage)}');
+{/if}
+$.ajaxSetup({cache:false});
+var memberLogined={echo $memberLogined?'true':'false'};
+var loginUsername='{echo $memberLogined?$member['username']:''}';
+var weburl='$weburl';
+var weburl2='$weburl2';
+var sys_hash2='$sys_hash2';
+</script>
+</head>
+<body>
+<div class="top">
+	<div class="top_left">{if $memberLogined}<span class="f_gray">您的当前IP：{ip $ipint}，当前服务器时间：{date $timestamp}</span>{/if}</div>
+	<div class="top_right">{if $memberLogined}您好 <span class="f_b_org">$member[username]</span> 欢迎回来！　<a href="{rewrite}/member/message/" target="_blank" class="top_msg">站内信<span class='f_red'>($memberFields[msg])</span></a>{if $memberFields[isTyro]} 　<a href="javascript:;" onclick="showTyroTask();return false;" class="link_r_1">[新手任务]</a>{/if} 　<a href="{rewrite}/member/logout/">[安全退出]</a>{else}您好，欢迎来到{$web_name}！ <a href="{rewrite}/member/login/">登录</a> | <a href="{rewrite}/member/reg/">快速注册</a> | <a href="{rewrite}/member/forgotpwd/">找回密码</a>{/if}</div>
+</div>
+<div class="head">
+	<div class="head_left"><a href="/" title="$web_name"><img src="$web_logo" alt="$web_name" border="0" align="absmiddle" />&nbsp;</a></div>
+	<div class="head_right"><a href="{r}/member/vip/?type=add" style="color:#FF0000">点此申请VIP</a> | <a href="{rewrite}/member/topup/">存款充值</a>  |  <a href="{r}/member/eids/" style="color:blue">快递单号</a> | <a href="{rewrite}/help/">帮助中心</a> | <a href="javascript:;" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage(location.href)">收藏本站</a> | <a href="javascript:;" class="service">在线客服</a></div>
+</div>
+<div class="menu">
+	<div>
+		<ul class="menu_ul">
+			<li{if $action=='index'} class="on"{/if}><a href="$weburl2">首页</a></li>
+			<li{if $action=='task' && $operation=='new'} class="on"{/if}><a href="{rewrite}/task/new/">新手互动区</a></li>
+			<li{if $action=='task' && $operation=='reflow'} class="on"{/if}><a href="{rewrite}/task/reflow/">来路流量区</a></li>
+			<li{if $action=='task' && $operation=='tao'} class="on"{/if}><a href="{rewrite}/task/tao/">淘宝互动区</a></li>
+			<li{if $action=='task' && $operation=='pai'} class="on"{/if}><a href="{rewrite}/task/pai/">拍拍互动区</a></li>
+			<li{if $action=='topup' && $operation=='topup'} class="on"{/if}><a href="{rewrite}/member/topup/">存款充值</a></li>			
+			<li{if $action=='member' && $operation=='member'} class="on"{/if}><a href="{rewrite}/member/">个人中心</a></li>
+
+			<li{if $action=='bbs'} class="on"{/if}><a href="{rewrite}/bbs/">论坛</a></li>
+			<li{if $action=='member' && $operation=='card'} class="on"{/if}><a href="{rewrite}/member/card/">点卡中心</a></li>
+			<li{if $action=='member' && $operation=='soft'} class="on"{/if}><a href="{rewrite}/member/soft/">下载中心</a></li>
+		</ul>
+	</div>
+	<div class="menu_query">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td align="left" class="shuazuan_tips"><ul id="shuazuan_tips">
+					{eval
+						$hotKeyList = db::get_list('bbs_keys', '*', '', 'searchs desc', 1, 5);
+					}
+						<li><strong>热门搜索：</strong>
+						{loop $hotKeyList $v}
+						<a href="{rewrite}/bbs/?operation=search&fid=$v[fid]&keyword={url $v[key]}" class="link_b_1">$v[key]</a>
+						{/loop}
+						</li>
+						{ad index_head_scroll}
+					</ul></td>
+				<td align="right"><form action="{rewrite}/bbs/">
+						<input type="hidden" name="operation" value="search" />
+						{eval
+							$forumNameList = db::get_list('forums', 'id,name', '', 'sort,timestamp desc');
+						}
+						<select name="fid">
+							<option value="0">所有类别</option>
+							{loop $forumNameList $v}
+							<option value="$v[id]">$v[name]</option>
+							{/loop}
+						</select>
+						<input type="text" name="keyword" class="text_normal" value="" maxlength="20" />
+						<input type="image" src="{$weburl2}images/bbs/ico/menu_search.gif" align="absmiddle" />
+					</form></td>
+			</tr>
+		</table>
+	</div>
+</div>
+{sub service}
+<script type="text/javascript">
+{if $memberFields[isTyro]}
+var showTyroTask = function(){
+	dialog(700,350,'$web_name - 新手互动教学大厅','{r}/dialog/tyro/');
+}
+{/if}
+function slideLine(ul, delay, speed, lh) {
+	var slideBox = document.getElementById(ul);
+	var delay = delay, speed=speed, lh = lh;
+	var tid = null, pause = false;
+	var start = function() {
+		tid=setInterval(slide, speed);
+	}
+	var slide = function() {
+		if (pause) return;
+		slideBox.scrollTop += 2;	
+		if (slideBox.scrollTop % lh == 0) {
+			clearInterval(tid);
+			slideBox.appendChild(slideBox.getElementsByTagName('li')[0]);
+			slideBox.scrollTop = 0;
+			setTimeout(start, delay);
+		}
+	}
+	slideBox.onmouseover=function(){pause=true;}
+	slideBox.onmouseout=function(){pause=false;}
+	setTimeout(start, delay);
+}
+try{
+	slideLine('shuazuan_tips', 5000, 50, 14);
+}catch(e) {}
+</script>

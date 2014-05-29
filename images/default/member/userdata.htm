@@ -1,0 +1,108 @@
+{teval
+	$title       = '请输入操作码 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('info', 'member'),css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{ad2 ad_memberHeadTop}
+{sub ../header}
+<div class="main">
+	<div class="h_10"></div>
+	<div class="a">
+		{sub menu}
+	</div>
+	<div class="b">
+		{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+		{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+		<div class="bar">维护个人资料</div>
+		<form name="myForm" method="post" id="myForm" enctype="multipart/form-data" onsubmit="return checkForm();">
+			<div>$sys_hash_code2</div>
+			<div></div>
+			<div class="edit">
+				<table class="tbl_edit" width="100%" border="0" cellspacing="0" cellpadding="6">
+					<tr>
+						<td width="110" align="right">用户名：</td>
+						<td width="200">$member[username]</td>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td align="right">头像：</td>
+						<td colspan="2"><img src="$memberFields[avatar]"  alt="默认头像" style="border:6px solid #f1f1f1;" /><br />
+							<input name="userPic" type="file" style="margin-top:8px; width:228px;" id="userPic" />
+　　
+最大支持120 × 120的图片 							</td>
+					</tr>
+					<tr>
+						<td align="right">手机号码：</td>
+						<td><span class="f_b_red">{if !$member[status]}$member[mobilephone]{else}{echo string::getXin($member[mobilephone], 3, 5)}{/if}</span></td>
+						<td>{if !$member[status]}账号未激活，立即 <a href="javascript:;" onclick="dialog(460,460,'手机短信激活帐户','{rewrite}/dialog/active/');return false;" class="link_o">短信激活</a>{/if}&nbsp;</td>
+					</tr>
+				</table>
+			</div>
+			<div class="bar_edit">个人基本资料</div>
+			<div class="edit">
+				<table class="tbl_edit" width="100%" border="0" cellspacing="0" cellpadding="6">
+					<tr>
+						<td width="110" align="right">QQ号码：</td>
+						<td width="200"><input name="qq" type="text" id="qq" class="text_normal" value="$member[qq]" disabled="disabled" /></td>
+						<td>不可修改</td>
+					</tr>
+					<tr>
+						<td align="right">真实姓名：</td>
+						<td><input name="truename" type="text" id="truename" class="text_normal" value="$member[truename]" disabled="disabled" /></td>
+						<td>不可修改</td>
+					</tr>
+					<tr>
+						<td align="right">Email地址：</td>
+						<td><input name="email" type="text" id="email" class="text_normal" maxlength="100" value="$member[email]" /></td>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td align="right">性别：</td>
+						<td><label for='__sex__0'>
+							<input name='sex' type='radio' value='1' id='__sex__0'{if $member[sex]==1} checked='checked'{/if} />
+							男</label>
+							&nbsp;&nbsp;
+							<label for='__sex__1000'>
+							<input name='sex' type='radio' value='2' id='__sex__1000'{if $member[sex]==2} checked='checked'{/if}  />
+							女</label>
+							&nbsp;&nbsp;</td>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td align="right">通讯地址：</td>
+						<td colspan="2"><input name="address" type="text" id="address" class="text_long" maxlength="100" value="$member[address]" /></td>
+					</tr>
+					<tr>
+						<td align="right">&nbsp;</td>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td align="right"><strong>操作码：</strong></td>
+						<td><input name="password2" type="password" class="text_normal" id="optCode" /></td>
+						<td>修改资料需要提供操作码　<span class='f_red'>$errMsg</span></td>
+					</tr>
+				</table>
+			</div>
+			<div class="edit_btn">
+				<input name="btnSave" type="submit" class="btn_2" id="btnSave" value="确认修改" />
+			</div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript">
+function checkForm() {
+   var checks = [
+		["isEmail", "email", "电子邮件", "true"],
+		["isEmpty", "optCode", "操作码"] ];
+	var result = doCheck(checks);
+	if (result)avoidReSubmit();
+	return result;
+}
+</script>
+{sub ../footer}

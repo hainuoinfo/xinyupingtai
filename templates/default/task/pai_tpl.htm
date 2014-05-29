@@ -1,0 +1,223 @@
+{teval
+	
+	$cssList     = array(css::getUrl('task', 'task'));
+	echo string::getStaticCode(array('cssList'=>$cssList));
+}
+{sub ../header2_base}
+
+<style type="text/css">
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+em, i {
+    font-style: normal;
+}
+.reListTitle {
+padding-top:10px;
+}
+.reListTitle table thead td {
+    border: 1px solid #C0DBF8;
+    overflow: hidden;
+}
+.reListTitle ul.inout {
+    background:#F1F8FE;
+    border: 1px solid #FFFFFF;
+    height: 20px;
+    line-height: 20px;
+}
+.reListTitle .id {
+    padding-left: 5px;
+    text-align: left;
+    width: 205px;
+}
+.reListTitle table tbody td {
+    color: #666666;
+    height: 70px;
+    text-align: center;
+}
+.reListTitle table thead td ul li {
+    color: #999999;
+    float: left;
+    text-align: center;
+}
+.d24 { color: #009900;}
+.reListTitle .poster {
+    padding-left: 5px;
+    text-align: left;
+    white-space: nowrap;
+    width: 150px;
+    word-break: keep-all;
+}
+.reListTitle .price, .reListTitle .price2 {
+    padding-left: 10px;
+    text-align: left;
+    text-indent: 18px;
+    width: 103px;
+}
+
+.reListTitle .do, .reListTitle .but_yred {
+    float: none;
+    text-align: center;
+}
+.reListTitle .do {
+    float: none;
+    padding-right: 10px;
+     text-align: center;
+}
+.reListTitle .oktime {
+    color: #999999;
+    width: 260px;
+}
+.hui_border{border:1px #e2e2e2 solid;border-top:none;}
+.blue_border{border:1px #C0DBF8 solid;border-top:none;}
+.yred { color: #FF5500;}
+.ml10 { margin-left: 10px;}
+
+.oktime em {
+    display: inline-block;
+    height: 17px;
+    line-height: 17px;
+    margin-right: -2px;
+    word-break: break-all;
+}
+.reListTitle .poster a {
+    display: inline;
+}
+.reListTitle td.poster a {
+    height: 15px;
+    line-height: 15px;
+    overflow: hidden;
+}
+.but_yred{float:none;padding:0 3px 0 3px;line-height:18px;margin:2px;margin-right:10px;float:right;background:#FDE9D5;border:1px solid #F9AC3A;color:#F50;display:inline-block;text-align:center;white-space:nowrap;word-break:keep-all;}
+</style>
+<script type="text/javascript" src="/images/Common.js"></script>
+<script type="text/javascript">
+var webqq = 286411917;
+</script>
+<style type="text/css">
+.kd a:hover { text-decoration:underline;}
+</style>
+<div id="content">
+	    <div class="h15"></div>
+		<div class="fabu_box1">
+		    <div class="fabu_title"><span class="fabu_left"></span><span class="fabu_h2">发布任务须知（*号为必填项）</span><span class="fabu_right"></span></div>
+			<div class="cle"></div>
+			<div class="fabu_cont">
+			  <ul>
+				<li>马上好评任务：拍拍交易的物品为虚拟物品，买卖双方可以即时确认完成交易并付款。</li>
+				<li>24-72小时确认任务：拍拍交易的物品为实际存在的物品，可能包含运费和物流等，需要1－3天后方能确认收货并评价。</li>
+				<li>要尽量保证平台任务担保价大于 (拍拍商品价格+快递运费)/2 ，否则接手人拍下商品后您的拍拍改价将会导致您的支付宝使用率低于50%既被拍拍视为信用炒作处理；</li>
+				<li>您发任务时，平台中的保证金不得少于任务价，成功发布任务将会在平台中扣押相应的任务保证金；接手人完成您的任务时等额的资金会作为商品款返回给您网店的帐户中；</li>
+				<li>您想发布任务的时候，必须保证您拥有相应的麦点，每次发布都会根据商品价格不同扣除相应的麦点数。您如果想让任务排名靠前就可以追加麦点奖励，追加的越多排名就越靠前；</li>
+				<li class="chengse">请确认商品地址绝对正确，否则会造成不必要的纠纷。</li>
+				<li class="chengse">为了您的店铺安全，发布“实物任务”商品价格请大于10元！</li>
+			  </ul>
+			</div>
+		</div>
+		<a id="mao1"></a>
+		{sub tabtao}
+		    <div class="cle"></div>
+			<div class="reListTitle">
+			<table id="tpl" border="0" cellpadding="4" cellspacing="0" width="1000">
+					<thead>
+					<tr>
+							<td colspan="6"><ul class="inout">
+									<li class="id">模板名称</li>
+									<li class="poster">掌柜/商品/网址</li>
+									<li class="price">任务价格</li>
+									<li class="oktime">任务要求</li>
+									<li class="poster">限制</li>
+									<li class="do">操作</li>
+								</ul></td>
+						</tr>
+				</thead>
+					
+				</table>
+                
+           <table class="yfrw_list" border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody>
+          {eval $allPrice = 0;}
+           {eval $allPoint= 0;}
+		  {loop $tList $v}
+          <tr>
+          <td class="rwdt_bt1" align="center" height="39" valign="middle" width="10"></td> 
+            <td class="yf_pd2" width="180"><span class="rwdt_bh1" title="虚拟任务"><strong><strong>$v[id]</strong></strong></span><p class="cle"></p>
+            <span class="block">发布时间：{echo date('m-d H:i:s', $v[stimestamp])}</span><span class="rwdt_xbh0">发布方:<a class="comlink" title="接任务后方可查看到对方QQ号码" target="_blank" href="{rewrite}/member/info/?username={url $v[susername]}">$v[susername]</a></span></td>
+            <td class="yf_pd2" width="90">掌柜：$v[nickname]<br />
+商品：<span title="$v[title]" class="mouse">{cutstr $v[title],10}</span><br />
+网址：<a href="javascript:;" onclick="return openPrdUrl('$v[itemurl]')" class="link_o">打开网址</a></td>
+            <td class="yf_pd yf_em" align="center" width="170"><span class="chengse">$v[price]</span>
+			</td>
+            <td class="yf_pd" align="center" width="120">$lang[times][$v[times]],{if $v[isRemark]}带字,{/if}{if $v[visitWay]}<span class='chengse'>来路</span>,{/if}{if $v[isReal]}<span class='chengse'>{if $v[realname] == 1}实名{else}掌柜{/if}</span>,{/if}{if $v[isChat]}<span class='chengse'>拍前聊</span>,{/if}{if $v[isChatDone]}<span class='chengse'>聊后收</span>,{/if}{if $v[isShare]}<span class='chengse'>分享</span>{/if}<br></td>
+            <td class="yf_pd" align="center" width="120">
+            {if $v[complain]}
+				<span class="chengse">申诉裁定中,任务锁定</span>
+			{else}
+            <span class="chengse"><strong>$lang[status][$v[status]]</strong></span>
+			{/if}
+            </td>
+            <td class="rwdt_bt2" align="center" valign="middle" width="1%"></td>
+            
+            <td class="yf_pd2" style="padding:0px;" align="right" valign="top" width="240">
+		
+		<div style="height:30px; position:relative; top:5px;" id="$v[id]">
+		<a href="javascript:;" onclick="dialog(550,550,'绑定买号','/dialog/chooseBuyer/?sid=$v[id]');return false;" class="yf_buyer">&nbsp;</a>
+		</div>
+		<p style="clear:both; line-height:30px;height:30px;">剩余绑定时间：<span class="lvse strong" id="iidd_1">fleshTime($v[runTimestamp2])</span></p>
+			<p class="task-border">
+				联系对方：<a href="javascript:;" onclick="OpenQQ('440068804');" class="yf_wz"><img src="/images/pa.gif" alt="440068804" title="qq联系对方" border="0"></a>
+				<a href="javascript:;" onclick="dialog(460,460,'给卖家发送手机短信','/dialog/sendsms/?username={url $v[susername]}');return false;" title="给卖家发送手机短信" alt="给卖家发送手机短信" class="yf_sj"></a> | <a href="{rewrite}/task/tao/?m=taskIn&amp;out=$v[id]" onclick="return IsQuitTask();" title="退出任务" class="yf_wz">退出</a> |<a href="javascript:;" style="background:url(/images/bz_no.png) no-repeat 8px; height:12px;top:2px;" onclick="ShowRemark('$v[id]','');" class="yf_bz"></a>
+		    </p>
+            </td>
+            <td width="15">&nbsp;</td>
+          </tr>
+          {eval $allPrice += $v[price];}
+           {eval $allPoint += $v[point];}
+		 {/loop}
+          <tr>
+            <td colspan="9" class="yfrw_listxia" align="right" valign="middle"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tbody><tr>
+                 <td style="padding-left:20px; color:#3372A2;" align="left" width="40%">不按规定修改地址、好评的的接手人将给予严厉处分</td>
+                <td align="left" width="40%"><span style="float:left;"><span class="yf_wwtx"></span>掌柜名：<a href="###" class="comlink" title="查看掌柜信息">你好似</a></span><span class="yf_wwtx"></span><span style="float:left;">&nbsp;&nbsp;接手方买号绑定后可查看</span></td>
+                <td align="left" width="12%"></td>
+              </tr>
+            </tbody></table></td>
+          </tr>
+		   
+		  <tr>
+            <td colspan="9" align="left" valign="middle"><table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+              
+			  <tbody><tr>
+                <td class="yf_ts1" height="40"><span class="yf_mjly"></span><span class="chengse strong" style="color:#1E90FF;">只确认收货不评价,请动态评分打5分,&nbsp;&nbsp;区服请填需要改价的任务，旺旺联系说请老板改一下价格,&nbsp;&nbsp;</span></td>
+                <td class="yf_ts1" align="center" valign="middle" width="160">&nbsp;</td>
+              </tr>
+            </tbody></table></td>
+          </tr>
+          
+		   </tbody></table>
+		</div>
+	<!--taopage_detail end--> 
+</div>
+	<script type="text/javascript">
+function delTpl(obj, id) {
+	if (confirm('您确定要删除此模板么？')) {
+		obj.href = "/task/tao/?m=tpl&del=" + id;
+		return true;
+	}
+	return false;
+}
+</script> 
+
+<script type="text/javascript">
+var webnoticeurl = "";
+var webnoticetit = "";
+var quick_qq = '<a target="_blank" href="http://wp.qq.com/wpa/qunwpa?idkey=f1eaf0fe93527f76ce44d221e7b8c0938b6f470f880afb249bb82cbe7b792d03"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="大麦户网商平台11群" title="大麦户网商平台11群"></a>
+';
+$('.web_qq').hover(function(){
+    $('.quick_qq').show();
+});
+</script>
+
+
+{sub ../footer}

@@ -1,0 +1,520 @@
+{teval
+	$cssList = array(css::getUrl('task', 'task'));
+	$jsList  = array(javascript::getUrl('task', 'index'));
+	echo string::getStaticCode(array('cssList'=>$cssList, 'jsList' => $jsList));
+}
+{sub ../headerBase}
+<link rel="stylesheet" type="text/css" href="/images/task.css">
+<script type="text/javascript" src="/images/jquery.js"></script>
+<style type="text/css">
+.kd a:hover { text-decoration:underline;}
+.link_t { display:block; width:52px; height:22px;color:#a68d8b; background:url(/images/buyers_btn.png) no-repeat; margin-bottom:2px;}
+#showtask { margin:0 auto; width:940px;}
+.yf_review {background: url(/images/yfrw_zjpl.jpg) no-repeat;display: block;height: 30px; text-align:center; line-height:30px; width: 67px;overflow: hidden;}
+.yf_review:hover{background:url(/images/yfrw_zjpl_hov.jpg) no-repeat;}
+.rwdt_xx .task_search {position: absolute; right: 20px; top: 55px;}
+.rwdt_xx .task_search input {height:25px;line-height:25px; border:1px #cedede solid; width:192px; text-indent:5px; color:#b0afae;}
+.rwdt_xx .task_search .search {background:#fff5e1;border:1px solid #dcca9c;color:#333;display:inline-block; padding:0 7px;margin:0px 5px 0px 10px;height:25px;line-height:25px;text-align:center;}
+.rwdt_xx .rwdt_sort {left: 10px; position: absolute;top: 66px;}
+.rwdt_xx .rwdt_sort2 {left: 90px; position: absolute;top: 66px;}
+.rwdt_xx .rwdt_sort2  li a{width:85px;}
+.rwdt_xx .rwdt_sort a, .rwdt_xx .rwdt_sort2 a {
+    color: #3372A2;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    z-index: 1;
+}
+.rwdt_marquee {position: absolute;width:680px;top:9px;}
+.rwdt_marquee_close {position: absolute;font-size:14px; font-weight:700;left:705px; top:9px;cursor:pointer;}
+.rwdt_dexpress{background:url(/images/tx_ico_28.png) no-repeat;float:left;display:block;width:145px;text-indent:20px;height:17px;line-height:17px;color:#333;}
+.yf_wexpress{background: url(/images/tx_ico_2013530xy.png) no-repeat;display: block;height: 30px;text-align: center;line-height: 30px;width: 158px;overflow: hidden;}
+</style>
+<style type="text/css">
+.bq_menu{
+	height:32px;
+	background:url(/images/fy_ico.jpg) 0 -1342px repeat;
+	}
+.bq_menu a{
+	float:left;
+	margin-right:3px;
+	background:url(/images/fy_ico.jpg)  -4px -806px no-repeat;
+	display:block;
+	font-size:14px;
+	text-align:center;
+	width:96px;
+	height:32px;
+	line-height:30px;
+	}
+.bq_menu a:hover,.bq_menu a.nov{
+	background:url(/images/fy_ico.jpg)  -4px -758px no-repeat;
+	font-weight:bold;
+	}
+.mh_bdbtn2 {margin-left:218px;}
+.tx_jl{
+	background:url(/images/tx_btn.gif) 0 -187px no-repeat;
+	height:30px;
+	line-height:30px;
+	font-size:14px;
+	font-weight:bold;
+	text-indent:25px;
+	}
+.txjl_bg1{background:url(/images/tx_btn.gif) 0 -225px no-repeat;}
+.txjl_bg2{
+	background:url(/images/tx_btn.gif) 0 -264px repeat-x;
+	color:#1996e6;
+	font-size:14px;
+	font-weight:bold;
+	}
+.txjl_bg3{background:url(/images/tx_btn.gif) right -303px no-repeat}
+</style>
+<div id="content">
+	<div class="taobaopage_detail">
+<style type="text/css">
+.gold .yred { color:#D61810;}
+</style>
+
+{sub tao_info}
+		{sub ../quick}
+		<div class="rwdt_bk2">
+			<a href="{rewrite}/member/safesz/" class="szsz_btn" target="_blank"></a>
+			<p class="ts">接实物任务后立即收货好评将 <span class="chengse">- 20 </span>麦点</p>
+			<p class="ts">任务过程中旺旺聊到刷信誉平台相关字眼 <span class="chengse">- 5 </span>麦点</p>
+			<p class="ts">为了您资金安全，接手方淘宝支付后务必在<span class="lanse">15</span>分钟内回到平台操作任务点击“已付款” </p>
+		</div>
+		<div class="rwdt_gg"><a href="{rewrite}/member/userjob/" target="_blank"><img src="/images/taobaoke.jpg"></a></div>
+		<div class="rwdt_gg2"><a href="{rewrite}/bbs/t1538/" target="_blank"><img src="/images/frw.gif"></a></div>
+
+<script type="text/javascript">
+					$(function() {
+						bechange('.sub_bt a','#buyboxcont>.task_header');
+						$("table > tr:odd").addClass("tcolor");
+					});
+					</script>
+<script type="text/javascript">
+function checkForm1() {
+   var checks = [
+		["isNumber", "money", "充值金额"]];
+	var result = doCheck(checks);
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+function checkForm2(){
+  var checks = [
+		["isEmpty", "cardPwd", "订单号"]];
+	var result = doCheck(checks);
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+function checkForm3() {
+   var checks = [
+		["isNumber", "cardnums", "购买麦点数量"] ];
+	var result = doCheck(checks);
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+
+</script>
+<script language="javascript">
+	$(function(){
+		$('#btnQuery').click(function(){
+			var sid=$('#sid').val();
+			if (sid) sid = '&sid='+sid;
+			var susername=$('#susername').val();
+			if (susername) susername = '&susername='+susername;
+			var sqq=$('#sqq').val();
+			if (sqq) sqq = '&sqq='+sqq;
+			var bnickname=$('#bnickname').val();
+			if (bnickname) bnickname = '&bnickname='+bnickname;
+			location.href='$thisUrl&t='+$('#status').val()+sid+susername+sqq+bnickname;
+		});
+	});
+</script>
+		{sub tab}
+<div class="rwdt_xx">
+		    <p class="rwdt_marquee_close" onclick="marquee_close();">X</p>
+		    <p class="rwdt_marquee"><marquee onmouseover="this.stop()" onmouseout="this.start()" height="18" width="100%">　<a href="{rewrite}/bbs/t4492/" style="color:red;" target="_blank">接手方容易造成损失的几大误区</a></marquee></p>
+			<ul class="yfrw_sub">
+				<li><a  href="javascript:;" onclick="window.location.href='$thisUrl&t=ing'" {if $t=='ing'} class="nov" {/if}>可处理($memberTask[ining1])</a></li>
+				<li><a href="javascript:;" onclick="window.location.href='$thisUrl&t=tWatting2'"{if $t=='tWatting2'} class="nov" {/if}>等待付款发货(0)</a></li>
+				<li><a href="javascript:;" onclick="window.location.href='$thisUrl&t=expire'"{if $t=='expire'} class="nov" {/if}>等待收货好评($memberTask['inExpire'.$taskId])</a></li>
+				<li><a href="javascript:;" onclick="window.location.href='$thisUrl&t=complate'" {if $t=='complate'} class="nov" {/if}>已完成任务($memberTask['inComplate'.$taskId])</a></li>
+				<li><a href="javascript:;" onclick="window.location.href='$thisUrl&t=all'" {if $t=='all'} class="nov" {/if}>全部任务($memberTask[in1])</a></li>
+			</ul>
+			<div class="rwdt_btn"><a href="{rewrite}/task/tao/?m=add" class="fb_btn"></a><a href="javascript:;" onclick="goPage(1);" class="sx_btn"></a></div>
+            
+			<div class="rwdt_sort">
+            <ul>
+              <li>
+              <a href='javascript:getTask("t=ing&amp;bsort=1")'>按买号排序</a>
+              </li>
+            </ul>
+            </div>
+            <div class="rwdt_sort2">
+              <ul>
+                <li>
+                <a href='javascript:getTask("t=ing&amp;bsort=0")'>按接手时间排序</a>&nbsp;&nbsp;&nbsp;
+                <a href='javascript:getTasksort("ing")'>按收货时间排序</a>&nbsp;&nbsp;&nbsp;
+                </li>
+              </ul>
+            </div>
+			<div class="task_search">
+			<input name="task_keys" id="task_keys" onclick="if(this.value.indexOf('搜索任务ID') >= 0)this.value='';" value="搜索任务ID,掌柜,买号,QQ" type="text"><a href="javascript:;" class="search" onclick="task_search();">搜索</a></div>
+		</div>
+	<div class="cle"></div>
+		<div class="taobaopage_detail" id="taskList">			<!--开始-->
+  <div class="cle"></div>
+   	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tbody><tr>
+            <td class="rwdt_bt1" align="center" height="39" valign="middle" width="10"></td>
+            <td class="rwdt_bt2" align="center" valign="middle" width="200">任务编号</td>
+            <td class="rwdt_bt2" align="center" valign="middle" width="12%">任务价格</td>
+            <td class="rwdt_bt2" align="center" valign="middle" width="18%">发布者要求</td>
+            <td class="rwdt_bt2" align="center" valign="middle" width="12%">悬赏麦点</td>
+            <td class="rwdt_bt2" align="center" valign="middle" width="12%">任务状态</td>
+            <td class="rwdt_bt2" align="center" valign="middle" width="1%"></td>
+            <td class="rwdt_bt2" align="center" valign="middle" width="24%">操作</td>
+            <td class="rwdt_bt3" align="center" valign="middle" width="10"></td>
+          </tr>
+        </tbody></table>
+        {eval $allPrice = 0;}
+        {eval $allPoint= 0;}
+		{loop $tList $v}
+        <table class="yfrw_list" border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody>
+          <tr>
+            <td class="yf_pd2" width="180"><span {if $v[isCart]} class="rwdt_bh7" title="购物车任务—$v[shopCount]个商品" {elseif $v[isExpress]} class="task_express" title="真实快递任务—$v[shopCount]个商品" {elseif $v[visitWay]} class="rwdt_bh3" title="来路任务" {elseif $v[times]==0} class="rwdt_bh1" title="虚拟任务" {elseif $v[times]>=1} class="rwdt_bh2" title="实物任务" {/if}  ><strong class="system1">$v[id]</strong></span><p class="cle"></p>
+            <span class="block">发布时间：{echo date('m-d H:i:s', $v[stimestamp])}</span><span class="rwdt_xbh0">发布方:<a class="comlink" title="接任务后方可查看到对方QQ号码" target="_blank" href="{rewrite}/member/info/?username={url $v[susername]}">$v[susername]</a></span></td>
+            <td class="yf_pd2" width="90"><span {if $v[isPriceFit]} class="rwdt_xgj" {else} class="rwdt_db" {/if}>$v[price]</span></td>
+            <td class="noktime" width="23%">
+			<p {if $v[times]==0}class="yred" {else} class="lvse" {/if}title="任务接手付款后，$lang[times][$v[times]]立即对宝贝进行收货好评！">$lang[times][$v[times]]</p>
+			{if $v[isVerify]}<em title="接任务者需要发布者核审" class="rwdt_yq1">&nbsp;</em>{/if}
+			{if $v[isChat]}<em title="任务需要旺旺模拟咨询再拍下" class="rwdt_yq4">&nbsp;</em>{/if}
+			{if $v[ispinimage]} <em title="接任务者需要上传好评图片" class="rwdt_yq6">&nbsp;</em>{/if}
+			{if $v[isRemark]}<em title="按发布者提供的评语进行评价" class="rwdt_yq2">&nbsp;</em>{/if}
+			{if $v[isReal]}<em title="接手买号必须通过了支付宝实名认证" class="rwdt_yq21">&nbsp;</em>{/if}
+			{if $v[isAddress]}<em class="rwdt_yq3" title="任务需要指定收货地址">&nbsp;</em>{/if}
+			{if $v[isLimitCity]}<em class="rwdt_yqip" title="要求接手方地址是...">&nbsp;</em>{/if}
+			{if $v[isShare]}<em title="好评后对宝贝进行分享" class="rwdt_yq20">&nbsp;</em>{/if}
+			{if $v[isChatDone]}<em title="任务需要模拟聊天后确认收货" class="rwdt_yq17">&nbsp;</em>{/if}
+			</td>
+            <td class="yf_pd" align="center" width="120"><span class="chengse"><strong>$v[point]个麦点</strong></span></td>
+            <td class="yf_pd" align="center" width="120">
+            {if $v[complain]}
+				<span class="chengse">申诉裁定中,任务锁定</span>
+			{else}
+            <span class="chengse"><strong>$lang[status][$v[status]]</strong></span>
+			{/if}
+            </td>
+            
+            
+        <td class="yf_pd2" style="padding:0px;" align="right" valign="top" width="240">
+		
+		<div style="height:30px; position:relative; top:5px;" id="$v[id]">
+		{if !$v[bid]}<a href="javascript:;" onclick="dialog(550,460,'绑定买号','{rewrite}/dialog/chooseBuyer/?sid=$v[id]');return false;" class="yf_buyer">绑定买号</a>
+		接手方剩余<script type="text/javascript">fleshTime({echo 180-$v[runTimestamp]})</script>钟可绑定买号
+		{/if}
+		{if  $v[status]==3}
+		<a class="yf_ico1" onclick="return copyComment('$v[itemurl]')" href="javascript:;">等待发布方审核</a>
+		<script type="text/javascript">IsOutTask($v[runTimestamp], "$v[id]");</script>
+		{elseif $v[status]==4}
+		{if $v[visitWay] && $v[isVisit]==0}
+		
+		<a href="javascript:;" onclick="dialog(650,450,'查看商品详情','{rewrite}/dialog/taskVisitWay/?sid=$v[id]');return false;" class="yf_ico2 float_r"></a>
+		{else} 
+		<a href="$thisUrl&pay=$v[id]" class="yf_payfor1 float_r" onclick="return IsPayTask('淘宝',$v[times])">已经支付</a>
+		<a style="margin-right:7px;" class="yf_ico3 float_r" onclick="return copyComment('$v[itemurl]')" href="javascript:;"></a>
+		{/if}
+		{elseif $v[status]==7}
+		<a href="$thisUrl&unpay=$v[id]" class="yf_hwfk" onclick="return IsUnpayTask('淘宝')">还未支付</a>
+		{elseif $v[status]==8}
+		{if $v[runTimestamp3]<=0}
+		<a href="$thisUrl&receive=$v[id]" class="yf_haopinsh" onclick="return IsReceiveTask('淘宝', $v[isRemark], 0, $v[isShare])">我已收货</a>
+		{/if}
+		{if $v[runTimestamp3]>0}
+		<span class='yf_wdshsj'>等待收获</span>
+		<font color="#fe5500">{echo time::hours($v[runTimestamp3])}</font>小时后允许收货
+		{/if}
+		{elseif $v[status]==9}
+		<a class="yf_waito" href="$thisUrl&confirm=$v[id]" onclick="return IsConfirmTask('淘宝')">等待卖家核实货款</a>
+		{elseif $v[status]==10}
+		<a href="javascript:;" onclick="dialog(600,500,'{$web_name}平台任务满意度评分','/dialog/grade/?sid=$v[id]');return false;" style="margin-left:5px;" class="yf_pinjia float_r" title="给发布方打分" id="grade_$v[id]">&nbsp;</a>
+		<p style="clear:both; line-height:20px;height:20px;">评价状态：<font color="#fe5500">$lang[cStatus][$v[credit]]</font></p>
+		{/if}
+		</div>
+		{if $v[status]==4}
+		 <p style="clear:both; line-height:30px;height:30px;">
+			    剩余付款时间：<span class="lvse strong" id="iidd_1"><script type="text/javascript">fleshTime($v[runTimestamp2])</script></span>
+		</p>
+		{else}
+		<p style="clear:both; line-height:30px;height:30px;"></p>
+		{/if}
+			<p class="task-border">
+				联系对方：<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin={$v[qq]}&site=qq&menu=yes"> 
+<img border="0" src="http://wpa.qq.com/pa?p=2:{$v[qq]}:41" alt="联系我" title="联系我"> 
+</a><a href="javascript:;" onclick="dialog(460,460,'给卖家发送手机短信','/dialog/sendsms/?username={url $v[susername]}');return false;" title="给卖家发送手机短信" alt="给卖家发送手机短信" class="yf_sj"></a> | 
+				{if $v[isVerify] && $v[status]==2}<script type="text/javascript">IsOutTask($v[runTimestamp], "$v[id]");</script>{elseif $v[status]<5}<a href='$thisUrl&out=$v[id]' class='yf_wz' title="退出任务" onclick='return IsQuitTask();'>退出</a>{elseif $v[status]<9}<a title="发起申诉" onclick="dialog(950,550,'发起申诉','{rewrite}/dialog/complain/?sid=$v[id]');return false;" class="comlink" href="javascript:;">申诉</a>|{/if}<a href="javascript:;" style="background:url(/images/{if $v[b_memo]}memo.png{else}bz_no.png{/if}) no-repeat 8px; height:12px;top:2px;" onclick="ShowRemark('$v[id]','$v[b_memo]');" class="yf_bz"></a>
+		    </p>
+            </td>
+            <td width="15">&nbsp;</td>
+          </tr>
+          
+          <tr>
+            <td colspan="9" class="yfrw_listxia" align="right" valign="middle">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tbody>
+			  <tr>
+                 <td style="padding-left:20px; color:#3372A2;" align="left" width="40%">不按规定修改地址、好评的的接手人将给予严厉处分
+				 </td>
+                <td align="left" width="40%">
+				<span style="float:left;">
+				<span class="yf_wwtx">
+				</span>掌柜名：<a href="{rewrite}/member/info.php?username=$v[nickname]" class="comlink" title="查看掌柜信息">$v[nickname]</a>
+				</span>
+				<span class="yf_wwtx"></span>
+				<span style="float:left;">采用买号：
+				<span class="lvse3">
+				<a href="#" class="comlink" target="_blank" title="查看买号信息">{if $v[bid]}$v[bnickname] $v[bico]{/if} </a>
+				</span>
+				</span>
+				</td>
+                {if !$v[visitWay] && !$v[isCart]}<td align="left" width="12%"><a href="javascript:;" onclick="return copyComment('$v[itemurl]')" class="vse3 strong">查看淘宝商品</a></td>
+				{/if}
+              </tr>
+			  {if $v[cbxIsTip]}
+		  <tr>
+                <td class="yf_ts1" height="40" colspan="9"><span class="yf_mjly"></span><span class="chengse strong" style="color:##FE5500;">$v[tips]</span></td>
+          </tr>
+		  {/if}
+		  {if $v[isRemark]}
+		  <tr>
+                <td colspan="9" class="yf_ts2" align="right" valign="middle">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tbody>
+			  <tr>
+			    <td style="padding-left:0px; color:#3372A2;"  align="left" width="85%">
+				<span class="yf_gdhp"></span>
+				<span class="chengse strong" style="color:#FE5500;">$v[remark]</span>
+				<span class="chengse strong"></span>
+				</td>
+                <td align="right" width="15%">　
+				
+				<span class="in_block"><a href="javascript:;" onclick="return copyComment('$v[remark]')" class="yf_fz1"></a>
+				</span>
+				</td>
+              </tr>
+             </tbody>
+			</table>
+			</td>
+          </tr>
+		  {/if}
+{if $v[isAddress]}
+<td colspan="9" class="yf_ts2" align="right" valign="middle">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tbody>
+			  <tr>
+<td style="padding-left:0px; color:#3372A2;"  align="left" width="85%">
+<span class="yf_gdsh"></span>
+<span>姓名：</span>
+<strong class="orange" style="color:red;">$v[cbxName]</strong>
+<span class="address-title">地址：</span>
+<strong class="orange" style="color:red;">$v[cbxAddress]</strong>
+<span class="address-title">电话：</span>
+<strong class="orange" style="color:red;">$v[cbxMobile]</strong>
+<span class="address-title">邮编：</span>
+<strong class="orange" style="color:red;">$v[cbxcode]</strong>
+<span class="yf_fzhp"></span>
+</td>
+                <td align="right" width="15%">　
+				
+				<span class="in_block"><a href="javascript:;" onclick="return copyComment('$v[cbxName],$v[cbxAddress],$v[cbxMobile],$v[cbxcode]')" class="yf_fz2"></a>
+				</span>
+				</td>
+              </tr>
+             </tbody>
+			</table>
+</td>
+{/if}
+        </tbody>
+	</table>
+</td>
+          </tr>
+		   </tbody>
+		   </table>
+		   {eval $allPrice += $v[price];}
+           {eval $allPoint += $v[point];}
+		   {/loop}
+		
+          
+					
+       
+		<div style="padding-top:10px;">本页任务的资金合计：<span class="chengse">$allPrice</span> 元　麦点合计：<span class="chengse">$allPoint</span> 个</div>
+			<div class="rwdt_dlm">
+		
+			<div id="page" style="margin:0px 10px 10px;">
+				
+		  </div>
+		</div>
+
+<div id="showtask" style="display:none;">
+<div style="height:350px;"><iframe name="contentframe" id="contentframe" src="tao_taskIn/a.htm" frameborder="0" height="350" width="540" scrolling="no"></iframe> </div>
+</div>	
+			<!--结束-->
+</div>
+<!--taopage_detail end-->
+</div>
+<div class="cle"></div>
+</div>
+
+<script type="text/javascript" src="/images/common.js"></script>
+<!--[if lte IE 6]>
+<script type="text/javascript" src="/javascript/cn/DD_belatedPNG_0.0.7a.js"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('*');
+</script>
+<![endif]-->
+<script type="text/javascript" src="/images/artDialog.js"></script>
+<script type="text/javascript" src="/images/Common.js"></script>
+<script type="text/javascript">
+var zgMax=20;
+
+var curMoney=1.00;
+var curG=0.00;
+
+var curExam=false;
+
+
+var webqq = 239087160;
+var webnoticeurl = "";
+var webnoticetit = "";
+var thisUrl='/task/tao/?m=taskIn';
+</script>
+<script type="text/javascript" src="/images/service.js"></script>
+<script language="javascript">
+	var qs='t=ing';
+	$(function(){
+	getTask(qs);
+	//getTasknav();
+	$("#rebutton").click(function(){
+		$("#rebutton").hide();
+		$("#rebutton2").show(10).delay(200).hide(10,function(){$("#rebutton").show();});
+	getTask(qs);
+	});
+
+});
+function task_search(){
+      var task_keys =  encodeURIComponent($('#task_keys').val());
+	  var qs='search='+task_keys;
+	  if(task_keys.indexOf('搜索任务ID') >= 0 || !task_keys ){
+       $('#task_keys').val("");
+	  } else {
+	   getTask(qs);
+	  }
+}
+var sorts='asc';
+function getTasksort(t){
+        var qs='t='+t;
+		sorts = (sorts=='asc')?'desc':'asc';
+		getTask(qs+"&etimestamp="+sorts);
+}
+function goPage(n) {
+	if (n==void(0)) n = 1;
+    var pageSearch = '';
+    var page = new PageQuery(window.location.search);
+	var task_keys = encodeURIComponent($('#task_keys').val());
+    for (var i=0; i<page.getLength(); i++) {
+        if (page.getParameters()[i] != 'page')
+            pageSearch += '&' + page.keyValuePairs[i];
+    }
+    pageSearch += '&page=' + n + '&now=' + (new Date()).getTime();
+	if(task_keys.indexOf('搜索任务ID') < 0 && task_keys ){
+       pageSearch += '&search=' + task_keys;
+	}
+    getObj('taskList').innerHTML = '<div class=\'submiting\'>任务加载中.....</div>';
+    getTask(pageSearch);
+}
+function getTasknav(){
+    var url = '/ajax/getTasknav.php?type=1&m=taskIn&now=' + (new Date()).getTime();
+	$('#yfrw_sub').html('<li class=\'submiting clear\'>加载中.....</li>');
+	   $.ajax({
+		type : 'GET',
+		url  : url,
+		success : function(html){
+			$('#yfrw_sub').html(html);
+		},
+		error:function(){
+			$('#yfrw_sub').html('<p>尊敬的会员，您遇到了一个未知的错误。</p>');
+		}
+	});
+}
+function ShowRemark(id,remark){
+    remarkHtm = "<textarea id=\"txtremark\" cols=\"50\" rows=\"10\" style=\"width:200px;height:100px;\">"+ remark +"</textarea>";
+    artDialog({content:remarkHtm,id:"alarm",fixed:true,yesText:"保存并关闭",noText:"关闭"},
+        function(){
+            var ramark = $("#alarmContent textarea[id=txtremark]").val();
+            if(ramark.length<=100){
+                $.post("/ajax/updateremark.php",{"taskid":id,"remark":ramark}, function(result){
+                    if(result>0){
+                        goPage();
+                    }else{
+					alert(result);
+					}
+                });
+            }else{
+                alert("备注不能超过100个字符！");
+                return false;
+            }
+        },function(){});
+}
+</script>
+
+<script type="text/javascript" src="/images/task.js"></script>
+<script type="text/javascript">
+var obj;
+function viewTaskList(obj,url) {
+
+var d = new Date();
+var e = document.getElementById("showtask"); 
+
+e.style.position = "absolute"; 
+e.style.right = "-89px";
+
+e.style.top = getT(obj)+document.getElementById(obj).offsetHeight+"px";
+
+if(document.all["showtask"].style.display=="none")
+{
+document.all["showtask"].style.display="";
+document.all.contentframe.src=url+"&rndid="+d.getMinutes()+d.getSeconds();
+}else{
+document.all["showtask"].style.display="none";
+document.all.contentframe.src="about:blank";
+}
+}
+function getL(id){  
+var e=document.getElementById(id);
+var l=e.offsetLeft;  
+
+while(e=e.offsetParent){  
+l+=e.offsetLeft;  
+}  
+return  l  
+}  
+function marquee_close(){
+   $('.rwdt_marquee_close').hide();
+   $('.rwdt_marquee').hide();
+}
+function getT(id){  
+var e=document.getElementById(id);
+var  t=e.offsetTop;  
+while(e=e.offsetParent){  
+t+=e.offsetTop;  
+}  
+return  t  
+}
+</script>
+
+ {sub ../footer}

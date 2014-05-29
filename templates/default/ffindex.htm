@@ -1,0 +1,407 @@
+﻿{teval
+	$title       = '快来刷信誉是最专业的淘宝信誉互刷平台专供店铺掌柜相互刷信誉淘宝免费刷钻平台';
+	$keywords    = '{webName2}';
+	$description = '{webName}';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('index', 'index'));
+	$jsList      = array(javascript::getUrl('silde', 'index'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList, 'jsList'=>$jsList));
+}
+{sub headerBase}
+<div class="global"></div>
+<div class="a" style="height:auto;margin-bottom:8px">
+	<div class="a_l">
+	{cache 3600}
+{eval
+	$forumSimple=bbs_forums::getForumSimple('gonggao', 'ename');
+	$list=bbs_thread::getThreadList2("fid='$forumSimple[id]'",'timestamp desc',1,7);
+}
+		<div class="ann_bar"><a href="{rewrite}/bbs/$forumSimple[ename]/">更多></a></div>
+		<div class="ann_main">
+			<ul>
+				{loop $list $thread}
+				<li><a href="{rewrite}/bbs/t$thread[id]/" class="link_g" target="_blank" title="$thread[title]">{if $thread[title_style]}<span style="$thread[title_style]">{cutstr $thread[title],12}</span>{else}{cutstr $thread[title],12}{/if}</a></li>
+				{/loop}
+			</ul>
+		</div>
+		{/cache}
+		<div id='kf' style='display:none; position:absolute;'>
+		<table class='tbl_kf' border='0' cellspacing='1' cellpadding='3'>
+			<tr>{teval echo string::getStaticCode(array('kefu' => kefu::getKefu(9)));}
+				<td colspan='4' class='kf_time'>客服在线时间：09:30-17:30  19:30-22:30　<a href='tencent://message/?uin=$kefu[qq]' onclick='return qqTip();'><img width='25' height='17' border='0' src='http://wpa.qq.com/pa?p=1:$kefu[qq]:17' alt='' /></a> $kefu[nickname]</td>
+			</tr>
+			<tr class='kf_bar'>
+				<td>{teval echo kefu::getCateName(1);}</td>
+				<td>{teval echo kefu::getCateName(2);}</td>
+				<td>{teval echo kefu::getCateName(3);}</td>
+				<td><span class='f_orange'>{teval echo kefu::getCateName(4);}</span></td>
+			</tr>
+			<tr class='kf_txt'>
+				<td>
+				{teval
+					if($list = kefu::getKefuList(1)){
+						foreach($list as $v){
+							echo '<p><a href=\'tencent://message/?uin='.$v[qq].'\' onclick=\'return qqTip();\'><img width=\'25\' height=\'17\' border=\'0\' src=\'http://wpa.qq.com/pa?p=1:'.$v[qq].':17\' alt=\'\' /></a><strong>'.$v[nickname].'</strong><br />
+						QQ：'.$v[qq].'<br />
+						积分：'.$v[credits].'　<a href=\''.common::getUrl('/member/kefu.php?id=').''.$v[id].'\' class=\'link_b_1\'>给她打分</a></p>';
+						}
+					}
+				}
+				</td>
+				<td>
+				{teval
+					if($list = kefu::getKefuList(2)){
+						foreach($list as $v){
+							echo '<p><a href=\'tencent://message/?uin='.$v[qq].'\' onclick=\'return qqTip();\'><img width=\'25\' height=\'17\' border=\'0\' src=\'http://wpa.qq.com/pa?p=1:'.$v[qq].':17\' alt=\'\' /></a><strong>'.$v[nickname].'</strong><br />
+						QQ：'.$v[qq].'<br />
+						积分：'.$v[credits].'　<a href=\''.common::getUrl('/member/kefu.php?id=').''.$v[id].'\' class=\'link_b_1\'>给她打分</a></p>';
+						}
+					}
+				}
+				</td>
+				<td>
+				{teval
+					if($list = kefu::getKefuList(3)){
+						foreach($list as $v){
+							echo '<p><a href=\'tencent://message/?uin='.$v[qq].'\' onclick=\'return qqTip();\'><img width=\'25\' height=\'17\' border=\'0\' src=\'http://wpa.qq.com/pa?p=1:'.$v[qq].':17\' alt=\'\' /></a><strong>'.$v[nickname].'</strong><br />
+						QQ：'.$v[qq].'<br />
+						积分：'.$v[credits].'　<a href=\''.common::getUrl('/member/kefu.php?id=').''.$v[id].'\' class=\'link_b_1\'>给她打分</a></p>';
+						}
+					}
+				}
+				</td>
+				<td>
+				{teval
+					if($list = kefu::getKefuList(4)){
+						foreach($list as $v){
+							echo '<p><a href=\'tencent://message/?uin='.$v[qq].'\' onclick=\'return qqTip();\'><img width=\'25\' height=\'17\' border=\'0\' src=\'http://wpa.qq.com/pa?p=1:'.$v[qq].':17\' alt=\'\' /></a><strong>'.$v[nickname].'</strong><br />
+						QQ：'.$v[qq].'<br />
+						积分：'.$v[credits].'　<a href=\''.common::getUrl('/member/kefu.php?id=').''.$v[id].'\' class=\'link_b_1\'>给她打分</a></p>';
+						}
+					}
+				}
+				</td>
+			</tr>
+			<tr class='kf_txt f_b f_orange'>
+				<td colspan='4'>QQ临时通话容易失败，请先加客服好友。　　力豪互刷网官方客服电话：13757148900<br />
+					欢迎来电或加QQ咨询刷信誉的安全方法和注意事项，我们的客服将为您提供安全刷信誉的经验、教材和指导</td>
+			</tr>
+		</table>
+	</div>
+		<script type="text/javascript">
+		$(function(){
+			$('#kf').hover(function(){
+				$(this).show();
+			}, function(){
+				$(this).hide();
+			});
+			$('#showKf').hover(function(){
+				var myOffset = $(this).offset();
+				$('#kf').show().css({left: myOffset.left + 'px','top': (myOffset.top + 62) + 'px'});
+			}, function(){
+				$('#kf').hide();
+			});
+		});
+		function showShua() {
+		    document.getElementById("chongzhi").className = "dm_tab_on";
+			document.getElementById("tixian").className="dm_tab_no";
+			document.getElementById("tixianzijin").style.display="none";
+			document.getElementById("chongzhizijin").style.display = "";
+		}
+		function showPay() {
+			document.getElementById("tixian").className="dm_tab_on";
+			document.getElementById("chongzhi").className = "dm_tab_no";
+			document.getElementById("chongzhizijin").style.display = "none";
+			document.getElementById("tixianzijin").style.display="";
+		}
+		</script>
+		<div class="a_kf"><img src="{$weburl2}images/help/kf.gif" alt="平台客服" id="showKf" /></div>
+	</div>
+	<div class="a_c">
+		<div class="switch">
+			<ul id="switch" onmouseover="isAuto(0)" onmouseout="isAuto(1)">
+				<li style="width:406px;" id="sw_1"><a href="{r}/bbs/t74/" target="_blank"><img src="{$weburl2}images/swith_1.jpg" alt="我们更安全：万人平台互刷信誉+真实快递+动态小号寿命值，打造史上最安全的刷信誉模式" /></a></li>
+				<li style="width:42px;" id="sw_2"><a href="{r}/bbs/t75/" target="_blank"><img src="{$weburl2}images/swith_2.jpg" alt="我们更高效：任务连发+掌柜热卖+任务模板，让您轻松高效发任务" /></a></li>
+				<li style="width:42px;" id="sw_3"><a href="{r}/bbs/t76/" target="_blank"><img src="{$weburl2}images/swith_3.jpg" alt="我们更经济：每日三次提现，申请当日放款，做刷客开心赚不停" /></a></li>
+				<li style="width:42px;" id="sw_4"><a href="{r}/bbs/t75/" target="_blank"><img src="{$weburl2}images/swith_4.jpg" alt="我们更精彩：新人免费体验任务+每周排行奖励+1元秒杀活动，日日精彩无限" /></a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="a_r">{ad index_top_right_top1}
+		<div class="im_new"><a href="{rewrite}/help/jiaocheng/?cate=a"><img src="{$weburl2}images/im_new.gif" alt="刷钻新手指南" /></a></div>
+		<div class="task_flow"><a href="{rewrite}/help/flow/"><img src="{$weburl2}images/task_flow.gif" alt="刷信誉流程图" /></a></div>{ad index_top_right_top2}
+		{sub quick}
+	</div>
+</div>
+{if cfg::getBoolean('ad_line', 'status')}
+	{if cfg::get('ad_line', 'pic')}<div style="margin-bottom:7px">
+		{if cfg::get('ad_line', 'url')}
+		<a href="{echo cfg::get('ad_line', 'url')}" target="_blank"><img src="{u}{echo cfg::get('ad_line', 'pic')}" /></a>
+		{else}
+		<img src="{u}{echo cfg::get('ad_line', 'pic')}" />
+		{/if}</div>
+	{/if}
+{/if}
+<div class="b">
+	<div class="b_l">
+		{cache 600}
+		<div class="dm_tp">
+			<div class="dm_title">平台任务动态</div>
+			<div class="dm_info"><strong>刷信誉任务总数</strong>：<span class="f_b_org">{echo db::data_count('task')}</span> 条  未接手：<span class="f_b_org">{echo db::data_count('task',"status='1'")}</span> 条</div>
+		</div>
+		<div class="dm_m1">
+			<div class="dm_tip"><span>平台任务动态数据24小时实时更新</span></div>
+			<table class="dm_tbl" width="100%" border="0" cellspacing="0" cellpadding="4">
+{sql select * from (select * from {$pre}task where status in ('1','2','3','4','5','6','7','8','9') order by status,svip desc,point desc,stimestamp desc$limit) t1 left join {$pre}memberfields t2 on t2.uid=t1.suid limit 10}
+{eval
+	$v['bLevel']=member_credit::getLevel($v['credits']);
+}
+				<tr>
+					<td>任务编号：$v[id]<br />
+						发布人：{echo string::getXin2($v[susername])} <img src="$v[bLevel][icon]" title="积分：$v[credits]" />{if $v[vip]}<span class="vip" title="VIP"></span>{/if}{if $v[vip2]}<span class='card' title='$lang[cardType][$v[vip2]]'></span>{/if}{if $v[isEnsure]}<span class='ensure' title='商保'></span>{/if}</td>
+					<td>发布时间：{date $v[stimestamp]}<br />
+						店铺类型：{if $v[type]==1}淘宝{elseif $v[type]==2}拍拍{elseif $v[type]==3}有啊{elseif $v[type]==4}新手-淘宝{/if}</td>
+					<td>担保金：<span class="dm_gold">$v[price]</span> 元<br />
+						发布点：$v[point]个</td>
+					<td>任务要求：$lang[times][$v[times]]<br />
+						任务状态：<span class="f_orange">{if $v[status]==1}等待接手{else}已接手，任务进行中{/if}</span></td>
+				</tr>
+{/sql}
+			</table>
+		</div>
+		{/cache}
+		<div class="dm_bt"></div>
+		<div class="i_pro_bar">{ad index_ad1}</div>
+		{cache 3600}
+		<div class="dm_tp">
+			<div class="dm_title">平台资金动态</div>
+			<div class="dm_info"><strong>资金总数</strong>：<span class="f_b_org">{echo db::data_count('topup',"status='1'")+db::data_count('payment', "status='5'")}</span> 条</div>
+		</div>
+		<div class="dm_m2">
+			<div class="dm_tab">
+				<ul>
+					<li class="dm_tab_on" id="chongzhi" onclick="showShua();">充值资金</li>
+					<li class="dm_tab_no" id="tixian" onclick="showPay();">提现资金</li>
+				</ul>
+			</div>
+			<table id="chongzhizijin" class="dm_tbl_2" width="100%" border="0" cellspacing="1" cellpadding="2">
+				<tr>
+					<td align="center"><strong>交易用户</strong></td>
+					<td align="center"><strong>操作类型</strong></td>
+					<td align="center"><strong>涉及金额</strong></td>
+					<td align="center"><strong>操作时间</strong></td>
+				</tr>
+{sql select * from {$pre}topup where status='1' order by ctimestamp desc limit 8}
+				<tr>
+					<td align="center">{echo string::getXin2($v[username])}</td>
+					<td align="center">{if $v[type]=='chinabank'}网银充值{elseif $v[type]=='alipay'}支付宝转账{elseif $v[type]=='tenpay'}财付通转账{elseif $v[type]=='card'}充值卡充值{else}其它{/if}</td>
+					<td align="center">$v[money1]</td>
+					<td align="center">{date $v[ctimestamp]}</td>
+				</tr>
+{/sql}
+			</table>
+			<table id="tixianzijin" style="display:none;" class="dm_tbl_2" width="100%" border="0" cellspacing="1" cellpadding="2">
+				<tr>
+					<td align="center"><strong>提现用户</strong></td>
+					<td align="center"><strong>操作类型</strong></td>
+					<td align="center"><strong>涉及金额</strong></td>
+					<td align="center"><strong>操作时间</strong></td>
+				</tr>
+{sql select * from {$pre}payment where status='5' order by timestamp2 desc limit 8}
+				<tr>
+					<td align="center">{echo string::getXin2($v[username])}</td>
+					<td align="center">{if $v[type]=='taobao'}淘宝商品地址提现{elseif $v[type]=='alipay'}支付宝转账提现{else}其它方式提现{/if}</td>
+					<td align="center">$v[money]</td>
+					<td align="center">{date $v[timestamp2]}</td>
+				</tr>
+{/sql}
+			</table>
+		</div>
+		{/cache}
+		<div class="dm_bt"></div>
+	</div>
+	{cache 86400}
+	<div class="b_r">
+		<div class="box_top">平台红人榜</div>
+		<div class="box_main">
+			<div class='box_l'>
+{sql select t1.*,t2.username,t2.sex,t3.avatar from (select * from {$pre}top_credit order by top desc limit 10) t1 left join {$pre}members t2 on t2.id=t1.uid left join {$pre}memberfields t3 on t3.uid=t2.id}
+{eval
+	$v['avatar'] || $v['avatar'] = $v['sex']==1?'boy.gif':'girl.gif';
+	$v['avatar'] = $weburl2.$img_avatar.$v['avatar'];
+}
+				{if $k<2}
+				<p><img width='70' height='70' src='$v[avatar]' /></p>
+				<p class='f_red f_b mouse' title='richen9'>{++ $k}.{cut $v[username],8}</p>
+				{else}
+				<li class='mouse' title='$v[username]'><span class='f_b_org'>{++ $k}.</span>$v[username] {if $v[lastTop]==0}<img src='{$weburl2}images/new.gif' />{elseif $v[top]>$v[lastTop]}<img src='{$weburl2}images/arrow_up.gif' />{elseif $v[top]<$v[lastTop]}<img src='{$weburl2}images/arrow_down.gif' />{/if}</li>
+				{/if}
+			{if $k==1}
+			</div>
+			<div class='box_r'>
+				<ul>
+			{/if}
+{/sql}
+				</ul>
+			</div>
+		</div>
+		<div class="box_top">本周发布王</div>
+		<div class="box_main">
+			<div class='box_l'>
+{sql select t1.*,t2.username,t2.sex,t3.avatar from (select * from {$pre}top_seller order by top desc limit 10) t1 left join {$pre}members t2 on t2.id=t1.uid left join {$pre}memberfields t3 on t3.uid=t2.id}
+{eval
+	$v['avatar'] || $v['avatar'] = $v['sex']==1?'boy.gif':'girl.gif';
+	$v['avatar'] = $weburl2.$img_avatar.$v['avatar'];
+}
+				{if $k<2}
+				<p><img width='70' height='70' src='$v[avatar]' /></p>
+				<p class='f_red f_b mouse' title='richen9'>{++ $k}.{cut $v[username],8}</p>
+				{else}
+				<li class='mouse' title='$v[username]'><span class='f_b_org'>{++ $k}.</span>$v[username] {if $v[lastTop]==0}<img src='{$weburl2}images/new.gif' />{elseif $v[top]>$v[lastTop]}<img src='{$weburl2}images/arrow_up.gif' />{elseif $v[top]<$v[lastTop]}<img src='{$weburl2}images/arrow_down.gif' />{/if}</li>
+				{/if}
+			{if $k==1}
+			</div>
+			<div class='box_r'>
+				<ul>
+			{/if}
+{/sql}
+				</ul>
+			</div>
+		</div>
+		<div class="box_top">本周接手王</div>
+		<div class="box_main">
+			<div class='box_l'>
+{sql select t1.*,t2.username,t2.sex,t3.avatar from (select * from {$pre}top_buyer order by top desc limit 10) t1 left join {$pre}members t2 on t2.id=t1.uid left join {$pre}memberfields t3 on t3.uid=t2.id}
+{eval
+	$v['avatar'] || $v['avatar'] = $v['sex']==1?'boy.gif':'girl.gif';
+	$v['avatar'] = $weburl2.$img_avatar.$v['avatar'];
+}
+				{if $k<2}
+				<p><img width='70' height='70' src='$v[avatar]' /></p>
+				<p class='f_red f_b mouse' title='richen9'>{++ $k}.{cut $v[username],8}</p>
+				{else}
+				<li class='mouse' title='$v[username]'><span class='f_b_org'>{++ $k}.</span>$v[username] {if $v[lastTop]==0}<img src='{$weburl2}images/new.gif' />{elseif $v[top]>$v[lastTop]}<img src='{$weburl2}images/arrow_up.gif' />{elseif $v[top]<$v[lastTop]}<img src='{$weburl2}images/arrow_down.gif' />{/if}</li>
+				{/if}
+			{if $k==1}
+			</div>
+			<div class='box_r'>
+				<ul>
+			{/if}
+{/sql}
+				</ul>
+			</div>
+		</div>
+		<div class="box_top">本月推广王</div>
+		<div class="box_main">
+			<div class='box_l'>
+{sql select t1.*,t2.username,t2.sex,t3.avatar from (select * from {$pre}top_spread order by top desc limit 10) t1 left join {$pre}members t2 on t2.id=t1.uid left join {$pre}memberfields t3 on t3.uid=t2.id}
+{eval
+	$v['avatar'] || $v['avatar'] = $v['sex']==1?'boy.gif':'girl.gif';
+	$v['avatar'] = $weburl2.$img_avatar.$v['avatar'];
+}
+				{if $k<2}
+				<p><img width='70' height='70' src='$v[avatar]' /></p>
+				<p class='f_red f_b mouse' title='richen9'>{++ $k}.{cut $v[username],8}</p>
+				{else}
+				<li class='mouse' title='$v[username]'><span class='f_b_org'>{++ $k}.</span>$v[username] {if $v[lastTop]==0}<img src='{$weburl2}images/new.gif' />{elseif $v[top]>$v[lastTop]}<img src='{$weburl2}images/arrow_up.gif' />{elseif $v[top]<$v[lastTop]}<img src='{$weburl2}images/arrow_down.gif' />{/if}</li>
+				{/if}
+			{if $k==1}
+			</div>
+			<div class='box_r'>
+				<ul>
+			{/if}
+{/sql}
+				</ul>
+			</div>
+		</div>
+	</div>
+	{/cache}
+</div>
+
+
+{cache 3600}				
+<div class="c">
+{eval
+	$forumSimple=bbs_forums::getForumSimple('seller', 'ename');
+	$list=bbs_thread::getThreadList2("fid='$forumSimple[id]'",'timestamp desc',1,10);
+}
+	<div class="c_1">
+		<div class="box_top_3"><span>刷信誉$forumSimple[name]</span>　　　　<a href="{rewrite}/bbs/$forumSimple[ename]/" class="link_g">更多></a></div>
+		<div class="box_main_3">
+			<ul>
+				{loop $list $thread}
+				<li><a href="{rewrite}/bbs/t$thread[id]/" class="link_g" target="_blank" title="$thread[title]">{if $thread[title_style]}<span style="$thread[title_style]">{cutstr $thread[title],15}</span>{else}{cutstr $thread[title],15}{/if}</a></li>
+				{/loop}
+			</ul>
+		</div>
+	</div>
+{eval
+	$forumSimple=bbs_forums::getForumSimple('buyer', 'ename');
+	$list=bbs_thread::getThreadList2("fid='$forumSimple[id]'",'timestamp desc',1,10);
+}
+	<div class="c_2">
+		<div class="box_top_3"><span>刷信誉$forumSimple[name]</span>　　　　<a href="{rewrite}/bbs/$forumSimple[ename]/" class="link_g">更多></a></div>
+		<div class="box_main_3">
+			<ul>
+				{loop $list $thread}
+				<li><a href="{rewrite}/bbs/t$thread[id]/" class="link_g" target="_blank" title="$thread[title]">{if $thread[title_style]}<span style="$thread[title_style]">{cutstr $thread[title],15}</span>{else}{cutstr $thread[title],15}{/if}</a></li>
+				{/loop}
+			</ul>
+		</div>
+	</div>
+{eval
+	$forumSimple=bbs_forums::getForumSimple('skill', 'ename');
+	$list=bbs_thread::getThreadList2("fid='$forumSimple[id]'",'timestamp desc',1,10);
+}
+	<div class="c_3">
+		<div class="box_top_3"><span>$forumSimple[name]</span>　　　　　　　<a href="{rewrite}/bbs/$forumSimple[ename]/" class="link_g">更多></a> </div>
+		<div class="box_main_3">
+			<ul>
+				{loop $list $thread}
+				<li><a href="{rewrite}/bbs/t$thread[id]/" class="link_g" target="_blank" title="$thread[title]">{if $thread[title_style]}<span style="$thread[title_style]">{cutstr $thread[title],15}</span>{else}{cutstr $thread[title],15}{/if}</a></li>
+				{/loop}
+			</ul>
+		</div>
+	</div>
+{eval
+	$forumSimple=bbs_forums::getForumSimple('question', 'ename');
+	$list=bbs_thread::getThreadList2("fid='$forumSimple[id]'",'timestamp desc',1,10);
+}
+	<div class="c_4">
+		<div class="box_top_3"><span>平台$forumSimple[name]</span>　　　　　<a href="{rewrite}/bbs/$forumSimple[ename]/" class="link_g">更多></a></div>
+		<div class="box_main_3">
+			<ul>
+				{loop $list $thread}
+				<li><a href="{rewrite}/bbs/t$thread[id]/" class="link_g" target="_blank" title="$thread[title]">{if $thread[title_style]}<span style="$thread[title_style]">{cutstr $thread[title],15}</span>{else}{cutstr $thread[title],15}{/if}</a></li>
+				{/loop}
+			</ul>
+		</div>
+	</div>
+</div>
+{/cache}
+<div class="f_link">{sub links}</div>
+<div class="guarantee">
+  <div class="foot_line"></div>
+  <table width="100%" border="0" cellspacing="1" cellpadding="2">
+    <tr>
+      <td><strong>商家保障</strong></td>
+      <td><strong>信誉保障</strong></td>
+      <td><strong>买号保障</strong></td>
+      <td rowspan="2" style="vertical-align:top; padding-top:12px"><a href="bbs/Thread.aspx?id=11059"><img src="{u}images/guarantee.gif" width="80" alt="商家服务" /></a></td>
+      <td><strong>流程保障</strong></td>
+      <td><strong>配套保障</strong></td>
+      <td><strong>安全保障</strong></td>
+    </tr>
+    <tr>
+      <td>恶意维权赔付<br />淘宝客佣金赔付<br />信用卡手续费赔付<br />默认好评任务保障<br />店家延迟回评保障</td>
+      <td>真实快递任务<br />来路订制任务<br />拍前聊、聊后收<br />拍收双重IP限制<br />支持商城无名良品</td>
+      <td>实名买号<br />动态寿命值<br />购买量动态限制<br />资料不全举报<br />序列相似买号举报</td>
+      <td>随身申诉<br />卡任务短信提醒<br />任务预定<br />购物车热销任务<br />支持秒杀折扣</td>
+      <td>实名支付宝供应<br />手机验证码服务<br />客户端自动收藏<br />流量互动<br />周周排行榜</td>
+      <td>安保问题<br />双重密码<br />绑定掌柜短信认证<br />提现短信验证<br />账户变动提醒</td>
+    </tr>
+  </table>
+</div>
+{sub footer}

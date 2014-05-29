@@ -1,0 +1,83 @@
+{teval
+	$title       = '提现记录 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	$jsList      = array(javascript::getUrl('task', 'index'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList,'jsList'=>$jsList));
+}
+{ad2 ad_memberHeadTop}
+{sub ../header}
+<script language="javascript">
+$(function(){
+	$('#btnQuery').click(function(){
+		var oid=$('#oid').val();
+		var state=$('#state').val();
+		var url = state?'state='+state:'';
+		if (oid) {
+			if (url) url+='&';
+			url+='oid='+oid;
+		}
+		if (url) url = '?'+url
+		location.href='$baseUrl'+url;
+	});
+})
+</script>
+<div class="main">
+  <div class="h_10"></div>
+  <div class="a">{sub menu}</div>
+  <div class="b"> 
+    <div class="bar_edit" style="margin-bottom:0;">提现记录</div>
+    <div style="background:#F6FBFF; line-height:30px; padding-left:20px; color:#666;">您可以通过这个页面查看所有历史提现记录，并且对处于待审核状态的提现申请可以进行撤销操作；系统将立刻释放您的提现锁定资金</div>
+      <table width="100%" border="0" cellspacing="0" cellpadding="4">
+        <tr>
+          <td>　<strong>提现流水号：</strong><input name="oid" type="text" class="text_normal" id="oid" value="$oid" />
+            <strong>申请状态：</strong><select name="state" id="state">
+              <option value="">全部</option>
+			  {loop $status $k $v}
+			  <option value="$k"{if $state===$k} selected{/if}>$v</option>
+			  {/loop}
+            </select>
+            <input type="submit" class="btn_1" id="btnQuery" value="查询" /></td>
+        </tr>
+      </table>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_lst">
+      <thead>
+        <tr>
+          <td>提现流水号</td>
+          <td>提现方式</td>
+          <td>金额</td>
+          <td>申请时间</td>
+          <td>处理时间</td>
+          <td>状态</td>
+          <td>操作</td>
+        </tr>
+      </thead>
+      <tbody>
+		{loop $tList $v}
+			<tr>
+			<td class="tbl_s">$v[id]</td>
+			<td>{if $v[type]=='taobao'}淘宝商品{elseif $v[type]=='alipay'}支付宝转账{elseif $v[type] == 'bank'}银行卡快速提现{/if}</td>
+			<td>$v[money]</td>
+			<td>{date $v[timestamp1]}</td>
+			<td>{if !$v[status]}处理中{else}{date $v[timestamp2]}{/if}</td>
+			<td>$status[$v[status]]</td>
+			<td>{if !$v[status]}<a href="$baseUrl?cancel=$v[id]" onclick="return isCancel()" class="link_b_2">撤销</a>{/if}</td>
+		</tr>
+		{/loop}
+		</tbody>
+    </table>
+    <div class="pageinfo">
+      <div class="pages"><strong>1</strong></div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+function isCancel() {
+    return confirm("您确定要撤销申请么？");
+}
+</script>
+{sub ../footer}

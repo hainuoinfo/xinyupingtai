@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<title>
+		<![CDATA[插件测试]]>
+	</title>
+	<description>
+		<![CDATA[插件测试]]>
+	</description>
+	<marker>header</marker>
+	<version>1.0.0</version>
+	<install>./install.php</install>
+	<uninstall>./uninstall.php</uninstall>
+</root>

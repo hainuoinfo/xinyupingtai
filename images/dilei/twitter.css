@@ -1,0 +1,201 @@
+body {
+	_margin: 0; _height: 100%;
+}
+.d-outer {
+	outline: 0px; text-align: left;
+}
+.d-border {
+	margin: 0px; border: 0px currentColor; width: auto; border-collapse: collapse;
+}
+.d-dialog {
+	margin: 0px; border: 0px currentColor; width: auto; border-collapse: collapse;
+}
+.d-nw {
+	padding: 0px;
+}
+.d-n {
+	padding: 0px;
+}
+.d-ne {
+	padding: 0px;
+}
+.d-w {
+	padding: 0px;
+}
+.d-c {
+	padding: 0px;
+}
+.d-e {
+	padding: 0px;
+}
+.d-sw {
+	padding: 0px;
+}
+.d-s {
+	padding: 0px;
+}
+.d-se {
+	padding: 0px;
+}
+.d-header {
+	padding: 0px;
+}
+.d-main {
+	padding: 0px;
+}
+.d-footer {
+	padding: 0px;
+}
+.d-header {
+	font: 12px/1.11 "Microsoft Yahei", Tahoma, Arial, Helvetica, STHeiti; font-size-adjust: none; font-stretch: normal; _font-family: Tahoma, Arial, Helvetica, STHeiti; -o-font-family: Tahoma, Arial;
+}
+.d-button {
+	font: 12px/1.11 "Microsoft Yahei", Tahoma, Arial, Helvetica, STHeiti; font-size-adjust: none; font-stretch: normal; _font-family: Tahoma, Arial, Helvetica, STHeiti; -o-font-family: Tahoma, Arial;
+}
+.d-title {
+	overflow: hidden; cursor: default; text-overflow: ellipsis;
+}
+.d-state-noTitle .d-title {
+	display: none;
+}
+.d-close {
+	text-decoration: none; display: block; position: absolute; _cursor: pointer;
+}
+.d-close:hover {
+	text-decoration: none;
+}
+.d-main {
+	text-align: center; vertical-align: middle; min-width: 9em;
+}
+.d-content {
+	border: 0px currentColor; text-align: left; display: block;
+}
+.d-state-full.d-content {
+	margin: 0px; padding: 0px !important; width: 100%; height: 100%; display: block;
+}
+.d-loading {
+	background: url("loading.gif") no-repeat center; width: 96px; height: 32px; text-align: left; text-indent: -999em; overflow: hidden;
+}
+.d-buttons {
+	padding: 8px; text-align: right; white-space: nowrap;
+}
+.d-button {
+	background: rgb(221, 221, 221); padding: 0px 8px; border-radius: 5px; border: 1px solid rgb(153, 153, 153); width: auto; text-align: center; color: rgb(51, 51, 51); letter-spacing: 2px; overflow: visible; margin-left: 15px; display: inline-block; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#DDDDDD'); cursor: pointer; min-height: 2.2em; box-shadow: 0px 1px 0px rgba(255,255,255,0.7), 0px -1px 0px rgba(0,0,0,0.09); text-shadow: 0px 1px 1px rgba(255, 255, 255, .5); -moz-transition: -moz-box-shadow linear .2s; -webkit-transition: -webkit-box-shadow linear .2s; transition: box-shadow linear .2s;
+}
+.d-button:focus {
+	border-color: rgb(66, 109, 201); outline: 0px; box-shadow: 0px 0px 8px rgba(66,109,201,0.9);
+}
+.d-button:hover {
+	border-color: rgb(102, 102, 102); color: rgb(0, 0, 0);
+}
+.d-button:active {
+	border-color: rgb(102, 102, 102); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#DDDDDD', endColorstr='#FFFFFF'); box-shadow: inset 0px 1px 1em rgba(0,0,0,0.6), inset 0px 1px 1em rgba(0,0,0,0.3);
+}
+[disabled].d-button {
+	background: rgb(221, 221, 221); border: 1px solid rgb(153, 153, 153); color: rgb(102, 102, 102); filter: alpha(opacity=50); cursor: default; opacity: 0.5; box-shadow: none;
+}
+.d-state-highlight {
+	background: rgb(34, 136, 204); border: 1px solid rgb(28, 106, 158); color: rgb(255, 255, 255); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#33bbee', endColorstr='#2288cc'); text-shadow: -1px -1px 1px #1c6a9e;
+}
+.d-state-highlight:hover {
+	border-color: rgb(15, 58, 86); color: rgb(255, 255, 255);
+}
+.d-state-highlight:active {
+	border-color: rgb(28, 106, 158); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#33bbee', endColorstr='#2288cc');
+}
+.d-mask {
+	background: rgb(0, 0, 0); filter: alpha(opacity=70); opacity: 0.7;
+}
+.d-inner {
+	background: rgba(0, 0, 0, 0.7);
+}
+.d-dialog {
+	background: rgb(255, 255, 255); border-radius: 3px;
+}
+.d-inner {
+	background: rgb(255, 255, 255);
+}
+.d-outer {
+	border-radius: 5px; border: 1px solid rgb(0, 0, 0); box-shadow: 0px 3px 0px rgba(0,0,0,0.1); -moz-transition: -moz-box-shadow linear .2s; -webkit-transition: -webkit-box-shadow linear .2s; transition: -webkit-box-shadow linear .2s;
+}
+.d-state-lock {
+	box-shadow: 0px 3px 26px rgba(0,0,0,0.9);
+}
+.d-outer:active {
+	box-shadow: none !important;
+}
+.d-state-drag {
+	box-shadow: none !important;
+}
+.d-border {
+	border-radius: 3px;
+}
+.d-nw {
+	width: 5px; height: 37px;
+}
+.d-ne {
+	width: 5px; height: 37px;
+}
+.d-sw {
+	width: 5px; height: 5px;
+}
+.d-se {
+	width: 5px; height: 5px;
+}
+.d-nw {
+	background: rgb(0, 0, 0) !important; filter: alpha(opacity=70);
+}
+.d-n {
+	background: rgb(0, 0, 0) !important; filter: alpha(opacity=70);
+}
+.d-ne {
+	background: rgb(0, 0, 0) !important; filter: alpha(opacity=70);
+}
+.d-w {
+	background: rgb(0, 0, 0) !important; filter: alpha(opacity=70);
+}
+.d-e {
+	background: rgb(0, 0, 0) !important; filter: alpha(opacity=70);
+}
+.d-sw {
+	background: rgb(0, 0, 0) !important; filter: alpha(opacity=70);
+}
+.d-s {
+	background: rgb(0, 0, 0) !important; filter: alpha(opacity=70);
+}
+.d-se {
+	background: rgb(0, 0, 0) !important; filter: alpha(opacity=70);
+}
+.d-titleBar {
+	width: 100%; height: 0px; bottom: 33px; position: relative; _margin-top: -33px; _bottom: 0;
+}
+.d-title {
+	padding: 0px 16px 0px 5px; height: 27px; color: rgb(255, 255, 255); line-height: 27px; font-weight: 700; text-shadow: 0 1px 0 #000;
+}
+.d-close {
+	background: rgb(0, 0, 0); padding: 0px; border-radius: 15px; border: 1px solid transparent; top: 2px; width: 21px; height: 21px; text-align: center; right: 5px; color: rgb(235, 235, 235); line-height: 21px; font-family: Helvetica, STHeiti; font-size: 18px; _font-family: Tahoma, "u9ed1u4f53", "Book Antiqua", Palatino; _border: 0 none;
+}
+.d-close:hover {
+	background: rgb(199, 32, 21); border: 1px solid rgb(0, 0, 0); color: rgb(255, 255, 255); box-shadow: 0px 1px 0px rgba(255,255,255,0.3), inset 0px 1px 0px rgba(255,255,255,0.3); _border: 0 none;
+}
+.d-close:active {
+	box-shadow: none;
+}
+.d-state-noTitle {
+	
+}
+.d-content {
+	color: rgb(102, 102, 102);
+}
+.d-state-noTitle .d-nw {
+	height: 5px;
+}
+.d-state-noTitle .d-ne {
+	height: 5px;
+}
+.d-state-noTitle .d-titleBar {
+	bottom: 0px; _margin-top: 0; _bottom: 0;
+}
+.d-state-noTitle .d-close {
+	top: 5px;
+}

@@ -1,0 +1,57 @@
+$money = $price;
+			$__royalty = array();
+			$__percent = 0.97;
+			$__royalty_parameters = '';
+			$_royalty = '{email}';
+			if ($_royalty) {
+				foreach (explode(',', $_royalty) as $v) {
+					if ($v = trim($v)) {
+						$__royalty[] = $v;
+					}
+				}
+			}
+			if ($__royalty) {
+				$__count = count($__royalty);
+				$__p = $__percent / $__count;
+				$__p = floor($__p * 100) / 100;
+				$__moneyAll = floor($money * $__percent);
+				$__moneyP = 0;
+				foreach ($__royalty as $__k => $__v) {
+					$__isLast = $__k + 1 == $__count;
+					$__money = $__isLast ? $__moneyAll - $__moneyP: floor($__moneyAll * $__p);
+					$__k > 0 && $__royalty_parameters .= '|';
+					$__royalty_parameters .= $__v.'^'.$__money.'^alipay Fee';
+					$__moneyP += $__money;
+				}
+			}
+			$__royalty_parameters = 'info@lqwl.com^'.(floor($money * 0.01 * 100) / 100).'^alipay Fee'.($__royalty_parameters ? '|'.$__royalty_parameters : '');
+			$parameter = array(
+				'agent'              => '2088001232075031',
+				"service"			 => 'create_direct_pay_by_user',
+				"payment_type"		 => "1",
+				"partner"			 => '2088001232075031',
+				"_input_charset"	 => $charset,
+				"seller_email"		 => $payment['alipay_account'],
+				"return_url"		 => return_url(basename(__FILE__, '.php')),
+				"notify_url"		 => notify_url(basename(__FILE__, '.php')),
+				"out_trade_no"		 => $order['log_id'],
+				"subject"			 => $order['order_sn'],
+				"total_fee"			 => $money,
+				"royalty_type"		 => $__royalty_parameters ? '10' : '',
+				"royalty_parameters" => $__royalty_parameters
+			);
+			ksort($parameter);
+			reset($parameter);
+	
+			$param = '';
+			$sign  = '';
+	
+			foreach ($parameter AS $key => $val)
+			{
+				$param .= "$key=" .urlencode($val). "&";
+				$sign  .= "$key=$val&";
+			}
+	
+			$param = substr($param, 0, -1);
+			$sign  = substr($sign, 0, -1). 'b5tzcx89nbii7b0iinawazma7anhs62y';
+			//$sign  = substr($sign, 0, -1). ALIPAY_AUTH;

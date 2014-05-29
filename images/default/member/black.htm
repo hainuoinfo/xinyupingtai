@@ -1,0 +1,127 @@
+{teval
+	$title       = '我的黑名单 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{ad2 ad_memberHeadTop}
+{sub ../header}
+<div class="main">
+  <div class="h_10"></div>
+  <div class="a">
+    {sub menu}
+  </div>
+  <div class="b"> 
+	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+	{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+    <div class="tip_gun">1. 刷客可以将自己不信任的平台成员拉入自己的黑名单中，被加入黑名单的人将不能接手您发布的任务；<br />
+        2. 普通刷客的黑名单人数限额为10名；信托会员的黑名单人数限额为30名；尊享VIP会员可以设置多达80人的黑名单；<br />
+        3. 拉入黑名单累计总次数限制为限额的倍数：<span class="score_4"></span>级别以下3倍，<span class="score_4"></span>级别以上5倍，<span class="score_7"></span>级别以上8倍，<span class="score_10"></span>级别以上15倍；<br />
+        4. 一个会员不允许被同一个会员拉入超过7次；<br />
+        5. 友好方式仅仅为不让对方接手自己的任务，被拉入者不会被扣分、被拉黑名单数不会增加</div>
+    <div class="h_10"></div>
+    <div class="h_10"></div>
+    <div>
+      <div class="remit_a">
+        <div>
+          <div class="box_t">
+            <div class="box_t_l"></div>
+            <div class="box_t_r"></div>
+          </div>
+          <div class="box_main">
+            <div class="h_10"></div>
+            <div id="box_1">
+              <div class="bar_edit" style="margin-top:0;">黑名单操作</div>
+              <form name="myForm" method="post" id="myForm" onsubmit="return checkForm();">
+			<div>$sys_hash_code2</div>
+
+                <div class="edit">
+                  <table class="tbl_edit" width="100%" border="0" cellspacing="0" cellpadding="6">
+                    <tr>
+                      <td width="130" align="right">要拉入黑名单用户名：</td>
+                      <td><input name="username" type="text" class="text_normal" id="username" value="$username" /></td>
+                    </tr>
+                    <tr>
+											<td align="right">拉入天数：</td>
+											<td><label for='__blackDays__0'><input name='blackDays' type='radio' value='7' id='__blackDays__0' checked='checked' />7天</label>&nbsp;&nbsp;<label for='__blackDays__1000'><input name='blackDays' type='radio' value='15' id='__blackDays__1000'  />15天</label>&nbsp;&nbsp;<label for='__blackDays__2000'><input name='blackDays' type='radio' value='30' id='__blackDays__2000'  />30天</label>&nbsp;&nbsp;<label for='__blackDays__3000'><input name='blackDays' type='radio' value='90' id='__blackDays__3000'  />90天</label>&nbsp;&nbsp;<label for='__blackDays__4000'><input name='blackDays' type='radio' value='180' id='__blackDays__4000'  />180天</label>&nbsp;&nbsp;<label for='__blackDays__5000'><input name='blackDays' type='radio' value='0' id='__blackDays__5000'  />永久</label>&nbsp;&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="right">友好方式：</td>
+                      <td><input name="isFriend" type="checkbox" id="isFriend" value="1" checked="checked" /> （仅不让其接任务）</td>
+                    </tr>
+                    <tr>
+                      <td align="right">&nbsp;</td>
+                      <td><input name="btnSave" type="submit" class="btn_1" id="btnSave" value="拉入我的黑名单" /></td>
+                    </tr>
+                    <tr>
+                      <td>&nbsp;</td>
+                      <td>我的使用次数： <span class="f_b_org">$memberFields[black1]</span> / <strong>{echo $maxCount}</strong>[$maxCountBase * $multiple]</td>
+                    </tr>
+                  </table>
+                </div>
+              </form>
+              <div class="bar_edit">我的黑名单列表</div>
+              <table class="tbl_lst" width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td class="tbl_s">黑名单</td>
+                    <td>方式</td>
+                    <td align="center">被拉总数</td>
+                    <td align="center">被我拉入数</td>
+                    <td>已拉/总天数</td>
+                    <td>操作</td>
+                  </tr>
+				  {loop $bList $v}
+				  <tr>
+                    <td class="tbl_s">$v[tusername] <img src="$v[tLevel][icon]" title="积分：$v[credits]" /></td>
+                    <td>{if $v[isFriend]}友好{else}非友好{/if}</td>
+                    <td align="center">$v[black2]</td>
+                    <td align="center">$v[count]</td>
+                    <td>{if $v[days]}{echo time::days($timestamp - $v[timestamp])}/$v[days]{else}永久{/if}</td>
+                    <td><a href="$baseUrl?remove={url $v[tusername]}" onclick="return IsRemove();" class="link_o">移出黑名单</a></td>
+                  </tr>
+				  {/loop}
+                <tbody>
+                  
+                </tbody>
+              </table>
+            </div>
+            <div class="h_30"></div>
+          </div>
+          <div>
+            <div class="box_b_l"></div>
+            <div class="box_b_r"></div>
+          </div>
+        </div>
+      </div>
+      <div class="remit_b">
+        <div class="remit_b_bar"><span class="f_b f_14">黑名单排行榜</span></div>
+        <div class="remit_b_main">
+          <ul>
+            {loop $newList $v}
+            <li>$v[username]被拉入$v[black2]次</li>
+            {/loop}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="h_10"></div>
+  </div>
+</div>
+<script type="text/javascript">
+function checkForm() {
+   var checks = [
+		["isEmpty", "username", "要拉入黑名单用户名"] ];
+	var result = doCheck(checks);
+	if (result)avoidReSubmit();
+	return result;
+}
+
+function IsRemove() {
+    return confirm("您确定要移出黑名单么？");
+}
+</script>
+{sub ../footer}

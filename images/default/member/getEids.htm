@@ -1,0 +1,164 @@
+{teval
+	$title       = '获取真实快递单号 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{ad2 ad_memberHeadTop}
+{sub ../header}
+	<div class="main">
+	<div class="h_10"></div>
+	<div class="a"> {sub menu} </div>
+	<div class="b"> {if $indexMessage}
+			<div class='error_panel'>
+			<div>$indexMessage</div>
+		</div>
+			{/if}
+			{if $_showmessage}
+			<div class='msg_panel'>
+			<div>$_showmessage</div>
+		</div>
+			{/if}
+			<!--<div class="tip_gun">尊贵的VIP会员才能享受该项服务{if !$isVip}&nbsp;&nbsp;<a href="{r}/member/vip/?type=add" style="color:#0000FF">点此申请VIP</a>{/if}</div>
+			<div class="h_10"></div>-->
+			<div class="h_10"></div>
+			<div>
+			<div class="box_t">
+					<div class="box_t_l"></div>
+					<div class="box_t_r"></div>
+				</div>
+			<div class="box_main">
+					<div class="h_10"></div>
+					<div id="box_1">
+					<div class="bar_edit" style="margin-top:0;">快递单号生成与查询（免费）</div>
+					<form name="myForm" method="post">
+							<div>$sys_hash_code2</div>
+							<div class="edit">
+							<table class="tbl_edit" width="100%" border="0" cellspacing="0" cellpadding="6">
+								<tr>
+									<td width="50%" valign="top">
+										<table>
+											<tr>
+												<td align="right"><span class="f_blue">选择快递公司：</span></td>
+												<td>
+													<select id="epEname">
+													{sql SELECT name,ename FROM {$pre}cms_epcfg_cate ORDER BY sort}
+														<option value="$v[ename]">$v[name]快递</option>
+													{/sql}
+													</select></td>
+											</tr>
+											<tr>
+												<td align="right"><span class="f_blue">单号生成方式：</span></td>
+												<td>
+													<label><input type="radio" name="eidType" value="rand" onclick="$('#_id').hide();" checked="checked" />随机生成</label>
+													<label><input type="radio" name="eidType" value="cus" onclick="$('#_id').show();" />自定义生成</label>
+													<label><input type="radio" name="eidType" value="get" onclick="$('#_id').show();" />仅查询运单</label>
+												</td>
+											</tr>
+											<tr>
+												<td>&nbsp;</td>
+												<td><input name="btnSave" type="button" class="btn_1" id="btnSave" value="确认提交" /></td>
+											</tr>
+											<tr id="_id" style="display:none">
+												<td align="right"><span class="f_blue">快递单号：</span></td>
+												<td><input type="text" id="eid" size="32" /></td>
+											</tr>
+											<tr>
+												<td colspan="2"><span class="f_blue">注：由于查询会消耗一定系统资源，所以每次查询需间隔10秒</span></td>
+											</tr>
+										</table>
+									</td>
+									<td>
+										<span class="f_b_org">随机生成：</span> <span class="f_blue">本方式由系统根据所选快递公司单号规则随机生成4条单号。</span><br />
+<span class="f_b_org">自定义生成：</span><br />
+<span class="f_blue">1.本方式适合追求近期真实运单号的用户使用；<br />
+2.您可以将手上已有的真实快递单号完整输入，系统会自动识别并生成邻近的运单号；<br />
+3.你也可以输入真实运单号（去掉最后的1-3位数字）的前几位数字，系统会自动识别并生成邻近的运单号（单号需要与快递公司匹配）。<br /></span>
+<span class="f_b_org">建议：您可以根据生成运单的收货地址要求接手方淘宝收货地址填写您生成的运单收货信息；淘宝的运单查询只会匹配到达城市，请放心使用！ </span><br />
+<span class="f_b_red">注意：</span><span class="f_blue">为防止恶意，普通会员每天可以使用10次随机生成和5次自定义生成，VIP会员均无限</span>
+									</td>
+								</tr>
+							</table>
+						</div>
+						</form>
+					<div id="showIds" style="display:none">
+					<div class="bar_edit">单号生成与结果查询</span> </div>
+					<div id="eidsInfo">
+							
+						</div>
+					</div>
+					<div class="h_10"></div>
+				</div>
+					<div class="h_30"></div>
+				</div>
+			<div>
+					<div class="box_b_l"></div>
+					<div class="box_b_r"></div>
+				</div>
+		</div>
+			<div class="h_10"></div>
+		</div>
+</div>
+	<script type="text/javascript">
+$(function(){
+	$('#btnSave').click(function(){
+		$('#eidsInfo').html('<img src="{u}images/wait.gif" /><span class="f_b_blue">运单号查询中，请稍后...</span>');
+		$('#showIds').show();
+		var getType = getRV('eidType');
+		var epEname = $('#epEname').val();
+		var args = 'epEname='+epEname+'&getType='+getType;
+		if (getType == 'get' || getType == 'cus') {
+			var eid = $('#eid').val().replace(/^\s+|\s+$/g, '');
+			if (eid) {
+				args += '&eid='+eid;
+			} else {
+				alert('请输入运单号');
+				$('#eid').focus();
+			}
+		}
+		var url = '{u}ajax/kuaidi100.php?'+args;
+		$.getJSON(url,function(json){
+			if (json.status) {
+				var html = '';
+				for (var i = 0; i< json.list.length; i++) {
+					var line = json.list[i];
+					if (line) {
+						html += '<div class="f_b_red" style="padding:5px">运单号：'+line.id+'</div>';
+						if (line.info.status) {
+							html += '<table class="tbl_lst" width="100%" border="0" cellspacing="0" cellpadding="0">';
+							html += '<thead>';
+							html += '<tr>';
+							html += '<td>时间</td>';
+							html += '<td>地点和跟踪进度</td>';
+							html += '</tr>';
+							html += '</thead>';
+							html += '<tbody>';
+							for (var j = 0; j < line.info.data.length; j++) {
+								if (line.info.data[j].time) {
+									html += '<tr>';
+									html += '<td>'+line.info.data[j].time+'</td>';
+									html += '<td>'+line.info.data[j].context+'</td>';
+									html += '</tr>';
+								}
+							}
+							html += '</tbody>';
+							html += '</table>';
+						} else {
+							html += '<div class="f_red" style="padding:5px">'+line.info.message+'</div>';
+						}
+					}
+				}
+				$('#eidsInfo').html(html);
+			} else {
+				alert(json.msg);
+			}
+		}) 
+	});
+});
+
+</script>
+{sub ../footer}
