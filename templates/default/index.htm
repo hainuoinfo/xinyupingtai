@@ -16,15 +16,15 @@
         <div class="banner" id="banner">
             <div class="slider" id="slider" style="width: 655px; height: 310px; overflow: hidden;">
             <ul style="left: 0px; width: 3930px;" class="s_u">
-               <li><a class="button-1" href="{rewrite}/user/reg/"></a>
+               <li><a class="button-1" href="{rewrite}/member/reg/"></a>
                </li>
                <li>
                     <img src="/images/new-banner-1.gif" height="310" width="655" /><img src="/images/new-banner-2.gif" height="310" width="655">
-                    <a class="button-2" href="{rewrite}/user/reg/"></a>
+                    <a class="button-2" href="{rewrite}/member/reg/"></a>
                 </li>
                <li>
                     <img src="/images/new-banner-3.gif" height="310" width="655">
-                    <a class="button-3" href="{rewrite}/user/reg/"></a>
+                    <a class="button-3" href="{rewrite}/member/reg/"></a>
                </li>
             </ul>
             </div>
@@ -171,7 +171,7 @@
 				info='info="new" style="display:none"';
 			}
 			for(var key in Data){
-				str +="<li "+info+" ><a href='/user/info/?username="+encodeURI(Data[key].susername)+"' class='lanse' target='_blank'>"+Data[key].susername+"</a><span style='float:left'>  发布任务获得信誉 <strong class='chengse'>+1</strong></span><span class='date'>"
+				str +="<li "+info+" ><a href='/member/info/?username="+encodeURI(Data[key].susername)+"' class='lanse' target='_blank'>"+Data[key].susername+"</a><span style='float:left'>  发布任务获得信誉 <strong class='chengse'>+1</strong></span><span class='date'>"
 				if (lastTime-Data[key].ctimestamp>3000)
 					 str+='';
 				 else if (lastTime-Data[key].ctimestamp<60)

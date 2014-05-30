@@ -72,8 +72,12 @@
 	</div>
 	<div>
 
-	<ul id="reg_list" style="border:none;width:440px;padding-left:50px;">
+
+<form method="post" name="loginForm" id="loginForm" onsubmit="return checkForm();" action="/">
+
+	<ul id="login_list" style="border:none;width:440px;padding-left:50px;">
 		 <input name="referer" value="$referer" type="hidden">
+        $sys_hash_code2
 		<li class="tit2">已有账号？在此登录！</li>
 		<li>
 			<p class="tit3" id="loginaccount">账号</p>

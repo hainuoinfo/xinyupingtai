@@ -1299,62 +1299,120 @@ a.comlink:hover {
 #r_top .kd .tb span {
 	text-indent:10px;
 }
+
 #reg_list {
-	margin:30px 0;
-	border-right:1px dotted #ddd;
-	width:500px;
-	float:left;
+    margin:30px 0;
+    border-right:1px dotted #ddd;
+    width:500px;
+    float:left;
 }
 #reg_list li.tit2 {
-	font-size:16px;
-	height:40px;
-	line-height:40px;
+    font-size:16px;
+    height:40px;
+    line-height:40px;
 }
 #reg_list li .r_bk,#reg_list li .r_bk2,#reg_list li .r_bk3 {
-	border:1px solid #ddd;
-	width:297px;
-	height:32px;
-	line-height:32px;
-	padding-left:5px;
-	color:#666;
+    border:1px solid #ddd;
+    width:297px;
+    height:32px;
+    line-height:32px;
+    padding-left:5px;
+    color:#666;
 }
 #reg_list li {
-	position:relative;
+    position:relative;
 }
 #reg_list li .r_bk2 {
-	border:1px solid #91ed6d;
+    border:1px solid #91ed6d;
 }
 #reg_list li .r_bk3 {
-	border:1px solid #f5b47a;
+    border:1px solid #f5b47a;
 }
 #reg_list li .zq {
-	height:34px;
-	width:160px;
-	position:absolute;
-	top:43px;
-	left:315px;
-	line-height:20px;
+    height:34px;
+    width:160px;
+    position:absolute;
+    top:43px;
+    left:315px;
+    line-height:20px;
 }
 #reg_list li .tit3 {
-	height:40px;
-	line-height:40px;
-	color:#666;
-	font-size:14px;
+    height:40px;
+    line-height:40px;
+    color:#666;
+    font-size:14px;
 }
 #reg_list li .reg_btn,#reg_list li .login_btn {
-	background:url(/images/reg.gif) 0 -87px no-repeat;
-	display:block;
-	height:47px;
-	width:237px;
-	margin:28px 0 10px 0;
-	border:none;
-	text-indent:999px;
-	overflow:hidden;
-	cursor:pointer;
+    background:url(/images/reg.gif) 0 -87px no-repeat;
+    display:block;
+    height:47px;
+    width:237px;
+    margin:28px 0 10px 0;
+    border:none;
+    text-indent:999px;
+    overflow:hidden;
+    cursor:pointer;
 }
 #reg_list li .login_btn {
-	background:url(/images/reg.gif) 0 -183px no-repeat;
-	width:128px;
+    background:url(/images/reg.gif) 0 -183px no-repeat;
+    width:128px;
+}
+#login_list {
+    margin:30px 0;
+    border-right:1px dotted #ddd;
+    width:500px;
+    float:left;
+}
+#login_list li.tit2 {
+    font-size:16px;
+    height:40px;
+    line-height:40px;
+}
+#login_list li .r_bk,#login_list li .r_bk2,#login_list li .r_bk3 {
+    border:1px solid #ddd;
+    width:297px;
+    height:32px;
+    line-height:32px;
+    padding-left:5px;
+    color:#666;
+}
+#login_list li {
+    position:relative;
+}
+#login_list li .r_bk2 {
+    border:1px solid #91ed6d;
+}
+#login_list li .r_bk3 {
+    border:1px solid #f5b47a;
+}
+#login_list li .zq {
+    height:34px;
+    width:160px;
+    position:absolute;
+    top:43px;
+    left:315px;
+    line-height:20px;
+}
+#login_list li .tit3 {
+    height:40px;
+    line-height:40px;
+    color:#666;
+    font-size:14px;
+}
+#login_list li .reg_btn,#login_list li .login_btn {
+    background:url(/images/reg.gif) 0 -87px no-repeat;
+    display:block;
+    height:47px;
+    width:237px;
+    margin:28px 0 10px 0;
+    border:none;
+    text-indent:999px;
+    overflow:hidden;
+    cursor:pointer;
+}
+#login_list li .login_btn {
+    background:url(/images/reg.gif) 0 -183px no-repeat;
+    width:128px;
 }
 .ts1,.ts2,.ts3 {
 	background:#f4fff1;
@@ -4921,6 +4979,10 @@ i {
 }
 .button-2:hover {
 	background:url(/images/button-2.png) no-repeat;
+    z-index:10;
+    background:url(/images/default-2.png) no-repeat;
+    width:142px;
+    height:47px;
 }
 .button-3 {
 	position:absolute;
