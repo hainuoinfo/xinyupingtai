@@ -1,4 +1,24 @@
-Options -Indexes
-RewriteEngine on
-RewriteCond %{QUERY_STRING} ^(.*)$
-RewriteRule ^(?!rewrite\.php)(.*)$ /rewrite.php\?rewrite=$1&%1 [L]
+<IfModule mod_rewrite.c>
+  Options FollowSymlinks
+  #Options -Indexes
+  RewriteEngine On
+
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  #RewriteCond %{REQUEST_URI} !-f
+#RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+RewriteRule ^(?!\/rewrite\.php)([^?]+?)(?:\?(.*))?$ /rewrite.php\?rewrite=$1 [QSA,PT,L]
+#RewriteRule ^/member/reg/$  /index.php?action=member&operation=reg [QSA]
+#RewriteRule ^/(member)/(?:(\w+)/)?(.*)$  /index.php?action=member&operation=reg [L]
+
+#RewriteRule ^\/(bbs|simple)\/(?:(\w+)\.php(?:\?(.*))?)?$ /index.php?action=$1&operation=$2&$3
+#RewriteRule ^\/(bbs|simple)\/(?:(\w+)\.php(?:\?(.*))?)?$ /index.php?action=$1&operation=$2&$3
+#RewriteRule ^\/(bbs|simple)\/(\d+)\.html$ /index.php?action=$1&operation=threadlist&fid=$2
+#RewriteRule ^\/(bbs|simple)\/t(\d+)\/(?:(\d+)\/)?(?:\?(.*))?$ /index.php?action=$1&operation=thread&tid=$2&page=$3&$4
+#RewriteRule ^\/(bbs|simple)\/(\w+)\/(?:(\d+)\/)?$ /index.php?action=$1&operation=threadlist&ename=$2&page=$3
+#RewriteRule ^\/(member)\/(?:(\w+)\/)?$ /index.php?action=$1&operation=$2
+#RewriteRule ^\/(member)\/(\w+)\.php(?:\?(.*))?$ /index.php?action=$1&operation=$2&$3
+#RewriteRule ^\/(dialog|member|task|client)\/(\w+)\/(?:\?(.*))?$ /index.php?action=$1&operation=$2&$3
+#RewriteRule ^\/(\w+)\/(?:(\w+)\/)?(?:\?(.*))?$ /index.php?action=$1&operation=$2&$3
+#RewriteRule ^\/(info)\/([a-z0-9]+)\.html$ /index.php?action=$1&operation=article&aid=$2
+</IfModule>

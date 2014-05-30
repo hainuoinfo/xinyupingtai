@@ -5,8 +5,8 @@ function __download($file){
 	if(file_exists($file)){
 		$info=pathinfo($file);
 		$size=filesize($file);
-		header("Content-type: application/octet-stream");   
-		header("Accept-Ranges: bytes");   
+		header("Content-type: application/octet-stream");
+		header("Accept-Ranges: bytes");
 		header("Accept-Length: ".$size);
 		header("Content-Length: ".$size);
 		header("Content-Disposition:attachment;filename=".iconv(ENCODING,'gbk',$info['basename']));
@@ -20,10 +20,10 @@ function __download($file){
 	} else return false;*/
 	set_time_limit(0);
 	if(file_exists($file)){
-		
+
 		$info = pathinfo($file);
 		$fsize = filesize($file);
-		if (isset($_SERVER['HTTP_RANGE']) && ($_SERVER['HTTP_RANGE'] != "") && preg_match("/^bytes=([0-9]+)-$/i", $_SERVER['HTTP_RANGE'], $match) && ($match[1] < $fsize)) { 
+		if (isset($_SERVER['HTTP_RANGE']) && ($_SERVER['HTTP_RANGE'] != "") && preg_match("/^bytes=([0-9]+)-$/i", $_SERVER['HTTP_RANGE'], $match) && ($match[1] < $fsize)) {
 			$start = $match[1];
 		} else {
 			$start = 0;
@@ -39,9 +39,9 @@ function __download($file){
 			header("Accept-Ranges: bytes");
 			header("Accept-Length: $fsize");
 			header("Content-Length: $fsize");
-			
+
 		}
-		header("Content-Type: application/octet-stream"); 
+		header("Content-Type: application/octet-stream");
 		header("Content-Disposition:attachment;filename=".$info['basename']);
 		if($f=fopen($file,'rb')){fseek($f, $start);
 			while($r = fread($f, 1024)){
@@ -115,12 +115,14 @@ $r_marker='rewrite';
 $r_marker_len=strlen($r_marker);
 if($r_q=$_SERVER['QUERY_STRING']){
 	if(substr($r_q,0,$r_marker_len)===$r_marker){
+
 		if(($r_f1=strpos($r_q,'&'))!==false){
 			$r_=substr($r_q,0,$r_f1);
 			if(($r_f2=strpos($r_,'='))!==false){
 				$r_=substr($r_,$r_f2+1);
 				$_SERVER['QUERY_STRING']=substr($r_q,$r_f1+1);
-				if(strpos($_SERVER['QUERY_STRING'],$r_marker.'=')===false)unset($_GET[$r_marker]);
+				if(strpos($_SERVER['QUERY_STRING'],$r_marker.'=')===false)
+                    unset($_GET[$r_marker]);
 			} else header("HTTP/1.1 404 Not Found");
 		} else {
 			$r_=$_GET[$r_marker];
@@ -513,10 +515,10 @@ if($r_q=$_SERVER['QUERY_STRING']){
 				//exe rewrite
 				$r_rewrite_file='./cache/array/rewrite.php';
 				if(file_exists($r_rewrite_file)){
-					$fp = fopen($r_rewrite_file,"rb");	
+					$fp = fopen($r_rewrite_file,"rb");
 					flock($fp, LOCK_SH) ;
 					$r_rewrite=@fread($fp,filesize($r_rewrite_file));
-					flock($fp, LOCK_UN); 
+					flock($fp, LOCK_UN);
 					fclose($fp);
 					unset($fp);
 					$r_rewrite=unserialize(substr($r_rewrite,13));//rewrite_rule
@@ -524,7 +526,6 @@ if($r_q=$_SERVER['QUERY_STRING']){
 					//else $r_uri=$r_uri.$_SERVER['REQUEST_URI'];
 					$_GET=array();
 					$r_uri=$r_.($_SERVER['QUERY_STRING']?'?'.$_SERVER['QUERY_STRING']:'');
-					
 					if(($r_include=__rewrite())!==false){
 						$r_pathinfo=pathinfo($r_include);
 						$r_extension=$r_pathinfo['extension'];
@@ -558,5 +559,7 @@ if($r_q=$_SERVER['QUERY_STRING']){
 		}
 		/*rewrite end*/
 	} else header("HTTP/1.1 404 Not Found");
-} else include('./index.php');
+}
+else
+	include('./index.php');
 ?>
