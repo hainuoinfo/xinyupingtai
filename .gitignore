@@ -215,3 +215,4 @@ pip-log.txt
 .mr.developer.cfg
 .idea/
 cache/multi_page/*.php
+cache/default/
