@@ -35,7 +35,7 @@ cacheData::nocacheStart(__FILE__);
 if (cacheData::nocacheEnd(__FILE__)){
 ?>',false,array());$replace[]=array('{cfg 0,1}','<?php
 echo cfg::get(\'0\', \'1\');
-?>',false,array());$replace[]=array('{date2 0}','<?php echo 0>1?date(\'Y-m-d H:i:s\',0):\'\';?>',false,array(1=>'0'));/*marker end*/
+?>',false,array());$replace[]=array('{date2 0}','<?php echo 0>1?date(\'Y-m-d H:i:s\',0):\'\';?>',false,array(1=>'0'));$replace[]=array('{kefu_qq}','123456789',false,array());/*marker end*/
 		foreach($replace as $k=>$v){
 			$v[0]=str_replace('{',self::$m1,$v[0]);
 			$v[0]=str_replace('}',self::$m2,$v[0]);

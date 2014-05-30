@@ -58,6 +58,7 @@ if ($operation == 'index') {
 	);
 }
 
+$errorMessag='对不起，您的存款不足！ 请<a href="/member/topup/"> 立即充值</a>';
 switch($operation){
 	case 'reg':
 	    $pusername = $_GET['pusername'];
@@ -313,7 +314,7 @@ switch($operation){
                         member_base::addFabudian($uid, $nums,'购买麦点');
 						member_base::addMoney($uid, -$money,'购买麦点');
 				    }else{
-					    error::bbsMsg('对不起，您的存款不足！');
+					    error::bbsMsg($errorMessag);
 					}
 			         if ($rs === true) {
 						common::setMsg('购买成功');
@@ -342,7 +343,7 @@ switch($operation){
 				        }			
 						
 				    }else{
-					    error::bbsMsg('对不起，您的存款不足！');
+					    error::bbsMsg($errorMessag);
 					}
 			         if ($rs === true) {
 						common::setMsg('购买成功');
@@ -358,7 +359,7 @@ switch($operation){
                         member_base::addFabudian($uid, $nums,'购买麦点');
 						member_base::addMoney($uid, -$money,'购买麦点');
 				    }else{
-					    error::bbsMsg('对不起，您的存款不足！');
+					    error::bbsMsg($errorMessag);
 					}
 			         if ($rs === true) {
 						common::setMsg('购买成功');
@@ -373,7 +374,7 @@ switch($operation){
                         member_base::addFabudian($uid, $nums,'购买麦点');
 						member_base::addMoney($uid, -$money,'购买麦点');
 				    }else{
-					    error::bbsMsg('对不起，您的存款不足！');
+					    error::bbsMsg($errorMessag);
 					}
 			         if ($rs === true) {
 						common::setMsg('购买成功');
@@ -388,7 +389,7 @@ switch($operation){
                         member_base::addFabudian($uid, $nums,'购买麦点');
 						member_base::addMoney($uid, -$money,'购买麦点');
 				    }else{
-					    error::bbsMsg('对不起，您的存款不足！');
+					    error::bbsMsg($errorMessag);
 					}
 			         if ($rs === true) {
 						common::setMsg('购买成功');
@@ -403,7 +404,7 @@ switch($operation){
                         member_base::addFabudian($uid, $nums,'购买麦点');
 						member_base::addMoney($uid, -$money,'购买麦点');
 				    }else{
-					    error::bbsMsg('对不起，您的存款不足！');
+					    error::bbsMsg($errorMessag);
 					}
 			         if ($rs === true) {
 						common::setMsg('购买成功');
@@ -418,7 +419,7 @@ switch($operation){
                         member_base::addFabudian($uid, $nums,'购买麦点');
 						member_base::addMoney($uid, -$money,'购买麦点');
 				    }else{
-					    error::bbsMsg('对不起，您的存款不足！');
+					    error::bbsMsg($errorMessag);
 					}
 			         if ($rs === true) {
 						common::setMsg('购买成功');
@@ -433,7 +434,7 @@ switch($operation){
                         member_base::addFabudian($uid, $nums,'购买麦点');
 						member_base::addMoney($uid, -$money,'购买麦点');
 				    }else{
-					    error::bbsMsg('对不起，您的存款不足！');
+					    error::bbsMsg($errorMessag);
 					}
 			         if ($rs === true) {
 						common::setMsg('购买成功');
@@ -467,7 +468,7 @@ switch($operation){
 						    } 
 					    }
 				    }else{
-					    error::bbsMsg('对不起，您的存款不足！');
+					    error::bbsMsg($errorMessag);
 					}
 				} 
                   if($Type == 10){
@@ -495,7 +496,7 @@ switch($operation){
 						    } 
 					    }
 					}else{
-					    error::bbsMsg('对不起，您的存款不足！');
+					    error::bbsMsg($errorMessag);
 					}
 				} 
                   if($Type == 11){
@@ -523,7 +524,7 @@ switch($operation){
 						    } 
 					    }
 					}else{
-					    error::bbsMsg('对不起，您的存款不足！');
+					    error::bbsMsg($errorMessag);
 					}
 				} 
                  if($Type == 12){
@@ -551,7 +552,7 @@ switch($operation){
 						    } 
 					    }
 					}else{
-					    error::bbsMsg('对不起，您的存款不足！');
+					    error::bbsMsg($errorMessag);
 					}
 				}
                 if($Type == 13){
@@ -579,7 +580,7 @@ switch($operation){
 						    } 
 					    }
 					}else{
-					    error::bbsMsg('对不起，您的存款不足！');
+					    error::bbsMsg($errorMessag);
 					}
 				}  				
 			}else {
