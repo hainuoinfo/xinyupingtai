@@ -1,0 +1,1 @@
+<?php exit;?>a:3:{s:16:"chinabank_status";s:1:"2";s:12:"chinabank_id";s:8:"21557434";s:13:"chinabank_key";s:10:"cn12315119";}

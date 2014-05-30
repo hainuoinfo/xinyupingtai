@@ -1,0 +1,1 @@
+<?php $article_cate1=array(4=>"测试");$article_cate2=array("测试"=>"4");?>

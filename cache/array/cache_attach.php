@@ -1,0 +1,1 @@
+<?php exit;?>a:6:{s:9:"attachdir";s:13:"./attachments";s:9:"attachurl";s:11:"attachments";s:13:"attachimgpost";s:1:"1";s:10:"attachsave";s:1:"3";s:8:"imagelib";s:1:"0";s:11:"imageimpath";s:0:"";}
