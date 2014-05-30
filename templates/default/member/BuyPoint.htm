@@ -15,7 +15,13 @@
 <DIV style="background: rgb(236, 236, 236); margin: 0px auto; width: 1000px;" id="content">
 <DIV id="gm_kd">
 {if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
-{if $_showmessage}<div class='msg_panel' style="border: 1px dashed rgb(204, 204, 204); background:#FFC; margin-top:5px;padding:10px 5px; color:#0F3; font-weight:bold;"><div>$_showmessage</div></div>{/if}
+{if $_showmessage}<div class='msg_panel' style="border: 1px dashed rgb(204, 204, 204);color:red;font-size:20px; background:#FFC; margin-top:5px;padding:10px 5px; font-weight:bold;text-align:center;"><div>$_showmessage
+
+<script type="text/javascript">
+  alert('$_showmessage');
+
+</script>
+</div></div>{/if}
 <FORM id="myForm" onSubmit="return checkForm();" method="post" name="myForm" action="">
 $sys_hash_code2
   <DIV class="line">

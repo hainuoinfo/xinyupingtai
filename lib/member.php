@@ -317,7 +317,7 @@ switch($operation){
 					    error::bbsMsg($errorMessag);
 					}
 			         if ($rs === true) {
-						common::setMsg('购买成功');
+						common::setMsg('购买成功！');
 						common::refresh();
 					} else {
 						$indexMessage = language::get($rs);
@@ -346,7 +346,7 @@ switch($operation){
 					    error::bbsMsg($errorMessag);
 					}
 			         if ($rs === true) {
-						common::setMsg('购买成功');
+						common::setMsg('购买成功！');
 						common::refresh();
 					} else {
 						$indexMessage = language::get($rs);
@@ -362,7 +362,7 @@ switch($operation){
 					    error::bbsMsg($errorMessag);
 					}
 			         if ($rs === true) {
-						common::setMsg('购买成功');
+						common::setMsg('购买成功！');
 						common::refresh();
 					} else {
 						$indexMessage = language::get($rs);
@@ -377,7 +377,7 @@ switch($operation){
 					    error::bbsMsg($errorMessag);
 					}
 			         if ($rs === true) {
-						common::setMsg('购买成功');
+						common::setMsg('购买成功！');
 						common::refresh();
 					} else {
 						$indexMessage = language::get($rs);
@@ -392,7 +392,7 @@ switch($operation){
 					    error::bbsMsg($errorMessag);
 					}
 			         if ($rs === true) {
-						common::setMsg('购买成功');
+						common::setMsg('购买成功！');
 						common::refresh();
 					} else {
 						$indexMessage = language::get($rs);
@@ -407,7 +407,7 @@ switch($operation){
 					    error::bbsMsg($errorMessag);
 					}
 			         if ($rs === true) {
-						common::setMsg('购买成功');
+						common::setMsg('购买成功！');
 						common::refresh();
 					} else {
 						$indexMessage = language::get($rs);
@@ -422,7 +422,7 @@ switch($operation){
 					    error::bbsMsg($errorMessag);
 					}
 			         if ($rs === true) {
-						common::setMsg('购买成功');
+						common::setMsg('购买成功！');
 						common::refresh();
 					} else {
 						$indexMessage = language::get($rs);
@@ -437,7 +437,7 @@ switch($operation){
 					    error::bbsMsg($errorMessag);
 					}
 			         if ($rs === true) {
-						common::setMsg('购买成功');
+						common::setMsg('购买成功！');
 						common::refresh();
 					} else {
 						$indexMessage = language::get($rs);
@@ -1639,7 +1639,7 @@ switch($operation){
 							'status'     => 1
 						), "id='$buy'");
 						db::update('shop_cate', 'total3=total3-1', "id='$shop[cid]'");
-						common::setMsg('购买成功');
+						common::setMsg('购买成功！');
 						common::goto_url('/'.$action.'/'.$operation.'/?type=log');
 					} else {
 						if ($shop['status'] == 1) error::bbsMsg('该商品已经售出');
@@ -1774,7 +1774,7 @@ switch($operation){
 				$rs = card::buy($uid, $cardType, $nums);
 			}
 			if ($rs === true) {
-				common::setMsg('购买成功，请到“我的宝贝”中激活');
+				common::setMsg('购买成功！，请到“我的宝贝”中激活');
 				common::refresh();
 			} else {
 				$indexMessage = language::get($rs);

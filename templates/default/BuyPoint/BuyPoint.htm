@@ -23,10 +23,12 @@ $sys_hash_code2
   <P style="left: 140px; top: 100px; height: 30px; line-height: 30px; font-weight: bold; position: absolute;"><A 
   href="{rewrite}/BuyPoint/#"></A>&nbsp;</P>
   <P class="STYLE5">购买数量：</P>
-  <input name="jiage" id="jiage" value="{echo card::$onePrice[1]}" type="hidden">
+  <!-- <input name="jiage" id="jiage" value="{echo card::$onePrice[1]}" type="hidden"> -->
+  <input name="jiage" id="jiage" value="0.68" type="hidden">
  
   <INPUT id="nums" class="in_bk" name="nums" maxLength="4" value="20" type="text">
-  <P class="t2"><SPAN class="STYLE3">个</SPAN><SPAN class="STYLE4">(每个<STRONG id="jiage1">{echo card::$onePrice[1]}</STRONG>元)</SPAN></P>
+  <P class="t2"><SPAN class="STYLE3">个</SPAN><SPAN class="STYLE4">(每个<STRONG id="jiage1">0.68</STRONG>元)</SPAN></P>
+  <!-- <P class="t2"><SPAN class="STYLE3">个</SPAN><SPAN class="STYLE4">(每个<STRONG id="jiage1">{echo card::$onePrice[1]}</STRONG>元)</SPAN></P> -->
   <INPUT class="gm_btn" name="submit" value="提交查询内容" type="submit">
   <input name="cardType" type="hidden" value="1" />
   </DIV>
