@@ -1,5 +1,5 @@
 {teval
-	$title       = '充值记录 - {webName}';
+	$title       = '绑定买号- {webName}';
 	$keywords    = '';
 	$description = '';
 	$title       = common::replaceVars($title);
@@ -27,6 +27,7 @@ $(function(){
 <DIV id="content">
 {sub menu}
   <DIV class="right">
+{if $indexMessage}<div class='error_panel'><div>$indexMessage<script >alert('$indexMessage');</script></div></div>{/if}
     <DIV class="mh_tishi">1、该页面主要用来绑定和维护用来接任务，购买任务商品的淘宝买号； <A class="chengse" href="{rewrite}/member/buytao/#">什么是买号？</A><BR>
       2、根据淘宝的最新安全策略，所有买号都要求必须是完整填写个人信息后才能进行绑定；为了您的买号与任务发布方网店安全请您先将买号信息完善； <A class="chengse" href="{rewrite}/member/buytao/#">如何更安全的使用买号?</A><BR>
       3、注册的淘宝买号请不要使用同一个开头，后面跟一串排号的数字，这种买号很容易被淘宝封(类似短命的买号就是 

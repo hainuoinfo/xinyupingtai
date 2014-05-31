@@ -52,3 +52,9 @@ select count(*) from bf_shops where status='0'
 message:
 Table 'damaihu.bf_shops' doesn't exist
 
+2014-05-31 22:01:32
+SQL:
+update bf_memberfields set buyers=buyers+1 where uid='123'
+message:
+Unknown column 'buyers' in 'field list'
+

@@ -47,9 +47,9 @@ class task_buyer{
 					if (1 == 1) {
 					    if($rs==1){
 						    $isreal=1;
-						}else{
-						    $isreal=0;
-						}
+							}else{
+							    $isreal=0;
+							}
 					    $score = data_taobaoUser::credit($nickname);
 						//$score = $member['buyer_credit']['score'];
 						$utype = 0;
@@ -57,12 +57,13 @@ class task_buyer{
 						if ($member['promoted_type'] == 'authentication') {
 							$maxScore = 50000;
 							$utype |= 1;
-						}
+							}
 						if ($member['mobilephone_type'] == 'authentication') {
 							$maxScore = 50000;
 							$utype |= 2;
-						}
-						if ($maxScore == 0) $maxScore = $score + rand(40, 800);
+							}
+						if ($maxScore == 0) 
+							$maxScore = $score + rand(40, 800);
 						$datas = array(
 							'type'      => $type,
 							'uid'       => $uid,
@@ -231,6 +232,7 @@ class task_buyer{
 		return '不存在该买号';
 	}
 	public static function total($type, $status){
+		var_dump(db::data_count('buyers', "type='$type'".($status>=0?" and status='$status'":'')));
 		return db::data_count('buyers', "type='$type'".($status>=0?" and status='$status'":''));
 	}
 	public static function total1($uid,$type){

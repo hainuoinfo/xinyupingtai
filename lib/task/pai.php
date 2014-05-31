@@ -9,7 +9,7 @@ $title = $pName;
 $lanP = $lanP0.'tao_';
 $minCredit = 50;
 $taskStatus = true;
-$taskId = 2;
+$taskId = 2;//定义拍拍卖家账户的id为2
 if ($memberFields['credits'] < $minCredit) {
 	//language::get(array('name' => $lanP.'credit_less_than', 'args' => array('x' => $minCredit)));
 	$taskStatus = false;
@@ -438,7 +438,8 @@ switch ($m) {
 		else $maxTieCount = 2;
 		if ($rs = form::is_form_hash2()) {
 			if ($rs === true) {
-				if ($memberFields['sellers'.$taskId] + 1 > $maxTieCount) $rs = '对不起，您不可以绑定更多的掌柜了';
+				if ($memberFields['sellers'.$taskId] + 1 > $maxTieCount) 
+					$rs = '对不起，您不可以绑定更多的掌柜了';
 				else {
 					$datas = form::get('nickName', array('isTruth', 'int'));
 					$datas && extract($datas);
@@ -475,6 +476,7 @@ switch ($m) {
 		$del=$_GET['del'];
 		if($del){
 			if(task_seller::del($del, $uid)){
+				db::update('memberfields', 'sellers'.$taskId.'=sellers'.$taskId.'-1', "uid='$uid'");
 			    common::setMsg('删除成功');
 			    common::goto_url($thisUrl);
 			}else{

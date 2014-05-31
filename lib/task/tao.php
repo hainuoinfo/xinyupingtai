@@ -16,6 +16,7 @@ if ($memberFields['credits'] < $minCredit) {
 	$taskStatus = false;
 }
 $thisUrl = $baseUrl0.'?m='.$m;
+
 $lang = array(
 	/*'status'     => array('暂停中', '已发布，等待接手人接手', '已接手，等待接手人绑定买号', '等待发布方审核', '已绑定买号，等待接手方支付', '已支付，等待发布人发货', '已发货，等待收货与好评', '已确认，等待卖家确认', '交易完成'),*/
  	'status'     => array(
@@ -526,7 +527,8 @@ switch ($m) {
 		$user_group = db::one('user_groups', 'name', "id='$members[groupid]'");
 		if ($rs = form::is_form_hash2()) {
 			if ($rs === true) {
-				if ($memberFields['sellers1'] + 1 > $maxTieCount) $rs = '对不起，您不可以绑定更多的掌柜了';
+				if ($memberFields['sellers1'] + 1 > $maxTieCount) 
+					$rs = '对不起，您不可以绑定更多的掌柜了';
 				else {
 					$datas = form::get('nickName', array('isTruth', 'int'));
 					$datas && extract($datas);
@@ -559,19 +561,20 @@ switch ($m) {
 				$indexMessage = language::get($rs);
 			}
 			
-		}
+		  }
 	
-		$del=$_GET['del'];
-		if($del){
-			if(task_seller::del($del, $uid)){
-			    common::setMsg('删除成功');
-			    common::goto_url($thisUrl);
-			}else{
-			     common::setMsg('删除失败');
-			}
-			print_r($del);  
-	    }
-		$sList = db::get_list2('sellers', '*', "type='1' and uid='$uid'");
+			$del=$_GET['del'];
+			if($del){
+				if(task_seller::del($del, $uid)){
+					db::update('memberfields', 'sellers1=sellers1-1', "uid='$uid'");//删除绑定淘宝帐号是，刷新绑定的数量
+				    common::setMsg('删除成功');
+				    common::goto_url($thisUrl);
+				}else{
+				     common::setMsg('删除失败');
+				}
+				print_r($del);  
+		    }
+			$sList = db::get_list2('sellers', '*', "type='1' and uid='$uid'");
 	break;
 	case 'tieBuyer':
 		checkPwd2();

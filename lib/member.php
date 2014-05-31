@@ -220,7 +220,8 @@ switch($operation){
 		//if ($status2 < 0 || $status2 > 6) $status2 = 0;
 		if ($status2 > 6) $status2 = -1;
 		//if ($total = $memberFields['buyers1']) {
-		if ($total = task_buyer::total($taskId, $status2)) {
+//		if ($total = task_buyer::total($taskId, $status2)) {
+		if ($total = task_buyer::total1($uid, 1)) {
 			$bList = task_buyer::getList(1, $uid, $status2);
 			$multipage = multi_page::parse($total, $pagesize, $page, $thisUrl.'&status='.$status.'&page={page}', $pageStyle, 10, 'member1');
 		}
@@ -230,6 +231,7 @@ switch($operation){
 		if ($isVip) $maxTieCount = -1;
 		elseif ($isVip2) $maxTieCount = 20;
 		else $maxTieCount = 7;
+		$taskId=2;
 		$status = (int)$status;
 		if ($pause = (int)$pause) {
 			task_buyer::pause($pause, $uid);

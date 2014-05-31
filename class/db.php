@@ -73,11 +73,14 @@ class db{
 		if($insert) {
 			$insert='insert into '.$pre.$tbname.$insert;
 			if($db->query($insert)){
-				if($return_insert_id)return $db->insert_id();
-				return true;
+				if($return_insert_id)
+					return $db->insert_id();
+				else	
+					return true;
 			}
 		}
-		return false;
+		else 
+			return false;
 	}
 	public static function insert2($tbname,$args,$return_insert_id=false){
 		global $db,$pre;
