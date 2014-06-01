@@ -1,5 +1,6 @@
 <?php
 (!defined('IN_JB') || IN_JB!==true) && exit('error');
+header("Content-Type:text/html;charset=utf-8");
 loadLib('bbs.forums');
 loadLib('bbs.thread');
 bbs_forums::updateCache();//更新缓存，如每天发帖数等

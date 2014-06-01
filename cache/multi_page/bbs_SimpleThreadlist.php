@@ -1,1 +1,0 @@
-<?php $html="";for($i=$pagestart;$i<=$pageend;$i++){if($i==1&&$url_default)$url=$url_default;else $url=$urls[0].$i.$urls[1];$html.="";if($i==$page){$html.="<strong>[".$i."]</strong>";}else{$html.="<a href=\"".$url."\">".$i."</a>";};$html.="&nbsp;";}$html.="";?>
