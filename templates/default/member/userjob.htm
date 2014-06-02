@@ -11,6 +11,202 @@
 }
 {sub ../headerbase}
 <LINK rel="stylesheet" type="text/css" href="/css/task.css">
+<form name="aspnetForm" method="post" id="aspnetForm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+    //$("#userjob1>p:last").remove();
+    //$("#userjob2>p:last").remove();
+    
+    $("#btncopy").click(function(){
+        copyToClipboard($("#txtlink").val());
+        return false;
+    });
+});
+
+function copyToClipboard(txt) {       
+    if(window.clipboardData) {           
+        window.clipboardData.setData("Text", txt);       
+        alert("复制成功！")      
+    }else if(navigator.userAgent.indexOf("Opera") != -1) {       
+        window.location = txt;       
+    }else if(window.netscape) {       
+        try{       
+            netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");       
+        }catch(e) {       
+            alert("被浏览器拒绝！\n请在浏览器地址栏输入'about:config'并回车\n然后将 'signed.applets.codebase_principal_support'设置为'true'");       
+        }       
+        var clip = Components.classes['@mozilla.org/widget/clipboard;1'].createInstance(Components.interfaces.nsIClipboard);       
+        if (!clip)       
+            return;       
+        var trans = Components.classes['@mozilla.org/widget/transferable;1'].createInstance(Components.interfaces.nsITransferable);       
+        if (!trans)       
+            return;       
+        trans.addDataFlavor('text/unicode');       
+        var str = new Object();       
+        var len = new Object();       
+        var str = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);       
+        var copytext = txt;       
+        str.data = copytext;       
+        trans.setTransferData("text/unicode",str,copytext.length*2);       
+        var clipid = Components.interfaces.nsIClipboard;       
+        if (!clip)       
+            return false;       
+        clip.setData(trans,null,clipid.kGlobalClipboard);       
+        alert("复制成功！")       
+    }       
+} 
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+  $(function(){
+  $(".left_twe").css("display","none");//IE6
+  //发布任务效果
+  $(".left_rwdt .renwu1").hover(function(){
+    $(this).css("background-position","-64px -335px");
+    $(".left_twe").css("display","block");
+  });
+  
+  $(".left_rwdt:not(.left_twe,renwu1)").mouseleave(function(){
+    $(".left_rwdt .renwu1").css("background-position","-68px -387px");
+    $(".left_twe").css("display","none")
+  });
+  
+  //任务奖励效果
+  $(".left_rwdt2").hover(function(){
+    $(".renwu2").css("background-position","-64px -445px");
+    
+  },function(){
+    $(".renwu2").css("background-position","-69px -498px");
+    
+  })
+  
+  //遍历图标
+  $(".left_liebiao ul li:parent:not('#dilei')").each(function(i){
+    
+     if(i == 0){
+      num = 4;
+     }else{
+      num = i*(-44);
+     }
+     if(i == 6){
+    num = -262;
+     }
+     $(this).children("a:first").css("background-position","0px "+num+"px");
+  });
+  
+  //遍历文字图标
+  $(".left_liebiao ul li:parent:not('#dilei')").each(function(i){
+    
+     if(i == 0){
+      num = 4;
+     }else{
+      num = i*(-40);
+     }
+     $(this).children("a:eq(1)").css("background-position","-355px "+num+"px");
+     $(this).children("a:eq(1)").attr("num",num);
+  });
+  
+  var urlname = getCurrUrlFileName();
+  $(".left_liebiao ul li").each(function(i){
+      v = $(this).children('a:last').attr('name');
+      if(v == urlname){
+        //$(this).children('a:last').css('background','red');
+        $(this).append("<i><img src='/images/hyzx/dadian.png' /></i>");
+      }
+  })
+  
+  //遍历链接显示下划线
+  $(".left_liebiao ul li:parent:not('#dilei')").hover(function(i){
+  
+    num = $(this).children("a:eq(1)").attr("num");
+    
+    $(this).children("a:eq(1)").css("background-position","-489px "+ num +"px");
+    if(urlname != $(this).children('a:eq(1)').attr('name')){
+      $(this).append("<i><img src='/images/hyzx/dadian.png' /></i>");
+    }
+  },function(){
+  
+    $(this).children("a:eq(1)").css("background-position","-355px "+ num +"px");
+    if(urlname != $(this).children('a:eq(1)').attr('name')){
+      $(this).children("i").remove();
+    }
+  });
+  
+  $("#dilei").hover(function(i){
+    
+    $(this).children("a:eq(1)").css("background-position","-139px -232px");
+    $(this).append("<i><img src='/images/hyzx/dadian.png' /></i>");
+  },function(){
+  
+    $(this).children("a:eq(1)").css("background-position","0px -232px");
+    $(this).children("i").remove();
+  });
+
+  function getCurrUrlFileName(){
+        var url = window.location.pathname;
+        while (url.indexOf("/") > -1) {
+          url = url.substring(url.indexOf("/") + 1, url.length);
+        }
+        return url;
+  }
+  
+  //仅测试0.1----根据页面固定当前链接样式
+  //var yelink = 'aaa';
+  //if(yelink == 'aaa'){
+  //  $(".left_liebiao ul li:eq(0) a:eq(1)").css("background-position","-625px 4px");
+  //}
+});
+</script>
+        <style>
+a:hover{text-decoration: underline;}
+.tupian_ico{background: url("/images/hyzx/icon1.png") repeat scroll;}
+.imgdian{background: url("/images/hyzx/1.png") repeat scroll;}
+.left_lan {background:rgb(35, 148, 228);float: left;margin-top: 25px;width: 200px;height: 630px;}
+.left_lan .left_rwdt {background:none;color: #FFFFFF;cursor: pointer;font-family: "微软雅黑";font-size: 18px;font-weight: bold;position: relative;text-align: center;z-index: 10;float: left;}
+.left_lan .left_rwdt .dian1{height: 103px;position: absolute;right: 28px;top: 102px;width: 8px;background-position:0px 0px ;}
+.left_lan .left_rwdt .dian2{height: 103px;position: absolute;right: 28px;top: 261px;width: 8px;background-position:0px 0px ;}
+.left_lan .left_rwdt .dian3{height: 103px;position: absolute;right: 28px;top: 420px;width: 8px;background-position:0px 0px ;}
+.left_lan .left_rwdt .renwu1 {background-position: -68px -387px ;height: 45px;margin: 35px 35px 15px 35px;width: 135px;}
+.left_lan .left_rwdt .left_twe{background: #FECC7F;font-size: 14px;font-weight: normal;position: absolute;right: -55px;top: 31px;width: 80px;}
+.left_lan .left_rwdt .left_twe ul{float:left;width:100%;}
+.left_lan .left_rwdt .left_twe ul li{float:left;background: #259CE3;padding: 4px;position: relative;width: 100%;height:22px;}
+.left_lan .left_rwdt .left_twe ul li img{left: 12px;position: absolute;top: 12px;}
+.left_lan .left_rwdt .left_twe ul li a{float:left;width:100%;text-align: right;color:white;}
+.left_lan .left_rwdt2 {background:none;color: #FFFFFF;cursor: pointer;font-family: "微软雅黑";font-size: 18px;font-weight: bold;position: relative;text-align: center;z-index: 10;float: left;}
+.left_lan .left_rwdt2 .renwu2 {background-position: -69px -498px;height: 45px;margin: 10px 35px 15px;width: 135px;}
+.left_lan .left_rwdt2 .renwu2 a{width:100%;height:100%;float: left;}
+.left_lan .left_liebiao{float:left;position: relative;}
+.left_lan .left_liebiao ul li {height: 32px;line-height: 32px;overflow: hidden;width:200px;float:left;}
+.left_lan .left_liebiao ul li i{float: left; height: 15px; width: 15px;margin: 4px 0 0 1px;}
+.left_lan .left_liebiao .tupian_ico.li1{background-position: 0px -4px ;float:left;height:25px;width: 25px;margin-left:35px;}
+.left_lan .left_liebiao .text1{background-position: -355px 4px;float: left;width: 100px;height:25px;margin-left: 5px;}
+.dilei1 {
+background: url("/images/hyzx/icon22.png") no-repeat -3px -228px;
+float: left;
+height: 25px;
+width: 25px;
+margin-left: 35px;
+}
+.dileiimg{
+float: left;
+width: 97px;
+height: 25px;
+margin-left: 8px;
+background:url("/images/hyzx/icon11.png") no-repeat 0px -232px;
+}
+</style>
 <DIV id="content"> 
 	{sub menu}
 <DIV class="right">

@@ -152,6 +152,8 @@ switch ($operation) {
 	break;
 	case 'viewmsg':
 		if (!$member['checkPwd2']) {
+			if($id)
+				$baseUrl2.="&id=".$id;
 			common::setmsg('对不起，您尚未输入操作码');
 			common::goto_url('/dialog/pwd2/?referer='.$baseUrl2);
 		}
@@ -167,6 +169,8 @@ switch ($operation) {
 				$rs = member_base::checkPwd2($member['id'], $_POST['password2']);
 			}
 			if ($rs === true) {
+				if($id)
+					$referer.="?id=".$id;
 				common::goto_url($referer, true);
 			} else {
 				$indexMessage = language::get($rs);

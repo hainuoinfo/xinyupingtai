@@ -1640,7 +1640,7 @@ a.r_close:hover {
 }
 .fram_615container {
 	background:url(/images/r_615center.png) repeat-y left top #FFFFFF;
-	margin-top:25px;
+	/*/margin-top:25px;*/
 	overflow:hidden;
 	padding:0px 8px;
 	width:599px;

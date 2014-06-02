@@ -232,7 +232,6 @@ class task_buyer{
 		return '不存在该买号';
 	}
 	public static function total($type, $status){
-		var_dump(db::data_count('buyers', "type='$type'".($status>=0?" and status='$status'":'')));
 		return db::data_count('buyers', "type='$type'".($status>=0?" and status='$status'":''));
 	}
 	public static function total1($uid,$type){
