@@ -1,0 +1,138 @@
+2011-07-08 16:10:09
+SQL:
+select count(*) from bf_shops where status='0'
+message:
+No database selected
+
+2011-07-08 16:10:19
+SQL:
+select count(*) from bf_shops where status='0'
+message:
+No database selected
+
+2011-07-08 16:10:56
+SQL:
+select count(*) from bf_shops where status='0'
+message:
+No database selected
+
+2011-07-08 16:10:56
+SQL:
+select count(*) from bf_shops where status='0'
+message:
+No database selected
+
+2011-07-08 16:10:57
+SQL:
+select count(*) from bf_shops where status='0'
+message:
+No database selected
+
+2011-07-08 16:15:00
+SQL:
+select count(*) from bf_shops where status='0'
+message:
+No database selected
+
+2011-07-08 16:15:03
+SQL:
+select count(*) from bf_shops where status='0'
+message:
+No database selected
+
+2011-07-08 16:15:04
+SQL:
+select count(*) from bf_shops where status='0'
+message:
+No database selected
+
+2011-07-08 16:15:05
+SQL:
+select count(*) from bf_shops where status='0'
+message:
+No database selected
+
+2011-07-08 16:15:06
+SQL:
+select count(*) from bf_shops where status='0'
+message:
+No database selected
+
+2011-07-08 16:15:07
+SQL:
+select count(*) from bf_shops where status='0'
+message:
+No database selected
+
+2011-07-08 16:15:08
+SQL:
+select count(*) from bf_shops where status='0'
+message:
+No database selected
+
+2011-07-08 16:15:09
+SQL:
+select count(*) from bf_shops where status='0'
+message:
+No database selected
+
+2011-07-08 16:16:21
+SQL:
+select count(*) from bf_shops where status='0'
+message:
+No database selected
+
+2011-07-08 16:16:23
+SQL:
+select count(*) from bf_shops where status='0'
+message:
+No database selected
+
+2011-07-08 16:16:24
+SQL:
+select count(*) from bf_shops where status='0'
+message:
+No database selected
+
+2011-07-08 16:29:10
+SQL:
+select count(*) from bf_admins
+message:
+Table 'shua.bf_admins' doesn't exist
+
+2011-07-08 16:32:42
+SQL:
+select `key`,value from bf_admin_authority where aid='1'
+message:
+Table 'shua.bf_admin_authority' doesn't exist
+
+2011-07-08 16:38:38
+SQL:
+select * from bf_sql_log order by timestamp desc
+message:
+Table 'shua.bf_sql_log' doesn't exist
+
+2011-07-08 16:39:06
+SQL:
+select * from bf_sql_log order by timestamp desc
+message:
+Table 'shua.bf_sql_log' doesn't exist
+
+2011-07-08 16:39:08
+SQL:
+select * from bf_sql_log order by timestamp desc
+message:
+Table 'shua.bf_sql_log' doesn't exist
+
+2011-07-08 16:39:09
+SQL:
+select * from bf_sql_log order by timestamp desc
+message:
+Table 'shua.bf_sql_log' doesn't exist
+
+2011-07-08 16:44:00
+SQL:
+select sum(money-borrowMoney) money,sum(fabudian1+fabudian2+fabudian3) point from bf_memberfields limit 1
+message:
+Unknown column 'borrowMoney' in 'field list'
+

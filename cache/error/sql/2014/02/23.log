@@ -1,0 +1,30 @@
+2014-02-23 18:55:25
+SQL:
+select id from bf_soft_cate order by store limit 0,20
+message:
+Unknown column 'store' in 'order clause'
+
+2014-02-23 18:55:26
+SQL:
+select id from bf_soft_cate order by store limit 0,20
+message:
+Unknown column 'store' in 'order clause'
+
+2014-02-23 18:55:27
+SQL:
+select id from bf_soft_cate order by store limit 0,20
+message:
+Unknown column 'store' in 'order clause'
+
+2014-02-23 18:55:27
+SQL:
+select id from bf_soft_cate order by store limit 0,20
+message:
+Unknown column 'store' in 'order clause'
+
+2014-02-23 19:21:33
+SQL:
+update bf_store set `sort`='' where id=''
+message:
+Unknown column 'sort' in 'field list'
+

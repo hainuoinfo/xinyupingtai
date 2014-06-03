@@ -1,0 +1,54 @@
+2012-12-06 03:13:42
+SQL:
+update bf_members set `groupid`='5',`expressId`='0',`forbidden`='0',`password`='1234',`opt_password`='12345',`sex`='1',`qq`='54323534',`email`='543454@tre.kjh',`mobilephone`='13565434554',`address`='',`status`='0' where id='52'
+message:
+Unknown column 'opt_password' in 'field list'
+
+2012-12-06 03:21:13
+SQL:
+update bf_members set `groupid`='5',`expressId`='0',`forbidden`='0',`password`='',`opt_password`='222222' where id='52'
+message:
+Unknown column 'opt_password' in 'field list'
+
+2012-12-06 03:27:14
+SQL:
+update bf_members set `groupid`='3',`expressId`='0',`forbidden`='0',`password`='123',`opt_password`='1234' where id='3'
+message:
+Unknown column 'opt_password' in 'field list'
+
+2012-12-06 05:39:10
+SQL:
+update bf_members set `groupid`='5',`expressId`='0',`forbidden`='0',`password`='',`qq`='111111111',`email`='21111112@tre.kjh',`mobilephone`='12222222222',`opt_password`='' where id='52'
+message:
+Unknown column 'opt_password' in 'field list'
+
+2012-12-06 05:39:31
+SQL:
+update bf_members set `groupid`='5',`expressId`='0',`forbidden`='0',`password`='',`qq`='54323534',`email`='543454@tre.kjh',`mobilephone`='13565434554',`opt_password`='' where id='52'
+message:
+Unknown column 'opt_password' in 'field list'
+
+2012-12-06 05:43:44
+SQL:
+update bf_members set `groupid`='5',`expressId`='0',`forbidden`='0',`password`='',`opt_password`='',`qq`='54323534',`email`='543454@tre.kjh',`mobilephone`='13565434554',`address`='111111111' where id='52'
+message:
+Unknown column 'opt_password' in 'field list'
+
+2012-12-06 05:58:30
+SQL:
+update bf_members set `groupid`='5',`expressId`='0',`forbidden`='0',`password`='',`qq`='54323534',`email`='543454@tre.kjh',`mobilephone`='13565434554',`opt_password`='' where id='52'
+message:
+Unknown column 'opt_password' in 'field list'
+
+2012-12-06 05:58:49
+SQL:
+update bf_members set `groupid`='5',`expressId`='0',`forbidden`='0',`password`='',`qq`='54323534',`email`='543454@tre.kjh',`mobilephone`='13565434554',`opt_password`='' where id='52'
+message:
+Unknown column 'opt_password' in 'field list'
+
+2012-12-06 05:59:36
+SQL:
+update bf_members set `groupid`='5',`expressId`='0',`forbidden`='0',`password`='',`qq`='54323534',`email`='543454@tre.kjh',`mobilephone`='13565434554',`opt_password`='' where id='52'
+message:
+Unknown column 'opt_password' in 'field list'
+

@@ -1,0 +1,60 @@
+2014-03-26 11:03:16
+SQL:
+select id from bf_task where type='1' and uid='54' and id='20140310090541493784' limit 0,20
+message:
+Unknown column 'uid' in 'where clause'
+
+2014-03-26 11:11:56
+SQL:
+select isReal from bf_task where id='20140228141533298620 limit 1
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''20140228141533298620 limit 1' at line 1
+
+2014-03-26 11:12:55
+SQL:
+select * from bf_task where id='20140228141533298620 limit 1
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''20140228141533298620 limit 1' at line 1
+
+2014-03-26 12:36:23
+SQL:
+select count(*) from bf_buyers where type='1' and uid='90' and isreal='1' where status !='7'
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where status !='7'' at line 1
+
+2014-03-26 12:36:51
+SQL:
+select count(*) from bf_buyers where type='1' and uid='90' and isreal='1' where status <'7'
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where status <'7'' at line 1
+
+2014-03-26 12:36:52
+SQL:
+select count(*) from bf_buyers where type='1' and uid='90' and isreal='1' where status <'7'
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where status <'7'' at line 1
+
+2014-03-26 12:36:53
+SQL:
+select count(*) from bf_buyers where type='1' and uid='90' and isreal='1' where status <'7'
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where status <'7'' at line 1
+
+2014-03-26 12:36:53
+SQL:
+select count(*) from bf_buyers where type='1' and uid='90' and isreal='1' where status <'7'
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where status <'7'' at line 1
+
+2014-03-26 12:37:20
+SQL:
+select count(*) from bf_buyers where type='1' and uid='90' and isreal='1' where status <='6'
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where status <='6'' at line 1
+
+2014-03-26 12:37:24
+SQL:
+select count(*) from bf_buyers where type='1' and uid='90' and isreal='1' where status <='6'
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where status <='6'' at line 1
+

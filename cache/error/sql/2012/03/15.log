@@ -1,0 +1,12 @@
+2012-03-15 01:47:01
+SQL:
+select count(*) from bf_cms_tyro
+message:
+Table 'my.bf_cms_tyro' doesn't exist
+
+2012-03-15 01:49:03
+SQL:
+select count(*) from bf_cms_tyro_task
+message:
+Table 'my.bf_cms_tyro_task' doesn't exist
+

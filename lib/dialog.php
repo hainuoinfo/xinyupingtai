@@ -152,8 +152,6 @@ switch ($operation) {
 	break;
 	case 'viewmsg':
 		if (!$member['checkPwd2']) {
-			if($id)
-				$baseUrl2.="&id=".$id;
 			common::setmsg('对不起，您尚未输入操作码');
 			common::goto_url('/dialog/pwd2/?referer='.$baseUrl2);
 		}
@@ -169,8 +167,6 @@ switch ($operation) {
 				$rs = member_base::checkPwd2($member['id'], $_POST['password2']);
 			}
 			if ($rs === true) {
-				if($id)
-					$referer.="?id=".$id;
 				common::goto_url($referer, true);
 			} else {
 				$indexMessage = language::get($rs);
@@ -456,10 +452,10 @@ switch ($operation) {
 							if ($task['isReal']) {
 								if ($task['realname'] == 1) {
 									//普通的
-									if (!$v['isreal']) $v['disabled'] = true;
+									if (!$v['utype']) $v['disabled'] = true;
 								} else {
 									//掌柜的
-									if (!$v['isreal'] || !$v['hasShop']) $v['disabled'] = true;
+									if (!$v['utype'] || !$v['hasShop']) $v['disabled'] = true;
 								}
 								
 							}
@@ -889,7 +885,7 @@ switch ($operation) {
 		if ($isVip) {
 			if ($uid && $id && db::exists('task', array('suid' => $uid, 'bid' => $id))) {
 				$buyer = task_buyer::getFull($id);
-				if ($buyer['isreal'] & 1) {
+				if ($buyer['utype'] & 1) {
 					showmessage('对不起，该接手买号为卖家掌柜号，暂不能查看其买家信誉数据');
 				}
 			} else showmessage('对不起，您不能查看该小号信息！');

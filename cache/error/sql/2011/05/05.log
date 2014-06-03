@@ -1,0 +1,18 @@
+2011-05-05 19:48:00
+SQL:
+select * from bf_self:: where pid='0' order sort
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':: where pid='0' order sort' at line 1
+
+2011-05-05 19:51:42
+SQL:
+select * from bf_b_navs where pid='0' order sort
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sort' at line 1
+
+2011-05-05 19:52:06
+SQL:
+select * from bf_b_navs where pid='0' order `sort`
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`sort`' at line 1
+

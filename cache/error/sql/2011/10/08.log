@@ -1,0 +1,32 @@
+2011-10-08 16:46:30
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`isStar`,`lvlStar`,`isEnsure`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`freeTask`,`visitWay`,`visitKey`,`visitTip`,`isPriceFit`,`isRemark`,`isShare`,`isLimit`,`isVerify`,`isReal`,`isChat`,`isChatDone`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isPlan`,`status`,`sip`) values('20111008164630932253','4','3','1','abc123','974781038','SK03303韩版长款圆领2011新品I没货不做了','86','1318063590','3.3','ljazxxybbx','http://item.taobao.com/item.htm?id=974781038','100','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','1','4','1','0.3','100','30','90','3','90','0','0','0','','','0','0','0','0','0','0','0','0','0','0','0','0','0','0','1','2130706433')
+message:
+Unknown column 'isEnsure' in 'field list'
+
+2011-10-08 21:47:20
+SQL:
+update bf_members set isEnsure='1',ensureMoney=ensureMoney+'300',ensureFirstTime='1318081640',ensureLastTime='1318081640' where uid='3'
+message:
+Unknown column 'uid' in 'where clause'
+
+2011-10-08 22:27:58
+SQL:
+SELECT t0.*,t1.username,t2.vip,t3.vip2 FROM PREensure_log AS t0 LEFT JOIN PREmembers AS t1 ON t1.id=t0.uid LEFT JOIN PREmemberfields AS t2 ON t2.uid=t1.uid ORDER BY t0.timestamp desc LIMIT 10
+message:
+Table 'my.preensure_log' doesn't exist
+
+2011-10-08 22:31:28
+SQL:
+SELECT t0.*,t1.username,t2.vip,t3.vip2 FROM bf_ensure_log AS t0 LEFT JOIN bf_members AS t1 ON t1.id=t0.uid LEFT JOIN bf_memberfields AS t2 ON t2.uid=t1.uid ORDER BY t0.timestamp desc LIMIT 10
+message:
+Unknown column 't3.vip2' in 'field list'
+
+2011-10-08 22:33:03
+SQL:
+SELECT t0.*,t1.username,t2.vip,t2.vip2 FROM bf_ensure_log AS t0 LEFT JOIN bf_members AS t1 ON t1.id=t0.uid LEFT JOIN bf_memberfields AS t2 ON t2.uid=t1.uid ORDER BY t0.timestamp desc LIMIT 10
+message:
+Unknown column 't1.uid' in 'on clause'
+

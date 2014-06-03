@@ -1,0 +1,6 @@
+2014-03-06 13:55:20
+SQL:
+update bf_memberfields set fabudian=fabudian+ where uid='74'
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where uid='74'' at line 1
+

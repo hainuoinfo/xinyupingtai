@@ -1,0 +1,100 @@
+2013-10-17 16:15:06
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`stimestamp`,`nickname`,`itemurl`,`price`,`isPriceFit`,`pointExt`,`times`,`scores`,`isRemark`,`remark`,`isShare`,`share`,`isVerify`,`issphb`,`isDbssc`,`isLimit`,`limit`,`isCart`,`isAddress`,`isExpress`,`expressTM`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`lvlStar`,`isEnsure`,`ensurePoint`,`isScore`,`scoreLvl`,`isCredit`,`creditLvl`,`isGood`,`goodLvl`,`isBlack`,`blackLvl`,`isFame`,`fameLvl`,`isPlan`,`isLimitAddress`,`limitAddress`,`address`,`isBuyerHyper`,`buyerHyper`,`planDate`,`shopPrice`,`point`,`status`,`sip`,`title`,`itemid`) values('20131017161506008461','1','56','0','36','mazhangjuan','1381997705','mm','http://item.taobao.com/item.htm?id=17360417398&ali_trackid=2:mm_15200066_3415524_11034483:1381997657_3k2_301041888&spm=a230z.1.5634029.9.SQaBfX','31','0','','1','0','0','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字','0','1','0','0','0','0','1','0','0','0','0','0','1','0','0','0','3','0','0.5','0','100','0','30','0','90','0','3','0','90','1','0','','','0','41','1381997705','116.00','1','0','2025908065','新品包邮2013秋装圆领韩版女装打底衫毛衣女外套针织衫女长袖炫丽','17360417398')
+message:
+Unknown column 'issphb' in 'field list'
+
+2013-10-17 16:20:03
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`stimestamp`,`nickname`,`itemurl`,`price`,`isPriceFit`,`pointExt`,`times`,`scores`,`isRemark`,`remark`,`isShare`,`share`,`tips`,`isVerify`,`issphb`,`isDbssc`,`isLimit`,`limit`,`isCart`,`isAddress`,`isExpress`,`expressTM`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`lvlStar`,`isEnsure`,`ensurePoint`,`isScore`,`scoreLvl`,`isCredit`,`creditLvl`,`isGood`,`goodLvl`,`isBlack`,`blackLvl`,`isFame`,`fameLvl`,`isPlan`,`planDate`,`isLimitAddress`,`limitAddress`,`address`,`isBuyerHyper`,`buyerHyper`,`shopPrice`,`point`,`status`,`sip`,`title`,`itemid`) values('20131017162003910148','1','56','0','37','mazhangjuan','1381998003','yyyyy','http://item.taobao.com/item.htm?id=17360417398&ali_trackid=2:mm_15200066_3415524_11034483:1381997657_3k2_301041888&spm=a230z.1.5634029.9.SQaBfX','27','0','','4','5','0','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','0','1','','0','0','0','0','2','0','0','0','1','0','1','0','0','0','3','0','0.5','0','100','0','30','0','90','0','3','0','90','1','1381998003','0','','','0','41','116.00','3.8','0','2025908065','新品包邮2013秋装圆领韩版女装打底衫毛衣女外套针织衫女长袖炫丽','17360417398')
+message:
+Unknown column 'issphb' in 'field list'
+
+2013-10-17 16:20:11
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`stimestamp`,`nickname`,`itemurl`,`price`,`isPriceFit`,`pointExt`,`times`,`scores`,`isRemark`,`remark`,`isShare`,`share`,`tips`,`isVerify`,`issphb`,`isDbssc`,`isLimit`,`limit`,`isCart`,`isAddress`,`isExpress`,`expressTM`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`lvlStar`,`isEnsure`,`ensurePoint`,`isScore`,`scoreLvl`,`isCredit`,`creditLvl`,`isGood`,`goodLvl`,`isBlack`,`blackLvl`,`isFame`,`fameLvl`,`isPlan`,`planDate`,`isLimitAddress`,`limitAddress`,`address`,`isBuyerHyper`,`buyerHyper`,`shopPrice`,`point`,`status`,`sip`,`title`,`itemid`) values('20131017162011866644','1','56','0','37','mazhangjuan','1381998011','yyyyy','http://item.taobao.com/item.htm?id=17360417398&ali_trackid=2:mm_15200066_3415524_11034483:1381997657_3k2_301041888&spm=a230z.1.5634029.9.SQaBfX','27','0','','4','5','0','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','0','1','','0','0','0','0','2','0','0','0','1','0','1','0','0','0','3','0','0.5','0','100','0','30','0','90','0','3','0','90','1','1381998011','0','','','0','41','116.00','3.8','0','2025908065','新品包邮2013秋装圆领韩版女装打底衫毛衣女外套针织衫女长袖炫丽','17360417398')
+message:
+Unknown column 'issphb' in 'field list'
+
+2013-10-17 16:20:41
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`stimestamp`,`nickname`,`itemurl`,`price`,`isPriceFit`,`pointExt`,`times`,`scores`,`isRemark`,`remark`,`isShare`,`share`,`tips`,`isVerify`,`issphb`,`isDbssc`,`isLimit`,`limit`,`isCart`,`isAddress`,`isExpress`,`expressTM`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`lvlStar`,`isEnsure`,`ensurePoint`,`isScore`,`scoreLvl`,`isCredit`,`creditLvl`,`isGood`,`goodLvl`,`isBlack`,`blackLvl`,`isFame`,`fameLvl`,`isPlan`,`planDate`,`isLimitAddress`,`limitAddress`,`address`,`isBuyerHyper`,`buyerHyper`,`shopPrice`,`point`,`status`,`sip`,`title`,`itemid`) values('20131017162041202140','1','56','0','37','mazhangjuan','1381998040','yyyyy','http://item.taobao.com/item.htm?id=17360417398&ali_trackid=2:mm_15200066_3415524_11034483:1381997657_3k2_301041888&spm=a230z.1.5634029.9.SQaBfX','27','0','','4','5','0','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','0','1','','0','0','0','0','2','0','0','0','1','0','1','0','0','0','3','0','0.5','0','100','0','30','0','90','0','3','0','90','1','1381998040','0','','','0','41','116.00','3.8','0','2025908065','新品包邮2013秋装圆领韩版女装打底衫毛衣女外套针织衫女长袖炫丽','17360417398')
+message:
+Unknown column 'issphb' in 'field list'
+
+2013-10-17 16:25:04
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`stimestamp`,`nickname`,`itemurl`,`price`,`isPriceFit`,`pointExt`,`times`,`scores`,`isRemark`,`remark`,`isShare`,`share`,`tips`,`isVerify`,`issphb`,`isDbssc`,`isLimit`,`limit`,`isCart`,`isAddress`,`isExpress`,`expressTM`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`lvlStar`,`isEnsure`,`ensurePoint`,`isScore`,`scoreLvl`,`isCredit`,`creditLvl`,`isGood`,`goodLvl`,`isBlack`,`blackLvl`,`isFame`,`fameLvl`,`isPlan`,`planDate`,`isLimitAddress`,`limitAddress`,`address`,`isBuyerHyper`,`buyerHyper`,`shopPrice`,`point`,`status`,`sip`,`title`,`itemid`) values('20131017162504477862','1','56','0','37','mazhangjuan','1381998303','yyyyy','http://item.taobao.com/item.htm?id=17360417398&ali_trackid=2:mm_15200066_3415524_11034483:1381997657_3k2_301041888&spm=a230z.1.5634029.9.SQaBfX','27','0','','4','5','0','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','0','1','','0','0','0','0','2','0','0','0','1','0','1','0','0','0','3','0','0.5','0','100','0','30','0','90','0','3','0','90','1','1381998303','0','','','0','41','116.00','3.8','0','2025908065','新品包邮2013秋装圆领韩版女装打底衫毛衣女外套针织衫女长袖炫丽','17360417398')
+message:
+Unknown column 'issphb' in 'field list'
+
+2013-10-17 16:32:53
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`stimestamp`,`nickname`,`itemurl`,`price`,`isPriceFit`,`pointExt`,`times`,`scores`,`isRemark`,`remark`,`isShare`,`share`,`tips`,`isVerify`,`issphb`,`isDbssc`,`isLimit`,`limit`,`isCart`,`isAddress`,`isExpress`,`expressTM`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`lvlStar`,`isEnsure`,`ensurePoint`,`isScore`,`scoreLvl`,`isCredit`,`creditLvl`,`isGood`,`goodLvl`,`isBlack`,`blackLvl`,`isFame`,`fameLvl`,`isPlan`,`planDate`,`isLimitAddress`,`limitAddress`,`address`,`isBuyerHyper`,`buyerHyper`,`shopPrice`,`point`,`status`,`sip`,`title`,`itemid`) values('20131017163253168209','1','56','0','36','mazhangjuan','1381998772','mm','http://item.taobao.com/item.htm?id=17360417398&ali_trackid=2:mm_15200066_3415524_11034483:1381997657_3k2_301041888&spm=a230z.1.5634029.9.SQaBfX','11','0','','1','5','0','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','0','1','','0','0','0','0','2','0','0','0','1','0','1','0','0','0','3','0','0.5','0','100','0','30','0','90','0','3','0','90','1','1381998772','0','','','0','41','116.00','1','0','2025908065','新品包邮2013秋装圆领韩版女装打底衫毛衣女外套针织衫女长袖炫丽','17360417398')
+message:
+Unknown column 'issphb' in 'field list'
+
+2013-10-17 17:01:10
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`stimestamp`,`nickname`,`itemurl`,`price`,`isPriceFit`,`pointExt`,`times`,`scores`,`isRemark`,`remark`,`isShare`,`share`,`isVerify`,`issphb`,`isDbssc`,`isLimit`,`limit`,`isCart`,`isAddress`,`isExpress`,`expressTM`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`lvlStar`,`isEnsure`,`ensurePoint`,`isScore`,`scoreLvl`,`isCredit`,`creditLvl`,`isGood`,`goodLvl`,`isBlack`,`blackLvl`,`isFame`,`fameLvl`,`isPlan`,`isLimitAddress`,`limitAddress`,`address`,`isBuyerHyper`,`buyerHyper`,`planDate`,`shopPrice`,`point`,`status`,`sip`,`title`,`itemid`) values('20131017170110916866','1','56','0','37','mazhangjuan','1382000470','yyyyy','http://item.taobao.com/item.htm?id=17360417398&ali_trackid=2:mm_15200066_3415524_11034483:1381997657_3k2_301041888&spm=a230z.1.5634029.9.SQaBfX','23','0','','1','0','0','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字','0','1','0','0','0','0','1','0','0','0','0','0','1','0','0','0','3','0','0.5','0','100','0','30','0','90','0','3','0','90','1','0','','','0','41','1382000470','116.00','1','0','2025908065','新品包邮2013秋装圆领韩版女装打底衫毛衣女外套针织衫女长袖炫丽','17360417398')
+message:
+Unknown column 'issphb' in 'field list'
+
+2013-10-17 17:26:08
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`stimestamp`,`nickname`,`itemurl`,`price`,`isPriceFit`,`pointExt`,`times`,`scores`,`isRemark`,`remark`,`isShare`,`share`,`isVerify`,`issphb`,`isDbssc`,`isLimit`,`limit`,`isCart`,`isAddress`,`isExpress`,`expressTM`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`lvlStar`,`isEnsure`,`ensurePoint`,`isScore`,`scoreLvl`,`isCredit`,`creditLvl`,`isGood`,`goodLvl`,`isBlack`,`blackLvl`,`isFame`,`fameLvl`,`isPlan`,`isLimitAddress`,`limitAddress`,`address`,`isBuyerHyper`,`buyerHyper`,`planDate`,`shopPrice`,`point`,`status`,`sip`,`title`,`itemid`) values('20131017172608019123','1','56','0','37','mazhangjuan','1382001967','yyyyy','http://item.taobao.com/item.htm?id=17360417398&ali_trackid=2:mm_15200066_3415524_11034483:1381997657_3k2_301041888&spm=a230z.1.5634029.9.SQaBfX','12','0','','1','0','0','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字','0','1','0','0','0','0','1','0','0','0','0','0','1','0','0','0','3','0','0.5','0','100','0','30','0','90','0','3','0','90','1','0','','','0','41','1382001967','116.00','1','0','2025908065','新品包邮2013秋装圆领韩版女装打底衫毛衣女外套针织衫女长袖炫丽','17360417398')
+message:
+Unknown column 'issphb' in 'field list'
+
+2013-10-17 17:27:46
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`stimestamp`,`nickname`,`itemurl`,`price`,`isPriceFit`,`pointExt`,`times`,`scores`,`isRemark`,`remark`,`isShare`,`share`,`isVerify`,`issphb`,`isDbssc`,`isLimit`,`limit`,`isCart`,`isAddress`,`isExpress`,`expressTM`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`lvlStar`,`isEnsure`,`ensurePoint`,`isScore`,`scoreLvl`,`isCredit`,`creditLvl`,`isGood`,`goodLvl`,`isBlack`,`blackLvl`,`isFame`,`fameLvl`,`isPlan`,`isLimitAddress`,`limitAddress`,`address`,`isBuyerHyper`,`buyerHyper`,`planDate`,`shopPrice`,`point`,`status`,`sip`,`title`,`itemid`) values('20131017172746996384','1','56','0','37','mazhangjuan','1382002066','yyyyy','http://item.taobao.com/item.htm?id=17360417398&ali_trackid=2:mm_15200066_3415524_11034483:1381997657_3k2_301041888&spm=a230z.1.5634029.9.SQaBfX','12','0','','1','0','0','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字','0','1','0','0','0','0','1','0','0','0','0','0','1','0','0','0','3','0','0.5','0','100','0','30','0','90','0','3','0','90','1','0','','','0','41','1382002066','116.00','1','0','2025908065','新品包邮2013秋装圆领韩版女装打底衫毛衣女外套针织衫女长袖炫丽','17360417398')
+message:
+Unknown column 'issphb' in 'field list'
+
+2013-10-17 17:34:17
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`stimestamp`,`nickname`,`itemurl`,`price`,`isPriceFit`,`pointExt`,`times`,`scores`,`isRemark`,`remark`,`isShare`,`share`,`isVerify`,`issphb`,`isDbssc`,`isLimit`,`limit`,`isCart`,`isAddress`,`isExpress`,`expressTM`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`lvlStar`,`isEnsure`,`ensurePoint`,`isScore`,`scoreLvl`,`isCredit`,`creditLvl`,`isGood`,`goodLvl`,`isBlack`,`blackLvl`,`isFame`,`fameLvl`,`isPlan`,`isLimitAddress`,`limitAddress`,`address`,`isBuyerHyper`,`buyerHyper`,`planDate`,`shopPrice`,`point`,`status`,`sip`,`title`,`itemid`) values('20131017173417697580','1','56','0','37','mazhangjuan','1382002457','yyyyy','http://item.taobao.com/item.htm?id=17360417398&ali_trackid=2:mm_15200066_3415524_11034483:1381997657_3k2_301041888&spm=a230z.1.5634029.9.SQaBfX','12','0','','1','0','0','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字','0','1','0','0','0','0','1','0','0','0','0','0','1','0','0','0','3','0','0.5','0','100','0','30','0','90','0','3','0','90','1','0','','','0','41','1382002457','116.00','1','0','2025908065','新品包邮2013秋装圆领韩版女装打底衫毛衣女外套针织衫女长袖炫丽','17360417398')
+message:
+Unknown column 'issphb' in 'field list'
+
+2013-10-17 17:34:34
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`stimestamp`,`nickname`,`itemurl`,`price`,`isPriceFit`,`pointExt`,`times`,`scores`,`isRemark`,`remark`,`isShare`,`share`,`isVerify`,`issphb`,`isDbssc`,`isLimit`,`limit`,`isCart`,`isAddress`,`isExpress`,`expressTM`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`lvlStar`,`isEnsure`,`ensurePoint`,`isScore`,`scoreLvl`,`isCredit`,`creditLvl`,`isGood`,`goodLvl`,`isBlack`,`blackLvl`,`isFame`,`fameLvl`,`isPlan`,`isLimitAddress`,`limitAddress`,`address`,`isBuyerHyper`,`buyerHyper`,`planDate`,`shopPrice`,`point`,`status`,`sip`,`title`,`itemid`) values('20131017173434626991','1','56','0','37','mazhangjuan','1382002474','yyyyy','http://item.taobao.com/item.htm?id=17360417398&ali_trackid=2:mm_15200066_3415524_11034483:1381997657_3k2_301041888&spm=a230z.1.5634029.9.SQaBfX','12','0','','1','0','0','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字','0','1','0','0','0','0','1','0','0','0','0','0','1','0','0','0','3','0','0.5','0','100','0','30','0','90','0','3','0','90','1','0','','','0','41','1382002474','116.00','1','0','2025908065','新品包邮2013秋装圆领韩版女装打底衫毛衣女外套针织衫女长袖炫丽','17360417398')
+message:
+Unknown column 'issphb' in 'field list'
+
+2013-10-17 17:35:44
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`stimestamp`,`nickname`,`itemurl`,`price`,`isPriceFit`,`pointExt`,`times`,`scores`,`isRemark`,`remark`,`isShare`,`share`,`isVerify`,`issphb`,`isDbssc`,`isLimit`,`limit`,`isCart`,`isAddress`,`isExpress`,`expressTM`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`lvlStar`,`isEnsure`,`ensurePoint`,`isScore`,`scoreLvl`,`isCredit`,`creditLvl`,`isGood`,`goodLvl`,`isBlack`,`blackLvl`,`isFame`,`fameLvl`,`isPlan`,`isLimitAddress`,`limitAddress`,`address`,`isBuyerHyper`,`buyerHyper`,`planDate`,`shopPrice`,`point`,`status`,`sip`,`title`,`itemid`) values('20131017173544716277','1','56','0','37','mazhangjuan','1382002544','yyyyy','http://item.taobao.com/item.htm?id=17360417398&ali_trackid=2:mm_15200066_3415524_11034483:1381997657_3k2_301041888&spm=a230z.1.5634029.9.SQaBfX','12','0','','1','0','0','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字','0','1','0','0','0','0','1','0','0','0','0','0','1','0','0','0','3','0','0.5','0','100','0','30','0','90','0','3','0','90','1','0','','','0','41','1382002544','116.00','1','0','2025908065','新品包邮2013秋装圆领韩版女装打底衫毛衣女外套针织衫女长袖炫丽','17360417398')
+message:
+Unknown column 'issphb' in 'field list'
+
+2013-10-17 17:36:01
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`stimestamp`,`nickname`,`itemurl`,`price`,`isPriceFit`,`pointExt`,`times`,`scores`,`isRemark`,`remark`,`isShare`,`share`,`isVerify`,`issphb`,`isDbssc`,`isLimit`,`limit`,`isCart`,`isAddress`,`isExpress`,`expressTM`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`lvlStar`,`isEnsure`,`ensurePoint`,`isScore`,`scoreLvl`,`isCredit`,`creditLvl`,`isGood`,`goodLvl`,`isBlack`,`blackLvl`,`isFame`,`fameLvl`,`isPlan`,`isLimitAddress`,`limitAddress`,`address`,`isBuyerHyper`,`buyerHyper`,`planDate`,`shopPrice`,`point`,`status`,`sip`,`title`,`itemid`) values('20131017173601071361','1','56','0','37','mazhangjuan','1382002560','yyyyy','http://item.taobao.com/item.htm?id=17360417398&ali_trackid=2:mm_15200066_3415524_11034483:1381997657_3k2_301041888&spm=a230z.1.5634029.9.SQaBfX','12','0','','1','0','0','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字','0','1','0','0','0','0','1','0','0','0','0','0','1','0','0','0','3','0','0.5','0','100','0','30','0','90','0','3','0','90','1','0','','','0','41','1382002560','116.00','1','0','2025908065','新品包邮2013秋装圆领韩版女装打底衫毛衣女外套针织衫女长袖炫丽','17360417398')
+message:
+Unknown column 'issphb' in 'field list'
+
+2013-10-17 17:37:50
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`stimestamp`,`nickname`,`itemurl`,`price`,`isPriceFit`,`pointExt`,`times`,`scores`,`isRemark`,`remark`,`isShare`,`share`,`isVerify`,`issphb`,`isDbssc`,`isLimit`,`limit`,`isCart`,`isAddress`,`isExpress`,`expressTM`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`lvlStar`,`isEnsure`,`ensurePoint`,`isScore`,`scoreLvl`,`isCredit`,`creditLvl`,`isGood`,`goodLvl`,`isBlack`,`blackLvl`,`isFame`,`fameLvl`,`isPlan`,`isLimitAddress`,`limitAddress`,`address`,`isBuyerHyper`,`buyerHyper`,`planDate`,`shopPrice`,`point`,`status`,`sip`,`title`,`itemid`) values('20131017173750316195','1','56','0','37','mazhangjuan','1382002669','yyyyy','http://item.taobao.com/item.htm?id=17360417398&ali_trackid=2:mm_15200066_3415524_11034483:1381997657_3k2_301041888&spm=a230z.1.5634029.9.SQaBfX','12','0','','1','0','0','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字','0','1','0','0','0','0','1','0','0','0','0','0','1','0','0','0','3','0','0.5','0','100','0','30','0','90','0','3','0','90','1','0','','','0','41','1382002669','116.00','1','0','2025908065','新品包邮2013秋装圆领韩版女装打底衫毛衣女外套针织衫女长袖炫丽','17360417398')
+message:
+Unknown column 'issphb' in 'field list'
+
+2013-10-17 20:19:46
+SQL:
+select * from bf_payment where uid='3' order by ptimestamp1 desc limit 0,20
+message:
+Unknown column 'ptimestamp1' in 'order clause'
+

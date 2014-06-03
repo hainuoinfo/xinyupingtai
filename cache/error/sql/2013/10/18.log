@@ -1,0 +1,12 @@
+2013-10-18 14:38:12
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`stimestamp`,`nickname`,`itemurl`,`price`,`isPriceFit`,`pointExt`,`times`,`scores`,`isRemark`,`remark`,`isShare`,`share`,`isVerify`,`issphb`,`isDbssc`,`isLimit`,`limit`,`isCart`,`isAddress`,`isExpress`,`expressTM`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`lvlStar`,`isEnsure`,`ensurePoint`,`isScore`,`scoreLvl`,`isCredit`,`creditLvl`,`isGood`,`goodLvl`,`isBlack`,`blackLvl`,`isFame`,`fameLvl`,`isPlan`,`isLimitAddress`,`limitAddress`,`address`,`isBuyerHyper`,`buyerHyper`,`planDate`,`shopPrice`,`point`,`status`,`sip`,`title`,`itemid`) values('20131018143812842074','1','56','0','37','mazhangjuan','1382078292','yyyyy','http://item.taobao.com/item.htm?id=21961639850&ali_trackid=2:mm_15200066_3415524_11034483:1382078252_6k2_591332434&spm=a230z.1.5634029.30.TFpAwY','1','0','','1','0','0','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字','0','1','0','0','0','0','1','0','0','0','0','0','1','0','0','0','3','0','0.5','0','100','0','30','0','90','0','3','0','90','1','0','','','0','41','1382078292','395.00','1','0','2025908072','2013冬季新品牛皮真皮女鞋时尚粗跟高跟短靴女靴子马丁靴女636','21961639850')
+message:
+Unknown column 'issphb' in 'field list'
+
+2013-10-18 15:30:27
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`stimestamp`,`nickname`,`itemurl`,`price`,`isPriceFit`,`pointExt`,`times`,`scores`,`isRemark`,`remark`,`isShare`,`share`,`isVerify`,`issphb`,`isDbssc`,`isLimit`,`limit`,`isCart`,`isAddress`,`isExpress`,`expressTM`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`lvlStar`,`isEnsure`,`ensurePoint`,`isScore`,`scoreLvl`,`isCredit`,`creditLvl`,`isGood`,`goodLvl`,`isBlack`,`blackLvl`,`isFame`,`fameLvl`,`isPlan`,`isLimitAddress`,`limitAddress`,`address`,`isBuyerHyper`,`buyerHyper`,`planDate`,`shopPrice`,`point`,`status`,`sip`,`title`,`itemid`) values('20131018153027000253','1','56','0','37','mazhangjuan','1382081426','yyyyy','http://item.taobao.com/item.htm?id=22252271904&ali_trackid=2:mm_15200066_3415524_11034483,0:1382081342_6k2_1467062882&spm=a230z.1.5634029.425.k505yC','12','1','','1','0','0','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字','0','1','0','0','0','0','1','0','0','0','0','0','1','0','0','0','3','1','0.5','0','100','0','30','0','90','0','3','0','90','1','0','','','0','41','1382081426','656.00','1.5','0','2025908072','秋冬粗跟白色骑士靴子 高跟裸靴真皮绒里短靴女 金属圆头双C单靴','22252271904')
+message:
+Unknown column 'issphb' in 'field list'
+

@@ -1,0 +1,1 @@
+<?php $rewrite_list=array(0=>array("source"=>"\/article(?P<a>.+?)(?P<b>.+?)\.html","destination"=>"/article.php","args"=>array(0=>"a",1=>"b",2=>array("name"=>"c","value"=>"1"),3=>array("name"=>"d","value"=>"2"))));?>

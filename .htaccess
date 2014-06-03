@@ -7,7 +7,7 @@
   RewriteCond %{REQUEST_FILENAME} !-f
   #RewriteCond %{REQUEST_URI} !-f
 #RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
-RewriteRule ^(?!\/rewrite\.php)([^?]+?)(?:\?(.*))?$ /rewrite.php\?rewrite=$1 [QSA,PT,L]
+RewriteRule ^(?!\/rewrite\.php)([^?]+?)(?:\?(.*))?$ /rewrite.php\?rewrite=$1&%1 [QSA,PT,L]
 #RewriteRule ^/member/reg/$  /index.php?action=member&operation=reg [QSA]
 #RewriteRule ^/(member)/(?:(\w+)/)?(.*)$  /index.php?action=member&operation=reg [L]
 

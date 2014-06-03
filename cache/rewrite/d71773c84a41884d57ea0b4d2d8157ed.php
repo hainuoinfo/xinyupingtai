@@ -1,0 +1,1 @@
+<?php $format_url='\'_'.$parameters['host'].'_'.$parameters['path'].'_\'';?>

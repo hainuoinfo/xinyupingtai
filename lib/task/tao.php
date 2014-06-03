@@ -16,7 +16,6 @@ if ($memberFields['credits'] < $minCredit) {
 	$taskStatus = false;
 }
 $thisUrl = $baseUrl0.'?m='.$m;
-
 $lang = array(
 	/*'status'     => array('暂停中', '已发布，等待接手人接手', '已接手，等待接手人绑定买号', '等待发布方审核', '已绑定买号，等待接手方支付', '已支付，等待发布人发货', '已发货，等待收货与好评', '已确认，等待卖家确认', '交易完成'),*/
  	'status'     => array(
@@ -755,7 +754,19 @@ switch ($m) {
 				array('isEnsure', 'int'),//是否商保
 				array('ispinimage', 'int'),
 				array('ensurePoint', 'float'),
-				array('isScore', 'int'), array('scoreLvl', 'int'), array('isCredit', 'int'), array('creditLvl', 'int'), array('isGood', 'int'), array('goodLvl', 'int'), array('isBlack', 'int'), array('blackLvl', 'int'), array('isFame', 'int'), array('fameLvl', 'int'), array('isPlan', 'int'),'photourl','planDate');
+				array('isScore', 'int'),
+				array('scoreLvl', 'int'),
+				array('isCredit', 'int'),
+				array('creditLvl', 'int'),
+				array('isGood', 'int'),
+				array('goodLvl', 'int'),
+				array('isBlack', 'int'),
+				array('blackLvl', 'int'),
+				array('isFame', 'int'),
+				array('fameLvl', 'int'),
+				array('isPlan', 'int'),
+				'photourl',
+				'planDate');
 			if ($isHot) $count = (int)$_POST['count'];
 			else $count = 1;
 			if ($rs === true) {
@@ -799,7 +810,6 @@ switch ($m) {
 		if (($tplId = (int)$tplId) && !$datas) {
 			$datas = db::one_one('task_tpl', 'datas', "type='1' and uid='$uid' and stype='3' and id='$tplId'");
 			$datas && $datas = unserialize($datas);
-		
 		}
 		$sellers = task_seller::getSellers($uid, 1);
 	break;
