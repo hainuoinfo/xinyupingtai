@@ -10,8 +10,8 @@ $title = $pName;
 $lanP = $lanP0.'tao_';
 $minCredit = 0;
 $taskStatus = true;
-$taskId = 1;
-if ($memberFields['credits'] < $minCredit) {
+$taskId = 1;//如同type=1一样 d都是淘宝区
+if( $memberFields['credits'] < $minCredit) {
 	language::get(array('name' => $lanP.'credit_less_than', 'args' => array('x' => $minCredit)));
 	$taskStatus = false;
 }
@@ -397,6 +397,7 @@ switch ($m) {
 			$rs = task_tao::verify($verify, $uid);
 			if ($rs === true) {
 				common::setMsg('审核成功');
+                var_dump($referer);exit;
 				common::goto_url($referer, true);
 			} else {
 				common::setMsg(language::get($rs), 'indexMessage');

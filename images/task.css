@@ -129,7 +129,7 @@ li.tab_ya strong{background-position:left -490px; color:#FFF;}
 
 .btn_gl {padding:4px; background:#8AC00C; color:#FFF; cursor:pointer;}
 
-.task_exp,.task_express,.task_24,.task_48,.task_72,.task_kill,.task_cart,.task_sure {margin-top:3px; background:url(task.gif) no-repeat; height:20px; width:20px; vertical-align:middle; font-size:1px; display:-moz-inline-box;display:inline-block; overflow:hidden;}
+.task_exp,.task_express,.task_24,.task_48,.task_72,.task_kill,.task_cart,.task_sure {margin-top:3px; background:url(../css/task/task.gif) no-repeat; height:20px; width:20px; vertical-align:middle; font-size:1px; display:-moz-inline-box;display:inline-block; overflow:hidden;}
 .task_exp {background-position:0 0px;}
 .task_express {background-position:0 -100px;}
 .task_24 {background-position:0 -50px;}

@@ -361,7 +361,7 @@ function checkForm3() {
 		</div>
 
 <div id="showtask" style="display:none;">
-<div style="height:350px;"><iframe name="contentframe" id="contentframe" src="tao_taskIn/a.htm" frameborder="0" height="350" width="540" scrolling="no"></iframe> </div>
+<div style="height:350px;"><iframe name="contentframe" id="contentframe" src="" frameborder="0" height="350" width="540" scrolling="no"></iframe> </div>
 </div>	
 			<!--结束-->
 </div>
@@ -470,6 +470,22 @@ function ShowRemark(id,remark){
             }
         },function(){});
 }
+    function getTask(qs) {
+        //alert(qs);
+        var url = '/ajax/getTaskinOut.php?type=1&au=8&m=taskIn&' + qs+"&t=$t";
+        $('#taskList').html('<div class=\'submiting clear\'>加载中.....</div>');
+        $.ajax({
+            type : 'GET',
+            url  : url,
+            success : function(html){
+                //alert(html);
+                $('#taskList').html(html);
+            },
+            error:function(){
+                $('#taskList').html('<p>&nbsp;</p><p>尊敬的会员，您遇到了一个未知的错误，请稍后重新点击。　　<a href="'+weburl2+'">返回主页</a></p>');
+            }
+        });
+    }
 </script>
 
 <script type="text/javascript" src="/images/task.js"></script>

@@ -26,7 +26,7 @@ function fleshTime(t) {
     if (t <0 ) t = 0;
     var id = "iidd_" + (_iidd++);
     var str = "<span class='f_b_red' id='" + id + "'>" + parseInt(t/60) + "分" + t%60 + "秒</span>";
-    document.write(str);
+    $('#iidd_1').html(str);
     var uptime = function() {
         t = t - 1;
         if (t <= 0) {

@@ -1,5 +1,0 @@
-{sub headerBase}
-{if $ad_memberHeadTop}<div class="bar_pro">$ad_memberHeadTop</div>{/if}
-<div class="nav">
-	<div class="nav_bar">{if $bbsNav}<strong>当前位置：</strong>{loop $bbsNav $k $v}{if $k>0} &raquo; {/if}{if is_array($v)}{if $v[url]}<a href="$v[url]" class="link_b_1">$v[name]</a>{else}$v[name]{/if}{else}$v{/if}{/loop}{/if}</div>
-</div>
