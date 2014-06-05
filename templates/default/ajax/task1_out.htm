@@ -132,7 +132,6 @@
         <!-- jifen_date -->
         <td colspan="9" class="yfrw_listxia" align="right" valign="middle">
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                <tbody>
                 <tr>
                     <td style="padding-left:20px; color:#3372A2;" align="left" width="40%">客服不会主动联系操作任务、平台没有充值活动谨防假冒</td>
                     <td align="right" width="50%">　
@@ -150,7 +149,6 @@
 				</span>
                     </td>
                 </tr>
-                </tbody>
             </table>
         </td>
     </tr>
@@ -166,7 +164,6 @@
     <tr>
         <td colspan="9" class="yf_ts2" align="right" valign="middle">
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                <tbody>
                 <tr>
                     <td style="padding-left:0px; color:#3372A2;"  align="left" width="85%">
                         <span class="yf_gdhp"></span>
@@ -179,15 +176,14 @@
 				</span>
                     </td>
                 </tr>
-                </tbody>
             </table>
         </td>
     </tr>
     {/if}
     {if $v[isAddress]}
+    <tr>
     <td colspan="9" class="yf_ts2" align="right" valign="middle">
         <table border="0" cellpadding="0" cellspacing="0" width="100%">
-            <tbody>
             <tr>
                 <td style="padding-left:0px; color:#3372A2;"  align="left" width="85%">
                     <span class="yf_gdsh"></span>
@@ -207,12 +203,9 @@
 				</span>
                 </td>
             </tr>
-            </tbody>
         </table>
-    </td>
+    </td></tr>
     {/if}
-    </tbody>
-    </table>
     {eval $allPrice += $v[price];}
     {eval $allPoint += $v[point];}
     {/loop}
