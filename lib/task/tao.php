@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 (!defined('IN_JB') || IN_JB!==true) && exit('error');
 $m || $m = 'index';
@@ -111,7 +111,17 @@ switch ($m) {
 				array('isEnsure', 'int'),//是否商保
 				array('ispinimage', 'int'),
 				array('ensurePoint', 'float'),
-				array('isScore', 'int'), array('scoreLvl', 'int'), array('isCredit', 'int'), array('creditLvl', 'int'), array('isGood', 'int'), array('goodLvl', 'int'), array('isBlack', 'int'), array('blackLvl', 'int'), array('isFame', 'int'), array('fameLvl', 'int'), array('isPlan', 'int'), 'planDate');
+				array('isScore', 'int'),
+                array('scoreLvl', 'int'),
+                array('isCredit', 'int'),
+                array('creditLvl', 'int'),
+                array('isGood', 'int'),
+                array('goodLvl', 'int'),
+                array('isBlack', 'int'),
+                array('blackLvl', 'int'),
+                array('isFame', 'int'),
+                array('fameLvl', 'int'),
+                array('isPlan', 'int'), 'planDate');
 			
 			if ($isHot) $count = (int)$_POST['count'];
 			else $count = 1;
@@ -397,7 +407,6 @@ switch ($m) {
 			$rs = task_tao::verify($verify, $uid);
 			if ($rs === true) {
 				common::setMsg('审核成功');
-                var_dump($referer);exit;
 				common::goto_url($referer, true);
 			} else {
 				common::setMsg(language::get($rs), 'indexMessage');

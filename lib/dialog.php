@@ -153,7 +153,7 @@ switch ($operation) {
 	case 'viewmsg':
 		if (!$member['checkPwd2']) {
 			common::setmsg('对不起，您尚未输入操作码');
-			common::goto_url('/dialog/pwd2/?referer='.$baseUrl2);
+			common::goto_url('/dialog/pwd2/?referer='.$baseUrl2."&id=".$id);
 		}
 		$item = msg::get($id);
 		if (!is_array($item)) {
@@ -167,7 +167,7 @@ switch ($operation) {
 				$rs = member_base::checkPwd2($member['id'], $_POST['password2']);
 			}
 			if ($rs === true) {
-				common::goto_url($referer, true);
+				common::goto_url($referer."&id=".$id, true);
 			} else {
 				$indexMessage = language::get($rs);
 				if ($rs == 'password2_expire') {
