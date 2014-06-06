@@ -1,4 +1,4 @@
-﻿var HTMLMixedParser = Editor.Parser = (function() {
+var HTMLMixedParser = Editor.Parser = (function() {
   if (!(CSSParser && JSParser && XMLParser))
     throw new Error("CSS, JS, and XML parsers must be loaded for HTML mixed mode to work.");
   XMLParser.configure({useHTMLKludges: true});

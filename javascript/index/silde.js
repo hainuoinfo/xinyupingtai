@@ -1,4 +1,4 @@
-﻿var slideMenu=function(){
+var slideMenu=function(){
 	var sp,st,t,m,sa,l,w,sw,ot;
 	return{
 		build:function(sm,sw,mt,s,sl,h){

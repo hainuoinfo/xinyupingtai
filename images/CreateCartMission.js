@@ -1,4 +1,4 @@
-﻿$(document).ready(function(){
+$(document).ready(function(){
 	$("#pointExt").blur(function(){
 			if (this.value<0){
 			this.value=0;

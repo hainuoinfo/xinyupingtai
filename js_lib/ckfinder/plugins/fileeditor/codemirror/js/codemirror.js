@@ -1,4 +1,4 @@
-﻿/* CodeMirror main module
+/* CodeMirror main module
  *
  * Implements the CodeMirror constructor and prototype, which take care
  * of initializing the editor frame, and providing the outside interface.

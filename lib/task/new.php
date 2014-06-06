@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 (!defined('IN_JB') || IN_JB!==true) && exit('error');
 $m || $m = 'index';
 $ms = array('index', 'add', 'adds', 'tieBuyer', 'tieSeller', 'taskOut', 'taskIn', 'tpl');

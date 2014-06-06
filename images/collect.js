@@ -1,4 +1,4 @@
-﻿    function function_set_adv(){
+    function function_set_adv(){
 		var set_adv=$('#set_adv').css('display');
 		var province = document.getElementsByName('province[]');
 		if(set_adv=='none'){

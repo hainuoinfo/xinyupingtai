@@ -1,4 +1,4 @@
-﻿var _iidd = 1;
+var _iidd = 1;
 function isIE() {
     var t = false;
     try {

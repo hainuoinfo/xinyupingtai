@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 class payfor_topup{
 	public static $status;
 	public static function payfor($uid, $money1, $type, $useMp = true, $datas = array()){
