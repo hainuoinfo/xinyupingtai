@@ -210,10 +210,10 @@ function checkForm3() {
             <span class="chengse"><strong>$lang[status][$v[status]]</strong></span>
 			{/if}
             </td>
-            
-            
+
+
         <td class="yf_pd2" style="padding:0px;" align="right" valign="top" width="240">
-		
+
 		<div style="height:30px; position:relative; top:5px;" id="$v[id]">
 		{if !$v[bid]}<a href="javascript:;" onclick="dialog(550,460,'绑定买号','{rewrite}/dialog/chooseBuyer/?sid=$v[id]');return false;" class="yf_buyer">绑定买号</a>
 		接手方剩余<script type="text/javascript">fleshTime({echo 180-$v[runTimestamp]})</script>钟可绑定买号
@@ -223,9 +223,9 @@ function checkForm3() {
 		<script type="text/javascript">IsOutTask($v[runTimestamp], "$v[id]");</script>
 		{elseif $v[status]==4}
 		{if $v[visitWay] && $v[isVisit]==0}
-		
+
 		<a href="javascript:;" onclick="dialog(650,450,'查看商品详情','{rewrite}/dialog/taskVisitWay/?sid=$v[id]');return false;" class="yf_ico2 float_r"></a>
-		{else} 
+		{else}
 		<a href="$thisUrl&pay=$v[id]" class="yf_payfor1 float_r" onclick="return IsPayTask('淘宝',$v[times])">已经支付</a>
 		<a style="margin-right:7px;" class="yf_ico3 float_r" onclick="return copyComment('$v[itemurl]')" href="javascript:;"></a>
 		{/if}
@@ -254,15 +254,15 @@ function checkForm3() {
 		<p style="clear:both; line-height:30px;height:30px;"></p>
 		{/if}
 			<p class="task-border">
-				联系对方：<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin={$v[qq]}&site=qq&menu=yes"> 
-<img border="0" src="http://wpa.qq.com/pa?p=2:{$v[qq]}:41" alt="联系我" title="联系我"> 
-</a><a href="javascript:;" onclick="dialog(460,460,'给卖家发送手机短信','/dialog/sendsms/?username={url $v[susername]}');return false;" title="给卖家发送手机短信" alt="给卖家发送手机短信" class="yf_sj"></a> | 
+				联系对方：<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin={$v[qq]}&site=qq&menu=yes">
+<img border="0" src="http://wpa.qq.com/pa?p=2:{$v[qq]}:41" alt="联系我" title="联系我">
+</a><a href="javascript:;" onclick="dialog(460,460,'给卖家发送手机短信','/dialog/sendsms/?username={url $v[susername]}');return false;" title="给卖家发送手机短信" alt="给卖家发送手机短信" class="yf_sj"></a> |
 				{if $v[isVerify] && $v[status]==2}<script type="text/javascript">IsOutTask($v[runTimestamp], "$v[id]");</script>{elseif $v[status]<5}<a href='$thisUrl&out=$v[id]' class='yf_wz' title="退出任务" onclick='return IsQuitTask();'>退出</a>{elseif $v[status]<9}<a title="发起申诉" onclick="dialog(950,550,'发起申诉','{rewrite}/dialog/complain/?sid=$v[id]');return false;" class="comlink" href="javascript:;">申诉</a>|{/if}<a href="javascript:;" style="background:url(/images/{if $v[b_memo]}memo.png{else}bz_no.png{/if}) no-repeat 8px; height:12px;top:2px;" onclick="ShowRemark('$v[id]','$v[b_memo]');" class="yf_bz"></a>
 		    </p>
             </td>
             <td width="15">&nbsp;</td>
           </tr>
-          
+
           <tr>
             <td colspan="9" class="yfrw_listxia" align="right" valign="middle">
 			<table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -302,7 +302,7 @@ function checkForm3() {
 				<span class="chengse strong"></span>
 				</td>
                 <td align="right" width="15%">　
-				
+
 				<span class="in_block"><a href="javascript:;" onclick="return copyComment('$v[remark]')" class="yf_fz1"></a>
 				</span>
 				</td>
@@ -330,7 +330,7 @@ function checkForm3() {
 <span class="yf_fzhp"></span>
 </td>
                 <td align="right" width="15%">　
-				
+
 				<span class="in_block"><a href="javascript:;" onclick="return copyComment('$v[cbxName],$v[cbxAddress],$v[cbxMobile],$v[cbxcode]')" class="yf_fz2"></a>
 				</span>
 				</td>
@@ -397,7 +397,7 @@ var thisUrl='/task/tao/?m=taskIn';
 <script language="javascript">
 	var qs='t=ing';
 	$(function(){
-	getTask(qs);
+	//getTask(qs);
 	//getTasknav();
 	$("#rebutton").click(function(){
 		$("#rebutton").hide();

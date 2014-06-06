@@ -70,9 +70,12 @@ function IsRejectTask(i) {
 
 function IsOutTask(t, id) {
     if (t >= 30) {
-        document.write("<a href='"+thisUrl+"&out=" + id + "' class='link_t' onclick='return IsQuitTask();'>退出任务</a>");
+        //document.write("<a href='"+thisUrl+"&out=" + id + "' class='link_t' onclick='return IsQuitTask();'>退出任务</a>");
+        $('#outTask').html("<a href='"+thisUrl+"&out=" + id + "' class='link_t' onclick='return IsQuitTask();'>退出任务</a>");
     } else {
-    document.write("<a href='"+thisUrl+"&out=" + id + "' class='link_t' id='out_" + id + "' onclick='alert(\"还需要" + (30 - t) + "秒可以退出\");return false;' disabled='disabled'>退出任务</a>");
+    //document.write("<a href='"+thisUrl+"&out=" + id + "' class='link_t' id='out_" + id + "' onclick='alert(\"还需要" + (30 - t) + "秒可以退出\");return false;' disabled='disabled'>退出任务</a>");
+        $('#outTask').html("<a href='"+thisUrl+"&out=" + id + "' class='link_t' id='out_" + id + "' onclick='alert(\"还需要" + (30 - t) + "秒可以退出\");return false;' disabled='disabled'>退出任务</a>");
+
         var obj;
         var uptime = function() {
             t = t + 1;

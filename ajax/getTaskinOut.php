@@ -41,6 +41,7 @@ if ($fromInstation && $au >= 8 && $type >= 1 && $type <= 4) {
 	$list = array();
     switch($m){
         case 'taskIn':
+            $tpl.="_in";
             switch ($t) {
                 case 'all':
                     $total = $memberTask['in1'];
@@ -60,7 +61,7 @@ if ($fromInstation && $au >= 8 && $type >= 1 && $type <= 4) {
                     break;
             }
             if ($total){
-                $list = task_tao::getList2($uid, $t);
+                $tList = task_tao::getList2($uid, $t);
                 $multipage = multi_page::parse($total, $pagesize, $page, $thisUrl.'&t='.$t.'&page={page}', $pageStyle, 10, 'member1');
             }
             break;
@@ -162,5 +163,6 @@ if ($fromInstation && $au >= 8 && $type >= 1 && $type <= 4) {
 } else {
 	$tpl = 'error';
 }
+
 include(template::load($tpl));
 ?>

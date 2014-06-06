@@ -1,0 +1,194 @@
+<table class="tlisttable" border="0" cellpadding="0" cellspacing="0" width="100%">
+    <thead>
+    <tr>
+        <td class="rwdt_bt1" height="39" align="center" valign="middle" width="10"></td>
+        <td class="rwdt_bt2" align="center" valign="middle" width="21%">任务编号</td>
+        <td class="rwdt_bt2" align="left" valign="middle" width="12%">发布人</td>
+        <td class="rwdt_bt2" align="left" valign="middle" width="12%">任务价格</td>
+        <td class="rwdt_bt2" align="center" valign="middle" width="23%">发布者要求</td>
+        <td class="rwdt_bt2" align="left" valign="middle" width="22%">悬赏麦点</td>
+        <td class="rwdt_bt2" align="center" valign="middle" width="10%">操作</td>
+        <td class="rwdt_bt3" align="center" valign="middle" width="10"></td>
+    </tr>
+    </thead>
+    <tbody class="tlisttable">
+    {eval $allPrice = 0;}
+    {eval $allPoint= 0;}
+    {loop $tList $v}
+    <tr>
+    <table class="yfrw_list" border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody>
+        <tr>
+            <td class="yf_pd2" width="180"><span {if $v[isCart]} class="rwdt_bh7" title="购物车任务—$v[shopCount]个商品" {elseif $v[isExpress]} class="task_express" title="真实快递任务—$v[shopCount]个商品" {elseif $v[visitWay]} class="rwdt_bh3" title="来路任务" {elseif $v[times]==0} class="rwdt_bh1" title="虚拟任务" {elseif $v[times]>=1} class="rwdt_bh2" title="实物任务" {/if}  >
+                <strong class="system1">$v[id]</strong></span><p class="cle"></p>
+                <span class="block">发布时间：{echo date('m-d H:i:s', $v[stimestamp])}</span><span class="rwdt_xbh0">发布方:<a class="comlink" title="接任务后方可查看到对方QQ号码" target="_blank" href="{rewrite}/member/info/?username={url $v[susername]}">$v[susername]</a></span></td>
+            <td class="yf_pd2" width="90"><span {if $v[isPriceFit]} class="rwdt_xgj" {else} class="rwdt_db" {/if}>$v[price]</span></td>
+            <td class="noktime" width="23%">
+                <p {if $v[times]==0}class="yred" {else} class="lvse" {/if}title="任务接手付款后，$lang[times][$v[times]]立即对宝贝进行收货好评！">$lang[times][$v[times]]</p>
+                {if $v[isVerify]}<em title="接任务者需要发布者核审" class="rwdt_yq1">&nbsp;</em>{/if}
+                {if $v[isChat]}<em title="任务需要旺旺模拟咨询再拍下" class="rwdt_yq4">&nbsp;</em>{/if}
+                {if $v[ispinimage]} <em title="接任务者需要上传好评图片" class="rwdt_yq6">&nbsp;</em>{/if}
+                {if $v[isRemark]}<em title="按发布者提供的评语进行评价" class="rwdt_yq2">&nbsp;</em>{/if}
+                {if $v[isReal]}<em title="接手买号必须通过了支付宝实名认证" class="rwdt_yq21">&nbsp;</em>{/if}
+                {if $v[isAddress]}<em class="rwdt_yq3" title="任务需要指定收货地址">&nbsp;</em>{/if}
+                {if $v[isLimitCity]}<em class="rwdt_yqip" title="要求接手方地址是...">&nbsp;</em>{/if}
+                {if $v[isShare]}<em title="好评后对宝贝进行分享" class="rwdt_yq20">&nbsp;</em>{/if}
+                {if $v[isChatDone]}<em title="任务需要模拟聊天后确认收货" class="rwdt_yq17">&nbsp;</em>{/if}
+            </td>
+            <td class="yf_pd" align="center" width="120"><span class="chengse"><strong>$v[point]个麦点</strong></span></td>
+            <td class="yf_pd" align="center" width="120">
+                {if $v[complain]}
+                <span class="chengse">申诉裁定中,任务锁定</span>
+                {else}
+                <span class="chengse"><strong>$lang[status][$v[status]]</strong></span>
+                {/if}
+            </td>
+            <td class="yf_pd2" style="padding:0px;" align="right" valign="top" width="240">
+
+                <div style="height:30px; position:relative; top:5px;" id="$v[id]">
+                    {if !$v[bid]}<a href="javascript:;" onclick="dialog(550,460,'绑定买号','{rewrite}/dialog/chooseBuyer/?sid=$v[id]');return false;" class="yf_buyer">绑定买号</a>
+                    接手方剩余<script type="text/javascript">fleshTime({echo 180-$v[runTimestamp]})</script>钟可绑定买号
+                    {/if}
+                    {if  $v[status]==3}
+                    <a class="yf_ico1" onclick="return copyComment('$v[itemurl]')" href="javascript:;">等待发布方审核</a>
+                    <span id="outTask"></span>
+                    <script type="text/javascript">IsOutTask($v[runTimestamp], "$v[id]");</script>
+                    {elseif $v[status]==4}
+                    {if $v[visitWay] && $v[isVisit]==0}
+
+                    <a href="javascript:;" onclick="dialog(650,450,'查看商品详情','{rewrite}/dialog/taskVisitWay/?sid=$v[id]');return false;" class="yf_ico2 float_r"></a>
+                    {else}
+                    <a href="$thisUrl&pay=$v[id]" class="yf_payfor1 float_r" onclick="return IsPayTask('淘宝',$v[times])">已经支付</a>
+                    <a style="margin-right:7px;" class="yf_ico3 float_r" onclick="return copyComment('$v[itemurl]')" href="javascript:;"></a>
+                    {/if}
+                    {elseif $v[status]==7}
+                    <a href="$thisUrl&unpay=$v[id]" class="yf_hwfk" onclick="return IsUnpayTask('淘宝')">还未支付</a>
+                    {elseif $v[status]==8}
+                    {if $v[runTimestamp3]<=0}
+                    <a href="$thisUrl&receive=$v[id]" class="yf_haopinsh" onclick="return IsReceiveTask('淘宝', $v[isRemark], 0, $v[isShare])">我已收货</a>
+                    {/if}
+                    {if $v[runTimestamp3]>0}
+                    <span class='yf_wdshsj'>等待收获</span>
+                    <font color="#fe5500">{echo time::hours($v[runTimestamp3])}</font>小时后允许收货
+                    {/if}
+                    {elseif $v[status]==9}
+                    <a class="yf_waito" href="$thisUrl&confirm=$v[id]" onclick="return IsConfirmTask('淘宝')">等待卖家核实货款</a>
+                    {elseif $v[status]==10}
+                    <a href="javascript:;" onclick="dialog(600,500,'{$web_name}平台任务满意度评分','/dialog/grade/?sid=$v[id]');return false;" style="margin-left:5px;" class="yf_pinjia float_r" title="给发布方打分" id="grade_$v[id]">&nbsp;</a>
+                    <p style="clear:both; line-height:20px;height:20px;">评价状态：<font color="#fe5500">$lang[cStatus][$v[credit]]</font></p>
+                    {/if}
+                </div>
+                {if $v[status]==4}
+                <p style="clear:both; line-height:30px;height:30px;">
+                    剩余付款时间：<span class="lvse strong" id="iidd_1"><script type="text/javascript">fleshTime($v[runTimestamp2])</script></span>
+                </p>
+                {else}
+                <p style="clear:both; line-height:30px;height:30px;"></p>
+                {/if}
+                <p class="task-border">
+                    联系对方：<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin={$v[qq]}&site=qq&menu=yes">
+                    <img border="0" src="http://wpa.qq.com/pa?p=2:{$v[qq]}:41" alt="联系我" title="联系我">
+                </a><a href="javascript:;" onclick="dialog(460,460,'给卖家发送手机短信','/dialog/sendsms/?username={url $v[susername]}');return false;" title="给卖家发送手机短信" alt="给卖家发送手机短信" class="yf_sj"></a> |
+                    {if $v[isVerify] && $v[status]==2}<script type="text/javascript">IsOutTask($v[runTimestamp], "$v[id]");</script>{elseif $v[status]<5}<a href='$thisUrl&out=$v[id]' class='yf_wz' title="退出任务" onclick='return IsQuitTask();'>退出</a>{elseif $v[status]<9}<a title="发起申诉" onclick="dialog(950,550,'发起申诉','{rewrite}/dialog/complain/?sid=$v[id]');return false;" class="comlink" href="javascript:;">申诉</a>|{/if}<a href="javascript:;" style="background:url(/images/{if $v[b_memo]}memo.png{else}bz_no.png{/if}) no-repeat 8px; height:12px;top:2px;" onclick="ShowRemark('$v[id]','$v[b_memo]');" class="yf_bz"></a>
+                </p>
+            </td>
+            <td width="15">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="9" class="yfrw_listxia" align="right" valign="middle">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tbody>
+                    <tr>
+                        <td style="padding-left:20px; color:#3372A2;" align="left" width="40%">不按规定修改地址、好评的的接手人将给予严厉处分
+                        </td>
+                        <td align="left" width="40%">
+				<span style="float:left;">
+				<span class="yf_wwtx">
+				</span>掌柜名：<a href="{rewrite}/member/info.php?username=$v[nickname]" class="comlink" title="查看掌柜信息">$v[nickname]</a>
+				</span>
+                            <span class="yf_wwtx"></span>
+				<span style="float:left;">采用买号：
+				<span class="lvse3">
+				<a href="#" class="comlink" target="_blank" title="查看买号信息">{if $v[bid]}$v[bnickname] $v[bico]{/if} </a>
+				</span>
+				</span>
+                        </td>
+                        {if !$v[visitWay] && !$v[isCart]}<td align="left" width="12%"><a href="javascript:;" onclick="return copyComment('$v[itemurl]')" class="vse3 strong">查看淘宝商品</a></td>
+                        {/if}
+                    </tr>
+                    {if $v[cbxIsTip]}
+                    <tr>
+                        <td class="yf_ts1" height="40" colspan="9"><span class="yf_mjly"></span><span class="chengse strong" style="color:##FE5500;">$v[tips]</span></td>
+                    </tr>
+                    {/if}
+                    {if $v[isRemark]}
+                    <tr>
+                        <td colspan="9" class="yf_ts2" align="right" valign="middle">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tbody>
+                                <tr>
+                                    <td style="padding-left:0px; color:#3372A2;"  align="left" width="85%">
+                                        <span class="yf_gdhp"></span>
+                                        <span class="chengse strong" style="color:#FE5500;">$v[remark]</span>
+                                        <span class="chengse strong"></span>
+                                    </td>
+                                    <td align="right" width="15%">　
+
+				<span class="in_block"><a href="javascript:;" onclick="return copyComment('$v[remark]')" class="yf_fz1"></a>
+				</span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    {/if}
+                    {if $v[isAddress]}
+                    <td colspan="9" class="yf_ts2" align="right" valign="middle">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tbody>
+                            <tr>
+                                <td style="padding-left:0px; color:#3372A2;"  align="left" width="85%">
+                                    <span class="yf_gdsh"></span>
+                                    <span>姓名：</span>
+                                    <strong class="orange" style="color:red;">$v[cbxName]</strong>
+                                    <span class="address-title">地址：</span>
+                                    <strong class="orange" style="color:red;">$v[cbxAddress]</strong>
+                                    <span class="address-title">电话：</span>
+                                    <strong class="orange" style="color:red;">$v[cbxMobile]</strong>
+                                    <span class="address-title">邮编：</span>
+                                    <strong class="orange" style="color:red;">$v[cbxcode]</strong>
+                                    <span class="yf_fzhp"></span>
+                                </td>
+                                <td align="right" width="15%">　
+
+				<span class="in_block"><a href="javascript:;" onclick="return copyComment('$v[cbxName],$v[cbxAddress],$v[cbxMobile],$v[cbxcode]')" class="yf_fz2"></a>
+				</span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    {/if}
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+    </tr>
+    {eval $allPrice += $v[price];}
+    {eval $allPoint += $v[point];}
+    {/loop}
+    </tbody>
+</table>
+    <div style="padding-top:10px;">本页任务的资金合计：<span class="chengse">$allPrice</span> 元　麦点合计：<span class="chengse">$allPoint</span> 个</div>
+    <div class="rwdt_dlm">
+        <div id="page" style="margin:0px 10px 10px;">
+        </div>
+    </div>
+<div class="rwdt_dlm">
+    <div id="page" style="float:right;">
+        $multipage
+    </div>
+</div>
