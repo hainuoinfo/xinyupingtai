@@ -1,3 +1,12 @@
+{teval
+$title       = '欢乐猜地雷 - {webName}';
+$keywords    = '';
+$description = '';
+$title       = common::replaceVars($title);
+$keywords    = common::replaceVars($keywords);
+$description = common::replaceVars($description);
+echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description));
+}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -319,13 +328,13 @@ $(function(){
     </UL>
   </DIV>
   <DIV class="guanggao">
-  <A href="{rewrite}/DmSEO/default/" target="_blank">
+  <A href="{rewrite}/tbseo/" target="_blank">
   <IMG alt="活动广告-01" src="/images/dilei/11.jpg" width="140" height="85"></A>
-  <A href="{rewrite}/Shua/backdoor" target="_blank">
+  <A href="{rewrite}/tuoguan/" target="_blank">
   <IMG alt="活动广告-02" src="/images/dilei/56.jpg" width="140" height="85"></A>
-  <A href="{rewrite}/vip.html" target="_blank">
+  <A href="{rewrite}/member/vip/" target="_blank">
   <IMG alt="活动广告-03" src="/images/dilei/cr54564.jpg" width="140" height="85"></A>
-  <A href="{rewrite}/user/ShuaKe/" target="_blank">
+  <A href="{rewrite}/member/ShuaKe/" target="_blank">
   <IMG alt="活动广告-04" src="/images/dilei/vgfji.jpg" width="140" height="85"></A></DIV>
 </DIV>
 <DIV class="cle"></DIV>
