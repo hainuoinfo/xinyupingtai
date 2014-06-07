@@ -9,15 +9,15 @@
 	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
 }
 {sub ../header}
-<SCRIPT type="text/javascript" src="css/jquery.min.js"></SCRIPT>
-<SCRIPT type="text/javascript" src="css/common.func.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="/css/jquery.min.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="/css/common.func.js"></SCRIPT>
 <SCRIPT type="text/javascript">
   $(function(){
 	  $(".left_tit").hover(function(){
-		  $(this).css("background-image","url(images/login/bg_2.png)");
+		  $(this).css("background-image","url(/images/login/bg_2.png)");
 		  $(".left_alert").css("display","block");
 		  },function(){
-			  $(this).css("background-image","url(images/login/bg_1.png)");
+			  $(this).css("background-image","url(/images/login/bg_1.png)");
 		  $(".left_alert").css("display","none")
 			  })
 	  });
@@ -28,10 +28,10 @@
 	$(function(){
 		$(".a_father_1").each(function(i){
 			$(this).hover(function(){
-				$(this).eq(i).css("background-image","url(images/login/icon_17.png)");
+				$(this).eq(i).css("background-image","url(/images/login/icon_17.png)");
 				$(".a_son_1").css("display","block");
 				},function(){
-					$(this).eq(i).css("background-image","url(images/login/icon_23.png)");
+					$(this).eq(i).css("background-image","url(/images/login/icon_23.png)");
 				$(".a_son_1").css("display","none");
 				})
 			})
@@ -41,10 +41,10 @@
 		$(function(){
 		$(".a_father_2").each(function(e){
 			$(this).hover(function(){
-				$(this).eq(e).css("background-image","url(images/login/icon_18.png)");
+				$(this).eq(e).css("background-image","url(/images/login/icon_18.png)");
 				$(".a_son_2").css("display","block");
 				},function(){
-					$(this).eq(e).css("background-image","url(images/login/icon_24.png)");
+					$(this).eq(e).css("background-image","url(/images/login/icon_24.png)");
 				$(".a_son_2").css("display","none");
 				})
 			})
@@ -62,13 +62,13 @@
     text-decoration: underline;
 }
 #fh_gg{
-	background:#fff url(images/fh_gg.jpg) 0 0 no-repeat;
+	background:#fff url(/images/fh_gg.jpg) 0 0 no-repeat;
 	width:790px;
 	height:887px;
 	position:relative;
 	}
 .fh_cl,.fh_cl2,.fh_cl3{
-	background:url(images/fh_ggbtn.png) 0 -2px no-repeat;
+	background:url(/images/fh_ggbtn.png) 0 -2px no-repeat;
 	font-weight:bold;
 	position:absolute;
 	top:290px;
@@ -114,7 +114,7 @@
 	padding-left:8px;
 	}
 #fh_gg .fh_btn{
-	background:url(images/fh_ggbtn.png) 0 -53px no-repeat;
+	background:url(/images/fh_ggbtn.png) 0 -53px no-repeat;
 	display:block;
 	position:absolute;
 
@@ -127,7 +127,7 @@
 	border:none;
 	overflow:hidden;
 	}
-#fh_gg .fh_btn:hover{background:url(images/fh_ggbtn.png) 0 -102px no-repeat;}
+#fh_gg .fh_btn:hover{background:url(/images/fh_ggbtn.png) 0 -102px no-repeat;}
 #fh_gg .fh_text{
 	position:absolute;
 	top:612px;
@@ -138,8 +138,8 @@
 	text-align:center;
 	}
 .fh_gl { width:790px;}
-.fh_gl .map { width:790px;  height:330px; background:url(images/fh_gg.jpg) no-repeat; position:relative;}
-.fh_gl .map_ct { height:593px; width:790px; background:url(images/fh_gg_03.jpg) repeat-x;}
+.fh_gl .map { width:790px;  height:330px; background:url(/images/fh_gg.jpg) no-repeat; position:relative;}
+.fh_gl .map_ct { height:593px; width:790px; background:url(/images/fh_gg_03.jpg) repeat-x;}
 -->
 </STYLE>
 <SCRIPT>
@@ -157,7 +157,7 @@ $(function(){
 })
 </SCRIPT>
 <!--菜单开始-->
-<SCRIPT type="text/javascript" src="css/service.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="/css/service.js"></SCRIPT>
 <DIV id="content">
   <!-- 左边栏 -->
   {sub menu}
