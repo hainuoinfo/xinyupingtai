@@ -38,7 +38,7 @@ class task_buyer{
 	}
 	public static function tie($uid, $type, $nickname){
 		global $timestamp;
-		$username = member_base::getUsername($uid);
+		$username = member_base::getUsername($uid);//现获取当前登陆用户
 		if ($username) {
 			if ($nickname = trim($nickname)) {
 				if (!db::exists('buyers', array('type' => $type, 'nickname' => $nickname))) {

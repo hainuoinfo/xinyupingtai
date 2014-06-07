@@ -522,6 +522,7 @@ function doCheck(checks) {
 					}
 				}
 			}
+            alert(str);
 			result = eval(str)
 		} catch(e) {
 			alert(str)

@@ -119,6 +119,8 @@ class data_taobaoUser extends data_taobaoBase
 	    if(!strpos($agent,"MSIE") && !strpos($agent,"Chrome")) 
 	      $u = iconv("utf-8","gbk",$u);
         $sc = file_get_contents('http://www.yaodamai.com/look?q='.$u);
+        $sc = file_get_contents('http://www.yaodamai.com/look?q='.$u);
+        a='/out\svalue="(\d+)"\/>/';
         preg_match('/<ul class="u">[^|]+?买家信用[^|]+?#333;">(.+)<\/b>[^|]+?<\/ul>/', $sc, $buyer);
 
 		return $buyer[1];

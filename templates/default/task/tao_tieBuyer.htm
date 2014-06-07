@@ -191,7 +191,6 @@ $multipage
 <div class="cle"></div>
 <link type="text/css" rel="stylesheet" href="/images/jcalendar.css">
 <script type="text/javascript" src="/images/artDialog.js"></script>
-<script type="text/javascript" src="/images/Common.js"></script>
 <script type="text/javascript">
 function IsDelAcc(obj, id) {
   if (confirm("您确定要删除此买号么？\n\n删除后将无法重新绑定此买号")) {
@@ -253,8 +252,8 @@ function resumeMore(obj) {
 function checkForm() {
   var checks = [
   ["isLength", "nickname", "淘宝买家号", 1, 20] ];
-	var result = doCheck(checks);
-	
+	var result = doCheck(checks);//用的是common.js中的方法  检查长度是否够长
+
 	if (result)
 		return avoidReSubmit();
 	return result;
