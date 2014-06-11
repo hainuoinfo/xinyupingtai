@@ -4,4 +4,4 @@
 
 
 *.db
-cache/
+cache

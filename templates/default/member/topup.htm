@@ -77,8 +77,9 @@ echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'de
 </div>
 {/if}
 {if $_showmessage}
-<div class='msg_panel'>
+<div class='msg_panel' style="border: 1px dashed rgb(204, 204, 204);color:red;font-size:20px; background:#FFC; margin-top:5px;padding:10px 5px; font-weight:bold;text-align:left;">
     <div>$_showmessage</div>
+    <script>alert('$_showmessage')</script>
 </div>
 {/if}
 {eval

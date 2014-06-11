@@ -42,7 +42,7 @@
 			<ul id="goone">
 			<li style="">
 			<span style="width: 100%; float: left; text-align: center; font-size: 14px;">一个真实的淘宝信誉平台期待您的加入</span></li>
-			<li style="margin: 10px 0 5px 5px;font-size:16px;display:inline;">用户名：<font style="font-size: 14px;color:#fe5500">$member[username]</font></li>
+			<li style="margin: 10px 0 5px 5px;font-size:16px;display:inline;">用户名：<a href="/member/info/?username=$member[username]"> <font style="font-size: 14px;color:#fe5500">$member[username]</font></a></li>
 			<li style="margin: 5px 0 5px 5px;font-size:16px;display:inline;">存款：
 			<a href="{rewrite}/member/topup/" style="font-size: 14px;color:#fe5500">$memberFields[money]</a></li>
 			<li style="margin: 5px 0 5px 5px;font-size:16px;display:inline;">麦点：
@@ -50,7 +50,7 @@
 			<li style="margin: 5px 0 5px 5px;font-size:16px;display:inline;">积分：
 			<a href="{rewrite}/member/PayDetails/?type=3" style="font-size: 14px;color:#fe5500">$memberFields[credits]</a></li>
 			<li style="margin: 5px 0 5px 5px;font-size:16px;display:inline;">登陆次数：
-			<a href="" style="font-size: 14px;color:#fe5500">$member[log_count]</a></li>
+			<a href="/member/PayDetails/?type=7" style="font-size: 14px;color:#fe5500">$member[log_count]</a></li>
 			<li style="text-align: center;margin-top: 10px ;font-size:16px;">
 			<a href="{rewrite}/task/tao/"><img src="images/goone.png" height="49/" width="275"></a></li>
 			<div class="touimg"><a href="{rewrite}/member"><img src="$memberFields[avatar]" height="100" width="100"></a></div>
