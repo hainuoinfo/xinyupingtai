@@ -61,7 +61,26 @@ function __parseLimitCount($str){
 	}
 	return $rs;
 }
-
+if($memberFields[credits]==0){
+    $credits='新手会员';
+}elseif($memberFields[credits] < 100){
+    $credits='金牌会员';
+}elseif($memberFields[credits] < 1000){
+    $credits='白金会员';
+}elseif($memberFields[credits] < 5000){
+    $credits='黄金会员';
+}elseif($memberFields[credits] < 10000){
+    $credits='钻石会员';
+}elseif($memberFields[credits] < 100000){
+    $credits='皇冠会员';
+}
+if($memberFields[vip]==1){
+    $vip='一级VIP';
+}elseif($memberFields[vip]==2){
+    $vip='钻石VIP';
+}elseif($memberFields[vip]==3){
+    $vip='皇冠VIP';
+}
 
 switch ($m) {
 	case 'index':
@@ -71,26 +90,7 @@ switch ($m) {
 			$bList = task_buyer::getList(1, $uid, $status2);
 			$multipage = multi_page::parse($total, $pagesize, $page, $thisUrl.'&status='.$status.'&page={page}', $pageStyle, 10, 'member1');
 		}
-		if($memberFields[credits]==0){
-		$credits='新手会员';
-		}elseif($memberFields[credits] < 100){
-		$credits='金牌会员';
-		}elseif($memberFields[credits] < 1000){
-		$credits='白金会员';
-		}elseif($memberFields[credits] < 5000){
-		$credits='黄金会员';
-		}elseif($memberFields[credits] < 10000){
-		$credits='钻石会员';
-		}elseif($memberFields[credits] < 100000){
-		$credits='皇冠会员';
-		}
-		if($memberFields[vip]==1){
-		 $vip='一级VIP';
-		}elseif($memberFields[vip]==2){
-		 $vip='钻石VIP';
-		}elseif($memberFields[vip]==3){
-		 $vip='皇冠VIP';
-		}
+
 	break;
 	case 'add':
 		$ensurePoint = 0.3;
