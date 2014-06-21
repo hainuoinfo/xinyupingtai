@@ -365,8 +365,7 @@ switch ($m) {
 	case 'taskOut':
 		checkPwd2();
 		$bbsNav[] = '已发任务';
-//        $t || $t = 'ing';
-        $t || $t = 'all';
+		$t || $t = 'ing';
 		$total = 0;
 		$where = "type='1' and suid='$uid'";
 		if ($resume) {
