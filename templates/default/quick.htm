@@ -15,15 +15,15 @@
 		       </div>
 		       <div class="task_header" style="display:none">
 					<form id="q_f_2" action="{rewrite}/member/topup/" method="post" target="_blank" onsubmit="return checkForm1();">
-					<input name="hash2" value="MWEyY3F4S0F6R3BHcENrTmZsRzhXNXl1Rm95cEY4OHB0OHpoSFMvU3R1clo0RzN6Q01heUM3MmhDejE4bmZwSllPS1Jub0YyeUZiMW5Ha0xwZw==" type="hidden"><input name="from_clientId" value="b2655925f583285c53f9fe8b93a5fe91" type="hidden">
-					<table style="margin-top:10px;" align="left" border="0" cellpadding="0" cellspacing="0" width="90%">
+                        $sys_hash_code2
+                        <table style="margin-top:10px;" align="left" border="0" cellpadding="0" cellspacing="0" width="90%">
 					  <tbody><tr>
 						<td height="30" align="right" valign="top" width="35%">充值用户名：</td>
 						<td><input name="username" id="username" class="rwdt_inp" style="color:#666" value="$member[username]" disabled="disabled" type="text"></td>
 					  </tr>
 					  <tr>
 						<td height="30" align="right" valign="top">充值金额：</td>
-						<td><input name="money" id="money" class="rwdt_inp" style="color:#666" value="100" type="text"> 
+						<td><input name="money" id="money" class="rwdt_inp" style="color:#666" value="100" type="text" onfocus="window.location.href='{rewrite}/member/topup/'">
 						<span class="chengse">(1%手续费)</span></td>
 					  </tr>
 					  <tr>
@@ -34,9 +34,9 @@
 				  </form>
 		       </div>
 			    <div class="task_header" style="display:none">
-							<form id="q_f_3" action="{rewrite}/member/card/" method="post" onsubmit="return checkForm3();">
-							<input name="hash2" value="MWEyY3F4S0F6R3BHcENrTmZsRzhXNXl1Rm95cEY4OHB0OHpoSFMvU3R1clo0RzN6Q01heUM3MmhDejE4bmZwSllPS1Jub0YyeUZiMW5Ha0xwZw==" type="hidden"><input name="from_clientId" value="b2655925f583285c53f9fe8b93a5fe91" type="hidden">
-							<input name="cardType" value="1" type="hidden">
+							<form id="q_f_3" action="{rewrite}/member/BuyPoint/" method="post" onsubmit="return checkForm3();">
+                                $sys_hash_code2
+                                <input name="cardType" value="1" type="hidden">
 							<input name="jiage" id="jiage" value="" type="hidden">
 									<table style="margin-top:10px;" align="left" border="0" cellpadding="0" cellspacing="0" width="90%">
 									<tbody><tr>
@@ -45,7 +45,7 @@
 										</tr>
 									<tr>
 											<td height="30" align="right" valign="middle" width="35%">购买数量：</td>
-											<td><input name="nums" id="cardnums" value="1" size="10" maxlength="4" type="text">(最少购买1个)</td>
+											<td><input name="nums" id="cardnums" value="1" size="10" maxlength="4" type="text" onfocus="window.location.href='{rewrite}/member/BuyPoint/'">(最少购买1个)</td>
 										</tr>
 									<tr>
 										<td>&nbsp;</td>
