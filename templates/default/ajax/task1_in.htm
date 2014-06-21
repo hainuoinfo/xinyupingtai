@@ -52,7 +52,7 @@
                     {if  $v[status]==3}
                     <a class="yf_ico1" onclick="return copyComment('$v[itemurl]')" href="javascript:;">等待发布方审核</a>
                     <span id="outTask"></span>
-                    <!--<script type="text/javascript">IsOutTask($v[runTimestamp], "$v[id]");</script>-->
+                    <script type="text/javascript">IsOutTask($v[runTimestamp], "$v[id]");</script>
                     {elseif $v[status]==4}
                     {if $v[visitWay] && $v[isVisit]==0}
 
