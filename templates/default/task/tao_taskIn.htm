@@ -139,11 +139,12 @@ function checkForm3() {
 		    <p class="rwdt_marquee_close" onclick="marquee_close();">X</p>
 		    <p class="rwdt_marquee"><marquee onmouseover="this.stop()" onmouseout="this.start()" height="18" width="100%">　<a href="{rewrite}/bbs/t4492/" style="color:red;" target="_blank">接手方容易造成损失的几大误区</a></marquee></p>
 			<ul class="yfrw_sub">
-				<li><a  href="javascript:;" onclick="window.location.href='$thisUrl&t=ing'" {if $t=='ing'} class="nov" {/if}>可处理($memberTask[ining1])</a></li>
+				<!--<li><a  href="javascript:;" onclick="window.location.href='$thisUrl&t=ing'" {if $t=='ing'} class="nov" {/if}>可处理($memberTask[ining1])</a></li>
 				<li><a href="javascript:;" onclick="window.location.href='$thisUrl&t=tWatting2'"{if $t=='tWatting2'} class="nov" {/if}>等待付款发货(0)</a></li>
 				<li><a href="javascript:;" onclick="window.location.href='$thisUrl&t=expire'"{if $t=='expire'} class="nov" {/if}>等待收货好评($memberTask['inExpire'.$taskId])</a></li>
 				<li><a href="javascript:;" onclick="window.location.href='$thisUrl&t=complate'" {if $t=='complate'} class="nov" {/if}>已完成任务($memberTask['inComplate'.$taskId])</a></li>
-				<li><a href="javascript:;" onclick="window.location.href='$thisUrl&t=all'" {if $t=='all'} class="nov" {/if}>全部任务($memberTask[in1])</a></li>
+				<li><a href="javascript:;" onclick="window.location.href='$thisUrl&t=all'" {if $t=='all'} class="nov" {/if}>全部任务($memberTask[in1])</a></li>-->
+                <li><a href="javascript:;" onclick="window.location.href='$thisUrl&t=all'" {if $t=='all'} class="nov" {/if}>全部任务($memberTask[in1])</a></li>
 			</ul>
 			<div class="rwdt_btn"><a href="{rewrite}/task/tao/?m=add" class="fb_btn"></a><a href="javascript:;" onclick="goPage(1);" class="sx_btn"></a></div>
             
@@ -395,7 +396,8 @@ var thisUrl='/task/tao/?m=taskIn';
 </script>
 <script type="text/javascript" src="/images/service.js"></script>
 <script language="javascript">
-	var qs='t=ing';
+    var qs='t=ing';
+    var qs='t=all';
 	$(function(){
 	//getTask(qs);
 	//getTasknav();

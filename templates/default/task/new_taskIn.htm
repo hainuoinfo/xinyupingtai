@@ -139,11 +139,11 @@ var thisUrl='$thisUrl';
 		<a href="javascript:;" class="link_t" onclick="dialog(950,550,'发起申诉','{rewrite}/dialog/complain/?sid=$v[id]');return false;">发起申诉</a>
 		{elseif $v[status]==10}
 		<a href="javascript:;" onclick="dialog(600,500,'{$web_name}商联盟任务满意度评分','{rewrite}/dialog/grade/?sid=$v[id]');return false;" class="link_ta">{if !($v[credit]&1)}给发布方打分{else}修改评分{/if}</a>
-		<br />　　　　　　$lang[cStatus][$v[credit]]
+		<br />$lang[cStatus][$v[credit]]
 		{/if}
 		{if $v[isEnsure]}
 			<br />
-			　　　　　　{if !$v[ensureStatus]}
+			{if !$v[ensureStatus]}
 			{else}
 			<span class="f_red">
 				{if !($v[ensureStatus] & 1 << 1)}
@@ -167,7 +167,7 @@ var thisUrl='$thisUrl';
 		</tr>
 		{/loop}
 		<tr>
-			<td colspan="6">　本页任务的资金合计：<span class="f_b_red">0.00</span> 元</td>
+			<td colspan="6">本页任务的资金合计：<span class="f_b_red">0.00</span> 元</td>
 		</tr>
 	</table>
 	<div class="h_10"></div>
