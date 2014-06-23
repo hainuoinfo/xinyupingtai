@@ -83,13 +83,13 @@ class data_taobaoUser extends data_taobaoBase
     }
 	public static function nickname($nick)
     {
-	    $dom=file_get_html('http://sy.tertw.net/getMember/username/'.urlencode($nick).".html");
+	    $dom=file_get_html('http://tertw.net:81/getMember/username/'.urlencode($nick).".html");
         return trim($dom->find('ul.u',1)->find('li',1)->find('span',0)->find('b',0)->plaintext);
     }
 	public static function realname($nick)
     {
         $u=$nick;
-        $dom=file_get_html('http://sy.tertw.net/getMember/username/'.urlencode($nick).".html");
+        $dom=file_get_html('http://tertw.net:81/getMember/username/'.urlencode($nick).".html");
         $renzheng=trim($dom->find('.r-c ul',0)->find('li',0)->find('font',0)->plaintext);
 		if($renzheng=='支付宝认证'){
 		    return '1';
@@ -105,7 +105,7 @@ class data_taobaoUser extends data_taobaoBase
 	    $agent = $_SERVER['HTTP_USER_AGENT']; 
 	    if(!strpos($agent,"MSIE") && !strpos($agent,"Chrome")) 
 	      $u = iconv("utf-8","gbk",$u);
-        $dom=file_get_html('http://sy.tertw.net/getMember/username/'.urlencode($nick).".html");
+        $dom=file_get_html('http://tertw.net:81/getMember/username/'.urlencode($nick).".html");
         return $xinyu=trim($dom->find('ul.u',0)->find('li',1)->find('span',0)->find('b',0)->plaintext);
     }
 }
