@@ -63,7 +63,8 @@ class data_taobaoUser extends data_taobaoBase
 
 	public static function usercheck($nick)
     {
-        $sContent = file_get_contents('http://member1.taobao.com/member/userProfile.jhtml?userID='. $nick);
+        $nick = iconv("utf-8","gbk",$nick);
+        $sContent = file_get_contents('http://member1.taobao.com/member/userProfile.jhtml?userID='. urlencode($nick));
 		$re_shop_title = '/淘宝店铺\：\s*\<a.+\>(.+)\<\/a\>/';
 	    $a_shop_title = array();
 	    $s_shop_title = 0;
