@@ -36,7 +36,7 @@ class task_buyer{
 			}
 		}
 	}
-	public static function tie($uid, $type, $nickname){
+	public static function tie($uid, $type, $nickname,$isreal=0){
 		global $timestamp;
 		$username = member_base::getUsername($uid);//现获取当前登陆用户
 		if ($username) {
@@ -44,21 +44,17 @@ class task_buyer{
 				if (!db::exists('buyers', array('type' => $type, 'nickname' => $nickname))) {
 					//$func = 'getMember'.$type;
 					//$member = self::$func($nickname);
+                    //var_dump($member);exit;
 					if (1 == 1) {
-					    if($rs==1){
-						    $isreal=1;
-							}else{
-							    $isreal=0;
-							}
 					    $score = data_taobaoUser::credit($nickname);
 						//$score = $member['buyer_credit']['score'];
 						$utype = 0;
 						$maxScore = 0;
-						if ($member['promoted_type'] == 'authentication') {
+						if ($isreal==1) {
 							$maxScore = 50000;
 							$utype |= 1;
 							}
-						if ($member['mobilephone_type'] == 'authentication') {
+						if ($isreal==3) {//3是手机认证
 							$maxScore = 50000;
 							$utype |= 2;
 							}
@@ -94,7 +90,7 @@ class task_buyer{
 		return 'user_not_exists';
 	}
 	public static function getMember1($nickname){
-		return data_paipai::getUser($nickname);
+		return data_taobaoUser::getUser($nickname);
 	}
 	public static function getMember2($nickname){
 		return data_paipai::getUser($nickname);

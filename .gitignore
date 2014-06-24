@@ -6,3 +6,4 @@
 *.db
 cache
 doc/
+test.php

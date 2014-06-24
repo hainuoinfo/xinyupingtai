@@ -81,7 +81,6 @@ if($memberFields[vip]==1){
 }elseif($memberFields[vip]==3){
     $vip='皇冠VIP';
 }
-
 switch ($m) {
 	case 'index':
 		if ($total = task_buyer::total($taskId, $status2)) {
@@ -125,7 +124,7 @@ switch ($m) {
 			
 			if ($isHot) $count = (int)$_POST['count'];
 			else $count = 1;
-			
+
 			if ($rs === true) {
 				$rs = task_tao::add($datas, $uid, $count);
 			}
@@ -621,12 +620,13 @@ switch ($m) {
 		}
 		if ($rs = form::is_form_hash2()) {
 			if ($rs === true) {
-			    if($row = data_taobaoUser::realname($_POST['nickname'])){
+                $row=data_taobaoUser::realname($_POST['nickname']);
+			    if($row){
 				    if ($maxTieCount > 0 && $memberFields['buyers1'] + 1 > $maxTieCount){
 				          $rs='对不起，您不可以绑定更多的买号了';
 				    }else {
 					      $nickname = $_POST['nickname'];
-					      $rs = task_buyer::tie($uid, 1, $nickname);
+					      $rs = task_buyer::tie($uid, 1, $nickname,$row);
 				    }
 				}else{
 				    $rs='对不起，您的买号不存在！';
