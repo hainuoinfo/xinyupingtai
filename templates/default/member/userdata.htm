@@ -13,7 +13,7 @@
 {sub menu}
 
 <DIV class="right">
-{if $_showmessage}<div class='error_panel'><div>$_showmessage</div></div>{/if}
+{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
 {if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
 
 <DIV class="bq_menu2">
@@ -242,7 +242,7 @@ $sys_hash_code2
   <TR>
     <TD height="30" vAlign="middle" width="89" align="right">选择问题：</TD>
     <TD style="color: rgb(135, 135, 135);">
-	                            <select name='questionid' id='questionId' class='slt_normal'>
+	                            <select name='questionId' id='questionId' class='slt_normal'>
 									<option value='0'{if !$member[questionid]} selected='selected'{/if}>无安全问题</option>
 									{loop $questions $k $v}
 									<option value="$k"{if $member[questionid]==$k} selected="selected"{/if}>$v</option>

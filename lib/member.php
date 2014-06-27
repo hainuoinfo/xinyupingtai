@@ -57,7 +57,7 @@ if ($operation == 'index') {
 		array('name' => '我的联盟中心', 'url' => common::getUrl('/member/'))
 	);
 }
-
+cache::get_array('questions'); //提前获取验证问题信息
 $errorMessag='对不起，您的存款不足！ 请<a href="/member/topup/"> 立即充值</a>';
 switch($operation){
 	case 'reg':
@@ -162,7 +162,6 @@ switch($operation){
 				$indexMessage = language::get($rs, 'login', 'member');
 			}
 		}
-		cache::get_array('questions');
 		$cssList = array(
 			css::getUrl('login', 'member')
 		);
@@ -866,7 +865,7 @@ switch($operation){
 			array('name' => '我的联盟中心' , 'url' => common::getUrl('/member/')),
 			array('name' => '维护个人资料')
 		);
-		if ($rs = form::is_form_hash2()) {
+        if ($rs = form::is_form_hash2()) {//提前验证form信息导致不是form提交的时候，信息读取不完整
 			if ($rs === true) {
 				switch ($type) {
 					case 'pass':
@@ -973,14 +972,13 @@ switch($operation){
 							}
 					break;
 					case 'ProtectPass':
-					    cache::get_array('questions');
 					    $datas = form::get('questionId','answer','pwd2');
 			            $datas && extract($datas);
 							if ($memberInfo = member_base::getMember($uid)) {
 								$password2 = $memberInfo['password2'];
 							    $salt = db::one_one(members, 'salt', "id='$uid'");
 								if($password2==common::salt_pwd($salt,$datas['pwd2'])){
-									if (db::update('members', array('questionId' => $datas['questionId']),array('answer' => $datas['answer']), "id='$uid'")) {
+									if (db::update('members', array('questionId' => $questionId,'answer' => $answer), "id='$uid'")) {
 									common::setMsg('安全问题设置成功！');
 				                    common::refresh();
 									} else {
@@ -1038,7 +1036,6 @@ switch($operation){
 			array('name' => '我的联盟中心' , 'url' => common::getUrl('/member/')),
 			array('name' => '维护个人资料')
 		);
-		cache::get_array('questions');
 		if ($rs = form::is_form_hash2()) {
 			$indexMessage = '';
 			if ($rs === true) {
