@@ -2,9 +2,9 @@
 (!defined('IN_JB') || IN_JB!==true) && exit('error');
 template::initialize('./templates/default/'.$action.'/', './cache/default/'.$action.'/');//设置BBS模板缓存目录
 $ops = array('memberTipIndex', 'login', 'active', 'sendmsg', 'sendsms', 'viewmsg', 'pwd2', 'tip', 'upload', 'card','autotk',
-'activeSeller', 'sellerTruth', 'sellerAddress', 'setTaskQuery', 'buyerPsw', 'buyerAddress', 'chooseBuyer', 'showTaskTip', 
+'activeSeller', 'sellerTruth', 'sellerAddress', 'setTaskQuery', 'buyerPsw', 'buyerAddress', 'chooseBuyer', 'showTaskTip',
 'taskVisitWay', 'taskInfo', 'confirmExpress', 'grade', 'complain', 'joinClub', 'taskBook', 'taskComment', 'reword', 'ensure',
-'reflow', 'buyerInfo', 'buyerLevel', 'tyro'
+'reflow', 'buyerInfo', 'buyerLevel', 'tyro','review','uphaoping'
 );
 ($operation && in_array($operation, $ops)) || $operation = $ops[0];
 if (!$memberLogined && !in_array($operation, array('login'))){
@@ -208,7 +208,7 @@ switch ($operation) {
 						$pathinfo  = pathinfo($rs['source']);
 						$filename  = $pathinfo['basename'];
 						$filename2 = $pathinfo['filename'].'_thumb.'.$pathinfo['extension'];
-						
+
 						image::thumb($path2.$filename, $path2.$filename2, array('width' => 100, 'height' => 80));
 						if ($aid = db::insert('attach', array(
 							'uid'       => $uid,
@@ -226,7 +226,7 @@ switch ($operation) {
 								'src'   => $weburl2.$path1.$path.$filename,
 								'thumb' => $weburl2.$path1.$path.$filename2,
 							);
-							
+
 							$rs = string::json_encode($rs);
 						}
 					}
@@ -255,7 +255,7 @@ switch ($operation) {
 			}
 			if (is_numeric($rs) && $rs >= 0) {
 				common::setMsg('发送完成，您一共发送了 '.$rs.' 条短信');
-				
+
 			} else {
 				common::setMsg(language::get($rs));
 			}
@@ -297,7 +297,7 @@ switch ($operation) {
 		if ($next) {
 			if ($id) {
 				if ($seller = db::one('sellers', 'type,nickname', "id='$id' and uid='$uid'")) {
-					
+
 				} else {
 					$indexMessage = '不存在该掌柜';
 					$next = false;
@@ -358,7 +358,7 @@ switch ($operation) {
 			extract($datas);
 			if ($rs === true) {
 				$rs = task_seller::setAddress($id, $eid, $area, $address, $nickname, $mobile, $uid);
-			} 
+			}
 			if ($rs === true) {
 				showmessage('设置成功');
 			} else {
@@ -396,7 +396,7 @@ switch ($operation) {
 			extract($datas);
 			if ($rs === true) {
 				$rs = task_buyer::setAddress($id, $eid, $area, $address, $nickname, $mobile, $uid);
-			} 
+			}
 			if ($rs === true) {
 				showmessage('设置成功');
 			} else {
@@ -412,7 +412,7 @@ switch ($operation) {
 			if ($buyerAddress) {
 				$update = true;
 				extract(common::filterArray($buyerAddress, array('area', 'address', 'mobilephone', 'nickname')));
-				
+
 			}
 		}
 	break;
@@ -457,7 +457,7 @@ switch ($operation) {
 									//掌柜的
 									if (!$v['utype'] || !$v['hasShop']) $v['disabled'] = true;
 								}
-								
+
 							}
 							elseif ($task['isFame'] && $v['score'] >= $task['fameLvl']) $v['disabled'] = true;
 							else $v['disabled'] = false;
@@ -489,7 +489,7 @@ switch ($operation) {
 									if (!$checkRs0 || !$checkRs1 || $checkRs0 != $checkRs1) $rs = '地址错误！';
 								break;
 								case '2'://拍拍
-									
+
 								break;
 								case '3'://有啊
 									if ($itemurl != $task['itemurl']) $rs = '地址错误！';
@@ -500,9 +500,9 @@ switch ($operation) {
 									if (!$checkRs0 || !$checkRs1 || $checkRs0 != $checkRs1) $rs = '地址错误！';
 								break;
 							}
-							
+
 							//if ($itemurl != $task['itemurl']) $rs = '地址错误！';
-							
+
 						}
 						if ($rs === true) {
 							db::update('task', array('isVisit' => 1), "id='$sid'");
@@ -593,7 +593,7 @@ switch ($operation) {
 				if ($buyerExpress = task_buyer::getExpress($task['bid'], $task['expressTM'])) {
 					$buyerExpress['area'] = str_replace(' ', '', $buyerExpress['area']);
 				}
-				
+
 			} else {
 				showmessage('对不起，不存在该任务');
 			}
@@ -721,7 +721,16 @@ switch ($operation) {
 		$count = $count1 + $count2;
 		if ($count == 0) showmessage('对不起，您无有效预定任务卡，不能使用预定功能；请先到点卡中心购买预定任务卡；');
 		if ($rs = form::is_form_hash2()) {
-			$datas = form::get2(array('nums', 'int'), array('priceLow', 'float'), array('priceHigh', 'float'), array('times', 'int'), array('isVerify', 'int'), array('isReal', 'int'), array('isSms', 'int'), array('isStop', 'int'), 'rejects');
+			$datas = form::get2(
+				array('nums', 'int'),
+				array('priceLow', 'float'),
+				array('priceHigh', 'float'),
+				array('times', 'int'),
+				array('isVerify', 'int'),
+				array('isReal', 'int'),
+				array('isSms', 'int'),
+				array('isStop', 'int'),
+				              'rejects');
 			if ($rs === true) {
 				$datas['type'] = $type;
 				$datas['uid']  = $uid;
@@ -982,6 +991,53 @@ switch ($operation) {
 			break;
 		}
 	break;
+	case 'review':
+        echo '此功能暂未开放';
+        exit;
+	break;
+    case 'uphaoping':
+         if ($task = task_base::_get($sid)) {
+             //判断task中的suid和当前的uid是否相同
+             if($uid==$task[buid]){
+                 if($_FILES){
+                     if ($rs = form::is_form_hash2()) {
+                         if ($rs === true) {
+                             $upload = new upload();
+                             $rs = $upload->toupload('filedata', 'image');
+                             $path  = date('Y/m/', $timestamp);
+                             $path1 = 'img/attach/';
+                             $path2 = d('./'.$path1.$path);
+                             if ($rs['count'] == 1) {
+                                 !file_exists($path2) && common::create_folder($path2);
+                                 if ($rs = $upload->move2($rs['info']['filedata']['db_id'], $path2)) {
+                                     $pathinfo  = pathinfo($rs['source']);
+                                     $filename  = $pathinfo['basename'];//image
+                                    // $filename2 = $pathinfo['filename'].'_thumb.'.$pathinfo['extension'];//thumb
+                                    // image::thumb($path2.$filename, $path2.$filename2, array('width' => 100, 'height' => 80));
+                                     if($imageType=='pinimage')
+                                        $rs=db::update('task',array('pinimage'=>"/".$path1.$path.$filename),'id="'.$sid.'"');
+                                     if($imageType=='shareimage')
+                                        $rs=db::update('task',array('shareimage'=>"/".$path1.$path.$filename),'id="'.$sid.'"');
+                                     if($rs)
+                                         echo '<script>parent.location.reload();</script>';
+                                 }
+                             }
+                         }
+                     }else {
+                             $showMessage = '表单超时，请重试';
+                     }
+                 }else{
+                     if($task[ispinimage] && empty($task[pinimage]))
+                         $imageType='pinimage';
+                     elseif($task[isShare] && empty($task[shareimage]))
+                         $imageType='shareimage';
+                     else
+                         $imageType='imagexxx';//用于防止用户修改上传的文件
+                 }
+             }
+         }
+
+    break;
 }
 include(template::load($operation));
 ?>

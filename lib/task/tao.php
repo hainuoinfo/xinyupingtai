@@ -1,5 +1,4 @@
 <?php
-
 (!defined('IN_JB') || IN_JB!==true) && exit('error');
 $m || $m = 'index';
 $ms = array('index', 'add', 'adds', 'tieBuyer', 'tieSeller', 'taskOut', 'taskIn', 'tpl', 'viprob','CreateLaiLuMission','CreateMealMission','CreateCartMission','CreateBatchMission');
@@ -19,9 +18,9 @@ $thisUrl = $baseUrl0.'?m='.$m;
 $lang = array(
 	/*'status'     => array('暂停中', '已发布，等待接手人接手', '已接手，等待接手人绑定买号', '等待发布方审核', '已绑定买号，等待接手方支付', '已支付，等待发布人发货', '已发货，等待收货与好评', '已确认，等待卖家确认', '交易完成'),*/
  	'status'     => array(
-		'暂停中', 
-		'等待接手', 
-		'已接手，等待绑定买号', '等待发布方审核', '等待接手人对商品付款', '已支付，待核对快递地址', '准备发货，等待快递单号', '已支付，等待发布人发货', 
+		'暂停中',
+		'等待接手',
+		'已接手，等待绑定买号', '等待发布方审核', '等待接手人对商品付款', '已支付，待核对快递地址', '准备发货，等待快递单号', '已支付，等待发布人发货',
 		'已发货，等待收货与好评', '已确认，等待卖家核实货款', '交易完成'),
 	'isPriceFit' => array('不需要', '需要'),
 	'times'      => array('马上好评', '24小时好评', '48小时好评', '72小时好评','96小时好评','120小时好评','144小时好评','168小时好评'),
@@ -121,7 +120,7 @@ switch ($m) {
                 array('isFame', 'int'),
                 array('fameLvl', 'int'),
                 array('isPlan', 'int'), 'planDate');
-			
+
 			if ($isHot) $count = (int)$_POST['count'];
 			else $count = 1;
 
@@ -142,7 +141,7 @@ switch ($m) {
 		            if ($members[groupid]==9) $maxTplCount = 4;
 		            if ($members[groupid]==10) $maxTplCount = 3;
 		            if ($members[groupid]==11) $maxTplCount = 3;
-					
+
 					/* if ($isVip) $maxTplCount = 10;
 					elseif ($isVip2) $maxTplCount = 5;
 					else $maxTplCount = 3; */
@@ -181,8 +180,8 @@ switch ($m) {
 		checkPwd2();
 		if ($rs = form::is_form_hash2()) {
 			$datas = form::get2('nickname', 'itemurl', array('price', 'float'), array('isPriceFit', 'int'), array('pointExt', 'float'), array('times', 'int'),  array('scores', 'int'), array('isRemark', 'int'), 'remark', array('isShare', 'int'), array('share', 'int'), 'tips', array('isVerify', 'int'), array('issphb', 'float'),array('isDbssc', 'int'),
-				'sphbdz',array('isLimit', 'int'), array('limit', 'int'), array('isCart', 'int'), array('isAddress', 'int'), 'address', array('isExpress', 'int'), array('expressTM', 'int'), 
-			array('isReal', 'int'), 
+				'sphbdz',array('isLimit', 'int'), array('limit', 'int'), array('isCart', 'int'), array('isAddress', 'int'), 'address', array('isExpress', 'int'), array('expressTM', 'int'),
+			array('isReal', 'int'),
 			array('realname', 'int'),
 			array('isChat', 'int'), array('isChatDone', 'int'),
 			array('isStar', 'int'),//是否星级任务
@@ -238,7 +237,7 @@ switch ($m) {
 	break;
 	case 'taskIn':
 		checkPwd2();
-		
+
 		if ($new) {
 			if (!$taskStatus && !$memberFields['exam']) {
 				common::setMsg('平台认为您的接手经验尚浅，为了您的安全，强烈要求您先通过平台的小小测试');
@@ -282,6 +281,18 @@ switch ($m) {
 					common::goto_url($referer, true);
 				}
 			} elseif ($receive){
+                $task = task_base::_get($receive);//先判断是否需要上传图片，如果需要上传图片，则跳转回原先的网址
+                if ($task&&($task['isShare']||$task['ispinimage'])) {
+                    if($task['ispinimage']&&$task['pinimage']=='')
+                        $upimage=true;
+                    if($task['isshare']&&$task['shareiamge']=='')
+                        $upimage=true;
+                }
+                if($upimage){
+                    common::setMsg('你尚未上传好评图！请返回上传好评图');
+                    common::goto_url($referer, true);
+                    exit;
+                }
 				$rs = task_tao::receive($receive, $uid);
 				if ($rs === true){
 					common::setMsg('已经确认收货，等待卖家确认');
@@ -296,7 +307,7 @@ switch ($m) {
 			if ($search) {
 				$where = "type='1' and buid='$uid'";
 				switch ($t) {
-					case 'all': 
+					case 'all':
 					    (($where && $where .= ' and ') || !$where) && $where .= "status in('8','9')";
 					break;
 					case 'tWatting2':
@@ -310,7 +321,7 @@ switch ($m) {
 					break;
 					case 'complate':
 						(($where && $where .= ' and ') || !$where) && $where .= "status='10'";
-					break;	
+					break;
 				}
 				$urlSuffix = '';
 				if ($sid) {
@@ -351,14 +362,14 @@ switch ($m) {
 					break;
 					case 'complate':
 						$total = $memberTask['inComplate1'];
-					break;	
+					break;
 				}
 				if ($total){
 					$tList = task_tao::getList2($uid, $t);
 					$multipage = multi_page::parse($total, $pagesize, $page, $thisUrl.'&t='.$t.'&page={page}', $pageStyle, 10, 'member1');
 				}
 			}
-			
+
 		}
 	break;
 	case 'taskOut':
@@ -513,7 +524,7 @@ switch ($m) {
 				break;
 				case 'complate':
 					$total = $memberTask['outComplate1'];
-				break;	
+				break;
 			}
 			if ($total) {
 				$tList = task_tao::getList($uid, $t);
@@ -535,7 +546,7 @@ switch ($m) {
 		$user_group = db::one('user_groups', 'name', "id='$members[groupid]'");
 		if ($rs = form::is_form_hash2()) {
 			if ($rs === true) {
-				if ($memberFields['sellers1'] + 1 > $maxTieCount) 
+				if ($memberFields['sellers1'] + 1 > $maxTieCount)
 					$rs = '对不起，您不可以绑定更多的掌柜了';
 				else {
 					$datas = form::get('nickName', array('isTruth', 'int'));
@@ -568,9 +579,9 @@ switch ($m) {
 			} else {
 				$indexMessage = language::get($rs);
 			}
-			
+
 		  }
-	
+
 			$del=$_GET['del'];
 			if($del){
 				if(task_seller::del($del, $uid)){
@@ -580,7 +591,7 @@ switch ($m) {
 				}else{
 				     common::setMsg('删除失败');
 				}
-				print_r($del);  
+				print_r($del);
 		    }
 			$sList = db::get_list2('sellers', '*', "type='1' and uid='$uid'");
 	break;
@@ -745,8 +756,8 @@ switch ($m) {
 		}
 		$sellers = task_seller::getSellers($uid, 1);
 	break;
-	
-	
+
+
 	case 'CreateLaiLuMission':
 		$ensurePoint = 0.3;
 		if ($memberFields['sellers'.$taskId] == 0 || db::data_count('sellers', "type='$taskId' and status='1'") == 0) {
@@ -829,7 +840,7 @@ switch ($m) {
 		$members = member_base::getMember($uid);
 		if ($rs = form::is_form_hash2()) {
 			$datas = form::get2('nickname', 'itemurl', array('price', 'float'), array('isPriceFit', 'int'), array('pointExt', 'float'), array('times', 'int'),  array('scores', 'int'), array('isRemark', 'int'), 'remark', array('isShare', 'int'), array('share', 'int'), 'tips', array('isVerify', 'int'),
-				'sphbdz',array('isLimit', 'int'), array('limit', 'int'), array('isCart', 'int'), array('isAddress', 'int'), 'address', array('isExpress', 'int'), array('expressTM', 'int'), 
+				'sphbdz',array('isLimit', 'int'), array('limit', 'int'), array('isCart', 'int'), array('isAddress', 'int'), 'address', array('isExpress', 'int'), array('expressTM', 'int'),
 			array('isReal', 'int'), 'c_text','c_chsp','c_title','c_chssp','c_price',
 			array('realname', 'int'),
 			array('isChat', 'int'), array('isChatDone', 'int'),
@@ -838,7 +849,7 @@ switch ($m) {
 				array('isEnsure', 'int'),//是否商保
 				array('ensurePoint', 'float'),
 			 array('isScore', 'int'), array('scoreLvl', 'int'), array('isCredit', 'int'), array('creditLvl', 'int'), array('isGood', 'int'), array('goodLvl', 'int'), array('isBlack', 'int'), array('blackLvl', 'int'), array('isFame', 'int'), array('fameLvl', 'int'), array('isPlan', 'int'), 'planDate');
-			 
+
 			if ($rs === true) {
 				$rs = task_tao::adds($datas, $uid);
 			}

@@ -65,10 +65,18 @@
                     <a href="$thisUrl&unpay=$v[id]" class="yf_hwfk" onclick="return IsUnpayTask('淘宝')">还未支付</a>
                     {elseif $v[status]==8}
                     {if $v[runTimestamp3]<=0}
-                    <a href="$thisUrl&receive=$v[id]" class="yf_haopinsh" onclick="return IsReceiveTask('淘宝', $v[isRemark], 0, $v[isShare])">我已收货</a>
+                    <?php //通过判断来确定是否上传图片 1是说需要上传好评图片，2是说上传分享图片 0为不需要上传图片或者已经上传了指定的图片
+                    if($v[ispinimage] && empty($v[pinimage]))
+                        $v['upimage']=1;
+                    elseif($v[isShare] && empty($v[shareimage]))
+                        $v['upimage']=2;
+                     else
+                        $v['upimage']=0;
+                    ?>
+                    <a href="{if $v['upimage']==0}$thisUrl&receive=$v[id]{else}javascript:dialog(600,500,'淘宝平台任务截图上传','/dialog/uphaoping/?sid=$v[id]');{/if}" class="yf_haopinsh" onclick="{if $v['haopingtu']}return IsReceiveTask('淘宝', $v[isRemark], 0, $v[isShare]) ;{/if}">我已收货</a>
                     {/if}
                     {if $v[runTimestamp3]>0}
-                    <span class='yf_wdshsj'>等待收获</span>
+                    <span class='yf_wdshsj'>等待收货</span>
                     <font color="#fe5500">{echo time::hours($v[runTimestamp3])}</font>小时后允许收货
                     {/if}
                     {elseif $v[status]==9}
