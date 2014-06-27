@@ -132,7 +132,7 @@ update {$pre}top_spread t1 inner join (select id uid,@i:=@i+1 newTop from {$pre}
 			extract($_POST);
 			if ($rs === true) {
 				
-				$rs = member_base::login($username, $password, $questionid, $answer, $login_cookietime,$$log_count);
+				$rs = member_base::login($username, $password, $questionId, $answer, $login_cookietime,$$log_count);
 				
 			} else {
 				$rs = 'login_expire';

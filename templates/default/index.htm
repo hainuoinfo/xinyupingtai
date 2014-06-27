@@ -64,11 +64,30 @@
                     <li class="t1">用户名：</li>
                     <li><input name="username" id="lusername" class="u_bk" maxlength="16" type="text" value="{echo isset($username) ? $username : (isset($cookie[loginUsername]) ? $cookie[loginUsername] : '')}">
                  </li>
-                    <li class="t2" id="username_msg">平台用户名</li>
+                    <!--li class="t2" id="username_msg">平台用户名</li-->
                     <li class="t1">密&nbsp;&nbsp; 码：</li>
                     <li><input name="password" id="lpassword" class="u_bk" maxlength="16" type="password"></li>
-                    <li class="t2" id="password_msg">输入6位以上密码</li>
-					<center>{if $indexMessage}<div style="color:#FF0000">$indexMessage</div>{/if}</center>
+                    <!--li class="t2" id="password_msg">输入6位以上密码</li-->
+                    <li>
+                        <TABLE border="0" cellSpacing="0" cellPadding="0" width="625" onblur="this.height='50px';this.css.overflow='hidden'">
+                            <TBODY>
+                            <TR>
+                                <TD height="30" vAlign="middle" width="89" align="right">选择问题：</TD>
+                                <TD style="color: rgb(135, 135, 135);">
+                                    <select name='questionId' id='questionId' class='slt_normal'>
+                                        <option value='0'{if !$member[questionid]} selected='selected'{/if}>无安全问题</option>
+                                        {loop $questions $k $v}
+                                        <option value="$k"{if $member[questionid]==$k} selected="selected"{/if}>$v</option>
+                                        {/loop}
+                                    </select></TR>
+                            <TR>
+                                <TD height="30" vAlign="middle" align="right">问题的答案：</TD>
+                                <TD style="color: rgb(135, 135, 135);">
+                                    <input name="answer" type="text" class="text_normal" id="answer" value="$member[answer]" maxlength="20" /></TD></TR>
+                            </TBODY></TABLE>
+                    </li>
+					<li><center>{if $indexMessage}<div style="color:#FF0000">$indexMessage</div>{/if}</center></li>
+
                     <li>
                    <input class="l_btn" id="login_sub" type="submit" name="btnSubmit">
                       <p class="jz">
