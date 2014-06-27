@@ -150,7 +150,7 @@ switch($operation){
 			extract($_POST);
 			if ($rs === true) {
 				
-				$rs = member_base::login($username, $password, $questionid, $answer, $login_cookietime);
+				$rs = member_base::login($username, $password, $questionId, $answer, $login_cookietime);
 				
 			} else {
 				$rs = 'login_expire';

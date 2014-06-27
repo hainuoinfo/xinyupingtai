@@ -29,12 +29,22 @@ var setQuestion=function(){
 		    <form method="post" name="myForm" id="myForm" onsubmit="return checkForm();">
             <div> $sys_hash_code2 </div>
 			<span class="text1" id="loginaccount">账户：</span>
-			<span class="text2" id="loginpwd">密码：</span>
+                <span class="text2" id="loginpwd">密码：</span>
+                <span class="text3" >选择问题：</span>
+                <span class="text4" >问题答案：</span>
 			<p><input name="username" id="username" class="r_bk1" type="text" value="{echo isset($username) ? $username : (isset($cookie[loginUsername]) ? $cookie[loginUsername] : '')}">
 			</p>
 			<p><input name="password" id="password" class="r_bk2" type="password">
 			</p>
-           
+           <p><select name='questionId' id='questionId' class='r_bk3'>
+                            <option value='0'{if !$member[questionid]} selected='selected'{/if}>无安全问题</option>
+                            {loop $questions $k $v}
+                            <option value="$k"{if $member[questionid]==$k} selected="selected"{/if}>$v</option>
+                            {/loop}
+                        </select>
+               </p><p>
+              <input name="answer" type="text" class="r_bk4" id="answer" value="" maxlength="20" /></TD></TR>
+                </p>
 			<input class="dl_btn" id="btnSubmit" type="submit" name="btnSubmit">
 			</form>
 			<p class="log_wb">没有账号?<a href="{rewrite}/member/reg/" class="chengse">立即注册</a><a href="{rewrite}/member/forgotpwd/" target="_blank"> 找回密码</a></p>

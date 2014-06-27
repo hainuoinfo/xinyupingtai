@@ -1449,16 +1449,22 @@ a.comlink:hover {
 	width:260px;
 	height:20px;
 }
-.login_info .text1,.login_info .text2 {
+.login_info .text1,.login_info .text2,.login_info .text3,.login_info .text4 {
 	font-size:14px;
 	position:absolute;
-	top:93px;
-	left:43px;
+	top:63px;
+	left:23px;
 }
 .login_info .text2 {
-	top:145px;
+    top:105px;
 }
-.login_info .r_bk1,.login_info .r_bk2 {
+.login_info .text3 {
+     top:145px;
+ }
+.login_info .text4 {
+      top:185px;
+  }
+.login_info .r_bk1,.login_info .r_bk2 ,.login_info .r_bk3,.login_info .r_bk4{
 	border:1px solid #ddd;
 	width:260px;
 	height:32px;
@@ -1466,19 +1472,25 @@ a.comlink:hover {
 	text-indent:5px;
 	color:#666;
 	position:absolute;
-	top:88px;
+	top:53px;
 	left:100px;
 }
 .login_info .r_bk2 {
-	top:140px;
+    top:100px;
+}
+.login_info .r_bk3 {
+    top:140px;
+}
+.login_info .r_bk4 {
+    top:180px;
 }
 .login_info .dl_btn {
 	background:url(/images/reg.gif) 0 -138px no-repeat;
 	width:115px;
 	height:41px;
 	position:absolute;
-	top:191px;
-	left:101px;
+	top:240px;
+	left:81px;
 	overflow:hidden;
 	text-indent:999px;
 	border:none;
@@ -1487,7 +1499,7 @@ a.comlink:hover {
 }
 .login_info .log_wb {
 	position:absolute;
-	top:208px;
+	top:260px;
 	left:223px;
 }
 .login_info .log_wb .chengse {
