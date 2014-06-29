@@ -194,6 +194,20 @@ function u($path, $full_path = false)
             break;
     }
 }
+function convertUrlQuery($query)//手工解析url参数
+{ 
+    $queryParts = explode('&', $query); 
+    
+    $params = array(); 
+    foreach ($queryParts as $param) 
+	{ 
+        $item = explode('=', $param); 
+        $params[$item[0]] = $item[1]; 
+    } 
+    
+    return $params; 
+}
+
 /*系统变量*/
 $sys_config_file = d('./config.php');
 /**/
@@ -305,6 +319,11 @@ if (file_exists($sys_config_file)) {
         if ($domains['host'] == $urlInfo['host']) {
             $fromInstation = true;
         }
+    }
+    if(!empty($urlInfo['query']) && strpos($urlInfo['query'],'type') && strpos($urlInfo['path'],'userdata')){
+        $referer = strpos($referer, '?') ? $referer . '&' : $referer . '?';
+        $referer.=$urlInfo['query'];
+        $referer=str_replace('&&','&',$referer);
     }
     $page || $page = 1;
     $pagesize || $pagesize = 20;

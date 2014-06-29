@@ -136,10 +136,10 @@ switch($operation){
 		}
 		$stype=$_GET['cation'];
 		if($stype=='open'){
-		db::update('memberFields', array('state' =>1), "uid='$uid'");
+		db::update('memberfields', array('state' =>1), "uid='$uid'");
 		$stype='close';
 		}else{
-		db::update('memberFields', array('state' =>0), "uid='$uid'");
+		db::update('memberfields', array('state' =>0), "uid='$uid'");
 		$stype='open';
 		}
 		
