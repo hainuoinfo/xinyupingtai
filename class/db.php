@@ -225,6 +225,7 @@ class db{
 		$order && $order=' order by '.$order;
 		$limit = '';
 		$page > 0 && $limit = ' limit '.($page-1) * $pagesize.','.$pagesize;
+		//通过where中的用户信息，获取到当前需要的所有日志的id数组
 		if($ids=$db->fetch_first_all("select id from $pre$tbname$where$order$limit")){
 			return $db->fetch_all("select $f from $pre$tbname where id in('".implode('\',\'',$ids)."')$order");
 		}

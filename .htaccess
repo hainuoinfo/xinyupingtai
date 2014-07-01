@@ -1,0 +1,4 @@
+Options -Indexes
+RewriteEngine on
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(?!rewrite\.php)(.*)$ /rewrite.php\?rewrite=$1&%1 [L]

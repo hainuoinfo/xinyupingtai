@@ -253,6 +253,8 @@ if (file_exists($sys_config_file)) {
     $sys_hash_code2 = '<input type="hidden" name="hash2" value="' . $sys_hash2 . '" />';
     cache::get_array('base');
     $base && extract($base);
+    if($web_rewrite==1)
+        $web_rewrite=true;// 强制指定路径重写功能
     cache::get_array('vars');
     cache::get_array('userGroups');
     $userGroups2 = array();
