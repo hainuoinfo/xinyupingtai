@@ -9,7 +9,7 @@
 	$jsList      = array(javascript::getUrl('task', 'index'));
 	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList,'jsList'=>$jsList));
 }
-{sub ../headerbase}
+{sub ../headerBase}
 <LINK rel="stylesheet" type="text/css" href="/css/task.css">
 <form name="aspnetForm" method="post" id="aspnetForm">
 <div>
@@ -64,6 +64,7 @@ if (!theForm) {
     theForm = document.aspnetForm;
 }
 function __doPostBack(eventTarget, eventArgument) {
+    alert('此功能暂未开放！');return;
     if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
         theForm.__EVENTTARGET.value = eventTarget;
         theForm.__EVENTARGUMENT.value = eventArgument;
