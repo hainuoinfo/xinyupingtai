@@ -1,6 +1,4 @@
 <?php
-
-!defined('IN_JB') && exit('error');
 //loadLib($libP . 'taobaoBase');
 loadLib('Dom');//引入Dom 采集工具类   方法在class下的index.php中定义
 class data_taobaoUser //extends data_taobaoBase

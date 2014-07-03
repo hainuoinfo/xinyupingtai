@@ -50,7 +50,7 @@ class task_buyer{
 						//$score = $member['buyer_credit']['score'];
 						$utype = 0;
 						$maxScore = 0;
-						if ($isreal==1) {
+						if ($isreal==1) {//支付包认证
 							$maxScore = 50000;
 							$utype |= 1;
 							}
@@ -58,6 +58,7 @@ class task_buyer{
 							$maxScore = 50000;
 							$utype |= 2;
 							}
+						if($isreal==2) $isreal=0;
 						if ($maxScore == 0) 
 							$maxScore = $score + rand(40, 800);
 						$datas = array(
@@ -163,9 +164,10 @@ class task_buyer{
 		global $timestamp;
 		if ($buyer = self::getBuyer($id, $uid)) {
 			if ($buyer['tasking'] == 0) {
-				db::update('buyers', "status='7'", "id='$id'");
+				//db::update('buyers', array('status'=>7,'type'=>0), "id='$id'");
+				db::delete('buyers',"id='$id'");
 				db::update('memberfields', 'buyers'.$buyer['type'].'=buyers'.$buyer['type'].'-1', "uid='$buyer[uid]'");
-				return true;
+				return '删除成功';
 			}
 			return '该小号目前还有任务没有完成，请完成后再删除';
 		}
