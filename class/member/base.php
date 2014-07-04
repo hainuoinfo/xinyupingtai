@@ -380,8 +380,9 @@ class member_base{
 					$c = -$oc;
 				}
 				db::update('memberfields', 'credits=credits'.$c, "uid='$uid'");
+				$credit=-$oc;
 			}
-			self::addLog('credits', $uid, $c, $remark);
+			self::addLog('credits', $uid, $credit, $remark);
 			return $credit;
 		}
 		return 0;

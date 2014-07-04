@@ -27,4 +27,4 @@ cacheData::nocacheStart(__FILE__);
 if (cacheData::nocacheEnd(__FILE__)){
 ?>','o'=>false,'a'=>'','b'=>''),52=>array('m'=>'{cfg 0,1}','d'=>'<?php
 echo cfg::get(\'0\', \'1\');
-?>','o'=>false,'a'=>'','b'=>''),53=>array('m'=>'{date2 0}','d'=>'<?php echo 0>1?date(\'Y-m-d H:i:s\',0):\'\';?>','o'=>false,'a'=>'array(1=>\'0\')','b'=>''),54=>array('m'=>'{dump 0}','d'=>'<?php var_dump(0);?>','o'=>false,'a'=>'','b'=>''));
+?>','o'=>false,'a'=>'','b'=>''),53=>array('m'=>'{date2 0}','d'=>'<?php echo 0>1?date(\'Y-m-d H:i:s\',0):\'\';?>','o'=>false,'a'=>'array(1=>\'0\')','b'=>''));

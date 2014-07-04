@@ -1,5 +1,5 @@
 <?php
-//error_reporting(E_ALL);
+error_reporting(0);
 header("Content-Type:text/html;charset=utf-8");
 set_magic_quotes_runtime(0);
 define('VERSION', '1.0');
