@@ -4,10 +4,10 @@ h1,h2,h3,h4,h5,h6 {margin:0px; padding:0px; font-size:1em;}
 
 .main {margin:0px auto; width:950px; clear:both; text-align:left; color:#666;}
 .info {color:#000;}
-.info_l	{float:left; width:700px;}
+.info_l	{float:left; width:620px;}
 .info_l img {vertical-align:middle;}
-.info_r {float:right; width:230px;}
-
+.info_r {float:left; width:230px;}
+.info .rwdt_info{height: auto}
 .info_l div {padding:10px 0px 10px 20px;}
 .info_l h3 {font-size:14px; color:#666; margin:0px; padding:0px; line-height:26px;}
 .info_l h4 {font-size:12px; font-weight:normal; margin:0px; padding:0px; line-height:26px;}
@@ -23,7 +23,7 @@ li.tab_on {background-position:0px 0px;}
 li.tab_on p{background-position:right -98px;}
 li.tab_on strong{background-position:left -49px; color:#FFF;}
 
-.lst_tab_tb{border-bottom:2px solid #FF6600; height:25px;}
+.lst_tab_tb{border-bottom:2px solid #FF6600; height:25px;clear:both;margin-top: 5px;}
 li.tab_tb {background-position:0px -294px;}
 li.tab_tb p{background-position:right -396px;}
 li.tab_tb strong{background-position:left -345px; color:#FFF;}

@@ -76,7 +76,7 @@ $(function(){
 			$(".right_gr_top").css("background","#0077D3");
 		}else if(i <= 0){
 			$(".renwu_icon").hide();
-			$('.right_gr .rw').removeAttr('href');
+			$('.right_gr .rw').removeAttr('href');//只有别人或自己申诉之后于自己有关系的时候这里才出现这个东西  所以是可以隐藏和移除超链接的
 		}
 		//申诉个数
 		u = $(".shensu_icon span").text();
@@ -85,8 +85,9 @@ $(function(){
 			$(".right_gr_bottom").css("background","#0077D3");
 		}else if(u <= 0){
 			$(".shensu_icon").hide();
-			
-		}
+           // $('.right_gr .ss').removeAttr('href');  //因为申诉是随时可以进行的，所以申诉数目标志是能隐藏的，但是链接是不能隐藏的
+
+        }
 		
 		//进度条指数
 		var pro_1 = $('.progress .jindutiao i:eq(0)').text();

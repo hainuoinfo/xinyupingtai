@@ -1,4 +1,4 @@
-﻿{teval
+{teval
 $title       = '存款充值 - {webName}';
 $keywords    = '';
 $description = '';
@@ -15,10 +15,10 @@ echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'de
 <SCRIPT type="text/javascript">
     $(function () {
         $(".left_tit").hover(function () {
-            $(this).css("background-image", "url(images/login/bg_2.png)");
+            $(this).css("background-image", "url(/images/login/bg_2.png)");
             $(".left_alert").css("display", "block");
         }, function () {
-            $(this).css("background-image", "url(images/login/bg_1.png)");
+            $(this).css("background-image", "url(/images/login/bg_1.png)");
             $(".left_alert").css("display", "none")
         })
     });
@@ -29,10 +29,10 @@ echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'de
     $(function () {
         $(".a_father_1").each(function (i) {
             $(this).hover(function () {
-                $(this).eq(i).css("background-image", "url(images/login/icon_17.png)");
+                $(this).eq(i).css("background-image", "url(/images/login/icon_17.png)");
                 $(".a_son_1").css("display", "block");
             }, function () {
-                $(this).eq(i).css("background-image", "url(images/login/icon_23.png)");
+                $(this).eq(i).css("background-image", "url(/images/login/icon_23.png)");
                 $(".a_son_1").css("display", "none");
             })
         })
@@ -42,10 +42,10 @@ echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'de
     $(function () {
         $(".a_father_2").each(function (e) {
             $(this).hover(function () {
-                $(this).eq(e).css("background-image", "url(images/login/icon_18.png)");
+                $(this).eq(e).css("background-image", "url(/images/login/icon_18.png)");
                 $(".a_son_2").css("display", "block");
             }, function () {
-                $(this).eq(e).css("background-image", "url(images/login/icon_24.png)");
+                $(this).eq(e).css("background-image", "url(/images/login/icon_24.png)");
                 $(".a_son_2").css("display", "none");
             })
         })
@@ -77,8 +77,9 @@ echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'de
 </div>
 {/if}
 {if $_showmessage}
-<div class='msg_panel'>
+<div class='msg_panel' style="border: 1px dashed rgb(204, 204, 204);color:red;font-size:20px; background:#FFC; margin-top:5px;padding:10px 5px; font-weight:bold;text-align:left;">
     <div>$_showmessage</div>
+    <script>alert('$_showmessage')</script>
 </div>
 {/if}
 {eval
@@ -109,6 +110,7 @@ $__keys = array_keys($payforTabs);
         <P class="Top_list_txt0 Top_13"></P>
     </A>
     <A style="margin-left: 10px;" id="nov1" href="javascript:;">
+
         <SPAN class="Top_list_alipay"></SPAN>
 
         <P class="Top_list_txt1 Top_22"></P>
@@ -153,7 +155,7 @@ $__keys = array_keys($payforTabs);
                         <TD bgColor="#c3e5b3" width="30">&nbsp;</TD>
                         <TD style="padding: 10px 0px;" class="mh_xxian" bgColor="#c3e5b3" height="35" vAlign="middle"
                             align="left"><P
-                                style='background: url("images/zhifubao/chu.png") no-repeat 1px 1px; width: 680px; height: 25px; font-size: 14px; border-bottom-color: rgb(102, 102, 102); border-bottom-width: 1px; border-bottom-style: dotted;'></P>
+                                style='background: url("/images/zhifubao/chu.png") no-repeat 1px 1px; width: 680px; height: 25px; font-size: 14px; border-bottom-color: rgb(102, 102, 102); border-bottom-width: 1px; border-bottom-style: dotted;'></P>
                         </TD>
                         <TD bgColor="#c3e5b3" vAlign="middle" align="left">&nbsp;</TD>
                     </TR>
@@ -280,9 +282,9 @@ $__keys = array_keys($payforTabs);
         -无需人工充值，自动到账，支持国内20余家银行，充值立即发布任务吧。<BR>
         充值如有问题请联系充值帮助客服：<IMG border="0" src="/images/button_old_170.gif"> <A style="color: rgb(31, 52, 21);"
                                                                              href="http://wpa.qq.com/msgrd?v=3&amp;uin={kefu_qq}&amp;site=qq&amp;menu=yes"
-                                                                             target="_blank">{kefu_qq}</A></P>
+                                                                             target="_blank">{kefu_qq} </A></P>
 </LI>
-<LI style="display: none;">
+<LI style="display:none;">
     <TABLE style="border-width: medium 1px; border-style: none solid; border-color: currentColor rgb(149, 186, 222);"
            border="0" cellSpacing="0" cellPadding="0" width="100%" align="center">
         <TBODY>
@@ -307,7 +309,7 @@ $__keys = array_keys($payforTabs);
                                 </TR>
                                 <form method="post" onsubmit="return checkForm3();" style="">
 
-                                    <TR style="display: none">
+                                    <TR style="display: block">
                                         <TD width="399" align="left"> $sys_hash_code2
                                             <input type="hidden" name="type" value="alipay"/>
 
@@ -320,7 +322,7 @@ $__keys = array_keys($payforTabs);
                                         </TD>
 
                                     </TR>
-                                    <tr style="display: none">
+                                    <tr style="display: block">
                                         <TD width="399" align="left">
                                             <DIV class="Top_tit5" align="right" height="80" width="150">充值金额：&nbsp;&nbsp;&nbsp;</DIV>
                                             <DIV class="Top_submit2">
@@ -682,6 +684,10 @@ $__keys = array_keys($payforTabs);
     })
 
 </SCRIPT>
+<script type="text/javascript">
+    if('$type' == 'alipay')
+        $('#nov1').click();
+</script>
 <DIV class="cle"></DIV>
 {sub ../footer}
 

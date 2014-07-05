@@ -1,0 +1,12 @@
+2014-03-28 08:43:45
+SQL:
+update bf_rate set `rate`='' where id=''
+message:
+Unknown column 'rate' in 'field list'
+
+2014-03-28 08:44:06
+SQL:
+update bf_store set `sort`='' where id=''
+message:
+Unknown column 'sort' in 'field list'
+

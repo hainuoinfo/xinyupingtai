@@ -1,0 +1,24 @@
+2014-03-05 11:34:59
+SQL:
+update bf_memberfields set fabudian=fabudian+ where uid='74'
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where uid='74'' at line 1
+
+2014-03-05 13:46:17
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`stimestamp`,`nickname`,`itemurl`,`price`,`isPriceFit`,`pointExt`,`times`,`isRemark`,`remark`,`isShare`,`share`,`isVerify`,`issphb`,`isDbssc`,`isLimit`,`limit`,`isCart`,`isAddress`,`isExpress`,`expressTM`,`isReal`,`texts`,`title`,`hPriceCount`,`chssp`,`realname`,`isChat`,`isChatDone`,`isStar`,`lvlStar`,`isEnsure`,`ensurePoint`,`isScore`,`scoreLvl`,`isCredit`,`creditLvl`,`isGood`,`goodLvl`,`isBlack`,`blackLvl`,`isFame`,`fameLvl`,`isPlan`,`planDate`,`isLimitAddress`,`limitAddress`,`tips`,`address`,`ispinimage`,`isBuyerHyper`,`buyerHyper`,`shopPrice`,`point`,`status`,`sip`,`itemid`) values('20140305134617244817','1','54','0','48','wulanyang','1393998376','wulanyang55','http://item.taobao.com/item.htm?id=36164585805','0','0','','1','0','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字','0','0','0','0','0','0','1','0','0','0','0','0','*;;;**;;;*','','62','','1','0','0','0','3','0','0.3','0','100','0','30','0','90','0','3','0','90','1','1393998376','0','','','','0','0','41','','1','0','2025908064','36164585805')
+message:
+Unknown column 'issphb' in 'field list'
+
+2014-03-05 14:22:13
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`stimestamp`,`nickname`,`itemurl`,`price`,`isPriceFit`,`pointExt`,`times`,`isRemark`,`remark`,`isShare`,`share`,`isVerify`,`issphb`,`isDbssc`,`isLimit`,`limit`,`isCart`,`isAddress`,`isExpress`,`expressTM`,`isReal`,`texts`,`title`,`hPriceCount`,`chssp`,`tprice`,`realname`,`isChat`,`isChatDone`,`isStar`,`lvlStar`,`isEnsure`,`ensurePoint`,`isScore`,`scoreLvl`,`isCredit`,`creditLvl`,`isGood`,`goodLvl`,`isBlack`,`blackLvl`,`isFame`,`fameLvl`,`isPlan`,`planDate`,`isLimitAddress`,`limitAddress`,`tips`,`address`,`ispinimage`,`isBuyerHyper`,`buyerHyper`,`shopPrice`,`point`,`status`,`sip`,`shopCount`) values('20140305142213447069','1','54','0','48','wulanyang','1394000532','wulanyang55','','0','0','0','1','0','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字','0','0','1','0','0','0','1','1','0','0','0','0','*;;;**;;;**;;;*','*;;;**;;;**;;;*','100','','','1','0','0','0','3','0','0.3','0','100','0','30','0','90','0','3','0','90','0','0','0','','','','0','0','41','0','3.9','1','2025908064','3')
+message:
+Unknown column 'issphb' in 'field list'
+
+2014-03-05 14:22:51
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`stimestamp`,`nickname`,`itemurl`,`price`,`isPriceFit`,`pointExt`,`times`,`isRemark`,`remark`,`isShare`,`share`,`isVerify`,`isDbssc`,`isLimit`,`limit`,`isCart`,`isAddress`,`isExpress`,`expressTM`,`isReal`,`texts`,`title`,`hPriceCount`,`chssp`,`tprice`,`realname`,`isChat`,`isChatDone`,`isStar`,`lvlStar`,`isEnsure`,`ensurePoint`,`isScore`,`scoreLvl`,`isCredit`,`creditLvl`,`isGood`,`goodLvl`,`isBlack`,`blackLvl`,`isFame`,`fameLvl`,`isPlan`,`planDate`,`isLimitAddress`,`limitAddress`,`tips`,`address`,`ispinimage`,`isBuyerHyper`,`buyerHyper`,`shopPrice`,`point`,`status`,`sip`,`shopCount`) values('20140305142251775546','1','54','0','48','wulanyang','1394000571','wulanyang55','','0','0','0','1','0','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字','0','0','1','0','0','1','1','0','0','0','0','*;;;**;;;**;;;*','*;;;**;;;**;;;*','100','','','1','0','0','0','3','0','0.3','0','100','0','30','0','90','0','3','0','90','0','0','0','','','','0','0','41','0','3.9','1','2025908064','3')
+message:
+Unknown column 'texts' in 'field list'
+

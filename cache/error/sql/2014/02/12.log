@@ -1,0 +1,36 @@
+2014-02-12 21:36:55
+SQL:
+select id,username,password,salt,questionid,answer,last_login_ip,log_count from bf_members where username='fan634626' limit 1
+message:
+Unknown column 'log_count' in 'field list'
+
+2014-02-12 21:37:15
+SQL:
+select id,username,password,salt,questionid,answer,last_login_ip,log_count from bf_members where username='fan634626' limit 1
+message:
+Unknown column 'log_count' in 'field list'
+
+2014-02-12 21:38:25
+SQL:
+select id,username,password,salt,questionid,answer,last_login_ip,log_count from bf_members where username='fanmeinan' limit 1
+message:
+Unknown column 'log_count' in 'field list'
+
+2014-02-12 21:40:27
+SQL:
+select id,username,password,salt,questionid,answer,last_login_ip,log_count from bf_members where username='fan634626' limit 1
+message:
+Unknown column 'log_count' in 'field list'
+
+2014-02-12 22:22:48
+SQL:
+select id,username,password,salt,questionid,answer,last_login_ip,log_count from bf_members where username='fan634626' limit 1
+message:
+Unknown column 'log_count' in 'field list'
+
+2014-02-12 22:25:37
+SQL:
+select id,username,password,salt,questionid,answer,last_login_ip,log_count from bf_members where username='fan634626' limit 1
+message:
+Unknown column 'log_count' in 'field list'
+

@@ -1,4 +1,4 @@
-﻿$(document).ready(function(){
+$(document).ready(function(){
 
     if( curG < 1 ){
         artDialog({content:"对不起！您的麦点不够了，发布任务最少需要1个麦点，请充值购买麦点或者接任务免费获得麦点。",id:"alarm",fixed:true,lock:true,yesText:"立即购买麦点",noText:"马上去接任务"},

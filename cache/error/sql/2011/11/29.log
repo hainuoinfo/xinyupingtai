@@ -1,0 +1,18 @@
+2011-11-29 14:07:32
+SQL:
+SELECT * FROM bf_sys_cfg_cate ORDER BY 20
+message:
+Unknown column '20' in 'order clause'
+
+2011-11-29 23:14:32
+SQL:
+SELECT t0.vip,t0.vip2,t0.isEnsure,t0.timestamp,t1.username,t1.month,t1.credits FROM bf_log_flow_vip AS t0 LEFT JOIN bf_memberfields AS t1 ON t1.uid=t0.uid ORDER BY t0.timestamp DESC LIMIT 13
+message:
+Unknown column 't0.vip' in 'field list'
+
+2011-11-29 23:15:09
+SQL:
+SELECT t0.username,t0.month,t0.credits,t0.timestamp,t1.vip,t1.vip2,t1.isEnsure FROM bf_log_flow_vip AS t0 LEFT JOIN bf_memberfields AS t1 ON t1.uid=t0.uid ORDER BY t0.timestamp DESC LIMIT 13
+message:
+Unknown column 't0.credits' in 'field list'
+

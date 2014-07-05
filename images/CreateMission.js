@@ -1,4 +1,4 @@
-﻿$(document).ready(function(){
+$(document).ready(function(){
     if( curG < 1){
         artDialog({content:"对不起！您的麦点不够了，发布任务最少需要1个麦点，请充值购买麦点或者接任务免费获得麦点。",id:"alarm",fixed:true,lock:true,yesText:"立即购买麦点",noText:"马上去接任务"},
             function(){window.location.href="/member/BuyPoint/"},function(){window.location.href="/task/tao/"});
@@ -18,7 +18,6 @@
                 Init();
             }
         });
-        
 		$("#pointExt").blur(function(){
 			if (this.value<0){
 				this.value=0;
@@ -118,6 +117,7 @@
 	        }
 	        var goodsUrl=$("#txtGoodsUrl").val();
 	        var validGoodsUrl=goodsUrl.toLowerCase();
+            //TODO 对淘宝地址进行验证确认地址所在的与卖家是同一个
 	        if(!validGoodsUrl|| !ValidDomainF(validGoodsUrl) || validGoodsUrl.indexOf("meal")>0){
 		        artDialog({content:"对不起，您还未输入商品URL地址或者地址有错误。（特别注意：此地址为您店铺需要买方拍的商品地址，而非淘宝店地址）",id:"alarm",yesText:"确定",noText:"查看URL地址帮助"},function(){ToMao();},function(){window.open("http://shua.114.acd8.com/");});
 				$(".ui_close").hide();
@@ -145,7 +145,7 @@
 	                }else if (result=='13'){
                             artDialog({content:"禁止发布此商品链接~~",id:"alarm"},function(){ToMao();});
 	                }
-                });
+                })
                 return false;
             }
         }).css("cursor","pointer");

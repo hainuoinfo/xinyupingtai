@@ -57,7 +57,7 @@ if ($operation == 'index') {
 		array('name' => '我的联盟中心', 'url' => common::getUrl('/member/'))
 	);
 }
-
+cache::get_array('questions'); //提前获取验证问题信息
 $errorMessag='对不起，您的存款不足！ 请<a href="/member/topup/"> 立即充值</a>';
 switch($operation){
 	case 'reg':
@@ -136,10 +136,10 @@ switch($operation){
 		}
 		$stype=$_GET['cation'];
 		if($stype=='open'){
-		db::update('memberFields', array('state' =>1), "uid='$uid'");
+		db::update('memberfields', array('state' =>1), "uid='$uid'");
 		$stype='close';
 		}else{
-		db::update('memberFields', array('state' =>0), "uid='$uid'");
+		db::update('memberfields', array('state' =>0), "uid='$uid'");
 		$stype='open';
 		}
 		
@@ -150,7 +150,7 @@ switch($operation){
 			extract($_POST);
 			if ($rs === true) {
 				
-				$rs = member_base::login($username, $password, $questionid, $answer, $login_cookietime);
+				$rs = member_base::login($username, $password, $questionId, $answer, $login_cookietime);
 				
 			} else {
 				$rs = 'login_expire';
@@ -162,7 +162,6 @@ switch($operation){
 				$indexMessage = language::get($rs, 'login', 'member');
 			}
 		}
-		cache::get_array('questions');
 		$cssList = array(
 			css::getUrl('login', 'member')
 		);
@@ -313,11 +312,13 @@ switch($operation){
 				if($Type == 1){	
 					$money=$nums * $jiage;
 				    if($money <= $memberFields['money']){
-                        member_base::addFabudian($uid, $nums,'购买麦点');
-						member_base::addMoney($uid, -$money,'购买麦点');
+					//addFabudian第三个参数参考  task【type】
+					member_base::addFabudian($uid, $nums,1,'购买麦点');
+					member_base::addMoney($uid, -$money,'购买麦点');
 				    }else{
-					    error::bbsMsg($errorMessag);
+					error::bbsMsg($errorMessag);
 					}
+					
 			         if ($rs === true) {
 						common::setMsg('购买成功！');
 						common::refresh();
@@ -358,8 +359,8 @@ switch($operation){
                  if($Type == 3)	{
 				    $money=$jiage;
 				    if($money <= $memberFields['money']){
-                        member_base::addFabudian($uid, $nums,'购买麦点');
-						member_base::addMoney($uid, -$money,'购买麦点');
+					member_base::addFabudian($uid, $nums,1,'购买麦点');
+					member_base::addMoney($uid, -$money,'购买麦点');
 				    }else{
 					    error::bbsMsg($errorMessag);
 					}
@@ -373,8 +374,8 @@ switch($operation){
                  if($Type == 4)	{
 				    $money=$jiage;
 				    if($money <= $memberFields['money']){
-                        member_base::addFabudian($uid, $nums,'购买麦点');
-						member_base::addMoney($uid, -$money,'购买麦点');
+					member_base::addFabudian($uid, $nums,1,'购买麦点');
+					member_base::addMoney($uid, -$money,'购买麦点');
 				    }else{
 					    error::bbsMsg($errorMessag);
 					}
@@ -388,7 +389,7 @@ switch($operation){
                 if($Type == 5)	{
 				    $money=$jiage;
 				    if($money <= $memberFields['money']){
-                        member_base::addFabudian($uid, $nums,'购买麦点');
+                        member_base::addFabudian($uid, $nums,1,'购买麦点');
 						member_base::addMoney($uid, -$money,'购买麦点');
 				    }else{
 					    error::bbsMsg($errorMessag);
@@ -403,7 +404,7 @@ switch($operation){
                 if($Type == 6)	{
 				    $money=$jiage;
 				    if($money <= $memberFields['money']){
-                        member_base::addFabudian($uid, $nums,'购买麦点');
+                        member_base::addFabudian($uid, $nums,1,'购买麦点');
 						member_base::addMoney($uid, -$money,'购买麦点');
 				    }else{
 					    error::bbsMsg($errorMessag);
@@ -418,7 +419,7 @@ switch($operation){
                 if($Type == 7){
 				    $money=$jiage;
 				    if($money <= $memberFields['money']){
-                        member_base::addFabudian($uid, $nums,'购买麦点');
+                        member_base::addFabudian($uid, $nums,1,'购买麦点');
 						member_base::addMoney($uid, -$money,'购买麦点');
 				    }else{
 					    error::bbsMsg($errorMessag);
@@ -430,10 +431,10 @@ switch($operation){
 						$indexMessage = language::get($rs);
 					}
 				} 
-				 if($Type == 8){
+		if($Type == 8){
 				    $money=$jiage;
 				    if($money <= $memberFields['money']){
-                        member_base::addFabudian($uid, $nums,'购买麦点');
+                        member_base::addFabudian($uid, $nums,1,'购买麦点');
 						member_base::addMoney($uid, -$money,'购买麦点');
 				    }else{
 					    error::bbsMsg($errorMessag);
@@ -602,7 +603,7 @@ switch($operation){
 				    $money=$nums * $price;
 					if($money<=$memberFields['money']){
 					    if(db::update('kill', 'name=name'.-$nums, "id=1")){
-						member_base::addFabudian($uid, $nums,'麦点秒杀');
+						member_base::addFabudian($uid, $nums,1,'麦点秒杀');
 						member_base::addMoney($uid, -$money,'麦点秒杀');
 				        member_base::sendSms($uid, '您于'.date('Y-m-d H:i:s', $timestamp).'使用'.$money.'秒杀了'.$nums.'个麦点', 'score_points');
 				        common::setMsg('恭喜您，秒杀陈功！');
@@ -866,7 +867,7 @@ switch($operation){
 			array('name' => '我的联盟中心' , 'url' => common::getUrl('/member/')),
 			array('name' => '维护个人资料')
 		);
-		if ($rs = form::is_form_hash2()) {
+        if ($rs = form::is_form_hash2()) {//提前验证form信息导致不是form提交的时候，信息读取不完整
 			if ($rs === true) {
 				switch ($type) {
 					case 'pass':
@@ -973,14 +974,13 @@ switch($operation){
 							}
 					break;
 					case 'ProtectPass':
-					    cache::get_array('questions');
 					    $datas = form::get('questionId','answer','pwd2');
 			            $datas && extract($datas);
 							if ($memberInfo = member_base::getMember($uid)) {
 								$password2 = $memberInfo['password2'];
 							    $salt = db::one_one(members, 'salt', "id='$uid'");
 								if($password2==common::salt_pwd($salt,$datas['pwd2'])){
-									if (db::update('members', array('questionId' => $datas['questionId']),array('answer' => $datas['answer']), "id='$uid'")) {
+									if (db::update('members', array('questionId' => $questionId,'answer' => $answer), "id='$uid'")) {
 									common::setMsg('安全问题设置成功！');
 				                    common::refresh();
 									} else {
@@ -1038,7 +1038,6 @@ switch($operation){
 			array('name' => '我的联盟中心' , 'url' => common::getUrl('/member/')),
 			array('name' => '维护个人资料')
 		);
-		cache::get_array('questions');
 		if ($rs = form::is_form_hash2()) {
 			$indexMessage = '';
 			if ($rs === true) {
@@ -1288,7 +1287,7 @@ switch($operation){
 					} else {
 						common::setMsg('恭喜您通过了考试');
 						db::update('memberfields', array('exam' => 1), "uid='$uid'");
-						member_base::addFabudian($uid, 1,'调查考试通过奖励');
+						member_base::addFabudian($uid, 1,1,'调查考试通过奖励');
 						common::refresh();
 					}
 				}
@@ -1896,7 +1895,7 @@ switch($operation){
 							if ($num < $memberFields[fabudian]) {
 							    $money = $num * $oneMoney;
 								if($money){
-								member_base::addFabudian($uid, -$num,'麦点兑换现金');
+								member_base::addFabudian($uid, -$num,1,'麦点兑换现金');
 								member_base::addMoney($uid, $money,'麦点兑换现金');
 								}
 								db::insert('log_exchange', array(
@@ -1924,7 +1923,7 @@ switch($operation){
 							    if($jifen < $ke_jifen ){
 								    if($num > 0){
 									member_base::addCredit($uid, -$jifen,'积分兑换麦点');
-								    member_base::addFabudian($uid, $num,'积分兑换麦点');
+								    member_base::addFabudian($uid, $num,1,'积分兑换麦点');
 								db::insert('log_exchange', array(
 									'type'      => $type,
 									'uid'       => $uid,
@@ -2010,7 +2009,7 @@ switch($operation){
 			case 0:
 				
 			break;
-			case 1:
+			case 1://存款
 			  $type = (int)$type;
 		      $type || $type = 0;
 			    $where = '';
@@ -2029,7 +2028,7 @@ switch($operation){
 			$multipage = multi_page::parse($total, $pagesize, $page, common::getUrl('/'.$action.'/'.$operation.'/?type='.$type.($dateStart?'&dateStart='.$dateStart:'').($dateEnd?'&dateEnd='.$dateEnd:'').'&page={page}'), $pageStyle, 10, 'member1');
 		    }	  
 			break;
-			case 2:
+			case 2://麦点
 			$type = (int)$type;
 		     $type || $type = 0;
 				    $where = '';
@@ -2041,14 +2040,14 @@ switch($operation){
 			$t2 = time::get_general_timestamp($dateEnd);
 			$t2 > 0  && ($t2 += 86400-1) && ($where && ($where .= ' and ') || !$where) && $where .= "timestamp<=$t2";
 		     } else $dateEnd = '';
-				($where && ($where .= ' and ') || !$where) && $where .= 'type=\'fabudian\'';
-			     ($where && ($where .= ' and ') || !$where) && $where .= "uid='$uid'";
+			($where && ($where .= ' and ') || !$where) && $where .= 'type=\'fabudian\'';
+			($where && ($where .= ' and ') || !$where) && $where .= "uid='$uid'";
 		     if ($total = db::data_count('log', $where)) {
 			$logList = db::get_list2('log', '*', $where, 'timestamp desc', $page, $pagesize);
 			$multipage = multi_page::parse($total, $pagesize, $page, common::getUrl('/'.$action.'/'.$operation.'/?type='.$type.($dateStart?'&dateStart='.$dateStart:'').($dateEnd?'&dateEnd='.$dateEnd:'').'&page={page}'), $pageStyle, 10, 'member1');
 		     }
 			break;
-			case 3:
+			case 3://积分
 			$type = (int)$type;
 		     $type || $type = 0;
 			    $where = '';
@@ -2067,7 +2066,7 @@ switch($operation){
 			$multipage = multi_page::parse($total, $pagesize, $page, common::getUrl('/'.$action.'/'.$operation.'/?type='.$type.($dateStart?'&dateStart='.$dateStart:'').($dateEnd?'&dateEnd='.$dateEnd:'').'&page={page}'), $pageStyle, 10, 'member1');
 		     }
 			break;	
-			case 4:
+			case 4://任务
 			       $where = '';
 		     if ($dateStart) {
 			  $t1 = time::get_general_timestamp($dateStart);
@@ -2084,7 +2083,7 @@ switch($operation){
 		     }
 				
 			break;
-            case 5:
+			case 5://充值
 				$where = '';
 		     if ($dateStart) {
 			  $t1 = time::get_general_timestamp($dateStart);
@@ -2100,7 +2099,7 @@ switch($operation){
 			      $multipage = multi_page::parse($total, $pagesize, $page, common::getUrl('/'.$action.'/'.$operation.'/?type='.$type.($dateStart?'&dateStart='.$dateStart:'').($dateEnd?'&dateEnd='.$dateEnd:'').'&page={page}'), $pageStyle, 10, 'member1');
 		     }
 			break;	
-            case 6:
+			case 6://提现
 		          $status = array('待审核', '已撤销', '未验证', '已拒绝', '处理中', '已发放');
 		          if ($cancel) {
 			      $item = db::one('payment', '*', "id='$cancel' and uid='$uid'");
@@ -2131,7 +2130,7 @@ switch($operation){
 			    $multipage = multi_page::parse($total, $pagesize, $page, common::getUrl('/'.$action.'/'.$operation.'/?type='.$type.($dateStart?'&dateStart='.$dateStart:'').($dateEnd?'&dateEnd='.$dateEnd:'').'&page={page}'), $pageStyle, 10, 'member1');
 		     }
 			break;
-             case 7:
+             case 7://登陆
 			    $where = '';
 		       if ($dateStart) {
 			   $t1 = time::get_general_timestamp($dateStart);

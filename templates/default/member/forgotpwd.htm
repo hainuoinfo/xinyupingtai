@@ -23,21 +23,21 @@
             <h4><em></em>找回登录密码</h4>
             <div class="gray">通过账号与绑定的手机号码，自助找回登录密码。</div>
             <div class="but">
-              <button onclick="openurl('/help/forpassword/','iframe');">点击开始</button>
+              <button onclick="openurl('/member/forgotpwd/','iframe');">点击开始</button>
             </div>
           </li>
           <li class="p_pas">
             <h4><em></em>找回操作密码</h4>
             <div class="gray">通过账号与绑定的手机号码，自助找回操作密码。</div>
             <div class="but">
-              <button onclick="openurl('/help/forpassword2/');">点击开始</button>
+              <button onclick="openurl('/member/userdata/?type=GetPass');">点击开始</button>
             </div>
           </li>
           <li class="count">
             <h4><em></em>修改联系方式</h4>
             <div class="gray">自助修改QQ号码、联系邮箱等个人联系信息。</div>
             <div class="but">
-              <button onclick="openurl('/help/userdata/');">点击开始</button>
+              <button onclick="openurl('/member/userdata/?type=index');">点击开始</button>
             </div>
           </li>
           <li class="tixian">
@@ -51,7 +51,7 @@
             <h4><em class="icon5"></em>账号认证</h4>
             <div class="gray">进行手机认证、绑定掌柜、绑定买号等操作。</div>
             <div class="but">
-              <button onclick="openurl('/member/smsactivation/');">点击开始</button>
+              <button onclick="openurl('/member/active/');">点击开始</button>
             </div>
           </li>
         </ul>
@@ -166,5 +166,8 @@ function checkForm2() {
 		return avoidReSubmit();
 	return result;
 }
+    function openurl(url){
+        window.location.href=weburl +url;
+    }
 </script>
 {sub ../footer}

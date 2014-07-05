@@ -1,1 +1,0 @@
-<?php exit;?>a:1:{s:10:"ecpContent";s:57:"{webName}帐号异常验证，您的验证码为：{code}";}

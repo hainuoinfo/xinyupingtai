@@ -1,1 +1,0 @@
-<?php exit;?>a:1:{s:7:"plugins";a:2:{s:4:"name";s:12:"插件中心";s:3:"sub";a:1:{s:6:"manage";s:12:"插件管理";}}}

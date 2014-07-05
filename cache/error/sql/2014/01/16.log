@@ -1,0 +1,120 @@
+2014-01-16 15:42:50
+SQL:
+select * from bf_log_vip where timestamp desc limit 0,20
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'desc limit 0,20' at line 1
+
+2014-01-16 15:46:35
+SQL:
+select * from bf_log_vip where id>0 order by timestamp desc limit 4 limit 0,20
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 0,20' at line 1
+
+2014-01-16 15:46:37
+SQL:
+select * from bf_log_vip where id>0 order by timestamp desc limit 4 limit 0,20
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 0,20' at line 1
+
+2014-01-16 15:46:57
+SQL:
+select id from bf_log_vip where id>0 order by timestamp desc limit 4 limit 0,20
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 0,20' at line 1
+
+2014-01-16 15:46:58
+SQL:
+select id from bf_log_vip where id>0 order by timestamp desc limit 4 limit 0,20
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 0,20' at line 1
+
+2014-01-16 15:46:59
+SQL:
+select id from bf_log_vip where id>0 order by timestamp desc limit 4 limit 0,20
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 0,20' at line 1
+
+2014-01-16 15:47:02
+SQL:
+select id from bf_log_vip where id>0 order by timestamp desc limit 4 limit 0,20
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 0,20' at line 1
+
+2014-01-16 15:58:42
+SQL:
+select * from bf_log_vip, where id>0 timestamp desc limit 4;
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where id>0 timestamp desc limit 4' at line 1
+
+2014-01-16 15:59:18
+SQL:
+select * from bf_log_vip where id>0 timestamp desc limit 4;
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'timestamp desc limit 4' at line 1
+
+2014-01-16 15:59:40
+SQL:
+select * from bf_log_vip where id>0 timestamp desc limit 4
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'timestamp desc limit 4' at line 1
+
+2014-01-16 15:59:43
+SQL:
+select * from bf_log_vip where id>0 timestamp desc limit 4
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'timestamp desc limit 4' at line 1
+
+2014-01-16 16:01:17
+SQL:
+select * from bf_log_vip where id>0 timestamp desc limit 0,4
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'timestamp desc limit 0,4' at line 1
+
+2014-01-16 16:01:39
+SQL:
+select * from bf_log_vip where id>0 timestamp desc
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'timestamp desc' at line 1
+
+2014-01-16 16:01:42
+SQL:
+select * from bf_log_vip where id>0 timestamp desc
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'timestamp desc' at line 1
+
+2014-01-16 16:01:43
+SQL:
+select * from bf_log_vip where id>0 timestamp desc
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'timestamp desc' at line 1
+
+2014-01-16 16:08:49
+SQL:
+Resource id #50
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Resource id #50' at line 1
+
+2014-01-16 16:10:18
+SQL:
+Resource id #50
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Resource id #50' at line 1
+
+2014-01-16 16:10:19
+SQL:
+Resource id #50
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Resource id #50' at line 1
+
+2014-01-16 16:10:20
+SQL:
+Resource id #50
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Resource id #50' at line 1
+
+2014-01-16 16:10:22
+SQL:
+Resource id #50
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Resource id #50' at line 1
+

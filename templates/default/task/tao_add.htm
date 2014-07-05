@@ -131,7 +131,7 @@ validDomains[13]="http://zxn.taobao.com/";
               <input id="chssp" style="margin-left:-2px;+margin-left:-5px;" {if $datas[chssp]} checked="checked"{/if} value="1" name="chssp" type="checkbox">
               <span style="color:#999">打折类物品，取消商品价格限制</span></p>
               </div>
-          <div class="exp"> 此价格为您发布的宝贝改价后包括邮费的总价，接手者购买商品时支付给您的价钱总和！此价格不能大于您在平台的保证金！您目前平台保证金为 <em>$memberFields[ensureMoney]</em> 元， <a target="_blank" href="{rewrite}/user/topup/">我要充值</a> </div>
+          <div class="exp"> 此价格为您发布的宝贝改价后包括邮费的总价，接手者购买商品时支付给您的价钱总和！此价格不能大于您在平台的保证金！您目前平台存款为 <em>$memberFields[money]</em> 元， <a target="_blank" href="{rewrite}/member/topup/">我要充值</a> </div>
         </li>
             <li>
           <div class="name">是否需要改价：</div>
@@ -150,15 +150,15 @@ validDomains[13]="http://zxn.taobao.com/";
                 <br>
                 <br>
               </div>
-          <div class="exp"> 要求接手方缴纳保证金后成为平台的商保用户才可以接手，需额外支付<em>0.3</em>个麦点给接手方，—— <a href="{rewrite}/user/ensure/" target="_blank">我要立即加入商保</a> </div>
+          <div class="exp"> 要求接手方缴纳保证金后成为平台的商保用户才可以接手，需额外支付<em>0.3</em>个麦点给接手方，—— <a href="{rewrite}/member/ensure/" target="_blank">我要立即加入商保</a> </div>
         </li>
             <li>
           <div class="name">基本麦点：</div>
           <div class="value">
                 <input id="txtMinMPrice" class="txt" value="0" style="width:130px;color:#f50;background:#F0F0F0;" name="txtMinMPrice" readonly="readonly" type="text">
                 个麦点 </div>
-          <div class="exp"> 发布该价格任务需要扣除的麦点，不包括增值服务. <a target="_blank" href="{rewrite}/bbs/t122/">查看商品的价格与最底消耗额的关系</a> <br>
-                您目前还有麦点 <em>$memberFields[fabudian]</em> 个， <a target="_blank" href="{rewrite}/BuyPoint/">我要购买</a> </div>
+          <div class="exp"> 发布该价格任务需要扣除的麦点，不包括增值服务. <a target="_blank" href="{rewrite}/bbs/t30/">查看商品的价格与最底消耗额的关系</a> <br>
+                您目前还有麦点 <em>$memberFields[fabudian]</em> 个， <a target="_blank" href="{rewrite}/member/BuyPoint/">我要购买</a> </div>
         </li>
             <li>
           <div class="name">追加悬赏麦点：</div>
@@ -428,7 +428,7 @@ validDomains[13]="http://zxn.taobao.com/";
                     <div class="value longest">
                   <div id="divBaLevel" style="margin-bottom:5px;">
                         <input id="isReal" {if $datas[isReal]} checked="checked"{/if} value="1" name="isReal" type="checkbox">
-                        <input name="realname" {if $datas[realname]} checked="checked"{/if} value="1" id="isReal_1" type="radio">
+                        <input name="realname"  {if $datas[realname]} checked="checked"{/if} value="1" id="isReal_1" type="radio">
                         <label for="isReal_1"> 普通实名(<em>0.5</em>个麦点) </label>
                       </div>
                   <div class="exp">限制接手买号必须是通过了支付宝实名认证才可以接手此任务</div>

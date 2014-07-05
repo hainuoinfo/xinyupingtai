@@ -145,9 +145,9 @@ $.fn.easydrag = function(allowBubbling){
 		// if no id is defined assign a unique one
 		if(undefined == this.id || !this.id.length) this.id = "easydrag"+(new Date().getTime());
 
-		// set dragStatus 
+		// set dragStatus
 		dragStatus[this.id] = "on";
-		
+
 		// change the mouse pointer
 		$(this).css("cursor", "move");
 
@@ -324,7 +324,7 @@ function dialog(k, c, j, a, e) {
 		}
 		f.hide();
 		l.remove();
-		
+
 	}
 }
 function reflesh(a) {
@@ -550,7 +550,7 @@ function doAlert(c, b) {
 		try {
 			b.focus()
 		} catch(a) {
-			
+
 		}
 	}
 	return false
@@ -730,7 +730,7 @@ function comm_720fram(k, c, j, a, e) {
 	if (f.length > 0) {
 		f.remove();
 	}
-	
+
 	f = $('<div id="comm_720fram" class="comm_720fram"></div>');
 	f.css({
 		marginLeft: "-390px",
@@ -799,7 +799,7 @@ function comm_fram(k, c, j, a, e) {
 	f.css({
 		marginLeft: "-" + k / 2 +30 + "px",
 		marginTop: "-" + c / 2 + 70+ "px"
-		
+
 	});
 	if (is_ie7 || is_moz) {
 		f.css({
@@ -857,7 +857,7 @@ function getvcode(time,hash,cashtype){
 		gettimeout(120);
 	}
 	});
-	
+
 }
 function gettimeout(time){
 	var time;

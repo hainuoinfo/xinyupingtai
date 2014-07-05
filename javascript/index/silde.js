@@ -1,9 +1,10 @@
-﻿var slideMenu=function(){
+var slideMenu=function(){
 	var sp,st,t,m,sa,l,w,sw,ot;
 	return{
 		build:function(sm,sw,mt,s,sl,h){
 			sp=s; st=sw; t=mt;
 			m=document.getElementById(sm);
+            console.log('slidermenu   sm='+sm+' sw='+sw+' s='+s+' sl='+sl+' h='+h);
 			sa=m.getElementsByTagName('li');
 			l=sa.length; w=m.offsetWidth; sw=w/l;
 			ot=Math.floor((w-st)/(l-1)); var i=0;
@@ -43,4 +44,4 @@ function slideAuto() {
 function isAuto(flag) {
     slideFlag = flag;
 }
-addEvent(window, "load", function(){slideMenu.build('switch',406,4,10,1);slideAuto();});
+//addEvent(window, "load", function(){slideMenu.build('switch',406,4,10,1);slideAuto();});

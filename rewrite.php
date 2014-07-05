@@ -115,14 +115,13 @@ $r_marker='rewrite';
 $r_marker_len=strlen($r_marker);
 if($r_q=$_SERVER['QUERY_STRING']){
 	if(substr($r_q,0,$r_marker_len)===$r_marker){
-
 		if(($r_f1=strpos($r_q,'&'))!==false){
 			$r_=substr($r_q,0,$r_f1);
 			if(($r_f2=strpos($r_,'='))!==false){
 				$r_=substr($r_,$r_f2+1);
 				$_SERVER['QUERY_STRING']=substr($r_q,$r_f1+1);
 				if(strpos($_SERVER['QUERY_STRING'],$r_marker.'=')===false)
-                    unset($_GET[$r_marker]);
+					unset($_GET[$r_marker]);
 			} else header("HTTP/1.1 404 Not Found");
 		} else {
 			$r_=$_GET[$r_marker];

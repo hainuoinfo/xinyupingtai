@@ -1,0 +1,60 @@
+2012-10-16 04:55:55
+SQL:
+delete from bf_complain where `cid` in('9','8','7','6','5','4')
+message:
+Unknown column 'cid' in 'where clause'
+
+2012-10-16 04:56:10
+SQL:
+delete from bf_ensure where `cid` in('6','5')
+message:
+Unknown column 'cid' in 'where clause'
+
+2012-10-16 04:56:19
+SQL:
+delete from bf_ensure where `cid` in('1')
+message:
+Unknown column 'cid' in 'where clause'
+
+2012-10-16 07:06:28
+SQL:
+select * from bf_members where id='42' limit 1
+message:
+Table 'a1014204749.bf_members' doesn't exist
+
+2012-10-16 07:06:30
+SQL:
+select * from bf_members where id='42' limit 1
+message:
+Table 'a1014204749.bf_members' doesn't exist
+
+2012-10-16 07:06:35
+SQL:
+select * from bf_members where id='42' limit 1
+message:
+Table 'a1014204749.bf_members' doesn't exist
+
+2012-10-16 07:06:37
+SQL:
+select * from bf_members where id='42' limit 1
+message:
+Table 'a1014204749.bf_members' doesn't exist
+
+2012-10-16 07:06:42
+SQL:
+select * from bf_members where id='42' limit 1
+message:
+Table 'a1014204749.bf_members' doesn't exist
+
+2012-10-16 07:06:44
+SQL:
+select * from bf_members where id='42' limit 1
+message:
+Table 'a1014204749.bf_members' doesn't exist
+
+2012-10-16 07:06:54
+SQL:
+select * from bf_members where id='42' limit 1
+message:
+Table 'a1014204749.bf_members' doesn't exist
+

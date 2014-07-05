@@ -380,23 +380,45 @@ class member_base{
 					$c = -$oc;
 				}
 				db::update('memberfields', 'credits=credits'.$c, "uid='$uid'");
+				$credit=-$oc;
 			}
-			self::addLog('credits', $uid, $c, $remark);
+			self::addLog('credits', $uid, $credit, $remark);
 			return $credit;
 		}
 		return 0;
 	}
-	public static function addLog($type, $uid, $val, $remark){
+	public static function addLog($type, $uid, $val, $remark,$fabudian='',$tassktype='',$totalmoney=''){
 		global $timestamp;
 		$username = self::getUsername($uid);
-		if (self::isSys($uid)) return true;
-		return db::insert('log', array('type' => $type, 'uid' => $uid, 'username' => $username, 'val' => $val, 'remark' => $remark, 'timestamp' => $timestamp));
+		if (self::isSys($uid))
+			return true;
+		$insert=array();
+		if($type)
+			$insert['type'] = $type;
+		if($uid)
+			$insert['uid']=$uid;
+		if($username)
+			$insert['username']=$username;
+		if($val)
+			$insert['val']=$val;
+		if($remark)
+			$insert['remark']=$remark;
+		if($fabudian)
+			$insert['fabudian']=$fabudian;
+		if($tassktype)
+			$insert['tasktype']=$tassktype;
+		if($timestamp)
+			$insert['timestamp']=$timestamp;
+		if($totalmoney)
+			$insert['totalmoney']=$totalmoney;
+		return db::insert('log', $insert);
 	}
 	public static function addMoney($uid, $money, $remark = ''){
 		if (self::memberIdExists($uid)) {
 			db::update('memberfields', 'money=money'.($money >= 0?'+':'').$money, "uid='$uid'");
-			self::addLog('money', $uid, $money, $remark);
-			return db::one_one('memberfields', 'money', "uid='$uid'");
+			$totalmoney=db::one_one('memberfields', 'money', "uid='$uid'");
+			self::addLog('money', $uid, $money, $remark,'','',$totalmoney);
+			return $totalmoney;
 		}
 		return false;
 	}
@@ -408,13 +430,14 @@ class member_base{
 		}
 		return false;
 	}
-	public static function addFabudian($uid, $nums, $type, $remark = ''){
+	public static function addFabudian($uid, $nums, $tasktype, $remark = ''){
 		if (self::memberIdExists($uid)) {
 			$type = (int)$type;
 			if ($type < 1 || $type > 3) $type = 1;
 			db::update('memberfields', 'fabudian=fabudian'.($nums >= 0?'+':'').$nums, "uid='$uid'");
-			self::addLog('fabudian', $uid, $nums, $remark);
-			return db::one_one('memberfields', 'fabudian', "uid='$uid'");
+			$fabudian= db::one_one('memberfields', 'fabudian', "uid='$uid'");
+			self::addLog('fabudian', $uid, $nums, $remark,$fabudian,$tasktype);
+			return $fabudian;
 		}
 		return false;
 	}

@@ -27,9 +27,8 @@ var loginUsername='{echo $memberLogined?$member['username']:''}';
 var weburl='$weburl';
 var weburl2='$weburl2';
 var sys_hash2='$sys_hash2';
+var webqq = 195230378 ;
 </script>
-
-
 </head>
 <body>
 	<!--头部开始-->
@@ -41,7 +40,7 @@ var sys_hash2='$sys_hash2';
 				{if $memberLogined}
 				<DIV style="float: left;">
                     <SPAN style="color:#1595DE">|</SPAN>
-                    <A href="{rewrite}/info/?username=$member[username]">$member[username]</A>
+                    <A href="{rewrite}/member/info/?username=$member[username]">$member[username]</A>
                     <IMG title="积分：$memberFields[credits]" alt="积分" src="$memberLevel[icon]">
                     <A class="col3" href="{rewrite}/member/logout/">退出</A>	
                     </div>
@@ -96,19 +95,19 @@ var sys_hash2='$sys_hash2';
            <DIV style="padding: 8px 5px;" class="menu-bd-panel">
            <A href="{rewrite}/member/message/?type=inUser" rel="nofollow" target="_top">私人收件箱</A>
           <A href="{rewrite}/member/message/?type=inSys" rel="nofollow" target="_top">官方收件箱</A>
-          <A href="{rewrite}/member/message/message/?type=setting" rel="nofollow" target="_top">提醒设置</A>
+          <A href="{rewrite}/member/message/?type=setting" rel="nofollow" target="_top">站内提醒</A>
           </DIV></DIV>
           </DIV>
           </LI>
 					<li style="margin-top: -2px;">|</li>
 					<li class="menu-item">
 						<div class="menu">
-							<a href="{rewrite}/help/selfservice/" style="width:52px;margin:0;" class="menu-hd" tabindex="0">账号设置<b></b></a>
+							<a href="{rewrite}/member/userdata/?type=index" style="width:52px;margin:0;" class="menu-hd" tabindex="0">账号设置<b></b></a>
 							<div style="width: 90px;line-height:1.7;" class="menu-bd" id="menu-0">
 							  <div style="padding:8px 5px;" class="menu-bd-panel">
-								  <a rel="nofollow" target="_top" href="{rewrite}/help/selfservice/">找回密码</a>
-								  <a rel="nofollow" target="_top" href="{rewrite}/help/selfservice/">找回操作码</a>
-								  <a rel="nofollow" target="_top" href="{rewrite}/help/selfservice/">更多操作</a>
+								  <a rel="nofollow" target="_top" href="{rewrite}/member/forgotpwd/">找回密码</a>
+								  <a rel="nofollow" target="_top" href="{rewrite}/member/userdata/?type=GetPass">找回操作码</a>
+								  <a rel="nofollow" target="_top" href="{rewrite}/member/forgotpwd/">更多操作</a>
 							  </div>
 							</div>
 						</div>
@@ -135,12 +134,12 @@ var sys_hash2='$sys_hash2';
 					<li style="margin-top: -2px;">|</li>
 					<li class="menu-item">
 						<div class="menu">
-							<a href="{rewrite}/help/selfservice/" style="width:52px;margin:0;" class="menu-hd" tabindex="0">账号设置<b></b></a>
+							<a href="{rewrite}/member/userdata/?type=index" style="width:52px;margin:0;" class="menu-hd" tabindex="0">账号设置<b></b></a>
 							<div style="width: 90px;line-height:1.7;" class="menu-bd" id="menu-0">
 							  <div style="padding:8px 5px;" class="menu-bd-panel">
-								  <a rel="nofollow" target="_top" href="{rewrite}/help/selfservice/">找回密码</a>
-								  <a rel="nofollow" target="_top" href="{rewrite}/help/selfservice/">找回操作码</a>
-								  <a rel="nofollow" target="_top" href="{rewrite}/help/selfservice/">更多操作</a>
+								  <a rel="nofollow" target="_top" href="{rewrite}/member/forgotpwd/">找回密码</a>
+								  <a rel="nofollow" target="_top" href="{rewrite}/member/userdata/?type=GetPass">找回操作码</a>
+								  <a rel="nofollow" target="_top" href="{rewrite}/member/forgotpwd/">更多操作</a>
 							  </div>
 							</div>
 						</div>
@@ -193,6 +192,8 @@ var sys_hash2='$sys_hash2';
 DD_belatedPNG.fix('*');
 </script>
 <![endif]-->
+
+    <script type="text/javascript" src="/images/service.js"></script>
 
 <script>
 	var slideshow=new TINY.slider.slide('slideshow',{

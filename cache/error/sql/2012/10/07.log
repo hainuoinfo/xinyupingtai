@@ -1,0 +1,80 @@
+2012-10-07 07:11:05
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121007071105172589','1','14','0','10','masiyuan001','16819163193','网站互刷系统 网络信誉平台互刷源码 互刷平台源码php版互刷平台','10','1349565064','1','masiyuan001','http://item.taobao.com/item.htm?id=16819163193','','','0','5','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','1918147513')
+message:
+Unknown column 'expressNo' in 'field list'
+
+2012-10-07 07:17:18
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121007071718128845','1','14','0','9','masiyuan001','16819163193','网站互刷系统 网络信誉平台互刷源码 互刷平台源码php版互刷平台','10','1349565437','1','gtrs2000','http://item.taobao.com/item.htm?id=16819163193','','','0','10','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','1918147513')
+message:
+Unknown column 'expressNo' in 'field list'
+
+2012-10-07 07:18:23
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121007071823722694','1','14','0','9','masiyuan001','16819163193','网站互刷系统 网络信誉平台互刷源码 互刷平台源码php版互刷平台','10','1349565503','1','gtrs2000','http://item.taobao.com/item.htm?id=16819163193','','','0','10','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','1918147513')
+message:
+Unknown column 'expressNo' in 'field list'
+
+2012-10-07 07:18:27
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121007071827948776','1','14','0','9','masiyuan001','16819163193','网站互刷系统 网络信誉平台互刷源码 互刷平台源码php版互刷平台','10','1349565507','1','gtrs2000','http://item.taobao.com/item.htm?id=16819163193','','','0','10','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','1918147513')
+message:
+Unknown column 'expressNo' in 'field list'
+
+2012-10-07 07:27:40
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121007072740564198','1','14','0','9','masiyuan001','16819163193','网站互刷系统 网络信誉平台互刷源码 互刷平台源码php版互刷平台','10','1349566060','1','gtrs2000','http://item.taobao.com/item.htm?id=16819163193','','','0','10','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','1918147513')
+message:
+Unknown column 'expressNo' in 'field list'
+
+2012-10-07 07:28:41
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121007072841912148','1','14','0','9','masiyuan001','16819163193','网站互刷系统 网络信誉平台互刷源码 互刷平台源码php版互刷平台','10','1349566121','1','gtrs2000','http://item.taobao.com/item.htm?id=16819163193','','','0','10','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','1918147513')
+message:
+Unknown column 'expressNo' in 'field list'
+
+2012-10-07 07:29:06
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121007072906295015','1','14','0','9','masiyuan001','16819163193','网站互刷系统 网络信誉平台互刷源码 互刷平台源码php版互刷平台','10','1349566145','1','gtrs2000','http://item.taobao.com/item.htm?id=16819163193','','','0','10','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','1918147513')
+message:
+Unknown column 'expressNo' in 'field list'
+
+2012-10-07 07:31:28
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`freeTask`,`visitWay`,`visitKey`,`visitTip`,`isPriceFit`,`isRemark`,`isShare`,`isLimit`,`isVerify`,`isReal`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isPlan`,`status`,`sip`) values('20121007073128339025','4','14','9','masiyuan001','16819163193','网站互刷系统 网络信誉平台互刷源码 互刷平台源码php版互刷平台','10','1349566287','1','gtrs2000','http://item.taobao.com/item.htm?id=16819163193','10','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','申通371349570193','0','0','','','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','1','1918147513')
+message:
+Unknown column 'expressNo' in 'field list'
+
+2012-10-07 07:32:35
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`freeTask`,`visitWay`,`visitKey`,`visitTip`,`isPriceFit`,`isRemark`,`isShare`,`isLimit`,`isVerify`,`isReal`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isPlan`,`status`,`sip`) values('20121007073235795580','4','14','9','masiyuan001','16819163193','网站互刷系统 网络信誉平台互刷源码 互刷平台源码php版互刷平台','10','1349566355','1','gtrs2000','http://item.taobao.com/item.htm?id=16819163193','10','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','申通371349570193','0','0','','','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','1','1918147513')
+message:
+Unknown column 'expressNo' in 'field list'
+
+2012-10-07 07:34:57
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`freeTask`,`visitWay`,`visitKey`,`visitTip`,`isPriceFit`,`isRemark`,`isShare`,`isLimit`,`isVerify`,`isReal`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isPlan`,`status`,`sip`) values('20121007073457582590','4','14','9','masiyuan001','16819163193','网站互刷系统 网络信誉平台互刷源码 互刷平台源码php版互刷平台','10','1349566497','1','gtrs2000','http://item.taobao.com/item.htm?id=16819163193','10','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','','0','0','','','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','1','1918147513')
+message:
+Unknown column 'expressNo' in 'field list'
+

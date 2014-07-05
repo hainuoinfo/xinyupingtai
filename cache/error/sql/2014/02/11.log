@@ -1,0 +1,42 @@
+2014-02-11 01:20:01
+SQL:
+select id,username,password,salt,questionid,answer,last_login_ip,log_count from bf_members where username='QQ1523086' limit 1
+message:
+Unknown column 'log_count' in 'field list'
+
+2014-02-11 01:20:11
+SQL:
+select id,username,password,salt,questionid,answer,last_login_ip,log_count from bf_members where username='QQ1523086' limit 1
+message:
+Unknown column 'log_count' in 'field list'
+
+2014-02-11 01:37:01
+SQL:
+select name from bf_kill where id='1' limit 1
+message:
+Table 'test1.bf_kill' doesn't exist
+
+2014-02-11 13:42:51
+SQL:
+select id,username,password,salt,questionid,answer,last_login_ip,log_count from bf_members where username='wulanyang' limit 1
+message:
+Unknown column 'log_count' in 'field list'
+
+2014-02-11 14:29:26
+SQL:
+select id,username,password,salt,questionid,answer,last_login_ip,log_count from bf_members where username='QQ1523086' limit 1
+message:
+Unknown column 'log_count' in 'field list'
+
+2014-02-11 16:47:43
+SQL:
+select id,username,password,salt,questionid,answer,last_login_ip,log_count from bf_members where username='lmwqcc' limit 1
+message:
+Unknown column 'log_count' in 'field list'
+
+2014-02-11 16:47:52
+SQL:
+select id,username,password,salt,questionid,answer,last_login_ip,log_count from bf_members where username='lmwqcc' limit 1
+message:
+Unknown column 'log_count' in 'field list'
+

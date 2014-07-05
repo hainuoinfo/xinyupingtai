@@ -23,10 +23,10 @@
           <SPAN>{if $memberFields[shuake]==1}职业刷客{elseif $memberFields[vip]==1 || $memberFields[vip]==2 || $memberFields[vip]==3}{$vip}{else}{$credits}{/if}</SPAN></DIV>
             <DIV class="content">
           <UL>
-                <LI class="content_name">$member[truename]</LI>
+                <LI class="content_name"><a href="http://damaihu.tertw.net/member/info/?username=$member[username]">$member[truename]</a></LI>
                 <LI class="content_li1"><SPAN class="imgico"></SPAN>存款: <FONT style="color: rgb(250, 92, 18);">$memberFields[money]</FONT>元 <A style="margin-left: 45px;" href="{rewrite}/member/topup/">充值</A> <A href="{rewrite}/member/payment/?m=bank">提现</A> <A href="{rewrite}/member/PayDetails/?type=1">明细</A> </LI>
                 <LI class="content_li2"><SPAN class="imgico"> </SPAN>麦点: <FONT style="color: rgb(250, 92, 18);">$memberFields[fabudian]</FONT>个 <A style="margin-left: 45px;" href="{rewrite}/member/BuyPoint/">购买麦点</A></LI>
-                <LI class="content_li3"><SPAN class="imgico"></SPAN>本次登录：{ip $ipint}</LI>
+                <LI class="content_li3"><SPAN class="imgico"></SPAN>本次登录：{ip $ipint}   <A style="margin-left: 45px;" href="{rewrite}/member/credit/">查看信誉</A></LI>
                 <LI class="content_li4">
               <DIV class="progress">
                     <DIV class="jindutiao"><SPAN>
@@ -76,7 +76,7 @@
           </DIV>
     </DIV>
         <!-- 中右栏 -->
-        <DIV class="right_gr"><A class="rw">
+        <DIV class="right_gr"><A class="rw" href="{rewrite}/task/tao/?m=taskIn">
           <DIV class="right_gr_top">
           <DIV class="right_gr_icon">
               <DIV class="imgico renwu">
@@ -85,7 +85,8 @@
               <DIV class="imgico handle"></DIV>
             </DIV>
         </DIV>
-          </A><A href="{rewrite}/member/complain/">
+          </A><A class="ss" href="{rewrite}/member/complain/">
+<!--这里会出现一个超链接被取消的问题取消原因与可处理任务数目有关相关js为jq.js -->
           <DIV class="right_gr_bottom">
             <DIV class="right_gr_icon">
               <DIV class="imgico shensu">

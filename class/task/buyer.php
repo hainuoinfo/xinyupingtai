@@ -36,32 +36,29 @@ class task_buyer{
 			}
 		}
 	}
-	public static function tie($uid, $type, $nickname){
+	public static function tie($uid, $type, $nickname,$isreal=0){
 		global $timestamp;
-		$username = member_base::getUsername($uid);
+		$username = member_base::getUsername($uid);//现获取当前登陆用户
 		if ($username) {
 			if ($nickname = trim($nickname)) {
 				if (!db::exists('buyers', array('type' => $type, 'nickname' => $nickname))) {
 					//$func = 'getMember'.$type;
 					//$member = self::$func($nickname);
+                    //var_dump($member);exit;
 					if (1 == 1) {
-					    if($rs==1){
-						    $isreal=1;
-							}else{
-							    $isreal=0;
-							}
 					    $score = data_taobaoUser::credit($nickname);
 						//$score = $member['buyer_credit']['score'];
 						$utype = 0;
 						$maxScore = 0;
-						if ($member['promoted_type'] == 'authentication') {
+						if ($isreal==1) {//支付包认证
 							$maxScore = 50000;
 							$utype |= 1;
 							}
-						if ($member['mobilephone_type'] == 'authentication') {
+						if ($isreal==3) {//3是手机认证
 							$maxScore = 50000;
 							$utype |= 2;
 							}
+						if($isreal==2) $isreal=0;
 						if ($maxScore == 0) 
 							$maxScore = $score + rand(40, 800);
 						$datas = array(
@@ -94,7 +91,7 @@ class task_buyer{
 		return 'user_not_exists';
 	}
 	public static function getMember1($nickname){
-		return data_paipai::getUser($nickname);
+		return data_taobaoUser::getUser($nickname);
 	}
 	public static function getMember2($nickname){
 		return data_paipai::getUser($nickname);
@@ -167,9 +164,10 @@ class task_buyer{
 		global $timestamp;
 		if ($buyer = self::getBuyer($id, $uid)) {
 			if ($buyer['tasking'] == 0) {
-				db::update('buyers', "status='7'", "id='$id'");
+				//db::update('buyers', array('status'=>7,'type'=>0), "id='$id'");
+				db::delete('buyers',"id='$id'");
 				db::update('memberfields', 'buyers'.$buyer['type'].'=buyers'.$buyer['type'].'-1', "uid='$buyer[uid]'");
-				return true;
+				return '删除成功';
 			}
 			return '该小号目前还有任务没有完成，请完成后再删除';
 		}
@@ -232,7 +230,6 @@ class task_buyer{
 		return '不存在该买号';
 	}
 	public static function total($type, $status){
-		var_dump(db::data_count('buyers', "type='$type'".($status>=0?" and status='$status'":'')));
 		return db::data_count('buyers', "type='$type'".($status>=0?" and status='$status'":''));
 	}
 	public static function total1($uid,$type){

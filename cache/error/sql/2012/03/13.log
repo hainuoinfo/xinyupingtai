@@ -1,0 +1,6 @@
+2012-03-13 15:02:10
+SQL:
+select `key`,url from bf_union_links order by sort,timestamp desc
+message:
+Table 'my.bf_union_links' doesn't exist
+

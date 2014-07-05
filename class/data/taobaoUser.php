@@ -1,9 +1,7 @@
 <?php
-
-!defined('IN_JB') && exit('error');
-loadLib($libP . 'taobaoBase');
-
-class data_taobaoUser extends data_taobaoBase
+//loadLib($libP . 'taobaoBase');
+loadLib('Dom');//引入Dom 采集工具类   方法在class下的index.php中定义
+class data_taobaoUser //extends data_taobaoBase
 {
 
     public static function getApiUser($nick)
@@ -56,9 +54,17 @@ class data_taobaoUser extends data_taobaoBase
         }
     }
 
-    public static function getUser($nick)
+    public static function getUser($nick)//因为淘宝的api收费故而直接通过黑兔兔来获取
     {
-        return self::getApiUser($nick);
+        //return self::getApiUser($nick);
+        $dom=file_get_html('http://tertw.net:81/getMember/username/'.urlencode($nick).".html");
+        $isreal=$dom->find('div.r-c',0)->find('ul li',0)->find('font',0)->plaintext;
+        $isreal=trim($isreal);
+        if($isreal=='支付宝认证')
+            return array('promoted_type'=>'authentication');
+        else
+            return array('promoted_type'=>'');
+
     }
 
 	public static function usercheck($nick)
@@ -83,33 +89,22 @@ class data_taobaoUser extends data_taobaoBase
     }
 	public static function nickname($nick)
     {
-        $u=$nick;
-	    $agent = $_SERVER['HTTP_USER_AGENT']; 
-	    if(!strpos($agent,"MSIE") && !strpos($agent,"Chrome")) 
-	      $u = iconv("utf-8","gbk",$u);
-	 
-        $sc = file_get_contents('http://www.yaodamai.com/look?q='.$u);
-        preg_match('/color:#333;">[0-9]\d*([\s\S]*)>查看店铺/is', $sc, $seller_rate);
-        $bs=$seller_rate[0];
-	
-        preg_match('/>[0-9]\d*<\/b>/', $bs, $seller);
-        print_r($seller[0]);
+	    $dom=file_get_html('http://tertw.net:81/getMember/username/'.urlencode($nick).".html");
+        return trim($dom->find('ul.u',1)->find('li',1)->find('span',0)->find('b',0)->plaintext);
     }
 	public static function realname($nick)
     {
         $u=$nick;
-	    $agent = $_SERVER['HTTP_USER_AGENT']; 
-	    if(!strpos($agent,"MSIE") && !strpos($agent,"Chrome")) 
-	      $u = iconv("utf-8","gbk",$u);
-        $sc = file_get_contents('http://www.yaodamai.com/look?q='.$u);
-        preg_match('/<li>[^|]+?实名认证：[^|]+?>(.+)<\/[^|]+?<\/li>/', $sc, $seller);
-        $seller[1];
-		if($seller[1]=='支付宝认证'){
-		    return '1';
-		}elseif($seller[1]=='未认证'){
-		    return '2';
-		}else{
-		    return '0';
+        $dom=file_get_html('http://tertw.net:81/getMember/username/'.urlencode($nick).".html");
+        $renzheng=trim($dom->find('.r-c ul',0)->find('li',0)->find('font',0)->plaintext);
+		if($renzheng=='支付宝认证'){
+		    return 1;
+		}elseif($renzheng=='未认证'){
+		    return 2;
+		}elseif($renzheng=='手机认证'){
+            return 3;
+        }else{
+		    return 0;
 		}
     }
 	public static function credit($nick)
@@ -118,11 +113,8 @@ class data_taobaoUser extends data_taobaoBase
 	    $agent = $_SERVER['HTTP_USER_AGENT']; 
 	    if(!strpos($agent,"MSIE") && !strpos($agent,"Chrome")) 
 	      $u = iconv("utf-8","gbk",$u);
-        $sc = file_get_contents('http://www.yaodamai.com/look?q='.$u);
-        preg_match('/<ul class="u">[^|]+?买家信用[^|]+?#333;">(.+)<\/b>[^|]+?<\/ul>/', $sc, $buyer);
-
-		return $buyer[1];
-		
+        $dom=file_get_html('http://tertw.net:81/getMember/username/'.urlencode($nick).".html");
+        return trim($dom->find('ul.u',0)->find('li',1)->find('span',0)->find('b',0)->plaintext);
     }
 }
 

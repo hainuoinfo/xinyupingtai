@@ -10,16 +10,24 @@
   <div class="h_10"></div>
   <div class="info">  
     <div class="info_l">
-      <div>
         {sub tao_info}
+        <div style="float: left;">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td width="170">站内信<a href="{rewrite}/member/message/" class="link_o_b" target="_blank">$memberFields[msg]</a>封未读站内信数</td>
-          </tr>
+            <tr>
+                <td >站内信<a href="{rewrite}/member/message/" class="link_o_b" target="_blank">$memberFields[msg]</a>封未读站内信数</td>
+            </tr>
+            <tr>
+                <td >收藏互动区任务总条数：<span class="f_b_org">$allCount</span>条，</td>
+            </tr>
+            <tr>
+                <td >未接手任务数<span class="f_b_org">{echo $allCount - $complateCollect}</span>条，</td>
+            </tr>
+            <tr>
+                <td >已成功收藏了<span class="f_b_org">$collectAll</span>次</td>
+            </tr>
         </table>
       </div>
-      <p>收藏互动区任务总条数：<span class="f_b_org">$allCount</span>条，未接手任务数<span class="f_b_org">{echo $allCount - $complateCollect}</span>条，已成功收藏了<span class="f_b_org">$collectAll</span>次</p>
-    </div>
+ </div>
     <div class="info_r">
 		{sub ../quick}
     </div>

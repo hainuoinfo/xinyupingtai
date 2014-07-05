@@ -1,4 +1,4 @@
-﻿{teval
+{teval
 	$title       = '记录查询 - {webName}';
 	$keywords    = '';
 	$description = '';
@@ -63,7 +63,7 @@
     <TD class="xuxian" vAlign="middle" width="15%" align="center"><STRONG 
       class="lvse">{if $v[val]>0}+{/if}$v[val]</STRONG></TD>
     <TD class="xuxian" vAlign="middle" width="15%" align="center"><STRONG 
-      class="lvse">$memberFields[money]</STRONG></TD>
+      class="lvse">$v[totalmoney]</STRONG></TD>
     <TD class="time xuxian" vAlign="middle" width="15%" 
       align="center">{date $v[timestamp]}</TD>
     <TD class="x_xian" height="25">&nbsp;</TD>
@@ -114,7 +114,7 @@ align="center"></TD>
     <TD class="xuxian" vAlign="middle" width="15%" align="center"><STRONG 
       class="lvse">{if $v[val]>0}+{/if}$v[val]</STRONG></TD>
     <TD class="xuxian" vAlign="middle" width="15%" align="center"><STRONG 
-      class="lvse">$memberFields[fabudian]</STRONG></TD>
+      class="lvse">$v[fabudian]</STRONG></TD>
     <TD class="time xuxian" vAlign="middle" width="15%" 
       align="center">{date $v[timestamp]}</TD>
     <TD class="x_xian" height="25">&nbsp;</TD></TR>

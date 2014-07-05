@@ -1,0 +1,6 @@
+2013-10-25 14:02:39
+SQL:
+update bf_memberfields set fabudian1=fabudian1+1 where uid='54'
+message:
+Unknown column 'fabudian1' in 'field list'
+

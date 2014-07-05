@@ -1,0 +1,84 @@
+2013-12-14 10:33:40
+SQL:
+select count(*) from bf_task where type='1',times='1', and status in('1','2','3','4','5','6','7','8','9')
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'times='1', and status in('1','2','3','4','5','6','7','8','9')' at line 1
+
+2013-12-14 10:33:43
+SQL:
+select count(*) from bf_task where type='1',times='1', and status in('1','2','3','4','5','6','7','8','9')
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'times='1', and status in('1','2','3','4','5','6','7','8','9')' at line 1
+
+2013-12-14 10:34:58
+SQL:
+select count(*) from bf_task where type='1', and times='1'
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' and times='1'' at line 1
+
+2013-12-14 10:35:11
+SQL:
+select count(*) from bf_task where type='1', and times='1'
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' and times='1'' at line 1
+
+2013-12-14 10:35:59
+SQL:
+select count(*) from bf_task where type='1', and times=1
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' and times=1' at line 1
+
+2013-12-14 10:37:23
+SQL:
+select count(*) from bf_task where type='1',and times in('1')
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and times in('1')' at line 1
+
+2013-12-14 10:37:25
+SQL:
+select count(*) from bf_task where type='1',and times in('1')
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and times in('1')' at line 1
+
+2013-12-14 10:39:11
+SQL:
+select count(*) from bf_task where type='1',and times in('1')
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and times in('1')' at line 1
+
+2013-12-14 11:32:52
+SQL:
+select count(*) from bf_task where type='1', times='1'
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' times='1'' at line 1
+
+2013-12-14 11:33:43
+SQL:
+select count(*) from bf_task where type='1', && times='1'
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' && times='1'' at line 1
+
+2013-12-14 11:34:09
+SQL:
+select count(*) from bf_task where type='1', and times='1'
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' and times='1'' at line 1
+
+2013-12-14 11:34:40
+SQL:
+select count(*) from bf_task where type='1', and times='1',
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' and times='1',' at line 1
+
+2013-12-14 11:39:04
+SQL:
+select type='1', and times='1', from bf_task limit 1
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and times='1', from bf_task limit 1' at line 1
+
+2013-12-14 21:15:18
+SQL:
+select type='1' from bf_task where  and times='1' order by stimestamp desc  limit 0,20
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and times='1' order by stimestamp desc  limit 0,20' at line 1
+

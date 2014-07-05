@@ -1,0 +1,12 @@
+2014-03-08 14:53:45
+SQL:
+select title from bf_thread  where fid=1 ORDER BY timestamp desc limit 0,3
+message:
+Table 'test1.bf_thread' doesn't exist
+
+2014-03-08 15:22:16
+SQL:
+select id,point from bf_task  where suid='54' ORDER BY timestamp desc limit 0,5
+message:
+Unknown column 'timestamp' in 'order clause'
+

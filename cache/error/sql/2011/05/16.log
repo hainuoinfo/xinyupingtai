@@ -1,0 +1,24 @@
+2011-05-16 21:06:09
+SQL:
+
+message:
+Can't connect to MySQL server on 'localhost' (10061)
+
+2011-05-16 21:06:13
+SQL:
+
+message:
+Can't connect to MySQL server on 'localhost' (10061)
+
+2011-05-16 21:25:45
+SQL:
+select count(*) from bf_shops where status='0'
+message:
+No database selected
+
+2011-05-16 21:25:50
+SQL:
+select count(*) from bf_shops where status='0'
+message:
+No database selected
+

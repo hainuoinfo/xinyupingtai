@@ -1,5 +1,5 @@
-﻿{teval
-	$title       = '快来刷信誉是最专业的淘宝信誉互刷平台专供店铺掌柜相互刷信誉淘宝免费刷钻平台';
+{teval
+	$title       = '{webName}';
 	$keywords    = '{webName2}';
 	$description = '{webName}';
 	$title       = common::replaceVars($title);
@@ -42,15 +42,15 @@
 			<ul id="goone">
 			<li style="">
 			<span style="width: 100%; float: left; text-align: center; font-size: 14px;">一个真实的淘宝信誉平台期待您的加入</span></li>
-			<li style="margin: 10px 0 5px 5px;font-size:16px;display:inline;">用户名：<font style="font-size: 14px;color:#fe5500">$member[username]</font></li>
+			<li style="margin: 10px 0 5px 5px;font-size:16px;display:inline;">用户名：<a href="/member/info/?username=$member[username]"> <font style="font-size: 14px;color:#fe5500">$member[username]</font></a></li>
 			<li style="margin: 5px 0 5px 5px;font-size:16px;display:inline;">存款：
-			<a href="{rewrite}/member/topup/" style="font-size: 14px;color:#fe5500">$memberFields[money]</a></li>
+			<a href="{rewrite}/member/PayDetails/?type=1" style="font-size: 14px;color:#fe5500">$memberFields[money]</a></li>
 			<li style="margin: 5px 0 5px 5px;font-size:16px;display:inline;">麦点：
 			<a href="{rewrite}/member/PayDetails/?type=2" style="font-size: 14px;color:#fe5500">$memberFields[fabudian]</a></li>
 			<li style="margin: 5px 0 5px 5px;font-size:16px;display:inline;">积分：
 			<a href="{rewrite}/member/PayDetails/?type=3" style="font-size: 14px;color:#fe5500">$memberFields[credits]</a></li>
 			<li style="margin: 5px 0 5px 5px;font-size:16px;display:inline;">登陆次数：
-			<a href="" style="font-size: 14px;color:#fe5500">$member[log_count]</a></li>
+			<a href="/member/PayDetails/?type=7" style="font-size: 14px;color:#fe5500">$member[log_count]</a></li>
 			<li style="text-align: center;margin-top: 10px ;font-size:16px;">
 			<a href="{rewrite}/task/tao/"><img src="images/goone.png" height="49/" width="275"></a></li>
 			<div class="touimg"><a href="{rewrite}/member"><img src="$memberFields[avatar]" height="100" width="100"></a></div>
@@ -64,11 +64,30 @@
                     <li class="t1">用户名：</li>
                     <li><input name="username" id="lusername" class="u_bk" maxlength="16" type="text" value="{echo isset($username) ? $username : (isset($cookie[loginUsername]) ? $cookie[loginUsername] : '')}">
                  </li>
-                    <li class="t2" id="username_msg">平台用户名</li>
+                    <!--li class="t2" id="username_msg">平台用户名</li-->
                     <li class="t1">密&nbsp;&nbsp; 码：</li>
                     <li><input name="password" id="lpassword" class="u_bk" maxlength="16" type="password"></li>
-                    <li class="t2" id="password_msg">输入6位以上密码</li>
-					<center>{if $indexMessage}<div style="color:#FF0000">$indexMessage</div>{/if}</center>
+                    <!--li class="t2" id="password_msg">输入6位以上密码</li-->
+                    <li>
+                        <TABLE border="0" cellSpacing="0" cellPadding="0" width="625" onblur="this.height='50px';this.css.overflow='hidden'">
+                            <TBODY>
+                            <TR>
+                                <TD height="30" vAlign="middle" width="89" align="right">选择问题：</TD>
+                                <TD style="color: rgb(135, 135, 135);">
+                                    <select name='questionId' id='questionId' class='slt_normal'>
+                                        <option value='0'{if !$member[questionid]} selected='selected'{/if}>无安全问题</option>
+                                        {loop $questions $k $v}
+                                        <option value="$k"{if $member[questionid]==$k} selected="selected"{/if}>$v</option>
+                                        {/loop}
+                                    </select></TR>
+                            <TR>
+                                <TD height="30" vAlign="middle" align="right">问题的答案：</TD>
+                                <TD style="color: rgb(135, 135, 135);">
+                                    <input name="answer" type="text" class="text_normal" id="answer" value="$member[answer]" maxlength="20" /></TD></TR>
+                            </TBODY></TABLE>
+                    </li>
+					<li><center>{if $indexMessage}<div style="color:#FF0000">$indexMessage</div>{/if}</center></li>
+
                     <li>
                    <input class="l_btn" id="login_sub" type="submit" name="btnSubmit">
                       <p class="jz">

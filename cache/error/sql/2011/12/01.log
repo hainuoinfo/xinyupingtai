@@ -1,0 +1,84 @@
+2011-12-01 12:27:01
+SQL:
+insert into bf_task_reflow(`id`,`suid`,`susername`,`sid`,`snickname`,`itemid`,`itemtitle`,`nickname`,`itemurl`,`wayId`,`isIP`,`numIP`,`isLimit`,`numUser`,`isPlan`,`planDate`,`isRate`,`minute`,`bidUp`,`visitKey`,`visitTip`,`checkType`,`checkValue`,`flowAll`,`flowComplate`,`flowLock`,`flowTotal`,`point`,`point1`,`point2`,`time`,`btime`,`ctime`,`status`) values('20111201122701920994','3','abc123','5','cantonaws','10518448193','爱福莱康力 E99 老人手机正品行货 大字体手写 老人机 老年人手机','cantonaws','http://item.taobao.com/item.htm?id=10518448193','0','1','3','1','3','1','1322715065','1','28','0.08','12312321122','1233123','2','爱福莱康力','50','0','0','50','25.18','15','10.18','1322713620','0','0','0')
+message:
+Unknown column 'nickname' in 'field list'
+
+2011-12-01 13:21:26
+SQL:
+select count(*) from bf_task_reflow where type='1' and uid='3'
+message:
+Unknown column 'uid' in 'where clause'
+
+2011-12-01 13:22:53
+SQL:
+select id from bf_task_reflow where type='1' and suid='3' order by status,timestamp desc limit 0,20
+message:
+Unknown column 'timestamp' in 'order clause'
+
+2011-12-01 13:22:54
+SQL:
+select id from bf_task_reflow where type='1' and suid='3' order by status,timestamp desc limit 0,20
+message:
+Unknown column 'timestamp' in 'order clause'
+
+2011-12-01 13:30:14
+SQL:
+select * from bf_task_reflow where type='1' and uid='3' and id='20111201131528395930' limit 1
+message:
+Unknown column 'uid' in 'where clause'
+
+2011-12-01 14:35:12
+SQL:
+select t1.*,t2.username,t3.vip,t3.vip2,t3.credits,t3.isEnsure from (select * from bf_task_reflow where type='1' and status in ('1','2') order by status,timestamp desc limit 0,20) t1 left join bf_members t2 on t2.id=t1.uid left join bf_memberfields t3 on t3.uid=t2.id
+message:
+Unknown column 'timestamp' in 'order clause'
+
+2011-12-01 14:35:24
+SQL:
+select t1.*,t2.username,t3.vip,t3.vip2,t3.credits,t3.isEnsure from (select * from bf_task_reflow where type='1' and status in ('1','2') order by status,time desc limit 0,20) t1 left join bf_members t2 on t2.id=t1.uid left join bf_memberfields t3 on t3.uid=t2.id
+message:
+Unknown column 't1.uid' in 'on clause'
+
+2011-12-01 18:08:07
+SQL:
+select count(*) from bf_task_reflow_log where uid='3' and status='0'
+message:
+Table 'my.bf_task_reflow_log' doesn't exist
+
+2011-12-01 20:46:03
+SQL:
+select count(*) from bf_task_reflow_log where type='1' and uid='3'
+message:
+Unknown column 'type' in 'where clause'
+
+2011-12-01 21:39:19
+SQL:
+insert into bf_task_reflow(`id`,`type`,`suid`,`susername`,`sid`,`snickname`,`itemid`,`itemtitle`,`itemprice`,`itemurl`,`wayId`,`isIP`,`numIP`,`isLimit`,`numUser`,`isPlan`,`planDate`,`isRate`,`minute`,`bidUp`,`visitKey`,`visitTip`,`checkType`,`checkValue`,`flowAll`,`flowComplate`,`flowLock`,`flowTotal`,`point`,`point1`,`point2`,`time`,`btime`,`ctime`,`status`) values('20111201213919260851','1','3','abc123','5','cantonaws','10518448193','爱福莱康力 E99 老人手机正品行货 大字体手写 老人机 老年人手机','398.01','http://item.taobao.com/item.htm?id=10518448193','1','1','10','1','10','0','0','1','19','0.08','1312312','12312312','1','156','50','0','0','50','15.08','15','0.08','1322746759','0','0','1')
+message:
+Unknown column 'btime' in 'field list'
+
+2011-12-01 23:10:36
+SQL:
+select id from bf_task_reflow where type='1' order by status,stimestamp desc limit 0,20
+message:
+Unknown column 'stimestamp' in 'order clause'
+
+2011-12-01 23:30:10
+SQL:
+update bf_task_reflow_log set status='2' where tid in(Array) and status='0'
+message:
+Unknown column 'Array' in 'where clause'
+
+2011-12-01 23:34:27
+SQL:
+select count(*) from bf_task_reflow_log where uid='3' and status='2' and pay='0'
+message:
+Unknown column 'pay' in 'where clause'
+
+2011-12-01 23:40:13
+SQL:
+select ctime from bf_task_flow_log where tid='20111201213938742116' order by ctime DESC limit 1
+message:
+Table 'my.bf_task_flow_log' doesn't exist
+

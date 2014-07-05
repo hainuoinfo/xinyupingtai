@@ -1,4 +1,4 @@
-{sub ../headerbase}
+{sub ../headerBase}
 <link href="/images/twitter.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 .kd a:hover { text-decoration:underline;}
@@ -401,7 +401,7 @@ function checkForm3() {
 		</div>
 		<div class="cle"></div>
 <div id="showtask" style="display:none;">
-<div style=" height:350px;"><iframe name="contentframe" id="contentframe" src="/images/a.htm" frameborder="0" height="350" width="540" scrolling="no"></iframe> </div>
+<div style=" height:350px;"><iframe name="contentframe" id="contentframe" src="" frameborder="0" height="350" width="540" scrolling="no"></iframe> </div>
 </div>	
 
 		<!--结束--></div><!--taopage_detail end-->
@@ -528,6 +528,7 @@ function ShowRemark(id,ramark){
                         goPage();
                     }else{
 					alert(result);
+					window.location.reload();
 					}
                 });
             }else{
@@ -599,7 +600,23 @@ function IsConfirmTask(plat) {
 	$('.d-titleBar').empty();
 	return false;
 }
+function getTask(qs) {
+    //alert(qs);
+    var url = '/ajax/getTaskinOut.php?type=1&au=8&m=taskOut&' + qs+"&t=$t";
+    $('#taskio').html('<div class=\'submiting clear\'>加载中.....</div>');
+    $.ajax({
+        type : 'GET',
+        url  : url,
+        success : function(html){
+            //alert(html);
+            $('#taskio').html(html);
+        },
+        error:function(){
+            $('#taskio').html('<p>&nbsp;</p><p>尊敬的会员，您遇到了一个未知的错误，请稍后重新点击。　　<a href="'+weburl2+'">返回主页</a></p>');
+        }
+    });
+}
 </script>
 
 
- {sub ../footer}
+{sub ../footer}

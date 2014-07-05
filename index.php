@@ -8,10 +8,19 @@ if ($member['forbidden']) error::bbsMsg('对不起，该用户暂时被禁止使
 if (file_exists($include)) {
 	$baseUrl0 = '/'.$action.'/'.$operation.'/';
 	$baseUrl  = $weburl.($web_rewrite?'':'/rewrite.php?rewrite=').$baseUrl0;
-	$baseUrl2 = urlencode($baseUrl);
-    $baseParamUrl = strpos($baseUrl0, '?') ? $baseUrl0 . '&' : $baseUrl0 . '?';
-    $baseParamUrlFull = strpos($baseUrl, '?') ? $baseUrl . '&' : $baseUrl . '?';
-    $paramUrl = strpos($baseUrl, '?') ? $baseUrl . '&' : $baseUrl . '?';
+	$currentUrl=parse_url($_SERVER['REQUEST_URI']);
+	if($currentUrl['query']){
+		$baseUrl2 = strpos($baseUrl, '?') ? $baseUrl . '&' : $baseUrl . '?';
+		$baseUrl2=str_replace($currentUrl['query'],'',$baseUrl2);
+		//TODO 对baseUrl2做了参数补充，其他的要不要做未知
+		$baseUrl2=$baseUrl2.$currentUrl['query'];
+		$baseUrl2=urlencode(str_replace('&&','&',$baseUrl2));
+	}
+	else
+		$baseUrl2=urlencode($baseUrl);
+	$baseParamUrl = strpos($baseUrl0, '?') ? $baseUrl0 . '&' : $baseUrl0 . '?';
+	$baseParamUrlFull = strpos($baseUrl, '?') ? $baseUrl . '&' : $baseUrl . '?';
+	$paramUrl = strpos($baseUrl, '?') ? $baseUrl . '&' : $baseUrl . '?';
 	$pageStyle = '
 				{page>minpage}
 				<a href="{url minpage}" class="pre">首 页</a>

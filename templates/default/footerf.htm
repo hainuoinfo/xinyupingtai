@@ -1,4 +1,4 @@
-﻿{if cfg::getBoolean('ad_duilian', 'openLeft') || cfg::getBoolean('ad_duilian', 'openRight')}
+{if cfg::getBoolean('ad_duilian', 'openLeft') || cfg::getBoolean('ad_duilian', 'openRight')}
 <style type="text/css">
 .ad_float_left,.ad_float_right{float:right;position:fixed;top:200px;z-index:300;}
 * html .ad_float_left,* html .ad_float_right{position:absolute;top:expression(offsetParent.scrollTop+200);}

@@ -1,1 +1,0 @@
-<?php exit;?>a:6:{s:11:"memberCount";s:2:"40";s:8:"vipCount";s:1:"0";s:14:"memberSendTask";s:1:"2";s:11:"vipSendTask";s:1:"0";s:13:"memberGetTask";s:1:"0";s:10:"vipGetTask";s:1:"0";}

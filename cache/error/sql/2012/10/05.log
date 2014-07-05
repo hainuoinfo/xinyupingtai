@@ -1,0 +1,220 @@
+2012-10-05 12:27:54
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005122754121757','1','52','0','30','xin19900630','17375099441','在线制作相片','5','1349411273','1','成欣儿','http://item.taobao.com/item.htm?id=17375099441','','','0','5','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','1021077219')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 12:28:04
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005122804136545','1','52','0','30','xin19900630','17375099441','在线制作相片','5','1349411283','1','成欣儿','http://item.taobao.com/item.htm?id=17375099441','','','0','5','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','1021077219')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 14:34:46
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005143446419804','1','55','0','31','gogo','15240801817','2012正品男休闲纯棉长袖T恤男款t恤男装潮男式装韩版衣服','49','1349418886','2.7','靓仔国际2000','http://item.taobao.com/item.htm?id=15240801817&is_start=true','','','0','49','0','2','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','993587548')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 14:36:15
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005143615138493','1','55','0','31','gogo','15240801817','2012正品男休闲纯棉长袖T恤男款t恤男装潮男式装韩版衣服','49','1349418974','2.7','靓仔国际2000','http://item.taobao.com/item.htm?id=15240801817&is_start=true','','','0','49','0','2','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','993587548')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 14:37:54
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005143754468935','1','55','0','31','gogo','15240801817','2012正品男休闲纯棉长袖T恤男款t恤男装潮男式装韩版衣服','49','1349419074','1.5','靓仔国际2000','http://item.taobao.com/item.htm?id=15240801817&is_start=true','','','0','49','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','993587548')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 15:15:50
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`isRemark`,`remark`,`isShare`,`share`,`tips`,`isVerify`,`isLimit`,`limit`,`isReal`,`isChat`,`isChatDone`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isPriceFit`,`isLimitAddress`,`limitAddress`,`isExpress`,`realname`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005151550065858','1','48','0','26','zw111333737','19619816896','【淘宝预售】 原创企领2012秋款韩版修身短款潮机车皮衣男5cm外套','285.7','1349421349','10.1','zw111333737','http://item.taobao.com/item.htm?id=19619816896','找到zw111333737掌柜的产品','【淘宝预售】 原创企领2012秋款韩版修身短款潮机车皮衣男5cm','2','199.99','0','3','5','1','客服推荐的尺码，刚拿到手觉着小，试上身挺合适，总体满意','1','2','要求：1、在宝贝页面从上看到下，不低于2分钟，有量子监控；2、按快递单号收货地址修改收货信息','1','1','1','1','1','1','3','0.3','100','30','90','3','90','0','圆通1349425919','0','0','','0','1','0','0','0','0','0','0','0','0','41','0','1','1996781277')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 15:16:04
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`isRemark`,`remark`,`isShare`,`share`,`tips`,`isVerify`,`isLimit`,`limit`,`isReal`,`isChat`,`isChatDone`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isPriceFit`,`isLimitAddress`,`limitAddress`,`isExpress`,`realname`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005151604441283','1','48','0','26','zw111333737','19619816896','【淘宝预售】 原创企领2012秋款韩版修身短款潮机车皮衣男5cm外套','285.7','1349421364','10.1','zw111333737','http://item.taobao.com/item.htm?id=19619816896','找到zw111333737掌柜的产品','【淘宝预售】 原创企领2012秋款韩版修身短款潮机车皮衣男5cm','2','199.99','0','3','5','1','客服推荐的尺码，刚拿到手觉着小，试上身挺合适，总体满意','1','2','要求：1、在宝贝页面从上看到下，不低于2分钟，有量子监控；2、按快递单号收货地址修改收货信息','1','1','1','1','1','1','3','0.3','100','30','90','3','90','0','圆通1349425919','0','0','','0','1','0','0','0','0','0','0','0','0','41','0','1','1996781277')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 15:28:00
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`isRemark`,`remark`,`isShare`,`share`,`tips`,`isVerify`,`isLimit`,`limit`,`isReal`,`isChat`,`isChatDone`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isPriceFit`,`isLimitAddress`,`limitAddress`,`isExpress`,`realname`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005152800811618','1','48','0','26','zw111333737','19619816896','【淘宝预售】 原创企领2012秋款韩版修身短款潮机车皮衣男5cm外套','285.7','1349422080','10.1','zw111333737','http://item.taobao.com/item.htm?id=19619816896','找到zw111333737掌柜的产品','【淘宝预售】 原创企领2012秋款韩版修身短款潮机车皮衣男5cm','2','199.99','0','3','5','1','客服推荐的尺码，刚拿到手觉着小，试上身挺合适，总体满意','1','2','要求：1、宝贝页面从上拉到下，不低于2分钟的浏览，有量子检控；2、按快递单的收货信息修改收货信息','1','1','1','1','1','1','3','0.3','100','30','90','3','90','0','圆通1349426811','0','0','','0','1','0','0','0','0','0','0','0','0','41','0','1','1996781277')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 15:33:43
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`isRemark`,`remark`,`isShare`,`share`,`tips`,`isVerify`,`isLimit`,`limit`,`isReal`,`isChat`,`isChatDone`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isPriceFit`,`isLimitAddress`,`limitAddress`,`isExpress`,`realname`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005153343772172','1','48','0','26','zw111333737','19619816896','【淘宝预售】 原创企领2012秋款韩版修身短款潮机车皮衣男5cm外套','285.7','1349422423','9.8','zw111333737','http://item.taobao.com/item.htm?id=19619816896','找到zw111333737掌柜的产品在第1页','【淘宝预售】 原创企领2012秋款韩版修身短款潮机车皮衣男5cm','2','199.99','0','3','5','1','客服推荐的尺码，刚拿到手觉着小，试上身挺合适，总体满意','1','1','要求：1、宝贝页面从上拉到下，不低于2分钟的浏览，有量子检控；2、按快递单的收货信息修改收货信息','1','1','1','1','1','1','3','0.3','100','30','90','3','90','0','圆通1349431505','0','0','','0','1','0','0','0','0','0','0','0','0','41','0','1','1996781277')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 15:41:29
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`isRemark`,`remark`,`isShare`,`share`,`tips`,`isVerify`,`isLimit`,`limit`,`isReal`,`isChat`,`isChatDone`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isPriceFit`,`isLimitAddress`,`limitAddress`,`isExpress`,`realname`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005154129593252','1','48','0','26','zw111333737','19619816896','【淘宝预售】 原创企领2012秋款韩版修身短款潮机车皮衣男5cm外套','285.7','1349422889','9.8','zw111333737','http://item.taobao.com/item.htm?id=19619816896','找到zw111333737掌柜的产品在第1页','【淘宝预售】 原创企领2012秋款韩版修身短款潮机车皮衣男5cm','2','199.99','0','3','5','1','客服推荐的尺码，刚拿到手觉着小，试上身挺合适，总体满意','1','1','要求：1、宝贝页面从上拉到下，不低于2分钟的浏览，有量子检控；2、按快递单的收货信息修改收货信息','1','1','1','1','1','1','3','0.3','100','30','90','3','90','0','圆通2349432454','0','0','','0','1','0','0','0','0','0','0','0','0','41','0','1','1996781277')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 15:43:42
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`isRemark`,`remark`,`isShare`,`share`,`tips`,`isVerify`,`isLimit`,`isReal`,`isChat`,`isChatDone`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isPriceFit`,`isLimitAddress`,`limitAddress`,`limit`,`isExpress`,`realname`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005154342130942','1','48','0','26','zw111333737','19619816896','【淘宝预售】 原创企领2012秋款韩版修身短款潮机车皮衣男5cm外套','285.7','1349423021','9.8','zw111333737','http://item.taobao.com/item.htm?id=19619816896','找到zw111333737掌柜的产品在第1页','【淘宝预售】 原创企领2012秋款韩版修身短款潮机车皮衣男5cm','2','199.99','0','3','5','1','客服推荐的尺码，刚拿到手觉着小，试上身挺合适，总体满意','1','1','要求：1、宝贝页面从上拉到下，不低于2分钟的浏览，有量子检控；2、按快递单的收货信息修改收货信息','1','1','1','1','1','3','0.3','100','30','90','3','90','0','圆通2349432454','0','0','','1','0','1','0','0','0','0','0','0','0','0','41','0','1','1996781277')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 15:50:00
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`isPriceFit`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`isVerify`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005155000640848','1','17','0','12','五星888','19470116918','七格格OTHERMIX 星星提花时尚女装 韩版毛衣 开衫 外套 12M10001','149','1349423400','2.3','五星服务8','http://item.taobao.com/item.htm?id=19470116918','','','0','100','1','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','1','2','3','0.3','100','30','90','3','90','0','申通678349425509','0','0','0','','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','1860508818')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 15:50:28
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`isPriceFit`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`isVerify`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005155028450020','1','17','0','12','五星888','19470116918','七格格OTHERMIX 星星提花时尚女装 韩版毛衣 开衫 外套 12M10001','149','1349423428','2.3','五星服务8','http://item.taobao.com/item.htm?id=19470116918','','','0','100','1','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','1','2','3','0.3','100','30','90','3','90','0','申通678349425509','0','0','0','','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','1860508818')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 16:16:54
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`isPriceFit`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`isVerify`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005161654935156','1','17','0','12','五星888','15843033438','七格格OTHERMIX 新款打底裙子 长袖圆领女装 修身连衣裙 22B8502','169','1349425014','2.3','五星服务8','http://item.taobao.com/item.htm?id=15843033438','','','0','100','1','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','1','2','3','0.3','100','30','90','3','90','0','中通685349430794','0','0','0','','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','1860508818')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 17:53:52
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005175352065704','1','64','0','35','masiyuan001','15907533827','冲钻ASP源码打包5900套 PHP源码打包2300套整站源码程序 送教程!','8.8','1349430831','1','gtrs2000','http://item.taobao.com/item.htm?id=15907533827','','','0','5','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','3031233735')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 18:04:11
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005180411033923','1','18','0','13','太可爱','15880119909','包邮若凌王妃天然淡水珍珠耳坠纯银珍珠耳坠天然珍珠珍珠耳环正品','60','1349431450','1','alco001','http://item.taobao.com/item.htm?id=15880119909','','','0','10','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','韵达1278349439124','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','1860508818')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 18:04:47
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005180447435218','1','18','0','13','太可爱','15880119909','包邮若凌王妃天然淡水珍珠耳坠纯银珍珠耳坠天然珍珠珍珠耳环正品','60','1349431487','1','alco001','http://item.taobao.com/item.htm?id=15880119909','','','0','10','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','韵达1278349439124','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','1860508818')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 18:31:47
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005183147744324','1','52','0','30','xin19900630','17375099441','在线制作相片','5','1349433107','1','成欣儿','http://item.taobao.com/item.htm?id=17375099441&','','','0','5','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','1021106982')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 19:51:07
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005195107654729','1','18','0','13','太可爱','16957531134','2012最新 互刷平台源码 双赢网源码最新互刷源码','30','1349437867','1','alco001','http://item.taobao.com/item.htm?id=16957531134','','','0','30','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','1919444585')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 20:09:33
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`expressNo`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005200933807755','1','52','0','30','xin19900630','17375099441','在线制作相片','5','1349438973','1','成欣儿','http://item.taobao.com/item.htm?id=17375099441','','','0','5','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','1021106982')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 20:28:52
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005202852734393','1','18','0','39','太可爱','16957531134','2012最新 互刷平台源码 双赢网源码最新互刷源码','30','1349440132','1','lv吕小涛','http://item.taobao.com/item.htm?id=16957531134','','','0','30','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','1919444585')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 20:30:20
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005203020954993','1','18','0','39','太可爱','16957531134','2012最新 互刷平台源码 双赢网源码最新互刷源码','30','1349440220','1','lv吕小涛','http://item.taobao.com/item.htm?id=16957531134','','','0','30','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','1919444585')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 20:30:25
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005203025742531','1','18','0','39','太可爱','16957531134','2012最新 互刷平台源码 双赢网源码最新互刷源码','30','1349440225','1','lv吕小涛','http://item.taobao.com/item.htm?id=16957531134','','','0','30','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','1919444585')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 20:30:37
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005203037867999','1','18','0','39','太可爱','16957531134','2012最新 互刷平台源码 双赢网源码最新互刷源码','30','1349440237','1','lv吕小涛','http://item.taobao.com/item.htm?id=16957531134','','','0','30','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','1919444585')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 20:35:22
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005203522613496','1','18','0','39','太可爱','16957531134','2012最新 互刷平台源码 双赢网源码最新互刷源码','30','1349440521','1','lv吕小涛','http://item.taobao.com/item.htm?id=16957531134','','','0','30','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','1919444585')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 21:11:28
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005211128478281','1','18','0','13','太可爱','15880119909','包邮若凌王妃天然淡水珍珠耳坠纯银珍珠耳坠天然珍珠珍珠耳环正品','60','1349442687','1','alco001','http://item.taobao.com/item.htm?id=15880119909','','','0','10','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','1860508818')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 21:21:04
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005212104255973','1','18','0','13','太可爱','15880119909','包邮若凌王妃天然淡水珍珠耳坠纯银珍珠耳坠天然珍珠珍珠耳环正品','60','1349443263','1','alco001','http://item.taobao.com/item.htm?id=15880119909','','','0','20','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','1860508818')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 21:40:44
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005214044211657','1','18','0','13','太可爱','15880119909','包邮若凌王妃天然淡水珍珠耳坠纯银珍珠耳坠天然珍珠珍珠耳环正品','60','1349444443','1','alco001','http://item.taobao.com/item.htm?id=15880119909','','','0','20','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','1860508818')
+message:
+Unknown column 'realname' in 'field list'
+
+2012-10-05 22:03:40
+SQL:
+insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`visitTip`,`visitKey`,`visitWay`,`price`,`pointExt`,`times`,`scores`,`remark`,`share`,`tips`,`limit`,`lvlStar`,`ensurePoint`,`scoreLvl`,`creditLvl`,`goodLvl`,`blackLvl`,`fameLvl`,`planDate`,`isPriceFit`,`isRemark`,`isShare`,`isLimitAddress`,`limitAddress`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`isChatDone`,`isStar`,`isEnsure`,`isScore`,`isCredit`,`isGood`,`isBlack`,`isFame`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('20121005220340410446','1','18','0','13','太可爱','15880119909','包邮若凌王妃天然淡水珍珠耳坠纯银珍珠耳坠天然珍珠珍珠耳环正品','60','1349445819','1','alco001','http://item.taobao.com/item.htm?id=15880119909','','','0','10','0','1','5','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹人好热情，东西很快收到了，感觉比图片上还要漂亮”
+
+请不要填写“请带字好评”等引导的文字','1','','2','3','0.3','100','30','90','3','90','0','0','0','0','0','','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','41','0','1','1860508818')
+message:
+Unknown column 'realname' in 'field list'
+

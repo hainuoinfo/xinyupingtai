@@ -7,7 +7,7 @@ if (!$memberLogined) {
 	exit;
 }
 template::initialize('./templates/default/ajax/', './cache/default/ajax/');
-$taskid = $_POST['taskid'];
+$taskid = intval($_POST['taskid']);
 $b_memo = $_POST['remark'];
 $s_memo = $_POST['ramark'];
 if($taskid){

@@ -1,0 +1,48 @@
+2014-03-02 09:43:48
+SQL:
+select username from bf_members ORDER BY limit 5 reg_timestamp desc
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 5 reg_timestamp desc' at line 1
+
+2014-03-02 09:44:23
+SQL:
+select username from bf_members limit 0,5 ORDER BY reg_timestamp desc
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY reg_timestamp desc' at line 1
+
+2014-03-02 09:44:25
+SQL:
+select username from bf_members limit 0,5 ORDER BY reg_timestamp desc
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY reg_timestamp desc' at line 1
+
+2014-03-02 09:44:26
+SQL:
+select username from bf_members limit 0,5 ORDER BY reg_timestamp desc
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY reg_timestamp desc' at line 1
+
+2014-03-02 10:35:46
+SQL:
+select username,money,type,ctimestamp from bf_topup where staus=1 ORDER BY stimestamp desc limit 0,9
+message:
+Unknown column 'staus' in 'where clause'
+
+2014-03-02 10:36:10
+SQL:
+select username,money,type,ctimestamp from bf_topup where status=1 ORDER BY stimestamp desc limit 0,9
+message:
+Unknown column 'stimestamp' in 'order clause'
+
+2014-03-02 10:51:34
+SQL:
+select username,money,type,timestamp1 from bf_payment where ORDER BY timestamp1 desc limit 0,9
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY timestamp1 desc limit 0,9' at line 1
+
+2014-03-02 13:59:21
+SQL:
+update bf_memberfields set fabudian=fabudian+ where uid='74'
+message:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where uid='74'' at line 1
+
