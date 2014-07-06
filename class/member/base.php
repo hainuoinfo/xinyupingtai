@@ -364,6 +364,9 @@ class member_base{
 	}
 	public static function addCredit($uid, $credit, $remark = ''){
 		if (self::memberIdExists($uid)) {
+			//因为始终需要获取用户的积分写入数据库，所以此处提前了，保证数据准确获取
+			$info = self::getMemberFields($uid);
+			$oc   = intval($info['credits']);			
 			if ($credit >= 0) {
 				if ($doubleCredit = db::one_one('memberfields', 'double_credit', "uid='$uid'")) {
 					db::update('card', 'total3=total3+'.$credit, "id='$doubleCredit'");
@@ -371,8 +374,6 @@ class member_base{
 				}
 				db::update('memberfields', 'credits=credits+'.$credit, "uid='$uid'");
 			} else {
-				$info = self::getMemberFields($uid);
-				$oc   = intval($info['credits']);
 				$c    = 0;
 				if ($oc >= abs($credit)) {
 					$c = $credit;
@@ -382,12 +383,14 @@ class member_base{
 				db::update('memberfields', 'credits=credits'.$c, "uid='$uid'");
 				$credit=-$oc;
 			}
-			self::addLog('credits', $uid, $credit, $remark);
+			$totalCredits=$oc + $credit;
+			//2014.7.5 增加积分记录
+			self::addLog('credits', $uid, $credit, $remark，''，'','',$totalCredits);
 			return $credit;
 		}
 		return 0;
 	}
-	public static function addLog($type, $uid, $val, $remark,$fabudian='',$tassktype='',$totalmoney=''){
+	public static function addLog($type, $uid, $val, $remark,$fabudian='',$tassktype='',$totalmoney='',$totalCredits=''){
 		global $timestamp;
 		$username = self::getUsername($uid);
 		if (self::isSys($uid))
@@ -411,6 +414,8 @@ class member_base{
 			$insert['timestamp']=$timestamp;
 		if($totalmoney)
 			$insert['totalmoney']=$totalmoney;
+		if($totalCredits)
+			$insert['totalcredits']=$totalCredits;
 		return db::insert('log', $insert);
 	}
 	public static function addMoney($uid, $money, $remark = ''){
