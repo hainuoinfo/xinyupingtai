@@ -40,7 +40,11 @@
             {if $v[complain]}
             <span class="chengse">申诉裁定中,任务锁定</span>
             {else}
-            <span class="chengse"><strong>$lang['status'][$v['status']]</strong></span>
+            <span class="chengse"><strong>$lang['status'][$v['status']]</strong></span><br />
+	            {if $v[status]==9}
+                	{if $v[ispinimage] && $v[pinimage]}<a href="javascript:dialog(600,500,'淘宝平台任务截图上传','/dialog/uphaoping/?sid=$v[id]');">查看好评截图</a><br />{/if}
+                	{if $v[isShare] && $v[shareimage]}<a href="javascript:dialog(600,500,'淘宝平台任务截图上传','/dialog/uphaoping/?sid=$v[id]');">查看分享截图</a><br />{/if}
+	            {/if}
             {/if}
         </td>
         <td class="yf_pd2" style="padding:0px;" align="right" valign="top" width="280">
@@ -134,7 +138,7 @@
         <td colspan="9" class="yfrw_listxia" align="right" valign="middle">
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr>
-                    <td style="padding-left:20px; color:#3372A2;" align="left" width="40%">客服不会主动联系操作任务、平台没有充值活动谨防假冒<br>如果选择了好评截图，请点击评图图标查看买家上传的好评图。</td>
+                    <td style="padding-left:20px; color:#3372A2;" align="left" width="40%">客服不会主动联系操作任务、平台没有充值活动谨防假冒<br>如果选择了好评截图，请点击<span style="color: red;">评图图标</span>查看买家上传的好评图。</td>
                     <td align="right" width="50%">　
                         {if $v[status]>=4}
 				<span class="in_block">

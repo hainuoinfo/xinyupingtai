@@ -57,6 +57,20 @@
     </script>
 </head>
 <body>
+{if $task[status]<8}
+	<span style="color: red;font-size: 14px;font-weight:bold;"> 亲，你太着急了，本任务还未进行到截图上传步骤，请核对本任务的进度后再进行此操作！ </span><br/>
+{/if}
+{if $uid==$task[buid]}<span style="color: red;">请注意如果卖家选择了好评截图和分享截图两个上传项目，在你点击确认时会看到本页面两次，一次是用来上传好评截图，一次是用来上传分享截图，在下方都会明确提示你当前需要上传的项目名称，由于你无法对上传后的截图进行修改，所以请务必按照下方的提示进行上传。</span><br />{/if}
+{if $task[ispinimage]}需要上传好评截图！
+{if $uid==$task[suid] && !$task[pinimage]}<span style="color: red;">买家 还未上传好评截图！</span>{/if}
+{if $task[pinimage]}<span style="color: red;">好评图已上传</span>{/if}
+<br />
+{/if}
+{if $task[isShare]}需要上传分享截图！
+{if $uid==$task[suid] && !$task[shareimage]}<span style="color: red;">买家 还未上传分享截图！</span>{/if}
+{if $task[shareimage]}<span style="color: red;">分享图已上传</span>{/if}
+<br />
+{/if}
 {if $task[buid]==$uid && $imageType!='imagexxx'}<!--/* 只有买家才能够看到上传界面 */-->
 <div class="box">
 <h1>

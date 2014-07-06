@@ -40,7 +40,12 @@
                 {if $v[complain]}
                 <span class="chengse">申诉裁定中,任务锁定</span>
                 {else}
-                <span class="chengse"><strong>$lang[status][$v[status]]</strong></span>
+                <span class="chengse"><strong>$lang[status][$v[status]] </strong></span><br />
+                {if $v[status]==8}
+                	{if $v[ispinimage] && !$v[pinimage]}<a href="javascript:dialog(600,500,'淘宝平台任务截图上传','/dialog/uphaoping/?sid=$v[id]');">上传好评截图</a><br />{/if}
+                	{if $v[isShare] && !$v[shareimage]}<a href="javascript:dialog(600,500,'淘宝平台任务截图上传','/dialog/uphaoping/?sid=$v[id]');">上传分享截图</a><br />{/if}
+                	截图上传后，请点击右侧绿色按钮，提交任务！
+                {/if}
                 {/if}
             </td>
             <td class="yf_pd2" style="padding:0px;" align="right" valign="top" width="240">
