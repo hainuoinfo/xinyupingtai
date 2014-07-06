@@ -385,7 +385,7 @@ class member_base{
 			}
 			$totalCredits=$oc + $credit;
 			//2014.7.5 增加积分记录
-			self::addLog('credits', $uid, $credit, $remark,'','','',$totalCredits);
+			self::addLog('credits', $uid, $credit, $remark，''，'','',$totalCredits);
 			return $credit;
 		}
 		return 0;
