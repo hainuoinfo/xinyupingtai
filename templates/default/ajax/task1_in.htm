@@ -83,6 +83,10 @@
                         $upimage=1;
                     else
                         $upimage=0;
+                    if($upimage==0){
+						if(!$ispinimage && !$isShare)
+							$upimage=1;
+                    }
                     ?>
                     <a href="{if $upimage==1}$thisUrl&receive=$v[id]{else}javascript:dialog(600,500,'淘宝平台任务截图上传','/dialog/uphaoping/?sid=$v[id]');{/if}" class="yf_haopinsh" onclick="{if $v['haopingtu']}return IsReceiveTask('淘宝', $v[isRemark], 0, $v[isShare]) ;{/if}">我已收货</a>
                     {/if}
