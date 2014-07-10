@@ -1,6 +1,9 @@
 <?php
 error_reporting(0);
 header("Content-Type:text/html;charset=utf-8");
+header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+header("Cache-Control: no-cache, must-revalidate");
+header("Pragma: no-cache");
 set_magic_quotes_runtime(0);
 define('VERSION', '1.0');
 define('SYSTEM_NAME', '优科网络互刷系统');

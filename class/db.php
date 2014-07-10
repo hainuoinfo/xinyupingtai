@@ -197,7 +197,8 @@ class db{
 	}
 	public static function data_count($tbname,$where='') {
 		global $pre,$db;
-		return $db->result_first("select count(*) from {$pre}$tbname".($where?' where '.$where:''));
+		$sql="select count(*) from {$pre}$tbname".($where?' where '.$where:'');
+		return $db->result_first($sql);
 	}
 	public static function one($tbname,$f='*',$where='',$order=''){
 		global $db,$pre;

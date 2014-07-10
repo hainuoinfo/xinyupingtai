@@ -70,7 +70,7 @@
                     <a href="$thisUrl&unpay=$v[id]" class="yf_hwfk" onclick="return IsUnpayTask('淘宝')">还未支付</a>
                     {elseif $v[status]==8}
                     {if $v[runTimestamp3]<=0}
-                    <?php //通过判断来确定是否上传图片 1是说需要上传好评图片，2是说上传分享图片 0为不需要上传图片或者已经上传了指定的图片
+<?php //通过判断来确定是否上传图片 1是说需要上传好评图片，2是说上传分享图片 0为不需要上传图片或者已经上传了指定的图片
                     if($v[ispinimage] && $v[pinimage])
                         $upimage1=1;
                     if($v[isShare] && $v[shareimage])
@@ -209,10 +209,6 @@
     </tbody>
 </table>
     <div style="padding-top:10px;">本页任务的资金合计：<span class="chengse">$allPrice</span> 元　麦点合计：<span class="chengse">$allPoint</span> 个</div>
-    <div class="rwdt_dlm">
-        <div id="page" style="margin:0px 10px 10px;">
-        </div>
-    </div>
 <div class="rwdt_dlm">
     <div id="page" style="float:right;">
         $multipage
