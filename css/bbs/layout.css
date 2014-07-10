@@ -2917,6 +2917,7 @@ ul.gou li span {
 .task-border a {
 	display:inline-block;
 	text-align:right;
+	padding-top:20px;
 }
 .yfrw_list .yf_sj {
 	background:url(/images/yfrw_ico.gif) -2px -253px no-repeat;
