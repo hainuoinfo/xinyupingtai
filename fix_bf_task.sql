@@ -4,6 +4,7 @@ ALTER TABLE  `bf_log` ADD  `fabudian`  float(11,3) NOT NULL DEFAULT '0.00000'   
 ALTER TABLE  `bf_log` ADD  `tasktype` smallint NOT NULL DEFAULT '0.00000'   COMMENT  '任务类型' AFTER  `fabudian` ;
 ALTER TABLE  `bf_log` ADD  `totalmoney` float(11,3) NOT NULL DEFAULT '0.00000'   COMMENT  '存款' AFTER  `fabudian`;
 ALTER TABLE `bf_log` ADD `totalcredits` float(11,3) NOT NULL DEFAULT '0.00000' COMMENT '总积分数' AFTER `fabudian` ;
+ALTER TABLE `bf_task` ADD `photourl` varchar(255) null COMMENT '来路任务图片地址' AFTER `itemurl`;
 ####清理数据库，将系统初始化
 UPDATE  `bf_user_groups` SET  `users` =  '0';
 UPDATE  `bf_user_groups` SET  `users` =  '1' WHERE  `bf_user_groups`.`id` =3;
