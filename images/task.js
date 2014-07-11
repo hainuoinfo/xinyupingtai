@@ -18,7 +18,7 @@ function taskin(mid,isDisWW,btn){
 
     if($("#divIDList input").length==0){
         artDialog({content:"您还未绑定您的淘宝买号，或您绑定的淘宝买号未启用，请点击此处绑定您的淘宝买号。",id:"alarm",fixed:true,yesText:"立即去绑定",lock:true},function(){
-            window.open("/member/buytao/");
+            window.location.href="task/tao/?m=tieBuyer";
         });
         DisabledClose();
         return;
