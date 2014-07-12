@@ -576,13 +576,28 @@ case 'BuyPoint':
         }
     break;
 case 'SecKill':
-    $seckill = db :: one_one('kill', 'name', "id='1'");
+    $seckill = db :: one('kill', 'name,updatetime', "id='1'");
+    //if($seckill['name']==0){//是否只有当为0时，才会更新麦点
+	    $lastFriday=strtotime('last friday');//获取上周五日期  
+	    $updatetime=strtotime(date("Y-m-d",strtotime($seckill['updatetime'])));//对数据库时间进行格式化只保留日期
+	    //var_dump($lastFriday,$updatetime);
+	    //var_dump($lastFriday,$seckill['updatetime']);exit;
+	    if($lastFriday==$updatetime){
+		    echo 1;
+		   	if($today_start==strtotime('friday')){
+			   	db::update('kill', 'name= '.  $kill_all, "id='1'");//不管剩余数量直接重置为0
+		    	$seckill=$kill_all;
+	    	}
+	    }else
+		    $seckill=$seckill['name'];
+    //}
     if ($rs = form :: is_form_hash2()){
         if ($rs === true){
             $datas = form :: get('nums', 'jiage');
             $datas && extract($datas);
             $nums = $datas['nums'];
-            $price = $datas['jiage'];
+            $price = $datas['jiage'];//这里有漏洞  如果价格被更改了呢？
+            $price=$kill_price;
             if($nums <= $seckill && $seckill > 0){
                 $money = $nums * $price;
                 if($money <= $memberFields['money']){

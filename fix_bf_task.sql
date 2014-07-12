@@ -53,3 +53,6 @@ TRUNCATE TABLE  `bf_vcode_log`;
 INSERT INTO `bf_members` VALUES ('3', '952c5e4fe106d5f8a08df8809e0348b9', '3', '0', '美乐管理员', '0c564666608fa4d9355b5421587a811c', '0c564666608fa4d9355b5421587a811c', '阿江', '373718549', '373718549@qq.com', '13982017238', '2', '河北省秦皇岛市海港区迎宾路天洋新城1号1单元602', '0', '5', '3', '0', '10', '0', '10', '0', '', 'e9bb48', '1299826011', '2130706433', '1360043711', '3084473953', '1', '17', '0', '0', '0', '1', '0');
 
 ## 清理结束
+
+ALTER TABLE `bf_kill` ADD `updatetime` timestamp null COMMENT '上次更新时间' AFTER `name`;//自动初始化秒杀麦点
+#ALTER TABLE bf_kill MODIFY  `updatetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP  ON UPDATE CURRENT_TIMESTAMP COMMENT '上次更新时间';
