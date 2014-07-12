@@ -90,7 +90,7 @@ switch ($m) {
 		}
 
 	break;
-	case 'add':
+	case 'add'://发布任务
 		$ensurePoint = 0.3;
 		if ($memberFields['sellers'.$taskId] == 0 || db::data_count('sellers', "type='$taskId' and status='1'") == 0) {
 			common::setMsg('对不起，请先绑定掌柜', 'indexMessage');
@@ -235,7 +235,7 @@ switch ($m) {
 		$sellers = task_seller::getSellers($uid, 1);
 		$eList = task_express::getList();
 	break;
-	case 'taskIn':
+	case 'taskIn'://已接任务
 		checkPwd2();
 
 		if ($new) {
@@ -372,7 +372,7 @@ switch ($m) {
 
 		}
 	break;
-	case 'taskOut':
+	case 'taskOut'://已发任务
 		checkPwd2();
 		$bbsNav[] = '已发任务';
 		$t || $t = 'ing';
@@ -532,7 +532,7 @@ switch ($m) {
 			}
 		}
 	break;
-	case 'tieSeller':
+	case 'tieSeller'://绑定卖家
 		checkPwd2();
 		$members = member_base::getMember($uid);
 		if ($members[groupid]==4) $maxTieCount = 30;
@@ -595,7 +595,7 @@ switch ($m) {
 		    }
 			$sList = db::get_list2('sellers', '*', "type='1' and uid='$uid'");
 	break;
-	case 'tieBuyer':
+	case 'tieBuyer'://绑定买家
 		checkPwd2();
 		$members = member_base::getMember($uid);
 		if ($members[groupid]==4) $maxTieCount = 100;
@@ -621,9 +621,10 @@ switch ($m) {
 			common::setMsg('恢复成功');
 			common::goto_url($thisUrl.'&status=1');
 		} elseif ($del = (int)$del) {
-			$result=task_buyer::del($del, $uid);
+			if($result=task_buyer::del($del, $uid)){
 			common::setMsg($result);
 			common::goto_url($thisUrl.'&status=1');
+			}
 		} elseif ($setCollect) {
 			task_buyer::setCollect($setCollect, $uid);
 			common::setMsg('设置收藏买号成功');
@@ -659,7 +660,7 @@ switch ($m) {
 			$multipage = multi_page::parse($total, $pagesize, $page, $thisUrl.'&status='.$status.'&page={page}', $pageStyle, 10, 'buyers');
 		}
 	break;
-	case 'tpl':
+	case 'tpl'://任务模板
 		$bbsNav[] = '任务模板';
 		if ($del = (int)$del) {
 			db::delete('task_tpl', "id='$del' and uid='$uid'");
@@ -673,7 +674,7 @@ switch ($m) {
 			}
 		}
 	break;
-	case 'viprob':
+	case 'viprob'://vip相关
 		if ($rob == 1) {
 			if ($isVip) {
 				if ($sid = db::one_one('task', 'id', "type='$taskId' and status='1' order by svip desc,stimestamp desc")) {
@@ -834,7 +835,7 @@ switch ($m) {
 		}
 		$sellers = task_seller::getSellers($uid, 1);
 	break;
-	case 'CreateCartMission':
+	case 'CreateCartMission'://购物车任务
 		$ensurePoint = 0.5;
 		checkPwd2();
 		$members = member_base::getMember($uid);
