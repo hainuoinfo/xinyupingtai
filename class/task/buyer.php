@@ -164,10 +164,14 @@ class task_buyer{
 		global $timestamp;
 		if ($buyer = self::getBuyer($id, $uid)) {
 			if ($buyer['tasking'] == 0) {
-				//db::update('buyers', array('status'=>7,'type'=>0), "id='$id'");
-				db::delete('buyers',"id='$id'");
-				db::update('memberfields', 'buyers'.$buyer['type'].'=buyers'.$buyer['type'].'-1', "uid='$buyer[uid]'");
-				return '删除成功';
+				if(db::update('buyers', array('status'=>7,'type'=>0,'uid'='','username'=''), "id='$id'")){
+				//db::delete('buyers',"id='$id'");
+					if(db::update('memberfields', 'buyers'.$buyer['type'].'=buyers'.$buyer['type'].'-1', "uid='$buyer[uid]'"))
+						return '删除成功';
+				 	else
+				 		return '更新memberfields失败';
+				}else
+					return '更新买号状态失败';
 			}
 			return '该小号目前还有任务没有完成，请完成后再删除';
 		}

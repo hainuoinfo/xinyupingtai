@@ -621,10 +621,9 @@ switch ($m) {
 			common::setMsg('恢复成功');
 			common::goto_url($thisUrl.'&status=1');
 		} elseif ($del = (int)$del) {
-			if($result=task_buyer::del($del, $uid)){
+			$result=task_buyer::del($del, $uid);
 			common::setMsg($result);
 			common::goto_url($thisUrl.'&status=1');
-			}
 		} elseif ($setCollect) {
 			task_buyer::setCollect($setCollect, $uid);
 			common::setMsg('设置收藏买号成功');
