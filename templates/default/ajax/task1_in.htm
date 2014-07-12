@@ -135,7 +135,7 @@
                             <span class="yf_wwtx"></span>
 				<span style="float:left;">采用买号：
 				<span class="lvse3">
-				<a href="#" class="comlink" target="_blank" title="查看买号信息">{if $v[bid]}$v[bnickname] $v[bico]{/if} </a>
+				{if $v[bid]}<a href="javascript:;" onclick="dialog(460,460,'买号信息查看','{rewrite}/dialog/buyerInfo/?id=$v[bid]');return false;"  class="comlink" target="_blank" title="查看买号信息">$v[bnickname] $v[bico] </a>{/if}
 				</span>
 				</span>
                         </td>
