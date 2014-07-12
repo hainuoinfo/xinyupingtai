@@ -207,7 +207,11 @@ DD_belatedPNG.fix('*');
 		rewind:false,
 		elastic:true
 	});
-
+var z_userinfo = $.cookie('userinfo');
+if (z_userinfo){
+	z_userinfo = z_userinfo.split(',');
+}else
+	z_userinfo=null;
 </script>
 <script type="text/javascript">
 
