@@ -37,7 +37,18 @@ function fleshTime(t) {
     }
     var tt_0 = window.setInterval(uptime, 1000);
 }
-
+function flushTime(t,id) {//new for   每页多个计时器
+	if (t <0 ) t = 0;
+    var uptime = function() {
+        t = t - 1;
+        if (t <= 0) {
+            window.clearInterval(tt_0);
+            t = 0;
+        }
+        document.getElementById(id).innerHTML = parseInt(t/60) + "分" + t%60 + "秒";
+    }
+    var tt_0 = window.setInterval(uptime, 1000);
+}
 function copyComment(text, tip) {
 	if (tip == void(0)) tip = '复制成功';
     if(is_ie) {

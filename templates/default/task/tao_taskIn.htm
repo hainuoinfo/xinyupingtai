@@ -216,7 +216,7 @@ function checkForm3() {
 
 		<div style="height:30px; position:relative; top:5px;" id="$v[id]">
 		{if !$v[bid]}<a href="javascript:;" onclick="dialog(550,460,'绑定买号','{rewrite}/dialog/chooseBuyer/?sid=$v[id]');return false;" class="yf_buyer">绑定买号</a>
-		接手方剩余<script type="text/javascript">fleshTime({echo 180-$v[runTimestamp]})</script>钟可绑定买号
+		接手方剩余<script type="text/javascript">flesh Time({echo 180-$v[runTimestamp]})</script>钟可绑定买号
 		{/if}
 		{if  $v[status]==3}
 		<a class="yf_ico1" onclick="return copyComment('$v[itemurl]')" href="javascript:;">等待发布方审核</a>
@@ -248,7 +248,7 @@ function checkForm3() {
 		</div>
 		{if $v[status]==4}
 		 <p style="clear:both; line-height:30px;height:30px;">
-			    剩余付款时间：<span class="lvse strong" id="iidd_1"><script type="text/javascript">fleshTime($v[runTimestamp2])</script></span>
+			    剩余付款时间：<span class="lvse strong" id="iidd_1"><script type="text/javascript">flesh Time($v[runTimestamp2])</script></span>
 		</p>
 		{else}
 		<p style="clear:both; line-height:30px;height:30px;"></p>
