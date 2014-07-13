@@ -45,7 +45,7 @@
                 {if $v[status]==8}
                 	{if $v[ispinimage] && !$v[pinimage]}<a href="javascript:dialog(600,500,'淘宝平台任务截图上传','/dialog/uphaoping/?sid=$v[id]');">上传好评截图</a><br />{/if}
                 	{if $v[isShare] && !$v[shareimage]}<a href="javascript:dialog(600,500,'淘宝平台任务截图上传','/dialog/uphaoping/?sid=$v[id]');">上传分享截图</a><br />{/if}
-                	{if !$v[ispinimage] &&!$v[isShare] }截图上传后，请点击右侧绿色按钮，提交任务！{/if}
+                	{if $v[ispinimage] ||$v[isShare] }截图上传后，请点击右侧绿色按钮，提交任务！{/if}
                 {/if}
                 {/if}
             </td>
@@ -85,7 +85,7 @@
                     else
                         $upimage=0;
                     if($upimage==0){
-						if(!$ispinimage && !$isShare)
+						if(!$v[isShare] && !$v[ispinimage] )
 							$upimage=1;
                     }
                     ?>
