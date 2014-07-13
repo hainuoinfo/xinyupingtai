@@ -3,6 +3,8 @@
 loadLib('member.credit');
 language :: load(array('folder' => 'member', 'name' => 'reg'));
 template :: initialize('./templates/default/' . $action . '/', './cache/default/' . $action . '/'); //设置BBS模板缓存目录
+
+unlink('./cache/default/member/SecKill.htm');
 $ops = array('index', 'reg', 'forgotpwd', 'login', 'logout', 'pwd2', 'info', 'active', 'credit', 'kefu', 'sms', 'message', 'userdata', 'setpwd', 'vipinfo',
     'thread', 'exam', 'topup', 'topupLog', 'payment', 'paymentLog', 'buyTaobaoVcode', 'buyAlipay',
     'setting', 'card', 'cardLog', 'vip', 'ShuaKe', 'flowVip', 'exchange', 'Authentication', 'buytao', 'buypai', 'PayDetails', 'userjob', 'mineaction', 'logGold', 'logAccount', 'SecKill', 'BuyPoint', 'soft', 'black',
@@ -576,21 +578,20 @@ case 'BuyPoint':
         }
     break;
 case 'SecKill':
-    $seckill = db :: one('kill', 'name,updatetime', "id='1'");
+    $updatetime = db :: one_one('kill', 'updatetime', "id='1'");
     //if($seckill['name']==0){//是否只有当为0时，才会更新麦点
 	    $lastFriday=strtotime('last friday');//获取上周五日期  
-	    $updatetime=strtotime(date("Y-m-d",strtotime($seckill['updatetime'])));//对数据库时间进行格式化只保留日期
+	    $updatetime=strtotime(date("Y-m-d",strtotime($updatetime)));//对数据库时间进行格式化只保留日期
 	    //var_dump($lastFriday,$updatetime);
 	    //var_dump($lastFriday,$seckill['updatetime']);exit;
 	    if($lastFriday==$updatetime){
-		    echo 1;
 		   	if($today_start==strtotime('friday')){
-			   	db::update('kill', 'name= '.  $kill_all, "id='1'");//不管剩余数量直接重置为0
-		    	$seckill=$kill_all;
+			   	db::update('kill', array('name'=>$kill_all,'updatetime'=>date('Y-m-d',time())), "id='1'");//不管剩余数量直接重置为kill_all
 	    	}
-	    }else
-		    $seckill=$seckill['name'];
-    //}
+	    }
+	$seckill= db :: one_one('kill', 'name', "id='1'");
+	//var_dump($updatetime,$lastFriday);
+	//exit;
     if ($rs = form :: is_form_hash2()){
         if ($rs === true){
             $datas = form :: get('nums', 'jiage');
@@ -605,7 +606,8 @@ case 'SecKill':
                         member_base :: addFabudian($uid, $nums, 1, '麦点秒杀');
                         member_base :: addMoney($uid, - $money, '麦点秒杀');
                         member_base :: sendSms($uid, '您于' . date('Y-m-d H:i:s', $timestamp) . '使用' . $money . '秒杀了' . $nums . '个麦点', 'score_points');
-                        common :: setMsg('恭喜您，秒杀陈功！');
+                        common :: setMsg('恭喜您，秒杀成功！');
+                        common::goto_url($referer, true);
                         }else{
                         error :: bbsMsg('秒杀失败！！');
                         }

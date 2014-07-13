@@ -59,3 +59,5 @@ ALTER TABLE `bf_kill` ADD `updatetime` timestamp null COMMENT '上次更新时�
 /* 2014年7月13日修正 */
 ALTER TABLE bf_task ADD COLUMN `isFMaxBTSCount` int(3) null COMMENT '限制接手人被投诉次数' after `FMaxBTSCount`;//发布任务
 ALTER TABLE bf_task CHANGE scorelvl scoreLvl int;
+//去掉updatetime自动更新功能时间 防止时间不正确
+#ALTER TABLE bf_kill MODIFY  `updatetime` timestamp  NULL COMMENT '上次更新时间';
