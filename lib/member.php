@@ -663,7 +663,7 @@ case 'info':
     switch ($type){
     case 'post': // 卖家信誉  之所以tuid是因为这里是说 好评对象id
         if ($total = db :: data_count('credits', "tuid='{$memberInfo[base][id]}' and isBuyer='0'")){
-            $cList = db :: get_list2('credits', '*', "fuid='{$memberInfo[base][id]}' and isBuyer='0'", 'timestamp desc', $page, $pagesize);
+            $cList = db :: get_list2('credits', '*', "tuid='{$memberInfo[base][id]}' and isBuyer='0'", 'timestamp desc', $page, $pagesize);
             $multipage = multi_page :: parse($total, $pagesize, $page, common :: getUrl('/' . $action . '/' . $operation . '/?page={page}'), $pageStyle);
             }
         break;
