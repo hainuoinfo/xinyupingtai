@@ -30,16 +30,19 @@
 		<LI class="jj">好评率：
 				<STRONG class="chengse">
 <?php
-	if($type=='get'){
+	if($type=='post'){
 		$num=$memberInfo[attach]['sgrade1']+$memberInfo[attach]['sgrade2']+$memberInfo[attach]['sgrade3'];
 		$hpl=$memberInfo[attach]['sgrade1']/$num;
 	}else{
 		$num=$memberInfo[attach]['bgrade1']+$memberInfo[attach]['bgrade2']+$memberInfo[attach]['bgrade3'];
-		$hpl=$memberInfo[attach]['sgrade1']/$num;
+		
+		$hpl=$memberInfo[attach]['bgrade1']/$num;
 	}
-	$haoping=sprintf("%.2f", $hpl*100);
-	if($haoping == 0) echo '100';
-	else echo $haoping;
+	$haoping=ceil( $hpl*10000)/100;
+	if($haoping == 0) 
+		echo '100';
+	else 
+		echo $haoping;
 ?>%</STRONG>
 		</LI>
 		<LI class="jj">注册时间：
