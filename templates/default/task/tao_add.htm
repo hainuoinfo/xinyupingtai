@@ -373,22 +373,22 @@ validDomains[13]="http://zxn.taobao.com/";
                     </div>
                         <div>
                       <label>
-                          <input value="1"{if $datas[isFame]} checked="checked"{/if} id="cbxIsFMaxCredit" name="isFame" type="checkbox">
+                          <input value="1"{if $datas[isCredit]} checked="checked"{/if} id="cbxIsFMaxCredit" name="isCredit" type="checkbox">
                           </label>
                       <label class="labelstyle" style="width:160px;margin-left:10px;">接手买号信誉不高于</label>
                       <label class="labelstyle" style="width:50px">
-                          <input name="fameLvl" value="10"{if !$datas || $datas[fameLvl]==10} checked='checked'{/if} type="radio">
+                          <input name="creditLvl" value="10"{if !$datas || $datas[creditLvl]==10} checked='checked'{/if} type="radio">
                           10</label>
                       <label class="labelstyle" style="width:50px">
-                          <input name="fameLvl" value="150"{if !$datas || $datas[fameLvl]==150} checked='checked'{/if} type="radio">
+                          <input name="fameLvl" value="150"{if !$datas || $datas[creditLvl]==150} checked='checked'{/if} type="radio">
                           150</label>
                       <label class="labelstyle" style="width:50px">
-                          <input name="fameLvl" value="200"{if !$datas || $datas[fameLvl]==200} checked='checked'{/if} type="radio">
+                          <input name="creditLvl" value="200"{if !$datas || $datas[creditLvl]==200} checked='checked'{/if} type="radio">
                           200</label>
                     </div>
                         <div>
                       <label>
-                          <input value="1"{if $datas[cbxIsFMaxBTSCount]} checked="checked"{/if} id="cbxIsFMaxBTSCount" name="FMaxBTSCount" type="checkbox">
+                          <input value="1"{if $datas[isFMaxBTSCount]} checked="checked"{/if} id="cbxIsFMaxBTSCount" name="isFMaxBTSCount" type="checkbox">
                           </label>
                       <label class="labelstyle" style="width:160px;margin-left:10px;">接手人被有效投诉次数不大于</label>
                       <label class="labelstyle" style="width:50px">

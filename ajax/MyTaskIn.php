@@ -65,7 +65,7 @@ template::initialize('./templates/default/ajax/', './cache/default/ajax/');
 				}
 				else{
 				    $result =array(
-				    'StateCode'=> -1,
+				    'StateCode'=> '-1',
 					'StateMsg'=> "$rs"
 				   );
 				}

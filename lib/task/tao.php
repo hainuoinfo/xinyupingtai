@@ -102,7 +102,7 @@ switch ($m) {
 		if ($rs = form::is_form_hash2()) {
 			$datas = form::get('nickname', 'itemurl', 'visitTip', 'visitKey', array('visitWay', 'int'), array('price', 'float'), array('isPriceFit', 'int'), array('pointExt', 'float'), array('times', 'int'),  array('scores', 'int'), array('isRemark', 'int'), 'remark', array('isShare', 'int'),array('isAddress', 'int'), 'address',array('share', 'int'), 'tips', array('isDbssc', 'int'),array('isVerify', 'int'), array('issphb', 'float'),'sphbdz',array('isLimit', 'int'), array('limit', 'int'), array('chssp', 'int'),array('isNoword', 'int'),
 				array('isReal', 'int'), array('cbxIsTip', 'int'),'txtBuyCount','cbIsHiddenName','cbIsNoneAssess','txtAreaService','txtAccount','txtMobile','txtSpecs','ddlDeliver','cbxName','cbxMobile','cbxcode',
-				array('realname', 'int'),'FMaxBTSCount','cbxIsTaoG','txtTaoG','isawb','expressfull','isSign',
+				array('realname', 'int'),'isFMaxBTSCount'.'FMaxBTSCount','cbxIsTaoG','txtTaoG','isawb','expressfull','isSign',
 				array('isChat', 'int'), array('isChatDone', 'int'),'Express','isLimitCity','isMultiple',
 				array('isStar', 'int'),'qq','cbxAddress',
 				array('lvlStar', 'int'),//星级别
@@ -111,14 +111,14 @@ switch ($m) {
 				array('ensurePoint', 'float'),
 				array('isScore', 'int'),
                 array('scoreLvl', 'int'),
-                array('isCredit', 'int'),
-                array('creditLvl', 'int'),
+                array('isCredit', 'int'),//没找到这个地方  查看模板源文件后，修正到信誉限制项目
+                array('creditLvl', 'int'),//没找到这个地方 查看模板源文件后，修正到信誉限制项目
                 array('isGood', 'int'),
                 array('goodLvl', 'int'),
                 array('isBlack', 'int'),
                 array('blackLvl', 'int'),
-                array('isFame', 'int'),
-                array('fameLvl', 'int'),
+                array('isFame', 'int'),//定义项不对 已经更改 现在没有相关设置项保留
+                array('fameLvl', 'int'),//定义项不对 已经更改  现在没有相关设置项保留
                 array('isPlan', 'int'), 'planDate');
 
 			if ($isHot) $count = (int)$_POST['count'];
@@ -703,7 +703,7 @@ switch ($m) {
 		if ($rs = form::is_form_hash2()) {
 			$datas = form::get('nickname', 'itemurl', 'visitTip', 'visitKey', array('visitWay', 'int'), array('price', 'float'), array('isPriceFit', 'int'), array('pointExt', 'float'), array('times', 'int'),  array('scores', 'int'), array('isRemark', 'int'), 'remark', array('isShare', 'int'),array('isAddress', 'int'), 'address',array('share', 'int'), 'tips', array('isDbssc', 'int'),array('isVerify', 'int'), array('issphb', 'float'),'sphbdz',array('isLimit', 'int'), array('limit', 'int'), array('chssp', 'int'),array('isNoword', 'int'),
 				array('isReal', 'int'), array('cbxIsTip', 'int'),'txtBuyCount','cbIsHiddenName','cbIsNoneAssess','txtAreaService','txtAccount','txtMobile','txtSpecs','ddlDeliver','cbxName','cbxMobile','cbxcode',
-				array('realname', 'int'),'FMaxBTSCount','cbxIsTaoG','txtTaoG','isawb','expressfull','isSign',
+				array('realname', 'int'),'isFMaxBTSCount'.'FMaxBTSCount','cbxIsTaoG','txtTaoG','isawb','expressfull','isSign',
 				array('isChat', 'int'), array('isChatDone', 'int'),'Express','isLimitCity','isMultiple',
 				array('isStar', 'int'),'qq','cbxAddress',
 				array('lvlStar', 'int'),//星级别

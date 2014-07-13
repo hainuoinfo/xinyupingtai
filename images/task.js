@@ -10,7 +10,7 @@ var curMisIsDisWW=false;
 function taskin(mid,isDisWW,btn){
 	if(!curExam){
         artDialog({content:"您还未通过新手考试，通过考试还能获得1个麦点哦！",id:"alarm",fixed:true,yesText:"立即去考试",lock:true},function(){
-            window.open("/member/exam/");
+            window.location.href="/member/exam/";
         });
         DisabledClose();
         return;
@@ -26,6 +26,7 @@ function taskin(mid,isDisWW,btn){
     $(btn).attr("disabled","disabled");
     var tipsDialog=artDialog({content:"处理中，请稍候...",id:"tips",lock:true});
     DisabledClose();
+    
     $.post("/ajax/MyTaskIn.php",{"taskid":mid}, function(result){
         tipsDialog.close();     
         if(result.StateCode==0){
