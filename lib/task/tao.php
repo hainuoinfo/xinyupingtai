@@ -101,7 +101,7 @@ switch ($m) {
 		if ($isHot && !$isVip) error::bbsMsg('对不起，只有VIP会员才可以使用掌柜热卖发布功能');
 		if ($rs = form::is_form_hash2()) {
 			$datas = form::get('nickname', 'itemurl', 'visitTip', 'visitKey', array('visitWay', 'int'), array('price', 'float'), array('isPriceFit', 'int'), array('pointExt', 'float'), array('times', 'int'),  array('scores', 'int'), array('isRemark', 'int'), 'remark', array('isShare', 'int'),array('isAddress', 'int'), 'address',array('share', 'int'), 'tips', array('isDbssc', 'int'),array('isVerify', 'int'), array('issphb', 'float'),'sphbdz',array('isLimit', 'int'), array('limit', 'int'), array('chssp', 'int'),array('isNoword', 'int'),
-				array('isReal', 'int'), array('cbxIsTip', 'int'),'txtBuyCount','cbIsHiddenName','cbIsNoneAssess','txtAreaService','txtAccount','txtMobile','txtSpecs','ddlDeliver','cbxName','cbxMobile','cbxcode',
+				array('isReal', 'int'), array('cbxIsTip', 'int'),'txtBuyCount','cbIsHiddenName','cbIsNoneAssess','txtAreaService','txtAccount','txtMobile','txtSpecs','ddlDeliver','cbxName','cbxMobile','cbxcode','Province',
 				array('realname', 'int'),'isFMaxBTSCount'.'FMaxBTSCount','cbxIsTaoG','txtTaoG','isawb','expressfull','isSign',
 				array('isChat', 'int'), array('isChatDone', 'int'),'Express','isLimitCity','isMultiple',
 				array('isStar', 'int'),'qq','cbxAddress',
@@ -125,6 +125,10 @@ switch ($m) {
 			else $count = 1;
 
 			if ($rs === true) {
+				$datas3=$datas;
+				$datas['Province']=serialize($datas['Province']);
+				//echo '<pre>';
+				//var_dump($datas);exit;
 				$rs = task_tao::add($datas, $uid, $count);
 			}
 			if ($rs === true) {

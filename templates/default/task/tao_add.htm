@@ -415,9 +415,9 @@ validDomains[13]="http://zxn.taobao.com/";
                           </label>
                       <input name="limit" value="1"{if !$datas || $datas[limit]==1} checked="checked"{/if} id="fmaxmc_1"price="0.5" type="radio">
                       1天接1个(<em>0.5</em>个麦点)
-                      <input name="limit" value="2"{if !$datas || $datas[limit]==2} checked="checked"{/if} id="limit_2" price="0.2" id="fmaxmc_2" type="radio">
+                      <input name="limit" value="2"{if !$datas || $datas[limit]==2} checked="checked"{/if}  price="0.2" id="fmaxmc_2" type="radio">
                       1天接2个(<em>0.2</em>个麦点)
-                      <input name="limit" value="3"{if !$datas || $datas[limit]==3} checked="checked"{/if} id="limit_3" id="fmaxmc_3" type="radio">
+                      <input name="limit" value="3"{if !$datas || $datas[limit]==3} checked="checked"{/if}  id="fmaxmc_3" type="radio">
                       1周接1个(<em>1</em>个麦点)</div>
                       </div>
                   <div class="exp">您可以设置接手人在1天或一周内接手您发布任务的次数，需额外支付麦点</div>
@@ -471,11 +471,11 @@ validDomains[13]="http://zxn.taobao.com/";
                     <div class="name">指定接手地区：</div>
                     <div class="value longest">
                   <div style="margin-bottom:10px;">
-                        <input id="isLimitCity" title="勾上才启用 Tips:如果你只想指定某个省份接手，只需要选择省份即可，不需要选择市；也可以具体指定到某个省某个市接手" value="1" name="isLimitCity" type="checkbox">
+                        <input id="isLimitCity" title="勾上才启用，现在只能具体到省" value="1" name="isLimitCity" type="checkbox">
                         <script type="text/javascript" src="/images/city2.js"></script>
-                        <input name="isMultiple" onclick="ChangeMultiple()" id="isMultiple" value="1" type="checkbox">
-                        多选省份 </div>
-                  <div style="color:#999;">例如你指定北京和上海用户才可以接手，这样可避免重复用户交易，需额外支付<font color="red">0.5</font>个发布点</div>
+                        <!--<input name="isMultiple" onclick=" " id="isMultiple" value="1" type="checkbox">-->
+                        <!--多选省份--> </div>
+                  <div style="color:#999;">使用方法按住ctrl在所需要的省份上单击鼠标左键可以实现多选。<br>例如你指定接手地区，避免重复用户交易，需额外支付<font color="red">0.5</font>个发布点</div>
                 </div>
                   </li>
               <li>

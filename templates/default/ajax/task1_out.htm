@@ -28,7 +28,7 @@
             {if $v[isRemark]}<em title="按发布者提供的评语进行评价" class="rwdt_yq2">&nbsp;</em>{/if}
             {if $v[isReal]}<em title="接手买号必须通过了支付宝实名认证" class="rwdt_yq21">&nbsp;</em>{/if}
             {if $v[isAddress]}<em class="rwdt_yq3" title="任务需要指定收货地址">&nbsp;</em>{/if}
-            {if $v[isLimitCity]}<em class="rwdt_yqip" title="要求接手方地址是...">&nbsp;</em>{/if}
+            {if $v[isLimitCity]}<em class="rwdt_yqip" title="要求接手方地址是<?php $prov=unserialize($v[Province]); echo implode(',',$prov); ?>">&nbsp;</em>{/if}
             {if $v[isShare]}<em title="好评后对宝贝进行分享" class="rwdt_yq20">&nbsp;</em>{/if}
             {if $v[isChatDone]}<em title="任务需要模拟聊天后确认收货" class="rwdt_yq17">&nbsp;</em>{/if}
 

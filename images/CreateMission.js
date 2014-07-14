@@ -193,8 +193,8 @@ $(document).ready(function() {
 					"seller": szgIndex,
 					"goodsUrl": goodsUrl
 				}, function(result) {
-					dialog.close();
-					$(".ui_close").show(); 
+					//dialog.close();
+					//$(".ui_close").show(); 
 					if (result == 1) {
 						$("#txtGoodsUrl").val(goodsUrl.replace("&#", ""));
 						addconfirm();
@@ -512,7 +512,7 @@ function countPoint() {
 	}
 	if (getObj('isReal').checked) p += 0.5;
 	if (getObj('cbxIsTaoG').checked) p += 0.1;
-	if (getObj('isMultiple').checked) p += 0.5;
+	//if (getObj('isMultiple').checked) p += 0.5;
 	if (getObj('isLimitCity').checked) p += 0.5;
 	if (getObj('isPlan').checked) p += 0.1;
 	p = p.toFixed(2);

@@ -61,3 +61,5 @@ ALTER TABLE bf_task ADD COLUMN `isFMaxBTSCount` int(3) null COMMENT '限制接�
 ALTER TABLE bf_task CHANGE scorelvl scoreLvl int;
 //去掉updatetime自动更新功能时间 防止时间不正确
 #ALTER TABLE bf_kill MODIFY  `updatetime` timestamp  NULL COMMENT '上次更新时间';
+2014年7月14日
+ALTER TABLE bf_task ADD COLUMN `Province` varchar(10000) null COMMENT '限制可接手省份' after `FMaxBTSCount`;
