@@ -126,7 +126,10 @@ switch ($m) {
 
 			if ($rs === true) {
 				$datas3=$datas;
-				$datas['Province']=serialize($datas['Province']);
+				if($datas['isLimitCity'])
+					$datas['Province']=serialize($datas['Province']);
+				else
+					$datas['Province']='';
 				//echo '<pre>';
 				//var_dump($datas);exit;
 				$rs = task_tao::add($datas, $uid, $count);
