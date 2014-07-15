@@ -41,7 +41,8 @@ class task_buyer{
 		$username = member_base::getUsername($uid);//现获取当前登陆用户
 		if ($username) {
 			if ($nickname = trim($nickname)) {
-				if (!db::exists('buyers', array(/*'type' => $type,*/ 'nickname' => $nickname))) {
+				if (!db::exists('buyers', array( 'nickname' => $nickname))) {
+				//if (!db::exists('buyers', array('type' => $type, 'nickname' => $nickname))) {
 					//$func = 'getMember'.$type;
 					//$member = self::$func($nickname);
                     //var_dump($member);exit;

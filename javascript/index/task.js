@@ -59,7 +59,12 @@ function copyComment(text, tip) {
 	}
 	return false;
 }
-
+function contact(qq){
+	qq=parseInt(qq);
+	if(confirm('对方的qq号码是'+qq+'\n\n临时对话信息会经常收不到，\n\n请尽量把对方qq加为你的qq好友。\n\n点击确定后为你转向临时会话！')){
+		window.open('http://wpa.qq.com/msgrd?v=3&uin='+qq+'&site=qq&menu=yes');
+	}
+}
 function IsGetTask() {
     return confirm("您确定要接手此任务么？");
 }

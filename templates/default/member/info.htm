@@ -30,18 +30,22 @@
 		<LI class="jj">好评率：
 				<STRONG class="chengse">
 <?php
-	if($type=='post'){
+	//在class/task/grade.php中是这样规定的  isbuyer sgrade +1  else bgrade +1
+	if($type=='get'){
 		$num=$memberInfo[attach]['sgrade1']+$memberInfo[attach]['sgrade2']+$memberInfo[attach]['sgrade3'];
-		$hpl=$memberInfo[attach]['sgrade1']/$num;
+		if($num!=0)
+			$hpl=$memberInfo[attach]['sgrade1']/$num;
+		else 
+			$hpl=1;
 	}else{
 		$num=$memberInfo[attach]['bgrade1']+$memberInfo[attach]['bgrade2']+$memberInfo[attach]['bgrade3'];
 		
-		$hpl=$memberInfo[attach]['bgrade1']/$num;
+		if($num!=0)
+			$hpl=$memberInfo[attach]['bgrade1']/$num;
+		else 
+			$hpl=1;
 	}
 	$haoping=ceil( $hpl*10000)/100;
-	if($haoping == 0) 
-		echo '100';
-	else 
 		echo $haoping;
 ?>%</STRONG>
 		</LI>

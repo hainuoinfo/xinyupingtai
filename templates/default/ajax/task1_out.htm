@@ -140,8 +140,8 @@
                 <tr>
                     <td style="padding-left:20px; color:#3372A2;" align="left" width="40%">客服不会主动联系操作任务、平台没有充值活动谨防假冒<br>如果选择了好评截图，请点击<span style="color: red;">评图图标</span>查看买家上传的好评图。</td>
                     <td align="right" width="50%">　
-                        {if $v[status]>=4}
-				<span class="in_block">
+                        {if $v[status]>=3 } 
+				<span class="in_block"><?php /*<!--状态3表示 已经接受发出审核请求-->*/ ?>
 				接手方：<a href="{rewrite}/member/info/?username={url $v[busername]}" target="_blank" class="comlink">$v[busername]<img src="$memberLevel[icon]" alt="积分：$memberFields[credits]" /></a></a>
 				</span>
 				<span class="col33 in_block">(IP：{ip $ipint})
@@ -232,3 +232,4 @@
         $multipage
     </div>
 </div>
+<link rel="stylesheet" href="/css/bbs/layout.css" type="text/css" />

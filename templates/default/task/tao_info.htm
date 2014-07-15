@@ -9,8 +9,9 @@
       <li><p class="fd">属于：{if $memberFields[shuake]==1}职业刷客{elseif $memberFields[vip]==1 || $memberFields[vip]==2 || $memberFields[vip]==3}{$vip}{else}{$credits}{/if}</p><span class=""></span></li>
       <div class="cle"></div>
       <li>好评率：<strong class="lvse">
-卖家
-<?php
+买家
+<?php  
+	//在class/task/grade.php中是这样规定的  isbuyer sgrade +1  else bgrade +1
 	$snum=$memberFields['sgrade1']+$memberFields['sgrade2']+$memberFields['sgrade3'];
 	$shpl=$memberFields['sgrade1']/$snum*10000;
 	$shpl= ceil($shpl)/100;
@@ -18,8 +19,9 @@
 	else echo $shpl;
 ?>%
 
-买家
+卖家
 <?php
+	//在class/task/grade.php中是这样规定的  isbuyer sgrade +1  else bgrade +1
 	$bnum=$memberFields['bgrade1']+$memberFields['bgrade2']+$memberFields['bgrade3'];
 	$bhpl=$memberFields['bgrade1']/$bnum*10000;
 	$bhpl=ceil($bhpl)/100;	
