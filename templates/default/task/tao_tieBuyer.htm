@@ -193,7 +193,7 @@ $multipage
 <script type="text/javascript" src="/images/artDialog.js"></script>
 <script type="text/javascript">
 function IsDelAcc(obj, id) {
-  if (confirm("您确定要删除此买号么？\n\n删除后将无法重新绑定此买号")) {
+  if (confirm("您确定要删除此买号么？\n\n删除后，任何平台账号都将无法再次绑定此买号！")) {
     obj.href='$thisUrl&del=' + id;
     return true;
   } else {

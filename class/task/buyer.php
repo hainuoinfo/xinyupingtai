@@ -41,7 +41,7 @@ class task_buyer{
 		$username = member_base::getUsername($uid);//现获取当前登陆用户
 		if ($username) {
 			if ($nickname = trim($nickname)) {
-				if (!db::exists('buyers', array('type' => $type, 'nickname' => $nickname))) {
+				if (!db::exists('buyers', array(/*'type' => $type,*/ 'nickname' => $nickname))) {
 					//$func = 'getMember'.$type;
 					//$member = self::$func($nickname);
                     //var_dump($member);exit;
@@ -76,6 +76,8 @@ class task_buyer{
 							'timestamp' => $timestamp,
 							'express'   => 0
 						);
+						//TODO 先检查数据库中是否存在相关数据，如果存在则只更改type=1 表示与用户建立真正链接，0表示不再被用户使用  当用户重新添加时
+						
 						if (db::insert('buyers', $datas)) {
 							db::update('memberfields', 'buyers'.$type.'=buyers'.$type.'+1', "uid='$uid'");
 							return true;
