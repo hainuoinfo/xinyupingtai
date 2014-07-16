@@ -2971,7 +2971,7 @@ ul.gou li span {
 .yfrw_list .yf_ts3 {
 	background:#F1F8FE;
 }
-.yfrw_list .yf_mjly,.yfrw_list .yf_gdhp,.yfrw_list .yf_gdsh {
+.yfrw_list .yf_mjly,.yfrw_list .yf_gdhp,.yfrw_list .yf_gdsh ,.yf_mjly,.yf_gdsh ,.yf_gdhp{
 	background:url(/images/yfrw_ico.gif) 0 -112px no-repeat;
 	display:block;
 	float:left;
@@ -2982,10 +2982,22 @@ ul.gou li span {
 .yfrw_list .yf_gdhp {
 	background:url(/images/yfrw_ico.gif) -1px -144px no-repeat;
 }
+.yf_gdhp {
+	background:url(/images/yfrw_ico.gif) -1px -144px no-repeat;
+}
 .yfrw_list .yf_gdsh {
 	background:url(/images/yfrw_ico.gif) 0 -182px no-repeat;
 }
+.yf_gdsh {
+	background:url(/images/yfrw_ico.gif) 0 -182px no-repeat;
+}
 .yfrw_list .yf_fz1,.yfrw_list .yf_fz2 {
+	background:url(/images/yfrw_ico.gif) 0 -36px no-repeat;
+	display:block;
+	height:23px;
+	width:85px;
+}
+.yf_fz2,.yf_fz1 {
 	background:url(/images/yfrw_ico.gif) 0 -36px no-repeat;
 	display:block;
 	height:23px;
@@ -2995,6 +3007,9 @@ ul.gou li span {
 	background:url(/images/yfrw_ico.gif) -0 -36px no-repeat;
 }
 .yfrw_list .yf_fz2 {
+	background:url(/images/yfrw_ico.gif) 0 -69px no-repeat;
+}
+.yf_fz2 {
 	background:url(/images/yfrw_ico.gif) 0 -69px no-repeat;
 }
 .yf_ii1,.yf_ii2,.yf_ii3,.yf_ii4 {

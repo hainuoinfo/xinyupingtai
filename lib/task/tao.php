@@ -159,7 +159,7 @@ switch ($m) {
 							'isAdds'    => 0,
 							'stype'      => 1,
 							'name'      => $tplTo,
-							'datas'     => addslashes(serialize($datas)),
+							'datas'     => addslashes(serialize($datas3)),
 							'timestamp' => $timestamp
 						));
 					}
@@ -721,6 +721,11 @@ switch ($m) {
 			if ($isHot) $count = (int)$_POST['count'];
 			else $count = 1;
 			if ($rs === true) {
+				$datas3=$datas;
+				if($datas['isLimitCity'])
+					$datas['Province']=serialize($datas['Province']);
+				else
+					$datas['Province']='';				
 				$rs = task_tao::add($datas, $uid, $count);
 			}
 			if ($rs === true) {
@@ -745,7 +750,7 @@ switch ($m) {
 							'isAdds'    => 0,
 							'stype'      => 2,
 							'name'      => $tplTo,
-							'datas'     => addslashes(serialize($datas)),
+							'datas'     => addslashes(serialize($datas3)),
 							'timestamp' => $timestamp
 						));
 					}

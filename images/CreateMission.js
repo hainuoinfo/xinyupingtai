@@ -207,7 +207,7 @@ $(document).ready(function() {
 						});
 					} else if (result == '3') {
 						artDialog({
-							content: "对不起！获取淘宝掌柜名时发生错误。你确认你的淘宝账号是"+szgIndex,
+							content: "对不起！获取淘宝掌柜名时发生错误。你确认你的淘宝账号是" + szgIndex,
 							id: "alarm"
 						}, function() {
 							ToMao();
@@ -233,7 +233,7 @@ $(document).ready(function() {
 						}, function() {
 							ToMao();
 						});
-					}else if(result==''){
+					} else if (result == '') {
 						artDialog({
 							content: "获取信息时失败，请重试！",
 							id: "alarm"
@@ -241,7 +241,7 @@ $(document).ready(function() {
 							ToMao();
 						});
 					}
-				})
+				});
 				return false;
 			}
 		}).css("cursor", "pointer");

@@ -377,13 +377,13 @@ validDomains[13]="http://zxn.taobao.com/";
                           </label>
                       <label class="labelstyle" style="width:160px;margin-left:10px;">接手买号信誉不高于</label>
                       <label class="labelstyle" style="width:50px">
-                          <input name="creditLvl" value="10"{if !$datas || $datas[creditLvl]==10} checked='checked'{/if} type="radio">
+                          <input name="creditLvl" value="10"{if $datas && $datas[creditLvl]==10} checked='checked'{/if} type="radio">
                           10</label>
                       <label class="labelstyle" style="width:50px">
-                          <input name="fameLvl" value="150"{if !$datas || $datas[creditLvl]==150} checked='checked'{/if} type="radio">
+                          <input name="creditLvl" value="150"{if $datas && $datas[creditLvl]==150} checked='checked'{/if} type="radio">
                           150</label>
                       <label class="labelstyle" style="width:50px">
-                          <input name="creditLvl" value="200"{if !$datas || $datas[creditLvl]==200} checked='checked'{/if} type="radio">
+                          <input name="creditLvl" value="200"{if $datas && $datas[creditLvl]==200} checked='checked'{/if} type="radio">
                           200</label>
                     </div>
                         <div>
