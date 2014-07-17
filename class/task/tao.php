@@ -47,7 +47,7 @@ class task_tao{
                  $datas['txtSpecs']) $datas['tips'] .= "请拍件" . $datas['txtBuyCount'] . ",规格为" . $datas['txtSpecs'] . "\r\n";
              if ($datas['ddlDeliver']) $datas['tips'] .= "物流" . $datas['ddlDeliver'] . "\r\n";
              }
-         unset($datas['cbxIsTip'], $datas['cbIsHiddenName'], $datas['cbIsNoneAssess'],
+         unset($datas['cbIsHiddenName'], $datas['cbIsNoneAssess'],
              $datas['txtMobile'], $datas['scores'], $datas['txtAccount'], $datas['txtAreaService'], $datas['txtBuyCount'], $datas['txtSpecs'], $datas['ddlDeliver']
             );
         
