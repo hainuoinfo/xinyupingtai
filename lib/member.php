@@ -1418,20 +1418,33 @@ case 'active':
                     if ($memberFields['vip'] == 1){
                         $paymentCountMax = cfg :: getInt('payment', 'vipCount'); //一级会员每日提现次数
                         $paymentMoneyMax = cfg :: getMoney('payment', 'vipMaxMoney'); //一级会员每日提现金额
-                        }elseif ($memberFields['vip'] == 2){
+                    }elseif ($memberFields['vip'] == 2){
                         $paymentCountMax = cfg :: getInt('payment', 'vip2Count'); //钻石会员每日提现次数
                         $paymentMoneyMax = cfg :: getMoney('payment', 'vip2MaxMoney'); //钻石会员每日提现金额
-                        }elseif ($memberFields['vip'] == 3){
+                    }elseif ($memberFields['vip'] == 3){
                         $paymentCountMax = cfg :: getInt('payment', 'vip3Count'); //皇冠会员每日提现次数
                         $paymentMoneyMax = cfg :: getMoney('payment', 'vip3MaxMoney'); //皇冠会员每日提现金额
-                        }else{
+                    }else{
                         $paymentCountMax = cfg :: getInt('payment', 'memberCount'); //普通会员每日提现次数
                         $paymentMoneyMax = cfg :: getMoney('payment', 'memberMaxMoney'); //普通会员每日提现金额
-                        }
+                    }
+                    //交易手续费
+                    switch($m){
+	                    case 'taobao':
+                            $mp = cfg :: getFloat('payment', 'taobaoSXF');
+	                    	# code...
+	                    break;
+	                    case 'alipay':
+                            $mp = cfg :: getFloat('payment', 'alipaySXF');
+	                    	# code...
+	                    break;
+                    }
+                    //var_dump($m,$mp);
+                    //var_dump($paymentCountMax,$paymentMoneyMax);
                     if ($rs = form :: is_form_hash2()){
                         if ($rs === true){
                             $rs = member_base :: checkPwd2($uid, $_POST['pwd2']);
-                            }
+                        }
                         if ($rs === true){
                             
                             $paymentCount = db :: data_count('payment', "uid='$uid' and timestamp1>=$today_start and timestamp1<=$today_end");

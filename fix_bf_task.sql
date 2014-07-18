@@ -63,3 +63,10 @@ ALTER TABLE bf_task CHANGE scorelvl scoreLvl int;
 #ALTER TABLE bf_kill MODIFY  `updatetime` timestamp  NULL COMMENT '上次更新时间';
 2014年7月14日
 ALTER TABLE bf_task ADD COLUMN `Province` varchar(10000) null COMMENT '限制可接手省份' after `FMaxBTSCount`;
+2014年7月17日
+update bf_task set cbxIsTip = 1 where tips is not null; #更新所有一直有提示的数据  更新 卖家提示相关数据
+2014年7月18日
+ALTER TABLE bf_log MODIFY `val` float(9,2) DEFAULT '0.00';
+ALTER TABLE bf_log MODIFY `fabudian` float(11,2) DEFAULT '0.00' COMMENT '麦点';
+ALTER TABLE bf_log MODIFY `totalcredits` float(11,2) NOT NULL DEFAULT '0.00' COMMENT '总积分数';
+ALTER TABLE bf_log MODIFY `totalmoney` float(11,2) DEFAULT '0.00' COMMENT '存款';
