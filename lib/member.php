@@ -2160,7 +2160,7 @@ case 'active':
                             ($where && ($where .= ' and ') || !$where) && $where .= "uid='$uid'";
                             if ($total = db :: data_count('log_member', $where)){
                                 $accList = db :: get_list2('log_member', '*', $where, 'timestamp desc', $page, $pagesize);
-                                $multipage = multi_page :: parse($total, $pagesize, $page, common :: getUrl('/' . $action . '/' . $operation . '/?' . ($dateStart?'&dateStart=' . $dateStart:'') . ($dateEnd?'&dateEnd=' . $dateEnd:'') . '&page={page}'), $pageStyle, 10, 'member1');
+                                $multipage = multi_page :: parse($total, $pagesize, $page, common :: getUrl('/' . $action . '/' . $operation . '/?type=7' . ($dateStart?'&dateStart=' . $dateStart:'') . ($dateEnd?'&dateEnd=' . $dateEnd:'') . '&page={page}'), $pageStyle, 10, 'member1');
                                 }
                             }
                         break;
