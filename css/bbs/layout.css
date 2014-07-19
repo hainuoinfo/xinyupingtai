@@ -943,11 +943,13 @@ a.comlink:hover {
 	background:#f8f8f8;
 	display:block;
 	height:25px;
-	width:25px;
+	/*width:25px;*/
 	float:left;
 	margin:0 2px;
 	text-align:center;
+	padding: 0px 5px;
 }
+#page strong{display: block;float: left;}
 #page a:hover,#page a.nov {
 	background:#EAF4FD;
 	border-color:#B0D0E9;

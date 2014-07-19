@@ -1428,6 +1428,9 @@ case 'active':
                         $paymentCountMax = cfg :: getInt('payment', 'memberCount'); //普通会员每日提现次数
                         $paymentMoneyMax = cfg :: getMoney('payment', 'memberMaxMoney'); //普通会员每日提现金额
                     }
+                    /*获取已经提现数量和次数*/
+                    $paymentCount = db :: data_count('payment', "uid='$uid' and timestamp1>=$today_start and timestamp1<=$today_end");
+                    $paymentMoney = (int)db :: one_one('payment', 'sum(money)', "uid='$uid' and timestamp1>=$today_start and timestamp1<=$today_end");                    
                     //交易手续费
                     switch($m){
 	                    case 'taobao':
@@ -1446,9 +1449,6 @@ case 'active':
                             $rs = member_base :: checkPwd2($uid, $_POST['pwd2']);
                         }
                         if ($rs === true){
-                            
-                            $paymentCount = db :: data_count('payment', "uid='$uid' and timestamp1>=$today_start and timestamp1<=$today_end");
-                            $paymentMoney = (int)db :: one_one('payment', 'sum(money)', "uid='$uid' and timestamp1>=$today_start and timestamp1<=$today_end");
                             if ($paymentCount >= $paymentCountMax) error :: bbsMsg('对不起，您每日提现的数次为' . $paymentCountMax . '次，今日提现已经达到了' . $paymentCountMax);
                             if ($paymentMoney >= $paymentMoneyMax) error :: bbsMsg('对不起，您每日提现的最大金额为￥' . $paymentMoneyMax . '次，今日提现已经达到了￥' . $paymentMoneyMax);
                             $type = $_POST['type'];
