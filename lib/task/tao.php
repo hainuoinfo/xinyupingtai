@@ -100,7 +100,8 @@ switch ($m) {
 		$members = member_base::getMember($uid);
 		if ($isHot && !$isVip) error::bbsMsg('对不起，只有VIP会员才可以使用掌柜热卖发布功能');
 		if ($rs = form::is_form_hash2()) {
-			$datas = form::get('nickname', 'itemurl', 'visitTip', 'visitKey', array('visitWay', 'int'), array('price', 'float'), array('isPriceFit', 'int'), array('pointExt', 'float'), array('times', 'int'),  array('scores', 'int'), array('isRemark', 'int'), 'remark', array('isShare', 'int'),array('isAddress', 'int'), 'address',array('share', 'int'), 'tips', array('isDbssc', 'int'),array('isVerify', 'int'), array('issphb', 'float'),'sphbdz',array('isLimit', 'int'), array('limit', 'int'), array('chssp', 'int'),array('isNoword', 'int'),
+			$datas = form::get('nickname', 'itemurl', 'visitTip', 'visitKey', array('visitWay', 'int'), array('price', 'float'), array('isPriceFit', 'int'), array('pointExt', 'float'), array('times', 'int'),  array('scores', 'int'), array('isRemark', 'int'), 'remark', array('isShare', 'int'),array('isAddress', 'int'), 'address',array('share', 'int'), 'tips', array('isDbssc', 'int'),array('isVerify', 'int'),
+			 array('issphb', 'float'),'sphbdz',array('isLimit', 'int'), array('limit', 'int'), array('chssp','int'),array('isNoword', 'int'),
 				array('isReal', 'int'), array('cbxIsTip', 'int'),'txtBuyCount','cbIsHiddenName','cbIsNoneAssess','txtAreaService','txtAccount','txtMobile','txtSpecs','ddlDeliver','cbxName','cbxMobile','cbxcode','Province',
 				array('realname', 'int'),'isFMaxBTSCount'.'FMaxBTSCount','cbxIsTaoG','txtTaoG','isawb','expressfull','isSign',
 				array('isChat', 'int'), array('isChatDone', 'int'),'Express','isLimitCity','isMultiple',
@@ -186,7 +187,7 @@ switch ($m) {
 		}
 		checkPwd2();
 		if ($rs = form::is_form_hash2()) {
-			$datas = form::get2('nickname', 'itemurl', array('price', 'float'), array('isPriceFit', 'int'), array('pointExt', 'float'), array('times', 'int'),  array('scores', 'int'), array('isRemark', 'int'), 'remark', array('isShare', 'int'), array('share', 'int'), 'tips', array('isVerify', 'int'), array('issphb', 'float'),array('isDbssc', 'int'),
+			$datas = form::get2('nickname', 'itemurl', array('price', 'float'), array('isPriceFit', 'int'), array('pointExt', 'float'), array('times', 'int'),  array('scores', 'int'), array('isRemark', 'int'), 'remark', array('isShare', 'int'), array('share', 'int'), 'tips', array('isVerify', 'int'), array('issphb', 'float'),array('isDbssc', 'int'),'Province',
 				'sphbdz',array('isLimit', 'int'), array('limit', 'int'), array('isCart', 'int'), array('isAddress', 'int'), 'address', array('isExpress', 'int'), array('expressTM', 'int'),
 			array('isReal', 'int'),
 			array('realname', 'int'),
@@ -708,9 +709,10 @@ switch ($m) {
 		checkPwd2();
 		$members = member_base::getMember($uid);
 		if ($rs = form::is_form_hash2()) {
-			$datas = form::get('nickname', 'itemurl', 'visitTip', 'visitKey', array('visitWay', 'int'), array('price', 'float'), array('isPriceFit', 'int'), array('pointExt', 'float'), array('times', 'int'),  array('scores', 'int'), array('isRemark', 'int'), 'remark', array('isShare', 'int'),array('isAddress', 'int'), 'address',array('share', 'int'), 'tips', array('isDbssc', 'int'),array('isVerify', 'int'), array('issphb', 'float'),'sphbdz',array('isLimit', 'int'), array('limit', 'int'), array('chssp', 'int'),array('isNoword', 'int'),
+			$datas = form::get('nickname', 'itemurl', 'visitTip', 'visitKey', array('visitWay', 'int'), array('price', 'float'), array('isPriceFit', 'int'), array('pointExt', 'float'), array('times', 'int'),  array('scores', 'int'), array('isRemark', 'int'), 'remark', array('isShare', 'int'),array('isAddress', 'int'), 'address',array('share', 'int'), 'tips', array('isDbssc', 'int'),array('isVerify', 'int'), array('issphb', 'float'),'sphbdz',array('isLimit', 'int'), array('limit', 'int'), 
+			array('chssp', 'int'),array('isNoword', 'int'),
 				array('isReal', 'int'), array('cbxIsTip', 'int'),'txtBuyCount','cbIsHiddenName','cbIsNoneAssess','txtAreaService','txtAccount','txtMobile','txtSpecs','ddlDeliver','cbxName','cbxMobile','cbxcode',
-				array('realname', 'int'),'isFMaxBTSCount'.'FMaxBTSCount','cbxIsTaoG','txtTaoG','isawb','expressfull','isSign',
+				array('realname', 'int'),'isFMaxBTSCount'.'FMaxBTSCount','cbxIsTaoG','txtTaoG','isawb','expressfull','isSign','Province',
 				array('isChat', 'int'), array('isChatDone', 'int'),'Express','isLimitCity','isMultiple',
 				array('isStar', 'int'),'qq','cbxAddress',
 				array('lvlStar', 'int'),//星级别
@@ -784,7 +786,7 @@ switch ($m) {
 				array('isReal', 'int'), array('cbxIsTip', 'int'),'txtBuyCount','cbIsHiddenName','cbIsNoneAssess','txtAreaService','txtAccount','txtMobile','txtSpecs','ddlDeliver','cbxName','cbxMobile','cbxcode',
 				array('realname', 'int'),'FMaxBTSCount','cbxIsTaoG','txtTaoG','isawb','expressfull','isSign',
 				array('isChat', 'int'), array('isChatDone', 'int'),'Express','isLimitCity','isMultiple',
-				'qq','cbxAddress',
+				'qq','cbxAddress','Province',
 				array('isEnsure', 'int'),//是否商保
 				array('ispinimage', 'int'),
 				array('ensurePoint', 'float'),
@@ -855,7 +857,7 @@ switch ($m) {
 			$datas = form::get2('nickname', 'itemurl', array('price', 'float'), array('isPriceFit', 'int'), array('pointExt', 'float'), array('times', 'int'),  array('scores', 'int'), array('isRemark', 'int'), 'remark', array('isShare', 'int'), array('share', 'int'), 'tips', array('isVerify', 'int'),
 				'sphbdz',array('isLimit', 'int'), array('limit', 'int'), array('isCart', 'int'), array('isAddress', 'int'), 'address', array('isExpress', 'int'), array('expressTM', 'int'),
 			array('isReal', 'int'), 'c_text','c_chsp','c_title','c_chssp','c_price',
-			array('realname', 'int'),
+			array('realname', 'int'),'Province',
 			array('isChat', 'int'), array('isChatDone', 'int'),
 			array('isStar', 'int'),//是否星级任务
 				array('lvlStar', 'int'),//星级别

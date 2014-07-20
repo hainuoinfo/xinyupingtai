@@ -34,6 +34,7 @@ TRUNCATE TABLE  `bf_credits`;
 TRUNCATE TABLE  `bf_from` ;
 TRUNCATE TABLE  `bf_kefu_review`;
 TRUNCATE TABLE  `bf_kill`;
+INSERT INTO `bf_kill` VALUES (1,'0','2014-07-18 00:00:00');
 TRUNCATE TABLE  `bf_log_exchange`;
 TRUNCATE TABLE  `bf_memberlog`;
 TRUNCATE TABLE  `bf_message_log`;
