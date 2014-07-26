@@ -1,0 +1,1 @@
+<?php exit;?>a:3:{s:6:"status";s:1:"0";s:3:"pic";s:23:"img/cfg/ad_line/B91.jpg";s:3:"url";s:0:"";}

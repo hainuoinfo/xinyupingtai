@@ -1,0 +1,1 @@
+<?php exit;?>a:5:{s:8:"back_sys";s:19:"后台_系统设置";s:9:"back_user";s:19:"后台_用户管理";s:9:"back_face";s:19:"后台_界面设置";s:9:"back_data";s:19:"后台_数据管理";s:10:"back_tools";s:13:"后台_工具";}

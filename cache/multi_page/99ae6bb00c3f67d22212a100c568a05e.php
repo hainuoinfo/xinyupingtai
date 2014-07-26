@@ -1,0 +1,1 @@
+<?php $html="{page>$minpage}";?>
