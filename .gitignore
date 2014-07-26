@@ -1,9 +1,0 @@
-#Mr Developer
-.mr.developer.cfg
-.idea/
-*.db
-cache
-doc/
-test.php
-img/attach/
-
