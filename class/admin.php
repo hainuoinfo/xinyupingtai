@@ -44,11 +44,11 @@ class admin{
 	public static function logout(){
 		if (IN_ADMIN === true) {
 			common::unsetcookie('backAdmin');
-			/*if (IN_FOUNDER === true) {
+			if (IN_FOUNDER === true) {
 				common::unsetcookie('founder_login');
 			} else {
 				common::unsetcookie('admin_login');
-			}*/
+			}
 		}
 	}
 	public static function loginUser($username, $password, $isCookie = false) {
@@ -109,7 +109,7 @@ class admin{
 	public static function updateLogin(){
 		global $adminId;
 		$time = 13600;
-		if (IN_ADMIN === true) {
+		if (IN_ADMIN === true ) {
 			if (IN_FOUNDER === true) {
 				common::setcookie("founder_login", true, $time);//刷新登录时间 10分钟
 			} else {

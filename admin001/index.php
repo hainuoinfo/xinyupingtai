@@ -19,7 +19,6 @@ else
 }
 define('IN_ADMIN', $cookie['founder_login'] || $adminId?true:false);
 define('IN_FOUNDER', $cookie['founder_login']?true:false);
-
 function checkRead()
 {
 	global $admin, $action, $operation;
@@ -60,15 +59,19 @@ function checkWrite()
     }
 }
 
-if (IN_ADMIN === true)
+if (IN_ADMIN === true  )
 {
+	common::nocache();
 	admin::updateLogin();
 	//$_GET&&extract($_GET);
     if ($action == 'logout')
     {
-		//common::setcookie("founder_login",'');
+		@common::nocache();
 		admin::logout();
-		common::goto_url($admin_url,true);
+		@common::unsetcookie("founder_login");
+		@common::unsetcookie("admin_login");
+		common::goto_url("/",true);
+		exit;
 	}
 	$defTab = 'sys';
 	$menus=array(
