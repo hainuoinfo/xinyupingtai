@@ -1,0 +1,67 @@
+{teval
+	$title       = '商保服务 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{sub ../header}
+<DIV class="cle"></DIV>
+<DIV id="content">
+        {sub menu}
+
+<DIV class="right">
+<DIV class="mh_tishi">
+{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+	{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+<SPAN class="chengse2">缴纳保证金后</SPAN>即成为<SPAN class="chengse2">{$web_name}商保会员</SPAN>，保障发布人权益同时<SPAN 
+class="chengse2">赚取更高的发布点回报</SPAN>。</DIV>
+<FORM id="myform" onsubmit="return showensure();" method="post" name="myform" action="$baseUrl?type=joinPay">
+$sys_hash_code2
+<SCRIPT type="text/javascript">
+		    function getObj(a) {
+				return (typeof(a) == "object") ? a: document.getElementById(a)
+			}
+			function showensure(){
+			   if (getObj("isAgreed").checked) {
+	            if (confirm("您确定要加入商家保障并缴纳保证金么？？"))
+						return avoidReSubmit();
+						//document.myform.submit();
+					//return true;
+				} else {
+					alert("要加入商家保障，需要同意《{$web_name}商家保障基础协议》");
+					return false;
+				}
+			}
+			</SCRIPT>
+
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+  <TBODY>
+  <TR>
+    <TD class="jrsb_ico xuxian" height="115" width="160">&nbsp;&nbsp;</TD>
+    <TD class="xuxian" vAlign="middle" width="210" align="left">您已缴纳了：<STRONG 
+      class="lanse">$memberFields[ensureMoney]</STRONG>元保证金<BR>本次需要缴纳：<STRONG style="color: rgb(254, 85, 0); font-weight: bold;">$payforMoney</STRONG>保证金<BR>
+      			您剩余的保证金：<STRONG class="lanse">$memberFields[money]</STRONG>元存款<BR></TD>
+    <TD class="xuxian" vAlign="middle" align="left"><A class="jrsb_btn1" href="{rewrite}/member/topup/" target="_blank"></A></TD>
+</TR>
+  <TR>
+    <TD height="40">&nbsp;&nbsp;</TD>
+    <TD style="font-size: 14px;" colSpan="2">
+	<INPUT id="isAgreed" name="checkbox" value="checkbox" CHECKED="checked" type="checkbox">同意并接受《{$web_name}商家保障基础协议》 
+	<A class="chengse2" href="{rewrite}/bbs/t433/" target="_blank">查看详细</A></TD></TR>
+  <TR>
+    <TD>&nbsp;&nbsp;&nbsp;</TD>
+    <TD colSpan="2"><INPUT class="jrsb_btn2" value="提交查询内容" type="submit">
+	<A class="jrsb_btn3" href="$baseUrl?type=exit"></A>
+	</TD></TR>
+</TBODY>
+</TABLE>
+</FORM>
+<DIV class="jrsb_img"></DIV>
+</DIV>
+</div>
+<DIV class="cle"></DIV>
+	{sub ../footer}

@@ -1,0 +1,26 @@
+{sub h}
+{if $method == 'index'}
+	{adminList
+		删？        |id  |del
+		排序        |sort|sort
+		接口名称    |name
+		接口程序    |ename
+		接口类型    |type    |code,{if $v[type]}自动充值{else}后台手工充值{/if}
+		是否可用    |status  |code,{if $v[status]}<span style="color:green">是</span>{else}<span style="color:red">否</span>{/if}
+		最后修改时间|time    |flag,date
+		            |id      |link,edit=编辑/查看
+		
+	}
+{elseif $method == 'add' || $method == 'edit'}
+	{adminForm
+		接口帐号、ID、密钥，没有可为空，相应程序请添加到“./class/payfor/”下面|tip
+		接口名称,null=请输入接口名称|name    |text|240|64
+		接口程序,null=请输入接口别名|ename   |text|240|64
+		接口类型                    |type    |select,0=后台手动充值,1=接口自动充值
+		接口帐号                    |username|text|240|64
+		接口商户ID                  |userid  |text|240|64
+		接口密钥/密码               |userpwd |text|240|128
+		接口是否可用                |status  |radio,1=是,0=否
+	}
+{/if}
+{sub f}

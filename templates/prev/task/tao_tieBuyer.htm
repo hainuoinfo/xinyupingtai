@@ -1,0 +1,263 @@
+{teval
+	$cssList = array(css::getUrl('task', 'task'));
+	$jsList  = array(javascript::getUrl('task', 'index'));
+	echo string::getStaticCode(array('cssList'=>$cssList, 'jsList' => $jsList));
+}
+{sub ../headerBase}
+<link rel="stylesheet" type="text/css" href="/images/task.css">
+<style type="text/css">
+.kd a:hover { text-decoration:underline;}
+.link_tt{ display:block; width:52px; height:22px;color:#a68d8b; background:url(/images/buyers_btn.png) no-repeat; margin-bottom:2px;}
+</style>
+<style type="text/css">
+.bq_menu{
+	height:32px;
+	background:url(/images/fy_ico.jpg) 0 -1342px repeat;
+	}
+.bq_menu a{
+	float:left;
+	margin-right:3px;
+	background:url(/images/fy_ico.jpg)  -4px -806px no-repeat;
+	display:block;
+	font-size:14px;
+	text-align:center;
+	width:96px;
+	height:32px;
+	line-height:30px;
+	}
+.bq_menu a:hover,.bq_menu a.nov{
+	background:url(/images/fy_ico.jpg)  -4px -758px no-repeat;
+	font-weight:bold;
+	}
+.mh_bdbtn2 {margin-left:218px;}
+.tx_jl{
+	background:url(/images/tx_btn.gif) 0 -187px no-repeat;
+	height:30px;
+	line-height:30px;
+	font-size:14px;
+	font-weight:bold;
+	text-indent:25px;
+	}
+.txjl_bg1{background:url(/images/tx_btn.gif) 0 -225px no-repeat;}
+.txjl_bg2{
+	background:url(/images/tx_btn.gif) 0 -264px repeat-x;
+	color:#1996e6;
+	font-size:14px;
+	font-weight:bold;
+	}
+.txjl_bg3{background:url(/images/tx_btn.gif) right -303px no-repeat}
+</style>
+<div id="content">
+	<div class="taobaopage_detail">
+<style type="text/css">
+.gold .yred { color:#D61810;}
+</style>
+
+{sub tao_info}
+		{sub ../quick}
+		<div class="rwdt_bk2">
+			<a href="{rewrite}/member/safesz/" class="szsz_btn" target="_blank"></a>
+			<p class="ts">接实物任务后立即收货好评将 <span class="chengse">- 20 </span>麦点</p>
+			<p class="ts">任务过程中旺旺聊到刷信誉平台相关字眼 <span class="chengse">- 5 </span>麦点</p>
+			<p class="ts">为了您资金安全，接手方淘宝支付后务必在<span class="lanse">15</span>分钟内回到平台操作任务点击“已付款” </p>
+		</div>
+		<div class="rwdt_gg"><a href="{rewrite}/member/userjob/" target="_blank"><img src="/images/jrw.gif"></a></div>
+		<div class="rwdt_gg2"><a href="{rewrite}/bbs/t1538/" target="_blank"><img src="/images/frw.gif"></a></div>
+
+<script type="text/javascript">
+					$(function() {
+						bechange('.sub_bt a','#buyboxcont>.task_header');
+						$("table > tr:odd").addClass("tcolor");
+					});
+					</script>
+
+		{sub tab}
+	<div class="cle"></div>
+		<div class="lst_info" style="background:none;">
+		  {if $_showmessage}<div class='error_panel'><div>$_showmessage</div></div>{/if}
+	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+	<div class="mh_tishi">
+				1、该页面主要用来绑定和维护用来接任务，购买任务商品的淘宝买号；  <a href="/bbs/t24/" class="chengse">什么是买号？</a><br>
+2、根据淘宝的最新安全策略，所有买号都要求必须是完整填写个人信息后才能进行绑定；为了您的买号与任务发布方网店安全请您先将买号信息完善； <a href="/bbs/t71/" class="chengse">如何更安全的使用买号?</a><br>
+3、注册的淘宝买号请不要使用同一个开头，后面跟一串排号的数字，这种买号很容易被淘宝封(类似短命的买号就是 shua001，shua002，shua003......） <br>
+4、一个买号一天只可以接手6个任务，接手高于6个任务，系统将挂起买号，第二天才进行继续接手任务<br>
+			</div>
+			<div class="bq_menu">
+				<a href="{rewrite}/task/tao/?m=tieBuyer" {if $action=='task' && $operation=='tao'} class="nov" {/if}>绑定淘宝买号</a>
+				<a href="{rewrite}/task/pai/?m=tieBuyer" {if $action=='task' && $operation=='pai'} class="nov" {/if}>绑定拍拍买号</a>
+			</div>
+            <form name="myForm" method="post" id="myForm" onsubmit="return checkForm();">
+            <div>$sys_hash_code2</div>
+			<input name="px" value="1" type="hidden">
+            <table style="margin-top:20px;font-size:14px;" align="center" border="0" cellpadding="0" cellspacing="0" width="95%">
+              <tbody><tr>
+                <td align="left" height="30" valign="middle" width="20%"><span class="mh_taobao"></span></td>
+              </tr>
+			 
+	          
+              <tr>
+                <td align="left" height="40" valign="middle" width="20%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody><tr>
+                    <td width="138">淘宝买家帐号：</td>
+                    <td width="196"><input name="nickname" class="mh_bk" id="nickname" type="text"></td>
+                    <td width="618">&nbsp;</td>
+                  </tr>
+                </tbody></table></td>
+              </tr>
+              <tr>
+                <td align="left" height="60" valign="middle">    
+				<input class="mh_bdbtn" name="btnSave" type="submit"></td>
+              </tr>
+			  
+              <tr>
+                <td class="mh_xian" align="left" height="40" valign="middle" width="20%">您目前是{$user_group[name]}用户，可以绑定{$maxTieCount}个买号！ <a href="{rewrite}/member/vip/" class="chengse2">申请VIP</a>最高可绑定100个买号！ <a href="{rewrite}/member/vipinfo/" target="_blank" class="lanse">查看VIP限权</a></td>
+              </tr>
+            </tbody>
+			</table>
+			</form>
+			<form name="pxform" method="post" id="pxform">
+			<div>$sys_hash_code2</div>
+			<input name="px" value="2" type="hidden">
+	        <table align="center" border="0" cellpadding="0" cellspacing="0" width="95%">
+              <tbody>
+			  <tr>
+                <td style="padding-bottom:10px;" height="15">每次登陆绑定买号页面，我们会为您自动更新买号信息（包括认证是否实名，买号动态等）。</td>
+              </tr>
+              <tr>
+                <td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody><tr>
+                    <td class="txjl_bg1" height="37" width="10"></td>
+                    <td class="txjl_bg2" style="color:#333;" align="center" height="37" valign="middle" width="12%">淘宝账号</td>
+                    <td class="txjl_bg2" style="color:#333;" align="center" height="37" valign="middle" width="20%">初始信誉-现信誉</td>
+                    <td class="txjl_bg2" style="color:#333;" align="center" height="37" valign="middle" width="23%">当日/本周/已完成任务数</td>
+                    <td class="txjl_bg2" style="color:#333;" align="center" height="37" valign="middle" width="10%">买号状态</td>
+                    <td class="txjl_bg2" style="color:#333;" align="center" height="37" valign="middle" width="10%">买号排序</td>
+					<td class="txjl_bg2" style="color:#333;" align="center" height="37" valign="middle" width="10%">是否启用</td>
+					<td class="txjl_bg2" style="color:#333;" align="center" height="37" valign="middle" width="13%">操作</td>
+                    <td class="txjl_bg3" height="37" width="10"></td>
+                  </tr>
+				 {loop $bList $v} 
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td class="mh_xxian" align="center" height="35" valign="middle"><span class="p_l_20">$v[nickname]</span></br>{if $v[isreal]}<span class="rwdt_yq21" title="支付宝实名认证">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>{/if}</td>
+                    <td class="mh_xxian" align="center" valign="middle">$v[score0] $v[score0_ico]/$v[score] $v[score_ico] </td>
+                    <td class="mh_xxian" align="center" valign="middle">$v[todayTask]/$v[tswkTask]/$v[task]</td>
+                    <td class="mh_xxian" align="center" valign="middle">
+		  {if $v[status]==5}
+		  <span class='lvse2'>已暂停[{echo time::days($timestamp - $v[pauseTimestamp])}天]</span>
+		  {else}
+		  $lang[bStatus][$v[status]]
+		  {/if}
+		  {if $v[status] <= 1}
+          <a href="javascript:;" onclick="return IsStopAcc(this,$v[id]);" class="lvse2">暂停</a>
+		  {elseif $v[status]==5}
+		  <a href="javascript:;" onclick="return IsResumeAcc(this,$v[id]);" class="lvse2">恢复</a>
+		  {/if}
+		</td>
+                    <td class="mh_xxian" align="center" valign="middle"><input size="3" name="pxvar[]" value="0" class="mh_bk2" type="text">
+		<input value="$v[id]" name="idarr[]" <="" td="" type="hidden">
+                    </td><td class="mh_xxian" align="center">
+		<input checked="checked" onclick="return IsStopAcc(this,$v[id]);" type="checkbox">
+		</td>
+					<td class="mh_xxian" align="center">
+					{if $v[status]!=6}
+					<a href="javascript:;" onclick="dialog(650,500,'设置买号收货地址','{rewrite}/dialog/buyerAddress/?id=$v[id]');return false;" class="link_tt">收货地址</a>
+					{/if}
+					{if $v[status]==0}
+			        <a href="javascript:;" onclick="return IsDelAcc(this,$v[id]);" class="mh_cz">删除</a>
+                     {/if}
+					</td>
+					<td>&nbsp;</td>
+                  </tr>
+                  {/loop}
+				 
+				</tbody></table></td>
+              </tr>
+              <tr>
+                <td align="left" valign="middle"><input class="mh_xg" type="submit"></td>
+              </tr>
+            </tbody></table>
+		</form>
+            <div class="rwdt_dlm">
+			  <div id="page">
+$multipage
+			  </div>
+			</div>
+			<div class="cle"></div>
+			<!--结束-->
+			</div>	
+	</div><!--taopage_detail end-->
+</div>
+<div class="cle"></div>
+<link type="text/css" rel="stylesheet" href="/images/jcalendar.css">
+<script type="text/javascript" src="/images/artDialog.js"></script>
+<script type="text/javascript">
+function IsDelAcc(obj, id) {
+  if (confirm("您确定要删除此买号么？\n\n删除后，任何平台账号都将无法再次绑定此买号！")) {
+    obj.href='$thisUrl&del=' + id;
+    return true;
+  } else {
+    return false;
+  }
+}
+function IsCollect(obj, id) {
+  if (confirm('您确定要将此买号置为收藏买号么？\n\n收藏买号仅仅用于收藏，不能用于刷信誉的任务')) {
+    obj.href='$thisUrl&setCollect='+id;
+    return true;
+  } else {
+    return false;
+  }
+}
+function IsStopAcc(obj, id) {
+	if (confirm('您确定要将此买号置为暂停买号么？\n\n暂停后的买号不能用于绑定到接手的任务')) {
+    obj.href='$thisUrl&pause='+id;
+    return true;
+  } else {
+    return false;
+  }
+}
+function IsResumeAcc(obj, id) {
+	if (confirm('您确定要恢复此买号么？')) {
+    obj.href='$thisUrl&resume='+id;
+    return true;
+  } else {
+    return false;
+  }
+}
+function sltAll(obj) {
+    var boxs = document.getElementsByName("accId");
+    for (var i = 0; i < boxs.length; i++) {
+        boxs[i].checked = obj.checked;
+    }
+}
+function resumeMore(obj) {
+    var s = "";
+    var boxs = document.getElementsByName("bIds");
+    for(var i=0; i<boxs.length; i++) {
+        if (boxs[i].checked)
+            s += boxs[i].value + ",";
+    }
+    if (s == ""){
+        alert("请选择买号");
+        return false;
+    }
+    if (confirm('您确定要恢复买号么？')) {
+        obj.href='$thisUrl&resumeMore='+s;
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function checkForm() {
+  var checks = [
+  ["isLength", "nickname", "淘宝买家号", 1, 20] ];
+	var result = doCheck(checks);//用的是common.js中的方法  检查长度是否够长
+
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+</script>
+
+ {sub ../footer}

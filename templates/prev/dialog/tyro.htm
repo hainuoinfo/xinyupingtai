@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{teval
+echo css::get_css('dialog', 'dialog');
+}
+{js_select jquery,common}
+<title>设置地址</title>
+<style type="text/css">
+.tyroTask{
+	width:100%;
+	text-align:center;
+}
+.tyroTask th{
+	background:#EEEEFF;
+}
+.tyroTask td{
+	background:#FFEEEE;
+}
+.tyroTask th,.tyroTask td{
+	border-right:1px solid #CCCCCC;
+	border-bottom:1px solid #CCCCCC;
+	padding:5px;
+}
+.tyroTask td a{color:#0055FF;}
+.tyroTaskDes{
+	text-align:center;
+}
+.tyroTaskDes a{color:#0055FF;}
+</style>
+</head><body>
+<div class="main_dl"> {if $_showmessage}
+	<div class='msg_panel'>
+		<div>$_showmessage</div>
+	</div>
+	{/if}
+	{if $indexMessage}
+	<div class='error_panel'>
+		<div>$indexMessage</div>
+	</div>
+	{/if}
+	{if $type == 'list'}
+	<div style="padding:5px ; line-height:18px; border:1px dashed #A3C5EA;"> <span class="f_b_red">$member[username]</span> 您好，这里是新手帮助中心，您可以通过完成以下新手任务，完全掌握平台操作流程。 </div>
+	<div class="h_10"></div>
+	<table class="tyroTask">
+		<tr>
+			<th width="20%">任务名称</th>
+			<th width="10%">任务详情</th>
+			<th>任务奖励</th>
+			<th width="10%">状态</th>
+			<th width="10%">操作</th>
+		</tr>
+		{loop $list $k $v}
+		<tr>
+			<td style="text-align:left">{++ $k}、$v[title]</td>
+			<td><a href="{r}/dialog/tyro/?view=$v[id]">点击查看</a></td>
+			<td class="f_b_red">
+				{switch $v[jiangli] 2}
+				积分 +$v[jiangliData]
+				{case 3}
+				发布点 +$v[jiangliData]
+				{case 4}
+				存款 +$v[jiangliData]
+				{case_else}
+				$v[jiangliData]
+				{/switch}
+			</td>
+			<td>{if in_array($v[jiangli], array(1, 5))}无限制{elseif !empty($v[uid])}已完成{else}未完成{/if}</td>
+			<td>
+				{switch $v[jiangli] 1}
+				系统自动
+				{case 5}
+				平台收购
+				{case_else}
+					{if empty($v[uid])}
+					<a href="{r}/dialog/tyro/?complate=$v[id]">领取奖励</a>
+					{else}
+					<span class="f_red">已领取</span>
+					{/if}
+				{/switch}
+			</td>
+		</tr>
+		{/loop}
+	</table>
+	{elseif $type == 'view'}
+	<div style="padding:5px ; line-height:18px; border:1px dashed #A3C5EA;text-align:center">$task[title]任务详情</div>
+	<div style="padding:10px">
+		$task[des]
+	</div>
+	<div class="tyroTaskDes">
+		<a href="{r}/dialog/tyro/?complate=$task[id]">我已完成领取奖励&gt;&gt;</a>
+		<a href="{r}/dialog/tyro/">返回主菜单&gt;&gt;</a>
+	</div>
+	{/if}
+</div>
+</body>
+</html>

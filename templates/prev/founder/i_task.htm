@@ -1,0 +1,266 @@
+{sub h}
+{if $method!='view'}
+<br />
+<div class="itemtitle">
+ 	<h3></h3>
+	<ul class="tab1">
+		{loop $top_menu2 $k $v}
+		{if !is_array($v) || $v[hide]===false || $k==$method2}
+		<li{if $k==$method2} class="current"{/if}><a href="{if is_array($v)&&$v[hide]}$nowurl{else}$base_url&method=$method&method2=$k{if is_array($v) && $v[attach]}$v[attach]{/if}{/if}"><span>{echo is_array($v)?$v[name]:$v}</span></a></li>
+		{/if}
+		{/loop}
+	</ul>
+</div>
+{/if}
+{if $method=='tao'||$method=='new'||$method=='pai'||$method=='you'}
+<form method="post" enctype="application/x-www-form-urlencoded">
+$sys_hash_code
+	<table class="tb tb2 fixpadding">
+		<tr>
+			<th class="partition" colspan="9">该状态的任务，总担保价：$taskInfo[priceAll]￥，总发布点：$taskInfo[pointAll]</th>
+		</tr>
+		<tr class="header">
+			<th>删？</th>
+			<th>发布人</th>
+			<th>接手人</th>
+			<th>类型</th>
+			<th>商品总价</th>
+			<th>发布点</th>
+			<th>发布时间</th>
+			<td>状态</td>
+			<th></th>
+		</tr>
+		{loop $list $v}
+		<tr class="hover">
+			<td><!--<input type="checkbox" name="del[]" value="$v[id]" class="checkbox"{if $v[status]>=1&&$v[status]<10} disabled="disabled"{/if} />--><input type="checkbox" name="del[]" value="$v[id]" class="checkbox" /></td>
+			<td>$v[susername]</td>
+			<td>$v[busername]</td>
+			<td>{if $v[isCart]}购物车{elseif $v[isExpress]}真实快递{else}普通商品{/if}</td>
+			<td>$v[price]</td>
+			<td>$v[point]</td>
+			<td>{date $v[stimestamp]}</td>
+			<td>$status[$v[status]]</td>
+			<td>[<a href="$base_url&method=view&sid=$v[id]">详情</a>]</td>
+		</tr>
+		{/loop}
+		<tr>
+			<td><label><input type="checkbox" onclick="check_all(this,'del[]')" class="checkbox" />全选</label></td>
+			<td colspan="8">$multipage</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td colspan="9"><input type="submit" value="提交" class="btn" /></td>
+		</tr>
+	</table>
+</form>
+{elseif $method=='view'}
+<form method="post" enctype="application/x-www-form-urlencoded">
+$sys_hash_code
+	<table class="tab_view" style="width:800px">
+		<tr class="tip">
+			<td colspan="2">任务详情</td>
+		</tr>
+		<tr>
+			<th>任务ID</th>
+			<td>$task[id]</td>
+		</tr>
+		<tr>
+			<th>所属区域</th>
+			<td>$types[$task[type]]</td>
+		</tr>
+		<tr>
+			<th>发布者</th>
+			<td>$task[susername]{if $task[vip]}(VIP){/if}</td>
+		</tr>
+		<tr>
+			<th>掌柜</th>
+			<td>$task[nickname]</td>
+		</tr>
+		<tr class="tip">
+			<td colspan="2">商品详情</td>
+		</tr>
+		<tr>
+			<th>商品类型</th>
+			<td>{if $task[isCart]}购物车{elseif $task[isExpress]}真实快递{else}普通商品{/if}</td>
+		</tr>
+		<tr>
+			<th>是否修改价格</th>
+			<td>{if $task[isPriceFit]}是{else}否{/if}</td>
+		</tr>
+		<tr>
+			<th>好评时限要求</th>
+			<td>$times[$task[times]]</td>
+		</tr>
+		<tr>
+			<th>店铺动态评分</th>
+			<td>$lang[scores][$task[scores]]</td>
+		</tr>
+		{if $v[isRemark]}
+		<tr>
+			<th>规定好评内容</th>
+			<td>$task[remark]</td>
+		</tr>
+		{/if}
+		<tr>
+			<th>留言提醒</th>
+			<td>$task[tips]</td>
+		</tr>
+		{if $v[isAddress]}
+		<tr>
+			<th>指定收货地址</th>
+			<td>$task[address]</td>
+		</tr>
+		{/if}
+		{if $v[isShare]}
+		<tr>
+			<th>购物分享</th>
+			<td>$lang[share][$task[share]]</td>
+		</tr>
+		{/if}
+		{if $v[isLimit]}
+		<tr>
+			<th>限制接手人</th>
+			<td>一天接$task[limit]个</td>
+		</tr>
+		{/if}
+		<tr>
+			<th>认证方式</th>
+			<td>{if $task[isVerify]}需要审核,{/if}{if $task[isReal]}实名认证,{/if}{if $task[isChat]}旺旺聊天,{/if}{if $task[isChatDone]}旺旺确认,{/if}</td>
+		</tr>
+		<tr>
+			<th>过滤条件</th>
+			<td>
+				{if $task[isScore]}接手人积分不低于$task[scoreLvl]<br />{/if}
+				{if $task[isCredit]}接手人信用额度不低于$task[creditLvl]<br />{/if}
+				{if $task[isGood]}接手人刷客满意度不低于$task[goodLvl]<br />{/if}
+				{if $task[isBlack]}接手人被拉黑名单数不大于$task[blackLvl]<br />{/if}
+				{if $task[isFame]}接手买号买家信誉度不高于$task[fameLvl]<br />{/if}
+			</td>
+		</tr>
+		{if $task[isCart] || $task[isExpress]}
+		{loop $shops $k $v}
+		<tr>
+			<th>第{++ $k}个商品</th>
+			<td>
+				<table class="tab_view" style="width:550px">
+					<tr>
+						<th style="width:100px">名称</th>
+						<td>$v[title]</td>
+					</tr>
+					<tr>
+						<th style="width:100px">地址</th>
+						<td>$v[itemurl]</td>
+					</tr>
+					<tr>
+						<th style="width:100px">担保价格</th>
+						<td>$v[price]</td>
+					</tr>
+					<tr>
+						<th style="width:100px">追加发布点</th>
+						<td>$v[pointExt]</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		{/loop}
+		<tr>
+			<th>商品总价</th>
+			<td>$task[price]</td>
+		</tr>
+		<tr>
+			<th>共发布点</th>
+			<td>$task[point]</td>
+		</tr>
+		{else}
+		<tr>
+			<th>商品名称</th>
+			<td>$task[title]</td>
+		</tr>
+		<tr>
+			<th>商品价格</th>
+			<td>$task[price]</td>
+		</tr>
+		<tr>
+			<th>商品地址</th>
+			<td>$task[itemurl]</td>
+		</tr>
+		{/if}
+
+		<tr>
+			<th>指定收货地址</th>
+			<td>$task[address]</td>
+		</tr>
+		<tr>
+			<th>访问方式</th>
+			<td>
+				{if $task[visitWay]==0}直接访问{elseif $task[visitWay]==1}搜索店铺-$task[visitKey]-$task[visitTip]{elseif $task[visitWay]==2}搜索宝贝-$task[visitKey]-$task[visitTip]{elseif $task[visitWay]==3}信用页面打开-$task[visitKey]-$task[visitTip]{/if}
+			</td>
+		</tr>
+		{if $task[isExpress] && $task[status]==6}
+		<tr class="tip">
+			<td colspan="2">快递信息</td>
+		</tr>
+		<tr>
+			<th>快递名称</th>
+			<td>$task[expressName]</td>
+		</tr>
+		<tr>
+			<th>收件人信息</th>
+			<td>
+				<table class="tab_view" style="width:550px">
+					<tr>
+						<th style="width:100px">姓名</th>
+						<td>$buyerExpress[nickname]</td>
+					</tr>
+					<tr>
+						<th style="width:100px">地址</th>
+						<td>{if $task[isAddress] && $task[address]}$task[address]{else}$buyerExpress[area]$buyerExpress[address]{/if}</td>
+					</tr>
+					<tr>
+						<th style="width:100px">手机</th>
+						<td>$buyerExpress[mobilephone]</td>
+					</tr>
+					<tr>
+						<th style="width:100px">电话</th>
+						<td></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<th>发件人</th>
+			<td>
+				<table class="tab_view" style="width:550px">
+					<tr>
+						<th style="width:100px">姓名</th>
+						<td>$sellerExpress[nickname]</td>
+					</tr>
+					<tr>
+						<th style="width:100px">地址</th>
+						<td>$sellerExpress[area]$sellerExpress[address]</td>
+					</tr>
+					<tr>
+						<th style="width:100px">手机</th>
+						<td>$sellerExpress[mobilephone]</td>
+					</tr>
+					<tr>
+						<th style="width:100px">电话</th>
+						<td></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<th>快递运单号</th>
+			<td><input type="text" name="expressNum" maxlength="16" class="txt" value="$task[expressNum]" style="width:240px" /></td>
+		</tr>
+		<tr>
+			<th></th>
+			<td><input type="submit" value="提交" class="btn" /></td>
+		</tr>
+		{/if}
+	</table>
+</form>
+<br /><br /><br />
+{/if}
+{sub f}

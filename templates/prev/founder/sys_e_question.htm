@@ -1,0 +1,156 @@
+{sub h}
+{if $method=='index'}
+{adminList
+	删？|id     |del
+	排序|sort   |sort
+	问题|title
+		|id     |link,edit=编辑
+}
+{elseif $method=='add' || $method=='edit'}
+<script language="javascript">
+var sIndexStart = 65;
+var sIndex = 0;
+var s_add=function(data){
+	if (data==void(0))data='';
+	var i = String.fromCharCode(sIndexStart + sIndex);
+	$('#e_select').append('<tr class="hover"><td><input type="checkbox" name="answer[]" id="s_'+i+'" value="'+sIndex+'" class="checkbox" /><label for="s_'+i+'">' + i + '</label></td><td><input type="text" name="select[]" maxlength="120" value="'+data+'" class="txt" style="width:640px" /></td><td><a href="javascript:;" onclick="s_pre(this)">上移</a>&nbsp;<a href="javascript:;" onclick="s_next(this)">下移</a>&nbsp;<a href="javascript:;" onclick="s_remove(this)">移除</a></td></tr>');
+	sIndex++;
+}
+var s_remove=function(e){
+	var t=$(e).parent().parent();
+	var p=t.parent();
+	var j = p.children().length;
+	if (p.children().length > 1) {
+		var i = t.index();
+		for (var k = i + 1; k < j; k++) {
+			var o = $(p.children()[k]);
+			var iS = String.fromCharCode(k + sIndexStart);
+			var iS2 = String.fromCharCode(sIndexStart + k -1);
+			o.find('#s_'+iS).attr('s_'+iS2);
+			o.find('label').html(iS2);
+			o.find('input[name=answer[]]').val(k - 1);
+		}
+	}
+	t.remove();
+	sIndex--;
+};
+var s_pre=function(e){
+	var t=$(e).parent().parent();
+	var i = t.index();
+	if (i > 0) {
+		var i2 = i - 1;
+		var p=t.parent();
+		var o = $(p.children()[i]);
+		var o2 = $(p.children()[i2]);
+		var s = o.find('input[name=select[]]').val();
+		o.find('input[name=select[]]').val(o2.find('input[name=select[]]').val());
+		o2.find('input[name=select[]]').val(s);
+		var check = o.find('input[name=answer[]]').attr('checked');
+		o.find('input[name=answer[]]').attr({checked: o2.find('input[name=answer[]]').attr('checked')});
+		o2.find('input[name=answer[]]').attr({checked: check});
+		
+	}
+};
+var s_next=function(e){
+	var t=$(e).parent().parent();
+	var i = t.index();
+	var p=t.parent();
+	var j = p.children().length - 1;
+	if (i < j) {
+		var o = $(p.children()[i + 1]);
+		var o2 = $(p.children()[i]);
+		var s = o.find('input[name=select[]]').val();
+		o.find('input[name=select[]]').val(o2.find('input[name=select[]]').val());
+		o2.find('input[name=select[]]').val(s);
+		var check = o.find('input[name=answer[]]').attr('checked');
+		o.find('input[name=answer[]]').attr({checked: o2.find('input[name=answer[]]').attr('checked')});
+		o2.find('input[name=answer[]]').attr({checked: check});
+		
+	}
+};
+var form_submit=function(){
+	var trs=$('#e_select').find('tr');
+	if (trs.length > 0) {
+		var rn = true;
+		var s = 0;
+		trs.each(function(){
+			if ($(this).find('input[name=select[]]').val().replace(/^\s+|\s+$/g, '')==''){
+				rn = false;
+				return false;
+			}
+			if ($(this).find('input[name=answer[]]').attr('checked'))s++;
+		});
+		if (!rn){
+			alert('请检查提问选项是否完整');
+			return false;
+		}
+		if (s == 0){
+			alert('问卷答案没有设置，最少设置一个选项');
+			return false;
+		}
+		return true;
+	}
+	alert('请添加提问选项');
+	return false;
+};
+var add_datas=function(datas){
+	datas=datas.replace(/^\s+|\s+$/g, '');
+	datas=datas.replace(/\n+/g, "\n");
+	datas=datas.replace(/^[0-9]+\.\s*/, '');
+	datas=datas.replace(/\n[a-zA-z]\s*/g, "\n");
+	if (datas!=""){
+		sp=datas.split("\n");
+		sIndex=0;
+		$('#question').val(sp[0]);
+		$('#e_select').html('');
+		var l = sp.length;
+		for(var i=1;i<l;i++){
+			s_add(sp[i]);
+		}
+	} else alert('请输入要插入的数据');
+}
+$(function(){
+	$('#add_e_select').click(function(){
+		s_add();
+	});
+});
+</script>
+<form method="post">
+$sys_hash_code
+	<table class="tb tb2 fixpadding">
+		<tr class="hover">
+			<td width="60">题目</td>
+			<td width="700"><input type="text" name="question" id="question" value="$questionInfo[title]" class="txt" maxlength="120" style="width:640px" preg="null=请输问卷题目" /></td>
+			<td id="question_tip"></td>
+		</tr>
+		<tr class="partition">
+			<td colspan="2"><span style="color:red;font-weight:bold">问卷选项，注：选中为答案</span></td>
+			<td><a href="javascript:;" id="add_e_select">增加一个选项</a></td>
+		</tr>
+		<tbody id="e_select">
+		{loop $selectList $k $v}
+		<tr class="hover">
+			<td><input type="checkbox" name="answer[]" id="s_{echo chr(65 + $v[sort])}" value="$v[sort]" class="checkbox"{if $questionInfo[answer] & 1<<$v[sort]} checked{/if} /><label for="s_'+i+'">{echo chr(65 + $v[sort])}</label></td>
+			<td><input type="text" name="select[]" maxlength="120" class="txt" style="width:640px" value="$v[title]" /></td>
+			<td><a href="javascript:;" onclick="s_pre(this)">上移</a>&nbsp;<a href="javascript:;" onclick="s_next(this)">下移</a>&nbsp;<a href="javascript:;" onclick="s_remove(this)">移除</a></td>
+		</tr>
+		{/loop}
+		</tbody>
+		<tr class="partition">
+			<td colspan="2"><span style="color:red;font-weight:bold">批量添加，注：第一行为问题，其它为选项，一行一个，空白行包忽略</span></td>
+			<td></td>
+		</tr>
+		<tr class="hover">
+			<td></td>
+			<td><textarea cols="100" rows="10" id="datas"></textarea>
+			</td>
+			<td align="left" valign="bottom"><input type="button" value="插入" class="btn" onclick="add_datas($('#datas').val())" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td colspan="2"><input type="submit" value="{if $update}编辑{else}添加{/if}" class="btn" /></td>
+		</tr>
+	</table>
+</form>
+{/if}
+{sub f}

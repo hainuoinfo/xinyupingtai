@@ -1,0 +1,40 @@
+{eval
+$title = '请输入操作码';
+}
+{sub header}
+		<table class="tbl" border="0" cellspacing="0" cellpadding="6">
+			<tr>
+				<td width="150" align="right" class="f_14">用户名：</td>
+				<td>$member[username]</td>
+			</tr>
+			<tr>
+				<td align="right" class="f_14">操作码：</td>
+				<td><input name="password2" type="password" class="text_normal" id="password2" /></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>输入正确的操作码后您才能继续操作{if $errMsg}<br /><span class='f_red'>$errMsg</span>{/if}</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td><input name="btnSubmit" type="submit" class="btn_2" id="btnSubmit" value="确定" />
+					<input name="btnCancel" type="button" class="btn_2" onclick="parent.doCut();" id="btnCancel" value="取消" /></td>
+			</tr>
+		</table>
+<script type="text/javascript">
+$(function(){
+	$('#password2').focus();
+});
+function checkForm() {
+    var checks = [
+		["isEmpty", "password2", "操作码"]];
+	var result = doCheck(checks);
+	if (result)avoidReSubmit();
+	return result;
+}
+</script>
+{sub footer}

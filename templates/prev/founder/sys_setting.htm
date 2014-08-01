@@ -1,0 +1,66 @@
+{subtemplate header}
+<script language="javascript">
+$(function(){
+	$('table').addClass('tb tb2 fixpadding');
+	$('table tr').each(function(){
+		if($(this).addClass('hover').find('@input[type=text]').addClass('txt').css({width:'300px'}).length==1)
+			$(this).find('th').css({'text-align':'right'});
+	});
+});
+</script>
+<div class="container" id="cpcontainer">
+	<form method="post" enctype="application/x-www-form-urlencoded">
+	<input type="hidden" name="hash" value="$sys_hash" />
+		<table>
+			<tr>
+				<th colspan="3" class="partition">系统设置</th>
+			</tr>
+			<tr>
+				<th>数据加密密钥：</th>
+				<td><input type="text" name="auth_key" value="$config[auth_key]" /></td>
+				<td>用于一些重要的数据加密，一旦设定，不要轻易改动，否则后果不可预料！</td>
+			</tr>
+			<tr>
+				<th>后台路径：</th>
+				<td><input type="text" name="sys_admin_folder" value="$config[sys_admin_folder]" /></td>
+				<td>路径前后不要加“/”</td>
+			</tr>
+			<tr>
+				<th>MYSQL服务器：</th>
+				<td><input type="text" name="db_host" value="$config[db_host]" size="64" /></td>
+				<td>默认为：localhost</td>
+			</tr>
+			<tr>
+				<th>MYSQL服务器端口：</th>
+				<td><input type="text" name="db_port" value="$config[db_port]" size="64" /></td>
+				<td>默认为：3306</td>
+			</tr>
+			<tr>
+				<th>MYSQL数据库：</th>
+				<td><input type="text" name="db_name" value="$config[db_name]" size="64" /></td>
+				<td>MYSQL数据库名字</td>
+			</tr>
+			<tr>
+				<th>MYSQL数据库帐号：</th>
+				<td><input type="text" name="db_user" value="$config[db_user]" size="64" /></td>
+				<td>填写你数据库的用户名</td>
+			</tr>
+			<tr>
+				<th>MYSQL数据库密码：</th>
+				<td><input type="text" name="db_pwd" value="$config[db_pwd]" size="64" /></td>
+				<td>填写你数据库的密码</td>
+			</tr>
+			<tr>
+				<th>数据库表前缀：</th>
+				<td><input type="text" name="db_table_pre" value="$config[db_table_pre]" size="64" /></td>
+				<td>整个网站的数据库表前缀</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" class="btn" id="submit_tasksubmit" name="tasksubmit" title="按 Enter 键可随时提交您的修改" value="提交" /></td>
+				<td></td>
+			</tr>
+		</table>
+	</form>
+</div>
+{subtemplate footer}

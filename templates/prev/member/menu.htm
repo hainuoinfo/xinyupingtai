@@ -1,0 +1,136 @@
+<!-- 左边栏 -->
+<SCRIPT>
+$(function(){
+	$(".left_twe").css("display","none");//IE6
+	//发布任务效果
+	$(".left_rwdt .renwu1").hover(function(){
+		$(this).css("background-position","-64px -335px");
+		$(".left_twe").css("display","block");
+	});
+	
+	$(".left_rwdt:not(.left_twe,renwu1)").mouseleave(function(){
+		$(".left_rwdt .renwu1").css("background-position","-68px -387px");
+		$(".left_twe").css("display","none")
+	});
+	
+	//任务奖励效果
+	$(".left_rwdt2").hover(function(){
+		$(".renwu2").css("background-position","-64px -445px");
+		
+	},function(){
+		$(".renwu2").css("background-position","-69px -498px");
+		
+	})
+	
+	//遍历图标
+	$(".left_liebiao ul li:parent:not('#dilei')").each(function(i){
+		
+	   if(i == 0){
+			num = 4;
+	   }else{
+			num = i*(-44);
+	   }
+	   if(i == 6){
+		num = -262;
+	   }
+	   $(this).children("a:first").css("background-position","0px "+num+"px");
+	});
+	
+	//遍历文字图标
+	$(".left_liebiao ul li:parent:not('#dilei')").each(function(i){
+		
+	   if(i == 0){
+			num = 4;
+	   }else{
+			num = i*(-40);
+	   }
+	   $(this).children("a:eq(1)").css("background-position","-355px "+num+"px");
+	   $(this).children("a:eq(1)").attr("num",num);
+	});
+	
+	var urlname = getCurrUrlFileName();
+	$(".left_liebiao ul li").each(function(i){
+			v = $(this).children('a:last').attr('name');
+			if(v == urlname){
+				//$(this).children('a:last').css('background','red');
+				$(this).append("<i><img src='/images/dadian.png' /></i>");
+			}
+	})
+	
+	//遍历链接显示下划线
+	$(".left_liebiao ul li:parent:not('#dilei')").hover(function(i){
+	
+		num = $(this).children("a:eq(1)").attr("num");
+		
+		$(this).children("a:eq(1)").css("background-position","-489px "+ num +"px");
+		if(urlname != $(this).children('a:eq(1)').attr('name')){
+			$(this).append("<i><img src='/images/dadian.png' /></i>");
+		}
+	},function(){
+	
+		$(this).children("a:eq(1)").css("background-position","-355px "+ num +"px");
+		if(urlname != $(this).children('a:eq(1)').attr('name')){
+			$(this).children("i").remove();
+		}
+	});
+	
+	$("#dilei").hover(function(i){
+		
+		$(this).children("a:eq(1)").css("background-position","-139px -232px");
+		$(this).append("<i><img src='/images/dadian.png' /></i>");
+	},function(){
+	
+		$(this).children("a:eq(1)").css("background-position","0px -232px");
+		$(this).children("i").remove();
+	});
+
+	function getCurrUrlFileName(){
+				var url = window.location.pathname;
+				while (url.indexOf("/") > -1) {
+					url = url.substring(url.indexOf("/") + 1, url.length);
+				}
+				return url;
+	}
+	
+	//仅测试0.1----根据页面固定当前链接样式
+	//var yelink = 'aaa';
+	//if(yelink == 'aaa'){
+	//	$(".left_liebiao ul li:eq(0) a:eq(1)").css("background-position","-625px 4px");
+	//}
+});
+</SCRIPT>
+<DIV class="left_lan">
+ <DIV class="left_rwdt">
+<DIV class="tupian_ico renwu1"></DIV>
+<DIV class="left_twe">
+<UL>
+  <LI><IMG src="/images/dian.png"><A href="{rewrite}/task/tao/">淘宝任务</A></LI>
+  <LI><IMG src="/images/dian.png"><A href="{rewrite}/task/pai/">拍拍任务</A></LI>
+ </UL>
+ </DIV>
+   <SPAN class="imgdian dian1"></SPAN>
+   <SPAN class="imgdian dian2"></SPAN>
+   <SPAN class="imgdian dian3"></SPAN>
+ </DIV>
+<DIV class="left_liebiao">
+<UL>
+  <LI><A class="tupian_ico li1"></A><A class="tupian_ico text1" href="{rewrite}/member/topup/" name="topup"></A></LI>
+  <LI><A class="tupian_ico li1"></A><A class="tupian_ico text1" href="{rewrite}/member/payment/?m=bank" name="payment"></A></LI>
+  <LI><A class="tupian_ico li1"></A><A class="tupian_ico text1" href="{rewrite}/member/PayDetails/?type=1" name="PayDetails"></A></LI>
+  <LI><A class="tupian_ico li1"></A><A class="tupian_ico text1" href="{rewrite}/member/exchange/" name="exchange"></A></LI>
+  <LI></LI>
+  <LI><A class="tupian_ico li1"></A><A class="tupian_ico text1" href="{rewrite}/member/express/" name="express"></A></LI>
+  <LI><A class="tupian_ico li1"></A><A class="tupian_ico text1" href="{rewrite}/member/SecKill/" name="SecKill"></A></LI>
+  <LI id="dilei"><A class="dilei1"></A><A class="dileiimg" href="{rewrite}/member/mineaction/" target="_blank"></A></LI>
+  <LI><A class="tupian_ico li1"></A><A class="tupian_ico text1" href="{rewrite}/member/black/?type=index" name="black"></A></LI>
+  <LI></LI>
+  <LI><A class="tupian_ico li1"></A><A class="tupian_ico text1" href="{rewrite}/member/userdata/?type=index" name="userdata"></A></LI>
+  <LI><A class="tupian_ico li1"></A><A class="tupian_ico text1" href="{rewrite}/member/spread/" name="spread"></A></LI>
+  <LI><A class="tupian_ico li1"></A><A class="tupian_ico text1" href="{rewrite}/member/thread/" name="thread"></A></LI>
+  <LI><A class="tupian_ico li1"></A><A class="tupian_ico text1" href="{rewrite}/member/message/" name="message"></A></LI></UL></DIV>
+<DIV class="left_rwdt2">
+<DIV class="tupian_ico renwu2"><A href="{rewrite}/member/userjob/"></A></DIV></DIV>
+</DIV>
+
+
+

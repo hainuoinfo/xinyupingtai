@@ -1,0 +1,149 @@
+{teval
+	
+	$cssList     = array(css::getUrl('task', 'task'));
+	echo string::getStaticCode(array('cssList'=>$cssList));
+}
+{sub ../header}
+{teval
+echo javascript::get_js('WdatePicker', 'index');
+}
+<style type="text/css">
+.tbl td {line-height:26px;}
+.text_long {width:400px;}
+.text_tiny {width:50px;}
+</style>
+<div class="main">
+	{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+  <div class="h_10"></div>
+  
+  <div class="pub_tip1"> 1. 该功能可以方便的进行批量发布流量任务，实现流量任务计划连发；提高效率，事半功倍；为您节省出宝贵的时间；<br />
+    2. 您需要保证账户中拥有足够的流量点，批量发布任务将扣除所有流量任务所需流量点数总和；<br />
+    <span class="f_red">3. 商品网址只能发布淘宝的商品网址（暂不支持拍拍、有啊）</span><br />
+    <span class="f_red">4. 商品网址必须从店铺首页点击进入的地址，格式为 http://item.taobao.com/item.htm?id=xxxxx</span></div>
+  <div class="info2">
+    <div class="wel">尊敬的<span class='f_orange'> $member[truename]</span>{if $member[sex]==1}先生{elseif $member[sex]==2}女士{/if}，欢迎您！</div>
+    <div class="stat">VIP：{if $isVip}是{else}否{/if} , 卡信托：{if $isVip2}是{else}否{/if} ， 积分：<span class='f_b_org'>$memberFields[credits]</span> <img src='$memberLevel[icon]' alt='当前等级' /> ， <img src='{$weburl2}images/ico/ico_gold_2.gif' alt='' /> 存款余额：<span class='f_b_org'>$memberFields[money]</span>元 　　　　　<img src="{$weburl2}images/ico/ico_gold_3.gif" /> 流量发布点：<span class="f_b_org">$memberFields[liuliang]</span>个</div>
+  </div>
+  <form name="myForm" method="post" id="myForm" onsubmit="return checkForm();">
+<div>$sys_hash_code2</div>
+
+    <div class="bar">任务发布区</div>
+    <table class="tbl" width="100%" border="0" cellspacing="0" cellpadding="5">
+      <tr>
+        <td width="130" align="right">&nbsp;</td>
+        <td>商品网址（网址和浏览量同时为空则忽略该行的任务）　　　　　　　　　 　分配浏览量</td>
+      </tr>
+      <tr>
+        <td align="right">批量发布信息列表：</td>
+        <td><div id="d_input">
+			{eval
+				if ($datas) $count1 = count($datas['itemurl']);
+			}
+			{for 1 $count1}
+            <input name="itemurl[]" type="text" value="$datas[itemurl][$i-1]" class="text_long" />
+            <input name="flow[]" type="text" value="$datas[flow][$i-1]" class="text_normal" onblur="countFlows()" />
+			{/for}
+          </div>
+          <div style="padding:5px 0;{if $count2==0}display:none{/if}"><img src="{$weburl2}images/btn/addmore.gif" width="72" height="20" alt="" onclick="addMore(this)" class="cursor" /></div>
+          <div style="line-height:20px;">分配浏览量总和：<span class="f_b_org" id="s_flow">0</span>个<br />
+            普通用户最多批量发布任务数为5个，信托用户最多批量发布任务数为10个；VIP客户最多批量发布任务数为<span class="f_b_org">20</span>个。<br />
+            <a href="/bbs/t54/" target="_blank" class="link_o">了解VIP特权</a> <a href="{rewrite}/member/vip/" target="_blank" class="link_o">现在就成为VIP</a></div></td>
+      </tr>
+      <tr>
+        <td align="right">所需流量点：</td>
+        <td><input name="flows" type="text" class="text_normal" id="flows" readonly="readonly" /></td>
+      </tr>
+    </table>
+    <div class="ex">
+      <div class="ex_top"><strong>任务增值功能区</strong><span class="f_orange">每项功能需为每单个浏览量额外支付0.1个流量点</span></div>
+      <div class="ex_main">
+        <table class="tbl" width="100%" border="0" cellspacing="0" cellpadding="8">
+          <tr>
+            <td width="110" align="right" valign="middle">IP限制：</td>
+            <td colspan="2" valign="middle"><input name="isIp" type="checkbox" id="isIp" value="1"{if $datas && $datas[isIp]} checked{/if}  />
+              限制同IP一天内浏览
+              <input name="times" type="text" class="text_tiny" id="times" value="{echo $datas?$datas[times]:20}" />
+              次　　　限制淘宝，拍拍，有啊任务被相同IP地址刷客浏览次数</td>
+          </tr>
+          <tr>
+            <td align="right">发布时间及频率：</td>
+            <td colspan="2"><input name="isPlan" type="checkbox" id="isPlan" value="1"{if $datas && $datas[isPlan]} checked{/if} />
+              从
+
+              <input type="text" name="planDate" id="planDate" value="{echo $datas?$datas[planDate]:5}" class="text_normal" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'});" readonly="readonly" />
+              起发布，每隔
+              <input name="minute" type="text" class="text_tiny" id="minute" value="{echo $datas?$datas[minute]:5}" />
+              分钟发布一个</td>
+          </tr>
+        </table>
+      </div>
+      <div class="ex_bottom"></div>
+    </div>
+    <div class="publish">
+      <input type="image" name="btnSave" id="imageField" src="{$weburl2}images/btn/task_submit.gif" />
+    </div>
+  </form>
+  <div class="h_20"></div>
+</div>
+<script type="text/javascript">
+function checkForm() {
+	var result = true;
+	var urls = document.getElementsByName("itemurl[]");
+	var views = document.getElementsByName("flow[]");
+	var count = 0;
+	var urlPattern = /^http:\/\/([\w-]+\.)+((taobao)|(tmall))\.com\/item\.htm\?(item_)?(num_)?id=\d+(.)*$/i;
+	for (var i=0; i<urls.length; i++) {
+		if (urls[i].value.trim().length > 0 || views[i].value.trim().length > 0) {
+			if (!urlPattern.test(urls[i].value.trim())) {
+				result = doAlert("商品网址必须以：http://item.taobao.com/item.htm?id= 开头", $(urls[i]));
+				break;
+			}
+			if (!isMatch(/^([1-9])+\d*$/, views[i].value)) {
+				result = doAlert("分配浏览量 必须是整数", $(views[i]));
+				break;
+			}
+			if(urls[i].value.trim().length > 0 && views[i].value.trim().length > 0) {
+				count++;
+			}
+		}
+	}
+	if (count == 0) {
+		alert('任务数量不能为0');
+		return false;
+	}
+	if (result && getObj("isIp").checked && getValue("times") < 3) {
+		return doAlert("IP限制最低值为3", $("#times"));
+	}
+	if (result)avoidReSubmit();
+	return result;
+}
+
+var num = $count2;
+function addMore(img) {
+	if (num > 0) {
+		var str = "<input name=\"itemurl[]\" type=\"text\" class=\"text_long\" /> <input name=\"flow[]\" type=\"text\" class=\"text_normal\" onblur='countFlows()' /> ";
+		var obj = getObj("d_input");
+		obj.innerHTML = obj.innerHTML + str + str + str + str + str;
+		num = num - 5;
+	} 
+	if (num <= 0) {
+		img.style.display = "none";
+	}
+}
+
+function countFlows() {
+	var views = document.getElementsByName("flow[]");
+	var f = 0;
+	for(var i=0; i<views.length; i++) {
+		if (parseInt(views[i].value) > 0)
+			f = f + parseInt(views[i].value);
+	}
+	getObj("s_flow").innerHTML = f;
+	getObj("flows").value = f;
+}
+{if $datas}
+countFlows();
+{/if}
+</script>
+{sub ../footer}

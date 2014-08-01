@@ -1,0 +1,191 @@
+{teval
+	
+	$cssList     = array(css::getUrl('task', 'task'));
+	echo string::getStaticCode(array('cssList'=>$cssList));
+}
+{sub ../header2_base}
+
+<style type="text/css">
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+em, i {
+    font-style: normal;
+}
+.reListTitle {
+padding-top:10px;
+}
+.reListTitle table thead td {
+    border: 1px solid #C0DBF8;
+    overflow: hidden;
+}
+.reListTitle ul.inout {
+    background:#F1F8FE;
+    border: 1px solid #FFFFFF;
+    height: 20px;
+    line-height: 20px;
+}
+.reListTitle .id {
+    padding-left: 5px;
+    text-align: left;
+    width: 205px;
+}
+.reListTitle table tbody td {
+    color: #666666;
+    height: 70px;
+    text-align: center;
+}
+.reListTitle table thead td ul li {
+    color: #999999;
+    float: left;
+    text-align: center;
+}
+.d24 { color: #009900;}
+.reListTitle .poster {
+    padding-left: 5px;
+    text-align: left;
+    white-space: nowrap;
+    width: 150px;
+    word-break: keep-all;
+}
+.reListTitle .price, .reListTitle .price2 {
+    padding-left: 10px;
+    text-align: left;
+    text-indent: 18px;
+    width: 103px;
+}
+
+.reListTitle .do, .reListTitle .but_yred {
+    float: none;
+    text-align: center;
+}
+.reListTitle .do {
+    float: none;
+    padding-right: 10px;
+     text-align: center;
+}
+.reListTitle .oktime {
+    color: #999999;
+    width: 260px;
+}
+.hui_border{border:1px #e2e2e2 solid;border-top:none;}
+.blue_border{border:1px #C0DBF8 solid;border-top:none;}
+.yred { color: #FF5500;}
+.ml10 { margin-left: 10px;}
+
+.oktime em {
+    display: inline-block;
+    height: 17px;
+    line-height: 17px;
+    margin-right: -2px;
+    word-break: break-all;
+}
+.reListTitle .poster a {
+    display: inline;
+}
+.reListTitle td.poster a {
+    height: 15px;
+    line-height: 15px;
+    overflow: hidden;
+}
+.but_yred{float:none;padding:0 3px 0 3px;line-height:18px;margin:2px;margin-right:10px;float:right;background:#FDE9D5;border:1px solid #F9AC3A;color:#F50;display:inline-block;text-align:center;white-space:nowrap;word-break:keep-all;}
+</style>
+<script type="text/javascript" src="/images/Common.js"></script>
+<style type="text/css">
+.kd a:hover { text-decoration:underline;}
+</style>
+<div id="content">
+	    <div class="h15"></div>
+		<div class="fabu_box1">
+		    <div class="fabu_title"><span class="fabu_left"></span><span class="fabu_h2">发布任务须知（*号为必填项）</span><span class="fabu_right"></span></div>
+			<div class="cle"></div>
+			<div class="fabu_cont">
+			  <ul>
+				<li>马上好评任务：淘宝交易的物品为虚拟物品，买卖双方可以即时确认完成交易并付款。</li>
+				<li>24-72小时确认任务：淘宝交易的物品为实际存在的物品，可能包含运费和物流等，需要1－3天后方能确认收货并评价。</li>
+				<li>要尽量保证平台任务担保价大于 (淘宝商品价格+快递运费)/2 ，否则接手人拍下商品后您的淘宝改价将会导致您的支付宝使用率低于50%既被淘宝视为信用炒作处理；</li>
+				<li>您发任务时，平台中的保证金不得少于任务价，成功发布任务将会在平台中扣押相应的任务保证金；接手人完成您的任务时等额的资金会作为商品款返回给您网店的帐户中；</li>
+				<li>您想发布任务的时候，必须保证您拥有相应的麦点，每次发布都会根据商品价格不同扣除相应的麦点数。您如果想让任务排名靠前就可以追加麦点奖励，追加的越多排名就越靠前；</li>
+				<li class="chengse">请确认商品地址绝对正确，否则会造成不必要的纠纷。</li>
+				<li class="chengse">为了您的店铺安全，发布“实物任务”商品价格请大于10元！</li>
+			  </ul>
+			</div>
+		</div>
+		<a id="mao1"></a>
+		{sub tabtao}
+		    <div class="cle"></div>
+	<div class="reListTitle">
+	<table id="tpl" cellpadding="4" cellspacing="0" border="0" width="1000">
+		<thead>
+			<tr>
+				<td colspan="6">
+					<ul class="inout">
+						<li class="id">模板名称</li>
+						<li class="poster">掌柜/商品/网址</li>
+						<li class="price">任务价格</li>
+						<li class="oktime">任务要求</li>
+						<li class="poster">限制</li>
+						<li class="do">操作</li>
+					</ul>
+				</td>
+			</tr>
+		</thead>
+		<tbody>
+            {loop $tplList $v}
+			<tr class="hui_border">
+				<td class="id">
+				<span {if $v[datas][isCart]} class="rwdt_bh7" title="购物车任务" {elseif $v[datas][isExpress]} class="task_express" title="真实快递任务—$v[shopCount]个商品" {elseif $v[datas][visitWay]} class="rwdt_bh3" title="来路任务" {elseif $v[datas][times]==0} class="rwdt_bh1" title="虚拟任务" {elseif $v[datas][times]>=1} class="rwdt_bh2" title="实物任务" {/if}  >
+				<strong>$v[name]</strong>
+					</span>
+				</td>
+				<td class="poster">
+					掌柜：$v[datas][nickname]
+					<br>
+					名称：
+					<span title="{$v[datas][title]}" class="mouse">{cutstr $v[datas][title],10}</span>
+					<br>
+					网址：
+					<a href="$v[datas][itemurl]" target="_blank" title="$v[datas][title]" class="chengse">查看网址</a>
+				</td>
+				<td class="price">
+					<p>$v[datas][price]元</p> 
+					<i>奖励<span class="chengse">$v[datas][pointExt]</span>个麦点</i> 
+				</td>
+				<td class="oktime">
+					<p {if $v[datas][times]==0}class="yred" {else} class="lvse" {/if}title="任务接手付款后，$lang[times][$v[times]]立即对宝贝进行收货好评！">$lang[times][$v[times]]</p>
+			{if $v[datas][isVerify]}<em title="接任务者需要发布者核审" class="rwdt_yq1">&nbsp;</em>{/if}
+			{if $v[datas][isChat]}<em title="任务需要旺旺模拟咨询再拍下" class="rwdt_yq4">&nbsp;</em>{/if}
+			{if $v[datas][ispinimage]} <em title="接任务者需要上传好评图片" class="rwdt_yq6">&nbsp;</em>{/if}
+			{if $v[datas][isRemark]}<em title="按发布者提供的评语进行评价" class="rwdt_yq2">&nbsp;</em>{/if}
+			{if $v[datas][isReal]}<em title="接手买号必须通过了支付宝实名认证" class="rwdt_yq21">&nbsp;</em>{/if}
+			{if $v[datas][isAddress]}<em class="rwdt_yq3" title="任务需要指定收货地址">&nbsp;</em>{/if}
+			{if $v[datas][isLimitCity]}<em class="rwdt_yqip" title="要求接手方地址是...">&nbsp;</em>{/if}
+			{if $v[datas][isShare]}<em title="好评后对宝贝进行分享" class="rwdt_yq20">&nbsp;</em>{/if}
+			{if $v[datas][isChatDone]}<em title="任务需要模拟聊天后确认收货" class="rwdt_yq17">&nbsp;</em>{/if}
+					
+				</td>
+				<td class="poster">
+					限制接手人：{if $v[datas][isVerify]}是{else}否{/if}
+					<br></td>
+				<td class="do">
+					<a href="javascript:;" onclick="return delTpl(this,$v[id]);" class="chengse">删除</a>
+				</td>
+			</tr>
+			{/loop}	
+		</tbody>
+	</table>
+</div>
+	<!--taopage_detail end--> 
+</div>
+	<script type="text/javascript">
+function delTpl(obj, id) {
+	if (confirm('您确定要删除此模板么？')) {
+		obj.href = "/task/tao/?m=tpl&del=" + id;
+		return true;
+	}
+	return false;
+}
+</script> 
+
+{sub ../footer}

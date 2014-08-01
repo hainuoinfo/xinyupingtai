@@ -1,0 +1,79 @@
+{teval
+	$cssList     = array(css::getUrl('task', 'task'));
+	echo string::getStaticCode(array('cssList'=>$cssList));
+}
+{sub ../header}
+<div class="main">
+  {if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+  <div class="h_10"></div>
+  <div class="info">  
+    <div class="info_l">
+      <div>
+        {sub reflow_info}
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>站内信<a href="{rewrite}/member/message/" class="link_o_b" target="_blank">$memberFields[msg]</a>封未读站内信数&nbsp;&nbsp;{if $isFlowVip}<span class="f_b_org">流量VIP：权限到期时间&nbsp;{date $memberFields[flowVipExpire]}</span>{/if}</td>
+          </tr>
+        </table>
+      </div>
+      <p>流量互动区任务总条数：<span class="f_b_org">$allCount</span>条，未完成任务数<span class="f_b_org">{echo $allCount - $complateCount}</span>条，已成功提升了<span class="f_b_org">$flowAll</span>浏览量</p>
+    </div>
+    <div class="info_r">
+		{sub ../quick2}
+	</div>
+  </div>
+  <div class="h_10"></div>
+  {sub reflow_tab}
+	<div class="lst_info">
+	<table class="lst_tip" width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td align="right">&nbsp;</td>
+			<td align="right" width="50"><img src="{u}images/task_reflesh.gif" onclick="goPage(0);" class="cursor" /></td>
+			<td width="80">&nbsp;</td>
+		</tr>
+	</table>
+  </div>
+  <div id="taskList"></div>
+</div>
+<script type="text/javascript">
+function setAccordion(){
+	//$(".accordion h3:first").addClass("active");    
+	//$(".accordion p:not(:first)").hide();    
+	$(".accordion h3").click(function(){    
+	  $(this).next("p").slideToggle("fast").siblings("p:visible")//.slideUp("fast");    
+	  $(this).toggleClass("active");
+	  //$(this).siblings("h3").removeClass("active");    
+	});  
+}
+function goPage(n) {
+	if (n==void(0)) n = 1;
+    var pageSearch = '';
+    var page = new PageQuery(window.location.search);
+    for (var i=0; i<page.getLength(); i++) {
+        if (page.getParameters()[i] != 'page')
+            pageSearch += '&' + page.keyValuePairs[i];
+    }
+    pageSearch += '&page=' + n + '&now=' + (new Date()).getTime();
+    getObj('taskList').innerHTML = '<div class=\'submiting\'>任务加载中.....</div>';
+    getTask(pageSearch);
+}
+function getTask(qs) {
+    var url = '{$weburl2}ajax/getTaskReflow.php?type=$taskId'+qs;    
+    $.ajax({
+		type : 'GET',
+		url  : url,
+		success : function(html){
+			$('#taskList').html(html);
+			setAccordion();
+		},
+		error:function(){
+			$('#taskList').html('<p>&nbsp;</p><p>尊敬的会员，您遇到了一个未知的错误，请稍后重新点击。　　<a href="'+weburl2+'">返回主页</a></p>');
+		}
+	});
+}
+$(function(){
+	goPage(1);
+});
+</script>
+{sub ../footer}

@@ -1,0 +1,86 @@
+{sub h}
+{if $method=='index'}
+	{js_select jquery_ui}
+	{css_select jquery_ui}
+<div id="dialog" style="display:none">
+	<div id="dialog_message"></div>
+</div>
+<script language="javascript">
+var sendCard = function(id){
+	var html='';
+	html='<table width="300">';
+	html+='<tr>';
+	html+='<td width="150" align="right">卡号：</td>';
+	html+='<td align="left">'+id+'</td>';
+	html+='</tr>';
+	html+='<tr>';
+	html+='<td width="150" align="right">用户名：</td>';
+	html+='<td align="left"><input type="text" id="username" value="" class="txt" style="width:200px" /></td>';
+	html+='</tr>';
+	html+='</table>';
+	$('#dialog').html(html);
+	$("#dialog").dialog({
+		title:'发送卡密给用户',
+		buttons: {
+			"发送": function() {
+				var username = $('#username').val().replace(/^\s+|\s+$/g, '');
+				if (username) {
+					$(this).html('<div align="center">发送中，请稍后......</div>');
+					$("#dialog" ).dialog( "option", "buttons",{
+						
+					});
+					$.getJSON('ajax/index.php?action=topup&operation=card&method=send&cardid='+id+'&username='+encodeURI(username), function(json){
+						if (json.status) {
+							$('#dialog').html('<span style="color:red">发送成功</span>');
+						} else {
+							$('#dialog').html('<span style="color:red">'+json.msg+'</span>');
+						}
+						$("#dialog" ).dialog( "option", "buttons",{
+							'确定':function(){
+								$(this).dialog('close');
+							}
+						});
+					});
+				} else {
+					$('#username').focus();
+				}
+			},
+			'取消':function(){
+				$(this).dialog('close');
+			}
+		},
+		modal:true,//模式窗口（显示遮罩层）
+		resizable:false,//是否允许改变大小
+		draggable:false,//是否可以拖动
+		bgiframe: true,
+		overlay: {   
+				backgroundColor: '#000',   
+				opacity: 0.5   
+			},  
+		show: 'slide',//显示样式
+		width:400,
+		height:160
+	});
+}
+</script>
+	{adminList
+		删？    |id        |del
+		帐号    |user_name
+		姓名    |user_tname
+		电话    |user_tel
+		QQ号    |user_qq
+		IP流量地址|url
+		IP数量    |ips
+		持续天数|days
+		价格|price|
+		购买时间|flag,date
+		状态    |store_state |code,{echo $v[status]?'<span style="color:green">已处理</span>':'<span style="color:red">未处理</span>'}
+	}
+{elseif $method=='create'}
+	{adminForm
+		注：面值为整数|tip
+		面值,number=请输入充值卡面值|money|text|240|10
+		数量,number=请输入生成的数量|count|text|240|10
+	}
+{/if}
+{sub f}

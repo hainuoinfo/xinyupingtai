@@ -1,0 +1,45 @@
+{sub header}
+  <table width="90%" border="0" cellspacing="0" cellpadding="8">
+    <tr>
+      <td colspan="2" align="right"></td>
+    </tr>
+    <tr>
+        <td width="110" align="right" class="f_b">买号：</td>
+        <td class="f_b_red f_14">$buyer[nickname]</td>
+      </tr>
+	<tr>
+        <td align="right" class="f_b">当前买号信用：</td>
+        <td>平台：<strong>$buyer[score]</strong>，淘宝：<strong>$buyer[score0]</strong></td>
+      </tr>
+    <tr>
+      <td align="right"><strong>注册时间：</strong></td>
+      <td>{date $buyer[timestamp]}</td>
+    </tr>
+	<tr>
+      <td align="right"><strong>今日已接：</strong></td>
+      <td>$buyer[todayTask]</td>
+    </tr>
+	<tr>
+      <td align="right"><strong>最近一周：</strong></td>
+      <td>$buyer[tswkTask]</td>
+    </tr>
+	<tr>
+      <td align="right"><strong>最近一月：</strong></td>
+      <td>$buyer[tsmTask]</td>
+    </tr>
+	<tr>
+      <td align="right"><strong>最近半年：</strong></td>
+      <td>$buyer[tsyTask]</td>
+    </tr>
+	<tr>
+      <td align="right"><strong>星级买号：</strong></td>
+      <td>{if $buyer[level]>0}$buyer[level]星级买号{else}普通买号{/if}</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td align="center" style="padding-right:40px; padding-top:20px;" class="linkbtn">
+        
+        <a href="javascript:;" onclick="parent.doCut2();return false;" >关闭</a></td>
+    </tr>
+  </table>
+{sub footer}

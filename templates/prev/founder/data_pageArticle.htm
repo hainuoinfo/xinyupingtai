@@ -1,0 +1,27 @@
+{sub h}
+{if $method=='index'}
+{adminList
+	删？  |id   |del
+	排序  |sort |sort
+	分类名|name
+	      |id   |link,view=查看;link,edit=编辑
+}
+{elseif $method=='add' || $method=='edit'}
+{adminForm
+	分类名称,null=请输入分类名|f_name|text|240|32
+}
+{elseif $method=='view'}
+{adminList
+	删？    |id    |del
+	备注    |remark
+	调用标记|marker
+	        |id    |link2,编辑,view=$view&editInfo=$v[id]
+}
+{elseif $method=='add_info'}
+{adminForm
+	备注,null=请输入信息备注|f_remark|text|240|32
+	标记,null=调用信息的标记|f_marker|text|240|32
+	信息内容|f_content|xheditor,simple,600,400
+}
+{/if}
+{sub f}

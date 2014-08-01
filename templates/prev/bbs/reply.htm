@@ -1,0 +1,87 @@
+{teval
+	$cssList     = array(css::getUrl('bbs', 'bbs'));
+	echo string::getStaticCode(array('cssList'=>$cssList));
+}
+{sub ../header}
+{if $complate}
+<div class="bbs">
+  <div class="h_30"></div> 
+  <div class="togobox">
+  	<div class="togobar">{$web_name}论坛 提示信息</div>
+    <div class="togotip"><p>发表回复成功, 返回该主题<br />(<a href='$forum[url]' class='link_b_1'>点击这里返回 $forum[name]</a>)<br /><br /></p><p><a href='$threadUrl' class='link_b_1'>如果浏览器没有转向, 请点击这里</a></p></div>
+  </div>
+  <div class="h_30"></div>
+  <div class="h_30"></div>
+</div>
+<script language="javascript">
+setTimeout(function(){
+	location.href='$threadUrl';
+}, 2000);
+</script>
+{else}
+{if $attachs}
+<script language="javascript">
+var postAttachList=$attachs;
+</script>
+{/if}
+<div class="posts">
+  <div class="postbox"> 
+    {if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+    <form name="myForm" method="post" id="myForm" enctype="multipart/form-data" onsubmit="return checkForm();">
+	<div>$sys_hash_code2</div>
+
+      <div class="postf_title"><strong>修改帖子</strong></div>
+	  {if $editType == 'thread'}
+      <div class="posticon">
+        <input name="iconid" type="radio" id="radio" value="0"{if !$iconid} checked="checked"{/if} />
+        无
+		{loop bbs_thread::getIcons() $k $v}
+        <input type="radio" name="iconid" id="radio2" value="{++ $k}"{if $iconid==$k+1}checked{/if} />
+        <img src="$v[icon]" width="18" height="16" f_title="$v[f_title]" />
+		{/loop}
+		</div>
+	{/if}
+      <div class="postsubject">
+        <input name="f_title" type="text" class="text_long" id="f_title" maxlength="50" value="$f_title" />
+        * 标题，3-50字</div>
+      <div class="posteditor">{xheditor bbs,message,910,320}</div>
+      
+      <div class="postsubmit">
+        <button type="submit" id="postsubmit" name="postsubmit">编辑帖子</button>
+      </div>
+    </form>
+  </div>
+  <div class="h_10"></div>
+  <div class="h_20"></div>
+</div>
+<script type="text/javascript">
+function checkForm() {
+	//if (isLength("f_title", "标题", 3, 50)) {
+		var str = editor.getSource();
+		var len = strlen(str);
+		if (len < 5) {
+			alert("\n当前内容长度：" + len + " 字节\n\n系统限制：5 到 20000 字节");
+			return false;
+		}
+		if (len > 20000) {
+			alert("\n当前内容长度：" + len + " 字节\n\n系统限制：5 到 20000 字节");
+			return false;
+		}
+		return true;
+	//}
+	return false;
+}
+
+function strlen(str) {
+	var len = 0;
+	for(var i = 0; i < str.length; i++) {
+		len += str.charCodeAt(i) < 0 || str.charCodeAt(i) > 255 ? 2 : 1;
+	}
+	return len;
+}
+function switchicon(id, obj) {
+}
+</script>
+{/if}
+{sub ../footer}

@@ -1,0 +1,14 @@
+{sub h}
+{if $method=='all' || $method=='installed' || $method == 'uninstalled'}
+{adminList
+	删？    |folder         |del
+	插件名称|title
+	插件简介|description
+	插件作者|author
+	技术支持|support
+	插件类型|type       |code,{if $v[type]=='header'}程序开始运行{elseif $v[type]=='footer'}程序结束运行{elseif $v[type]=='marker'}模板调用{else}未知类型{/if}
+	版本号  |version
+			|id         |code,{if $v[installed]}{if $v[suspend]}[<a href="$base_url&resume={url $v[folder]}" onclick="return confirm('您确定要恢复吗？')">恢复</a>]{else}[<a href="$base_url&suspend={url $v[folder]}" onclick="return confirm('您确定要暂停吗？')">暂停</a>]{/if}[<a href="$base_url&uninstall={url $v[folder]}" onclick="return confirm('您确定要卸载吗？')">卸载</a>]{else}[<a href="$base_url&install={url $v[folder]}" onclick="return confirm('您确定要安装吗？')">安装</a>]{/if}
+}
+{/if}
+{sub f}

@@ -1,0 +1,101 @@
+{teval
+	$cssList     = array(css::getUrl('bbs', 'bbs'));
+	echo string::getStaticCode(array('cssList'=>$cssList));
+}
+{sub ../header}
+{if $complate}
+<div class="bbs">
+  <div class="h_30"></div> 
+  <div class="togobox">
+  	<div class="togobar">{$web_name}论坛 提示信息</div>
+    <div class="togotip"><p>主题发布成功，返回该主题<br />(<a href='$forum[url]' class='link_b_1'>点击这里返回 $forum[name]</a>)<br /><br /></p><p><a href='$threadUrl' class='link_b_1'>如果浏览器没有转向, 请点击这里</a></p></div>
+  </div>
+  <div class="h_30"></div>
+  <div class="h_30"></div>
+</div>
+<script language="javascript">
+setTimeout(function(){
+	location.href='$threadUrl';
+}, 2000);
+</script>
+{else}
+<div class="posts">
+  <div class="postbox"> 
+    {if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+	
+<DIV class="bbs_add">
+<form name="myForm" method="post" id="myForm" enctype="multipart/form-data" onsubmit="return checkForm();">
+	<div>$sys_hash_code2</div>
+<TABLE class="bbs_table" border="0" cellSpacing="0" cellPadding="0" 
+width="100%">
+  <TBODY>
+  <TR>
+    <TD style="width: 110px; text-align: right;">类型：</TD>
+    <TD><LABEL>
+	<SELECT id="forumid" name="forumid">
+	<OPTION value="0">请您选择</OPTION>
+	<OPTION selected="selected" value="{$fid}">$forum[name]</OPTION>
+	</SELECT></LABEL></TD>
+	</TR>
+  <TR>
+    <TD style="text-align: right;">标题：</TD>
+    <TD><LABEL>
+	<INPUT id="f_title" class="text_long" name="f_title" maxLength="50" size="50" type="text">
+	</LABEL></TD></TR>
+  <TR>
+    <TD style="text-align: right;" vAlign="top">内容：</TD>
+    <TD style="width: 760px;">
+      <DIV style="width: 760px;">
+	  {xheditor bbs,message,760,320}
+	  </DIV>
+	  </TD></TR>
+  <TR>
+    <TD style="text-align: right;">验证码：</TD>
+    <TD><INPUT style="width: 80px;" id="vcode" name="vcode" type="text">　
+    <SPAN id="divCheckCode">
+	<img id="imgCode" src="{$weburl2}images/vcode2.php" style="cursor:pointer" onclick="$(this).attr({src:'{$weburl2}images/vcode2.php?'+Math.random()});" alt="点击刷新校验码" align="absmiddle" /><A 
+      onclick="$('#imgCode').attr({src:'/images/vcode2.php?'+Math.random()});" 
+      href="javascript:;">看不清?</A></SPAN></SPAN></TD></TR>
+  <TR>
+    <TD style="text-align: right;"> </TD>
+    <TD><LABEL><INPUT id="btnSubmit" name="btnSubmit" value="提交帖子" type="submit"><INPUT name="Submit" value="重新填写" type="reset"></LABEL></TD>
+  </TR>
+  </TBODY>
+  </TABLE>
+  </FORM>
+  </DIV>
+  </div>
+  <div class="h_10"></div>
+  <div class="h_20"></div>
+</div>
+<script type="text/javascript">
+function checkForm() {
+	if (isLength("f_title", "标题", 3, 50)) {
+		var str = editor.getSource();
+		var len = strlen(str);
+		if (len < 5) {
+			alert("\n当前内容长度：" + len + " 字节\n\n系统限制：5 到 20000 字节");
+			return false;
+		}
+		if (len > 20000) {
+			alert("\n当前内容长度：" + len + " 字节\n\n系统限制：5 到 20000 字节");
+			return false;
+		}
+		return true;
+	}
+	return false;
+}
+
+function strlen(str) {
+	var len = 0;
+	for(var i = 0; i < str.length; i++) {
+		len += str.charCodeAt(i) < 0 || str.charCodeAt(i) > 255 ? 2 : 1;
+	}
+	return len;
+}
+function switchicon(id, obj) {
+}
+</script>
+{/if}
+{sub ../footer}

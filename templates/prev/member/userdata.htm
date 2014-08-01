@@ -1,0 +1,355 @@
+{teval
+	$title       = '资料维护 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('info', 'member'),css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{sub ../header}
+<DIV id="content">
+{sub menu}
+
+<DIV class="right">
+{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+
+<DIV class="bq_menu2">
+<A {if $type=='index'} class="nov"{/if} href="$baseUrl?type=index">修改个人资料</A>
+<A {if $type=='pass'} class="nov"{/if} href="$baseUrl?type=pass">修改登录密码</A>
+<A {if $type=='safepass'} class="nov"{/if} href="$baseUrl?type=safepass">修改安全操作码</A>
+<A {if $type=='GetPass'} class="nov"{/if} href="$baseUrl?type=GetPass">取回安全操作码</A>
+<A {if $type=='ProtectPass'} class="nov"{/if} href="$baseUrl?type=ProtectPass">修改密码保护</A></DIV><BR>
+{if $type=='index'}
+<form name="myForm" method="post" id="myForm" enctype="multipart/form-data" onsubmit="return checkForm1();">
+$sys_hash_code2
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%" align="center">
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+        <TBODY>
+        <TR>
+          <TD height="35">&nbsp;</TD>
+          <TD height="40" vAlign="middle" width="20%" align="right">用户名：</TD>
+          <TD vAlign="middle" width="80%" align="left"> <SPAN class="chengse2 strong">$member[username]</SPAN></TD>
+          <TD>&nbsp;</TD></TR>
+        <TR>
+          <TD height="35">&nbsp;</TD>
+          <TD style="line-height: 45px;" height="40" vAlign="top" 
+            align="right">头  像：</TD>
+          <TD vAlign="middle" align="left">
+            <TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+              <TBODY>
+              <TR>
+                <TD colSpan="2"><SPAN class="xginfo_tx"><IMG id="user_avatar" 
+                  src="$memberFields[avatar]" width="87" height="87"></SPAN>
+                  <P style="margin: 25px 0px 0px;">建议图片大小 
+                  :150px*150px,图片格式为.jpg，.gif，.bmp</P></TD></TR>
+              <TR>
+                <TD height="45" width="320">
+				<input  name="userPic" type="file" style="margin-top:8px; width:228px;" id="userPic" />
+				</TD>
+                <TD></TD></TR></TBODY></TABLE></TD>
+          <TD>&nbsp;</TD></TR>
+        <TR>
+          <TD height="35">&nbsp;</TD>
+          <TD height="40" vAlign="middle" align="right">手机号码：</TD>
+          <TD vAlign="middle" align="left"> <STRONG 
+            class="chengse2">{if !$member[status]}$member[mobilephone]{else}{echo string::getXin($member[mobilephone], 3, 5)}{/if}&nbsp;&nbsp;{if !$member[status]}账号未激活，立即 <a href="javascript:;" onclick="dialog(460,460,'手机短信激活帐户','{rewrite}/dialog/active/');return false;" class="link_o">短信激活</a>{/if}</STRONG></TD>
+          <TD>&nbsp;</TD></TR>
+        <TR>
+          <TD height="35">&nbsp;</TD>
+          <TD height="40" vAlign="middle" align="right">QQ号码：</TD>
+          <TD vAlign="middle" align="left"><INPUT id="qq" class="text_normal" 
+            name="qq" value="$member[qq]" type="text"></TD>
+          <TD>&nbsp;</TD></TR>
+        <TR>
+          <TD height="35">&nbsp;</TD>
+          <TD height="40" vAlign="middle" align="right">真实姓名：</TD>
+          <TD vAlign="middle" align="left">
+		  <INPUT id="truename" class="text_normal" name="truename" value="$member[truename]" type="text"></TD>
+          <TD>&nbsp;</TD></TR>
+        <TR>
+          <TD height="35">&nbsp;</TD>
+          <TD height="40" vAlign="middle" align="right">Email：</TD>
+          <TD vAlign="middle" align="left">
+		  <input name="email" type="text" id="email" class="text_normal" maxlength="100" value="$member[email]" /></TD>
+          <TD>&nbsp;</TD></TR>
+        <TR>
+          <TD height="35">&nbsp;</TD>
+          <TD height="40" vAlign="middle" align="right">性别：</TD>
+          <TD vAlign="middle" align="left">
+		  <label for='__sex__0'>
+							<input name='sex' type='radio' value='1' id='__sex__0'{if $member[sex]==1} checked='checked'{/if} />
+							男</label>
+							&nbsp;&nbsp;
+							<label for='__sex__1000'>
+							<input name='sex' type='radio' value='2' id='__sex__1000'{if $member[sex]==2} checked='checked'{/if}  />
+							女</label>
+							&nbsp;&nbsp;</td>
+		 
+          <TD>&nbsp;</TD></TR>
+        <TR>
+          <TD height="35">&nbsp;</TD>
+          <TD height="40" vAlign="middle" align="right">开启异地登陆短信验证：</TD>
+          <TD align="left">开启：<INPUT id="remote" name="remote" value="1" type="radio"> 
+            &nbsp;&nbsp;关闭：<INPUT id="remote" name="remote" value="0" type="radio">&nbsp;&nbsp;&nbsp;</TD>
+          <TD></TD></TR>
+        <TR>
+          <TD height="35">&nbsp;</TD>
+          <TD height="40" vAlign="middle" align="right">签收快递发货省份：</TD>
+          <TD vAlign="middle" align="left">			   
+               &nbsp;发布同省快递签收任务时的省份，一旦选定不可修改</TD>
+          <TD>&nbsp;</TD></TR>
+        <TR>
+          <TD height="35">&nbsp;</TD>
+          <TD height="40" vAlign="middle" align="right">签收快递收货省份：</TD>
+          <TD vAlign="middle" align="left"><SELECT id="pin3" 
+              name="pin3"><OPTION value="0">请选择</OPTION><OPTION 
+              value="1">北京市</OPTION><OPTION value="2">天津市</OPTION><OPTION value="3">河北省</OPTION><OPTION 
+              value="4">山西省</OPTION><OPTION value="5">内蒙古</OPTION><OPTION value="6">江苏省</OPTION><OPTION 
+              value="7">安徽省</OPTION><OPTION value="8">山东省</OPTION><OPTION value="9">辽宁省</OPTION><OPTION 
+              value="10">吉林省</OPTION><OPTION value="11">黑龙江</OPTION><OPTION 
+              value="12">上海市</OPTION><OPTION value="13">浙江省</OPTION><OPTION 
+              value="14">江西省</OPTION><OPTION value="15">福建省</OPTION><OPTION 
+              value="16">湖北省</OPTION><OPTION value="17">湖南省</OPTION><OPTION 
+              value="18">河南省</OPTION><OPTION value="19">广东省</OPTION><OPTION 
+              value="20">广西</OPTION><OPTION value="21">海南省</OPTION><OPTION 
+              value="22">重庆市</OPTION><OPTION value="23">四川省</OPTION><OPTION 
+              value="24">贵州省</OPTION><OPTION value="25">云南省</OPTION><OPTION 
+              value="26">西藏</OPTION><OPTION value="27">陕西省</OPTION><OPTION 
+              value="28">甘肃省</OPTION><OPTION value="29">宁夏</OPTION><OPTION 
+              value="30">青海省</OPTION><OPTION value="31">新疆</OPTION></SELECT>				   
+               &nbsp;签收同省快递签收任务时的省份，可选3个，选定不可修改</TD>
+          <TD>&nbsp;</TD></TR><!--<tr>
+				    <td height="35">&nbsp;</td>
+				    <td height="40" align="right" valign="middle">签收快递发货详细信息：</td>
+				    <td align="left" valign="middle"><input type="text" name="name1" size="8" maxlength="8" value="发件人姓名" onclick="if(this.value=='发件人姓名')this.value='';" /> <input type="text" name="address1"  size="30" maxlength="150" value="发货地址" onclick="if(this.value=='发货地址')this.value='';" /> <input type="text" name="tel1" size="15" maxlength="15" value="手机号码" onclick="if(this.value=='手机号码')this.value='';" /> <input type="text" name="code1" size="8" maxlength="8" value="邮编" onclick="if(this.value=='邮编')this.value='';" /></td>
+				  </tr>-->
+        <TR>
+          <TD height="35">&nbsp;</TD>
+          <TD height="40" vAlign="middle" align="right">签收快递收货详细信息：</TD>
+          <TD vAlign="middle" align="left">
+		  <INPUT onclick="if(this.value=='收件人姓名')this.value='';" name="name2" maxLength="8" value="收件人姓名" size="8" type="text"> 
+            <INPUT onclick="if(this.value=='收货地址')this.value='';" name="address" value="$member[address]" maxLength="150" value="收货地址" size="30" type="text"> 
+			<INPUT onclick="if(this.value=='手机号码')this.value='';" name="tel2" maxLength="15" value="手机号码" size="15" type="text"> 
+            <INPUT onclick="if(this.value=='邮编')this.value='';" name="code2" maxLength="8" value="邮编" size="8" type="text"></TD>
+		</TR>
+      
+        
+        <TR>
+          <TD height="35">&nbsp;</TD>
+          <TD height="40" vAlign="middle" align="right">安全操作码：</TD>
+          <TD vAlign="middle" align="left">
+		  <INPUT id="pwd3" class="text_normal" name="password2" type="password">&nbsp; 
+			<SPAN class="STYLE1">*</SPAN>修改资料需要提供安全操作码&nbsp; &nbsp; $errMsg</TD>
+          <TD></TD>
+		</TR>
+        <TR>
+          <TD height="35">&nbsp;</TD>
+          <TD height="70" vAlign="middle" align="right">&nbsp;</TD>
+          <TD vAlign="middle" align="left">
+		  <INPUT class="xginfo_qr" value="提交查询内容" type="submit"></TD>
+          <TD></TD>
+		</TR>
+		</TBODY></TABLE></TD></TR></TBODY></TABLE>
+</FORM>
+
+<!--修改登陆密码-->
+{elseif $type=='pass'}
+<FORM method="post" name="myForm1" onsubmit="return checkForm2();">
+<input type="hidden" name="type" value="pass">
+$sys_hash_code2
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="625">
+  <TBODY>
+  <TR>
+    <TD style="border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: solid;" 
+    height="30" vAlign="middle" width="89" align="right">安全操作码：</TD>
+    <TD style="color: rgb(135, 135, 135); border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: solid;">
+	<INPUT id="pwd3" class="aninput" name="pwd2" type="password"></TD>
+   </TR>
+  <TR>
+    <TD height="30" vAlign="middle" align="right">新登录密码：</TD>
+    <TD style="color: rgb(135, 135, 135);">
+	<INPUT id="password" class="aninput" name="password" type="password"></TD>
+  </TR>
+  <TR>
+    <TD height="30" vAlign="middle" align="right">确认密码：</TD>
+    <TD><INPUT id="password2" class="aninput" name="password_" type="password"></TD>
+  </TR>
+  <TR>
+    <TD> </TD>
+    <TD><!--<input type="submit" class="xginfo_fs">-->
+	<INPUT class="xginfo_qr" value="提交查询内容" type="submit"></TD></TR></TBODY></TABLE>
+	</FORM>
+
+<!--安全码-->
+{elseif $type=='safepass'}
+<FORM method="post" name="myForm1" onsubmit="return checkForm3();">
+<input type="hidden" name="type" value="safepass">
+$sys_hash_code2
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="625">
+  <TBODY>
+  <TR>
+    <TD style="border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: solid;" 
+    height="30" vAlign="middle" width="89" align="right">原安全操作码：</TD>
+    <TD style="color: rgb(135, 135, 135); border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: solid;">
+	<INPUT id="pwd3" class="aninput" name="pwd2" type="password"></TD></TR>
+  <TR>
+    <TD height="30" vAlign="middle" align="right">新操作密码：</TD>
+    <TD style="color: rgb(135, 135, 135);">
+	<INPUT id="password2" class="aninput" name="password2" type="password"></TD></TR>
+  <TR>
+    <TD height="30" vAlign="middle" align="right">确认密码：</TD>
+    <TD>
+	<INPUT id="password2_" class="aninput" name="password2_" type="password"></TD></TR>
+  <TR>
+    <TD height="30" vAlign="middle" colSpan="2" align="left">$errMsg</TD></TR>
+  <TR>
+    <TD> </TD>
+    <TD><!--<input type="submit" class="xginfo_fs">-->
+	<INPUT class="xginfo_qr" value="提交查询内容" type="submit"></TD></TR></TBODY></TABLE>
+</FORM>
+<!--取回安全码-->
+{elseif $type=='GetPass'}
+<FORM method="post" name="myForm1" onsubmit="return checkForm4();">
+<input type="hidden" name="type" value="GetPass">
+$sys_hash_code2
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="625">
+  <TBODY>
+  <TR>
+    <TD height="30" vAlign="middle" align="right">输入您的账号邮箱：</TD>
+    <TD><INPUT style="width: 200px;" id="email" class="aninput" name="email" type="text"></TD>
+  </TR>
+  <TR>
+    <TD> </TD>
+    <TD><!--<input type="submit" class="xginfo_fs">-->
+	<INPUT class="xginfo_qr" value="提交查询内容" type="submit"></TD>
+   </TR>
+  </TBODY>
+</TABLE>
+</FORM>
+<!--修改密码保护-->
+{elseif $type=='ProtectPass'}
+<FORM method="post" name="myForm1" onsubmit="return checkForm5();">
+<input type="hidden" name="type" value="ProtectPass">
+$sys_hash_code2
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="625">
+  <TBODY>
+  <TR>
+    <TD height="30" vAlign="middle" width="89" align="right">选择问题：</TD>
+    <TD style="color: rgb(135, 135, 135);">
+	                            <select name='questionId' id='questionId' class='slt_normal'>
+									<option value='0'{if !$member[questionid]} selected='selected'{/if}>无安全问题</option>
+									{loop $questions $k $v}
+									<option value="$k"{if $member[questionid]==$k} selected="selected"{/if}>$v</option>
+									{/loop}
+								</select></TR>
+  <TR>
+    <TD height="30" vAlign="middle" align="right">问题的答案：</TD>
+    <TD style="color: rgb(135, 135, 135);">
+	<input name="answer" type="text" class="text_normal" id="answer" value="$member[answer]" maxlength="20" /></TD></TR>
+  <TR>
+    <TD height="30" vAlign="middle" align="right">安全操作码：</TD>
+    <TD><INPUT id="pwd3" class="aninput" name="pwd2" type="password"></TD></TR>
+  <TR>
+    <TD> </TD>
+    <TD><!--<input type="submit" class="xginfo_fs">-->
+	<INPUT class="xginfo_qr" value="提交查询内容" type="submit"></TD></TR></TBODY></TABLE>
+	</FORM>
+{/if}
+
+</DIV>
+</DIV>
+<DIV class="cle"></DIV>
+<SCRIPT type="text/javascript">
+function checkForm1() {
+    var pwd3=$('#pwd3').val();
+    if (pwd3.length<6){
+	alert('请输入安全操作码');
+	$('#pwd3').focus();
+	return false;
+	}else{
+	return true;
+	}
+}
+function checkForm2() {
+    var pwd3=$('#pwd3').val();
+	var password=$('#password').val();
+	var password2=$('#password2').val();
+    if (pwd3.length<6){
+	alert('请输入您操作码');
+	$('#pwd3').focus();
+	return false;
+	}
+    else if (password.length<6){
+	alert('新密码不少于6位');
+	$('#password').focus();
+	return false;
+	}
+    else if (password2.length<6){
+	alert('确认密码不少于6位');
+	$('#password2').focus();
+	return false;
+	}else{
+	return true;
+	}
+}
+function checkForm3() {
+    var pwd3=$('#pwd3').val();
+	var password2=$('#password2').val();
+	var password2_=$('#password2_').val();
+    if (pwd3.length<6){
+	alert('请输入您的操作码');
+	$('#pwd3').focus();
+	return false;
+	}
+	else if (password2.length<6){
+	alert('请输入您的新操作码,长度不少于6位');
+	$('#password2').focus();
+	return false;
+	}
+	else if (password2_.length<6){
+	alert('请确认您的新操作码,长度不少于6位');
+	$('#password2_').focus();
+	return false;
+	}
+	else{
+	return true;
+	}
+}
+function checkForm4() {
+    var email=$('#email').val();
+    if (email.length<3){
+	alert('请输入您的邮箱');
+	$('#email').focus();
+	return false;
+	}else{
+	return true;
+	}
+}
+function checkForm5() {
+    var answer=$('#answer').val();
+	var pw3=$('#pw3').val();
+    if (answer.length<1){
+	alert('请输入您的问题答案');
+	$('#answer').focus();
+	return false;
+	}
+	else if (pw3.length<6){
+	alert('请输入您的操作操作码');
+	$('#pw3').focus();
+	return false;
+	}
+	else{
+	return true;
+	}
+}
+</SCRIPT>
+
+<DIV class="cle"></DIV>
+</div>
+{sub ../footer}

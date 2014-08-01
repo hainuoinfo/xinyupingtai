@@ -1,0 +1,24 @@
+{sub header}
+  <div style="line-height:26px; padding-left:40px;"><strong>{if $item[type]==1}$web_name{else}$item[from_username]{/if}</strong> 发给 <strong>$item[to_username]</strong> 的信息 <span class="f_gray">{date $item[timestamp]}</span></div>
+  <table width="90%" border="0" cellspacing="0" cellpadding="8">
+    <tr>
+      <td colspan="2" align="right"></td>
+    </tr>
+    <tr>
+      <td width="70" align="right"><strong>标题：</strong></td>
+      <td>$item[title]</td>
+    </tr>
+    <tr>
+      <td align="right"  style="line-height:20px; vertical-align:text-top;"><strong>内容：</strong></td>
+      <td style="line-height:20px; font-size:14px; vertical-align:text-top;">$item[message]</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td align="center" style="padding-right:40px; padding-top:20px;" class="linkbtn">
+        {if $item[type]==0}
+		<a href="{rewrite}/$action/sendmsg/?id=$item[id]">回复</a>
+		{/if}
+        <a href="javascript:;" onclick="parent.doCut2();return false;" >关闭</a></td>
+    </tr>
+  </table>
+{sub footer}

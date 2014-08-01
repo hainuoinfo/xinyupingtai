@@ -1,0 +1,19 @@
+<div class="lst_tab_tb">
+	<ul class="tab_no">
+		<li{if $m=='index'} class="tab_tb"{/if}>
+			<p><a href="$baseUrl"><strong>接手来路任务</strong></a></p>
+		</li>
+		<li{if $m=='add'} class="tab_tb"{/if}>
+			<p><a href="$baseUrl?m=add"><strong>发布来路任务</strong></a></p>
+		</li>
+		<li{if $m=='in'} class="tab_tb"{/if}>
+			<p><a href="$baseUrl?m=in"><strong>已接来路任务</strong></a></p>
+		</li>
+		<li{if $m=='out'} class="tab_tb"{/if}>
+			<p><a href="$baseUrl?m=out"><strong>已发来路任务</strong></a></p>
+		</li>
+		<li{if $m=='tpl'} class="tab_tb"{/if}>
+			<p><a href="$baseUrl?m=tpl"><strong>任务模板</strong></a></p>
+		</li>
+	</ul>
+</div>

@@ -1,0 +1,61 @@
+{teval
+	$title       = '请登录 - {webName} -中国最好的免费刷信誉,互刷信誉平台';
+	$keywords    = '您还尚未登录{webName}刷信誉平台，请登录，登录后网站将为你提供最好的淘宝刷信誉服务、淘宝刷钻功能，同时还可以享受淘宝刷收藏，淘宝刷流量等互刷平台的专业服务';
+	$description = '刷信誉,刷信用,互刷信誉平台,刷收藏,刷流量,{webName2}';
+	$title       = addcslashes(common::replaceVars($title), '\'\\');
+	$keywords    = addcslashes(common::replaceVars($keywords), '\'\\');
+	$description = addcslashes(common::replaceVars($description), '\'\\');
+	echo '
+<?php $title=\''.$title.'\';$keywords=\''.$keywords.'\';$description=\''.$description.'\';?>
+';
+}
+{subtemplate ../header}
+<script language="javascript">
+var setQuestion=function(){
+	var questionid = parseInt($('#questionid').val());
+	if (questionid > 0 ) {
+		$('#tr_an').show();
+	} else {
+		$('#tr_an').hide();
+	}
+}
+</script>
+<div id="content">
+{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+		<div class="login_gg">
+		<img src="/images/gg2.jpg" usemap="#Map" height="290" width="498"><map name="Map" id="Map">
+		<area shape="rect" coords="262,214,403,276" href="{rewrite}/member/reg/"></map></div>
+		<div class="login_info">
+		    <div class="login_tip"></div>
+		    <form method="post" name="myForm" id="myForm" onsubmit="return checkForm();">
+            <div> $sys_hash_code2 </div>
+			<input name="referer" value="$referer" type="hidden">
+			<span class="text1" id="loginaccount">账户：</span>
+			<span class="text2" id="loginpwd">密码：</span>
+			<p><input name="username" id="username" class="r_bk1" type="text" value="{echo isset($username) ? $username : (isset($cookie[loginUsername]) ? $cookie[loginUsername] : '')}">
+			</p>
+			<p><input name="password" id="password" class="r_bk2" type="password">
+			</p>
+           <input name="vcode" type="text" id="vcode" maxlength="4" style="width:95px;" />
+           <img id="imgCode" src="{$weburl2}images/vcode2.php" style="cursor:pointer" onclick="$(this).attr({src:'{$weburl2}images/vcode2.php?'+Math.random()});" alt="点击刷新校验码" align="absmiddle" />
+		   <input name="referer" value="" type="hidden">
+			<input class="dl_btn" id="btnSubmit" type="submit" name="btnSubmit">
+			</form>
+			<p class="log_wb">没有账号?<a href="{rewrite}/member/reg/" class="chengse">立即注册</a><a href="{rewrite}/member/forgotpwd/" target="_blank"> 找回密码</a></p>
+		</div>		
+</div>
+    <a style="width: 100%; background: #e7d6ab; float: left; text-align: center;" href="{rewrite}/info/tomorrow" target="_blank">
+	<img src="/images/pengyou.gif"/></a>
+	<div class="cle"></div>
+<script type="text/javascript">
+function checkForm() {
+    var checks = [
+		["isEmpty", "username", "用户名"],
+		["isEmpty", "password", "登录密码"],
+		["isEmpty", "vcode", "验证码"] ];
+	var result = doCheck(checks);
+	if (result)avoidReSubmit();
+	return result;
+}
+</script>  
+{subtemplate ../footer}

@@ -1,0 +1,74 @@
+<style>
+.task_header em{color: red;font-weight: bold;}
+</style>
+<div class="rwdt_bk">
+			<p class="sub_bt"><a id="liInput1" class="nov" href="javascript:;">支付宝充值</a><a href="javascript:;" id="liInput2">网银充值</a><a href="javascript:;" id="liInput3">购买麦点</a><a href="javascript:;" id="liInput4">人工转账</a></p>
+			 <div id="buyboxcont">
+				<div class="task_header" style="display:block;">
+				  
+						<table style="margin-top:10px;" align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr><td>收款支付宝账号：<a href="javascript:;" onclick="return copy('xiaomaimaila@163.com')"><em>xiaomaimaila@163.com</em></a> (<span style="color:#FF9000;" onclick="return copy('胡可恬')">胡可恬</span>) </td></tr>
+							<tr><td>转账时只能备注：<span style="color:#FF9000;font-weight:700">{echo $memberLogined?$member['username']:''}</span></td></tr>
+							<tr><td>(转账完毕后验证交易号，1分钟到账)</td></tr>
+							<tr>
+                        	   <td colspan="2"><a class="tc_b" href="{rewrite}/bbs/t1850/" target="_blank">查看充值教程</a><a class="tc_k" target="_blank" href="{rewrite}/member/topup/?type=alipay">验证交易号</a></td>
+                            </tr>
+						</tbody></table>
+				   
+		       </div>
+		       <div class="task_header" style="display:none">
+					<form id="q_f_2" action="{rewrite}/member/topup/" method="post" target="_blank" onsubmit="return checkForm1();">
+                        $sys_hash_code2
+                        <table style="margin-top:10px;" align="left" border="0" cellpadding="0" cellspacing="0" width="90%">
+					  <tbody><tr>
+						<td height="30" align="right" valign="top" width="35%">充值用户名：</td>
+						<td><input name="username" id="username" class="rwdt_inp" style="color:#666" value="$member[username]" disabled="disabled" type="text"></td>
+					  </tr>
+					  <tr>
+						<td height="30" align="right" valign="top">充值金额：</td>
+						<td><input name="money" id="money" class="rwdt_inp" style="color:#666" value="100" type="text" onfocus="window.location.href='{rewrite}/member/topup/'">
+						<span class="chengse">(1%手续费)</span></td>
+					  </tr>
+					  <tr>
+						<td>&nbsp;</td>
+						<td><input class="rwdt_cz" type="submit" name="imageField"></td>
+					  </tr>
+				  </tbody></table>
+				  </form>
+		       </div>
+			    <div class="task_header" style="display:none">
+							<form id="q_f_3" action="{rewrite}/member/BuyPoint/" method="post" onsubmit="return checkForm3();">
+                                $sys_hash_code2
+                                <input name="cardType" value="1" type="hidden">
+							<input name="jiage" id="jiage" value="" type="hidden">
+									<table style="margin-top:10px;" align="left" border="0" cellpadding="0" cellspacing="0" width="90%">
+									<tbody><tr>
+											<td height="30" align="right" valign="middle" width="35%">购买价格：</td>
+											<td><span style="color:#D9281E; font-weight:bold;"><span id="jiage1">0.68</span>元=1个麦点</span></td>
+										</tr>
+									<tr>
+											<td height="30" align="right" valign="middle" width="35%">购买数量：</td>
+											<td><input name="nums" id="cardnums" value="1" size="10" maxlength="4" type="text" onfocus="window.location.href='{rewrite}/member/BuyPoint/'">(最少购买1个)</td>
+										</tr>
+									<tr>
+										<td>&nbsp;</td>
+										<td><input class="rwdt_cz" type="submit" name="imageField"></td>
+									</tr>
+								</tbody></table>
+							</form>
+		       </div>
+			    <div class="task_header" style="display:none">
+					<table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+                      	<tbody>
+						<tr>
+                        	<td colspan="2" style="padding:5px 10px 5px 10px;">财付通直接转帐冲值，不收任何手续费用。仅接受大于100元以上的充值。充值前请联系客服，然后再打款，平台指定人工充财付通帐号：<em>273334116</em></td>
+                        </tr>
+                        <tr>
+                        	<td style="width:50%;padding-left:20px;"><a class="rwdt_kf" href="tencent://message/?uin=188239039" target="_blank">联系客服</a></td>
+                            <td><a class="rwdt_cht" target="_blank" href="https://www.tenpay.com/v2/account/pay/index.shtml?ADTAG=TENPAY_V2.FUKUAN.JIESHAO.C2C">登录财付通</a></td>
+                        </tr>
+                      </tbody>
+					</table>
+		       </div>
+		  </div>
+		</div>

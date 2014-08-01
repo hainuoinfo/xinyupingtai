@@ -1,0 +1,308 @@
+{teval
+	$title       = '申诉中心 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{sub ../header}
+<DIV class="cle"></DIV>
+<DIV id="content">
+{sub menu}
+{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+	{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+<DIV class="right">
+<DIV style="margin-bottom: 10px;">
+<IMG src="/images/hqscbanner.jpg"></DIV>
+<DIV class="mh_tishi"><STRONG>
+<SPAN class="STYLE2">您当前有</SPAN><SPAN class="chengse2 STYLE1">0</SPAN>
+<SPAN class="STYLE2">个申诉需要处理。</SPAN></STRONG><BR></DIV>
+<DIV class="bq_menu">
+<A {if $t=='post'} class="nov"{/if} href="$thisUrl?t=post">我发起的申诉</A>
+<A {if $t=='get'} class="nov"{/if} href="$thisUrl?t=get">我收到的申诉</A>
+<A {if $t=='out'} class="nov"{/if} href="$thisUrl?t=out">我发起的索赔</A>
+<A {if $t=='in'} class="nov"{/if} href="$thisUrl?t=in">我收到的索赔</A>
+</DIV>
+{if $t=='post' || $t=='get'}
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%" align="center">
+  <TBODY>
+  <TR>
+    <TD height="15">&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+        <TBODY>
+        <TR>
+          <TD class="txjl_bg1" height="37" width="10"></TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="15%" align="center">{if $t=='post'}被申诉人{elseif $t=='get'}申诉人{/if}</TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" align="left">&nbsp; 标题</TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="13%" align="center">提交时间</TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="10%" align="center">状态</TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="13%" align="center">操作</TD>
+          <TD class="txjl_bg3" height="37" width="10"></TD>
+		</TR>
+	 {loop $cList $v}
+            <tr>
+			  <td class="mh_xxian" height="35" vAlign="middle" align="center"></td>
+              <td class="mh_xxian" height="35" vAlign="middle" align="center">{if $t=='post'}$v[tusername]{elseif $t=='get'}$v[fusername]{/if}</td>
+              <td class="mh_xxian" height="35" vAlign="middle" align="center">$v[title]</td>
+              <td class="mh_xxian" height="35" vAlign="middle" align="center">{echo date('m-d H:i', $v[timestamp1])}</td>
+              <td class="mh_xxian" height="35" vAlign="middle" align="center">$cStatus[$v[status]]</td>
+              <td class="mh_xxian" height="35" vAlign="middle" align="center">
+			  	{if !in_array($v[status], array(1, 2, 3))}
+			  	{if $t=='post'}
+			  	<a href="$thisUrl?del=$v[id]" class="mh_xxian" onclick="return IsCancel();">撤销申诉</a>
+				<br />
+				{if $v[status]==0 || $v[status]==5}
+				<a href="$thisUrl?renew=$v[id]" class="mh_xxian">补充证据</a><img src="{$weburl2}images/ico/tip1.gif" alt="" class="cursor" onclick="alert(this.title);" title="被申诉方已经收到您的投诉，在48小时内对方可以选择解决问题或者提交辩解材料" />
+				{elseif $v[status]==4}
+				<a href="$thisUrl?goon=$v[id]" onclick="return IsCancel3()" class="mh_xxian">坚持申诉</a>
+				<img src="{$weburl2}images/ico/tip1.gif" alt="" class="cursor" onclick="alert(this.title);" title="被申诉方认为申诉问题已经解决，申请申诉发起人撤销申诉，&#13;请检查问题是否解决，并在48小时内根据检查结果决定“撤销申诉”还是“坚持申诉”" />
+				{/if}
+				{elseif $t=='get'}
+				{if $v[status]==0}
+				<a href="$thisUrl?cancel=$v[id]" class="mh_xxian" onclick="return IsCancel2();">申请撤诉</a>
+				<br />
+				{/if}
+				{if $v[status]==0 || $v[status]==5}
+				<a href="$thisUrl?renew=$v[id]" class="mh_xxian">提交证据</a>
+				{/if}
+				{if $v[status]==0}
+				<img src="{$weburl2}images/ico/tip1.gif" alt="" class="cursor" onclick="alert(this.title);" title="您收到了申诉方发给您的投诉，申诉方已经向平台申诉中心提交了相关资料，&#13;您在48小时内可以选择解决被投诉问题并联系申诉方撤销申诉，或者提交辩解材料进入平台裁决流程，超时未提交材料者视为放弃辩解权" />
+				{elseif $v[status]==4}
+				<img src="{$weburl2}images/ico/tip1.gif" alt="" class="cursor" onclick="alert(this.title);" title="您已向申诉发起人提出了撤销申诉的申请，请联系发起人说明问题已经解决；&#13;申诉发起者需在48小时内决定撤销申诉或者坚持申诉" />
+				{elseif $v[status]==5}
+				<img src="{$weburl2}images/ico/tip1.gif" alt="" class="cursor" onclick="alert(this.title);" title="申诉方发起人认为您未解决申诉问题，选择了坚持申诉；&#13;请您在48小时内提交辩解材料进入平台裁决流程，超时未提交材料者视为放弃辩解权" />
+				{/if}
+				{/if}
+				{/if}
+			</td>
+			<TD class="txjl_bg3" height="37" width="10"></TD>
+            </tr>
+            {/loop}
+        </table>
+        
+        <div class="pages">
+          <div class="pages">$multipage</div>
+        </div>
+       </td> 
+      </div>
+      
+    </div>
+	{elseif $t=='renew'}
+	<div>
+      <div class="box_e">
+        <div class="box_e_l"><strong>补充证据</strong></div>
+        <div class="box_e_r"></div>
+      </div>
+      <div class="box_main">
+        <form name="myForm" method="post" id="myForm" onsubmit="return checkForm();">
+<div>$sys_hash_code2</div>
+
+          <div class="">
+            <table class="tbl_edit" width="100%" border="0" cellspacing="0" cellpadding="5" style="table-layout:fixed;">
+              <tr>
+                <td width="120" align="right"><strong>任务ID：</strong></td>
+                <td>$complain[tid]</td>
+              </tr>
+              <tr>
+                <td align="right"><strong>任务/申诉状态：</strong></td>
+                <td>$status[$complain[taskStatus]] / {if $complain[status]==1}申诉成功{elseif $complain[status]==2}申诉失败{else}等待被申诉方解决问题或辩解{/if}</td>
+              </tr>
+              <tr>
+                <td align="right"><strong>申诉人/被申诉人：</strong></td>
+                <td><span class="f_org">$complain[fusername]</span> 对 <span class="f_org">$complain[tusername]</span> 发起的申诉</td>
+              </tr>
+              <tr>
+                <td align="right"><strong>标题：</strong></td>
+                <td>$complain[title]</td>
+              </tr>
+              <tr>
+                <td align="right" valign="top"><strong>申诉内容：</strong></td>
+                <td style="overflow:hidden;">
+					{loop $complainMessage[0] $v}
+					[{date $v[timestamp]}]<br />$v[message]<br /><br />
+					{/loop}
+					</td>
+              </tr>
+			  {if $complainMessage[1]}
+              <tr>
+                <td align="right" valign="top"><strong>辩解内容：</strong></td>
+                <td style="overflow:hidden;">
+					{loop $complainMessage[1] $v}
+					[{date $v[timestamp]}]<br />$v[message]<br /><br />
+					{/loop}
+				</td>
+              </tr>
+              {/if}
+              <tr>
+                <td align="right" valign="top"><strong>补充申诉内容：</strong></td>
+                <td>{xheditor article,message,620,290}</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td><input name="btnSave" type="submit" class="btn_1" id="btnSave" value="提交材料" /></td>
+              </tr>
+              
+              <tr>
+                <td>&nbsp;</td>
+                <td>注：以前提交过的内容是不允许修改的，后面补充的内容将加在以前的内容后面</td>
+              </tr>
+            </table>
+          </div>
+        </form>
+        <div class="h_10"></div>
+        <div class="h_30"></div>
+      </div>
+      <div>
+        <div class="box_b_l"></div>
+        <div class="box_b_r"></div>
+      </div>
+    </div>
+	{/if}
+   
+
+		{if $type == 'in' || $type == 'out'}
+	<table class="tbl_lst" style="border-top:1px solid #d5d5d5;" width="100%" border="0" cellspacing="0" cellpadding="2">
+		  <thead>
+            <tr>
+              <td class="tbl_s">维权编号</td>
+
+              <td>标题</td>
+              <td>{if $type == 'out'}被申诉人{else}申诉人{/if}</td>
+              <td>发起时间</td>
+              <td>{if $type == 'out'}维权状态{else}申诉状态{/if}</td>
+              <td>操作</td>
+            </tr>
+			</thead>
+			{loop $cList $v}
+            <tr>
+              <td class="tbl_s">$v[tid]</td>
+              <td>$v[title]</td>
+              <td>{if $type=='out'}$v[tusername]{elseif $type=='in'}$v[fusername]{/if}</td>
+              
+              <td>{echo date('m-d H:i', $v[timestamp1])}</td>
+              <td>$cStatus[$v[status]]</td>
+              <td>{if $v[status]==1}维权成功{elseif $v[status]==2}维权失败{else}&nbsp;{/if}</td>
+              <td class="td_lh">
+			  	{if !in_array($v[status], array(1, 2, 3))}
+			  	{if $type=='out'}
+			  	<a href="$baseUrl{?}type=$type&del=$v[id]" class="btn_b" onclick="return IsCancel();">撤销维权</a>
+				<br />
+					{if $v[status]==0 || $v[status]==5}
+				<a href="$baseUrl{?}type=$type&renew=$v[id]" class="btn_b">补充证据</a><img src="{$weburl2}images/ico/tip1.gif" alt="" class="cursor" onclick="alert(this.title);" title="被申诉方已经收到您的投诉，在48小时内对方可以选择解决问题或者提交辩解材料" />
+					{elseif $v[status]==4}
+				<a href="$baseUrl{?}type=$type&goon=$v[id]" onclick="return IsCancel3()" class="btn_b">坚持申诉</a>
+				<img src="{$weburl2}images/ico/tip1.gif" alt="" class="cursor" onclick="alert(this.title);" title="被投诉方认为维权问题已经解决，申请维权发起人撤销维权，&#13;请检查问题是否解决，并在48小时内根据检查结果决定“撤销维权”还是“坚持维权”" />
+					{/if}
+				{elseif $type=='in'}
+				{if $v[status]==0}
+				<a href="$baseUrl{?}type=$type&cancel=$v[id]" class="btn_b" onclick="return IsCancel2();">申请撤销</a>
+				<br />
+				{/if}
+				{if $v[status]==0 || $v[status]==5}
+				<a href="$baseUrl{?}type=$type&renew=$v[id]" class="btn_b">提交证据</a>
+				{/if}
+				{if $v[status]==0}
+				<img src="{$weburl2}images/ico/tip1.gif" alt="" class="cursor" onclick="alert(this.title);" title="您收到了维权方发给您的投诉，维权方已经向平台申诉中心提交了相关资料，&#13;您在48小时内可以选择解决被投诉问题并联系申诉方撤销申诉，或者提交辩解材料进入平台裁决流程，超时未提交材料者视为放弃辩解权" />
+				{elseif $v[status]==4}
+				<img src="{$weburl2}images/ico/tip1.gif" alt="" class="cursor" onclick="alert(this.title);" title="您已向申诉发起人提出了撤销申诉的申请，请联系发起人说明问题已经解决；&#13;申诉发起者需在48小时内决定撤销申诉或者坚持申诉" />
+				{elseif $v[status]==5}
+				<img src="{$weburl2}images/ico/tip1.gif" alt="" class="cursor" onclick="alert(this.title);" title="申诉方发起人认为您未解决申诉问题，选择了坚持申诉；&#13;请您在48小时内提交辩解材料进入平台裁决流程，超时未提交材料者视为放弃辩解权" />
+				{/if}
+				{/if}
+				{/if}
+			</td>
+            </tr>
+            {/loop}
+        </table>
+	{elseif $type == 'renew'}
+	<form name="myForm" method="post" id="myForm" onsubmit="return checkForm();">
+<div>$sys_hash_code2</div>
+
+          <div class="">
+            <table class="tbl_edit" width="100%" border="0" cellspacing="0" cellpadding="5" style="table-layout:fixed;">
+              <tr>
+                <td width="120" align="right"><strong>任务ID：</strong></td>
+                <td>$complain[tid]</td>
+              </tr>
+              <tr>
+                <td align="right"><strong>维权状态：</strong></td>
+                <td>{if $complain[status]==1}维权成功{elseif $complain[status]==2}维权失败{else}等待被投诉方解决问题或辩解{/if}</td>
+              </tr>
+              <tr>
+                <td align="right"><strong>申诉人/被申诉人：</strong></td>
+                <td><span class="f_org">$complain[fusername]</span> 对 <span class="f_org">$complain[tusername]</span> 发起的维权</td>
+              </tr>
+              <tr>
+                <td align="right"><strong>标题：</strong></td>
+                <td>$complain[title]</td>
+              </tr>
+              <tr>
+                <td align="right" valign="top"><strong>申诉内容：</strong></td>
+                <td style="overflow:hidden;">
+					{loop $complainMessage[0] $v}
+					[{date $v[timestamp]}]<br />$v[message]<br /><br />
+					{/loop}
+					</td>
+              </tr>
+			  {if $complainMessage[1]}
+              <tr>
+                <td align="right" valign="top"><strong>辩解内容：</strong></td>
+                <td style="overflow:hidden;">
+					{loop $complainMessage[1] $v}
+					[{date $v[timestamp]}]<br />$v[message]<br /><br />
+					{/loop}
+				</td>
+              </tr>
+              {/if}
+              <tr>
+                <td align="right" valign="top"><strong>补充申诉内容：</strong></td>
+                <td>{xheditor article,message,620,290}</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td><input name="btnSave" type="submit" class="btn_1" id="btnSave" value="提交材料" /></td>
+              </tr>
+              
+              <tr>
+                <td>&nbsp;</td>
+                <td>注：以前提交过的内容是不允许修改的，后面补充的内容将加在以前的内容后面</td>
+              </tr>
+            </table>
+          </div>
+        </form>
+		{/if}
+</TBODY></TABLE>
+</DIV>
+</DIV>
+<DIV class="cle"></DIV>
+<SCRIPT type="text/javascript">
+function IsCancel() {
+    return confirm("申诉撤销后将不能对该任务再发起申诉，您确定要撤销对被申诉人的申诉么？");
+}
+function IsCancel2() {
+    return confirm("您确定要申请撤销申诉么？您可以提交完整证据后再申请撤销申诉");
+}
+function IsCancel3() {
+    return confirm("您确定要坚持申诉么？");
+}
+</SCRIPT>
+<script type="text/javascript">
+function IsCancel() {
+    return confirm("维权撤销后将不能对该任务再发起商保索赔，您确定要撤销对被投诉人的维权么？");
+}
+function IsCancel2() {
+    return confirm("您确定要申请撤销维权么？您可以提交完整证据后再申请撤销维权");
+}
+function IsCancel3() {
+    return confirm("您确定要坚持维权么？");
+}
+</script>
+
+<DIV class="cle"></DIV>
+</div>
+{sub ../footer}

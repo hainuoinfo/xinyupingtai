@@ -1,0 +1,144 @@
+{sub h}
+{if $method=='taobao'}
+<form method="post" enctype="application/x-www-form-urlencoded">
+	$sys_hash_code
+	<table class="tb tb2 fixpadding">
+		<tr class="header">
+			<th>删？</th>
+			<th>用户名</th>
+			<th>真实姓名</th>
+			<th>提现金额</th>
+			<th>淘宝掌柜</th>
+			<th>淘宝地址</th>
+			<th>提现时间</th>
+			<th>处理时间</th>
+			<th>状态</th>
+		</tr>
+		{loop $list $v}
+		<tr class="hover">
+			<td><input type="checkbox" name="del[]" value="$v[id]" class="checkbox" /></td>
+			<td>$v[username]</td>
+			<td>$v[truename]</td>
+			<td>$v[money]</td>
+			<td>$v[remark1]</td>
+			<td><input type="text" value="$v[remark2]" class="txt" /></td>
+			<td>{date $v[timestamp1]}</td>
+			<td>{if !$v[status]}未处理{else}{date $v[timestamp2]}{/if}</td>
+			<td>
+			{if $v[status]==0}
+			<a href="$base_url&method=$method&setStatus=2&sid=$v[id]" onclick="return confirm('确定吗？')">未验证</a>
+			<a href="$base_url&method=$method&setStatus=3&sid=$v[id]" onclick="return confirm('确定吗？')">拒绝</a>
+			<a href="$base_url&method=$method&setStatus=4&sid=$v[id]" onclick="return confirm('确定吗？')">处理</a>
+			{elseif $v[status]==4}
+			<a href="$base_url&method=$method&setStatus=5&sid=$v[id]" onclick="return confirm('确定吗？')">确认支付</a>
+			{else}
+			$status[$v[status]]
+			{/if}
+			</td>
+		</tr>
+		{/loop}
+		<tr>
+			<td colspan="9"><input type="submit" value="提交" class="btn" /></td>
+		</tr>
+	</table>
+</form>
+{elseif $method=='alipay'}
+<form method="post" enctype="application/x-www-form-urlencoded">
+	$sys_hash_code
+	<table class="tb tb2 fixpadding">
+		<tr class="header">
+			<th>删？</th>
+			<th>用户名</th>
+			<th>真实姓名</th>
+			<th>提现金额</th>
+			<th>手续费</th>
+			<th>实际扣除</th>
+			<th>支付宝帐号</th>
+			<th>支付宝姓名</th>
+			<th>提现时间</th>
+			<th>处理时间</th>
+			<th>状态</th>
+		</tr>
+		{loop $list $v}
+		<tr class="hover">
+			<td><input type="checkbox" name="del[]" value="$v[id]" class="checkbox" /></td>
+			<td>$v[username]</td>
+			<td>$v[truename]</td>
+			<td>$v[money]</td>
+			<td>{echo $v[mp] * 100}%</td>
+			<td>$v[money2]</td>
+			<td>$v[remark2]</td>
+			<td>$v[remark1]</td>
+			<td>{date $v[timestamp1]}</td>
+			<td>{if !$v[status]}未处理{else}{date $v[timestamp2]}{/if}</td>
+			<td>
+			{if $v[status]==0}
+			<a href="$base_url&method=$method&setStatus=2&sid=$v[id]" onclick="return confirm('确定吗？')">未验证</a>
+			<a href="$base_url&method=$method&setStatus=3&sid=$v[id]" onclick="return confirm('确定吗？')">拒绝</a>
+			<a href="$base_url&method=$method&setStatus=4&sid=$v[id]" onclick="return confirm('确定吗？')">处理</a>
+			{elseif $v[status]==4}
+			<a href="$base_url&method=$method&setStatus=5&sid=$v[id]" onclick="return confirm('确定吗？')">确认支付</a>
+			{else}
+			$status[$v[status]]
+			{/if}
+			</td>
+		</tr>
+		{/loop}
+		<tr>
+			<td colspan="9"><input type="submit" value="提交" class="btn" /></td>
+		</tr>
+	</table>
+</form>
+{elseif $method == 'bank'}
+<form method="post" enctype="application/x-www-form-urlencoded">
+	$sys_hash_code
+	<table class="tb tb2 fixpadding">
+		<tr class="header">
+			<th>删？</th>
+			<th>用户名</th>
+			<th>真实姓名</th>
+			<th>提现金额</th>
+			<th>手续费</th>
+			<th>实际扣除</th>
+			<th>提现银行</th>
+			<th>银行卡号</th>
+			<th>开户名</th>
+			<th>开户地址</th>
+			<th>提现时间</th>
+			<th>处理时间</th>
+			<th>状态</th>
+		</tr>
+		{loop $list $v}
+		<tr class="hover">
+			<td><input type="checkbox" name="del[]" value="$v[id]" class="checkbox" /></td>
+			<td>$v[username]</td>
+			<td>$v[truename]</td>
+			<td>$v[money]</td>
+			<td>{echo $v[mp] * 100}%</td>
+			<td>$v[money2]</td>
+			<td>$v[remark1]</td>
+			<td>$v[remark2]</td>
+			<td>$v[remark3]</td>
+			<td>$v[remark4]</td>
+			<td>{date $v[timestamp1]}</td>
+			<td>{if !$v[status]}未处理{else}{date $v[timestamp2]}{/if}</td>
+			<td>
+			{if $v[status]==0}
+			<a href="$base_url&method=$method&setStatus=2&sid=$v[id]" onclick="return confirm('确定吗？')">未验证</a>
+			<a href="$base_url&method=$method&setStatus=3&sid=$v[id]" onclick="return confirm('确定吗？')">拒绝</a>
+			<a href="$base_url&method=$method&setStatus=4&sid=$v[id]" onclick="return confirm('确定吗？')">处理</a>
+			{elseif $v[status]==4}
+			<a href="$base_url&method=$method&setStatus=5&sid=$v[id]" onclick="return confirm('确定吗？')">确认支付</a>
+			{else}
+			$status[$v[status]]
+			{/if}
+			</td>
+		</tr>
+		{/loop}
+		<tr>
+			<td colspan="9"><input type="submit" value="提交" class="btn" /></td>
+		</tr>
+	</table>
+</form>
+{/if}
+{sub f}

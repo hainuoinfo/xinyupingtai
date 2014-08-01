@@ -1,0 +1,103 @@
+{teval
+	$title       = '请输入操作码 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('info', 'member'),css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{sub ../headerBase}
+<link rel="stylesheet" type="text/css" href="/images/layout.css">
+<div id="content" style="height:395px; padding-top:35px;">
+	<form name="myForm" method="post" id="myForm" onsubmit="return checkForm1();">
+	<div>$sys_hash_code2</div>
+    <input name="referer" value="$referer" type="hidden">
+    <div class="aqm_bk">
+		<h4 class="aqm_tit2">输入安全操作码</h4>
+		<table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tbody><tr>
+            <td style="font-size:13px;" align="right" height="40" width="30%"><strong>安全操作码：</strong></td>
+            <td><input name="password2" class="aqm_inp" id="password2" type="password"></td>
+          </tr>
+         <tr>
+                <td Color="red">{if $errMsg}<center>$errMsg</center>{/if}</td>
+                <td></td>
+              </tr>
+          <tr>
+            <td align="right" height="40">&nbsp;</td>
+            <td>
+            <input name="btnSubmit" class="aqm_szcg2" type="submit" >
+            <a href="{rewrite}/member/userdata/?type=GetPass" class="aqm_szcg3"></a>
+            </td>
+          </tr>
+        </tbody></table>
+	</div>
+	</form>
+	
+	<form name="myForm" method="post" id="myForm" onsubmit="return checkForm2();">
+	<div>$sys_hash_code2</div>
+	<input name="from_clientId" value="clientId" type="hidden">
+	<input name="reset" value="1" type="hidden">
+	 <div class="aqm_bk" id="aqm_bk" style="display:none;">
+		<h4 class="aqm_tit2">请设置您的安全操作码</h4>
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tbody>
+		  <tr>
+            <td style="font-size:13px;" align="right" height="40" width="30%">
+			<strong>安全操作码：</strong>
+			</td>
+            <td><input name="password2" id="password2" class="aqm_inp" type="password"></td>
+          </tr>
+          <tr>
+            <td style="font-size:13px;" align="right" height="40"><strong>安全操作码确认：</strong></td>
+            <td><input name="password2_" id="password2_" class="aqm_inp" type="password"></td>
+          </tr>
+          <tr>
+            <td align="right" height="40">&nbsp;</td>
+            <td><input class="aqm_szcg" type="submit"></td>
+          </tr>
+        </tbody>
+		</table>
+	</div>
+	</form>
+    
+<script type="text/javascript">
+function checkForm1() {
+    var password2=$('#password2').val();
+    if (password2.length<3){
+	alert('请输入安全操作码');
+	$('#password2').focus();
+	return false;
+	}else{
+	return true;
+	}
+}
+function checkForm2() {
+    var password2=$('#password2').val();
+	var password2_=$('#password2_').val();
+    if (password2.length<3){
+	alert('请输入安全操作码');
+	$('#password2').focus();
+	return false;
+	}
+	if (password2_!=password2){
+	alert('两次安全操作码输入不一致');
+	$('#password2_').focus();
+	return false;
+	}
+	return true;
+	
+}
+function showaqm(){
+    $('#aqm_bk').css({display:"block"});
+	$('#aqm_bk1').css({display:"none"});
+}
+$(document).ready(function(){
+    $('#password2').focus();
+});
+</script>
+</div>
+{sub ../footer}
