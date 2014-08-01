@@ -1,0 +1,538 @@
+{teval
+	
+	$cssList     = array(css::getUrl('task', 'task'));
+	echo string::getStaticCode(array('cssList'=>$cssList));
+}
+{sub ../header}
+{teval
+echo javascript::get_js('WdatePicker', 'index');
+}
+<link href="/images/jcalendar.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/images/jquery.js"></script>
+<script type="text/javascript" src="/images/common.js"></script>
+<script type="text/javascript" src="/images/service.js"></script>
+<script type="text/javascript" src="/images/artDialog.js"></script>
+<script type="text/javascript" src="/images/Common.js"></script>
+<script type="text/javascript" src="/images/CreateBatchMission.js"></script>
+<script type="text/javascript">
+var zgMax=20;
+var curMoney=1.00;
+var curG=1.00;
+var tuoguantask=false;
+var curExam={echo $memberFields[exam]?'true':'false'};
+var curExam={echo $memberFields[exam]?'true':'false'};
+var webqq = 239087160;
+var webnoticeurl = "";
+var webnoticetit = "";
+var basePriceDouble=1.5;
+var validDomains = new Array();
+validDomains[0]="http://meal.taobao.com/";
+validDomains[1]="http://detail.taobao.com/";
+validDomains[2]="http://item.beta.taobao.com/";
+validDomains[3]="http://item.taobao.com/";
+validDomains[4]="http://item.tmall.com/";
+validDomains[5]="http://item.lp.taobao.com/";
+validDomains[6]="http://kezhan.trip.taobao.com/";
+validDomains[7]="http://ju.taobao.com/";
+validDomains[8]="http://ershou.taobao.com/";
+validDomains[9]="http://detail.tmall.com/";
+validDomains[10]="http://wk.taobao.com/";
+validDomains[11]="http://wt.taobao.com/";
+validDomains[12]="http://bang.taobao.com/";
+validDomains[13]="http://zxn.taobao.com/";
+</script>
+<script type="text/javascript" src="/images/jcalendar.js"></script>
+<style type="text/css">
+.kd a:hover { text-decoration:underline;}
+.newsHelp{cursor: pointer;width: 999px; height: 87px; background: url(/images/hhbj.gif) repeat scroll 0px 0px ; margin: 10px 0;}
+.newsHelp a{float: left; width: 25px; background: url(/images/xcj.png) repeat scroll 0px 0px ; height: 25px; margin: 46px 0px 0px 172px;}
+</style>
+
+<style>
+.taskbutton { margin: 0px 0 20px 154px;}
+.taskadd { width:162px; height:45px; margin-top:0px;*margin-top:15px;background:url(/images/rwdt_05.jpg) no-repeat; overflow:hidden; line-height:200px; border:none;}
+.taskadd:hover { background:url(/images/rwdt_05.jpg)  0px -50px no-repeat;}
+</style>
+
+
+<style type="text/css">* html body{margin:0}.ui_title_icon,.ui_content,.ui_dialog_icon,.ui_btns span{display:inline-block;*zoom:1;*display:inline}.ui_dialog{text-align:left;display:none;position:absolute;top:0;left:-99999em;_overflow:hidden}.ui_dialog table{border:0;margin:0;border-collapse:collapse}.ui_dialog td{padding:0}.ui_title_icon{vertical-align:middle}.ui_title_text{overflow:hidden;cursor:default;-moz-user-select:none;user-select:none}.ui_close{display:block;position:absolute;outline:none}.ui_content_wrap{height:auto;text-align:center}.ui_content{margin:10px;text-align:left}.ui_dialog_icon{vertical-align:middle}.ui_content.ui_iframe{margin:0;*padding:0;display:block;height:100%}.ui_iframe iframe{width:100%;height:100%;border:none;overflow:auto}.ui_bottom{position:relative}.ui_resize{position:absolute;right:0;bottom:0;z-index:1;cursor:nw-resize;_font-size:0}.ui_btns{text-align:right;white-space:nowrap}.ui_btns span{margin:5px 10px}.ui_content em{font-weight:700;font-style:normal;color:#ff5500;}.ui_btns button{cursor:pointer}.ui_overlay{display:none;position:absolute;top:0;left:0;width:100%;height:100%;filter:alpha(opacity=0);opacity:0;_overflow:hidden}.ui_overlay div{height:100%}* html .ui_ie6_select_mask{width:99999em;height:99999em;position:absolute;top:0;left:0;z-index:-1}.ui_move .ui_title_text{cursor:move}html >body .ui_dialog_wrap.ui_fixed .ui_dialog{position:fixed}* html .ui_dialog_wrap.ui_fixed .ui_dialog{fixed:true}* html.ui_ie6_fixed{background:url(*) fixed}* html.ui_ie6_fixed body{height:100%}* html .ui_dialog_wrap.ui_fixed{width:100%;height:100%;position:absolute;left:expression(documentElement.scrollLeft+documentElement.clientWidth-this.offsetWidth);top:expression(documentElement.scrollTop+documentElement.clientHeight-this.offsetHeight)}html.ui_page_lock >body{overflow:hidden}* html.ui_page_lock{overflow:hidden}* html.ui_page_lock select,* html.ui_page_lock .ui_ie6_select_mask{visibility:hidden}html.ui_page_lock >body .ui_dialog_wrap.ui_lock{width:100%;height:100%;position:fixed;top:0;left:0}</style>
+<div id="content">
+		<div class="h15"></div>
+		<div class="fabu_box1">
+		    <div class="fabu_title"><span class="fabu_left"></span><span class="fabu_h2">发布任务须知（*号为必填项）</span><span class="fabu_right"></span></div>
+			<div class="cle"></div>
+			<div class="fabu_cont">
+			  <ul>
+				<li>马上好评任务：淘宝交易的物品为虚拟物品，买卖双方可以即时确认完成交易并付款。</li>
+				<li>24-72小时确认任务：淘宝交易的物品为实际存在的物品，可能包含运费和物流等，需要1－3天后方能确认收货并评价。</li>
+				<li>要尽量保证平台任务担保价大于 (淘宝商品价格+快递运费)/2 ，否则接手人拍下商品后您的淘宝改价将会导致您的支付宝使用率低于50%既被淘宝视为信用炒作处理；</li>
+				<li>您发任务时，平台中的保证金不得少于任务价，成功发布任务将会在平台中扣押相应的任务保证金；接手人完成您的任务时等额的资金会作为商品款返回给您网店的帐户中；</li>
+				<li>您想发布任务的时候，必须保证您拥有相应的麦点，每次发布都会根据商品价格不同扣除相应的麦点数。您如果想让任务排名靠前就可以追加麦点奖励，追加的越多排名就越靠前；</li>
+				<li class="chengse">请确认商品地址绝对正确，否则会造成不必要的纠纷。</li>
+				<li class="chengse">为了您的店铺安全，发布“实物任务”商品价格请大于10元！</li>
+			  </ul>
+			</div>
+		</div>
+		
+		<!--<div class="newsHelp">
+			<a href="tencent://message/?uin=188239031"></a>
+		</div>-->
+		
+		<a id="mao1"></a>
+		{sub tabtao}
+		<div class="cle"></div>
+		<form name="myForm" method="post" id="myForm" onsubmit="return checkForm();">
+		<div>$sys_hash_code2</div>
+		
+		<div class="fabu_box2">
+		   <ul class="cont">
+				<li>
+					<div class="name">
+					<span style="color:Red;"></span>
+					使用模板：
+					</div>
+					<div class="value">
+					<select id="ddlTemplate" name="fromTpl" style="width:190px;" onchange="getTpl(this);">
+					<option selected="selected" value="0">请选择模板</option>
+					{loop $tplList $v}
+		            <option value="$v[id]"{if $tplId==$v[id]} selected{/if}>$v[name]</option>
+					{/loop}
+					</select>
+					</div>
+					<div class="exp">
+					您可以选择从已经保存的任务模板中选择一个，发布任务将更加方便快捷。
+					<a target="_blank" href="{rewrite}/bbs/t1313/">查看使用帮助</a>
+					</div>
+				</li>
+				<li>
+					<div class="name">
+					<span style="color:Red;">*</span>
+					淘宝掌柜名：
+					</div>
+					<div class="value">
+					<select id="ddlZGAccount" name="nickname" style="width:190px;">
+					{loop $sellers $k $v}
+					<option selected="selected" value="$v[nickname]" {if $datas[nickname]==$v[nickname]} selected="selected"{/if}>$v[nickname]</option>
+					{/loop}
+					</select>
+					</div>
+					<div class="exp">就是您想提升信誉的淘宝帐号，接任务的朋友用来确认您的身份。</div>
+				</li>
+				<li>
+					<div class="name">
+					<span style="color:Red;">*</span>
+					任务类型：
+					</div>
+					<div class="value">
+					<select id="ddlMissionType" name="ddlMissionType">
+					<option selected="selected" value="1">单商品任务</option>
+					<option value="2">来路任务</option>
+					<option value="3">普通套餐任务</option>
+					<option value="4">来路套餐任务</option>
+					</select>
+					</div>
+					<div class="exp">
+					来路任务
+					<span>1</span>
+					麦点基础消耗；普通套餐任务
+					<span>4</span>
+					麦点基础消耗，来路套餐任务在此基础上再增加
+					<span>0.5</span>
+					麦点基础消耗。
+					</div>
+				</li>
+				<li class="limeal">
+					<div class="name"></div>
+					<div id="divtype" class="value">
+					<input id="rshop" checked="checked" name="wayId" value="1" type="radio">
+					搜店铺
+					<input id="rgoods" name="wayId" value="2" type="radio">
+					搜商品
+					</div>
+					<div class="exp">
+					需要额外支付1个麦点
+					</div>
+				</li>
+				<li class="limeal">
+					<div id="divkey" class="name">搜索店铺关键字</div>
+					<div class="value">
+					<input id="txtDes" class="txt"  value="$datas[visitKey_1]" style="width:182px;color:#f50;" maxlength="100" name="visitKey_1" type="text">
+					</div>
+					<div id="divkeytip" class="exp">请输入您的“店铺名称”或者“掌柜名称”，要确保接手人在淘宝店铺搜索中正确并且唯一能搜索到您的店铺。</div>
+				</li>
+				<li style="height:90px;" class="limeal">
+					<div id="divdes" class="name">店铺搜索提示</div>
+					<div class="value">
+					<textarea id="txtSearchDes" rows="3" style="width:188px" name="visitTip_1">$datas[visitTip_0]</textarea>
+					</div>
+					<div id="divdestip" class="exp">请输入提示信息，说明店铺在淘宝搜索结果列表中的位置，商品在店铺首页中的大概位置等等，例如：店铺在搜索结果第二个，商品在店铺首页第二排第一个</div>
+				</li>
+				<li>
+					<div class="name">
+					<span style="color:Red;">*</span>
+					商品链接地址：
+					</div>
+					<div class="value long">
+					<input id="txtGoodsUrl" class="txt" value="$datas[itemurl]" style="width:100%;" name="itemurl[]" type="text">
+					</div>
+					<div class="exp">填写您要对方购买的商品地址，尽量使用不同商品来发布任务。</div>
+				</li>
+				<li>
+					<div class="name">
+					<span style="color:Red;">*</span>
+					商品担保价格：
+					</div>
+					<div class="value">
+					<input id="txtPrice" class="txt" value="$datas[price]" style="width:152px;color:#f50;" name="price[]" type="text">
+					  <p style="padding-top:3px;"><input id="chssp" style="margin-left:-2px;+margin-left:-5px;" value="1" name="chssp" type="checkbox"> <span style="color:#999">打折类物品，取消商品价格限制
+					</span></p></div>
+					<div class="exp">
+					此价格为您发布的宝贝改价后包括邮费的总价，接手者购买商品时支付给您的价钱总和！此价格不能大于您在平台的保证金！您目前平台保证金为
+					<em>1.00</em>
+					元，
+					<a target="_blank" href="{rewrite}/member/topup/">我要充值</a>
+					</div>
+				</li>
+				<li>
+					<div class="name">是否需要改价：</div>
+					<div class="value">
+					<input id="cbxIsGJ" style="margin-left:-2px;+margin-left:-5px;" value="1" name="isPriceFit" type="checkbox">
+					<br>
+					<br>
+					</div>
+					<div class="exp">商品价格+邮费&gt;任务商品担保价格时，请勾选！改价不要超过商品价格的50%，支付宝使用率低于50%既被淘宝视为信用炒作处理。</div>
+				</li>
+				<li>
+					<div class="name">是否商保任务：</div>
+					<div class="value">
+					<input id="cbxIsSB" style="margin-left:-2px;+margin-left:-5px;" value="1" name="isEnsure" type="checkbox" {if $datas[isEnsure]} checked{/if}><input name="ensurePoint"  type="hidden" value="$ensurePoint">
+					<br>
+					<br>
+					</div>
+					<div class="exp">
+					要求接手方缴纳保证金后成为平台的商保用户才可以接手，需额外支付<em>0.3</em>个麦点给接手方，——
+					<a href="{rewrite}/member/ensure/" target="_blank">我要立即加入商保</a>
+					</div>
+				</li>
+				
+				<li>
+					<div class="name">基本麦点：</div>
+					<div class="value">
+					<input id="txtMinMPrice" name="point[]" class="txt" value="1" style="width:130px;color:#f50;background:#F0F0F0;" readonly="readonly" type="text">
+					  个麦点
+					</div>
+					<div class="exp">
+					发布该价格任务需要扣除的麦点，不包括增值服务.   
+					<a target="_blank" href="{rewrite}/bbs/t122/">查看商品的价格与最底消耗额的关系</a>
+				
+						
+					<br>
+					您目前还有麦点
+					<em>2.00</em>
+					个，
+					<a target="_blank" href="{rewrite}/BuyPoint/">我要购买</a>
+					</div>
+				</li>
+				<li><div class="name">追加悬赏麦点：</div>
+					<div class="value">
+					<input id="pointExt" class="txt" style="width:130px;color:#f50;" name="pointExt[]" type="text" value="$datas[pointExt]">
+					  个麦点
+					</div>
+					<div class="exp">
+					追加悬赏麦点数越多，更易被人接手，刷钻效率越高！  
+					</div>
+				</li>
+				<li>
+					<div class="name">
+					<span style="color:Red;">*</span>
+					要求确认时间：
+					</div>
+					<div class="value">
+					<select id="ddlOKDay" style="width:230px; height:20px;" name='times'>
+					<option value="0" selected="selected" >马上好评（虚拟任务）</option>
+					<option value="1">24小时好评实物任务(基本麦点×1.5+0)</option>
+					<option value="2">48小时好评实物任务(基本麦点×1.5+1)</option>
+					<option value="3">72小时好评实物任务(基本麦点×1.5+2)</option>
+					<option value="4">96小时好评实物任务(基本麦点×1.5+3)</option>
+					<option value="5">120小时好评实物任务(基本麦点×1.5+4)</option>
+					<option value="6">144小时好评实物任务(基本麦点×1.5+5)</option>
+					<option value="7">168小时好评实物任务(基本麦点×1.5+6)</option>
+					</select>
+					<p id="pOKDes">
+					</p>
+					<p style="padding-top:3px;"><input id="isNoword" value="1" name='times' type="checkbox"> <span style="color:#999">不带字好评</span></p>
+					</div>
+					<div class="exp">
+					24小时以上属于实物任务！平台强制接手方延迟收货！
+					<br>
+					马上好评则必须立刻发货，属于虚拟商品任务，如果强制要求对方延期，是会被投诉的。
+					</div>
+				</li>
+				<a id="mao2"></a>
+				<li class="add">
+				    <div class="name">增值服务：</div>
+					<div class="addvalue">
+					   <ul>
+					        <li>
+                                  <div class="name">留言提醒：</div>
+                                  <div class="value longest">
+                                    <table border="0" cellpadding="0" cellspacing="0">
+                                        <tbody><tr>
+                                            <td style="padding-left:0px;_padding-left:0px;margin:0px;" valign="top"><input id="cbxIsTip" name="cbxIsTip" value="1" type="checkbox"></td>
+                                            <td style="padding-left:15px;" valign="top">
+                                                <div id="divTip" style="display:none;margin-bottom:10px;">
+                                                    <div style="margin-bottom:2px;">
+                      	                                请拍商品 <input name="txtBuyCount" maxlength="3" id="txtBuyCount" class="txt" style="width:50px;" type="text"> 件
+                      	                                <input id="cbIsHiddenName" name="cbIsHiddenName" value="1" type="checkbox">请匿名购买
+                      	                                <input id="cbIsNoneAssess" name="cbIsNoneAssess" value="1" type="checkbox">请只收货等待默认好评
+                      	                            </div>
+                      	                            <div style="margin-bottom:2px;">
+                      	                                区服请填 <input name="txtAreaService" maxlength="21" id="txtAreaService" class="txt" style="width:150px;" type="text">&nbsp;&nbsp;
+                      	                                帐号请填 <input name="txtAccount" maxlength="21" id="txtAccount" class="txt" style="width:150px;" type="text">
+                      	                            </div>
+                      	                            <div style="margin-bottom:2px;">
+                      	                                手机请填 <input name="txtMobile" maxlength="21" id="txtMobile" class="txt" style="width:150px;" type="text">&nbsp;&nbsp;
+                      	                                选择规格 <input name="txtSpecs" maxlength="51" id="txtSpecs" class="txt" style="width:150px;" type="text">
+                      	                            </div>
+                      	                            <div style="margin-bottom:2px;">
+                      	                                动态评分
+                      	                                <select name="ddlPoints" id="ddlPoints" style="width:70px;">
+	<option value="0" selected="selected">请选择</option>
+	<option value="1">1 分</option>
+	<option value="2">2 分</option>
+	<option value="3">3 分</option>
+	<option value="4">4 分</option>
+	<option value="5">5 分</option>
+
+</select> 分，
+                      	                                物流选择
+<select name="ddlDeliver" id="ddlDeliver" style="width:70px;">
+	<option selected="selected" value="">请选择</option>
+	<option value="平邮">平邮</option>
+	<option value="快递">快递</option>
+	<option value="EMS">EMS</option>
+
+</select>
+                      	                            </div>
+                                                </div>
+                      	                        <div style="color:#999;padding-left:1px;">您可在此给接手方留言提醒。<em>留言提醒不能作为申诉理由，但总不理会留言的接手方客户酌情处罚，广告留言则重罚。</em><a target="_blank" href="{rewrite}/bbs/t431/">查看留言规范</a></div>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                  </div>
+                            </li>
+					        <li>
+									<div class="name">设置审核对象：</div>
+									<div class="value short">
+									<input id="cbxIsAudit"  name="isVerify" value="1"{if $datas[isVerify]} checked="checked"{/if} type="checkbox">
+									</div>
+									<div class="exp">
+									接手方接任务后，要您亲自审核后，接手方才可看到商品地址，对刷实物和规定旺旺聊天的商家很有用!可以事先QQ联系对方商量好。需要额外支付
+									<em>0.3</em>
+									个麦点给接手方
+									</div>
+							</li>
+							<li>
+									<div class="name">需要旺旺聊天：</div>
+									<div class="value short">
+									<input id="cbxIsWW" value="1" name="isChat"{if $datas[isChat]} checked="checked"{/if} type="checkbox">
+									</div>
+									<div class="exp">
+									要求接手方先在旺旺上聊几句，
+									<em>强烈建议开启审核先使用QQ约定好</em>
+									。需额外支付
+									<em>1</em>
+									个麦点给接手方
+									</div>
+							</li>
+							<li>
+                                  <div class="name">旺旺确认收货：</div>
+                                  <div class="value short"><input id="cbxIsLHS" value="1" name="isChatDone"{if $datas[isChatDone]} checked="checked"{/if} type="checkbox"></div>
+                                  <div class="exp">要求接手方收货前登录旺旺与卖家确认收到“货物/服务”同时声明对收到“货物/服务”满意以作为收货证据，需额外支付<em>0.5</em>个麦点给接手方</div>
+                            </li>
+                              <li>
+                                  <div class="name">规定好评内容：</div>
+                                  <div class="value long">
+                                  	<input id="cbxIsMsg" name="isRemark" value="1"{if $datas[isRemark]} checked="checked"{/if} type="checkbox">
+                                    <textarea name="remark" id="txtMessage" onclick="if(this.value.indexOf('此处填写您希望接手')>=0) this.value='';this.style.color='#333';" title="此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”请不要填写“请带字好评”等引导的文字">{if $datas}$datas[remark]{else}此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字{/if}</textarea>
+                                  </div>
+                                  <div class="exp">您可以规定接手方在淘宝交易好评时填写规定的内容。额外支付的<em>0.1</em>个麦点将奖励给接手方</div>
+                              </li>
+                              <li>
+                                  <div class="name">规定收货地址：</div>
+                                  <div class="value longest">
+                                    <table border="0" cellpadding="0" cellspacing="0">
+                                        <tbody><tr>
+                                            <td style="padding-left:0px;_padding-left:0px;margin:0px;" valign="top"><input id="cbxIsAddress" name="isAddress" value="1" type="checkbox" {if $datas[isAddress]} checked="checked"{/if} disabled="disabled"></td>
+                                            <td style="padding-left:15px;" valign="top">
+                                                <div id="cbxTip" style="display:none;margin-bottom:10px;">
+                                                    <div style="margin-bottom:2px;">
+                      	                                
+                      	                            </div>
+                      	                            <div style="margin-bottom:2px;">
+                      	                                姓名： <input name="cbxName" maxlength="8" id="cbxName" class="txt" style="width:150px;" type="text">&nbsp;&nbsp;
+														手机： <input name="cbxMobile" maxlength="11" id="cbxMobile" class="txt" style="width:150px;" type="text">
+                      	                            </div>
+                      	                            <div style="margin-bottom:5px;">
+                      	                                邮编： <input name="cbxcode" maxlength="6" id="cbxcode" class="txt" style="width:150px;" type="text">
+                      	                            </div>
+                      	                            <div style="margin-bottom:2px;">
+													 地址： <textarea name="cbxAddress" id="cbxAddress" style="margin-left:0px;" onclick="if(this.value.indexOf('此处填写您要求接手人')>=0) this.value='';this.style.color='#333';" title="此处填写您要求接手人的修改的收货地址，包含具体省、市、区及详细地址。">此处填写您要求接手人的修改的收货地址，包含具体省、市、区及详细地址，请不要填写“请带字好评”等引导的文字。</textarea>
+													</div>
+                                                </div>
+                      	                        <div style="color:#999;">您可以规定接手方在淘宝购买商品时填写您指定的收货地址。额外支付<em>0.1</em>个麦点将奖励给接手方</div>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                  </div>
+                              </li>
+							  <li>
+                                  <div class="name">好评需要截图：</div>
+                                  <div class="value short">
+                                  	<input id="pinimage" name="pinimage" value="1" type="checkbox">
+                                  </div>
+                                  <div class="exp">您可以规定接手方好评后，必须上传截图证明好评内容。额外支付的<em>0.2</em>个麦点将奖励给接手方</div>
+                              </li>
+							  <li>
+                                  <div class="name">购物分享：</div>
+                                  <div class="value short">
+                                  	<input id="isShare" name="isShare" value="1"{if $datas[isShare]} checked="checked"{/if} type="checkbox">
+                                  </div>
+                                  <div class="exp">淘宝购物分享，分享内容同好评内容，额外支付<em>0.2</em>个麦点将奖励给接手方</div>
+                              </li>
+                              
+                              <li>
+                                  <div class="name">过滤接手人：</div>
+                                  <div class="value longest">
+                                   <div id="divFilter" style="margin-bottom:10px;"><div><label><input  value="1"{if $datas[isScore]} checked="checked"{/if} id="cbxIsFMinGrade" name="isScore" type="checkbox"></label><label class="labelstyle" style="width:160px;margin-left:10px;">接手人积分不低于</label><label class="labelstyle" style="width:50px"><input name="scoreLvl" value="10"{if !$datas || $datas[scoreLvl]==10} checked='checked'{/if} type="radio">10</label><label class="labelstyle" style="width:50px"><input name="scoreLvl" value="30"{if !$datas || $datas[scoreLvl]==30} checked='checked'{/if} type="radio">30</label><label class="labelstyle" style="width:50px"><input name="scoreLvl" value="50"{if !$datas || $datas[scoreLvl]==50} checked='checked'{/if} type="radio">50</label><label class="labelstyle" style="width:50px"><input name="scoreLvl" value="100"{if !$datas || $datas[scoreLvl]==100} checked='checked'{/if} type="radio">100</label></div>
+<div><label><input value="1"{if $datas[isBlack]} checked="checked"{/if} id="cbxIsFMaxBBC" name="isBlack" type="checkbox"></label><label class="labelstyle" style="width:160px;margin-left:10px;">接手买号被拉黑次数不大于</label><label class="labelstyle" style="width:50px"><input name="blackLvl" value="5"{if $datas[blackLvl]==5} checked='checked'{/if} type="radio">5</label><label class="labelstyle" style="width:50px"><input  name="blackLvl" value="10"{if $datas[blackLvl]==10} checked='checked'{/if} type="radio">10</label><label class="labelstyle" style="width:50px"><input  name="blackLvl" value="15" {if $datas[blackLvl]==15} checked='checked'{/if} type="radio">15</label></div>
+<div><label><input value="1"{if $datas[isGood]} checked="checked"{/if} id="cbxIsFMaxABC"  name="isGood"  type="checkbox"></label><label class="labelstyle" style="width:160px;margin-left:10px;">接手人刷客满意度不低于</label><label class="labelstyle" style="width:50px"><input name="goodLvl" value="98" {if $datas[goodLvl]==98} checked='checked'{/if} type="radio">98%</label><label class="labelstyle" style="width:50px"><input name="goodLvl" value="95" {if $datas[goodLvl]==95} checked='checked'{/if} type="radio">95%</label><label class="labelstyle" style="width:50px"><input name="goodLvl" value="90" {if $datas[goodLvl]==90} checked='checked'{/if} type="radio">90%</label></div>
+<div><label><input value="1"{if $datas[isFame]} checked="checked"{/if} id="cbxIsFMaxCredit" name="isFame" type="checkbox"></label><label class="labelstyle" style="width:160px;margin-left:10px;">接手买号信誉不高于</label><label class="labelstyle" style="width:50px"><input name="fameLvl" value="10"{if !$datas || $datas[fameLvl]==10} checked='checked'{/if} type="radio">10</label><label class="labelstyle" style="width:50px"><input name="fameLvl" value="150"{if !$datas || $datas[fameLvl]==150} checked='checked'{/if} type="radio">150</label><label class="labelstyle" style="width:50px"><input name="fameLvl" value="200"{if !$datas || $datas[fameLvl]==200} checked='checked'{/if} type="radio">200</label></div>
+<div><label><input value="1"{if $datas[isBlack]} checked="checked"{/if} id="cbxIsFMaxBTSCount" name="isBlack" type="checkbox"></label><label class="labelstyle" style="width:160px;margin-left:10px;">接手人被有效投诉次数不大于</label><label class="labelstyle" style="width:50px"><input name="blackLvl" value="2"{if $datas[blackLvl]==2} checked='checked'{/if} type="radio">2</label><label class="labelstyle" style="width:50px"><input name="blackLvl" value="3"{if $datas[blackLvl]==3} checked='checked'{/if} type="radio">3</label><label class="labelstyle" style="width:50px"><input name="blackLvl" value="4"{if $datas[blackLvl]==4} checked='checked'{/if} type="radio">4</label></div>
+</div>
+                                   
+          	                        <div style="color:#999;">您可以设置接手人的最低资质要求，系统将自动为您过滤掉不合格的接手人。每条任务需额外支付<em>0.5</em>个麦点给接手方。 <a target="_blank" href="{rewrite}/bbs/t1314/">如何设置筛选条件</a></div>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="name">限制接手人：</div>
+                                  <div class="value longest">
+                                    <div id="divFMCount" style="margin-bottom:5px;"><div><label><input value="1"{if $datas[isLimit]} checked="checked"{/if} id="cbxIsFMaxMCount" name="isLimit" type="checkbox"></label> <input name="limit" value="1"{if !$datas || $datas[limit]==1} checked="checked"{/if} id="fmaxmc_1"price="0.5" type="radio"> 1天接1个(<em>0.5</em>个麦点)<input name="limit" value="2"{if !$datas || $datas[limit]==2} checked="checked"{/if} id="limit_2" price="0.2" id="fmaxmc_2" type="radio"> 1天接2个(<em>0.2</em>个麦点)<input name="limit" value="1"{if !$datas || $datas[limit]==1} checked="checked"{/if} id="limit_2" id="fmaxmc_3" type="radio"> 1周接1个(<em>1</em>个麦点)</div></div>
+                                    <div class="exp">您可以设置接手人在1天或一周内接手您发布任务的次数，需额外支付麦点</div>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="name">买号实名认证：</div>
+                                  <div class="value longest">
+                                    <div id="divBaLevel" style="margin-bottom:5px;"><input id="isReal" value="1" name="isReal" type="checkbox">
+<input name="realname" value="1" id="isReal_1" type="radio"><label for="isReal_1">
+普通实名(<em>0.5</em>个麦点)
+</label></div>
+                                   
+                                    <div class="exp">限制接手买号必须是通过了支付宝实名认证才可以接手此任务</div>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="name">淘金币：</div>
+                                  <div class="value longest">
+                                    <input id="cbxIsTaoG" value="1" name="cbxIsTaoG" type="checkbox">
+                                    <input name="txtTaoG" maxlength="3" id="txtTaoG" class="txt" style="width:40px;" type="text">
+                                    必须为10的倍数，最大不超过300，每10个淘金币需支付<em>0.1</em>个麦点给接手方
+                                  </div>
+                                  <div class="exp"></div>
+                              </li>
+							  <li>
+                                  <div class="name">快递单号任务：</div>
+                                  <div class="value longest"><input name="isawb" id="isawb" value="1" type="checkbox"> 
+                                    <label><input id="expressName" name="expressName" value="shunfeng" type="radio"> 顺风(<em>3</em>元)</label>　　 　 不了解的用户请勿选择；<a href="{rewrite}/bbs/t3917/" target="_blank">了解详情</a>
+                                  </div>
+                                  <div class="exp"></div>
+                              </li>
+							 <li>
+                                  <div class="name">真实签收任务：</div>
+                                  <div class="value longest"><input name="isSign" id="isSign" value="1" type="checkbox"> 
+                                    <label><input name="Express" id="Express_1" value="1" type="radio"> 全国(<em>1.5</em>个麦点)</label>　　<label><input name="Express" value="2" cid="0" id="Express_2" type="radio"> 同省[](<em>2</em>个麦点)</label> 　 不了解的用户请勿选择；<a href="{rewrite}/bbs/t1685/" target="_blank">了解详情</a>
+                                  </div>
+                                  <div class="exp"></div>
+                              </li>
+							  <li>
+                                  <div class="name">指定接手地区：</div>
+                                  <div class="value longest">
+								  <div style="margin-bottom:10px;">
+								  <input id="isLimitCity" title="勾上才启用 Tips:如果你只想指定某个省份接手，只需要选择省份即可，不需要选择市；也可以具体指定到某个省某个市接手" value="1" name="isLimitCity" type="checkbox">
+								  <script type="text/javascript" src="/images/city2.js"></script>
+								  <input name="isMultiple" onclick="ChangeMultiple()" id="isMultiple" value="1" type="checkbox">
+								  多选省份
+								  </div>
+								  <div style="color:#999;">例如你指定北京和上海用户才可以接手，这样可避免重复用户交易，需额外支付<font color="red">0.5</font>个发布点</div>
+								  </div>
+							</li>
+                              <li>
+                                  <div class="name" style="padding-top:5px\9;+padding-top:10px;">任务发布时间：</div>
+                                    <div class="value longest">
+                                        <div style="margin-bottom:3px;">
+                                            <input id="cbxIsSetTime1" name="cbxIsSetTime1" value="1" type="checkbox"> <span style="color:#000">定时发布(1)</span>此任务将于
+                                            <input name="txtSetTime" id="txtSetTime" class="txt" style="width:70px;color:#f50;" value="0" maxlength="3" type="text">分钟后显示在大厅
+                                        </div>
+                                        <div>
+                                            <input id="cbxIsSetTime2" value="1" name="cbxIsSetTime2" type="checkbox"> <span style="color:#000">定时发布(2)</span>此任务将于
+                                            <input name="txtdelaydate" id="txtdelaydate" class="txt" style="width:90px;" readonly="readonly" value="2013-10-10" type="text">日
+                                            <input name="txtdelayhh" id="txtdelayhh" class="txt" style="width:20px;" value="12" maxlength="2" type="text">时
+                                            <input name="txtdelaymm" id="txtdelaymm" class="txt" style="width:20px;" value="21" maxlength="2" type="text">分 显示在大厅
+                                        </div>
+                                        <p>定时发布需额外支付<em>0.1</em>个麦点给接者</p> 
+                                        <p>(设置延迟发布后，不论您是否在线，都会显示在任务大厅，请保持您的联系方式畅通，长时间不响应会被接手方投诉的)</p>
+                                  </div>
+                              </li>
+							  <li>
+                                  <div class="name"> 保存任务模版：</div>
+                                  <div class="value longest">
+                                    <input id="isTpl" value="1" name="isTpl" type="checkbox"> <span style="color:#000">模版名称</span>
+                                    <input name="tplTo" id="tplTo" class="txt" maxlength="50" type="text"><br>
+                                    实现快捷方便的发布任务,普通用户最多可保存3个任务发布模板，VIP可拥有30个任务发布模板 <a target="_blank" href="{rewrite}/vip.html">查看VIP特权</a>
+                                  </div>
+                                  <div class="exp"></div>
+                              </li>
+                          </ul>
+						  
+                      </div>
+                  </li>
+				  <li>
+                      <div class="name"><span style="color:Red;">*</span>发布数量：</div>
+                      <div class="value"><input name="txtFCount" id="txtFCount" style="width:70px;color:#f50;" value="2" class="txt" maxlength="5" type="text">&nbsp;&nbsp;个</div>
+                      <div class="exp">设置您要批量发布的任务数量，最少2个，最多20个</div>
+                  </li>
+                  <li>
+                      <div class="name"><span style="color:Red;">*</span>发布间隔：</div>
+                      <div class="value"><input name="txtFTime" id="txtFTime" class="txt" style="width:70px;color:#f50;" value="30" maxlength="6" type="text">&nbsp;&nbsp;秒</div>
+                      <div class="exp">发布批量任务间隔秒数，如30表示每隔30秒钟发布一个任务到大厅。最小间隔30秒</div>
+                  </li>
+				       </ul>
+						  <p class="taskbutton"><input style="cursor: pointer;" name="btnSave" id="btnCilentAdd" class="taskadd" value="立即发布" type="submit"></p>
+		 <input style="display:none" id="btnAdd" type="submit"></div></form></div>
+
+	
+<div class="cle"></div>
+
+{sub ../footer}
+
+
+<div id="" class="ui_dialog_wrap"><div style="" class="ui_dialog"><table class=""><tbody><tr><td class="ui_border r0d0"></td><td class="ui_border r0d1"></td><td class="ui_border r0d2"></td></tr><tr><td class="ui_border r1d0"></td><td><table class="ui_dialog_main"><tbody><tr><td class="ui_title_wrap"><div class="ui_title"><div class="ui_title_text"></div><a href="javascript:void(0)" class="ui_close">×</a></div></td></tr><tr><td style="width: auto; height: auto;" class="ui_content_wrap"><div id="" class="ui_content "></div></td></tr><tr><td class="ui_bottom_wrap"><div class="ui_bottom"><div class="ui_btns"></div><div class="ui_resize"></div></div></td></tr></tbody></table></td><td class="ui_border r1d2"></td></tr><tr><td class="ui_border r2d0"></td><td class="ui_border r2d1"></td><td class="ui_border r2d2"></td></tr></tbody></table></div></div>
+
+<script type="text/javascript">
+function getTpl(obj) {
+    if (obj.value == '0')
+        return ;
+    var url = '/task/tao/?m=CreateMealMission&tplId=' + obj.value;
+    window.location.href = url;
+}
+</script>	
+
+<script type="text/javascript">
+var webnoticeurl = "";
+var webnoticetit = "";
+var quick_qq = '<a target="_blank" href="http://wp.qq.com/wpa/qunwpa?idkey=0fa4d251b350d03b020586387709ac11b8f101a2b60eaf80b4d6a93cb9fbe8fc"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="大麦户网商平台30群" title="大麦户网商平台30群"></a>';
+$('.web_qq').hover(function(){
+    $('.quick_qq').show();
+});
+</script>

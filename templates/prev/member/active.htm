@@ -1,0 +1,141 @@
+{teval
+	$title       = '短信认证 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = addcslashes(common::replaceVars($title), '\'\\');
+	$keywords    = addcslashes(common::replaceVars($keywords), '\'\\');
+	$description = addcslashes(common::replaceVars($description), '\'\\');
+}
+{sub ../header}
+<DIV id="content">
+{sub menu}
+<DIV class="right">
+{if $type == 'complate'}
+<DIV class="dxyz_cg">
+<P class="dxyz_seller" onclick="javascript:location.href='/task/tao/?m=add'">&nbsp;</P>
+<P class="dxyz_buyer" onclick="javascript:location.href='/task/tao/'">&nbsp;</P></DIV>
+ {else}
+
+  {if $indexShowMessage}<div class='msg_panel'><div>$indexShowMessage</div></div>{/if}
+  {if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+    <DIV class="mh_tishi"> 为了保障任务安全，请先通过手机验证，亲。 还可获得 <STRONG class="chengse2">1 </STRONG>麦点哦！</DIV>
+    <form name="myForm" method="post" id="myForm" onsubmit="return checkSms();">
+		<div>$sys_hash_code2</div>
+      <TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+        <TBODY>
+          <TR>
+            <TD class="dxyz_tb" rowSpan="2" width="15%">&nbsp;</TD>
+            <TD height="45" width="14%">
+			<DIV align="right">手机号码：</DIV></TD>
+            <TD width="25%">
+			<INPUT id="mobilephone" class="xginfo_bk" name="mobilephone" maxLength="13" value="$member[mobilephone]" type="text"></TD>
+            <TD>
+			<INPUT id="getvcode" class="dxyz_fs" onclick="SendSmsActivation($msg_vcode_time);" type="button">
+			</TD>
+          </TR>
+          <TR>
+            <TD height="45">
+			<DIV align="right">验证码：</DIV></TD>
+            <TD>
+			<input name="vcode" type="text" class="xginfo_bk" id="vcode" maxlength="6" />
+            <input type="hidden" name="vid" id="vid" value="$sendLog[id]" />
+			</TD>
+            <TD>&nbsp;</TD>
+          </TR>
+          <TR>
+            <TD height="25">&nbsp;</TD>
+            <TD>&nbsp;</TD>
+            <TD><SPAN id="SendTimes"></SPAN></TD>
+            <TD>&nbsp;</TD>
+          </TR>
+          <TR>
+            <TD height="45">&nbsp;</TD>
+            <TD>&nbsp;</TD>
+            <TD><input name="btnSubmit" type="submit" class="dxyz_qr" id="btnSubmit2" value="确认并激活" /></TD>
+            <TD>&nbsp;</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+    </FORM>
+{/if}
+</DIV>
+<SCRIPT type="text/javascript">
+var checkSms=function(){
+	var mobilephone = $('#mobilephone').val();
+	var vcode       = $('#vcode').val();
+	var error       = true;
+	var error_html;
+	if (mobilephone && vcode) {
+		if (/^1(?:(?:3[0-9])|(?:5[0-35-9])|(?:4[0-35-9])|(?:8[0-35-9]))\d{8}$/i.test(mobilephone)){
+		error=false;
+		}
+		else {
+			error_html='手机号码格式不正确\n';
+		}
+		if (/^[A-Za-z0-9]+$/i.test(vcode)){ 
+		    error=false;
+		}
+		else {
+			error_html='验证码格式不正确';
+		}
+	}else
+	{
+	error_html='手机号码与短信验证码不能为空'
+	}
+	   if(!error && !error_html){
+			return true;
+		} else{
+		 alert(error_html);
+		 return false;
+		}
+}
+var checkform=function(){
+	if (checkSms()) return true;
+	return false;
+}
+function SendSmsActivation(time){
+var time;
+var hash     =$("input[name=hash2]").val();
+var mobilephone=$("input[name=mobilephone]").val();
+$("#getvcode").attr({disabled: true});
+$.ajax({
+	url: '/ajax/SendSmsVcode.php',
+	data: 'hash2='+hash+'&mobilephone='+mobilephone,
+	type: "POST",
+	cache: false,
+	dataType:"text",
+	success: function(data){
+		if(!isNaN(data)){
+		alert('发送成功');
+		$("#SendTimes").html('('+time+')秒后可重新发送');
+		if(time==0){
+		$("#getvcode").attr({disabled: false});
+		$("#SendTimes").html('');
+		}else{
+		time--;
+		setTimeout("smstimeout(" + time + ")",1000);
+		}
+		}else{
+		alert(data);
+		$("#getvcode").attr({disabled: false});
+		}
+	}
+});
+}
+function smstimeout(time){
+var time;
+$("#getvcode").attr({disabled: true});
+$("#SendTimes").html('('+time+')秒后可重新发送');
+if(time==0){
+$("#getvcode").attr({disabled: false});
+$("#SendTimes").html('');
+}else{
+time--;
+setTimeout("smstimeout(" + time + ")",1000);
+}
+}
+</SCRIPT>
+  </DIV>
+  <DIV class="cle"></DIV>
+  <DIV class="cle"></DIV>
+{sub ../footer}

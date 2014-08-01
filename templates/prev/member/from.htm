@@ -1,0 +1,59 @@
+{teval
+	//$title       = '来路调查 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{sub ../header}
+<DIV id="content">
+	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+	{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+  <form name="myForm" method="post" id="myForm" onsubmit="return checkForm();">
+	<div>$sys_hash_code2</div>
+    <DIV style="padding-top: 0px;" class="aqm_bk">
+      <P style="height: 25px; color: rgb(2, 117, 176); padding-top: 5px; font-size: 15px; font-weight: bold;">大麦户小调查</P>
+      <TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+        <TBODY>
+          <TR>
+            <TD style="font-size: 13px;" height="40" align="left">
+			<STRONG>您是通过哪里来到大麦户平台的？</STRONG></TD>
+          </TR>
+		  {sql select * from {$pre}from_cate order by sort}
+          <TR>
+		   <td><input name="fromId" type="radio" id="fromId$k" value="$v[id]"{if $k==0} checked="checked"{/if} />
+            <label for="fromId$k">$v[name]</label>{if $v[input]}
+			　　$v[inputName]
+            <input type="text" name="remark" id="remark" maxlength="64" />
+			{/if}</td>
+           
+          </TR>
+		  {/sql}
+          <TR>
+            <TD><INPUT class="aqm_szcg2" name="btnSave"id="btnSave" value="提交查询内容" type="submit"></TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+    </DIV>
+  </FORM>
+</DIV>
+<SCRIPT type="text/javascript">
+function checkForm() {
+    var searcha=$("input:radio[name=searcha]:checked").val();
+	if (searcha>=1){
+	return true;
+	}else{
+	alert('请选择一个选项进行提交');
+	return false;
+	}
+}
+</SCRIPT>
+<script type="text/javascript">
+function checkForm() {
+	return true;
+}
+</script>
+{sub ../footer}

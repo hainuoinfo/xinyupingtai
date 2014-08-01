@@ -1,0 +1,134 @@
+{teval
+	$title       = '考试 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{sub ../header}
+ <div id="content">
+  <div class="ks-clear">
+        <div class="col-main">
+      <div class="main-wrap ks-clear" style="width:940px; margin:0 auto; padding-bottom:20px;padding-top:5px;">
+            <p>您现在的位置：<a href="{rewrite}/member/">首页</a> &gt; <a href="{rewrite}/member/exam/">考试</a></p>
+			{if $memberFields[exam]}
+			<div id="divsuccess" style="">
+          <div class="succee">
+                <p>恭喜您！您的调查问卷已经完成，此时您可以<a href="{rewrite}/task/new/?m=add">发布任务</a> <a href="{rewrite}/task/tao/">接手任务</a>发布任务注意事项：</p>
+                <ul>
+              <li>设置审核对象：<span>请关注<a href="{rewrite}/task/new/?m=taskOut">“已发任务”</a>中任务是否被接手</span></li>
+              <li>保持联系畅通：<span>请随时登录好QQ，刷友正在四处找您</span></li>
+              <li>规定好评内容：<span>注意任务规定的好评内容和收货地址</span></li>
+              <li>设定发布时间：<span>发布的任务最好是不改价不审核的</span></li>
+            </ul>
+                <div class="clear">&nbsp;</div>
+              </div>
+          <div class="cont" style="padding-left:130px;"> <a class="button_all" href="{rewrite}/task/tao/?m=add">立即去发布任务</a> <a class="button_all" href="{rewrite}/task/tao/">立即接手任务</a> <a class="button_all" href="{rewrite}/member/">进入我的后台管理</a> </div>
+        </div>
+		{else}
+            <div class="kaoshi-left" id="kaoshi-left">
+			
+             <div id="examnum">
+                <div class="kaoshi-sub">
+			
+              <ul>
+                                    	<li {if $errCount==12} class="kaoshi-sub-current" {else} class=""index="1" {/if}>一题</li>
+										<li {if $errCount==11} class="kaoshi-sub-current" {else} class=""index="2" {/if}>二题</li>
+										<li {if $errCount==10} class="kaoshi-sub-current" {else} class=""index="3" {/if}>三题</li>
+										<li {if $errCount==9} class="kaoshi-sub-current" {else} class=""index="4" {/if}>四题</li>
+										<li {if $errCount==8} class="kaoshi-sub-current" {else} class=""index="5" {/if}>五题</li>
+										<li {if $errCount==7} class="kaoshi-sub-current" {else} class=""index="6" {/if}>六题</li>
+										<li {if $errCount==6} class="kaoshi-sub-current" {else} class=""index="7" {/if}>七题</li>
+										<li {if $errCount==5} class="kaoshi-sub-current" {else} class=""index="8" {/if}>八题</li>
+										<li {if $errCount==4} class="kaoshi-sub-current" {else} class=""index="9" {/if}>九题</li>
+										<li {if $errCount==3} class="kaoshi-sub-current" {else} class=""index="10" {/if}>十题</li>
+										<li {if $errCount==2} class="kaoshi-sub-current" {else} class=""index="11" {/if}>十一题</li>
+										<li {if $errCount==0} class="kaoshi-sub-current" {else} class=""index="12" {/if}>十二题</li>
+                                    	
+               </ul>
+			  
+              </div>
+			   	{eval $i=0;}
+				{loop $questions $k $v}
+				{eval $i++;}
+				<form name="myForm" method="post" id="myForm" onsubmit="return checkForm();">
+					<div>$sys_hash_code</div>	
+					
+                <div id="exam{$i}" {if $k==$errCount}  style="" {else} style="display: none;" {/if}>
+              <p class="kaoshi-tishi">加油！回答完这个问题您还有<b>{$errCount}</b>题就可以完成<b>调查问卷</b>了</p>
+              <div class="kaoshi-timu">
+			  <INPUT id="type" name="type" value="$k" type="hidden">
+                    <p style="margin-bottom:10px;">$v[title]</p>
+                    {eval $j=0;}
+                    {loop $v['list'] $k2 $v2}
+                <p> {if $v[multi]}
+                  <input type='checkbox' name='ques_{$v[id]}[]' id='ques_$v[id]_$j' value='$j' />
+                  {else}
+                  <input type='radio' name='ques_$v[id]' id='ques_$v[id]_$j' value='$j' />
+                  {/if}
+                 <b>{echo chr(65+$j)}</b>&nbsp;
+                  <label for="ques_$v[id]_$j">$v2 </label>
+                </p>
+                    {eval $j++;}
+                    {/loop}
+                    <p class="kaoshi-next">
+					<input type="image" name="btnSave" value="提交数据" src="/images/kaoshi-next.jpg" />
+					 </p>
+                  </div>
+			  
+				
+              <div class="kaoshi-xiaotishi">
+                    <h3>答案小提示：</h3>
+                    <p> 注意平台问题字母提示 </p>
+              </div>
+            </div>
+			</form>
+			{/loop}
+              </div>
+        </div>
+		
+            <div class="kaoshi-right">
+          <div class="kaoshi-user">
+                <div class="kaoshi-user-top">
+              <h4>会员信息</h4>
+            </div>
+                <div class="kaoshi-user-cen">
+              <p style="font-size:14px; border-bottom:#c8e0a0 1px solid;">欢迎来{$web_name},<b>$member[truename]</b></p>
+              <p>您当前拥有: </p>
+              <p>平台存款：<b>$memberFields[money]</b> 元</p>
+              <p>平台麦点：<b>{echo $memberFields[fabudian]} </b> 个</p>
+              <p>平台积分：<b>$memberFields[credits]</b>个</p>
+              <p>属于：<b>{if $memberFields[shuake]==1}职业刷客{elseif $memberFields[vip]==1 || $memberFields[vip2]==1 || $memberFields[vip3]==1}{$vip}{else}{$credits}{/if}</b></p>
+              <p style="border-top:#c8e0a0 1px solid; padding-top:10px; margin-top:10px;"> <a href="{rewrite}/task/tao/" style="background:url(/images/kaoshi-icon2.jpg) no-repeat left; padding-left:18px;">接任务赚存款</a> <a href="{rewrite}/member/topup/" style="background:url(/images/kaoshi-icon3.jpg) no-repeat left; padding-left:18px;">直接购买存款</a> </p>
+              <p><a href="{rewrite}/member/">操作更多</a> <a href="{rewrite}/member/"><b>进入后台</b></a> <a href="{rewrite}/member/logout/"><b>退出登录</b></a></p>
+            </div>
+              </div>
+          <p style="margin-top:15px;"><a href="{rewrite}/bbs/t626/"><img src="/images/kaoshi-ad.jpg"></a></p>
+        </div>
+		{/if}
+          </div>
+    </div>
+      </div>
+</div>
+    <DIV class="cle"></DIV>
+    <DIV class="cle"></DIV>
+
+<script type="text/javascript">
+function checkForm() {
+	var rn = true;
+	$('#myForm radio').each(function(){
+		if($(this).find('input[name*=ques_]:checked').length==0){
+			rn = false;
+			return false;
+		}
+	});
+	if (!rn){
+		alert('您还有题目没有回答哦，请仔细检查一下^_^');
+	}
+	return rn;
+}
+</script>
+{sub ../footer} 

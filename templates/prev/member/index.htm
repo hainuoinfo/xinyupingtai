@@ -1,0 +1,191 @@
+{teval
+	$title       = '我的个人中心 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description));
+}
+{subtemplate ../header}
+<SCRIPT type="text/javascript" src="/css/jq.js"></SCRIPT>
+<DIV class="wrap">
+<DIV class="main">
+        <!-- 左边栏 -->
+	<DIV class="left2">
+        {sub menu}
+	</DIV>	
+        <!-- 中栏 -->
+        <DIV class="mid">
+      <DIV class="top_gr">
+            <DIV class="portrait">
+          <DIV class="portrait_img"> <IMG class="touxiang" src="$memberFields[avatar]" width="100" height="100"></DIV>
+          <SPAN>{if $memberFields[shuake]==1}职业刷客{elseif $memberFields[vip]==1 || $memberFields[vip]==2 || $memberFields[vip]==3}{$vip}{else}{$credits}{/if}</SPAN></DIV>
+            <DIV class="content">
+          <UL>
+                <LI class="content_name"><a href="http://damaihu.tertw.net/member/info/?username=$member[username]">$member[truename]</a></LI>
+                <LI class="content_li1"><SPAN class="imgico"></SPAN>存款: <FONT style="color: rgb(250, 92, 18);">$memberFields[money]</FONT>元 <A style="margin-left: 45px;" href="{rewrite}/member/topup/">充值</A> <A href="{rewrite}/member/payment/?m=bank">提现</A> <A href="{rewrite}/member/PayDetails/?type=1">明细</A> </LI>
+                <LI class="content_li2"><SPAN class="imgico"> </SPAN>麦点: <FONT style="color: rgb(250, 92, 18);">$memberFields[fabudian]</FONT>个 <A style="margin-left: 45px;" href="{rewrite}/member/BuyPoint/">购买麦点</A></LI>
+                <LI class="content_li3"><SPAN class="imgico"></SPAN>本次登录：{ip $ipint}   <A style="margin-left: 45px;" href="{rewrite}/member/credit/">查看信誉</A></LI>
+                <LI class="content_li4">
+              <DIV class="progress">
+                    <DIV class="jindutiao"><SPAN>
+					{if $memberFields[credits]==0}
+					<I>0</I>/<I>100</I>
+					{elseif $memberFields[credits]< 100 }
+					<I>$memberFields[credits]</I>/<I>100</I>
+					{elseif $memberFields[credits]< 1000 }
+					<I>$memberFields[credits]</I>/<I>1000</I>
+					{elseif $memberFields[credits]< 5000 }
+					<I>$memberFields[credits]</I>/<I>5000</I>
+					{elseif $memberFields[credits]< 10000 }
+					<I>$memberFields[credits]</I>/<I>10000</I>
+					{elseif $memberFields[credits]< 100000 }
+					<I>$memberFields[credits]</I>/<I>100000</I>
+					{/if}
+					</SPAN></DIV>
+                  </DIV>
+              <DIV class="switch"> <FONT class="dv">异地登陆</FONT> 
+			  {if $memberFields[state]==0} 
+			  <A href="{rewrite}/member/?cation={$stype}"> 
+			  <SPAN style="background-position: -51px -55px;" class="imgico dv_sp1" title="异地登陆限制关闭"></SPAN></A>
+			  {elseif $memberFields[state]==1} 
+			  <A href="{rewrite}/member/?cation={$stype}"> 
+			  <SPAN class="imgico dv_sp1" title="异地登陆限制开启"></SPAN></A>
+			  {/if}
+			  </DIV>
+            </LI>
+                <UL>
+            </UL>
+              </UL>
+        </DIV>
+          </DIV>
+      <DIV class="center_gr">
+            <DIV class="tweer" {if $member[status]} type="1" {else} type="0"{/if}>
+			<A href="{rewrite}/member/active/">
+			<DIV id="icotwe" class="imgico tweer_1"></DIV></A> 
+			<FONT class="imgico tweer_f1"></FONT> <SPAN>送1个麦点</SPAN> </DIV>
+            <DIV class="tweer" {if $memberFields[exam]} type="1" {else} type="0"{/if}> 
+			<A href="{rewrite}/member/exam/">
+			<DIV id="icotwe" class="imgico tweer_2"></DIV></A> 
+			<FONT class="imgico tweer_f2"></FONT><SPAN>送1个麦点</SPAN></DIV>
+            <DIV class="tweer" {if $isFrom} type="1" {else} type="0"{/if}>
+			<A href="{rewrite}/member/from/">
+            <DIV id="icotwe" class="imgico tweer_3"></DIV></A> 
+			<FONT class="imgico tweer_f3"></FONT><SPAN>送1个麦点</SPAN></DIV>
+          </DIV>
+    </DIV>
+        <!-- 中右栏 -->
+        <DIV class="right_gr"><A class="rw" href="{rewrite}/task/tao/?m=taskIn">
+          <DIV class="right_gr_top">
+          <DIV class="right_gr_icon">
+              <DIV class="imgico renwu">
+              <DIV class="imgico renwu_icon"><SPAN>0</SPAN></DIV>
+            </DIV>
+              <DIV class="imgico handle"></DIV>
+            </DIV>
+        </DIV>
+          </A><A class="ss" href="{rewrite}/member/complain/">
+<!--这里会出现一个超链接被取消的问题取消原因与可处理任务数目有关相关js为jq.js -->
+          <DIV class="right_gr_bottom">
+            <DIV class="right_gr_icon">
+              <DIV class="imgico shensu">
+                <DIV class="imgico shensu_icon"><SPAN>0</SPAN></DIV>
+              </DIV>
+              <DIV class="imgico appeal"></DIV>
+            </DIV>
+          </DIV>
+          </A></DIV>
+        <!-- 公共 -->
+        <DIV class="gonggao">
+      <DIV class="imgico ico"></DIV>
+	               {loop $list $thread}
+					<a href="{rewrite}/bbs/t$thread[id]/" target="_blank" title="$thread[title]">{cutstr $thread[title],15}</a>
+					{/loop}
+      </DIV>
+        <!-- 申请/加入 -->
+        <DIV class="add">
+      <DIV class=" business">
+            <DIV class="add_bw">
+          <DIV class="imgico business_1"> </DIV>
+          <DIV class="imgico business_2"> </DIV>
+          <A class="imgico" href="{rewrite}/member/ensure/"></A></DIV>
+          </DIV>
+      <DIV class="career1">
+            <DIV class="add_bw">
+          <DIV class="imgico career1_1"> </DIV>
+          <DIV class="imgico career1_2"> </DIV>
+          <A class="imgico" href="{rewrite}/member/ShuaKe/"></A></DIV>
+          </DIV>
+      <DIV class="career2">
+            <DIV class="add_bw">
+          <DIV class="imgico career2_1"> </DIV>
+          <DIV class="imgico career2_2"> </DIV>
+          <A class="imgico" href="{rewrite}/member/vip/"></A></DIV>
+          </DIV>
+    </DIV>
+        <!-- 我的动态 -->
+    <DIV class="trends">
+      <DIV class="imgico trends_img"> </DIV>
+	    {loop $task_list $v}
+		<p>发布任务$v[id],我付出了$v[point] 麦点, {date $v[stimestamp]}</p> 		
+	    {/loop}
+    </DIV>
+        <!-- 帮助 -->
+    <DIV class="help">
+      <DIV class="help_head">
+            <DIV class="imgico help_head_img"></DIV>
+            <DIV class="help_head_text"><SPAN class="bangzu_link"> 
+			<A href="{rewrite}/help/taskout/" target="_blank">卖家帮助</A> 
+			<A href="{rewrite}/help/taskin/" target="_blank">买家帮助</A> 
+			<A href="{rewrite}/help/text/" target="_blank">常见问题</A></SPAN></DIV>
+      </DIV>
+      <A class="zhuanshi" href="{rewrite}/help/taskout/" target="_blank"></A> 
+	  <A class="yongjin" href="{rewrite}/help/taskin/" target="_blank"></A>
+      <P class="shushuo"> <SPAN class="zhuanshi_text"></SPAN> <SPAN class="yongjin_text"></SPAN>
+       <P></P>
+    </DIV>
+</DIV>
+</DIV>
+{if $firstOpen}
+<SCRIPT>
+		if($memberFields[credits]<=5000){
+			$.dialog({
+				title: false,
+				content: "<img width=520 height=162 src='/images/fangpian.png' style='color: Red; position: absolute; top: -45px; left: 6px;'>",
+				fixed: true,
+				lock: true,
+				cancelValue: '关闭',
+				cancel: function () { return true;}
+			});
+			$('.d-titleBar').empty();
+			$('.d-main').height('105');
+			$('.d-buttons').prepend("<a style='float: left; color: rgb(58, 110, 165);' href='/bbs/t1247/'>查看防盗锦囊</a>亲，平台充值是没有活动的，更不会要求备注活动编码。");
+			
+			$.cookie('fangpian_cookie', '1', { expires: 1 });
+		}
+		
+var speed = 15;//滚动速度
+var rows = 28;//每行高度
+var stim = 80; //停留时间倍数 * speed
+var stop = 0; //初始化值，不管
+demo2.innerHTML = demo1.innerHTML
+function Marquee(){
+    if(demo.scrollTop%rows==0 && stop<=stim){
+      stop++;
+      return;
+    }
+    stop = 0;
+    if(demo2.offsetTop-demo.scrollTop<=0)
+      demo.scrollTop-=demo1.offsetHeight
+    else{
+      demo.scrollTop++
+    }
+}
+var MyMar    = setInterval(Marquee,speed)
+demo.onmouseover = function() {clearInterval(MyMar)}
+demo.onmouseout = function() {MyMar=setInterval(Marquee,speed)}		
+</SCRIPT>
+{/if}
+<DIV class="cle"></DIV>
+{subtemplate ../footer} 

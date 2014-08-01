@@ -1,0 +1,51 @@
+{sub h}
+{if $tab=='index'}
+	{if $method=='index'}
+	{adminList
+		删？    |id     |del
+		排序    |sort   |sort
+		分类名称|name
+		商品总数|total1
+		过期数量|total2
+		剩余数量|total3
+				|id     |link,edit=编辑;link,view=进入该分类
+	}
+	{elseif $method=='add' || $method=='edit'}
+	{adminForm
+		分类名,null=请输入商品分类名称|name|text|240|32
+	}
+	{/if}
+{elseif $tab=='sub'}
+	{if $method=='index'}
+	{adminList
+		删？    |id      |del
+		商品名  |name
+		描述    |des
+		内容    |content
+		数量    |count
+		价格    |price
+		发布时间|timestamp1|flag,date
+		过期时间|timestamp2|code,{if $v[timestamp2]}{date $v[timestamp2]}{else}永久有效{/if}
+		状态    |status    |code,{if $v[status]==1}已经售完{elseif $v[status]==2}已过期{else}销售中{/if}
+		        |id        |link,edit=编辑
+	}
+	{elseif $method=='add' || $method=='edit'}
+{css_select jquery_ui}
+{js_select jquery_ui}
+	{adminForm
+		商品名称,null=请输入商品名称 |name   |text|240|64
+		商品描述,null=请输入商品描述 |des    |textarea
+		商品内容,null=请输入商品内容 |content|textarea
+		数量                         |count  |code,<input type="text" name="count" id="count" value="{echo $count?$count:1}" maxlength="5" class="txt" style="width:120px" preg="number=请输入商品数量" />
+		商品价格,money=请输入商品价格|price  |text|120
+		过期时间                     |expire_datetime|code,<input type="text" name="expire_datetime" id="expire_datetime" value="$expire_datetime" readonly="true" class="txt" style="width:120px" />
+		
+	}
+<script language="javascript">
+$(function(){
+	$('#expire_datetime').datepicker({dateFormat: 'yy-mm-dd', appendText: '为空表示不限制'});
+});
+</script>
+	{/if}
+{/if}
+{sub f}

@@ -1,0 +1,2 @@
+<h3>尊敬的<span class='f_orange'> $member[truename]</span>{if $member[sex]==1}先生{elseif $member[sex]==2}女士{/if}，欢迎您！</h3>
+					<h4>VIP：{if $isVip}是{else}否{/if} , 卡信托：{if $isVip2}是{else}否{/if} ， 积分：<span class='f_b_org'>$memberFields[credits]</span> <img src='$memberLevel[icon]' alt='当前积分等级' /> ， <img src='{$weburl2}images/ico/ico_gold_2.gif' alt='' /> 存款余额：<span class='f_b_org'>$memberFields[money]</span>元，<img src="{$weburl2}images/ico/ico_gold_3.gif" /> 流量发布点：<span class="f_b_org">$memberFields[liuliang]</span>个</h4>

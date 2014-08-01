@@ -1,0 +1,17 @@
+{subtemplate h}
+{if $method=='index'}
+{adminList
+	删？  |id|del
+	变量名|key
+	变量值|val
+	备注|remark 
+	|id|link,edit=编辑 
+}
+{elseif $method=='add' || $method=='edit'}
+{adminForm
+	变量名,null=请输入变量名|f_key|text|128|32
+	变量值,null=请输入变量值|f_val|textarea
+	备注,null=请输入变量说明|f_remark|text|128|32
+}
+{/if}
+{subtemplate f}

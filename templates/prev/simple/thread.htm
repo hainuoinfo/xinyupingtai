@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>$title</title>
+<meta name="description" content="$description" />
+<meta name="keywords" content="$keywords" />
+<style type="text/css">
+body{font-family:Verdana;margin:20px;font-size:12px;}
+div{padding:8px;border:1px solid #EEEEEE;margin-top:10px;}
+.author {background-color:#EEEEFF; padding: 6px; border-top: 1px #ddddee solid}
+</style>
+</head>
+<body vlink="#333333" link="#333333">
+<h2>$web_title - 文章</h2>
+<div id="nav"><a href="$weburl"><strong>$web_name</strong></a> &raquo; <a href="{rewrite}/simple/$forum[ename]/">$forum[name]</a> &raquo; $thread[title]</div>
+<div id="content">
+	<h3>$thread[title]</h3>
+	{loop $postList $post}
+	<p class="author">$post[username] 发表于 {date $post[timestamp]}</p>
+	<p>$post[message]</p>
+	{/loop}
+	<div id="page">页：$multipage </div>
+</div>
+<div id="footer">查看完整版本：<strong><a href="{rewrite}/bbs/t$thread[id]/" target="_blank">$thread[title]</a></strong></div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>文件上传</title>
+    <style>
+        body{
+            padding:5px;
+            margin:0px;
+            font-size:12px;
+            background:#EEEEEE
+        }
+        .box{
+            width:100%;
+        }
+        .box .up{
+            width:400px;
+            margin:auto;
+        }
+        .up input{
+            height:25px;
+            line-height:20px;
+        }
+        .up #filedata{
+            width:300px;
+        }
+    </style>
+    <script>
+        function upload()
+        {
+            callback($rs);
+        }
+        function closewindow()
+        {
+            unloadme();
+        }
+        var $=function(id){return document.getElementById(id);}
+        var checkSuffix=function(){
+            var path = $('filedata').value;
+            if (path) {
+                if (/\.(jpg|jpeg|gif|png)$/i.test(path)) return true;
+                else {
+                    alert('图片格式不正确，只能上传jpg,jpeg,gif,png格式的图片');
+                    return false;
+                }
+            }
+            $('filedata').focus();
+            return false;
+        }
+        var checkForm=function(){
+            if (checkSuffix()) return true;
+            return false;
+        }
+        {if $showMessage}
+            alert('$showMessage');
+            {/if}
+    </script>
+</head>
+<body>
+{if $task[status]<8}
+	<span style="color: red;font-size: 14px;font-weight:bold;"> 亲，你太着急了，本任务还未进行到截图上传步骤，请核对本任务的进度后再进行此操作！ </span><br/>
+{/if}
+{if $uid==$task[buid]}<span style="color: red;">请注意如果卖家选择了好评截图和分享截图两个上传项目，在你点击确认时会看到本页面两次，一次是用来上传好评截图，一次是用来上传分享截图，在下方都会明确提示你当前需要上传的项目名称，由于你无法对上传后的截图进行修改，所以请务必按照下方的提示进行上传。</span><br />{/if}
+{if $task[ispinimage]}需要上传好评截图！
+{if $uid==$task[suid] && !$task[pinimage]}<span style="color: red;">买家 还未上传好评截图！</span>{/if}
+{if $task[pinimage]}<span style="color: red;">好评图已上传</span>{/if}
+<br />
+{/if}
+{if $task[isShare]}需要上传分享截图！
+{if $uid==$task[suid] && !$task[shareimage]}<span style="color: red;">买家 还未上传分享截图！</span>{/if}
+{if $task[shareimage]}<span style="color: red;">分享图已上传</span>{/if}
+<br />
+{/if}
+{if $task[buid]==$uid && $imageType!='imagexxx'}<!--/* 只有买家才能够看到上传界面 */-->
+<div class="box">
+<h1>
+    {if $imageType=='pinimage'}上传好评截图{/if}
+    {if $imageType=='shareimage'}上传分享截图{/if}
+</h1>
+    <div class="up">
+        <form method="post" enctype="multipart/form-data" onsubmit="return checkForm()">
+            $sys_hash_code2
+            <input type="file" name="filedata" id="filedata" onchange="checkSuffix()" />
+            <input  type="hidden" name="imageType" value="$imageType"/>
+            <input type="submit" value="上传" />
+        </form>
+    </div>
+</div>
+{/if}
+{if $task[pinimage]}<div ><h6>好评图</h6><img src="$task['pinimage']" width="100px" onclick="window.open('$task[pinimage]')"/></div>{/if}
+{if $task[shareimage]}<div ><h6>分享图</h6><img src="$task['shareimage']" width="100px" onclick="window.open('$task[shareimage]')"/></div>{/if}
+</body>
+</html>

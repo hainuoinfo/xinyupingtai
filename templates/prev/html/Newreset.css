@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* ####设定字符编码############# */@charset "gb2312";
+/* #############样式重置文件，勿动################# */
+/* 基础元素margin和padding清零 */body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+	margin: 0;
+	padding: 0;
+}
+fieldset, img {
+	border: 0;
+}
+address, caption, cite, code, dfn, em, th, var, optgroup {
+	font-style: normal;
+	font-weight: normal;
+}
+/* 标题元素重置 */h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-weight: normal;
+}
+abbr, acronym {
+	border: 0;
+	font-variant: normal;
+}
+/* 表单元素重置 */input, button, textarea, select, optgroup, option {
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+}
+input, button, textarea, select {
+*font-size: 100%;
+}
+/* 列表元素重置 */ol, ul {
+	list-style: none;
+}
+/* 表格元素重置，html中仍需在table标签中使用cellspacing="0"来获得更完美的重置效果 */table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+caption, th {
+	text-align: left;
+}
+sup, sub {
+	font-size: 100%;
+	vertical-align: baseline;
+}
+/* 为了可用性和照顾特殊需求的用户群，这些伪类伪元素需要另外定义样式 */:link, :visited, ins {
+	text-decoration: none;
+}
+:focus {
+	outline: 0;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+li {
+	list-style: none;
+}

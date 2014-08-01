@@ -1,0 +1,18 @@
+{subtemplate h}
+{if $method == 'index'}
+{adminList
+	删？      |id  |del
+	权重      |sort|sort
+	用户组名称|name
+	用户组标记|key
+	用户数    |users
+	          |id  |link,edit=编辑
+}
+{elseif $method=='add' || $method=='edit'}
+{adminForm
+	注意：添加后就不要随便删掉|tip
+	用户组名称,null=请输入用户组名称|f_name|text|240|32
+	用户组标记,null=请输入用户组标记|f_key|text|240|32
+}
+{/if}
+{subtemplate f}

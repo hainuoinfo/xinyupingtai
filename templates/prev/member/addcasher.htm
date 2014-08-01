@@ -1,0 +1,21 @@
+{teval
+	$title       = '请登录 - {webName} -中国最好的免费刷信誉,互刷信誉平台';
+	$keywords    = '您还尚未登录{webName}刷信誉平台，请登录，登录后网站将为你提供最好的淘宝刷信誉服务、淘宝刷钻功能，同时还可以享受淘宝刷收藏，淘宝刷流量等互刷平台的专业服务';
+	$description = '刷信誉,刷信用,互刷信誉平台,刷收藏,刷流量,{webName2}';
+	$title       = addcslashes(common::replaceVars($title), '\'\\');
+	$keywords    = addcslashes(common::replaceVars($keywords), '\'\\');
+	$description = addcslashes(common::replaceVars($description), '\'\\');
+	echo '
+<?php $title=\''.$title.'\';$keywords=\''.$keywords.'\';$description=\''.$description.'\';?>
+';
+}
+{subtemplate ../headerBase}
+<DIV id="content"> 
+	{sub menu}
+<DIV  class="right">
+{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+		{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+	</div>	
+</div>
+	<div class="cle"></div>
+{subtemplate ../footer}

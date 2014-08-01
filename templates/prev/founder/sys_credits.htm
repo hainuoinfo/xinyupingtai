@@ -1,0 +1,45 @@
+{sub h}
+{if $method=='index'}
+<script language="javascript">
+var add = function(){
+	$('#tbList').append('<tr class="hover"><td></td><td><input type="text" name="credit[]" class="txt" style="width:60px" /></td><td><input type="text" name="icon[]" class="txt" style="width:240px" /></td><td><input type="text" name="title[]" class="txt" /></td><td><a href="javascript:" onclick="$(this).parent().parent().remove()">移除</a></td></tr>');
+};
+</script>
+<form method="post" enctype="application/x-www-form-urlencoded">
+$sys_hash_code
+	<table class="tb tb2 fixpadding">
+		<tr>
+			<th colspan="5" class="partition">技巧提示</th>
+		</tr>
+		<tr>
+			<td colspan="5" class="tipsblock"><ul id="tipslis">
+					<li>最小积分为进入该等级的最小积分</li>
+				</ul></td>
+		</tr>
+		
+		<tr class="header">
+			<th>等级</th>
+			<th>最小积分</th>
+			<th>图标</th>
+			<th>名称</th>
+			<th>&nbsp;</th>
+		</tr>
+		{loop $levels $k $v}
+		<tr class="hover">
+			<td>{++ $k}</td>
+			<td><input type="text" name="credit[]" class="txt" value="$v[credit]" style="width:60px" /></td>
+			<td><input type="text" name="icon[]" class="txt" value="$v[icon]" style="width:240px" />{if $v[icon]}<img src="$v[icon]" />{/if}</td>
+			<td><input type="text" name="title[]" class="txt" value="$v[title]" /></td><td><a href="javascript:" onclick="$(this).parent().parent().remove()">移除</a></td>
+		</tr>
+		{/loop}
+		<tbody id="tbList">
+			
+		</tbody>
+		<tr>
+			<td><a href="javascript:;" onclick="add()">添加一个等级</a></td>
+			<td colspan="4"><input type="submit" value="提交" class="btn" /></td>
+		</tr>
+	</table>
+</form>
+{/if}
+{sub f}

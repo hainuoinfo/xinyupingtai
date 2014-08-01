@@ -1,0 +1,98 @@
+{teval
+	$cssList     = array(css::getUrl('bbs', 'bbs'));
+	echo string::getStaticCode(array('cssList'=>$cssList));
+}
+{sub ../header}
+<div id="content">
+			<div class="luntan_top">
+			 <p class="lthd_wz">当前位置：
+			 <a href="{rewrite}/" class="comlink">首页</a> &gt; 
+			 <a href="{rewrite}/bbs/" class="comlink">有问必答</a> &gt; 
+			 <a href="{rewrite}/bbs/" class="comlink"> 	</a></p>
+			  <a href="{rewrite}/bbs/post.php?fid=$forum[id]" class="luntan_ft" style="float:right;margin-left:15px;"></a>
+			 <form action="/bbs/search.php" method="get" name="bbs-search">
+			  <table style="float:right;" border="0" cellpadding="0" cellspacing="0" height="37" width="365">
+                  <tbody><tr>
+                    <td align="right"><input name="keyword" class="luntan_inp" type="text"></td>
+                    <td width="50"><input class="luntan_btn" type="submit"></td>
+                  </tr>
+              </tbody></table>
+			 </form>
+			</div>
+			<div class="lthd_bk">
+			    <div class="lthd_tit">$forum[name]</div>
+				<form method="post" action="/?action=bbs&amp;operation=moderate" name="moderate">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  
+				  <tbody>
+				  <tr>
+                    <td class="lthd_tit2 lthd_pad1" height="32">主题</td>
+                    <td class="lthd_tit2" align="center" valign="middle" width="12%">所在板块</td>
+                    <td class="lthd_tit2" align="center" valign="middle" width="12%">回复/查看</td>
+                    <td class="lthd_tit2" align="center" valign="middle" width="15%">最后发表</td>
+                  </tr>
+				  
+				  
+				  {loop $threadListTop $k $thread}
+                  <tr>
+                    <td class="lthd_pad lthd_xx" height="40">
+					{if $thread[top]}
+							<span class="ltlook_ico2"></span>
+							{else}
+							{if $thread[iconid]}{eval $icon=bbs_thread::getIcon($thread[iconid]);}<span class="ltlook_ico3"></span>{else}&nbsp;{/if}
+							{/if}
+							
+							{if $isAdmin || bbs_thread::isThreadAuthor($thread[id], $uid)}
+							{eval $oModerator = true;}
+							<input type="checkbox" name="moderate[]" value="$thread[id]" onclick="tmodclick(this)" />
+							{/if} 
+							{if $thread[digest]}<span class="ltlook_ico1"></span>{/if}
+					
+					<a href="{rewrite}/bbs/t$thread[id]/" class="comlink" style="font-weight:bold; color:#FF0000;">{cutstr $thread[title],20}</a></td>
+                    <td class="lthd_xx" align="center" valign="middle"> <a href="#">$forum[name]</a></td>
+                    <td class="lthd_xx" align="center" valign="middle"><span class="lanse">$thread[posts]</span> / <span class="hongse">$thread[clicks]</span></td>
+                    <td class="lthd_xx" style="line-height:18px;" align="center" valign="middle"><a href="{rewrite}/member/info/?username={url $thread[last_post_username]}" target="_blank" class="comlink">$thread[last_post_username]</a><br>
+                    <p style="color:#999;font-size:11px;">{date $thread[timestamp]}</p></td>
+                  </tr>
+				 {/loop}
+				 
+				 
+				 {loop $threadList $k $thread}
+                  <tr>
+                    <td class="lthd_pad lthd_xx" height="40"> 
+					{if $thread[top]}
+							<span class="ltlook_ico2"></span>
+							{else}
+							{if $thread[iconid]}{eval $icon=bbs_thread::getIcon($thread[iconid]);}<span class="ltlook_ico3"></span>{else}&nbsp;{/if}
+							{/if}
+							
+							{if $isAdmin || bbs_thread::isThreadAuthor($thread[id], $uid)}
+							{eval $oModerator = true;}
+							<input type="checkbox" name="moderate[]" value="$thread[id]" onclick="tmodclick(this)" />
+							{/if} 
+							{if $thread[digest]}<span class="ltlook_ico1"></span>{/if}
+					
+					
+					
+					<a href="{rewrite}/bbs/t$thread[id]/" class="comlink">$thread[title]</a></td>
+                    <td class="lthd_xx" align="center" valign="middle"> <a href="#">$forum[name]</a></td>
+                    <td class="lthd_xx" align="center" valign="middle"><span class="lanse">$thread[posts]</span> / <span class="hongse">$thread[clicks]</span></td>
+                    <td class="lthd_xx" style="line-height:18px;" align="center" valign="middle"><a href="{rewrite}/member/info/?username={url $thread[last_post_username]}" target="_blank" class="comlink">$thread[last_post_username]</a><br>
+                    <p style="color:#999;font-size:11px;">{date $thread[timestamp]}</p></td>
+                  </tr>
+				 {/loop}
+                  
+				 
+              </tbody>
+			</table>
+				<div id="page" style="padding:5px 0 30px; line-height:30px;">$multipage
+				</div>
+				<div class="cle"></div>
+		  	</form></div>
+			
+			
+		  <div class="cle"></div>
+
+</div>
+<div class="cle"></div>
+{sub ../footer}

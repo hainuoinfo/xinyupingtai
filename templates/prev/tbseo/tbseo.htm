@@ -1,0 +1,105 @@
+{teval
+	$title       = '淘宝网店SEO--{webName}';
+	$keywords    = '{webName2}';
+	$description = '{webName}';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('index', 'index'));
+	$jsList      = array(javascript::getUrl('silde', 'index'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList, 'jsList'=>$jsList));
+}
+{subtemplate ../header}
+<SCRIPT type="text/javascript" src="/css/service.js"></SCRIPT>
+<LINK rel="stylesheet" type="text/css" href="/css/shua.css">
+<script language="JavaScript" type="text/javascript">
+function firm()
+{
+    if(confirm("暂时缺货，稍后再试！"))
+    {
+         document.seoform.submit();
+     }
+    else
+    {
+     }
+}
+
+</script>
+<SCRIPT>
+$(function(){
+	$(".menu-item .menu-hd").hover(function(){
+		$(this).next('#menu-0').show();
+		$(this).children('b').css({borderColor:'#666666 white white',transform:'rotate(180deg',transformOrigin:'50% 30% 0px'});
+		$(this).parents(".menu-item").css({background:'rgb(255, 255, 255)',border:'1px solid rgb(191, 191, 191)'})
+	});
+	$(".menu-item .menu").mouseleave(function(){
+		$(this).children('#menu-0').hide();
+		$(this).children('.menu-hd').children('b').css({borderColor:'#666666 #EFF6FE #EFF6FE',transform:'none',transformOrigin:'none'});
+		$(this).parent(".menu-item").css({background:'none',border:'1px solid #EFF6FE'})
+	}); 
+})
+</SCRIPT>
+<DIV id="content">
+<DIV class="xuanchuan-content">
+	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+	{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+<DIV class="xuanchuan-top">日均成交量：10笔以下&nbsp;&nbsp;&nbsp;&nbsp;适合店铺类型：不限&nbsp;&nbsp;&nbsp;&nbsp;适合商家雇员数量：1-3&nbsp;&nbsp;&nbsp;&nbsp;适合店铺行业：不限 
+   </DIV>
+<DIV>
+<FORM onSubmit="return false;" method="post" name="form">
+$sys_hash_code2
+<INPUT name="seo" value="1" type="hidden">
+<INPUT name="seomoney" value="198" type="hidden">
+</FORM>
+<IMG style="cursor: pointer;" onClick="firm();" src="/images/xuanchuan-2.jpg"></DIV>
+<DIV class="xuanchuan-tab"><A href="{rewrite}/Dm/tbseo/">服务详情</A><A 
+href="{rewrite}/Dm/Case/">成功案例</A><A href="{rewrite}/bbs/" 
+target="_blank">SE0论坛</A><A href="http://wpa.qq.com/msgrd?v=3&amp;uin=1020130386&amp;site=qq&amp;menu=yes" 
+target="_blank"><FONT color="#000000">讲师QQ：<IMG title="点击这里给我发消息" border="0" 
+alt="点击这里给我发消息" src="/images/button_old_40.gif">1020130386   
+请猛击我吧~</FONT></A></DIV>
+<DIV class="xuanchuan-zhuti">
+<DIV class="xuanchuan-neirong">
+<DIV class="xuanchuan-n-part">
+<H2><SPAN>淘宝优化</SPAN> | The first point</H2>
+<P>淘宝优化是指通过对淘宝店铺各方面进行优化设置，达到店铺商品关键词 
+排名靠前、商品曝光率和点击率增加来提高店铺流量，同时提高进店顾客的购物体验，进而提高商品转化率。</P></DIV>
+<DIV class="xuanchuan-n-part">
+<H2><SPAN>影响淘宝排名的几大因素</SPAN> | The Two point</H2>
+<P>在这里我们为大家详细解读淘宝宝贝排名规则，根据规则来优化我们的宝贝。<BR>影响排名的因素有：<BR>宝贝标题包含关键词<BR>宝贝属性完整正确<BR>
+宝贝上架时间<BR>宝贝厨窗推荐<BR>宝贝加入消保<BR>店铺信誉<BR>设置宝贝促销</P></DIV>
+<DIV class="xuanchuan-n-part">
+<H2><SPAN>你还在为流量苦恼没有生意吗</SPAN> | The Three point</H2>
+<P>你还在为宝贝人气苦恼没有生意吗<BR>你还在为如何提高销量而苦恼吗<BR>你还在为宝贝降权而苦恼吗<BR>
+在这里我们为大家详细解读淘宝宝贝排名规则，根据规则来优化我们的宝贝。<BR>一对一指导 实践指导用户店铺。<BR></P></DIV></DIV></DIV>
+<DIV class="xuanchuan-id-part">
+<DIV class="xuanchuan-id-tit">大部分网店存在的问题</DIV>
+<P style="text-align: center;"><IMG src="/images/xuanchuan-6.jpg"></P></DIV>
+<DIV class="xuanchuan-id-part">
+<DIV class="xuanchuan-id-tit">参加培训可以为你带来什么</DIV>
+<P style="text-align: center;"><IMG src="/images/xuanchuan-7.jpg"></P></DIV>
+<DIV class="xuanchuan-id-part">
+<DIV class="xuanchuan-id-tit">选择我们的理由</DIV>
+<P style="text-align: center;"><IMG src="/images/xuanchuan-8.jpg"></P></DIV>
+<DIV class="xuanchuan-id-part">
+<DIV class="xuanchuan-id-tit">常见问题</DIV>
+<DIV class="xuanchuan-wenda">
+<P style="color: rgb(231, 105, 0);">小飞：我们中小卖家真的能通过淘宝培训获得成功吗？</P>
+<P>解答：淘宝已经不是之前的农贸市场了，不是你开个店放那就可以有生意的，也有很多中小卖家努力了很久没有成效，或者进步很慢，这个都是普遍现象，不过我们分析原因可以知道，他们大多都是自己埋头研究，自己去摸爬滚打。而我们淘宝培训班就像是一艘开往淘宝成功大道的邮轮，搭载上这班顺风的船绝对是会让你走捷径。</P>
+<P>&nbsp;</P>
+<P style="color: rgb(231, 105, 0);">小飞：那你的培训主要适合哪一类的人？</P>
+<P>解答：1.淘宝新手，对淘宝的很多基本规则不了解的。<BR>2.懂一点点淘宝但是又一直没有生意的朋友<BR>3.懂淘宝，但是还是很迷茫，一直没有什么销量。<BR>4.处在淘宝的瓶颈期。想再让流量和销量进一步提高。
+</P>
+<P>&nbsp;</P>
+<P style="color: rgb(231, 105, 0);">小飞：这是否难学？肯定能学会吗？</P>
+<P>解答：我们从淘宝基础的讲起，每周还是专门的答疑课程，专门解答各位学员遇到的各种问题，我们讲课都会以案例分析的形式给大家举例说明我们所教授的方法和技巧，我只能说，你可以参加免费试听，或者接受3天试学，来判断一下这个对自己的难度。同时，我们提供了学不会无限复训。</P>
+<P>&nbsp;</P>
+<P style="color: rgb(231, 105, 0);">小飞：成为学员如何学习？</P>
+<P>解答：成为学员后，我们的学习和培新包含多种方式：每周都有YY语音课，QQ群交流，论坛学习，私人咨询。<BR>
+QQ群交流气氛浓厚，有任何问题都可以再群里得到解答。认真学习论坛的知识可以让你对淘宝推广优化有一个非常了解清晰的概念。有任何的疑问可以联系我们客服。</P>
+<P>&nbsp;</P>
+<P style="color: rgb(231, 105, 0);">小飞：现在淘宝上开店的人那么多，学习淘宝推广优化有用吗?</P>
+<P>解答：现在虽然淘宝卖家非常的多，但是懂得用淘宝优化店铺获得免费流量的人很少很少，很多新手卖家都没有淘宝优化这个概念。根据统计，到现在为止，800万的淘宝卖家，还不到0.1%的人能掌握这优化技巧！我们论坛很多VIP学员参加培训后只简单的优化一下标题类目和宝贝属性就可以获得非常明显的效果，流量一下子翻好几倍。</P>
+<P>&nbsp;</P></DIV></DIV></DIV></DIV>
+<DIV class="cle"></DIV>
+{subtemplate ../footer} 

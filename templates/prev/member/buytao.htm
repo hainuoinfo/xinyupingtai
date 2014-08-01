@@ -1,0 +1,148 @@
+{teval
+	$title       = '绑定买号- {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{sub ../header}
+<script language="javascript">
+$(function(){
+	$('#btnQuery').click(function(){
+		var oid=$('#oid').val();
+		var type=$('#type').val();
+		var url = type?'type='+type:'';
+		if (oid) {
+			if (url) url+='&';
+			url+='oid='+oid;
+		}
+		if (url) url = '?'+url
+		location.href='$baseUrl'+url;
+	});
+})
+</script>
+<DIV id="content">
+{sub menu}
+  <DIV class="right">
+{if $indexMessage}<div class='error_panel'><div>$indexMessage<script >alert('$indexMessage');</script></div></div>{/if}
+    <DIV class="mh_tishi">1、该页面主要用来绑定和维护用来接任务，购买任务商品的淘宝买号； <A class="chengse" href="{rewrite}/member/buytao/#">什么是买号？</A><BR>
+      2、根据淘宝的最新安全策略，所有买号都要求必须是完整填写个人信息后才能进行绑定；为了您的买号与任务发布方网店安全请您先将买号信息完善； <A class="chengse" href="{rewrite}/member/buytao/#">如何更安全的使用买号?</A><BR>
+      3、注册的淘宝买号请不要使用同一个开头，后面跟一串排号的数字，这种买号很容易被淘宝封(类似短命的买号就是 
+      shua001，shua002，shua003......） <BR>
+      4、一个买号一天只可以接手6个任务，接手高于6个任务，系统将挂起买号，第二天才进行继续接手任务<BR>
+    </DIV>
+    <DIV class="bq_menu">
+	<A class="nov" href="{rewrite}/member/buytao/">绑定淘宝买号</A><A href="{rewrite}/member/buypai/">绑定拍拍买号</A></DIV>
+    <TABLE style="font-size: 14px; margin-top: 20px;" border="0" cellSpacing="0" cellPadding="0" width="95%" align="center">
+      <TBODY>
+        <TR>
+          <TD height="30" vAlign="middle" width="20%" align="left"><SPAN class="mh_taobao"></SPAN></TD>
+        </TR>
+      <FORM id="myForm" onSubmit="return checkForm();" method="post" name="myForm">
+        <div>$sys_hash_code2</div>
+        <TR>
+          <TD height="40" vAlign="middle" width="20%" align="left"><TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+              <TBODY>
+                <TR>
+                  <TD width="160">淘宝买家帐号：</TD>
+                  <TD width="310"><INPUT id="nickname" class="mh_bk" name="nickname" 
+            type="text"></TD>
+                  <TD>&nbsp;</TD>
+                </TR>
+              </TBODY>
+            </TABLE></TD>
+        </TR>
+        <TR>
+          <TD height="60" vAlign="middle" align="left"><INPUT class="mh_bdbtn" value="提交查询内容" type="submit"></TD>
+        </TR>
+      </FORM>
+      <TR>
+        <TD class="mh_xian" height="40" vAlign="middle" width="20%" 
+      align="left">您目前是普通会员用户，可以绑定12个买号！ <A class="chengse2" href="{rewrite}/member/buytao/#">申请VIP</A>最高可绑定100个买号！ <A class="lanse" 
+  href="{rewrite}/member/buytao/#">查看VIP限权</A></TD>
+      </TR>
+      </TBODY>
+    </TABLE>
+    <FORM id="pxform" method="post" name="pxform">
+      <INPUT name="px" value="1" type="hidden">
+      <div>$sys_hash_code2</div>
+      <TABLE border="0" cellSpacing="0" cellPadding="0" width="95%" align="center">
+        <TBODY>
+          <TR>
+            <TD style="padding-bottom: 10px;" 
+      height="15">每次登陆绑定买号页面，我们会为您自动更新买号信息（包括认证是否实名，买号动态等）。</TD>
+          </TR>
+          <TR>
+            <TD><TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+                <TBODY>
+                  <TR>
+                    <TD class="txjl_bg1" height="37" width="10"></TD>
+                    <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" 
+          vAlign="middle" width="12%" align="center">淘宝账号</TD>
+                    <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" 
+          vAlign="middle" width="20%" align="center">初始信誉-现信誉</TD>
+                    <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" 
+          vAlign="middle" width="23%" align="center">当日/本周/已完成任务数</TD>
+                    <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" 
+          vAlign="middle" width="10%" align="center">买号状态</TD>
+                    <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" 
+          vAlign="middle" width="10%" align="center">买号排序</TD>
+                    <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" 
+          vAlign="middle" width="10%" align="center">是否启用</TD>
+                    <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" 
+          vAlign="middle" width="13%" align="center">操作</TD>
+                    <TD class="txjl_bg3" height="37" width="10"></TD>
+                  </TR>
+                  {loop $bList $v} 
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td class="mh_xxian" align="center" height="35" valign="middle"><a href="http://tertw.net:81/username/$v[nickname].html" class="comlink" target="_blank" title="点击买号直接到查询买号信息页面"><span class="p_l_20">$v[nickname]</span></a> </td>
+                    <td class="mh_xxian" align="center" valign="middle">$v[score0] $v[score0_ico]/$v[score] $v[score_ico] </td>
+                    <td class="mh_xxian" align="center" valign="middle">$v[todayTask]/$v[tswkTask]/$v[task]</td>
+                    <td class="mh_xxian" align="center" valign="middle">
+		  {if $v[status]==5}
+		  <span class='lvse2'>已暂停[{echo time::days($timestamp - $v[pauseTimestamp])}天]</span>
+		  {else}
+		  $lang[bStatus][$v[status]]
+		  {/if}
+		  {if $v[status] <= 1}
+          <a href="javascript:;" onclick="return IsStopAcc(this,$v[id]);" class="lvse2">暂停</a>
+		  {elseif $v[status]==5}
+		  <a href="javascript:;" onclick="return IsResumeAcc(this,$v[id]);" class="lvse2">恢复</a>
+		  {/if}
+		</td>
+                    <td class="mh_xxian" align="center" valign="middle"><input size="3" name="pxvar[]" value="0" class="mh_bk2" type="text">
+		<input value="$v[id]" name="idarr[]" <="" td="" type="hidden">
+                    </td><td class="mh_xxian" align="center">
+		<input checked="checked" onclick="return IsStopAcc(this,$v[id]);" type="checkbox">
+		</td>
+					<td class="mh_xxian" align="center"><a href="javascript:;" onclick="dialog(650,500,'设置买号收货地址','{rewrite}/dialog/buyerAddress/?id=$v[id]');return false;" class="link_tt">&nbsp;</a><a href="javascript:;" onclick="return IsDelAcc(this,$v[id]);" class="mh_cz"></a></td>
+					<td>&nbsp;</td>
+                  </tr>
+                  {/loop}
+                </TBODY>
+              </TABLE></TD>
+          </TR>
+          <TR>
+            <TD vAlign="middle" align="left"><INPUT class="mh_xg" value="提交查询内容" type="submit"></TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+    </FORM>
+    <P>&nbsp;</P>
+    <P>&nbsp;</P>
+    <DIV class="rwdt_dlm">
+      <DIV id="page"><A class="nov" href="{rewrite}/member/buytao/&amp;status=0&amp;page=1">1</A>
+        <P class="pr">总：共1页 当前第<SPAN class="hong"> 1 </SPAN>页</P>
+      </DIV>
+    </DIV>
+    <DIV class="cle"></DIV>
+    <!--结束-->
+  </DIV>
+</div>
+<DIV class="cle"></DIV>
+<DIV class="cle"></DIV>
+	{sub ../footer}

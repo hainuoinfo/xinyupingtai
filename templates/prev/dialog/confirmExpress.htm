@@ -1,0 +1,62 @@
+{sub header}
+<div align="center"><b>请检查快递单数据是否和网店交易物流信息一致，如有不同，请联系接手人修改</b></div>
+  <table class="tbl" width='100%' border='0' cellspacing='0' cellpadding='6'>
+	
+    <tr>
+      <td width='80' class='f_b_red' valign="top" align="right">收件人信息</td>
+      <td class="f_red">
+	  	<table>
+			<tr>
+				<td>姓　　名：$buyerExpress[nickname]</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>收货地址：$buyerExpress[area]$buyerExpress[address]</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>手机号码：$buyerExpress[mobilephone]</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>固定电话：</td>
+				<td></td>
+			</tr>
+		</table>
+	  </td>
+    </tr>
+    <tr>
+      <td class='f_b_blue' valign="top" align="right">发件人信息</td>
+      <td class="f_blue">
+	  	<table>
+			<tr>
+				<td>姓　　名：$buyerExpress[nickname]</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>收货地址：$buyerExpress[area]$buyerExpress[address]</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>手机号码：$buyerExpress[mobilephone]</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>固定电话：</td>
+				<td></td>
+			</tr>
+		</table>
+	  </td>
+    </tr>
+    
+  </table>
+	<div style="padding-top:20px;text-align:center;">
+		<input name="goon" class="btn_2" type="submit" value="确定" />
+		<input name="goon" class="btn_2" type="button" id="goon" onclick="parent.doCut();" value="有误" />
+	</div>
+ <script type="text/javascript">
+	function checkForm() {
+		return true;
+	}
+</script>
+{sub footer}

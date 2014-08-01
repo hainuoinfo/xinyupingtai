@@ -1,0 +1,175 @@
+{sub h}
+{if $method!='view'}
+<br />
+<div class="itemtitle">
+	<h3></h3>
+	<ul class="tab1">
+		{loop $top_menu2 $k $v}
+		{if !is_array($v) || $v[hide]===false || $k==$method2}
+		<li{if $k==$method2} class="current"{/if}><a href="{if is_array($v)&&$v[hide]}$nowurl{else}$base_url&method=$method&method2=$k{if is_array($v) && $v[attach]}$v[attach]{/if}{/if}"><span>{echo is_array($v)?$v[name]:$v}</span></a></li>
+		{/if}
+		{/loop}
+	</ul>
+</div>
+{/if}
+{if $method=='tao' || $method=='pai' || $method=='you' || $method=='new'}
+<form method="post" enctype="application/x-www-form-urlencoded" onsubmit="return confirm('确定提交吗？')">
+$sys_hash_code
+	<table class="tb tb2 fixpadding">
+		<tr class="header">
+			<th>删？</th>
+			<th>任务ID</th>
+			<th>申诉标题</th>
+			<th>申诉人</th>
+			<th>被申诉人</th>
+			<th>申诉时间</th>
+			<td>状态</td>
+			<th></th>
+		</tr>
+		{loop $list $v}
+		<tr class="hover">
+			<td><input type="checkbox" name="del[]" value="$v[id]" class="checkbox" /></td>
+			<td>$v[tid]</td>
+			<td>$v[title]</td>
+			<td>$v[fusername]</td>
+			<td>$v[tusername]</td>
+			<td>{date $v[timestamp1]}</td>
+			<td>$cStatus[$v[status]]</td>
+			<td>[<a href="$base_url&method=view&id=$v[id]">详情</a>]</td>
+		</tr>
+		{/loop}
+		<tr>
+			<td><label><input type="checkbox" onclick="check_all(this,'del[]')" class="checkbox" />全选</label></td>
+			<td colspan="8">$multipage</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td colspan="9"><input type="submit" value="提交" class="btn" /></td>
+		</tr>
+	</table>
+</form>
+{elseif $method=='view'}
+<form method="post" enctype="application/x-www-form-urlencoded">
+$sys_hash_code
+	<table class="tab_view" style="width:800px">
+		<tr class="tip">
+			<td colspan="2">申诉详情</td>
+		</tr>
+		<tr>
+			<th>任务ID</th>
+			<td>$complain[tid]</td>
+		</tr>
+		<tr>
+			<th>所属区域</th>
+			<td>{echo language::get('qu'.$complain[type])}</td>
+		</tr>
+		<tr>
+			<th>申诉人</th>
+			<td>$complain[fusername]</td>
+		</tr>
+		<tr>
+			<th>被申诉人</th>
+			<td>$complain[tusername]</td>
+		</tr>
+		<tr>
+			<th>申诉标题</th>
+			<td>$complain[title]</td>
+		</tr>
+		<tr>
+			<th>申诉内容</th>
+			<td>
+				{loop $complainMessage[0] $v}
+				[{date $v[timestamp]}]<br />$v[message]<br /><br />
+				{/loop}
+			</td>
+		</tr>
+		{if $complainMessage[1]}
+		<tr>
+			<th>辩解内容</th>
+			<td>
+				{loop $complainMessage[1] $v}
+				[{date $v[timestamp]}]<br />$v[message]<br /><br />
+				{/loop}
+			</td>
+		</tr>
+		{/if}
+		<tr>
+			<th>申诉时间</th>
+			<td>{date $complain[timestamp1]}</td>
+		</tr>
+		<tr>
+			<th>状态</th>
+			<td>$cStatus[$complain[status]]</td>
+		</tr>
+		{if !in_array($complain[status], array(1, 2, 3))}
+		<tr>
+			<th>退回金额</th>
+			<td><input type="text" name="backPrice" value="$task[price]" class="txt" /></td>
+		</tr>
+		<tr>
+			<th>退回发布点</th>
+			<td><input type="text" name="backPoint" value="$task[point]" class="txt" /></td>
+		</tr>
+		<tr>
+			<th>给发布方增加金钱</th>
+			<td><input type="text" name="sprice" value="0"  class="txt"/></td>
+		</tr>
+		<tr>
+			<th>给发布方增加发布点</th>
+			<td><input type="text" name="spoint" value="0"  class="txt"/></td>
+		</tr>
+		<tr>
+			<th>给接手方增加金钱</th>
+			<td><input type="text" name="bprice" value="0"  class="txt"/></td>
+		</tr>
+		<tr>
+			<th>给接手方增加发布点</th>
+			<td><input type="text" name="bpoint" value="0"  class="txt"/></td>
+		</tr>
+		{else}
+		<tr>
+			<th>退回金额</th>
+			<td>￥$complain[price]</td>
+		</tr>
+		<tr>
+			<th>退回发布点</th>
+			<td>$complain[point]</td>
+		</tr>
+		<tr>
+			<th>给发布方增加金钱</th>
+			<td>￥$complain[sprice]</td>
+		</tr>
+		<tr>
+			<th>给发布方增加发布点</th>
+			<td>￥$complain[spoint]</td>
+		</tr>
+		<tr>
+			<th>给接手方增加金钱</th>
+			<td>￥$complain[bprice]</td>
+		</tr>
+		<tr>
+			<th>给接手方增加发布点</th>
+			<td>￥$complain[bpoint]</td>
+		</tr>
+		{/if}
+		<tr>
+			<th>操作</th>
+			<td>{if !in_array($complain[status], array(1, 2, 3))}
+				<label><input type="radio" name="status" value="1" class="radio" checked="checked" />申诉成功</label>
+				<label><input type="radio" name="status" value="2" class="radio" />申诉失败</label>
+				{/if}
+			</td>
+		</tr>
+		<tr>
+			<th>任务详情</th>
+			<td><a href="$admin_url?action=i&operation=task&method=view&sid=$complain[tid]" target="_blank">点击查看</a></td>
+		</tr>
+		<tr>
+			<th></th>
+			<td><input type="submit" value="提交" class="btn" /><input type="button" value="返回" class="btn" onclick="history.back(-1)" /></td>
+		</tr>
+	</table>
+</form>
+<br /><br /><br />
+{/if}
+{sub f}

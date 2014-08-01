@@ -1,0 +1,90 @@
+{sub h}
+<script language="javascript">
+var _stop=function(){return confirm('确定要挂起吗？');}
+var _unstop=function(){return confirm('确定要恢复挂起吗？');}
+var _lock=function(){return confirm('确定要锁定吗？');}
+var _unlock=function(){return confirm('确定要恢复锁定吗？');}
+var _undel=function(){return confirm('确定要恢复该删除帐号吗？');}
+</script>
+<form method="post">
+$sys_hash_code
+<input type="hidden" name="m" value="search" />
+	<table class="tb tb2 fixpadding">
+		<tr>
+			<td width="60" align="right">昵称</td>
+			<td width="100"><input name="nickname" id="nickname" value="$nickname" maxlength="16" class="txt" style="width:100px" /></td>
+			<td><input type="submit" value="搜索" class="btn" /></td>
+		</tr>
+	</table>
+</form>
+{if $method=='buyers1'}
+	{adminList
+		删？        |id     |del
+		昵称        |nickname
+		密码        |password
+		所属用户    |username
+		初始信誉    |score0
+		当前信誉    |score
+		寿命值      |maxScore
+		正在进行任务|tasking
+		已经完成任务|task
+		状态        |status |code,$buyerStatus[$v[status]]
+				    |id     |code,{if $v[status]!=3 && $v[status]!=7 && $v[tasking]==0}{if $v[status]!=2}[<a href="$base_url&stop=$v[id]" onclick="return _stop()">挂起</a>]{elseif $v[status]==2}[<a href="$base_url&unstop=$v[id]" onclick="return _unstop()">恢复挂起</a>]{/if}{if $v[status]!=4}[<a href="$base_url&lock=$v[id]" onclick="return _lock()">锁定</a>]{elseif $v[status]==4}[<a href="$base_url&unlock=$v[id]" onclick="return _unlock()">恢复锁定</a>]{/if}{/if}{if $v[status]==7}[<a href="$base_url&undel=$v[id]" onclick="return _del()">恢复删除</a>]{/if}
+	}
+{elseif $method=='buyers2'}
+	{adminList
+		删？        |id     |del
+		昵称        |nickname
+		密码        |password
+		所属用户    |username
+		初始信誉    |score0
+		当前信誉    |score
+		寿命值      |maxScore
+		正在进行任务|tasking
+		已经完成任务|task
+		状态        |status |code,$buyerStatus[$v[status]]
+				    |id     |code,{if $v[status]!=3 && $v[status]!=7 && $v[tasking]==0}{if $v[status]!=2}[<a href="$base_url&stop=$v[id]" onclick="return _stop()">挂起</a>]{elseif $v[status]==2}[<a href="$base_url&unstop=$v[id]" onclick="return _unstop()">恢复挂起</a>]{/if}{if $v[status]!=4}[<a href="$base_url&lock=$v[id]" onclick="return _lock()">锁定</a>]{elseif $v[status]==4}[<a href="$base_url&unlock=$v[id]" onclick="return _unlock()">恢复锁定</a>]{/if}{/if}{if $v[status]==7}[<a href="$base_url&undel=$v[id]" onclick="return _del()">恢复删除</a>]{/if}
+	}
+{elseif $method=='buyers3'}
+	{adminList
+		删？        |id     |del
+		昵称        |nickname
+		密码        |password
+		所属用户    |username
+		初始信誉    |score0
+		当前信誉    |score
+		寿命值      |maxScore
+		正在进行任务|tasking
+		已经完成任务|task
+		状态        |status |code,$buyerStatus[$v[status]]
+				    |id     |code,{if $v[status]!=3 && $v[status]!=7 && $v[tasking]==0}{if $v[status]!=2}[<a href="$base_url&stop=$v[id]" onclick="return _stop()">挂起</a>]{elseif $v[status]==2}[<a href="$base_url&unstop=$v[id]" onclick="return _unstop()">恢复挂起</a>]{/if}{if $v[status]!=4}[<a href="$base_url&lock=$v[id]" onclick="return _lock()">锁定</a>]{elseif $v[status]==4}[<a href="$base_url&unlock=$v[id]" onclick="return _unlock()">恢复锁定</a>]{/if}{/if}{if $v[status]==7}[<a href="$base_url&undel=$v[id]" onclick="return _del()">恢复删除</a>]{/if}
+	}
+{elseif $method=='sellers1'}
+	{adminList
+		删？        |id     |del
+		昵称        |nickname
+		所属用户    |username
+		正在进行任务|tasking
+		已经完成任务|task
+		状态        |status |code,$sellerStatus[$v[status]]
+	}
+{elseif $method=='sellers2'}
+	{adminList
+		删？        |id     |del
+		昵称        |nickname
+		所属用户    |username
+		正在进行任务|tasking
+		已经完成任务|task
+		状态        |status |code,$sellerStatus[$v[status]]
+	}
+{elseif $method=='sellers3'}
+	{adminList
+		删？        |id     |del
+		昵称        |nickname
+		所属用户    |username
+		正在进行任务|tasking
+		已经完成任务|task
+		状态        |status |code,$sellerStatus[$v[status]]
+	}
+{/if}
+{sub f}
