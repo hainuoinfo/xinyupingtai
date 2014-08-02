@@ -8,7 +8,7 @@
 		'db_host'=>'10.9.1.188',
 		'db_port'=>'3306',
         'db_name'=>'hushua',
-		'db_user'=>'cf_9fc13393_307d_4083_a7a9_8fc1b4b767cc',
+		'db_user'=>'Oka4nuOS8hwZek6d',
 		'db_pwd'=>'2oLMk93o3SlMTzeX',
 		'db_table_pre'=>'bf_',
 		'sys_salt'=>'3e391d'
