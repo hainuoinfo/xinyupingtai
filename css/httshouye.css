@@ -248,7 +248,7 @@ hr{ border-bottom:1px solid #b8b9b9;}
 .shipin a:hover{ color:#848484;}
 .bugao{ width:698px; height:266px;background:#E1DFE0; margin-left:20px; float:left;}
 .bugaox{ width:650px; height:245px; background:url(../img/att_103_103.png) no-repeat center center; margin:auto; margin-top:10px; position:relative;}
-.bg{ width:278px; height:165px; position:absolute; left:43px; bottom:26px;}
+.bg{ width:278px; height:165px; position:absolute; left:43px; bottom:35px;}
 .bg li{font:100 14px/27px "微软雅黑"; color:#545454; }
 .bg li a{font:100 14px/27px "微软雅黑"; color:#545454;}
 .bg li a:hover{ color:#848484;}
