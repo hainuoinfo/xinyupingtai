@@ -87,9 +87,8 @@ class cache{
 		return false;
 	}
 	public static function write_array($name,$arr){
-echo '<pre>';
 		$file=d('./cache/array/'.$name.'.php');
-		$result=file::write($file,'<?php exit;?>'.serialize($arr));
+		file::write($file,'<?php exit;?>'.serialize($arr));
 	}
 	public static function delete_array($name){
 		$file=d('./cache/array/'.$name.'.php');

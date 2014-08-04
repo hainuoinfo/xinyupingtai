@@ -1766,7 +1766,7 @@ a.r_close:hover {
 }
 .rwdt_info,.rwdt_bk,.rwdt_bk2 {
 	border:1px solid #ddd;
-	background:url(/images/rwdt.gif) white 0 -961px repeat-x;
+	background:url(/images/rwdt.gif) 0 -961px repeat-x;
 	width:245px;
 	height:140px;
 	float:left;
