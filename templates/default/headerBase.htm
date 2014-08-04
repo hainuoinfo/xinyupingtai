@@ -45,61 +45,61 @@ var webqq = 195230378 ;
 {if $memberLogined}
 <div class="top-mid">
     	<form action="" method="get">你好，<a href="{rewrite}/member/info/?username=$member[username]"><em>$member[username]</em></a><img title="积分：$memberFields[credits]" alt="积分" src="$memberLevel[icon]"><input type="button" onclick="window.location.href='{rewrite}/member/logout/'" class="tc" value="退出" /></form>
-        <ul style="width:560px;">
-            <li class="ck"><a href="{rewrite}/member/topup/">存款：<span>$memberFields[money]</span></a>　/
+        <div class="topmenu">
+            <span class="ck"><a href="{rewrite}/member/topup/">存款：<span>$memberFields[money]</span></a>　/
            		 <ul>
                 	<li><a href="{rewrite}/member/topup/">账号充值</a></li>
                     <li><a href="{rewrite}/member/PayDetails/?type=1">存款明细</a></li>
                 </ul>                        
-            </li>
+            </span>
             
             
-            <li class="tl"><a href="{rewrite}/member/BuyPoint/">兔粮：$memberFields[fabudian]</a>　/
+            <span class="tl"><a href="{rewrite}/member/BuyPoint/">兔粮：<span>$memberFields[fabudian]</span></a>　/
            		 <ul>
                 	<li><a href="{rewrite}/member/BuyPoint/">购买兔粮</a></li>
                     <li><a href="{rewrite}/member/PayDetails/?type=2">兔粮明细</a></li>
                 </ul>            
-            </li>
+            </span>
             
             
-            <li class="xx"><a href="{rewrite}/member/message/">信息：<span>($memberFields[msg])</span></a>　/
+            <span class="xx"><a href="{rewrite}/member/message/">信息：<span>($memberFields[msg])</span></a>　/
            		 <ul>
                 	<li><a href="{rewrite}/member/message/?type=inUser">私人收件箱</a></li>
                     <li><a href="{rewrite}/member/message/?type=inSys">官方收件箱</a></li>
                     <li><a href="{rewrite}/member/message/?type=setting">站内信提醒</a></li>
                 </ul>                       
-            </li>
+            </span>
             
             
-             <li class="wsfbf"><a href="#">我是发布方</a>　/
+             <span class="wsfbf"><a href="#">我是发布方</a>　/
            		 <ul>
                 	<li><a href="#">图文教程</a></li>
                     <li><a href="#">视频教程</a></li>
                     <li><a href="#">排行榜</a></li>
                 </ul>                       
-            </li>
+            </span>
             
             
             
-            <li class="wsjsf"><a href="#">我是接手方</a>　/
+            <span class="wsjsf"><a href="#">我是接手方</a>　/
            		 <ul>
                 	<li><a href="#">图文教程</a></li>
                     <li><a href="#">视频教程</a></li>
                     <li><a href="#">领取奖励</a></li>
                     <li><a href="#">排行榜</a></li>
                 </ul>                       
-            </li>
+            </span>
             
             
             
-        	<li class="zhsz"><a href="{rewrite}/member/userdata/?type=index">账号设置</a>　/
+        	<span class="zhsz"><a href="{rewrite}/member/userdata/?type=index">账号设置</a>　/
                 <ul>
                 	<li><a href="{rewrite}/member/forgotpwd/">找回密码</a></li>
                     <li><a href="{rewrite}/member/userdata/?type=GetPass">找回操作码</a></li>
                     <li><a href="{rewrite}/member/forgotpwd/">更多操作</a></li>
                 </ul>            
-            </li>
-        	<!--<li class="wdtw"><a href="#">我的兔窝</a>　/
+            </span>
+        	<!--<span class="wdtw"><a href="#">我的兔窝</a>　/
             	<ul>-->
                 	<!--<li><a href="#"><img onmouseover="this.src='/img/att223_03.png'" onmouseout="this.src='/img/att222_03.png'" src="/img/att222_03.png"/></a></li>
                     <li><a href="#"><img onmouseover="this.src='/img/att223_05.png'" onmouseout="this.src='/img/att222_05.png'" src="/img/att222_05.png"/></a></li>
@@ -110,10 +110,10 @@ var webqq = 195230378 ;
                     <li><a href="#">购买兔粮</a></li>
                     <li><a href="#">网店托管</a></li>
                 
-                </ul>-->
+                </ul>
           
-            </li>
-        	<li class="kfbb"><a href="#">客服帮助</a>
+            </span>-->
+			<span class="kfbb"><a href="#">客服帮助</a>
             	<div class="kfbz">
                 	<!--<h2><span>值班时间：</span> 9:00-12:00 . 13:30-17:30 . 19:00-21:00</h2>
                     <hr/>
@@ -134,9 +134,9 @@ var webqq = 195230378 ;
                   	</div>  
                 </div>
         			
-          </li>
+          </span>
   
-        </ul>
+        </div>
   </div>
 {else}	
 <div class="top-mid">

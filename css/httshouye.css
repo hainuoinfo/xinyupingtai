@@ -99,12 +99,8 @@ hr{ border-bottom:1px solid #b8b9b9;}
 .nav-mid .sy{ margin:0px 5px 0px 5px;}
 .nav-mid .yy{ margin:0px 30px 0px 10px;}
 .nav-mid .yy em{ font-style:normal; color:#fdaf3b;}
-#nav .sy a:hover{ background:url(../img/att_17.png) no-repeat;}
+#nav .sy a{ background:url(../img/att_17.png) no-repeat;}
 #nav .yy a{ width:120px;}
-
-
-
-
 
 #banner{ width:100%; height:351px; background:#75abb3; margin-bottom:16px; }
 .banner-mid{ width:1024px; height:351px;background:url(../img/att_22.jpg) no-repeat; margin:auto; position:relative;}
@@ -233,7 +229,7 @@ hr{ border-bottom:1px solid #b8b9b9;}
 
 .fs{ width:280px; height:165px; position:absolute; right:29px; bottom:26px;}
 .fs li{font:100 14px/27px "微软雅黑"; color:#545454; }
-.fs li a{font:100 14px/27px "微软雅黑"; color:#545454;}
+.fs li a{font:100 14px/27px "微软雅黑"; color:#545454;margin: 0px p5x;}
 .fs li a:hover{ color:#848484;}
 
 
