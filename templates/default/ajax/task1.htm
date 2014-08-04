@@ -20,7 +20,8 @@
 			<br>
             <span {if $v[isEnsure]} title="接任务者需要加入平台商保" class="rwdt_xbh1" {/if} class="rwdt_xbh0 block">PostTime：{echo date('H:i:s', $v[stimestamp])}</span></td>
             <td width="12%">
-			<a title="接任务后方可查看到对方QQ号码" target="_blank" href="{rewrite}/member/info/?username={echo string::getXin2($v[susername])}" class="chengse"><strong>{echo string::getXin2($v[susername])}</strong></a><br>
+			<a title="接任务后方可在已接任务界面查看到对方信息" target="_blank" href="<?php //{rewrite}/member/info/?username={echo string::getXin2($v[susername])} 
+			?>#" class="chengse"><strong>{echo string::getXin2($v[susername])}</strong></a><br>
             {if $v[vip]==1}<span class="fb_vip1" title="一级VIP客户"></span>{/if}
             {if $v[vip]==2}<span class='fb_vip2' title='钻石VIP客户'></span>{/if}
 			 {if $v[vip]==3}<span class='fb_vip3' title='皇冠VIP客户'></span>{/if}
@@ -58,7 +59,8 @@
 			<br>
             <span {if $v[isEnsure]} title="接任务者需要加入平台商保" class="rwdt_xbh1" {/if} class="rwdt_xbh0 block">PostTime：{$v[h]}:{$v[i]}:{$v[s]}</span></td>
             <td width="12%">
-			<a title="接任务后方可查看到对方QQ号码" target="_blank" href="{rewrite}/member/info/?username={echo string::getXin2($v[susername])}" class="chengse"><strong>{echo string::getXin2($v[susername])}</strong></a><br>
+			<a title="接任务后，方可从已接任务中查看到对方资料" target="_blank" href="<?php //{rewrite}/member/info/?username={echo string::getXin2($v[susername])} 
+			?>#" class="chengse"><strong>{echo string::getXin2($v[susername])}</strong></a><br>
             {if $v[vip]}<span class="fb_vip1" title="一级VIP客户"></span>{/if}
             {if $v[vip2]}<span class='fb_vip2' title='钻石VIP客户'></span>{/if}
 			 {if $v[vip3]}<span class='fb_vip3' title='皇冠VIP客户'></span>{/if}

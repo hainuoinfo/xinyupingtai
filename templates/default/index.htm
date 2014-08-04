@@ -179,7 +179,7 @@
             <div class="fs">
             	<ul>
                 {loop $nowList $v}
-				<li><a href="{rewrite}/member/info.php?username={$v[susername]}" class="lanse" target="_blank">{$v[susername]}</a><span style="float:left">发布任务网店提升 <strong class="chengse">+1</strong></span><span class="date">{echo date('m-d',$v[stimestamp])}</span>
+				<li><a href="{rewrite}/member/info.php?username={$v[susername]}" class="lanse" target="_blank">{$v[susername]}</a><span >发布任务网店提升 <strong class="chengse">+1</strong></span><span class="date">{echo date('m-d',$v[stimestamp])}</span>
                 </li>
                 {/loop}
                 </ul>

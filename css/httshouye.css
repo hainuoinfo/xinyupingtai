@@ -229,7 +229,8 @@ hr{ border-bottom:1px solid #b8b9b9;}
 
 .fs{ width:280px; height:165px; position:absolute; right:29px; bottom:26px;}
 .fs li{font:100 14px/27px "微软雅黑"; color:#545454; }
-.fs li a{font:100 14px/27px "微软雅黑"; color:#545454;margin: 0px p5x;}
+.fs li a{font:100 14px/27px "微软雅黑"; color:#545454;margin: 0px 5px;}
+.fs li span{margin: 0px 5px;}
 .fs li a:hover{ color:#848484;}
 
 
