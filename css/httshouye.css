@@ -7,10 +7,6 @@ img,input{ border:0px;}
 a{ text-decoration:none;}
 body{ background:#e6e6e6;}
 
-
-
-
-
 #top{ width:100%; height:28px; background:#a3a4a5;}
 .top-mid{ margin:auto; width:1024px; height:28px; font:100 12px/28px "微软雅黑"; color:#FFF;}
 .top-mid form{ width:320px; height:18px; margin-left:17px; float:left;}
@@ -31,8 +27,6 @@ body{ background:#e6e6e6;}
 .wsfbf li{font:100 12px/26px "微软雅黑"; color:#fff; text-indent:14px; width:70px; height:26px;}
 .wsfbf a{color:#fff;}
 .wsfbf a:hover{ color:#00509F;}
-
-
 .top-mid .wsjsf{ position:relative; width:80px;}
 .wsjsf{ position:relative;}
 .wsjsf:hover ul { display:block;}
@@ -96,11 +90,6 @@ hr{ border-bottom:1px solid #b8b9b9;}
 .logo{ margin-left:17px; float:left; margin-top:30px;}
 .dh{ margin-right:17px; float:right; margin-top:30px;}
 
-
-
-
-
-
 #nav{ width:100%; height:39px; background:url(../img/att_15.jpg) repeat-x; margin-bottom:12px;}
 .nav-mid{ width:1024px; height:39px; margin:auto;}
 .nav-mid ul{ width:988px; height:39px; margin-left:17px;}
@@ -137,8 +126,6 @@ hr{ border-bottom:1px solid #b8b9b9;}
 .zck a{font:100 12px/33px "微软雅黑"; color:#fff;}
 .zck a:hover{ color:#ff5a00;}
 
-
-
 #main-top{ width:1024px; overflow:hidden; background:#f4f5f5; margin:auto;}
 .rwdt{ width:320px; overflow:hidden; background:url(../img/att_11.png) no-repeat right top; margin:12px 12px 14px 17px; float:left;}
 .rwdttu{ float:left;}
@@ -150,7 +137,6 @@ hr{ border-bottom:1px solid #b8b9b9;}
 .wrhd h3{ color:#3eafd7;font:100 16px/20px "微软雅黑"; text-align:center; margin:14px 0px;}
 .wrhd h3 a{color:#3eafd7; padding:3px 20px; background:#d6f2f8;}
 .wrhd h3 a:hover{ background:#b5effb;}
-
 .yyzd{ width:342px; height:148px;; background:url(../img/att_11.png) no-repeat right top; margin:12px 12px 14px 0px; float:left;}
 .yyzd h2{ background:#e1f5f9 url(../img/att_13.png) no-repeat 30px 0px;font:100 26px/43px "微软雅黑"; color:#3eafd7; width:328px; height:43px; text-align:center;}
 .yyzd-l{ width:191px; height:104px; background:#3eafd7; float:left;}
@@ -180,14 +166,9 @@ hr{ border-bottom:1px solid #b8b9b9;}
 .bhg h3 a{color:#3eafd7; padding:3px 6px; background:#ebeaea;}
 .bhg h3 a:hover{ background:#b5effb;}
 
-
 .gaod{ width:990px; height:202px; background:url(../img/att_39.png) no-repeat; margin:auto; clear:both; margin-bottom:12px; position:relative;}
 .xxjt{ position:absolute; right:193px; bottom:73px;}
 .jjfa{  position:absolute; right:170px; bottom:30px;}
-
-
-
-
 
 #main-m{ width:1024px; height:296px;background:url(../img/att_46.png) no-repeat;;margin:auto; margin-top:12px; margin-bottom:3 px;}
 .fb{ width:379px; overflow:hidden; margin:17px 0px 0px 57px; float:left;}
@@ -196,15 +177,12 @@ hr{ border-bottom:1px solid #b8b9b9;}
 .ltu-1{ margin-left:8px;}
 .j1,.j2{ vertical-align:top; margin-top:20px;}
 .shang{ display:block;margin:auto; padding-top:30px;}
-
-
 .js{ width:379px; overflow:hidden; margin:17px 57px 0px 0px; float:right;}
 .js h2{ width:379px; height:57px;font:100 16px/57px "微软雅黑"; color:#fff; background:url(../img/att_49.png) no-repeat; text-align:center; }
 .jsnr{ background:#FFF; width:379px; margin:auto; padding:25px 0px 9px 0px; margin-bottom:25px;}
 .rtu-1{ margin-left:8px;}
 .j1,.j2{ vertical-align:top; margin-top:20px;}
 .zuo{ display:block;margin:auto; padding-top:30px;}
-
 #ty{ width:1024px; height:285px;margin:auto; margin-bottom:15px;}
 .zqtg{ background:url(../img/att_96.jpg) no-repeat; width:352px; height:285px; position:relative; float:left;}
 .wytg{ width:216px; height:110px;}
@@ -260,7 +238,7 @@ hr{ border-bottom:1px solid #b8b9b9;}
 
 
 #footer{ width:100%; height:110px; background:#C8C8C8; }
-.footer-mid{ width:1024px; height:110px; margin:auto; padding-top:30px;}
+.footer-mid{ width:1024px; height:110px; margin:auto; padding-top:30px;text-align: left;}
 .logo2{ margin:0px 20px 0px 46px; display:block; float:left;}
 .gy{font:100 14px/22px "微软雅黑"; color:#545454;}
 .gy a{color:#545454;}
