@@ -5,8 +5,6 @@
 		<title>$title</title>
 		<meta name="description" content="$description" />
 		<meta name="keywords" content="$keywords" />
-		<link href="/css/httshouye.css" rel="stylesheet" type="text/css" />{if $memberLogined}
-		<link href="/css/denglu.css" rel="stylesheet" type="text/css" />{/if}
 		<script src="/Scripts/swfobject_modified.js" type="text/javascript"></script>{if $cssList} {loop $cssList $v}
 		<link rel="stylesheet" type="text/css" href="$v" />{/loop} {else} {teval echo css::get_css('bbs', 'bbs'); } {/if} {js_select jquery,common} {if $jsList} {loop $jsList $v}
 		<script type="text/javascript" src="$v"></script>{/loop} {/if}
@@ -40,6 +38,10 @@
 			}else
 				z_userinfo=null;
 		</script>
+		<link href="/css/httshouye.css" rel="stylesheet" type="text/css" />
+		{if $memberLogined}
+		<link href="/css/denglu.css" rel="stylesheet" type="text/css" />
+		{/if}		
 	</head>
 	<body>
 		<div id="top">{if $memberLogined}
