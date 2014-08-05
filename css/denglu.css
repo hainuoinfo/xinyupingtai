@@ -30,42 +30,42 @@ body{ background:#e6e6e6;}
 .top-mid span{position: relative;width:auto;}
 .top-mid .topmenu{text-align: right;}
 .top-mid .ck span{font:100 12px/26px "微软雅黑"; color:#900;}
-.top-mid span ul{text-align: left;}
+.top-mid span ul{text-align: left;display: none;background:#a3a4a5; position:absolute; right:0px; top:0px;}
 .ck:hover ul { display:block;}
-.ck ul{ width:70px; height:60px; background:#a3a4a5; position:absolute; left:-16px; top:28px; display:none;}
-.ck li{font:100 12px/26px "微软雅黑"; color:#fff; text-indent:10px; width:70px; height:26px;}
+.ck ul{ width:100px; height:80px;  display:none;}
+.ck li{font:100 12px/26px "微软雅黑"; color:#fff; text-indent:10px; width:100px; height:26px;}
 .ck a{color:#fff;}
 .ck a:hover{ color:#00509F;}
 .tl:hover ul { display:block;}
-.tl ul{ width:70px; height:60px; background:#a3a4a5; position:absolute; left:-16px; top:28px; display:none;}
-.tl li{font:100 12px/26px "微软雅黑"; color:#fff; text-indent:10px; width:70px; height:26px;}
+.tl ul{ width:100px; height:80px;  }
+.tl li{font:100 12px/26px "微软雅黑"; color:#fff; text-indent:10px; width:100px; height:26px;}
 .tl a{color:#fff;}
 .tl a:hover{ color:#00509F;}
 .top-mid .xx span{font:100 12px/26px "微软雅黑"; color:#900;}
 .xx:hover ul { display:block;}
-.xx ul{ width:90px; height:80px; background:#a3a4a5; position:absolute; left:-16px; top:28px; display:none;}
+.xx ul{ width:90px; height:105px; }
 .xx li{font:100 12px/26px "微软雅黑"; color:#fff; text-indent:14px; width:80px; height:26px;}
 .xx a{color:#fff;}
 .xx a:hover{ color:#00509F;}
 .wsfbf{ position:relative;}
 .wsfbf:hover ul { display:block;}
-.wsfbf ul{ width:80px; height:85px; background:#a3a4a5; position:absolute; left:-16px; top:28px; display:none;}
-.wsfbf li{font:100 12px/26px "微软雅黑"; color:#fff; text-indent:14px; width:70px; height:26px;}
+.wsfbf ul{ width:100px; height:110px;}
+.wsfbf li{font:100 12px/26px "微软雅黑"; color:#fff; text-indent:14px; width:100px; height:26px;}
 .wsfbf a{color:#fff;}
 .wsfbf a:hover{ color:#00509F;}
 
 .wsjsf{ position:relative;}
 .wsjsf:hover ul { display:block;}
-.wsjsf ul{ width:80px; height:110px; background:#a3a4a5; position:absolute; left:-16px; top:28px; display:none;}
-.wsjsf li{font:100 12px/26px "微软雅黑"; color:#fff; text-indent:14px; width:70px; height:26px;}
+.wsjsf ul{ width:100px; height:130px; }
+.wsjsf li{font:100 12px/26px "微软雅黑"; color:#fff; text-indent:14px; width:100px; height:26px;}
 .wsjsf a{color:#fff;}
 .wsjsf a:hover{ color:#00509F;}
 
 
 .top-mid .zhsz{ position:relative; width:68px;}
 .zhsz:hover ul { display:block;}
-.zhsz ul{ width:80px; height:90px; background:#a3a4a5; position:absolute; left:-15px; top:28px; display:none;}
-.zhsz li{font:100 12px/28px "微软雅黑"; color:#fff; text-indent:10px; width:70px; height:28px;}
+.zhsz ul{ width:80px; height:110px;}
+.zhsz li{font:100 12px/28px "微软雅黑"; color:#fff; text-indent:10px; width:100px; height:28px;}
 .zhsz a{color:#fff;}
 .zhsz a:hover{ color:#00509F;}
 
@@ -79,7 +79,7 @@ body{ background:#e6e6e6;}
 .zhsz a:hover{ color:#00509F;}*/
 
 
-.kfbz{ width:379px; height:148px; background:url(../img/att543_03.png) no-repeat; position:absolute; right:0px; top:28px; display:none;z-index:999;}
+.kfbz{ width:379px; height:148px; background:url(../img/att543_03.png) no-repeat; position:absolute; right:0px; top:15px; display:none;z-index:999;padding-top: 10px;}
 .kfbb:hover .kfbz{ display:block;}
 .kfbb{ position:relative;}
 .kftu{ width:379px; height:148px; position:relative;}
