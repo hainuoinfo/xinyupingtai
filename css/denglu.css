@@ -11,8 +11,8 @@ body{ background:#e6e6e6;}
 
 
 
-#top{ width:100%; height:28px; background:#a3a4a5;}
-.top-mid{ margin:auto; width:1024px; height:28px; font:100 12px/28px "微软雅黑"; color:#FFF;}
+
+/*.top-mid{ margin:auto; width:1024px; height:28px; font:100 12px/28px "微软雅黑"; color:#FFF;}
 .top-mid form{ width:280px; height:18px; margin-left:17px; float:left; position:relative;}
 .top-mid form em{font-style:normal;font:100 12px/28px "微软雅黑"; color:#00509F;}
 .xin{ position:absolute; left:70px; top:3px;}
@@ -27,10 +27,10 @@ body{ background:#e6e6e6;}
 /*.xsbz1 a{font:100 12px/28px "微软雅黑"; color:#00509F;}
 .xsbz1 a:hover{ color:#fff;}*/
 
-.top-mid span{position: relative;width:auto;}
+/*.top-mid span{position: relative;}
 .top-mid .topmenu{text-align: right;}
 .top-mid .ck span{font:100 12px/26px "微软雅黑"; color:#900;}
-.top-mid span ul{text-align: left;display: none;background:#a3a4a5; position:absolute; right:0px; top:0px;}
+.top-mid span ul{text-align: left;display: none;background:#a3a4a5; position:absolute; *left:0px; top:0px;z-index:10;}
 .ck:hover ul { display:block;}
 .ck ul{ width:100px; height:80px;  display:none;}
 .ck li{font:100 12px/26px "微软雅黑"; color:#fff; text-indent:10px; width:100px; height:26px;}
@@ -67,7 +67,7 @@ body{ background:#e6e6e6;}
 .zhsz ul{ width:80px; height:110px;}
 .zhsz li{font:100 12px/28px "微软雅黑"; color:#fff; text-indent:10px; width:100px; height:28px;}
 .zhsz a{color:#fff;}
-.zhsz a:hover{ color:#00509F;}
+.zhsz a:hover{ color:#00509F;}*/
 
 
 
@@ -88,20 +88,10 @@ body{ background:#e6e6e6;}
 .kf-3{ position:absolute; left:77px; top:75px;}
 .kf-4{ position:absolute; left:128px; bottom:34px;}
 .kf-5{ position:absolute; left:70px; bottom:10px;}
-
-
-
-
 #head{ width:100%; height:104px; background:url(../img/att_03.jpg) repeat-x; margin-bottom:6px;}
 .head-mid{ width:1024px; height:1024px; margin:auto;}
 .logo{ margin-left:17px; float:left; margin-top:30px;}
 .dh{ margin-right:17px; float:right; margin-top:30px;}
-
-
-
-
-
-
 #nav{ width:100%; height:39px; background:url(../img/att_15.jpg) repeat-x; margin-bottom:12px;}
 .nav-mid{ width:1024px; height:39px; margin:auto;}
 .nav-mid ul{ width:988px; height:39px; margin-left:17px;}
@@ -113,11 +103,6 @@ body{ background:#e6e6e6;}
 .nav-mid .yy em{ font-style:normal; color:#fdaf3b;}
 #nav .sy a:hover{ background:url(../img/att_17.png) no-repeat;}
 #nav .yy a{ width:120px;}
-
-
-
-
-
 #banner{ width:100%; height:351px; background:#75abb3; margin-bottom:16px; }
 .banner-mid{ width:1024px; height:351px;background:url(../img/att_22.jpg) no-repeat; margin:auto; position:relative;}
 .sht{ width:1024px; height:30px; background:url(../img/att_10.png) no-repeat; position:absolute; bottom:0px; left:0px;}
