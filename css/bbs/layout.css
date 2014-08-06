@@ -609,6 +609,22 @@ a.comlink:hover {
 	margin-left:44px;
 	font-weight:bold;
 }
+.true_panel {
+	clear:both;
+	border:1px dashed #DBDB64;
+	margin:5px 0px 5px 0px;
+	background:#FFFFCC url(/images/true.gif) no-repeat 10px 5px;
+}
+.true_panel div {
+	padding:5px;
+	color:#FF0000;
+	text-align:left;
+	line-height:18px;
+	margin-top:8px;
+	margin-bottom:8px;
+	margin-left:44px;
+	font-weight:bold;
+}
 #content table .ico_sh,#content table .ico_pj,#content table .ico_fx,#content table .ico_add,#content table .ico_pql,#content table .ico_dp,#content table .ico_gdz,#content table .ico_lhs,.ico_sm {
 	background:url(/images/tx_ico.gif) 0 -399px no-repeat;
 	display:inline-block;
@@ -3232,7 +3248,7 @@ ul.gou li span {
 	line-height:30px;
 	width:300px;
 }
-.mh_bdbtn,.mh_bdbtn2,.mh_bdbtn3,.mh_bdbtn4 {
+input.mh_bdbtn,input.mh_bdbtn2,input.mh_bdbtn3,input.mh_bdbtn4 {
 	background:url(/images/mhgl_btn.gif) 0 -189px no-repeat;
 	display:block;
 	width:128px;

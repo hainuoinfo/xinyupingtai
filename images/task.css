@@ -56,7 +56,12 @@ li.tab_ya strong{background-position:left -490px; color:#FFF;}
 .publish{padding:10px 0px; text-align:center; }
 .pub_tip5 {margin:10px 0; clear:both; line-height:18px; min-height:24px; color:#555; border:1px dashed #CCCCCC; padding:10px 50px 10px 60px; background:#FFC url(ico_info.gif) 15px 8px no-repeat;}
 
-.msg_panel 		{clear:both; border:1px dashed #CCCCCC; margin:5px 0px 5px 0px; background:#FFFFCC url(ico_info.gif) no-repeat 10px 5px;}
+.msg_panel {clear:both; border:1px dashed #CCCCCC; margin:5px 0px 5px 0px; background:#FFFFCC url(ico_info.gif) no-repeat 10px 5px;min-height:45px;}
+.msg_panel div{  font-size: 18px;
+    color: green;
+    font-weight: bold;
+    padding: 5px 55px;
+}
 
 .info2 {padding:15px 20px 15px 20px; border-top:1px solid #E8F2FC; border-bottom:1px solid #E8F2FC;}
 .wel {font-size:14px; line-height:30px;}
