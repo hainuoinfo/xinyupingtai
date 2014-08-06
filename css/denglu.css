@@ -115,11 +115,11 @@ body{ background:#e6e6e6;}
 .qzx h2{font:100 12px/40px "微软雅黑"; color:#fff; width:274px; height:40px; background:#3eafd7; text-align:center; margin:auto; margin-top:10px;}
 .qzx h2 span{font:100 20px/40px "微软雅黑"; color:#fdeb70;}
 .zxxinxi{ width:132px; background:#e9f0f1; height:107px; float:left; margin-left:10px;font:100 12px/20px "微软雅黑"; color:#545454; padding-left:22px; padding-top:5px;}
-.zxxinxi LABEL{display: block;width:90px;height:18px;}
+.zxxinxi LABEL{display: block;min-width:90px;height:13px;}
 .zxxinxi span{ color:#b06904;}
 .qzxtu{ float:right; margin-right:8px;}
 .form3{ width:205px; height:33px; float:left;margin:0px 10px;}
-.msks{ width:274px; height:33px; background:#349dc2;font:900 16px/33px "微软雅黑"; color:#fff; text-align:center;}
+.form3 .msks{ width:274px; height:33px; background:#349dc2;font:900 16px/33px "微软雅黑"; color:#fff; text-align:center;}
 .msks:hover{ background:#297c99;}
 .qzx p{font:100 12px/33px "微软雅黑"; color:#fff;}
 .qzx a{font:100 12px/33px "微软雅黑"; color:#fff;}
