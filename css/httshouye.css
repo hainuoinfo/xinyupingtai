@@ -87,7 +87,7 @@ hr{ border-bottom:1px solid #b8b9b9;}
 
 
 #head{ width:100%; height:104px; background:url(../img/att_03.jpg) repeat-x; margin-bottom:6px;}
-.head-mid{ width:1024px; height:1024px; margin:auto;}
+.head-mid{ width:1024px; min-height:524px; margin:auto;}
 .logo{ margin-left:17px; float:left; margin-top:30px;}
 .dh{ margin-right:17px; float:right; margin-top:30px;}
 
