@@ -6,6 +6,9 @@
 		<title>$title</title>
 		<meta name="description" content="$description" />
 		<meta name="keywords" content="$keywords" />
+		<script type="text/javascript" src="/images/jquery.js"></script>
+		<script type="text/javascript" src="/images/login_damaihu.js"></script>
+		<script type="text/javascript" src="/images/reg.js"></script>
 		<script src="/Scripts/swfobject_modified.js" type="text/javascript"></script>{if $cssList} {loop $cssList $v}
 		<link rel="stylesheet" type="text/css" href="$v" />{/loop} {else} {teval echo css::get_css('bbs', 'bbs'); } {/if} {js_select jquery,common} {if $jsList} {loop $jsList $v}
 		<script type="text/javascript" src="$v"></script>{/loop} {/if}
@@ -42,16 +45,12 @@
 			}else
 				z_userinfo=null;
 		</script>
-<style>
-.navbar .nav>li>a{padding:10px 5px;}	
-ul.dropdown-menu{min-width:80px;}
-.nav-collapse ul li.img{padding: 10px 0px;}
-</style>
+
 	</head>
 	<body>
 		<div id="top">
 {if $memberLogined}
-			<div class="navbar">
+			<div class="navbar navbar-inverse">
               <div class="navbar-inner">
                 <div class="container">
                   <div class="nav-collapse collapse navbar-responsive-collapse">
@@ -144,7 +143,7 @@ ul.dropdown-menu{min-width:80px;}
                 </div>
               </div><!-- /navbar-inner -->
 		</div>{else}
-			<div class="navbar">
+			<div class="navbar navbar-inverse">
               <div class="navbar-inner">
                 <div class="container">
                   <div class="nav-collapse collapse navbar-responsive-collapse">
@@ -240,7 +239,8 @@ ul.dropdown-menu{min-width:80px;}
 			</div>
 		</div>
 		<script type="text/javascript">
-        $(document).ready(function () {
-            $('.dropdown-toggle').dropdown();
-        });
+        //$(document).ready(function () {
+        //    $('.dropdown-toggle').dropdown();
+        //});
+
    </script>

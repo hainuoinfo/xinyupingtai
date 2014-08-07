@@ -1,4 +1,14 @@
-{subtemplate ../regheader}
+<!--subtemplate ../regheader-->
+{teval
+	$title       = '注册账号 - 我的个人中心 - {webName}';
+	$keywords    = '注册账号,花兔兔';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description));
+}
+{sub ../headerbase}
 <div id="content">
 <div>
 	<form name="myForm" method="post" id="myForm" enctype="multipart/form-data">
@@ -97,6 +107,7 @@
 		</li>
 	</ul>
 		</div>
+<div class="cle"></div>
 </div>
 <div class="cle"></div>
 {subtemplate ../footer}

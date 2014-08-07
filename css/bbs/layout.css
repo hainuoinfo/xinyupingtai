@@ -359,6 +359,7 @@ a.comlink:hover {
 #content {
 	width:1000px;
 	margin:0 auto;
+	background-color: white;
 }
 #c_bk,#c_bk2,#c_bk3 {
 	float:left;
@@ -837,7 +838,7 @@ a.comlink:hover {
 	width:100%;
 	margin:15px auto 0;
 	text-align:center;
-	padding-top:12px;
+	/*padding-top:12px;*/
 }
 #footer p .chengse {
 	background:url(/images/ico.jpg) 0 -543px no-repeat;
@@ -1305,6 +1306,7 @@ a.comlink:hover {
 	color:#fff;
 	font-size:14px;
 	font-weight:bold;
+	height:40px;
 }
 #r_top .kd .tb a.logo {
 	width:125px;
@@ -1324,14 +1326,14 @@ a.comlink:hover {
     width:500px;
     float:left;
 }
-#reg_list li.tit2 {
+#reg_list li .tit2 {
     font-size:16px;
     height:40px;
     line-height:40px;
 }
 #reg_list li .r_bk,#reg_list li .r_bk2,#reg_list li .r_bk3 {
     border:1px solid #ddd;
-    width:297px;
+    width:200px;
     height:32px;
     line-height:32px;
     padding-left:5px;
@@ -1351,8 +1353,9 @@ a.comlink:hover {
     width:160px;
     position:absolute;
     top:43px;
-    left:315px;
+    left:350px;
     line-height:20px;
+    text-align:left;
 }
 #reg_list li .tit3 {
     height:40px;
@@ -1370,11 +1373,17 @@ a.comlink:hover {
     text-indent:999px;
     overflow:hidden;
     cursor:pointer;
+    margin:0px auto;
 }
 #reg_list li .login_btn {
     background:url(/images/reg.gif) 0 -183px no-repeat;
     width:128px;
 }
+#reg_list li{text-align: center;}
+#reg_list li p{float: left;min-width:100px;margin-top: 2px;text-align: left;}
+#reg_list li p:first-child{text-align:right;padding-right: 20px;}
+#reg_list li p input{text-align: left;}
+#reg_list li{clear: left;}
 #login_list {
     margin:30px 0;
     border-right:1px dotted #ddd;
@@ -1498,6 +1507,9 @@ a.comlink:hover {
 }
 .login_info .r_bk3 {
     top:140px;
+    margin:5px 0 0;
+    padding: 0px;
+    width:275px;
 }
 .login_info .r_bk4 {
     top:180px;
@@ -1519,6 +1531,7 @@ a.comlink:hover {
 	position:absolute;
 	top:260px;
 	left:223px;
+	font-size:12px;
 }
 .login_info .log_wb .chengse {
 	text-decoration:underline;
