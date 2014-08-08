@@ -3273,14 +3273,14 @@ input.mh_bdbtn,input.mh_bdbtn2,input.mh_bdbtn3,input.mh_bdbtn4 {
 	overflow:hidden;
 	cursor:pointer;
 }
-.mh_bdbtn2 {
+input.mh_bdbtn2 {
 	background:url(/images/mhgl_btn.gif) 0 -325px no-repeat;
 }
-.mh_bdbtn3 {
+input.mh_bdbtn3 {
 	background:url(/images/mhgl_btn.gif) 0 -1207px no-repeat;
 	margin-left:167px;
 }
-.mh_bdbtn4 {
+input.mh_bdbtn4 {
 	background:url(/images/mhgl_btn.gif) 0 -1250px no-repeat;
 }
 .mh_bk2 {

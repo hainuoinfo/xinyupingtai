@@ -504,6 +504,7 @@ function removeEvent(c, b, a) {
 	}
 }
 function doCheck(checks) {
+	
 	var result = true;
 	isAlert = true;
 	for (var i = 0; i < checks.length; i++) {

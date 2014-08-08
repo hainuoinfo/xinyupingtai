@@ -7,8 +7,8 @@ img,input{ border:0px;}
 a{ text-decoration:none;}
 body{ background:#e6e6e6;}
 
-#top{margin: 0px auto; max-width:990px;height:40px; background:#a3a4a5;background-image: none;color: white;}
-ul.middle  li.text{height:40px;line-height:40px;}
+#top{margin: 0px auto; max-width:990px;height:25px; background:#a3a4a5;background-image: none;color: white;}
+ul.middle  li.text{height:23px;line-height:23px;}
 
 .kfbz{ width:379px; height:148px; background:url(../img/att543_03.png) no-repeat; position:absolute; right:-20px; top:35px; display:none;z-index:999;padding-top: 10px;}
 .kfbb:hover .kfbz{ display:block;}
@@ -187,16 +187,21 @@ hr{ border-bottom:1px solid #b8b9b9;}
 更改bootstrap导航栏颜色
 */
 
-.navbar-inverse .navbar-inner{background-color: #a3a4a5;background-image: none;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#a3a4a5',endColorstr='#a3a4a5',GradientType=0);
+.navbar-inverse .navbar-inner{background-color: #a3a4a5;background-image: none;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#a3a4a5',endColorstr='#a3a4a5',GradientType=0);min-height:23px;border: 1px solid #000;font-size:12px;
 }
-.navbar .nav>li>a{padding:10px 5px;color: white; font-weight: bold;}
+.navbar .nav>li>a{padding:1px 5px;color: white; font-weight: normal;}
 ul.dropdown-menu{min-width:80px;}
-.nav-collapse ul li.img{padding: 10px 0px;}
+.nav-collapse ul li.img{padding: 0px 0px;}
 .navbar-inverse .nav li.dropdown>.dropdown-toggle .caret{border-top-color: #000;}
-
 .navbar .nav > li .dropdown-menu {
 	margin: 0;
 }
 .navbar .nav > li:hover .dropdown-menu {
 	display: block;
 }
+.navbar .nav>li{font-size: 12px;}
+
+/*验证安全吗页面样式*/
+.aqm_bk table td .aqm_szcg2{float: left;width:100px;}
+.aqm_bk table td a.aqm_szcg3{float: left;}
+.aqm_bk table td STRONG{display: block;min-width:100px}

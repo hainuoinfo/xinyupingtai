@@ -219,7 +219,8 @@ var copyText=function(text){
 	window.clipboardData.setData('Text',text);
 }
 function avoidReSubmit(a) {
-	dialog(400, 250, "正在提交数据", "", "<div class='submiting'>正在提交数据，请耐心等待</div>");
+	alert(a);
+		dialog(400, 250, "正在提交数据", "", "<div class='submiting'>正在提交数据，请耐心等待</div>");
 	if (a) {
 		$('#'+a).attr({disabled: true});
 	}

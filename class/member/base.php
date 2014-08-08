@@ -430,7 +430,8 @@ class member_base{
 	public static function redMoney($uid, $money, $remark = ''){
 		if (self::memberIdExists($uid)) {
 			db::update('memberfields', 'money=money'.($money >= 0?'+':'').-$money, "uid='$uid'");
-			self::addLog('money', $uid, $money, $remark);
+			$totalmoney=db::one_one('memberfields', 'money', "uid='$uid'");
+			self::addLog('money', $uid, -$money, $remark,'','',$totalmoney);
 			return db::one_one('memberfields', 'money', "uid='$uid'");
 		}
 		return false;

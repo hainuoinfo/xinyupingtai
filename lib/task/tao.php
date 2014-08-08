@@ -572,6 +572,11 @@ switch ($m) {
 								'status'     => 1
 							))) {
 								db::update('memberfields', 'sellers1=sellers1+1', "uid='$uid'");
+							$totalcount=db::data_count('sellers', "uid='$uid'");
+								
+								//从第二次绑定掌柜开始每次绑定一个扣除五元
+							if($totalcount>0)
+								member_base::redMoney($uid,'5','添加掌柜扣除5元');
 							}
 						} else {
 							$rs = '很抱歉，该掌柜已经被别人绑定了';
@@ -594,6 +599,9 @@ switch ($m) {
 			if($del){
 				if(task_seller::del($del, $uid)){
 					db::update('memberfields', 'sellers1=sellers1-1', "uid='$uid'");//删除绑定淘宝帐号是，刷新绑定的数量
+					//扣除5元钱
+					//db::update('memberfields', 'money=money-5', "uid='$uid'");
+					member_base::redMoney($uid,'5','删除掌柜扣除5元');
 				    common::setMsg('删除成功');
 				    common::goto_url($thisUrl);
 				}else{

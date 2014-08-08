@@ -681,7 +681,7 @@ function thumbImg(b, a) {
 	}
 }
 function openDynaWin(c, b) {
-	var d = "<html><head><title>" + c + " - 美乐网</title></head><body><table align='center' width='100%'><tr><td align='center' >";
+	var d = "<html><head><title>" + c + " - 花兔兔</title></head><body><table align='center' width='100%'><tr><td align='center' >";
 	d += b + "</td></tr><tr><td align='center'><input type='button' style='font-size:9pt' value='关闭窗口' onclick='javascript:window.close()'></td></tr></table></body></html>";
 	var a = window.open();
 	a.document.write(d);

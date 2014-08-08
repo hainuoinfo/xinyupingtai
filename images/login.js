@@ -2,6 +2,12 @@
 var error2=false;
 var check_loginuser=function(){
 	var username=$('#lusername').val();
+	if(username=='' || username=='undefined')
+		username=$('#username').val();
+	console.log(username);
+	if(!username)username=$('#username').val();
+	console.log(username);
+	
 	if(username.length<3){
 				
 				$('#loginaccount').css("color","#B94A48");
@@ -18,6 +24,7 @@ var check_loginuser=function(){
 };
 var check_loginpassword=function(){
 	var password=$('#lpassword').val();
+	if(!password) password=$('#password').val();
 	if(password.length<6 || password.length>20){
 				
 				$('#loginpwd').css("color","#B94A48");
@@ -75,6 +82,8 @@ var safequestion=function(e,f,hash){
 $(document).ready(function(){
 	$('#myForm').submit(function(){
 	var username=$('#lusername').val();
+	if(username=='' || username=='undefined')
+	username=$('#username').val();
 	var password=$('#lpassword').val();
 	check_loginuser();
 	check_loginpassword();
