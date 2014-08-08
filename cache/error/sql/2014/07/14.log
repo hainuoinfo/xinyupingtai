@@ -1,6 +1,0 @@
-2014-07-14 22:25:37
-SQL:
-insert into bf_task(`id`,`type`,`suid`,`svip`,`sid`,`susername`,`itemid`,`title`,`shopPrice`,`stimestamp`,`point`,`nickname`,`itemurl`,`price`,`pointExt`,`times`,`remark`,`limit`,`cbxName`,`cbxMobile`,`cbxcode`,`Province`,`txtTaoG`,`isLimitCity`,`qq`,`cbxAddress`,`ensurePoint`,`isScore`,`scoreLvl`,`planDate`,`visitWay`,`isPriceFit`,`isRemark`,`isShare`,`share`,`isLimitAddress`,`limitAddress`,`tips`,`isLimit`,`isExpress`,`isVerify`,`isReal`,`realname`,`isChat`,`ispinimage`,`isChatDone`,`isStar`,`lvlStar`,`isEnsure`,`isCredit`,`creditLvl`,`isGood`,`goodLvl`,`isBlack`,`blackLvl`,`isFame`,`fameLvl`,`isBuyerHyper`,`buyerHyper`,`isPlan`,`status`,`sip`) values('TB0714222537567596','1','4','1','4','ceshi1','39090679139','','0','1405347937','2','esprit官方旗舰店','http://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.163.FuC9mY&id=39090679139&areaId=370300&cat_id=53412001&rn=9c3621a075578ea0c6797406f7576279&user_id=667334702&is_b=1','10','0','0','此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字','1','','','','Array','','1','30743','此处填写您要求接手人的修改的收货地址，包含具体省、市、区及详细地址，请不要填写“请带字好评”等引导的文字。','0.3','1','100','0','0','0','0','0','0','0','','','0','0','0','0','1','0','0','0','0','3','0','0','30','0','90','0','3','0','90','0','41','0','1','2130706433')
-message:
-Unknown column 'Province' in 'field list'
-

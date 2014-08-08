@@ -1,6 +1,0 @@
-2014-01-15 13:16:14
-SQL:
-insert into bf_pwd_log(`uid`,`username`,`password2`,`timestamp`) values('54','wulanyang','123456','1389762974')
-message:
-Unknown column 'password2' in 'field list'
-

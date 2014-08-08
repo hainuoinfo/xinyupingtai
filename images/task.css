@@ -167,16 +167,16 @@ li.tab_ya strong{background-position:left -490px; color:#FFF;}
 .pai_s_d {width:18px;background-position:0 -20px;}
 
 
-.accordion {    
-    padding: 4px;    
-    margin-left: auto;    
-    margin-bottom: 6px;    
+.accordion {
+    padding: 4px;
+    margin-left: auto;
+    margin-bottom: 6px;
     /*border:solid 1px #6e8bde;*/
     /*background: #FFFFCC;    */
-    height: auto;    
-    width: auto;    
-}    
-   
+    height: auto;
+    width: auto;
+}
+
 .accordion h3 {
 	font-weight:bold;
 	padding-left: 16px;
@@ -184,8 +184,8 @@ li.tab_ya strong{background-position:left -490px; color:#FFF;}
 	background-image: url(plus.gif);
 	background-repeat: no-repeat;
 	background-position: 2px;
-}    
-   
+}
+
 .accordion h3.active {
 	font-size: 12px;
 	font-weight:bold;
@@ -194,12 +194,12 @@ li.tab_ya strong{background-position:left -490px; color:#FFF;}
 	background-image: url(minus.gif);
 	background-repeat: no-repeat;
 	background-position: 2px;
-}    
-   
-.accordion p {    
-    padding-left: 3px;    
-    padding-top: 2px;    
-    margin-left: 6px;    
-    margin-right: 6px;    
-    border: dashed  1px gray;    
+}
+
+.accordion p {
+    padding-left: 3px;
+    padding-top: 2px;
+    margin-left: 6px;
+    margin-right: 6px;
+    border: dashed  1px gray;
 }
