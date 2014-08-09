@@ -5,10 +5,10 @@
       <div class="cle"></div>
       <li><p class="fd">麦点：<strong class="chengse">$memberFields[fabudian]</strong> 个</p><a href="{rewrite}/member/exchange/" title="将保证金兑换成能发布任务的麦点" target="_blank" class="rwdt_hs"></a></li>
       <div class="cle"></div>
-      <li><p>积分：<strong class="chengse">$memberFields[credits]</strong> 个</p></li>
+      <li><p class="fd">积分：<strong class="chengse">$memberFields[credits]</strong> 个，</p></li>
       <li><p class="fd">属于：{if $memberFields[shuake]==1}职业刷客{elseif $memberFields[vip]==1 || $memberFields[vip]==2 || $memberFields[vip]==3}{$vip}{else}{$credits}{/if}</p><span class=""></span></li>
       <div class="cle"></div>
-      <li>好评率：<strong class="lvse">
+      <li><p class="fd">好评率：<strong class="lvse">
 买家
 <?php  
 	//在class/task/grade.php中是这样规定的  isbuyer sgrade +1  else bgrade +1
@@ -31,6 +31,7 @@
 		echo $bhpl;
 ?>%
 
-	      </strong></li>
+	      </strong></p></li>
+      <div class="cle"></div>
       <li>有效投诉：<strong class="chengse">0</strong></li>
 </ul>

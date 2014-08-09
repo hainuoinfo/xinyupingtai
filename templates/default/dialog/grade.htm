@@ -1,6 +1,6 @@
 {sub header}
 <div style="padding:10px;line-height:20px;font-weight:bold;">请给对方刷客在任务进行中的表现进行评分；您的该次评价将直接影响对方的信用级别；信用级别过低的刷客将会被限制权限；情节严重者将做封号处理；所以请您认真客观的给对方评价；有了您的帮助，我们有信心会做的更好。</div>
-  <div style="padding-bottom:5px;padding-left:10px;line-height:20px;" class="f_b_org">{if $isBuyer}我是接手方：$task[busername]，以下是给发布方：$task[susername] 打分{else}我是发布方：$task[susername]，以下是给接手方：$task[busername] 打分{/if}</div>
+  <div style="padding-bottom:5px;padding-left:10px;line-height:20px;" class="f_b_org">{if $isBuyer}我是接手方：<span>$task[busername]</span>，以下是给发布方：<span>$task[susername]</span> 打分{else}我是发布方：<span>$task[susername]</span>，以下是给接手方：<span>$task[busername]</span> 打分{/if}</div>
     <table class="tbl" width="100%" border="0" cellspacing="0" cellpadding="8">
       <tr>
         <td width="40%" align="center"><strong>任务信息</strong></td>

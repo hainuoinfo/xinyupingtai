@@ -218,21 +218,21 @@
 				<ul>
 					<li class="sy"><a href="/">首页</a>
 					</li>
-					<li><a href="{rewrite}/task/tao/">淘宝大厅</a>
+					<li><a {if $operation=='tao'}class="active"{/if} href="{rewrite}/task/tao/">淘宝大厅</a>
 					</li>
-					<li><a href="{rewrite}/task/pai/">拍拍大厅</a>
+					<li><a {if $operation=='pai'}class="active"{/if} href="{rewrite}/task/pai/">拍拍大厅</a>
 					</li>
-					<li><a href="{rewrite}/collect/">收藏流量</a>
+					<li><a {if $action=='collect'}class="active"{/if} href="{rewrite}/collect/">收藏流量</a>
 					</li>
-					<li><a href="{rewrite}/member/BuyPoint/">购买麦点</a>
+					<li><a {if $operation=='BuyPoint'}class="active"{/if} href="{rewrite}/member/BuyPoint/">购买麦点</a>
 					</li>
-					<li><a href="{rewrite}/tuoguan/">网店托管</a>
+					<li><a {if $action=='tuoguan'}class="active"{/if} href="{rewrite}/tuoguan/">网店托管</a>
 					</li>
-					<li class="yy"><a href="{rewrite}/tbseo/">运营指导<em>（免费）</em></a>
+					<li class="yy"><a {if $action=='tbseo'}class="active"{/if}  href="{rewrite}/tbseo/">运营指导<em>（免费）</em></a>
 					</li>
-					<li><a href="{rewrite}/bbs/">有问必答</a>
+					<li><a {if $action =='bbs'}class="active"{/if}  href="{rewrite}/bbs/">有问必答</a>
 					</li>
-					<li><a href="{rewrite}/member/">会员中心</a>
+					<li><a {if $action =='member' && $operation !='BuyPoint' }class="active"{/if}   href="{rewrite}/member/">会员中心</a>
 					</li>
 				</ul>
 			</div>
