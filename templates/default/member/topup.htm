@@ -260,7 +260,7 @@ $__keys = array_keys($payforTabs);
                                             <DIV class="Top_submit">
                                                 <INPUT id="money" class="Top_nums" name="money" maxLength="4"
                                                        value="100" type="text">
-                                                <INPUT class="Top_sub" name="btnGotobank" value="提交查询内容" type="submit">
+                                                <INPUT class="Top_sub" name="btnGotobank" value="提交查询内容" type="submit" style="width:90px;">
                                             </DIV>
                                         </TD>
                                     </TR>
@@ -317,7 +317,7 @@ $__keys = array_keys($payforTabs);
                                             <DIV class="Top_submit2">
                                                 <INPUT id="alipayId" class="Top_nums2" name="alipayId" type="text">
 
-                                                <INPUT class="Top_sub2" value="提交查询内容" type="submit">
+                                                <INPUT class="Top_sub2" value="提交查询内容" type="submit" style="width:220px;">
                                             </DIV>
                                         </TD>
 
@@ -409,7 +409,7 @@ $__keys = array_keys($payforTabs);
                                 <DIV class="Top_submit3">
                                     <INPUT id="cardPwd" class="Top_nums7" name="cardPwd" maxLength="32" type="text">
                                     <INPUT class="Top_sub6" name="btnRemitnow" id="btnRemitnow" value="提交查询内容"
-                                           type="submit">
+                                           type="submit" style="width:122px;">
                                 </DIV>
                             </TD>
 
@@ -495,6 +495,7 @@ $__keys = array_keys($payforTabs);
 </DIV>
 <DIV class="cle"></DIV>
 <SCRIPT type="text/javascript">
+	    var _copay;
     $('.Top_list > a').click(function () {
         var tn = $('.Top_list > a').index(this);
         $('.Top_list > a').removeClass();
@@ -505,10 +506,10 @@ $__keys = array_keys($payforTabs);
         $('.Top_list p:eq(' + $('.Top_list > a').index(this) + ')').addClass('Top_13 Top_list_txt' + tn);
         $('.Top_cun_box li').css({display: 'none'});
         $('.Top_cun_box li:eq(' + $('.Top_list > a').index(this) + ')').css({display: 'block'});
-        if (tn == 2 && !_copay) {
-            copy_all();
-            _copay = true;
-        }
+        //if (tn == 2 && !_copay) {
+        //    //copy_all();
+        //    _copay = true;
+        //}
     });
     function copyComment(text, tip) {
         if (tip == void(0)) tip = '复制成功';
@@ -552,25 +553,8 @@ $__keys = array_keys($payforTabs);
 
 </SCRIPT>
 <script type="text/javascript">
-    var tab_0 = {if $tab == 'card'}
-    1
-    {
-        elseif
-        $tab == 'chinabank'
-    }
-    2
-    {
-        elseif
-        $tab == 'alipay'
-    }
-    3
-    {
-        elseif
-        $tab == 'tenpay'
-    }
-    4
-    {/if}
-        ;
+    var tab_0 ={if $tab == 'card'}1{elseif $tab == 'chinabank'}2{elseif  $tab == 'alipay'
+    }3{elseif  $tab == 'tenpay'}4{/if};
         function setTab(i) {
             getObj("tab_" + tab_0).className = "";
             getObj("tab_" + i).className = "tab_on";
