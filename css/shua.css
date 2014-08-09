@@ -417,6 +417,7 @@ a:hover{text-decoration:underline;}
 	left:33px;
 	width:270px;
 	}
+#gm_kd .bg2> p{top:115px;}
 #gm_kd .line .t2{
 	position:absolute;
 	top:135px;
@@ -428,7 +429,7 @@ a:hover{text-decoration:underline;}
 	width:75px;
 	border:1px solid #e4e4e4;
 	position:absolute;
-	top:135px;
+	top:132px;
 	left:92px;
 	color:#FF0000;
 	font-size:18px;

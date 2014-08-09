@@ -1,7 +1,7 @@
 <style>
 .task_header em{color: red;font-weight: bold;}
 .task_header td{text-indent: 10px;}
-input#cardnums {border: 1px solid #eee;}
+input#cardnums {border: 1px solid #eee;width:50px;}
 </style>
 <div class="rwdt_bk">
 			<p class="sub_bt"><a id="liInput1" class="nov" href="javascript:;">支付宝充值</a><a href="javascript:;" id="liInput2">网银充值</a><a href="javascript:;" id="liInput3">购买麦点</a><a href="javascript:;" id="liInput4">人工转账</a></p>
@@ -23,7 +23,7 @@ input#cardnums {border: 1px solid #eee;}
                         $sys_hash_code2
                         <table style="margin-top:10px;font-size: 12px;" align="left" border="0" cellpadding="0" cellspacing="0" width="90%">
 					  <tbody><tr>
-						<td height="30" align="right" valign="middle" width="35%">充值用户名：</td>
+						<td height="20" align="right" valign="middle" width="35%">充值用户名：</td>
 						<td><input name="username" id="username" class="rwdt_inp" style="color:#666" value="$member[username]" disabled="disabled" type="text"></td>
 					  </tr>
 					  <tr>
@@ -32,13 +32,9 @@ input#cardnums {border: 1px solid #eee;}
 						</td>
 					  </tr>
 					  <tr>
-						<td>&nbsp;</td>
 						<td><span class="chengse">(1%手续费)</span></td>
-					  </tr>
-					  <tr>
-						<td>&nbsp;</td>
 						<td><input class="rwdt_cz" type="submit" name="imageField"></td>
-					  </tr>					  
+					  </tr>				  
 				  </tbody></table>
 				  </form>
 		       </div>

@@ -1869,16 +1869,16 @@ a.r_close:hover {
 }
 .rwdt_bk .rwdt_inp {
 	border:1px solid #ddd;
-	height:22px;
-	line-height:22px;
-	width:168px;
+	height:18px;
+	line-height:18px;
+	width:128px;
 }
 .rwdt_bk .rwdt_cz {
 	background:url(/images/rwdt.gif) -93px -49px no-repeat;
 	display:block;
 	width:80px;
 	height:31px;
-	margin-top:7px;
+	/*margin-top:7px;*/
 	overflow:hidden;
 	line-height:99px;
 	text-indent:999px;
