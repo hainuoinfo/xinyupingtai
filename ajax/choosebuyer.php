@@ -7,10 +7,11 @@ if (!$memberLogined) {
 }
 template::initialize('./templates/default/ajax/', './cache/default/ajax/');
     $taskid = $_POST['taskid'];
+    $insertDb=$_POST['insertDb'];
     $bid = $_POST['buyAccount'];
 	if ($taskid) {
 		if ($task = task_base::_get($taskid)) {
-		if($bid){
+		if($bid && $insertDb==1){
 				    $members = member_base::getMember($uid);
 					$buyer = task_buyer::getBuyer($bid, $uid);
 				    if($task['isawb']){
@@ -41,11 +42,19 @@ template::initialize('./templates/default/ajax/', './cache/default/ajax/');
 				           'StateCode'=> 0, 
 				           'url'=>'tao',
 					       'urlpai'=>'pai',
-				           'StateMsg'=> '1. 您已经成功为该任务选择了买号，请确保使用选择的买号购买任务商品，否则视为放弃申诉权；<br />2. 请在十五分钟内拍下任务商品并且按任务平台担保价'.$task['price'].'元支付；<br />3. 发布方已经在发布任务时在平台扣押了等额的平台担保金，任务完成后您将获得该笔平台存款和'.$v['point'].'个发布点”；<br />4. 如果发现商品价格（包含运费）与任务担保价不等请联系发布方修改价格与延长操作时间；'
+				           'StateMsg'=> '1. 您已经成功为该任务选择了买号，请确保使用选择的买号购买任务商品，否则视为放弃申诉权；<br />2. 请在十五分钟内拍下任务商品并且按任务平台担保价'.$task['price'].'元支付；<br />3. 发布方已经在发布任务时在平台扣押了等额的平台担保金，任务完成后您将获得该笔平台存款和'.$task['point'].'个发布点”；<br />4. 如果发现商品价格（包含运费）与任务担保价不等请联系发布方修改价格与延长操作时间；'
 				           );
 					}
 					
-				}    
+				}else
+				{
+					$result =array(
+						'StateCode'=> 0, 
+						'url'=>'tao',
+						'urlpai'=>'pai',
+						'StateMsg'=> '你已经成功选择了买号，点击确定后将检查该买号是否能够接手此任务！'
+					);
+				}
 				
         }
 	}

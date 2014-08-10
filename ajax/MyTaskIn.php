@@ -14,7 +14,7 @@ template::initialize('./templates/default/ajax/', './cache/default/ajax/');
    if ($new) {
         $is_real = db::one('task', '*', "id='$new'");
 		$real =$is_real['isReal'];
-			$rs = task_tao::in($new, $uid,$bid); 
+			$rs = task_tao::in($new, $uid,$bid);
 			if ($rs == true) {
 			    if($rs==1){
 			        $result =array(
