@@ -12,7 +12,7 @@ var common = {
 	},
 	comebackCss : function(obj, name){
 		var data = this.datas[name];
-		
+
 		for (var k in data) {
 			var v = data[k];//alert(k + '|' + v);
 			//if (k == 'position') $(obj).css({'position' : v});
@@ -53,15 +53,15 @@ $.fn.waitImg=function(show){
 $.fn.overflow = function(show){
 	if (show == void(0)) show = true;
 	var id = 'css_' + $(this).attr('sourceIndex');
-	if (show) {	
+	if (show) {
 		common.backupCss(this, id, ['left', 'top', 'width', 'height', 'overflow', 'position', 'background', 'border']);
 		var offset = $(this).offset();
 		$(this).css({
-			left       : (offset.left - 1) + 'px', 
-			top        : (offset.top  - 1) + 'px', 
-			width      : 'auto', 
-			height     : 'auto', 
-			position   : 'absolute', 
+			left       : (offset.left - 1) + 'px',
+			top        : (offset.top  - 1) + 'px',
+			width      : 'auto',
+			height     : 'auto',
+			position   : 'absolute',
 			background : '#FFFBFB',
 			border     : '1px solid #FFAAAA'
 		});
@@ -187,9 +187,9 @@ $.fn.easydrag = function(allowBubbling){
 		// if no id is defined assign a unique one
 		if(undefined == this.id || !this.id.length) this.id = "easydrag"+(new Date().getTime());
 
-		// set dragStatus 
+		// set dragStatus
 		dragStatus[this.id] = "on";
-		
+
 		// change the mouse pointer
 		$(this).css("cursor", "move");
 
@@ -502,7 +502,7 @@ function doCheck(checks) {
 			}
 			result = eval(str)
 		} catch(e) {
-			//alert(e)
+			alert(str)
 		}
 		if (!result && isAlert) {
 			isAlert = false
@@ -528,7 +528,7 @@ function doAlert(c, b) {
 		try {
 			b.focus()
 		} catch(a) {
-			
+
 		}
 	}
 	return false
