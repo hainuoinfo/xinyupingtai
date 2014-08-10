@@ -808,7 +808,7 @@ class task_tao{
 	}
 	return $i;
 	}
-	public static function in($id, $uid){
+	public static function in($id, $uid,$bid=0){
 		global $timestamp, $ipint, $ipint2, $today_start, $today_end, $sys_debug, $isVip, $is_v_num;
 		if ($task = self :: get($id)){
 		if ($task['suid'] != $uid){

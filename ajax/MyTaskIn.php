@@ -9,11 +9,12 @@ if (!$memberLogined) {
 	exit;
 }
 template::initialize('./templates/default/ajax/', './cache/default/ajax/');
+  $bid = $_POST['bid'];
   $new = $_POST['taskid'];
    if ($new) {
         $is_real = db::one('task', '*', "id='$new'");
 		$real =$is_real['isReal'];
-			$rs = task_tao::in($new, $uid); 
+			$rs = task_tao::in($new, $uid,$bid); 
 			if ($rs == true) {
 			    if($rs==1){
 			        $result =array(

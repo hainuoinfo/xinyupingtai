@@ -214,3 +214,10 @@ ul.dropdown-menu{min-width:80px;}
 
 /* 会员中心列表样式修正*/
 .left_lan ul{margin:0px}
+
+/*修正发布任务页面样式*/
+div.name{float: left;}
+.fabu_box2 .add .value{float: left;max-width:460px;}
+p.taskbutton input.taskadd{width:162px;}
+.fabu_box2 ul.cont{margin:0px;}
+.fabu_box2 LABEL{font-size: 12px;}

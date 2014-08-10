@@ -26,74 +26,82 @@ function taskin(mid,isDisWW,btn){
     $(btn).attr("disabled","disabled");
     var tipsDialog=artDialog({content:"处理中，请稍候...",id:"tips",lock:true});
     DisabledClose();
-    
-    $.post("/ajax/MyTaskIn.php",{"taskid":mid}, function(result){
-        tipsDialog.close();     
-        if(result.StateCode==0){
-            var $accountList=$("#divIDList");
-            curMisIsDisWW = isDisWW;
-            SelectBuyerAccountNew(mid,btn,$accountList,result.IsReal);
-        }else{
-            $(btn).removeAttr("disabled");
-            switch(result.StateCode){
-                case 1:{
-                    artDialog({content:result.StateMsg,id:"alarm",fixed:true,yesText:"进入考试",lock:true},function(){
-                        window.location.href="/member/exam/";
-                    },function(){goPage(1);});
-                    break;
-                }
-				case 2:{
-                    artDialog({content:result.StateMsg,id:"alarm",fixed:true,yesText:"激活账号",lock:true},function(){
-                        window.location.href="/member/active/";
-                    },function(){goPage(1);});
-                    break;
-                }
-				case 3:{
-                    artDialog({content:result.StateMsg,id:"alarm",fixed:true,yesText:"查看商保保证金",lock:true},function(){
-                        window.location.href="/member/ensure/";
-                    },function(){goPage(1);});
-                    break;
-                }
-                case 4:{
-                    artDialog({content:result.StateMsg,id:"alarm",fixed:true,lock:true,yesText:"立即加入商保",noText:"取消"},function(){window.location.href="/member/ensure/"},function(){ tipsDialog.close();goPage(1);});
-                    break;
-                } 
-				case 5:{
-                    artDialog({content:result.StateMsg,id:"alarm",fixed:true,lock:true,yesText:"绑定实名买号",noText:"取消"},function(){window.location.href="/task/tao/?m=tieBuyer"},function(){ tipsDialog.close();goPage(1);});
-                    break;
-                }
-                case 11:{
-                    artDialog({content:result.StateMsg,id:"alarm",fixed:true,yesText:"查看投诉处理情况",lock:true},function(){
-                        window.location.href="/member/complain/";
-                    });
-                    break;
-                }
-				case 12:{
-                    artDialog({content:result.StateMsg,id:"alarm",fixed:true,yesText:"进入已接任务",lock:true},function(){
-                        window.location.href="/task/tao/?m=taskIn";
-                    });
-                    break;
-                }
-                default:{
-                    artDialog({content:result.StateMsg,id:"alarm",fixed:true,yesText:"关闭",lock:true},
-                    function(){
-                        if(result.StateCode==1||result.StateCode==2||result.StateCode==5){
-                            $(buffHtml).find("tr:contains("+ mid +")").remove();
-                        }
-                        goPage(1);
-                    });
-                    break;
-                }
-            }
-            DisabledClose();
-            return;
-        }
-    },'json');
+    //先获取买号id，获取不到时弹出选择买号界面
+    var bid=$('#selectUser').val();
+    if(!bid) {//买号不存在时选择买号
+    	tipsDialog.close();
+		SelectBuyerAccount(mid,btn,$("#divIDList"));
+    }else{
+	    alert(bid);
+	    $.post("/ajax/MyTaskIn.php",{"taskid":mid,'bid':bid}, function(result){
+	        tipsDialog.close();     
+	        if(result.StateCode==0){
+	            var $accountList=$("#divIDList");
+	            curMisIsDisWW = isDisWW;
+	            SelectBuyerAccountNew(mid,btn,$accountList,result.IsReal);
+	        }else{
+	            $(btn).removeAttr("disabled");
+	            switch(result.StateCode){
+	                case 1:{
+	                    artDialog({content:result.StateMsg,id:"alarm",fixed:true,yesText:"进入考试",lock:true},function(){
+	                        window.location.href="/member/exam/";
+	                    },function(){goPage(1);});
+	                    break;
+	                }
+					case 2:{
+	                    artDialog({content:result.StateMsg,id:"alarm",fixed:true,yesText:"激活账号",lock:true},function(){
+	                        window.location.href="/member/active/";
+	                    },function(){goPage(1);});
+	                    break;
+	                }
+					case 3:{
+	                    artDialog({content:result.StateMsg,id:"alarm",fixed:true,yesText:"查看商保保证金",lock:true},function(){
+	                        window.location.href="/member/ensure/";
+	                    },function(){goPage(1);});
+	                    break;
+	                }
+	                case 4:{
+	                    artDialog({content:result.StateMsg,id:"alarm",fixed:true,lock:true,yesText:"立即加入商保",noText:"取消"},function(){window.location.href="/member/ensure/"},function(){ tipsDialog.close();goPage(1);});
+	                    break;
+	                } 
+					case 5:{
+	                    artDialog({content:result.StateMsg,id:"alarm",fixed:true,lock:true,yesText:"绑定实名买号",noText:"取消"},function(){window.location.href="/task/tao/?m=tieBuyer"},function(){ tipsDialog.close();goPage(1);});
+	                    break;
+	                }
+	                case 11:{
+	                    artDialog({content:result.StateMsg,id:"alarm",fixed:true,yesText:"查看投诉处理情况",lock:true},function(){
+	                        window.location.href="/member/complain/";
+	                    });
+	                    break;
+	                }
+					case 12:{
+	                    artDialog({content:result.StateMsg,id:"alarm",fixed:true,yesText:"进入已接任务",lock:true},function(){
+	                        window.location.href="/task/tao/?m=taskIn";
+	                    });
+	                    break;
+	                }
+	                default:{
+	                    artDialog({content:result.StateMsg,id:"alarm",fixed:true,yesText:"关闭",lock:true},
+	                    function(){
+	                        if(result.StateCode==1||result.StateCode==2||result.StateCode==5){
+	                            $(buffHtml).find("tr:contains("+ mid +")").remove();
+	                        }
+	                        goPage(1);
+	                    });
+	                    break;
+	                }
+	            }
+	            DisabledClose();
+	            return;
+	        }
+	    },'json');
+	}
 }
 function DisabledClose(){
     $(".ui_close").hide();
     document.onkeyup = null;
 }
+//打开买家页面
 function Openbuyerspage($k){
 	if($k>1){
 		$pk=$k-1;
@@ -235,6 +243,110 @@ function SelectBuyerAccountNew(mid,btn,$accountList,IsReal){
         DisabledClose();
     }
 }
+function SelectBuyerAccount(mid,btn,$accountList,IsReal){
+    var dislen = $accountList.find("input:radio[disabled]").size();
+    var alllen = $accountList.find("input:radio").size();
+	var Reallen = $("#trListTrueName").find("input:radio[disabled]").size();
+	var AllReallen = $("#trListTrueName").find("input:radio").size();
+	var Normal = $(".trListNormal");
+    if(Reallen = AllReallen && IsReal==1){
+	    artDialog({content:"温馨提示：您必须绑定一个支付宝实名买号才可以接手此任务！",id:"al1",fixed:true,yesText:"绑定实名买号",noText:"取消",lock:true},function(){
+                    window.open("/task/tao/?m=tieBuyer");
+                },function(){
+                    CancelAcceptMission(mid);
+                });
+                DisabledClose();
+                return;
+	}else if(dislen==alllen){
+        artDialog({content:"温馨提示：您所有的买号信誉超过2000或买号已经挂起，无法接手此任务，请绑定新买号！",id:"al1",fixed:true,yesText:"关闭",lock:true},function(){
+            CancelAcceptMission(mid);
+        });
+        DisabledClose();
+        return;
+    }else{
+	    if(isFlowVip){
+		  $.post("/ajax/Buyantidownright.php",{"taskid":mid}, function(result){  
+                        if(result.StateCode==1 && result.Buyantlist){
+                            for(i=0;i<result.Buyantlist.length;i++){
+                                   $accountList.find("#buyer"+result.Buyantlist[i]).attr("disabled","disabled");
+							}
+                        }
+                    },'json');
+		}
+        $accountList.find("input:radio[checked]").removeAttr("checked");
+		if(IsReal==1){
+		$(".trListNormal").hide();
+        $("#trListTrueName").show();
+		}
+		artDialog({content:$accountList.html(),title:"为任务"+mid+"选择买号" ,id:"al",fixed:true,lock:true},function(){            
+            var $divin = $("#alContent .divin").clone();
+            var $aId=$divin.find("input:radio[name=ba][checked]");             
+            var aId=$aId.val();
+            if(aId==undefined){
+                $aId=$("#alContent input:radio[name=ba][checked]");
+                aId = $aId.val();
+            }
+            if(aId==undefined){
+                artDialog({content:"大麦户温馨提示：请选择好买号再提交!<br/>如果没有买号，请到【会员中心-绑定买号】里面先绑定买号再接任务",id:"alarm",fixed:true,yesText:"立即去绑定",noText:"重选买号",lock:true},function(){
+                    window.open("/member/buytao/");
+                },function(){
+                    SelectBuyerAccountNew(mid,btn,$divin.wrap("<div></div>").parent());
+                });
+                DisabledClose();
+                return;
+            }else{
+                $(btn).attr("disabled","disabled");
+                var tipsDialog=artDialog({content:"处理中，请稍候...",id:"tips",lock:true});
+                DisabledClose();
+                /*if(iiww()){*/
+				if(false){
+                   alert("平台检测到您安装了旺旺客户端；\r\n为了卖家的安全，请先卸载旺旺客户端，然后重启电脑再通过网页旺旺进行聊天任务！");
+                   tipsDialog.close();  
+                   $(btn).removeAttr("disabled");
+                   CancelAcceptMission(mid);
+                }else{
+                    $.post("/ajax/choosebuyer.php",{"taskid":mid,"buyAccount":aId}, function(result){  
+                        tipsDialog.close();          
+                        if(result.StateCode==0){
+                            artDialog({content:result.StateMsg,id:"alarm",fixed:true,lock:true},function(){
+                                //window.open("/task/"+result.url+"/?m=taskIn&t=ing","_self");
+                                //设置购买者信息
+	                            $('#selectUser').val(aId);
+	                            taskin(mid,false,btn);
+                            });
+                            DisabledClose();
+                            return true;
+                        }else if( result.StateCode==-2){                       
+                            $(btn).removeAttr("disabled");
+                            artDialog({content:result.StateMsg,id:"alarm",fixed:true,yesText:"完善收货地址",noText:"重选买号",lock:true},function(){
+                    window.open("/task/tao/?m=tieBuyer");
+                },function(){
+                                $divin.find("input:radio[name=ba][checked]").removeAttr("checked").attr("disabled","disabled");
+                                SelectBuyerAccountNew(mid,btn,$divin.wrap("<div></div>").parent());
+                            });
+                            DisabledClose();
+                            return;
+                        }else{                       
+                            $(btn).removeAttr("disabled");
+                            artDialog({content:result.StateMsg,id:"alarm",fixed:true,yesText:"重选买号",lock:true},function(){
+                                $divin.find("input:radio[name=ba][checked]").removeAttr("checked").attr("disabled","disabled");
+                                SelectBuyerAccountNew(mid,btn,$divin.wrap("<div></div>").parent());
+                            });
+                            DisabledClose();
+                            return;
+                        }
+                    },'json');
+                }
+            }
+        },function(){
+            if( $(btn).attr("id") == "btnAutoAM" )
+                $("#reAutoAM").hide();            
+            CancelAcceptMission(mid);
+        });
+        
+        DisabledClose();
+    }
+}
 function CancelAcceptMission(mid){
     var tipsDialog=artDialog({content:"正在取消接手任务，请稍候...",id:"tips",lock:true});
     DisabledClose();
@@ -258,7 +370,7 @@ function OpenNormalBa(count){
     $("#alContent tr[id=trListTrueName]").hide();
     $("#alContent tr[id=trListNormal]").show();
     $("#alContent span[id=spanNormalHead]").html(hiddenImage + "普通买号").next().show();
-    $("#alContent span[id=spanTrueNameHead]").html(showImage + "实名买号（可用"+count+"个，点击查看）").next().hide();
+    $("#alContent span[id=spanTrueNameHead]").html(showImage + "实名买号（可用"+count+"个，点击查看）").next().show();
 }
 
 function AutoAMResult(result){
