@@ -502,7 +502,7 @@ function doCheck(checks) {
 			}
 			result = eval(str)
 		} catch(e) {
-			alert(str)
+			//alert(e)
 		}
 		if (!result && isAlert) {
 			isAlert = false

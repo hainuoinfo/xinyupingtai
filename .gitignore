@@ -5,3 +5,4 @@
 /img/attach/
 *.modoproject
 /data/sql/backup/
+*.bak
