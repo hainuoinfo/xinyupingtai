@@ -76,6 +76,7 @@
 		//得到时间
 		var need_adv = $('#need_adv').attr('value');
 		var times    = $('input[name=days]:checked').val();
+		if(times=='' || times==undefined) times=0;
 		var days=0;
 		if (need_adv=="1" && $('#adv_seting_1').is(":checked")){
 			days = GetDiff();
@@ -164,7 +165,7 @@
 			discount=0.8;
 		}*/
 		var keywords= $('#keywords').val();
-		if (keywords == ''){
+		if (keywords == '' || keywords==undefined){
 			
 				keynums = 1;		
 		}
@@ -185,14 +186,13 @@
 			
 			
 
-
 		var total_discount = format_money(price*days*price_offset)-format_money(price*days*price_offset*discount);
 		var total_discount = format_money(total_discount);
 		var total_price_old = format_money(price*days*price_offset);
 		//得到总价格
 		
 		var total_price = format_money(price*days*price_offset*discount*keynums);
-		
+		console.log(price+" "+days+" "+price_offset+" "+discount+" "+keynums);
 		$('#total_price').val(total_price);
 		$('#total_price_show').text(total_price);
 		if (total_discount){

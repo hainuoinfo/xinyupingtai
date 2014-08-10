@@ -4578,10 +4578,18 @@ input.mh_bdbtn4 {
 .scly_scbk {
 	background:url(/images/scly_ico.png) 0 -320px repeat-x;
 	border:3px solid #a1d1f7;
-	width:490px;
+	max-width:480px;
 	float:left;
 	margin:10px 0 0 0;
 }
+.scly_scbk td {max-width:400px;font-size:10px;}
+.scly_scbk td p.text{width:320px;}
+.scly_scbk td p label{max-width:140px;float: left;margin-left: 2px;vertical-align: bottom;}
+.scly_scbk td  input{max-width:200px;}
+.scly_scbk tr#span_cut_pvs td,.scly_scbk tr#span_cut_time td,.scly_scbk tr#span_cut_location td{border-top: 1px solid rgb(221, 221, 221);padding-top:10px;}
+.scly_scbk td label{max-width:60px;float: left;font-size: 10px;margin: 0px;}
+.scly_scbk td.address label,.scly_scbk td.address  input{float: left;}
+.scly_scbk td.timebox label{max-width:320px;float: none;}
 .scly_gmsc,.scly_gmll {
 	background:url(/images/scly_ico.png) 15px -94px no-repeat;
 	font-size:14px;
