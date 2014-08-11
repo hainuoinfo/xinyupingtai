@@ -1,5 +1,5 @@
 {teval
-	$cssList = array(css::getUrl('task', 'task'));
+	<!--$cssList = array(css::getUrl('task', 'task'));-->
 	$jsList  = array(javascript::getUrl('task', 'index'));
 	echo string::getStaticCode(array('cssList'=>$cssList, 'jsList' => $jsList));
 }
@@ -9,7 +9,7 @@ var webqq = 239087160;
 var webnoticeurl = "";
 var webnoticetit = "";
 </script>
-<link rel="stylesheet" type="text/css" href="/images/task.css">
+<!--<link rel="stylesheet" type="text/css" href="/images/task.css">-->
 
 <style type="text/css">
 .kd a:hover { text-decoration:underline;}
@@ -19,13 +19,14 @@ var webnoticetit = "";
 .bq_menu{
 	height:32px;
 	background:url(/images/fy_ico.jpg) 0 -1342px repeat;
+	padding-left: 20px;
 	}
 .bq_menu a{
 	float:left;
 	margin-right:3px;
 	background:url(/images/fy_ico.jpg)  -4px -806px no-repeat;
 	display:block;
-	font-size:14px;
+	font-size:12px;
 	text-align:center;
 	width:96px;
 	height:32px;
@@ -205,13 +206,13 @@ function checkForm3() {
 		      </tbody>
 		    </table>
 		  </form>
-            <div class="rwdt_dlm">
+            <div class="rwdt_dlm" style="display: none;">
 			  <div id="page">
 				
 				
 				<a href="{rewrite}/task/pai/?m=tieBuyer&amp;status=0&amp;page=$multipage" class="nov">1</a>
 				
-				<p class="pr">总：共1页 当前第<span class="hong">1 </span>页</p>
+				<p class="pr" >总：共1页 当前第<span class="hong">1 </span>页</p>
 				
 			  </div>
 			</div>

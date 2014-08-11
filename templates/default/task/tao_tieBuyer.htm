@@ -1,10 +1,10 @@
 {teval
-	$cssList = array(css::getUrl('task', 'task'));
+	<!--$cssList = array(css::getUrl('task', 'task'));-->
 	$jsList  = array(javascript::getUrl('task', 'index'));
 	echo string::getStaticCode(array('cssList'=>$cssList, 'jsList' => $jsList));
 }
 {sub ../headerBase}
-<link rel="stylesheet" type="text/css" href="/images/task.css">
+<!--<link rel="stylesheet" type="text/css" href="/images/task.css">-->
 <style type="text/css">
 .kd a:hover { text-decoration:underline;}
 .link_tt{ display:block; width:52px; height:22px;color:#a68d8b; background:url(/images/buyers_btn.png) no-repeat; margin-bottom:2px;}
@@ -13,13 +13,14 @@
 .bq_menu{
 	height:32px;
 	background:url(/images/fy_ico.jpg) 0 -1342px repeat;
+	padding-left: 20px;
 	}
 .bq_menu a{
 	float:left;
 	margin-right:3px;
 	background:url(/images/fy_ico.jpg)  -4px -806px no-repeat;
 	display:block;
-	font-size:14px;
+	font-size:12px;
 	text-align:center;
 	width:96px;
 	height:32px;
@@ -73,7 +74,7 @@
 
 		{sub tab}
 	<div class="cle"></div>
-		<div class="lst_info" style="background:white;">
+		<div class="lst_info" style="">
 		  {if $_showmessage}<div class='true_panel'><div>$_showmessage</div></div>{/if}
 	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
 	<div class="mh_tishi">

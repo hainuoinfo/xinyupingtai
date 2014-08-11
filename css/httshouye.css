@@ -221,3 +221,14 @@ div.name{float: left;}
 p.taskbutton input.taskadd{width:162px;}
 .fabu_box2 ul.cont{margin:0px;}
 .fabu_box2 LABEL{font-size: 12px;}
+
+/*修正 任务列表页 背景*/
+.tlisttable{background-color: white;}
+.lst_info{background:white;padding:5px 10px;}
+
+#content{padding:5px 10px;}
+.white{background-color: white;}
+
+/*论坛修正*/
+#ImageUrl,#vcode{border:1px solid #c5c5c5;}
+input.luntan_inp{margin:0px;min-height:23px;}

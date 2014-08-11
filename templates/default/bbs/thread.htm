@@ -49,7 +49,7 @@
 	LINE-HEIGHT: 99px; OVERFLOW: hidden
 }
 </STYLE>
-<div id="content">
+<div id="content" class="white">
   <DIV class=lt_left>
         <P style="FLOAT: none" class=lthd_wz>当前位置：
 		<A class=comlink href="{rewrite}/">首页</A> &gt; 
@@ -63,13 +63,14 @@
                 <TBODY>
               <TR>
                     <TD align=right><INPUT class=luntan_inp name=keyword></TD>
-                    <TD width=50><INPUT class=luntan_btn value="" type=submit></TD>
+                    <TD width=50><INPUT class=luntan_btn value="" style="width:50px" type=submit></TD>
                   </TR>
             </TBODY>
               </TABLE>
         </FORM>
             <A style="FLOAT: left" class=luntan_ft href="{rewrite}/bbs/post.php?fid=$thread[fid]"></A>
 			<A style="FLOAT: left" class=luntan_hf href="javascript:void(0);">回复</A> 
+		    <div class="cle"></div>
 		</DIV>
       <DIV class=ltlook_tit>
 	  <SPAN class=ltlook_ico2></SPAN>
@@ -117,7 +118,7 @@ $post[message]
           <TBODY>
               </TBODY>
         </TABLE>
-            <FORM id=myForm onsubmit="return checkForm();" method=post name=myForm action="{rewrite}/bbs/reply.php?tid=$tid&pid=$post[id]">
+        <FORM id=myForm onsubmit="return checkForm();" method=post name=myForm action="{rewrite}/bbs/reply.php?tid=$tid&pid=$post[id]">
           $sys_hash_code2
           <INPUT value=1 type=hidden name=isQuick>
           <DIV class=luntan_cont>
@@ -154,8 +155,10 @@ $post[message]
           </DIV>
     </DIV>
       </DIV>
-  {subtemplate right} </div>
-    </div>
+  {subtemplate right} 
+
+    <div class="cle"></div>
+  </div>
     <div class="cle"></div>
 <SCRIPT type=text/javascript src="/images/service.js"></SCRIPT>
 <SCRIPT type=text/javascript src="/images/task.js"></SCRIPT>

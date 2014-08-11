@@ -1,7 +1,7 @@
 {teval
 	
-	$cssList     = array(css::getUrl('task', 'task'));
-	echo string::getStaticCode(array('cssList'=>$cssList));
+	<!--$cssList     = array(css::getUrl('task', 'task'));-->
+	<!--echo string::getStaticCode(array('cssList'=>$cssList));-->
 }
 {sub ../headerBase}
 <script type="text/javascript">
@@ -9,6 +9,7 @@ var webqq = 239087160;
 var webnoticeurl = "";
 var webnoticetit = "";
 </script>
+<!--<link rel="stylesheet" type="text/css" href="/images/task.css">-->
 <style type="text/css">
 .kd a:hover { text-decoration:underline;}
 .link_tt { display:block; width:52px; height:22px;color:#a68d8b; background:url(/images/sellers_btn.png) no-repeat; margin-bottom:2px;}
@@ -103,7 +104,7 @@ function checkForm3() {
 </script>
 		{sub tab}
 	<div class="cle"></div>
-	<div class="lst_info" style="background:none;"></div>
+	<div class="lst_info">
 	{if $_showmessage}<div class='error_panel'><div>$_showmessage</div></div>{/if}
 	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
 	<div class="mh_tishi">
@@ -192,7 +193,7 @@ function checkForm3() {
             </tbody></table>
 	        <p>&nbsp;</p>
 	        <p>&nbsp;</p>
-            <div class="rwdt_dlm">
+            <div class="rwdt_dlm" style="display: none;">
 			  <div id="page">
 				
 				
@@ -204,7 +205,7 @@ function checkForm3() {
 			</div>
 			<div class="cle"></div>
 			<!--结束-->
-			
+		</div>
 					
 	</div><!--taopage_detail end-->
 </div>

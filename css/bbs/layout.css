@@ -359,7 +359,7 @@ a.comlink:hover {
 #content {
 	width:1000px;
 	margin:0 auto;
-	background-color: white;
+	/*background-color: white;*/
 	font-size:12px;
 }
 #c_bk,#c_bk2,#c_bk3 {
@@ -379,6 +379,8 @@ a.comlink:hover {
 	width:358px;
 	height:243px;
 	float:right;
+	margin-top: 10px;
+	background-color: white;
 }
 #content .fbf,#content .jsf {
 	background:url(/images/d_img1.png) -20px -561px no-repeat;
@@ -2075,7 +2077,7 @@ a.r_close:hover {
 	background:url(/images/rwdt.gif) right -702px no-repeat;
 }
 .fbcolor {
-	background:#f9f9f9;
+	background:#ddd;
 }
 .rw_none {
 	background:none;
@@ -2905,6 +2907,7 @@ ul.gou li span {
 .yfrw_list {
 	border:1px solid #BEDAF8;
 	margin-top:10px;
+	background-color: white;
 }
 .yfrw_list2 {
 	border:1px solid #ddd;
@@ -4295,7 +4298,7 @@ input.mh_bdbtn4 {
 	margin-top:15px;
 }
 .luntan_top {
-	height:45px;
+	min-height:45px;
 	padding-top:10px;
 }
 .luntan_inp {
@@ -4370,7 +4373,7 @@ input.mh_bdbtn4 {
 }
 .luntan_text {
 	float:left;
-	width:600px;
+	max-width:500px;
 }
 .luntan_text .lanse:hover {
 	color:#F30;
@@ -4576,7 +4579,7 @@ input.mh_bdbtn4 {
 	text-decoration:underline;
 }
 .scly_scbk {
-	background:url(/images/scly_ico.png) 0 -320px repeat-x;
+	background:url(/images/scly_ico.png) white 0 -320px repeat-x;
 	border:3px solid #a1d1f7;
 	max-width:480px;
 	float:left;
@@ -4632,6 +4635,7 @@ input.mh_bdbtn4 {
 	border:1px solid #ddd;
 	margin-top:15px;
 	float:left;
+	background-color: white;
 }
 .scly_tit {
 	background:url(/images/scly_ico.png) 0 0 repeat-x;
