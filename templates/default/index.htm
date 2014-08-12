@@ -30,7 +30,7 @@
                 <label><strong>积分：</strong><a href="{rewrite}/member/PayDetails/?type=3" ><span>$memberFields[credits]</span></a></label>
                 <label><strong>登陆次数：</strong><a href="/member/PayDetails/?type=7" ><span>$member[log_count]</span></a></label>
           </div>
-		  <img src="/img/attgg_27.png" class="qzxtu"/>
+		  <a href="{rewrite}/member/userdata/?type=index"><img width="90" height="90" src="{if $memberFields[avatar]}$memberFields[avatar]{else}/img/attgg_27.png{/if}" class="qzxtu"/></a>
              <div  class="form3"><input type="button" value="马上开始" onclick="window.location.href='{rewrite}/task/tao/'"  class="msks"/></div>
 {else}
        	  <h2>立即注册花兔兔</h2>
@@ -86,7 +86,7 @@
 			<div class="xxjt">
 	
 			</div>
-            <a href="#"><img onmouseover="this.src='/img/att3_41.png'"  onmouseout="this.src='/img/att_41.png'" src="/img/att_41.png" class="jjfa"/></a>
+            <a href="{rewrite}/collect/"><img onmouseover="this.src='/img/att3_41.png'"  onmouseout="this.src='/img/att_41.png'" src="/img/att_41.png" class="jjfa"/></a>
 
   	</div> 
 </div> 
@@ -95,7 +95,7 @@
 	<div class="fb">
     	<h2>发布方任务存款转化成网店收款</h2>
         <div class="fbnr">
-         <a href="{rewrite}/help/taskout/"><img onmouseover="this.src='/img/att2_53.png'"  onmouseout="this.src='/img/att_53.png'" src="/img/att_53.png" class="ltu-1"/>
+         <a href="{rewrite}/member/BuyPoint/"><img onmouseover="this.src='/img/att2_53.png'"  onmouseout="this.src='/img/att_53.png'" src="/img/att_53.png" class="ltu-1"/>
          </a><img src="/img/att_63.png" class="j1" />
          <a href="{rewrite}/help/taskout/"><img onmouseover="this.src='/img/att2_55.png'"  onmouseout="this.src='/img/att_55.png'" src="/img/att_55.png" class="ltu-2"/></a>
          <img src="/img/att_60.png" class="j2"/>
@@ -116,7 +116,7 @@
     </div>
 </div>
 <div id="ty">
-	<div class="zqtg"><h2 class="wytg"><a href="{rewrite}/tbseo/">我要推广</a></h2>
+	<div class="zqtg"><h2 class="wytg"><a href="{rewrite}/member/spread/">我要推广</a></h2>
     </div>
     
 	<div class="ys">
@@ -126,11 +126,11 @@
         <h4><a href="#">绝对的<br />安全保证</a></h4>
         <h5><a href="#">合理的定时发布</a></h5>
         <h6><a href="#">万人互动</a></h6>-->     
-        <a href="#"><img onmouseover="this.src='/img/att2_100.png'"  onmouseout="this.src='/img/att_1050.png'" src="/img/att_1050.png" class="ys-1"/></a>
+        <a href="{rewrite}/tbseo/"><img onmouseover="this.src='/img/att2_100.png'"  onmouseout="this.src='/img/att_1050.png'" src="/img/att_1050.png" class="ys-1"/></a>
         <a href="#"><img onmouseover="this.src='/img/att2_101.png'"  onmouseout="this.src='/img/att_101.png'" src="/img/att_101.png" class="ys-2"/></a>
         <a href="#"><img onmouseover="this.src='/img/arr2_102.png'"  onmouseout="this.src='/img/att102.png'" src="/img/att102.png" class="ys-3"/></a>
         <a href="#"><img onmouseover="this.src='/img/att2_103_104.png'"  onmouseout="this.src='/img/att103_104.png'" src="/img/att103_104.png" class="ys-4"/></a>
-        <a href="#"><img onmouseover="this.src='/img/att2_104_107.png'"  onmouseout="this.src='/img/att104_107.png'" src="/img/att104_107.png" class="ys-5"/></a>
+        <a href="{rewrite}/task/tao/"><img onmouseover="this.src='/img/att2_104_107.png'"  onmouseout="this.src='/img/att104_107.png'" src="/img/att104_107.png" class="ys-5"/></a>
         <a href="#"><img onmouseover="this.src='/img/att2_99.png'"  onmouseout="this.src='/img/att_99.png'" src="/img/att_99.png" class="ys-z"/></a>
     </div>
 </div>
@@ -217,6 +217,7 @@
 			return str;
 		}
 		//setInterval(_getNowTask,3000);
+		
 		</script>                
             </div>
         </div>

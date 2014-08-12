@@ -854,7 +854,7 @@ a.comlink:hover {
 #u_info {
 	width:440px;
 	float:left;
-	margin:15px;
+	/*margin:15px;*/
 }
 #u_info li.tx {
 	float:left;

@@ -5,12 +5,13 @@
 li{ list-style-type:none;}
 img,input{ border:0px;}
 a{ text-decoration:none;}
+a:hover{ text-decoration:none;}
 body{ background:#e6e6e6;}
 
 #top{margin: 0px auto; max-width:990px;height:25px; background:#a3a4a5;background-image: none;color: white;}
 ul.middle  li.text{height:23px;line-height:23px;}
 
-.kfbz{ width:379px; height:148px; background:url(../img/att543_03.png) no-repeat; position:absolute; right:-20px; top:35px; display:none;z-index:999;padding-top: 10px;}
+.kfbz{ width:379px; height:148px; background:url(../img/att543_03.png) no-repeat; position:absolute; right:-20px; top:22px; display:none;z-index:999;padding-top: 10px;}
 .kfbb:hover .kfbz{ display:block;}
 .kfbb{ position:relative;}
 .kftu{ width:379px; height:148px; position:relative;}
@@ -77,11 +78,11 @@ hr{ border-bottom:1px solid #b8b9b9;}
 
 .form2{ width:274px; height:38px; background:url(../img/att_04.jpg) no-repeat; margin:10px auto;}
 .form2 .mm{ width:201px; height:28px; background:#eae9e9; float:right;font:100 14px/38px "微软雅黑"; color:#545454; text-indent:10px;}
-.form3{ width:205px; height:33px; float:left;margin:0px 10px;}
+.form3{ width:205px; height:33px; float:left;margin:5px 10px;}
 .form3 .dlx{ width:205px; height:30px; background:#349dc2;font:100 14px/33px "微软雅黑"; color:#fff; text-align:center;}
 .dlx:hover{ background:#297c99;}
 .zck p{font:100 12px/33px "微软雅黑"; color:#fff;}
-.zck a{font:100 12px/33px "微软雅黑"; color:#fff;}
+.zck a{font-family: "微软雅黑"，sans-serif; color:#fff;font-size: 12px;}
 .zck a:hover{ color:#ff5a00;}
 
 #main-top{ width:1024px; overflow:hidden; background:#f4f5f5; margin:auto;}

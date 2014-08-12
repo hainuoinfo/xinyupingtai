@@ -1,7 +1,7 @@
 em, i {
     font-style: normal;
 }
-#service{margin: 15px auto;position: relative;width: 980px;}
+#service{margin: 15px auto;position: relative;width: 980px;font-size:12px;}
 #service .box {background: url(/images/help/self_zz.png) no-repeat scroll 20px 20px #F8F9F9;border: 1px solid #E0E0E0;width: 978px;margin-bottom: 20px;}
 #service .box .top {height: 20px;margin: 75px auto 0;width: 930px;}
 #service .box .con {background: none repeat scroll 0 0 #FFFFFF;border: 1px solid #E0E0E0;margin: 10px auto;width: 940px;}
@@ -12,7 +12,7 @@ em, i {
 #service .box .con ul li.l_pas em {background: url(/images/help/self_ser.png) repeat -91px 0;border: 0 none;display: inline-block;height: 30px;margin: 0 10px 0 0;padding: 0;vertical-align: middle;width: 30px;}
 #service .box .con ul li .gray {height: 54px;line-height: 18px;margin: 10px auto;width: 170px;}
 #service .box .con ul li .but {margin: 0 auto 10px;overflow: hidden;width: 80px;}
-#service .box .con ul li .but button {background: url(/images/help/self_butt.png) repeat;border: 0 none;color: #000000;cursor: pointer;float: inherit;height: 26px;line-height: 26px;margin: 0 auto;text-align: center;vertical-align: middle;width: 80px;}
+#service .box .con ul li .but button {background: url(/images/help/self_butt.png) repeat;border: 0 none;color: #000000;cursor: pointer;float: inherit;height: 26px;line-height: 26px;margin: 0 auto;text-align: center;vertical-align: middle;width: 80px;font-size:12px;}
 #service .box .con ul li.p_pas em {background: url(/images/help/self_ser.png) repeat scroll -120px 0 rgba(0, 0, 0, 0);border: 0 none;display: inline-block;height: 30px;margin: 0 10px 0 0;padding: 0;vertical-align: middle;width: 30px;}
 #service .box .con ul li.count em {background: url(/images/help/self_ser.png) repeat scroll -61px 0 rgba(0, 0, 0, 0);border: 0 none;display: inline-block;height: 30px;margin: 0 10px 0 0;padding: 0;vertical-align: middle;width: 30px;}
 #service .box .con ul li.tixian em {background: url(/images/help/self_ser.png) repeat 0 0;border: 0 none;display: inline-block;height: 30px;margin: 0 10px 0 0;padding: 0;vertical-align: middle;width: 30px;}
