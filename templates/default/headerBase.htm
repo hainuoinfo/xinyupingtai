@@ -11,7 +11,8 @@
 		{if $cssList} {loop $cssList $v}
 		<link rel="stylesheet" type="text/css" href="$v" />{/loop} {else} {teval echo css::get_css('bbs', 'bbs'); } {/if} {js_select jquery,common} {if $jsList} {loop $jsList $v}
 		<script type="text/javascript" src="$v"></script>{/loop} {/if}
-		<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css" />
+		   <script type="text/javascript" src="http://libs.useso.com/js/jquery/1.11.1/jquery.min.js"></script>
+		   <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap-responsive.min.css" />
 
 		<script type="text/javascript">
@@ -28,6 +29,7 @@
 		</script>
 		<script type="text/javascript" src="/images/common.js"></script>
 		<script type="text/javascript" src="/javascript/index/task.js"></script>
+   <script type="text/javascript" src="/flowplayer-5.4.6/flowplayer.min.js"></script>
 		<!--[if lte IE 6]>
 			<script type="text/javascript" src="/javascript/cn/DD_belatedPNG_0.0.7a.js"></script>
 			<script type="text/javascript">
