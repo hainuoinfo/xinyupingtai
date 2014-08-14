@@ -1,20 +1,12 @@
-<?php
-echo 2;
- $fp = fsockopen("www.baidu.com",80, $errno, $errstr, 30);
-if (!$fp){
-    echo "$errstr ($errno)<br />\n";
-    }else{
-	    echo 1;
-    $out = "GET / HTTP/1.1\r\n";
-    $out .= "Host: www.example.com\r\n";
-    $out .= "Connection: Close\r\n\r\n";
-    
-    fwrite($fp, $out);
-    while (!feof($fp)){
-        echo fgets($fp, 128);
-        echo 4;
-        }
-    echo 3;
-    fclose($fp);
-    }
-?>
+	<?php //$uinfo[0]['uimg']
+		$type=getimagesize('http://static.blog.csdn.net/skin/ink/images/body_bg.jpg');//取得图片的大小，类型等
+		$content=file_get_contents('http://static.blog.csdn.net/skin/ink/images/body_bg.jpg');
+		$file_content=chunk_split(base64_encode($content));//base64编码
+		switch($type[2]){//判读图片类型
+			case 1:$img_type="gif";break;
+			case 2:$img_type="jpg";break;
+			case 3:$img_type="png";break;
+		}
+		$img='data:image/'.$img_type.';base64,'.$file_content;//合成图片的base64编码
+		echo "<img src='".$img."'>";
+	?>

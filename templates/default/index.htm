@@ -11,7 +11,8 @@
 {sub headerBase}
 
 <div id="banner">
-<div class="banner-mid">
+<input type="hidden" id="bmBackImage" name="bmBackImage" value="/img/att_22.jpg,/img/22.jpg,/img/23.jpg"/>
+<div class="banner-mid" id="bannerMid">
     	<div class="sht"> 
         	<div class="fg">
         	<a href="#"><img src="/img/att_14.png" class="sht-1"/></a>
@@ -44,6 +45,7 @@
 {/if}
    		</div>
   </div>
+
 </div>
 <div id="main-top">
   	<div class="rwdt">
@@ -186,5 +188,25 @@
 		api.fullscreen();
 		api.play();
 	});
+	  var iImg=0;
+	  var tImg;
+	  var bImage=$('#bmBackImage').val();
+	  var imgs=bImage.split(",");
+	  function changeImage() {
+  		iImg++;
+	  	if(iImg>=imgs.length){
+			iImg=0;
+		}
+			console.log(iImg);
+		//console.log(imgs[i]);
+  		//$('.banner-mid').css('backgroundImage',"url("+imgs[i]+")");
+  		$('#bannerMid').css('backgroundImage',"url("+imgs[iImg]+")");
+  		console.log($('#bannerMid').css('backgroundImage'));
+	  	//console.log(tImg);
+	  }
+	  $(window).load(function(){
+ 	
+	  	tImg=setInterval( function(){ changeImage(); if(iImg>imgs.length) iImg=-1;},3000);
+	  });
    </script>
 {sub footer}
