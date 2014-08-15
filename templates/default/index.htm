@@ -197,16 +197,16 @@
 	  	if(iImg>=imgs.length){
 			iImg=0;
 		}
-			console.log(iImg);
+			//console.log(iImg);
 		//console.log(imgs[i]);
   		//$('.banner-mid').css('backgroundImage',"url("+imgs[i]+")");
   		$('#bannerMid').css('backgroundImage',"url("+imgs[iImg]+")");
-  		console.log($('#bannerMid').css('backgroundImage'));
+  		//console.log($('#bannerMid').css('backgroundImage'));
 	  	//console.log(tImg);
 	  }
 	  $(window).load(function(){
  	
-	  	tImg=setInterval( function(){ changeImage(); if(iImg>imgs.length) iImg=-1;},3000);
+	  	tImg=setInterval( function(){ changeImage(); },5000);
 	  });
    </script>
 {sub footer}

@@ -260,12 +260,13 @@ switch ($m) {
 			}
 		} else {
 			$bbsNav[] = '已接任务';
-			$t || $t = 'ing';
+			//$t || 
+			$t = 'all';
 			if ($out){
 				$rs = task_tao::out($out, $uid);
 				if ($rs === true){
 					common::setMsg('退出成功');
-					common::goto_url($thisUrl.'&t=ing');
+					common::goto_url($thisUrl.'&t=all');
 				} else{
 					common::setMsg($rs, 'indexMessage');
 					common::goto_url($referer, true);
@@ -383,7 +384,8 @@ switch ($m) {
 	case 'taskOut'://已发任务
 		checkPwd2();
 		$bbsNav[] = '已发任务';
-		$t || $t = 'ing';
+		//$t || $t = 'ing';
+		$t = 'all';
 		$total = 0;
 		$where = "type='1' and suid='$uid'";
 		if ($resume) {
