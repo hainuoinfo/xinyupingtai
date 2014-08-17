@@ -1,0 +1,121 @@
+{teval
+	$title       = '我的帖子 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{sub ../header}
+<DIV id="content">
+{sub menu}
+<div class="right">
+		{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+<DIV class="bq_menu">
+<A  {if $type=='thread'} class="nov"{/if} href="$baseUrl?type=thread">我的主题</A>
+<A {if $type=='post'} class="nov"{/if} href="$baseUrl?type=post">我的回复</A>
+<A {if $type=='collection'} class="nov"{/if} href="$baseUrl?type=collection">我的收藏</A>
+</DIV>
+		{if $type=='thread'}
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%" align="center">
+  <TBODY>
+  <TR>
+    <TD height="15">&nbsp;</TD> </TR>
+  <TR>
+    <TD>
+      <TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+        <TBODY>
+        <TR>
+          <TD class="txjl_bg1" height="37" width="10"></TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="78%" align="left">&nbsp; 标题</TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="20%" align="center">时间</TD>
+          <TD class="txjl_bg3" height="37" width="10"></TD></TR>
+		  {loop $threadList $thread}
+        <TR>
+          <TD height="35">&nbsp;</TD>
+          <TD class="mh_xxian" vAlign="middle" align="left">&nbsp;
+		  <A href="{rewrite}/bbs/t$thread[id]/" class="lttz_sj" target="_blank">$thread[title]</A></TD>
+          <TD class="mh_xxian" vAlign="middle" align="center">{date $thread[timestamp]}</TD>
+          <TD>&nbsp;</TD>
+		 </TR>
+		  {/loop}
+		 </TBODY>
+	  </TABLE>
+    </TD>
+   </TR>
+  </TBODY>
+</TABLE>
+		{elseif $type=='post'}
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%" align="center">
+  <TBODY>
+  <TR>
+    <TD height="15">&nbsp;</TD> </TR>
+  <TR>
+    <TD>
+      <TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+        <TBODY>
+        <TR>
+          <TD class="txjl_bg1" height="37" width="10"></TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="78%" align="left">&nbsp; 标题</TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="20%" align="center">时间</TD>
+          <TD class="txjl_bg3" height="37" width="10"></TD></TR>
+		  {loop $postList $post}
+        <TR>
+          <TD height="35">&nbsp;</TD>
+          <TD class="mh_xxian" vAlign="middle" align="left">&nbsp; 
+		  <A class="lttz_sj" href="{rewrite}/bbs/t$post[tid]/" target="_blank">$post[title]</A><BR>
+		  <SPAN>{cutstr $post[message],50}</SPAN></TD>
+          <TD class="mh_xxian" vAlign="middle" align="center">{date $post[timestamp]}</TD>
+          <TD>&nbsp;</TD></TR>
+		  {/loop}
+		 </TBODY>
+	  </TABLE>
+    </TD>
+   </TR>
+  </TBODY>
+</TABLE>
+		{elseif $type=='collection'}
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%" align="center">
+  <TBODY>
+  <TR>
+    <TD height="15">&nbsp;</TD> </TR>
+  <TR>
+    <TD>
+      <TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+        <TBODY>
+        <TR>
+          <TD class="txjl_bg1" height="37" width="10"></TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="58%" align="left">&nbsp; 标题</TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="20%" align="center">时间</TD>
+          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="20%" align="center">操作</TD>
+          <TD class="txjl_bg3" height="37" width="10"></TD>
+        </TR>
+		 {loop $collectionList $collection}
+ <TR>
+          <TD height="35">&nbsp;</TD>
+          <TD class="mh_xxian" vAlign="middle" align="left">&nbsp; 
+		  <A class="lttz_sj" href="$collection[url]" target="_blank">$collection[title]</A></TD>
+          <TD class="mh_xxian" vAlign="middle" align="center">{date $collection[timestamp]}</TD>
+          <TD class="mh_xxian" vAlign="middle" align="center">
+		  <A class="lttz_sj" onclick="return confirm('您确定要删除么？');" href="$baseUrl?type=$type&del=$collection[id]">删除</A></TD>
+          <TD>&nbsp;</TD></TR>
+		  {/loop}
+		 </TBODY>
+	  </TABLE>
+    </TD>
+   </TR>
+  </TBODY>
+</TABLE>
+		{/if}
+		<DIV id="page">
+<P class="pr">总：共$multipage页 当前第<SPAN class="hong">$multipage</SPAN>页</P></DIV>
+		<div class="page">
+			<div class="nov">$multipage</div>
+		</div>
+	</div>
+</DIV>
+<DIV class="cle"></DIV>
+<DIV class="cle"></DIV>
+{sub ../footer}

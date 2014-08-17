@@ -1,0 +1,192 @@
+{teval
+	$title       = '站内信 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{sub ../header}
+<DIV id="content"> 
+	 {sub menu}
+<DIV class="right">
+<DIV class="bq_menu2">
+<A {if $type=='inUser'} class="nov"{/if} href="{rewrite}/member/message/?type=inUser">私人收件箱(<SPAN class="chengse2">$userMsgCount</SPAN>)</A>
+<A {if $type=='inSys'} class="nov"{/if} href="{rewrite}/member/message/?type=inSys">官方收件箱(<SPAN class="chengse2">$sysMsgCount</SPAN>)</A>
+<A {if $type=='out'} class="nov"{/if} href="{rewrite}/member/message/?type=out">发件箱(<SPAN class="chengse2">$outMsgCount</SPAN>)</A>
+<A class="hongse" onClick="sendMsg()" href="javascript:;">+发新信息</A>
+<A {if $type=='setting'} class="nov"{/if} href="{rewrite}/member/message/?type=setting">站内提醒</A>
+</DIV>
+    <TABLE border="0" cellSpacing="0" cellPadding="0" width="100%" align="center">
+      <TBODY>
+        <TR>
+          <TD height="15">&nbsp;</TD>
+        </TR>
+        <TR>
+          <TD>
+		  {if $type=='inUser'}
+		  <TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+              <TBODY>
+                <TR>
+                  <TD class="txjl_bg1" height="37" width="10"></TD>
+                  <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" ="middle" width="15%" align="center">
+				  <SPAN class="cursor" onclick="sltAll(true)">全选</SPAN>/<SPAN class="cursor" onClick="sltAll(false)">反选</SPAN></TD>
+                  <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="50%" align="left">&nbsp; 标题</TD>
+                  <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="20%" align="center">发送者</TD>
+                  <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="15%" align="center">时间</TD>
+                  <TD class="txjl_bg3" height="37" width="10"></TD>
+                </TR>
+				{loop $list $k $v}
+                <TR>
+                  <TD>&nbsp;</TD>
+                  <TD class="mh_xxian" height="35" vAlign="middle" align="center">
+				  <INPUT id="msg_$v[id]" name="msg_1" value="$v[id]" type="checkbox"></TD>
+                  <TD class="mh_xxian" vAlign="middle" align="left">
+				  <A {if $v[read]}class="link_b_1"{else}class="link_o_b"{/if} onclick="viewMsg($v[id]);return false;" href="javascript:;">$v[title]</A></TD>
+                  <TD class="mh_xxian chengse2" vAlign="middle" align="center">$v[from_username]</TD>
+                  <TD class="mh_xxian" vAlign="middle" align="center">{date $v[timestamp]}</TD>
+                  <TD>&nbsp;</TD>
+                </TR>
+				{/loop}
+                <TR>
+                  <TD class="znx_bg1" height="37" width="10"></TD>
+                  <TD style="color: rgb(51, 51, 51);" class="znx_bg2" height="37" vAlign="middle" colSpan="4" align="left">&nbsp;&nbsp;&nbsp;&nbsp; <A 
+            onclick="return confirm('您确定要删除么？') &amp;&amp; doMsg('del', this);" 
+            href="javascript:;">删除</A> | <A onClick="return confirm('看您确定要清空当前的站内信么？\n\n清空将全部删您收件箱内的所有站内信');" 
+            href="$baseUrl?type=$type&act=delAll">清空 </A>| <A onClick="return doMsg('isRead',this);" 
+            href="javascript:;">记为已读</A> | <A onClick="return confirm('确定要将所有未读的站内信标记为已读么？');" 
+            href="$baseUrl?type=$type&act=readAll">全部已读</A> | <A onClick="return confirm('确定要将所有未读的站内信标记为未读么？');" href="$baseUrl?type=$type&act=allNotRead">全部未读</A> | <A onClick="return doMsg('notRead',this);" 
+            href="javascript:;">改为未读</A></TD>
+                  <TD class="znx_bg3" height="37" width="10"></TD>
+                </TR>
+              </TBODY>
+            </TABLE>
+            <DIV id="page">
+			$multipage
+            </DIV>
+			</TD>
+        </TR>
+		<TR>
+          <TD>
+		  {elseif $type=='inSys'}
+		  <TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+              <TBODY>
+                <TR>
+                  <TD class="txjl_bg1" height="37" width="10"></TD>
+                  <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" ="middle" width="15%" align="center">
+				  <SPAN class="cursor" onclick="sltAll(true)">全选</SPAN>/<SPAN class="cursor" onClick="sltAll(false)">反选</SPAN></TD>
+                  <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="50%" align="left">&nbsp; 标题</TD>
+                  <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="20%" align="center">发送者</TD>
+                  <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="15%" align="center">时间</TD>
+                  <TD class="txjl_bg3" height="37" width="10"></TD>
+                </TR>
+				{loop $list $k $v}
+                <TR>
+                  <TD>&nbsp;</TD>
+                  <TD class="mh_xxian" height="35" vAlign="middle" align="center">
+				  <INPUT id="msg_$v[id]" name="msg_1" value="$v[id]" type="checkbox"></TD>
+                  <TD class="mh_xxian" vAlign="middle" align="left">
+				  <a href="javascript:;" {if $v[read]}class="link_b_1"{else}class="link_o_b"{/if} onclick="viewMsg($v[id]);return false;">$v[title]</a></TD>
+                  <TD class="mh_xxian chengse2" vAlign="middle" align="center">$v[to_username]</TD>
+                  <TD class="mh_xxian" vAlign="middle" align="center">{date $v[timestamp]}</TD>
+                  <TD>&nbsp;</TD>
+                </TR>
+				{/loop}
+                <TR>
+                  <TD class="znx_bg1" height="37" width="10"></TD>
+                  <TD style="color: rgb(51, 51, 51);" class="znx_bg2" height="37" vAlign="middle" colSpan="4" align="left">&nbsp;&nbsp;&nbsp;&nbsp; 
+				  <a href="javascript:;" onclick="return confirm('您确定要删除么？') && doMsg('del', this);">删除</a> | <a href="$baseUrl?type=$type&act=delAll" onclick="return confirm('看您确定要清空当前的站内信么？\n\n清空将全部删您收件箱内的所有站内信');">清空</a> | <a href="javascript:;" onclick="return doMsg('isRead',this);">记为已读</a> | <a href="$baseUrl?type=$type&act=readAll" onclick="return confirm('确定要将所有未读的站内信标记为已读么？');">全部已读</a> | <a href="$baseUrl?type=$type&act=allNotRead" onclick="return confirm('确定要将所有未读的站内信标记为未读么？');">全部未读</a> | <a href="javascript:;" onclick="return doMsg('notRead',this);">改为未读</a></TD>
+                  <TD class="znx_bg3" height="37" width="10"></TD>
+                </TR>
+              </TBODY>
+            </TABLE>
+            <DIV id="page">
+			$multipage
+            </DIV>
+			</TD>
+        </TR>
+		
+		
+		<TR>
+          <TD>
+		 {elseif $type=='out'}
+		  <TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+              <TBODY>
+                <TR>
+                  <TD class="txjl_bg1" height="37" width="10"></TD>
+                  <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" ="middle" width="15%" align="center">
+				  <SPAN class="cursor" onclick="sltAll(true)">全选</SPAN>/<SPAN class="cursor" onClick="sltAll(false)">反选</SPAN></TD>
+                  <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="50%" align="left">&nbsp; 标题</TD>
+                  <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="20%" align="center">发送者</TD>
+                  <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="15%" align="center">时间</TD>
+                  <TD class="txjl_bg3" height="37" width="10"></TD>
+                </TR>
+				{loop $list $k $v}
+                <TR>
+                  <TD>&nbsp;</TD>
+                  <TD class="mh_xxian" height="35" vAlign="middle" align="center">
+				  <INPUT id="msg_$v[id]" name="msg_1" value="$v[id]" type="checkbox"></TD>
+                  <TD class="mh_xxian" vAlign="middle" align="left">
+				  <a href="javascript:;" {if $v[read]}class="link_b_1"{else}class="link_o_b"{/if} onclick="viewMsg($v[id]);return false;">$v[title]</a></TD>
+                  <TD class="mh_xxian chengse2" vAlign="middle" align="center">$v[to_username]</TD>
+                  <TD class="mh_xxian" vAlign="middle" align="center">{date $v[timestamp]}</TD>
+                  <TD>&nbsp;</TD>
+                </TR>
+				{/loop}
+                <TR>
+                  <TD class="znx_bg1" height="37" width="10"></TD>
+                  <TD style="color: rgb(51, 51, 51);" class="znx_bg2" height="37" vAlign="middle" colSpan="4" align="left">&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:;" onclick="return confirm('您确定要删除么？') && doMsg('del', this);">删除</a> | <a href="$baseUrl?type=$type&act=delAll" onclick="return confirm('看您确定要清空当前的站内信么？\n\n清空将全部删您收件箱内的所有站内信');">清空</a></TD>
+                  <TD class="znx_bg3" height="37" width="10"></TD>
+                </TR>
+              </TBODY>
+            </TABLE>
+            <DIV id="page">
+			$multipage
+            </DIV>
+			</TD>
+        </TR>
+		{/if}
+		
+	
+      </TBODY>
+    </TABLE>
+    <P>&nbsp;</P>
+  </DIV>
+</div>
+<script type="text/javascript">
+var viewMsg=function(id){
+	dialog(460,460,'查看站内短信','{rewrite}/dialog/viewmsg/?id='+id);
+}
+var sendMsg=function(){
+	dialog(460,460,'发送站内短信','{rewrite}/dialog/sendmsg/');
+}
+function sltAll(state) {
+  var boxs = document.getElementsByTagName("input");
+	for (var i=0; i<boxs.length; i++) {
+		if (boxs[i].name.indexOf("msg_")==0) {
+			boxs[i].checked = state;
+		}
+	}
+}
+
+function doMsg(act, obj) {
+	var str = "";
+  var boxs = document.getElementsByTagName("input");
+  for (var i=0; i<boxs.length; i++) {
+		if (boxs[i].name.indexOf("msg_")==0 && boxs[i].checked) {
+			str += boxs[i].value + ",";
+		}
+	}
+	if (str == "") {
+	  alert("您还没有勾选任何信息");
+		return false;
+	} else {
+		obj.href = "$baseUrl?type=$type&ids=" + str + "&act=" + act;
+		return true;
+	}
+}
+</script>
+<DIV class="cle"></DIV>
+{sub ../footer} 

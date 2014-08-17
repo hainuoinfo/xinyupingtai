@@ -16,22 +16,22 @@ var check_username=function(e){
 					if(data=='2'){
 						$('#zh').css("color","#468847");
 						$('#username').css({border:"1px solid #91ED6D",color:"#468847"});
-						$('#username_tip').text('').css({top:"43px",background:"url(/images/user/reg_03.jpg) no-repeat"});
+						$('#username_tip').text('').css({top:"0px",background:"url(/images/user/reg_03.jpg) 50% 50% no-repeat"});
 					} else if (data=='3') {
 						error=true;
 						$('#zh').css("color","#EE5F5B");
 						$('#username').css({border:"1px solid #EE5F5B",color:"#EE5F5B"});
-						$('#username_tip').text('由英文字母、数字、中文，长度在3-14字符之内').css({color:"#EE5F5B",top:"35px",background:"none"});
+						$('#username_tip').text('由英文字母、数字、中文，长度在3-14字符之内').css({color:"#EE5F5B",top:"0px",background:"none"});
 					} else if (data=='1') {
 					    error=true;
 						$('#zh').css("color","#EE5F5B");
 						$('#username').css({border:"1px solid #EE5F5B",color:"#EE5F5B"});
-						$('#username_tip').text('该用户名已存在').css({color:"#EE5F5B",top:"43px",background:"none"});
+						$('#username_tip').text('该用户名已存在').css({color:"#EE5F5B",top:"0px",background:"none"});
 					} else{
 					    error=true;
 						$('#zh').css("color","#EE5F5B");
 						$('#username').css({border:"1px solid #EE5F5B",color:"#EE5F5B"});
-						$('#username_tip').text('请刷新后在试').css({color:"#EE5F5B",background:"none",top:"43px"});
+						$('#username_tip').text('请刷新后在试').css({color:"#EE5F5B",background:"none",top:"0px"});
 					}
 				}
 			});
@@ -41,7 +41,7 @@ var check_username=function(e){
 		  error=true;
 		  $('#zh').css("color","#EE5F5B");
 		  $('#username').css({border:"1px solid #EE5F5B",color:"#EE5F5B"});
-		  $('#username_tip').text('用户名不能为空').css({color:"#EE5F5B",background:"none",top:"43px"});
+		  $('#username_tip').text('用户名不能为空').css({color:"#EE5F5B",background:"none",top:"0px"});
 		}
 };
 var check_password=function(){
@@ -52,17 +52,17 @@ var check_password=function(){
 	   if(re.test(objvalue)){
 			$('#pd').css("color","#468847");
 			$('#password').css({border:"1px solid #91ED6D",color:"#468847"});
-			$('#password_tip').text('').css({top:"43px",background:"url(/images/user/reg_03.jpg) no-repeat"});
+			$('#password_tip').text('').css({top:"0px",background:"url(/images/user/reg_03.jpg) no-repeat"});
 	   }else if (objvalue.length<6){
 	        error=true;
 			$('#pd').css("color","#EE5F5B");
 			$('#password').css({border:"1px solid #EE5F5B",color:"#EE5F5B"});
-			$('#password_tip').text('密码最少6位').css({color:"#EE5F5B",background:"none",top:"43px"});
+			$('#password_tip').text('密码最少6位').css({color:"#EE5F5B",background:"none",top:"0px"});
 	   }else {
 		   error=true;
 		   $('#pd').css("color","#EE5F5B");
 			$('#password').css({border:"1px solid #EE5F5B",color:"#EE5F5B"});
-			$('#password_tip').text('密码格式错误').css({color:"#EE5F5B",background:"none",top:"43px"});
+			$('#password_tip').text('密码格式错误').css({color:"#EE5F5B",background:"none",top:"0px"});
 		   }
 	   }
 	   else
@@ -70,7 +70,7 @@ var check_password=function(){
 	        error=true;
 			$('#pd').css("color","#EE5F5B");
 			$('#password').css({border:"1px solid #EE5F5B",color:"#EE5F5B"});
-			$('#password_tip').text('请填写密码').css({color:"#EE5F5B",background:"none",top:"43px"});
+			$('#password_tip').text('请填写密码').css({color:"#EE5F5B",background:"none",top:"0px"});
 	   }
 	   
 };
@@ -81,12 +81,12 @@ var check_password_=function(){
 		   if(objvalue.length>=6){
 				$('#pdt').css("color","#468847");
 				$('#password_').css({border:"1px solid #91ED6D",color:"#468847"});
-				$('#passwordt_tip').text('').css({top:"43px",background:"url(/images/user/reg_03.jpg) no-repeat"});
+				$('#passwordt_tip').text('').css({top:"0px",background:"url(/images/user/reg_03.jpg) no-repeat"});
 		   }else if (objvalue.length<6){
 		        error=true;
 				$('#pd_').css("color","#EE5F5B");
 				$('#password_').css({border:"1px solid #EE5F5B",color:"#EE5F5B"});
-				$('#passwordt_tip').text('密码最少6位').css({color:"#EE5F5B",background:"none",top:"43px"});
+				$('#passwordt_tip').text('密码最少6位').css({color:"#EE5F5B",background:"none",top:"0px"});
 		   }
 	   }
 	   else
@@ -94,7 +94,7 @@ var check_password_=function(){
 	        error=true;
 			$('#pdt').css("color","#EE5F5B");
 			$('#passwordt').css({border:"1px solid #EE5F5B",color:"#EE5F5B"});
-			$('#passwordt_tip').text('二次密码输入不一致').css({color:"#EE5F5B",background:"none",top:"43px"});
+			$('#passwordt_tip').text('二次密码输入不一致').css({color:"#EE5F5B",background:"none",top:"0px"});
 	   }
 	   
 };
@@ -106,17 +106,17 @@ var check_password2=function(){
 	   if(re.test(objvalue)){
 			$('#pd2').css("color","#468847");
 			$('#password2').css({border:"1px solid #91ED6D",color:"#468847"});
-			$('#password2_tip').text('').css({top:"43px",background:"url(/images/user/reg_03.jpg) no-repeat"});
+			$('#password2_tip').text('').css({top:"0px",background:"url(/images/user/reg_03.jpg) no-repeat"});
 	   }else if (objvalue.length<5){
 	        error=true;
 			$('#pd2').css("color","#EE5F5B");
 			$('#password2').css({border:"1px solid #EE5F5B",color:"#EE5F5B"});
-			$('#password2_tip').text('安全码最少为6位').css({color:"#EE5F5B",background:"none",top:"43px"});
+			$('#password2_tip').text('安全码最少为6位').css({color:"#EE5F5B",background:"none",top:"0px"});
 	   }else {
 		   error=true;
 		    $('#pd2').css("color","#EE5F5B");
 			$('#password2').css({border:"1px solid #EE5F5B",color:"#EE5F5B"});
-			$('#password2_tip').text('安全码格式错误').css({color:"#EE5F5B",background:"none",top:"43px"});
+			$('#password2_tip').text('安全码格式错误').css({color:"#EE5F5B",background:"none",top:"0px"});
 		   }
 	   }
 	   else
@@ -124,7 +124,7 @@ var check_password2=function(){
 	        error=true;
 			$('#pd2').css("color","#EE5F5B");
 			$('#password2').css({border:"1px solid #EE5F5B",color:"#EE5F5B"});
-			$('#password2_tip').text('请填写安全码').css({color:"#EE5F5B",background:"none",top:"43px"});
+			$('#password2_tip').text('请填写安全码').css({color:"#EE5F5B",background:"none",top:"0px"});
 	   }
 	   
 };
@@ -135,12 +135,12 @@ var check_password2_=function(){
 		   if(objvalue.length>=6){
 				$('#pdt').css("color","#468847");
 				$('#password2_').css({border:"1px solid #91ED6D",color:"#468847"});
-				$('#password21_tip').text('').css({top:"43px",background:"url(/images/user/reg_03.jpg) no-repeat"});
+				$('#password21_tip').text('').css({top:"0px",background:"url(/images/user/reg_03.jpg) no-repeat"});
 		   }else if (objvalue.length<6){
 		        error=true;
 				$('#pd_').css("color","#EE5F5B");
 				$('#password2_').css({border:"1px solid #EE5F5B",color:"#EE5F5B"});
-				$('#password2_tip').text('安全码最少6位').css({color:"#EE5F5B",background:"none",top:"43px"});
+				$('#password2_tip').text('安全码最少6位').css({color:"#EE5F5B",background:"none",top:"0px"});
 		   }
 	   }
 	   else
@@ -148,7 +148,7 @@ var check_password2_=function(){
 	        error=true;
 			$('#pdt').css("color","#EE5F5B");
 			$('#passwordt').css({border:"1px solid #EE5F5B",color:"#EE5F5B"});
-			$('#password21_tip').text('二次安全码输入不一致').css({color:"#EE5F5B",background:"none",top:"43px"});
+			$('#password21_tip').text('二次安全码输入不一致').css({color:"#EE5F5B",background:"none",top:"0px"});
 	   }
 	   
 };
@@ -159,18 +159,18 @@ var check_qq=function(){
 	   if(re.test(objvalue)){
 		    $('#qqt').css("color","#468847");
 			$('#qq').css({border:"1px solid #91ED6D",color:"#468847"});
-			$('#qq_tip').text('').css({top:"43px",background:"url(/images/user/reg_03.jpg) no-repeat"});
+			$('#qq_tip').text('').css({top:"0px",background:"url(/images/user/reg_03.jpg) no-repeat"});
 			$("#email").val($("#qq").val()+"@qq.com");
 			$('#em').css("color","#468847");
 			$('#email').css({border:"1px solid #91ED6D",color:"#468847"});
-			$('#em_tip').text('').css({top:"43px",background:"url(/images/user/reg_03.jpg) no-repeat"});
+			$('#em_tip').text('').css({top:"0px",background:"url(/images/user/reg_03.jpg) no-repeat"});
 	   }
 	   else
 	   {
 	            error=true;
 				$('#qqt').css("color","#EE5F5B");
 				$('#qq').css({border:"1px solid #EE5F5B",color:"#EE5F5B"});
-				$('#qq_tip').text('格式错误').css({color:"#EE5F5B",background:"none",top:"43px"});
+				$('#qq_tip').text('格式错误').css({color:"#EE5F5B",background:"none",top:"0px"});
 	   }
 	   
 };
@@ -179,17 +179,17 @@ var check_truename=function(){
 	   if(objvalue.length>=2){
 		    $('#truenamet').css("color","#468847");
 			$('#truename').css({border:"1px solid #91ED6D",color:"#468847"});
-			$('#truename_tip').text('').css({top:"43px",background:"url(/images/user/reg_03.jpg) no-repeat"});
+			$('#truename_tip').text('').css({top:"0px",background:"url(/images/user/reg_03.jpg) no-repeat"});
 			$('#em').css("color","#468847");
 			$('#truename').css({border:"1px solid #91ED6D",color:"#468847"});
-			$('#truename_tip').text('').css({top:"43px",background:"url(/images/user/reg_03.jpg) no-repeat"});
+			$('#truename_tip').text('').css({top:"0px",background:"url(/images/user/reg_03.jpg) no-repeat"});
 	   }
 	   else
 	   {
 	            error=true;
 				$('#truenamet').css("color","#EE5F5B");
 				$('#truename').css({border:"1px solid #EE5F5B",color:"#EE5F5B"});
-				$('#truename_tip').text('格式错误').css({color:"#EE5F5B",background:"none",top:"43px"});
+				$('#truename_tip').text('格式错误').css({color:"#EE5F5B",background:"none",top:"0px"});
 	   }
 	   
 };
@@ -200,14 +200,14 @@ var check_mobil=function(){
 	   if(re.test(objvalue)){
 		    $('#telt').css("color","#468847");
 			$('#mobilephone').css({border:"1px solid #91ED6D",color:"#468847"});
-			$('#tel_tip').text('').css({top:"43px",background:"url(/images/user/reg_03.jpg) no-repeat"});
+			$('#tel_tip').text('').css({top:"0px",background:"url(/images/user/reg_03.jpg) no-repeat"});
 	   }
 	   else
 	   {
 	        error=true;
 			$('#telt').css("color","#EE5F5B");
 			$('#mobilephone').css({border:"1px solid #EE5F5B",color:"#EE5F5B"});
-			$('#tel_tip').text('格式错误').css({color:"#EE5F5B",background:"none",top:"43px"});
+			$('#tel_tip').text('格式错误').css({color:"#EE5F5B",background:"none",top:"0px"});
 	   }
 };
 var check_email=function(){
@@ -217,14 +217,14 @@ var check_email=function(){
 	   if(re.test(objvalue)){
 		    $('#em').css("color","#468847");
 			$('#email').css({border:"1px solid #91ED6D",color:"#468847"});
-			$('#em_tip').text('').css({top:"43px",background:"url(/images/user/reg_03.jpg) no-repeat"});
+			$('#em_tip').text('').css({top:"0px",background:"url(/images/user/reg_03.jpg) no-repeat"});
 	   }
 	   else
 	   {
 	        error=true;
 			$('#em').css("color","#EE5F5B");
 			$('#email').css({border:"1px solid #EE5F5B",color:"#EE5F5B"});
-			$('#em_tip').text('格式错误').css({color:"#EE5F5B",background:"none",top:"43px"});
+			$('#em_tip').text('格式错误').css({color:"#EE5F5B",background:"none",top:"0px"});
 	   }
 };
 var check_parent=function(){
@@ -242,11 +242,11 @@ var check_parent=function(){
 					if(data=='1'){
 						$('#tj').css("color","#468847");
 						$('#parent').css({border:"1px solid #91ED6D",color:"#468847"});
-						$('#tj_tip').text('').css({top:"43px",background:"url(/images/user/reg_03.jpg) no-repeat"});
+						$('#tj_tip').text('').css({top:"0px",background:"url(/images/user/reg_03.jpg) no-repeat"});
 					} else{
 						$('#tj').css("color","#EE5F5B");
 						$('#parent').css({border:"1px solid #EE5F5B",color:"#EE5F5B"});
-						$('#tj_tip').text('推荐人不存在').css({color:"#EE5F5B",background:"none",top:"43px"});
+						$('#tj_tip').text('推荐人不存在').css({color:"#EE5F5B",background:"none",top:"0px"});
 					}
 				}
 			});

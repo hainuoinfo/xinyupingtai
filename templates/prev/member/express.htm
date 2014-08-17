@@ -1,0 +1,243 @@
+{teval
+	$title       = '获取真实快递单号 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{sub ../header}
+<SCRIPT type="text/javascript" src="/css/jquery.min.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="/css/common.func.js"></SCRIPT>
+<SCRIPT type="text/javascript">
+  $(function(){
+	  $(".left_tit").hover(function(){
+		  $(this).css("background-image","url(/images/login/bg_2.png)");
+		  $(".left_alert").css("display","block");
+		  },function(){
+			  $(this).css("background-image","url(/images/login/bg_1.png)");
+		  $(".left_alert").css("display","none")
+			  })
+	  });
+	  var webqq = 277613662;
+
+</SCRIPT>
+<SCRIPT type="text/javascript">
+	$(function(){
+		$(".a_father_1").each(function(i){
+			$(this).hover(function(){
+				$(this).eq(i).css("background-image","url(/images/login/icon_17.png)");
+				$(".a_son_1").css("display","block");
+				},function(){
+					$(this).eq(i).css("background-image","url(/images/login/icon_23.png)");
+				$(".a_son_1").css("display","none");
+				})
+			})
+		});
+</SCRIPT>
+<SCRIPT type="text/javascript">
+		$(function(){
+		$(".a_father_2").each(function(e){
+			$(this).hover(function(){
+				$(this).eq(e).css("background-image","url(/images/login/icon_18.png)");
+				$(".a_son_2").css("display","block");
+				},function(){
+					$(this).eq(e).css("background-image","url(/images/login/icon_24.png)");
+				$(".a_son_2").css("display","none");
+				})
+			})
+		});
+</SCRIPT>
+<STYLE type="text/css">
+<!--
+.STYLE1 {font-size: 16px}
+.STYLE2 {color: #333333}
+.STYLE3 {color: #000000}
+.STYLE4 {color: #ff9900}
+.STYLE7 {color: #999999}
+#m_top .top_btn a:hover {
+    color: #FE5500;
+    text-decoration: underline;
+}
+#fh_gg{
+	background:#fff url(/images/fh_gg.jpg) 0 0 no-repeat;
+	width:790px;
+	height:887px;
+	position:relative;
+	}
+.fh_cl,.fh_cl2,.fh_cl3{
+	background:url(/images/fh_ggbtn.png) 0 -2px no-repeat;
+	font-weight:bold;
+	position:absolute;
+	top:290px;
+	left:35px;
+	width:164px;
+	height:43px;
+	line-height:43px;
+	text-align:center;
+	}
+.fh_cl2{left:209px;}
+.fh_cl3{left:383px;}
+#fh_gg .fh_inp1,#fh_gg .fh_inp2,#fh_gg .fh_inp3,#fh_gg .fh_inp1,#fh_gg .fh_inp4,#fh_gg .fh_inp5,#fh_gg .fh_inp6,#fh_gg .fh_inp7,#fh_gg .fh_inp8{
+	position:absolute;
+	top:341px;
+	left:158px;
+	}
+.fh_inp {position:absolute;top:422px;left:380px;}
+#fh_gg .fh_inp2{top:417px;left:158px;}
+#fh_gg .fh_inp3{top:417px;left:516px;}
+#fh_gg .fh_inp4{top:467px;left:158px;}
+#fh_gg .fh_inp5{top:467px;left:516px;}
+#fh_gg .fh_inp6{top:470px;left:158px;}
+#fh_gg .fh_inp7{top:520px;left:158px;}
+#fh_gg .fh_inp8{top:520px;left:516px;}
+#fh_gg .fh_inp9{position:absolute;top:568px;left:158px;}
+
+#fh_gg .fh_inp1 input,#fh_gg .fh_inp9 input,#fh_gg .fh_inp6 input{
+	height:32px;
+	width:560px;
+	padding-left:8px;
+	font-size:14px;
+	color:#666;
+	border:none;
+	line-height:32px;
+	}
+#fh_gg .fh_inp2 input,#fh_gg .fh_inp3 input,#fh_gg .fh_inp4 input,#fh_gg .fh_inp5 input,#fh_gg .fh_inp7 input,#fh_gg .fh_inp8 input{
+	height:32px;
+	width:200px;
+    font-size:14px;
+	color:#666;
+	border:none;
+	line-height:32px;
+	padding-left:8px;
+	}
+#fh_gg .fh_btn{
+	background:url(/images/fh_ggbtn.png) 0 -53px no-repeat;
+	display:block;
+	position:absolute;
+
+	top:536px;
+	left:308px;
+	line-height:99px;
+	width:171px;
+	height:42px;
+	cursor:pointer;
+	border:none;
+	overflow:hidden;
+	}
+#fh_gg .fh_btn:hover{background:url(/images/fh_ggbtn.png) 0 -102px no-repeat;}
+#fh_gg .fh_text{
+	position:absolute;
+	top:612px;
+	left:35px;
+	width:723px;
+	font-size:13px;
+	line-height:25px;
+	text-align:center;
+	}
+.fh_gl { width:790px;}
+.fh_gl .map { width:790px;  height:330px; background:url(/images/fh_gg.jpg) no-repeat; position:relative;}
+.fh_gl .map_ct { height:593px; width:790px; background:url(/images/fh_gg_03.jpg) repeat-x;}
+-->
+</STYLE>
+<SCRIPT>
+$(function(){
+	$(".menu-item .menu-hd").hover(function(){
+		$(this).next('#menu-0').show();
+		$(this).children('b').css({borderColor:'#666666 white white',transform:'rotate(180deg',transformOrigin:'50% 30% 0px'});
+		$(this).parents(".menu-item").css({background:'rgb(255, 255, 255)',border:'1px solid rgb(191, 191, 191)'})
+	});
+	$(".menu-item .menu").mouseleave(function(){
+		$(this).children('#menu-0').hide();
+		$(this).children('.menu-hd').children('b').css({borderColor:'#666666 #EFF6FE #EFF6FE',transform:'none',transformOrigin:'none'});
+		$(this).parent(".menu-item").css({background:'none',border:'1px solid #EFF6FE'})
+	}); 
+})
+</SCRIPT>
+<!--菜单开始-->
+<SCRIPT type="text/javascript" src="/css/service.js"></SCRIPT>
+<DIV id="content">
+  <!-- 左边栏 -->
+  {sub menu}
+  <DIV class="right">
+  	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+	{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+    <FORM id="myForm" onSubmit="return checkForm();" method="post" name="myForm">
+      <div>$sys_hash_code2</div>
+	  <INPUT id="type" name="money" value="3" type="hidden">
+      <DIV id="fh_gg">
+        <P class="fh_cl"><A href="$baseUrl?type=processing">处理中的单号（0）</A></P>
+        <P class="fh_cl2"><A href="$baseUrl?type=processed">已生成的单号（0）</A></P>
+        <P class="fh_cl3"><A href="$baseUrl?type=map">申请底单（0）</A></P>
+        <P class="fh_inp">顺丰单号为预售模式，请在宝贝被拍下后再进行订购！ </P>
+        <P class="fh_inp1">
+          <INPUT id="shipping_adress" name="shipping_adress" readOnly="readonly" maxLength="150" value="顺丰快递到达速度较快，发货地址目前是在福建,不能指定发货地址" type="text">
+        </P>
+        <P class="fh_inp2">
+          <INPUT id="shipping_data" name="shipping_data" maxLength="30" value="2013-09-21 xx点xx分" type="text">
+        </P>
+        
+        <P class="fh_inp6">
+          <INPUT id="delivery_adress" name="delivery_adress" maxLength="150" value="xx省xx市xx区xx县，地址请尽量详细(可直接复制淘宝收货地址)." type="text">
+        </P>
+      
+        <INPUT class="fh_btn" type="submit">
+        <DIV class="fh_text">顺丰真实快递单号处理时间：
+		<FONT color="#d48101">9:00-17:00申请单号，晚上20:00提供。17:00-00:00是第二天15:00提供。</FONT><BR>
+          <FONT style="color: rgb(249, 110, 53); font-size: 16px;">免责声明</FONT><BR>
+          以上快递都来源于网络业务合作，并非平台内部推出，所以和平台没有关系，平台只能担保给会员的单号可以正常使用，<BR>
+          并提供相应帮助，至于其他的问题，平台概不负责。</DIV>
+{if $type==processing}		  
+<DIV class="map_ct">
+<DIV style="height: 500px;">
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+  <TBODY>
+  <TR height="40">
+    <TD width="37">&nbsp;</TD>
+    <TD class="strong" vAlign="middle" width="120">单号</TD>
+    <TD class="strong" vAlign="middle" width="75">发货日期</TD>
+    <TD class="strong" vAlign="middle" width="105">任务ID</TD>
+    <TD class="strong" vAlign="middle" width="223">收货地址</TD>
+    <TD style="padding: 0px 10px;" class="strong" vAlign="middle" 
+      width="123">单号生成时间</TD>
+    <TD class="strong" vAlign="middle" width="57">申请底单（2元）</TD>
+    <TD width="35">&nbsp;</TD></TR></TBODY></TABLE></DIV>
+<DIV id="page"></DIV></DIV>
+{/if}
+      </DIV>
+    </FORM>
+	
+  </DIV>
+</DIV>
+<DIV class="cle"></DIV>
+<SCRIPT type="text/javascript">
+function checkForm() {
+   var checks = [
+		["isEmpty", "shipping_data", "宝贝付款时间"],
+		["isEmpty", "delivery_adress", "收货详细地址"] ];
+	var result = doCheck(checks);
+	var data = getValue("shipping_data");
+	if (result) {
+	    if (isMatch(/xx/, getValue("shipping_data")) || !isMatch(/^\d{4}[^\d]+\d{1,2}[^\d]+\d{1,2}[^\d]+\d{1,2}[^\d]+\d{1,2}.*?/, getValue("shipping_data"))){
+		    $("#shipping_data").focus();
+	        return doAlert("请输入正确的宝贝付款时间,参照格式2013-xx-xx xx点xx分,务必精确到分钟", $("#shipping_data"));
+		}
+	    if (isMatch(/xx/, getValue("delivery_adress"))){
+		    $("#delivery_adress").focus();
+	        return doAlert("请输入正确的收货详细地址", $("#delivery_adress"));
+		}	
+	}
+	
+	if (result) {
+		if(confirm('订购后提醒，请确认宝贝付款时间无误，确认订购后如有错误信息将无法退款。确认购买吗？'))return avoidReSubmit();
+		return false;
+	} else {	
+	return result;
+	}
+}
+</SCRIPT>
+<DIV class="cle"></DIV>
+{subtemplate ../footer}
+</BODY></HTML>

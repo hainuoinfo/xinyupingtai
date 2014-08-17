@@ -1,0 +1,53 @@
+{teval
+	$title       = '{webName}快递单号生成器 云查询技术 {webName}vip免费用-{webName}信誉互动平台';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('index', 'index'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList, 'jsList'=>$jsList));
+}
+{sub ../headerBase}
+<link href="{$__tplUrl}Newlayout.css" type="text/css" rel="stylesheet" />
+<link href="{$__tplUrl}Newreset.css" type="text/css" rel="stylesheet" />
+<link href="{$__tplUrl}Newbase.css" type="text/css" rel="stylesheet" />
+<div class="main">
+	<div class="kuai">
+		<div class="kuai-banner"><a href="{r}/member/soft/?download=$softId"><img src="{$__tplUrl}images/kuai-top.jpg" /></a></div>
+		<div class="kuai-cen">
+			<p><a href="{r}/member/eids/"><img src="{$__tplUrl}images/kuai-btn001.jpg" /></a></p>
+
+<p><a href="http://item.taobao.com/item.htm?id=15964869915" target="_blank" class="top_msg"><img src="{$__tplUrl}images/kuai-btn002.jpg" /></a></p>
+
+
+		</div>
+		<div class="kuai-jiaocheng">
+			<div class="kuai-title"></div>
+			<div class="kuai-content"> {echo string::ubbDecode($soft[content])} </div>
+			<p style="float:right; margin-right:30px;"></p>
+		</div>
+	</div>
+	<!--kuai end-->
+</div>
+<div class="guarantee">
+  <div class="foot_line"></div>
+  <table width="100%" border="0" cellspacing="1" cellpadding="2">
+    <tr>
+      <td><strong>商家保障</strong></td>
+      <td><strong>信誉保障</strong></td>
+      <td><strong>买号保障</strong></td>
+      <td rowspan="2" style="vertical-align:top; padding-top:12px"><a href="bbs/Thread.aspx?id=11059"><img src="{u}images/guarantee.gif" width="80" alt="商家服务" /></a></td>
+      <td><strong>流程保障</strong></td>
+      <td><strong>配套保障</strong></td>
+      <td><strong>安全保障</strong></td>
+    </tr>
+    <tr>
+      <td>恶意维权赔付<br />淘宝客佣金赔付<br />信用卡手续费赔付<br />默认好评任务保障<br />店家延迟回评保障</td>
+      <td>真实快递任务<br />来路订制任务<br />拍前聊、聊后收<br />拍收双重IP限制<br />支持商城无名良品</td>
+      <td>实名买号<br />动态寿命值<br />购买量动态限制<br />资料不全举报<br />序列相似买号举报</td>
+      <td>随身申诉<br />卡任务短信提醒<br />任务预定<br />购物车热销任务<br />支持秒杀折扣</td>
+      <td>实名支付宝供应<br />手机验证码服务<br />客户端自动收藏<br />流量互动<br />周周排行榜</td>
+      <td>安保问题<br />双重密码<br />绑定掌柜短信认证<br />提现短信验证<br />账户变动提醒</td>
+    </tr>
+  </table>
+</div>
+{sub ../footer}

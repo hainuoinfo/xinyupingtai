@@ -1,0 +1,105 @@
+{teval
+	
+	$cssList     = array(css::getUrl('task', 'task'));
+	echo string::getStaticCode(array('cssList'=>$cssList));
+}
+{sub ../header}
+<div class="main">
+  {if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+  <div class="info">  
+    <div class="info_l">
+      <div>
+        {sub tao_info}
+      </div>
+    </div>
+    <div class="info_r"> </div>
+  </div>
+  <div class="h_10"></div>
+  {sub collect_tab}
+  <div class="h_10"></div>
+  <div class="pub_tip1">
+		1. 用于刷收藏的买号信誉度要求大于等于<span class="f_red">13</span><br />
+		2. 用于刷收藏的买号不允接手刷信誉的任务，取消收藏设置后符合条件的可重新绑定刷信誉的任务<br />
+		3. 刷收藏无需接手任务，开启并绑定了客户端的用户自动接手并完成任务<br />
+		4. 平台当前每天仅仅允许启用一个刷收藏的买号（以后会增加），当天启用后取消将导致将无法启用第二个
+  </div>
+	<div class="h_10"></div>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td class="state_b1"><div class="state_b2"></div></td>
+			<td class="state_no" onclick="location.href='{rewrite}/task/tao/?m=tieBuyer'">所有买号</td>
+			<td class="state_s"><div class="state_d"></div></td>
+			<td class="state_on" onclick="location.href='$thisUrl'">收藏买号</td>
+			<td class="state_l" style="width:700px">&nbsp;<a href="#" id="tabLink"></a></td>
+		</tr>
+	</table>
+	<table class="tbl" width="100%" border="0" cellspacing="0" cellpadding="4">
+		{loop $bList $v}
+		<tr>
+			<td class="p_l_20">买号：$v[nickname]</td>
+			<td>当前信誉度：$v[score] $v[score_ico]</td>
+			<td>状态：<span class="f_orange">{if $v[cStatus]==1}启用中{else}暂停中,$v[msg]{/if}</span></td>
+			<td>操作时间：{date $v[runTimestamp]}</td>
+			<td>操作：
+				{if $v[cStatus]==0}
+				<a href="javascript:;" onclick="return IsActive(this, $v[id]);" class="link_o_2">启用</a>&nbsp;
+				{elseif $v[ing]==0}
+				<a href="javascript:;" onclick="return IsSuspend(this, $v[id]);" class="link_t">暂停</a>&nbsp;
+				{/if}
+				<a href="javascript:;" onclick="dialog(460,460,'设置买号密码','{rewrite}/dialog/buyerPsw/?id=$v[id]');return false;" class="link_t">设置密码</a>&nbsp;
+				{if $v[ing]==0}
+				<a href="javascript:;" onclick="return IsCancel(this, $v[id]);" class="link_t">取消收藏</a>&nbsp;
+				{/if}</td>
+		</tr>
+		{/loop}
+	</table>
+	<div class="h_10"></div>
+	<div class="pages">$multipage</div>
+	<div class="h_20"></div>
+<script type="text/javascript">
+function IsDelAcc(obj, id) {
+  if (confirm("您确定要删除此买号么？\n\n删除后将无法重新绑定此买号")) {
+    obj.href='?del=' + id;
+    return true;
+  } else {
+    return false;
+  }
+}
+function IsCollect(obj, id) {
+  if (confirm('您确定要将此买号置为收藏买号么？\n\n收藏买号仅仅用于收藏，不能用于刷信誉的任务')) {
+    obj.href='?collect='+id;
+    return true;
+  } else {
+    return false;
+  }
+}
+function IsSuspend(obj, id) {
+  if (confirm('您确定要暂停此收藏买号么？暂停后当天也无法启用第二个')) {
+    obj.href='$thisUrl&suspend='+id;
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function IsCancel(obj, id) {
+  if (confirm('您确定要取消此收藏买号么？')) {
+    obj.href='$thisUrl&cancel='+id;
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function IsActive(obj, id) {
+  if (confirm('您确定要启用此收藏买号么？')) {
+    obj.href='$thisUrl&active='+id;
+    return true;
+  } else {
+    return false;
+  }
+}
+</script>
+</div>
+{sub ../footer}

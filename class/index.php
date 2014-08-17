@@ -566,6 +566,7 @@ if (file_exists($sys_config_file)) {
             member_base::sendSms($task['buid'], $msg, 'in_to_grade');
             db::update('task', array('isSendMsg' => $task['isSendMsg'] | 1), "id='$task[id]'");
         }
+//TODO检查投诉
 //the end
     }
 ?>

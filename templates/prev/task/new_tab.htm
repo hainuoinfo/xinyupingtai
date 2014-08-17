@@ -1,0 +1,25 @@
+<div class="lst_tab_tb">
+	<ul class="tab_no">
+		<li{if $m=='index'} class="tab_tb"{/if}>
+		<p><a href="$baseUrl"><strong>接手新手任务</strong></a></p>
+		</li>
+		<li{if $m=='add'} class="tab_tb"{/if}>
+		<p><a href="$baseUrl?m=add"><strong>单个发布任务</strong></a></p>
+		</li>
+		<li{if $m=='taskIn'} class="tab_tb"{/if}>
+		<p><a href="$baseUrl?m=taskIn"><strong>已接任务</strong></a></p>
+		</li>
+		<li{if $m=='taskOut'} class="tab_tb"{/if}>
+		<p><a href="$baseUrl?m=taskOut"><strong>已发任务</strong></a></p>
+		</li>
+		<li{if $m=='tieBuyer'} class="tab_tb"{/if}>
+			<p><a href="$baseUrl?m=tieBuyer"><strong>绑定买号</strong></a></p>
+		</li>
+		<li{if $m=='tieSeller'} class="tab_tb"{/if}>
+			<p><a href="$baseUrl?m=tieSeller"><strong>绑定掌柜</strong></a></p>
+		</li>
+		<li{if $m=='tpl'} class="tab_tb"{/if}>
+			<p><a href="$baseUrl?m=tpl"><strong>任务模板</strong></a></p>
+		</li>
+	</ul>
+</div>

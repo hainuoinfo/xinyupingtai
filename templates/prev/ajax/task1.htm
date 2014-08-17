@@ -1,0 +1,98 @@
+<table class="tlisttable" border="0" cellpadding="0" cellspacing="0" width="100%">
+          <thead>
+           <tr>
+            <td class="rwdt_bt1" height="39" align="center" valign="middle" width="10"></td>
+            <td class="rwdt_bt2" align="center" valign="middle" width="21%">任务编号</td>
+            <td class="rwdt_bt2" align="left" valign="middle" width="12%">发布人</td>
+            <td class="rwdt_bt2" align="left" valign="middle" width="12%">任务价格</td>
+            <td class="rwdt_bt2" align="center" valign="middle" width="23%">发布者要求</td>
+            <td class="rwdt_bt2" align="left" valign="middle" width="22%">悬赏麦点</td>
+            <td class="rwdt_bt2" align="center" valign="middle" width="10%">操作</td>
+            <td class="rwdt_bt3" align="center" valign="middle" width="10"></td>
+          </tr>
+		</thead>
+		<tbody class="tlisttable">
+          {eval $j=0;}
+		  {loop $list $v}
+		<tr {if $j%2!=0} class="rwdt_list" {else} class="rwdt_list fbcolor"{/if} valign="top">
+            <td width="10">&nbsp;</td>
+            <td width="21%"><span {if $v[isCart]} class="rwdt_bh7" title="购物车任务" {elseif $v[isExpress]} class="task_express" title="快递任务" {elseif $v[visitWay]} class="rwdt_bh3" title="来路任务" {elseif $v[times]==0} class="rwdt_bh1" title="虚拟任务" {elseif $v[times]>0} class="rwdt_bh2" title="实物任务" {/if}  ><strong class="system1">$v[id]</strong></span>
+			<br>
+            <span {if $v[isEnsure]} title="接任务者需要加入平台商保" class="rwdt_xbh1" {/if} class="rwdt_xbh0 block">PostTime：{echo date('H:i:s', $v[stimestamp])}</span></td>
+            <td width="12%">
+			<a title="接任务后方可查看到对方QQ号码" target="_blank" href="{rewrite}/member/info/?username={echo string::getXin2($v[susername])}" class="chengse"><strong>{echo string::getXin2($v[susername])}</strong></a><br>
+            {if $v[vip]==1}<span class="fb_vip1" title="一级VIP客户"></span>{/if}
+            {if $v[vip]==2}<span class='fb_vip2' title='钻石VIP客户'></span>{/if}
+			 {if $v[vip]==3}<span class='fb_vip3' title='皇冠VIP客户'></span>{/if}
+            </td>
+            <td width="12%"><span {if $v[isPriceFit]} class="rwdt_xgj" title="拍下商品，付款前需要联系店主修改价格，使得支付费用与任务金额相等"  {else} class="rwdt_db" title="平台担保：此任务卖家已缴纳全额担保存款，买家可放心购买，任务完成时，买家平台账号自动获得相应存款。"{/if}> $v[price]</span></td>
+            <td class="noktime" width="23%">
+			<p {if $v[times]==0}class="yred" {else} class="lvse" {/if}title="任务接手付款后，$lang[times][$v[times]]立即对宝贝进行收货好评！">$lang[times][$v[times]]</p>
+			{if $v[isVerify]}<em title="接任务者需要发布者核审" class="rwdt_yq1">&nbsp;</em>{/if}
+			{if $v[isChat]}<em title="任务需要旺旺模拟咨询再拍下" class="rwdt_yq4">&nbsp;</em>{/if}
+			{if $v[ispinimage]} <em title="接任务者需要上传好评图片" class="rwdt_yq6">&nbsp;</em>{/if}
+			{if $v[isRemark]}<em title="按发布者提供的评语进行评价" class="rwdt_yq2">&nbsp;</em>{/if}
+			{if $v[isReal]}<em title="接手买号必须通过了支付宝实名认证" class="rwdt_yq21">&nbsp;</em>{/if}
+			{if $v[isAddress]}<em class="rwdt_yq3" title="任务需要指定收货地址">&nbsp;</em>{/if}
+			{if $v[isLimitCity]}<em class="rwdt_yqip" title="要求接手方地址是<?php $prov=unserialize($v[Province]); echo implode(',',$prov); ?>">&nbsp;</em>{/if}
+			{if $v[isShare]}<em title="好评后对宝贝进行分享" class="rwdt_yq20">&nbsp;</em>{/if}
+			{if $v[isChatDone]}<em title="任务需要模拟聊天后确认收货" class="rwdt_yq17">&nbsp;</em>{/if}
+			</td>
+            <td align="left" width="22%"><span class="chengse2">
+			<strong>$v[point]个麦点</strong></span><br>
+			{if $v[pointExt]>0} 
+			<font color="#fe5500">↑ 发布者追加了麦点{$v[pointExt]}个</font>
+			{/if}
+			</td>
+            <td width="10%"><p class="yred">{if $v[status]==1}<a class="qrw_btn" balid="0" onclick="taskin('$v[id]',false,this);" href="javascript:;" title=""></a>{else}任务进行中...{/if}</p></td>
+            <td width="10">&nbsp;</td>
+         </tr>
+		 {eval $j++;}
+          {/loop}
+		  {if $is_v_num==1}
+		  {eval $j=0;}
+		  {loop $tlist $v}
+		  <tr {if $j%2!=0} class="rwdt_list fbcolor" {else} class="rwdt_list"{/if} valign="top">
+            <td width="10">&nbsp;</td>
+            <td width="21%"><span {if $v[isCart]} class="rwdt_bh7" title="购物车任务" {elseif $v[isExpress]} class="rwdt_bh7" title="快递任务" {elseif $v[visitWay]} class="rwdt_bh3" title="来路任务" {elseif $v[times]==0} class="rwdt_bh1" title="虚拟任务" {elseif $v[times]>0} class="rwdt_bh2" title="实物任务" {/if}  ><strong class="system1">{$v[id]}</strong></span>
+			<br>
+            <span {if $v[isEnsure]} title="接任务者需要加入平台商保" class="rwdt_xbh1" {/if} class="rwdt_xbh0 block">PostTime：{$v[h]}:{$v[i]}:{$v[s]}</span></td>
+            <td width="12%">
+			<a title="接任务后方可查看到对方QQ号码" target="_blank" href="{rewrite}/member/info/?username={echo string::getXin2($v[susername])}" class="chengse"><strong>{echo string::getXin2($v[susername])}</strong></a><br>
+            {if $v[vip]}<span class="fb_vip1" title="一级VIP客户"></span>{/if}
+            {if $v[vip2]}<span class='fb_vip2' title='钻石VIP客户'></span>{/if}
+			 {if $v[vip3]}<span class='fb_vip3' title='皇冠VIP客户'></span>{/if}
+            </td>
+            <td width="12%"><span {if $v[isPriceFit]} class="rwdt_xgj" title="拍下商品，付款前需要联系店主修改价格，使得支付费用与任务金额相等"  {else} class="rwdt_db" title="平台担保：此任务卖家已缴纳全额担保存款，买家可放心购买，任务完成时，买家平台账号自动获得相应存款。"{/if}> $v[price]</span></td>
+            <td class="noktime" width="23%">
+			<p {if $v[times]==0}class="yred" {else} class="lvse" {/if}title="任务接手付款后，$lang[times][$v[times]]立即对宝贝进行收货好评！">$lang[times][$v[times]]</p>
+			{if $v[isVerify]}<em title="接任务者需要发布者核审" class="rwdt_yq1"></em>{/if}
+			{if $v[isChat]}<em title="任务需要旺旺模拟咨询再拍下" class="rwdt_yq4">&nbsp;</em>{/if}
+			{if $v[ispinimage]} <em title="接任务者需要上传好评图片" class="rwdt_yq6">&nbsp;</em>{/if}
+			{if $v[isRemark]}<em title="按发布者提供的评语进行评价" class="rwdt_yq2">&nbsp;</em>{/if}
+			{if $v[isReal]}<em title="接手买号必须通过了支付宝实名认证" class="rwdt_yq21">&nbsp;</em>{/if}
+			{if $v[isAddress]}<em class="rwdt_yq3" title="任务需要指定收货地址">&nbsp;</em>{/if}
+			{if $v[isLimitCity]}<em class="rwdt_yqip" title="要求接手方地址是...">&nbsp;</em>{/if}
+			{if $v[isShare]}<em title="好评后对宝贝进行分享" class="rwdt_yq20">&nbsp;</em>{/if}
+			{if $v[isChatDone]}<em title="任务需要模拟聊天后确认收货" class="rwdt_yq17">&nbsp;</em>{/if}
+			</td>
+            <td align="left" width="22%"><span class="chengse2">
+			<strong>$v[point]个麦点</strong></span><br>
+			{if $v[pointExt]>0} 
+			<font color="#fe5500">↑ 发布者追加了麦点{$v[pointExt]}个</font>
+			{/if}
+			</td>
+            <td width="10%"><p class="yred">{if $v[status]==1}<a class="qrw_btn" balid="0" onclick="taskin('$v[id]',false,this);" href="javascript:;" title=""></a>{else}任务进行中...{/if}</p></td>
+            <td width="10">&nbsp;</td>
+         </tr>
+		  {eval $j++;}
+		 {/loop}
+		 {/if}
+         </tbody>
+</table>
+
+<div class="rwdt_dlm">
+  <div id="page" style="float:right;">
+      $multipage 
+ </div>
+</div>

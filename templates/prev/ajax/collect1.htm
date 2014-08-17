@@ -1,0 +1,21 @@
+<table class='tbl' width='100%' border='0' cellspacing='0' cellpadding='4'>
+	{loop $list $v}
+	<tr>
+		<td width='200' class='p_l_20'>任务编号：$v[id]<br />
+			发布时间：{date $v[timestamp]}</td>
+		<td>发布人：{echo string::getXin2($v[username])} <img src="$v[slevel][icon]" title="积分：$v[credits]" />
+		<br />
+			发布人类型： 
+		{if $v[vip]}<span class="vip" title="VIP"></span>{/if}
+		{if $v[vip2]}<span class="card" title="{echo language::get('card'.$v[vip2])}"></span>{/if}
+		{if $v[isEnsure]}<span class='ensure' title='商保'></span>{/if}</td>
+		<td>任务收藏：$v[total]个<br />
+			剩余收藏：{echo $v[total] - $v[totalIng] - $v[totalComplate]}个</td>
+		<td>任务状态：<span class="f_orange">{if $v[status]==0}暂停中{elseif $v[status]==1}{if $v[flowLock]>0}进行中{else}等待接手{/if}{elseif $v[status]==2}已完成{/if}</span></td>
+		<td width='150'>客户端自动接手并完成<br />
+			仅需设定并启用收藏买号</td>
+	</tr>
+	{/loop}
+</table>
+<div class='h_10'></div>
+<div class='pages'>$multipage</div>

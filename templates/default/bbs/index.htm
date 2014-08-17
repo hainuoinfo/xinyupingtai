@@ -9,7 +9,7 @@
 	echo string::getStaticCode(array('title'=>$title,'keywords'=>$keywords,'description'=>$description,'cssList'=>$cssList));
 }
 {subtemplate ../header}
-<DIV id="content">
+<DIV id="content" class="white">
   <DIV class="lt_left">
     <DIV class="luntan_top">
       <FORM method="get" name="bbs-search" action="/bbs/search.php">
@@ -20,7 +20,7 @@ height="37">
               <TD align="right"><INPUT id="keyword" class="luntan_inp" name="keyword" 
       type="text"></TD>
               <TD 
-  width="50"><INPUT class="luntan_btn" value="" type="submit"></TD>
+  width="50"><INPUT class="luntan_btn" value="" style="width:50px;" type="submit"></TD>
             </TR>
           </TBODY>
         </TABLE>
@@ -50,6 +50,7 @@ class="luntan_ft" href="{rewrite}/bbs/post.php"></A></DIV>
  
   </DIV>
 {subtemplate right}
+<DIV class="cle"></DIV>
 </DIV>
 <DIV class="cle"></DIV>
 {subtemplate ../footer}

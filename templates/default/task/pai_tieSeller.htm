@@ -1,7 +1,7 @@
 {teval
 	
-	$cssList     = array(css::getUrl('task', 'task'));
-	echo string::getStaticCode(array('cssList'=>$cssList));
+	<!--$cssList     = array(css::getUrl('task', 'task'));-->
+	<!--echo string::getStaticCode(array('cssList'=>$cssList));-->
 }
 {sub ../headerBase}
 <script type="text/javascript">
@@ -9,6 +9,7 @@ var webqq = 239087160;
 var webnoticeurl = "";
 var webnoticetit = "";
 </script>
+<!--<link rel="stylesheet" type="text/css" href="/images/task.css">-->
 <style type="text/css">
 .kd a:hover { text-decoration:underline;}
 .link_tt { display:block; width:52px; height:22px;color:#a68d8b; background:url(/images/sellers_btn.png) no-repeat; margin-bottom:2px;}
@@ -103,7 +104,7 @@ function checkForm3() {
 </script>
 		{sub tab}
 	<div class="cle"></div>
-	<div class="lst_info" style="background:none;"></div>
+	<div class="lst_info">
 	{if $_showmessage}<div class='error_panel'><div>$_showmessage</div></div>{/if}
 	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
 	<div class="mh_tishi">
@@ -192,7 +193,7 @@ function checkForm3() {
             </tbody></table>
 	        <p>&nbsp;</p>
 	        <p>&nbsp;</p>
-            <div class="rwdt_dlm">
+            <div class="rwdt_dlm" style="display: none;">
 			  <div id="page">
 				
 				
@@ -204,7 +205,7 @@ function checkForm3() {
 			</div>
 			<div class="cle"></div>
 			<!--结束-->
-			
+		</div>
 					
 	</div><!--taopage_detail end-->
 </div>
@@ -257,7 +258,7 @@ function isactive(id)
 <script type="text/javascript">
 var webnoticeurl = "";
 var webnoticetit = "";
-var quick_qq = '<a target="_blank" href="http://wp.qq.com/wpa/qunwpa?idkey=0fa4d251b350d03b020586387709ac11b8f101a2b60eaf80b4d6a93cb9fbe8fc"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="大麦户网商平台30群" title="大麦户网商平台30群"></a>';
+var quick_qq = '<a target="_blank" href="http://wp.qq.com/wpa/qunwpa?idkey=0fa4d251b350d03b020586387709ac11b8f101a2b60eaf80b4d6a93cb9fbe8fc"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="花兔兔网商平台30群" title="花兔兔网商平台30群"></a>';
 $('.web_qq').hover(function(){
     $('.quick_qq').show();
 });

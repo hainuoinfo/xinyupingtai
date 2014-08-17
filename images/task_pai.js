@@ -264,7 +264,7 @@ function SelectBuyerAccountNew(mid,btn,$accountList){
     var dislen = $accountList.find("input:radio[disabled]").size();
     var alllen = $accountList.find("input:radio").size();
     if(dislen==alllen){
-        artDialog({content:"大麦户温馨提示：您所有的买号都不能接手此任务。",id:"al1",fixed:true,yesText:"关闭，继续抢其它任务",lock:true},function(){
+        artDialog({content:"花兔兔温馨提示：您所有的买号都不能接手此任务。",id:"al1",fixed:true,yesText:"关闭，继续抢其它任务",lock:true},function(){
             CancelAcceptMission(mid);
         });
         DisabledClose();
@@ -280,7 +280,7 @@ function SelectBuyerAccountNew(mid,btn,$accountList){
                 aId = $aId.val();
             }
             if(aId==undefined){
-                artDialog({content:"大麦户温馨提示：请选择好买号再提交!<br/>如果没有买号，请到【会员中心-绑定买号】里面先绑定买号再接任务",id:"alarm",fixed:true,yesText:"立即去绑定",noText:"重选买号",lock:true},function(){
+                artDialog({content:"花兔兔温馨提示：请选择好买号再提交!<br/>如果没有买号，请到【会员中心-绑定买号】里面先绑定买号再接任务",id:"alarm",fixed:true,yesText:"立即去绑定",noText:"重选买号",lock:true},function(){
                     window.open("/member/buypai/");
                 },function(){
                     SelectBuyerAccountNew(mid,btn,$divin.wrap("<div></div>").parent());

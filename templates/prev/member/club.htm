@@ -1,0 +1,214 @@
+{teval
+	//$title       = '申诉中心 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{ad2 ad_memberHeadTop}
+{sub ../header}
+<style type="text/css">
+.club{width:225px; height:300px; border:1px solid #A1C5E9; background:#F6FBFF; float:left; margin:10px;}
+*html .club {margin:6px;}
+.club p {line-height:22px; padding:0 15px;}
+.club_img {margin-top:10px; margin-bottom:5px;}
+</style>
+<div class="main">
+  <div class="h_10"></div>
+  <div class="a">
+     {sub menu}
+  </div>
+  <div class="b"> 
+  	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+	{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+    <div class="tip_remit">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="120">&nbsp;</td>
+          <td valign="middle">亲爱的盟友们，您还在孤军奋战么？还在孤独的摸索着任务操作的技巧么？您想畅快的和盟友们进行经验交流么？想为新加入平台的朋友们提供您的帮助的同时赚取宝贵的平台积分么？
+            <a href="/bbs/t11/" target="_blank" class="link_o">什么是平台积分</a>
+            团结就是力量，现在就加入你向往的门派吧。如果您是新来的朋友，在加入门派后您就可以得到师兄师姐们的无微不至的帮助和指导，在最短的时间内掌握任务操作的知识技巧，使您的网点信誉得到最快的增长；如果您已经是平台的老朋友了那么为了共同营造一个轻松高效的平台环境，赠人玫瑰手留余香，您在帮助他人的同时也可以赢取更多的平台积分哦！
+            <a href="/bbs/t77/" target="_blank" class="link_o">什么是门派</a>
+            <a href="/bbs/t78/" target="_blank" class="link_o">为什么一定要加入门派</a>
+            <a href="/bbs/t79/" target="_blank" class="link_o">怎样加入门派</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="h_20"></div>
+    <div class="tab" style="border:0; margin:0px;">
+      <ul>
+        <li{if $t=='list'} class="tab_on"{/if}>
+          <p><a href="$thisUrl?t=list"><strong>江湖</strong></a></p>
+        </li>
+        <li{if $t=='my'} class="tab_on"{/if}>
+          <p><a href="$thisUrl?t=my"><strong>我的门派</strong></a></p>
+        </li>
+        <li{if $t=='create'} class="tab_on"{/if}>
+          <p><a href="$thisUrl?t=create"><strong>创建门派</strong></a></p>
+        </li>
+      </ul>
+    </div>
+	{if $t=='list'}
+    <div>
+      <div class="box_t">
+        <div class="box_t_l"></div>
+        <div class="box_t_r"></div>
+      </div>
+      <div class="box_main" style="height:100%;">
+        <div style="padding-left:10px;">
+          <div>
+            {loop $cList $v}
+            <div class="club">
+              <p class="club_img"><img src="{$weburl2}img/club/$v[ico]" width="197" height="142" /></p>
+              <p><strong>门派名称：</strong>$v[name]</p>
+              <p><strong>掌门：</strong>$v[username]  <img src="$v[fLevel][icon]" title="积分：$v[credits]" />{if $v[vip]}<span class="vip" title="VIP"></span>{/if}{if $v[vip2]}<span class='card' title='{echo language::get('card'.$v[vip2])}'></span>{/if}{if $v[isEnsure]}<span class='ensure' title='商保'></span>{/if}</p>
+              <p><strong>门徒数：</strong><span class="f_orange">$v[users]</span></p>
+              
+              <p><script>showQQ($v[qq])</script>点击可以联系掌门索取通行证</p>
+              <p align="center"><a href="javascript:;" onclick="dialog(460,460,'申请加入门派','{rewrite}/dialog/joinClub/?id=$v[id]');return false;" class="btn_o">申请加入</a></p>
+            </div>
+            {/loop}
+          </div>
+          <div class="h_10"></div>
+          <div class="pages">
+            <div class="pages">$multipage</div>
+          </div>
+        </div>
+        <div class="h_10"></div>
+      </div>
+      <div>
+        <div class="box_b_l"></div>
+        <div class="box_b_r"></div>
+      </div>
+    </div>
+	{elseif $t=='my'}
+	<div>
+      <div class="box_t">
+        <div class="box_t_l"></div>
+        <div class="box_t_r"></div>
+      </div>
+      <div class="box_main">
+        <div style="height:1px;"></div>
+        <div class="box_s" style="margin:0;">
+          <table class="tbl_edit" width="100%" border="0" cellspacing="0" cellpadding="4">
+            <tr>
+              <td width="200" valign="top">{if $myClub}<img src="{$weburl2}img/club/$myClub[ico]" width="197" height="142" />{/if}</td>
+              <td width="200" valign="top"><strong>门派名称：</strong>$myClub[name]<br />
+                <strong>掌门：</strong>$myClub[username] {if $myClub}<img src="$myClub[fLevel][icon]" title="积分：$myClub[credits]" />{if $v[vip]}<span class="vip" title="VIP"></span>{/if}{if $v[vip2]}<span class='card' title='{echo language::get('card'.$v[vip2])}'></span>{/if}{/if}<br />
+                <strong>门徒数：</strong>$myClub[users]<br />
+                
+                <p style="padding:10px 20px;">{if $myClub && $myClub[status]==0}<span class="f_b_red">审核中...</span>{/if}{if $myClub[uid]!=$uid}<a href="$thisUrl?quit=$myClub[id]" onclick="return confirm('您确定要退出么？')" class="btn_g">申请退出</a>{/if}</p></td>
+              <td valign="top"><span class="f_b_org">门派介绍：</span><br />
+                <p>$myClub[remark]</p></td>
+            </tr>
+          </table>
+        </div>
+        <div class="h_10"></div>
+        
+        <div class="h_10"></div>
+      </div>
+      <div>
+        <div class="box_b_l"></div>
+        <div class="box_b_r"></div>
+      </div>
+    </div>
+	{elseif $t=='create'}
+	<div>
+      <div class="box_t">
+        <div class="box_t_l"></div>
+        <div class="box_t_r"></div>
+      </div>
+      <div class="box_main">
+	  	{if !$isCreate}
+        <div class="remit_tip"><span class="f_b_org f_14">门派功能</span><br />
+          1. 联盟要求积分满3000且推荐人数满30人的VIP用户才能申请创建自己的门派；<br />
+          2. 一个用户只能最多申请创建一个门派；<br />
+          3. 成功提交创建门派申请后，联盟工作人员会在3个工作日内审核您的申请；并开通该门派的交流q群与论坛；</div>
+        <div class="bar_edit">填写申请</div>
+        <form name="myForm" method="post" id="myForm" enctype="multipart/form-data" onsubmit="return checkForm();">
+<div>$sys_hash_code2</div>
+
+          <div class="edit">
+            <table class="tbl_edit" width="100%" border="0" cellspacing="0" cellpadding="6">
+              <tr>
+                <td width="100" align="right">门派名称：</td>
+                <td><input name="name" type="text" class="text_normal" id="name" maxlength="10" value="$name"  />
+                  名字好听，更能吸引人加入哦！门派名称创建后不可修改，10字以内。</td>
+              </tr>
+              <tr>
+                <td align="right">门派图标：</td>
+                <td>
+                    <input type="file" name="ico" id="ico" class="text_normal" />
+                  上传的图标建议尺寸为195*140像素，文件大小100k以内（支持JPG，GIF）</td>
+              </tr>
+              <tr>
+                <td align="right" valign="top">门派简介：</td>
+                <td><textarea name="remark" cols="70" rows="4" id="remark" onpropertychange="countMsg();">$remark</textarea>
+                  <br />
+                  您的门派介绍，字数限制150字以内，您已经输入<span class="f_b_org" id="msg_num">0</span>/150。</td>
+              </tr>
+              <tr>
+                <td width="100" align="right">门派通行证：</td>
+                <td><input name="password" type="text" class="text_normal" id="password" maxlength="30" value="$password" /></td>
+              </tr>
+              
+              <tr>
+                <td align="right">&nbsp;</td>
+                <td class="f_b_red f_14">
+					{if $memberFields[credits] < 3000}
+					对不起，您的积分低于3000，不允许申请
+					{elseif $member[child2] < 30}
+					对不起，您的推广人数小于30个
+					{elseif !$isVip}
+					对不起，您不是VIP
+					{else}
+					<input type="submit" class="btn_1" id="btnQuery" value="创建" />
+					{/if}
+				</td>
+              </tr>
+              
+            </table>
+          </div>
+        </form>
+		{else}
+		<span class="f_b_red">已经创建过了</span>
+		{/if}
+      </div>
+      <div>
+        <div class="box_b_l"></div>
+        <div class="box_b_r"></div>
+      </div>
+    </div>
+<script type="text/javascript">
+function checkForm() {
+   var checks = [
+		["isEmpty", "name", "门派名称"],
+		["isEmpty", "ico", "门派图标"],
+		["isEmpty", "remark", "门派简介"],
+		["isLength", "remark", "门派简介", 0,150],
+		["isEmpty", "password", "门派通行证"] ];
+	var result = doCheck(checks);
+	if (result) {
+		if (!/\.(jpg|jpeg|png|gif)$/i.test($('#ico').val())){
+			doAlert('图片格式不正确', $('#ico'));
+			result = false;
+		}
+	}
+	if (result) avoidReSubmit();
+	return result;
+}
+
+function countMsg() {
+	var str = getValue("remark");
+	var len = str.length;
+	getObj("msg_num").innerHTML = len;
+}
+</script>
+	{/if}
+  </div>
+</div>
+
+{sub ../footer}

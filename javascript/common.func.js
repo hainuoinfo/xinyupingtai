@@ -12,7 +12,7 @@ var common = {
 	},
 	comebackCss : function(obj, name){
 		var data = this.datas[name];
-		
+
 		for (var k in data) {
 			var v = data[k];//alert(k + '|' + v);
 			//if (k == 'position') $(obj).css({'position' : v});
@@ -53,15 +53,15 @@ $.fn.waitImg=function(show){
 $.fn.overflow = function(show){
 	if (show == void(0)) show = true;
 	var id = 'css_' + $(this).attr('sourceIndex');
-	if (show) {	
+	if (show) {
 		common.backupCss(this, id, ['left', 'top', 'width', 'height', 'overflow', 'position', 'background', 'border']);
 		var offset = $(this).offset();
 		$(this).css({
-			left       : (offset.left - 1) + 'px', 
-			top        : (offset.top  - 1) + 'px', 
-			width      : 'auto', 
-			height     : 'auto', 
-			position   : 'absolute', 
+			left       : (offset.left - 1) + 'px',
+			top        : (offset.top  - 1) + 'px',
+			width      : 'auto',
+			height     : 'auto',
+			position   : 'absolute',
 			background : '#FFFBFB',
 			border     : '1px solid #FFAAAA'
 		});
@@ -187,9 +187,9 @@ $.fn.easydrag = function(allowBubbling){
 		// if no id is defined assign a unique one
 		if(undefined == this.id || !this.id.length) this.id = "easydrag"+(new Date().getTime());
 
-		// set dragStatus 
+		// set dragStatus
 		dragStatus[this.id] = "on";
-		
+
 		// change the mouse pointer
 		$(this).css("cursor", "move");
 
@@ -528,7 +528,7 @@ function doAlert(c, b) {
 		try {
 			b.focus()
 		} catch(a) {
-			
+
 		}
 	}
 	return false
@@ -681,7 +681,7 @@ function thumbImg(b, a) {
 	}
 }
 function openDynaWin(c, b) {
-	var d = "<html><head><title>" + c + " - 美乐网</title></head><body><table align='center' width='100%'><tr><td align='center' >";
+	var d = "<html><head><title>" + c + " - 花兔兔</title></head><body><table align='center' width='100%'><tr><td align='center' >";
 	d += b + "</td></tr><tr><td align='center'><input type='button' style='font-size:9pt' value='关闭窗口' onclick='javascript:window.close()'></td></tr></table></body></html>";
 	var a = window.open();
 	a.document.write(d);

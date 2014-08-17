@@ -1,0 +1,35 @@
+{teval
+$title       = '帮助分类 - {webName}';
+$keywords    = '刷信誉,刷信用,互刷信誉平台,刷收藏,刷流量,{webName2}';
+$description = '本网站汇总的各类刷信誉平台常遇到的问题，主要账号相关、接手任务、发布任务、任务申诉、账户资金、VIP信托等';
+$title       = common::replaceVars($title);
+$keywords    = common::replaceVars($keywords);
+$description = common::replaceVars($description);
+$cssList     = array(css::getUrl('help', 'help'));
+echo string::getStaticCode(array('title'=>$title,'keywords'=>$keywords,'description'=>$description,'cssList'=>$cssList));
+}
+{sub ../header2}
+<div class="sort">
+	<div class="sort_t"></div>
+	<div class="sort_m">
+		<div class="sort_l">
+			<ul>
+				{loop $cates $v} <li{if $v[id]==$id} class="sort_on"{/if}><a href="?id=$v[id]"><strong>$v[name]</strong></a>
+				</li>
+				{/loop}
+			</ul>
+		</div>
+		<div class="sort_r">
+			<div class="sort_c">
+				<p> 
+					{loop $list $k $v}
+					{++ $k}. <a href="$v[url]" target="_blank">$v[title]</a><br />
+					{/loop}
+				</p>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="sort_b"></div>
+</div>
+{sub ../footer2}

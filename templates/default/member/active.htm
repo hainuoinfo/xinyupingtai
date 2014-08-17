@@ -21,13 +21,13 @@
     <DIV class="mh_tishi"> 为了保障任务安全，请先通过手机验证，亲。 还可获得 <STRONG class="chengse2">1 </STRONG>麦点哦！</DIV>
     <form name="myForm" method="post" id="myForm" onsubmit="return checkSms();">
 		<div>$sys_hash_code2</div>
-      <TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+      <TABLE border="0" cellSpacing="0" cellPadding="0" style="width:790px;">
         <TBODY>
           <TR>
-            <TD class="dxyz_tb" rowSpan="2" width="15%">&nbsp;</TD>
-            <TD height="45" width="14%">
+            <TD class="dxyz_tb" rowSpan="2">&nbsp;</TD>
+            <TD height="45">
 			<DIV align="right">手机号码：</DIV></TD>
-            <TD width="25%">
+            <TD >
 			<INPUT id="mobilephone" class="xginfo_bk" name="mobilephone" maxLength="13" value="$member[mobilephone]" type="text"></TD>
             <TD>
 			<INPUT id="getvcode" class="dxyz_fs" onclick="SendSmsActivation($msg_vcode_time);" type="button">
@@ -51,7 +51,7 @@
           <TR>
             <TD height="45">&nbsp;</TD>
             <TD>&nbsp;</TD>
-            <TD><input name="btnSubmit" type="submit" class="dxyz_qr" id="btnSubmit2" value="确认并激活" /></TD>
+            <TD><input name="btnSubmit" type="submit" class="dxyz_qr" style="width:100px;" id="btnSubmit2" value="确认并激活" /></TD>
             <TD>&nbsp;</TD>
           </TR>
         </TBODY>

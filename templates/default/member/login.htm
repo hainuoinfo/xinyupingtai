@@ -9,7 +9,8 @@
 <?php $title=\''.$title.'\';$keywords=\''.$keywords.'\';$description=\''.$description.'\';?>
 ';
 }
-{subtemplate ../header3}
+{sub ../header3}
+
 <script language="javascript">
 var setQuestion=function(){
 	var questionid = parseInt($('#questionid').val());
@@ -25,8 +26,8 @@ var setQuestion=function(){
 		<img src="/images/gg2.jpg" usemap="#Map" height="290" width="498"><map name="Map" id="Map">
 		<area shape="rect" coords="262,214,403,276" href="{rewrite}/member/reg/"></map></div>
 		<div class="login_info">
-		    {if $indexMessage}<div class="login_tip" style="color:#FF0000">$indexMessage</div>{/if}
-		    <form method="post" name="myForm" id="myForm" onsubmit="return checkForm();">
+		    {if $indexMessage}<div class="login_tip" style="color:#FF0000">$indexMessage</div>{/if}<!--action="{rewrite}/member/index/"-->
+		    <form method="post"  name="myForm" id="myForm" onsubmit="return checkForm();">
             <div> $sys_hash_code2 </div>
 			<span class="text1" id="loginaccount">账户：</span>
                 <span class="text2" id="loginpwd">密码：</span>
@@ -59,8 +60,9 @@ function checkForm() {
 		["isEmpty", "username", "用户名"],
 		["isEmpty", "password", "登录密码"]];
 	var result = doCheck(checks);
-	if (result)avoidReSubmit();
 	return result;
 }
 </script>  
+<script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 {subtemplate ../footer}

@@ -1,0 +1,56 @@
+{sub h}
+	{if $method == 'index'}
+		{adminList
+			删？        |id                |del
+			用户名      |username
+			创建时间    |regTimestamp      |flag,date
+			最后登陆时间|lastLoginTimestamp|code,{if $v[loginTimes] > 0}{date $v[lastLoginTimestamp]}{else}从未登陆过{/if}
+			登陆次数    |loginTimes
+			            |id                |link,edit=编辑/查看
+		}
+	{elseif $method == 'add' || $method == 'edit'}
+		<form method="post" enctype="application/x-www-form-urlencoded">
+		$sys_hash_code
+			<table class="tab_view" style="width:760px">
+				<tr class="tip">
+					<td colspan="3">{if $method == 'add'}添加管理员{elseif $method == 'edit'}编辑管理员{/if}</td>
+				</tr>
+				<tr>
+					<th style="width:100px">帐号</th>
+					<td style="width:400px"><input type="text" name="username" id="username" value="$username" maxlength="16" class="txt" style="width:240px" preg="null=请输入管理员帐号" /></td>
+					<td style="width:260px" id="username_tip"></td>
+				</tr>
+				<tr>
+					<th style="width:100px">密码</th>
+					<td style="width:300px"><input type="password" name="password" id="password" value="" maxlength="32" class="txt" style="width:240px"{if $method == 'add'} preg="null=请输入管理员密码"{elseif $method == 'edit'} preg="null=请输入管理员密码，为空则不修改" emptyRunReg="false"{/if} /></td>
+					<td style="width:200px" id="password_tip"></td>
+				</tr>
+				<tr>
+					<th style="width:100px">权限</th>
+					<td colspan="2">
+						<table class="tab_view">
+							{loop $menus $k $v}
+							<tr class="tip">
+								<td colspan="2">$v[name]</td>
+							</tr>
+							{loop $v[sub] $k2 $v2}
+							<tr>
+								<th>{echo is_array($v2)?$v2[name]:$v2}</th>
+								<td>
+									<label><input type="checkbox" name="keys[{$k}_$k2][]" id="{$k}_$k2" value="1"{if $keys[$k.'_'.$k2][0]==1} checked{/if} class="checkbox" />读</label>
+									<label><input type="checkbox" name="keys[{$k}_$k2][]" id="{$k}_$k2" value="2"{if $keys[$k.'_'.$k2][1]==2} checked{/if} class="checkbox" />写</label>
+								</td>
+							</tr>
+							{/loop}
+							{/loop}
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<th style="width:100px"></th>
+					<td colspan="2"><input type="submit" value="提交" class="btn" /><input type="button" value="返回" onclick="history.back(-1)" class="btn" /></td>
+				</tr>
+			</table>
+		</form>
+	{/if}
+{sub f}

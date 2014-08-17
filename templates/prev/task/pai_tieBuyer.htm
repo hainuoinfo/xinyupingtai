@@ -1,0 +1,309 @@
+{teval
+	$cssList = array(css::getUrl('task', 'task'));
+	$jsList  = array(javascript::getUrl('task', 'index'));
+	echo string::getStaticCode(array('cssList'=>$cssList, 'jsList' => $jsList));
+}
+{sub ../headerBase}
+<script type="text/javascript">
+var webqq = 239087160;
+var webnoticeurl = "";
+var webnoticetit = "";
+</script>
+<link rel="stylesheet" type="text/css" href="/images/task.css">
+
+<style type="text/css">
+.kd a:hover { text-decoration:underline;}
+.link_t { display:block; width:52px; height:22px;color:#a68d8b; background:url(/images/buyers_btn.png) no-repeat; margin-bottom:2px;}
+</style>
+<style type="text/css">
+.bq_menu{
+	height:32px;
+	background:url(/images/fy_ico.jpg) 0 -1342px repeat;
+	}
+.bq_menu a{
+	float:left;
+	margin-right:3px;
+	background:url(/images/fy_ico.jpg)  -4px -806px no-repeat;
+	display:block;
+	font-size:14px;
+	text-align:center;
+	width:96px;
+	height:32px;
+	line-height:30px;
+	}
+.bq_menu a:hover,.bq_menu a.nov{
+	background:url(/images/fy_ico.jpg)  -4px -758px no-repeat;
+	font-weight:bold;
+	}
+.mh_bdbtn2 {margin-left:218px;}
+.tx_jl{
+	background:url(/images/tx_btn.gif) 0 -187px no-repeat;
+	height:30px;
+	line-height:30px;
+	font-size:14px;
+	font-weight:bold;
+	text-indent:25px;
+	}
+.txjl_bg1{background:url(/images/tx_btn.gif) 0 -225px no-repeat;}
+.txjl_bg2{
+	background:url(/images/tx_btn.gif) 0 -264px repeat-x;
+	color:#1996e6;
+	font-size:14px;
+	font-weight:bold;
+	}
+.txjl_bg3{background:url(/images/tx_btn.gif) right -303px no-repeat}
+</style>
+<div id="content">
+	<div class="taobaopage_detail">
+<style type="text/css">
+.gold .yred { color:#D61810;}
+</style>
+
+{sub tao_info}
+		{sub ../quick}
+		<div class="rwdt_bk2">
+			<a href="{rewrite}/member/safesz/" class="szsz_btn" target="_blank"></a>
+			<p class="ts">接实物任务后立即收货好评将 <span class="chengse">- 20 </span>麦点</p>
+			<p class="ts">任务过程中旺旺聊到刷信誉平台相关字眼 <span class="chengse">- 5 </span>麦点</p>
+			<p class="ts">为了您资金安全，接手方淘宝支付后务必在<span class="lanse">15</span>分钟内回到平台操作任务点击“已付款” </p>
+		</div>
+		<div class="rwdt_gg"><a href="{rewrite}/member/userjob/" target="_blank"><img src="/images/jrw.gif"></a></div>
+		<div class="rwdt_gg2"><a href="{rewrite}/bbs/t1538/" target="_blank"><img src="/images/frw.gif"></a></div>
+
+<script type="text/javascript">
+					$(function() {
+						bechange('.sub_bt a','#buyboxcont>.task_header');
+						$("table > tr:odd").addClass("tcolor");
+					});
+					</script>
+<script type="text/javascript">
+function checkForm1() {
+   var checks = [
+		["isNumber", "money", "充值金额"]];
+	var result = doCheck(checks);
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+function checkForm2(){
+  var checks = [
+		["isEmpty", "cardPwd", "订单号"]];
+	var result = doCheck(checks);
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+function checkForm3() {
+   var checks = [
+		["isNumber", "cardnums", "购买麦点数量"] ];
+	var result = doCheck(checks);
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+
+</script>
+		{sub tab}
+	<div class="cle"></div>
+		<div class="lst_info" style="background:none;">
+		  {if $_showmessage}<div class='error_panel'><div>$_showmessage</div></div>{/if}
+	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+	<div class="mh_tishi">
+				1、该页面主要用来绑定和维护用来接任务，购买任务商品的淘宝买号；  <a href="/bbs/t24/" class="chengse">什么是买号？</a><br>
+	</div>
+				<div class="bq_menu">
+				<a href="{rewrite}/task/tao/?m=tieBuyer" {if $action=='task' && $operation=='tao'} class="nov" {/if}>绑定淘宝买号</a>
+				<a href="{rewrite}/task/pai/?m=tieBuyer" {if $action=='task' && $operation=='pai'} class="nov" {/if}>绑定拍拍买号</a>
+			</div>
+            <form name="myForm" method="post" id="myForm" onsubmit="return checkForm();">
+            <div>$sys_hash_code2</div>
+            <table style="margin-top:20px;font-size:14px;" align="center" border="0" cellpadding="0" cellspacing="0" width="95%">
+              <tbody>
+                <tr>
+               <td align="left" height="28" valign="middle" width="20%"><span class="mh_paipai"></span></td>
+              </tr>
+			 
+	          
+              <tr>
+                <td align="left" height="40" valign="middle" width="20%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tr>
+                    <td width="22%">拍拍买家帐号（QQ号）：</td>
+                    <td width="18%"><input name="nickname" class="mh_bk" id="nickname" type="text" /></td>
+                    <td width="60%">用于接手拍拍任务。　<a href="{rewrite}/bbs/t24/" target="_blank" class="lanse"> 什么是买号？</a></td>
+                  </tr>
+                  <tbody>
+                </tbody></table></td>
+              </tr>
+              <tr>
+                <td align="left" height="60" valign="middle"><input class="mh_bdbtn3" name="btnSave" type="submit"></td>
+              </tr>
+			  
+              <tr>
+                <td class="mh_xian" align="left" height="40" valign="middle" width="20%">您目前是新手会员用户，可以绑定5个买号！ <a href="{rewrite}/member/vip/" class="chengse2">申请VIP</a>最高可绑定100个买号！ <a href="{rewrite}/vip.html" target="_blank" class="lanse">查看VIP限权</a></td>
+              </tr>
+            </tbody></table></form>
+		  <form name="pxform" method="post" id="pxform">
+			<input name="px" value="1" type="hidden">
+			<div>$sys_hash_code2</div>
+			<table align="center" border="0" cellpadding="0" cellspacing="0" width="95%">
+			  <tbody>
+			    <tr>
+			      <td height="25">&nbsp;</td>
+		        </tr>
+			    <tr>
+			      <td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			        <tbody>
+			          <tr>
+			            <td class="txjl_bg1" height="37" width="5"></td>
+			            <td class="txjl_bg2" style="color:#333;" align="center" height="37" valign="middle" width="114">拍拍账号</td>
+			            <td class="txjl_bg2" style="color:#333;" align="center" height="37" valign="middle" width="190">初始信誉-现信誉</td>
+			            <td class="txjl_bg2" style="color:#333;" align="center" height="37" valign="middle" width="231">当日/本月/已完成任务数</td>
+			            <td class="txjl_bg2" style="color:#333;" align="center" height="37" valign="middle" width="95">买号状态</td>
+			            <td class="txjl_bg2" style="color:#333;" align="center" height="37" valign="middle" width="95">买号排序</td>
+			            <td class="txjl_bg2" style="color:#333;" align="center" height="37" valign="middle" width="95">是否启用</td>
+			            <td class="txjl_bg2" style="color:#333;" align="center" height="37" valign="middle" width="124">操作</td>
+			            <td class="txjl_bg3" height="37" width="3"></td>
+		              </tr>
+                      
+                   {loop $bList $v} 
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td class="mh_xxian" align="center" height="35" valign="middle"><a href="http://www.yaodamai.com/?username=$v[nickname]" class="comlink" target="_blank" title="点击买号直接到查询买号信息页面"><span class="p_l_20">$v[nickname]</span></a> </td>
+                    <td class="mh_xxian" align="center" valign="middle">$v[score0] $v[score0_ico]/$v[score] $v[score_ico] </td>
+                    <td class="mh_xxian" align="center" valign="middle">$v[todayTask]/$v[tswkTask]/$v[task]</td>
+                    <td class="mh_xxian" align="center" valign="middle">
+		 {if $v[status]==5}
+		  <span class='lvse2'>已暂停[{echo time::days($timestamp - $v[pauseTimestamp])}天]</span>
+		  {else}
+		  $lang[bStatus][$v[status]]
+		  {/if}
+		  {if $v[status] <= 1}
+          <a href="javascript:;" onclick="return IsStopAcc(this,$v[id]);" class="lvse2">暂停</a>
+		  {elseif $v[status]==5}
+		  <a href="###" onclick="return IsResumeAcc(this,$v[id]);" class="lvse2">恢复</a>
+		  {/if}
+		</td>
+                    <td class="mh_xxian" align="center" valign="middle"><input size="3" name="pxvar[]" value="0" class="mh_bk2" type="text">
+		<input value="$v[id]" name="idarr[]" <="" td="" type="hidden">
+                    </td><td class="mh_xxian" align="center">
+		<input checked="checked" onclick="return IsStopAcc(this,$v[id]);" type="checkbox">
+		</td>
+					<td class="mh_xxian" align="center">
+                    {if $v[status]==0}
+                    <a href="javascript:;" onclick="return IsDelAcc(this,$v[id]);" class="mh_cz"></a>
+                    {/if}
+                    </td>
+					<td>&nbsp;</td>
+                  </tr>
+                  {/loop}
+		            </tbody>
+			        </table></td>
+		        </tr>
+			    <tr>
+			      <td align="left" valign="middle"><input class="mh_xg" type="submit" /></td>
+		        </tr>
+		      </tbody>
+		    </table>
+		  </form>
+            <div class="rwdt_dlm">
+			  <div id="page">
+				
+				
+				<a href="{rewrite}/task/pai/?m=tieBuyer&amp;status=0&amp;page=$multipage" class="nov">1</a>
+				
+				<p class="pr">总：共1页 当前第<span class="hong">1 </span>页</p>
+				
+			  </div>
+			</div>
+			<div class="cle"></div>
+			<!--结束-->
+			</div>	
+	</div><!--taopage_detail end-->
+</div>
+<div class="cle"></div>
+<link type="text/css" rel="stylesheet" href="/images/jcalendar.css">
+<script type="text/javascript" src="/images/artDialog.js"></script>
+<script type="text/javascript" src="/images/Common.js"></script>
+
+<script type="text/javascript">
+function IsDelAcc(obj, id) {
+  if (confirm("您确定要删除此买号么？\n\n删除后将无法重新绑定此买号")) {
+    location.href='/task/pai/?m=tieBuyer&del=' + id;
+    return true;
+  } else {
+    return false;
+  }
+}
+function IsCollect(obj, id) {
+  if (confirm('您确定要将此买号置为收藏买号么？\n\n收藏买号仅仅用于收藏，不能用于刷信誉的任务')) {
+    location.href='/task/pai/?m=tieBuyer&setCollect='+id;
+    return true;
+  } else {
+    return false;
+  }
+}
+function IsStopAcc(obj, id) {
+	if (confirm('您确定要将此买号置为暂停买号么？\n\n暂停后的买号不能用于绑定到接手的任务')) {
+    location.href='/task/pai/?m=tieBuyer&pause='+id;
+    return true;
+  } else {
+    return false;
+  }
+}
+function IsResumeAcc(obj, id) {
+	if (confirm('您确定要恢复此买号么？')) {
+    location.href='/task/pai/?m=tieBuyer&resume='+id;
+    return true;
+  } else {
+    return false;
+  }
+}
+function sltAll(obj) {
+    var boxs = document.getElementsByName("accId");
+    for (var i = 0; i < boxs.length; i++) {
+        boxs[i].checked = obj.checked;
+    }
+}
+function resumeMore(obj) {
+    var s = "";
+    var boxs = document.getElementsByName("bIds");
+    for(var i=0; i<boxs.length; i++) {
+        if (boxs[i].checked)
+            s += boxs[i].value + ",";
+    }
+    if (s == ""){
+        alert("请选择买号");
+        return false;
+    }
+    if (confirm('您确定要恢复买号么？')) {
+        obj.href='/task/pai/?m=tieBuyer&resumeMore='+s;
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function checkForm() {
+  var nickname=$('#nickname').val();
+  if (nickname.length>1)
+		{
+		return true;
+		}
+		else {
+	    alert('拍拍买家帐号不能为空');
+		$('#nickname').focus();
+		return false;
+	}
+}
+</script>
+
+<script type="text/javascript">
+var webnoticeurl = "";
+var webnoticetit = "";
+var quick_qq = '<a target="_blank" href="http://wp.qq.com/wpa/qunwpa?idkey=0fa4d251b350d03b020586387709ac11b8f101a2b60eaf80b4d6a93cb9fbe8fc"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="花兔兔网商平台30群" title="花兔兔网商平台30群"></a>';
+$('.web_qq').hover(function(){
+    $('.quick_qq').show();
+});
+</script>
+
+ {sub ../footer}

@@ -1,0 +1,128 @@
+{sub header_base}
+	<div id='kf' style='display:none; position:absolute;'>
+		<table class='tbl_kf' border='0' cellspacing='1' cellpadding='3'>
+			<tr>{teval echo string::getStaticCode(array('kefu' => kefu::getKefu(9)));}
+				<td colspan='4' class='kf_time'>客服在线时间：09:30-17:30  19:30-22:30　<a href='tencent://message/?uin=$kefu[qq]' onclick='return qqTip();'><img width='25' height='17' border='0' src='http://wpa.qq.com/pa?p=1:$kefu[qq]:17' alt='' /></a> $kefu[nickname]</td>
+			</tr>
+			<tr class='kf_bar'>
+				<td>{teval echo kefu::getCateName(1);}</td>
+				<td>{teval echo kefu::getCateName(2);}</td>
+				<td>{teval echo kefu::getCateName(3);}</td>
+				<td><span class='f_orange'>{teval echo kefu::getCateName(4);}</span></td>
+			</tr>
+			<tr class='kf_txt'>
+				<td>
+				{teval
+					if($list = kefu::getKefuList(1)){
+						foreach($list as $v){
+							echo '<p><a href=\'tencent://message/?uin='.$v[qq].'\' onclick=\'return qqTip();\'><img width=\'25\' height=\'17\' border=\'0\' src=\'http://wpa.qq.com/pa?p=1:'.$v[qq].':17\' alt=\'\' /></a><strong>'.$v[nickname].'</strong><br />
+						QQ：'.$v[qq].'<br />
+						积分：'.$v[credits].'　<a href=\''.common::getUrl('/member/kefu.php?id=').''.$v[id].'\' class=\'link_b_1\'>给她打分</a></p>';
+						}
+					}
+				}
+				</td>
+				<td>
+				{teval
+					if($list = kefu::getKefuList(2)){
+						foreach($list as $v){
+							echo '<p><a href=\'tencent://message/?uin='.$v[qq].'\' onclick=\'return qqTip();\'><img width=\'25\' height=\'17\' border=\'0\' src=\'http://wpa.qq.com/pa?p=1:'.$v[qq].':17\' alt=\'\' /></a><strong>'.$v[nickname].'</strong><br />
+						QQ：'.$v[qq].'<br />
+						积分：'.$v[credits].'　<a href=\''.common::getUrl('/member/kefu.php?id=').''.$v[id].'\' class=\'link_b_1\'>给她打分</a></p>';
+						}
+					}
+				}
+				</td>
+				<td>
+				{teval
+					if($list = kefu::getKefuList(3)){
+						foreach($list as $v){
+							echo '<p><a href=\'tencent://message/?uin='.$v[qq].'\' onclick=\'return qqTip();\'><img width=\'25\' height=\'17\' border=\'0\' src=\'http://wpa.qq.com/pa?p=1:'.$v[qq].':17\' alt=\'\' /></a><strong>'.$v[nickname].'</strong><br />
+						QQ：'.$v[qq].'<br />
+						积分：'.$v[credits].'　<a href=\''.common::getUrl('/member/kefu.php?id=').''.$v[id].'\' class=\'link_b_1\'>给她打分</a></p>';
+						}
+					}
+				}
+				</td>
+				<td>
+				{teval
+					if($list = kefu::getKefuList(4)){
+						foreach($list as $v){
+							echo '<p><a href=\'tencent://message/?uin='.$v[qq].'\' onclick=\'return qqTip();\'><img width=\'25\' height=\'17\' border=\'0\' src=\'http://wpa.qq.com/pa?p=1:'.$v[qq].':17\' alt=\'\' /></a><strong>'.$v[nickname].'</strong><br />
+						QQ：'.$v[qq].'<br />
+						积分：'.$v[credits].'　<a href=\''.common::getUrl('/member/kefu.php?id=').''.$v[id].'\' class=\'link_b_1\'>给她打分</a></p>';
+						}
+					}
+				}
+				</td>
+			</tr>
+			<tr class='kf_txt f_b f_orange'>
+				<td colspan='4'>QQ临时通话容易失败，请先加客服好友。　　力豪互刷网官方客服电话：13757148900<br />
+					欢迎来电或加QQ咨询刷信誉的安全方法和注意事项，我们的客服将为您提供安全刷信誉的经验、教材和指导</td>
+			</tr>
+		</table>
+	</div>
+	<script type='text/javascript'>
+	$(function(){
+		$('#kf').hover(function(){
+			$(this).show();
+		}, function(){
+			$(this).hide();
+		});
+		$('#showKf').hover(function(){
+			var myOffset = $(this).offset();
+			$('#kf').show().css({left: (myOffset.left - 449) + 'px','top': (myOffset.top + 62) + 'px'});
+		}, function(){
+			$('#kf').hide();
+		});
+	});
+            function showKF(obj) {
+                var _div = document.getElementById('kf');
+	            var p = fGetXY(obj);
+	            _div.style.top = (p.y + 62)  + 'px';
+	            _div.style.left = (p.x - 449) + 'px';
+	            _div.style.display = 'inline';
+            }
+            function Point(iX, iY){
+	            this.x = iX;
+	            this.y = iY;
+            }
+            function fGetXY(aTag){
+              var oTmp = aTag;
+              var pt = new Point(0,0);
+              do {
+  	            pt.x += oTmp.offsetLeft;
+  	            pt.y += oTmp.offsetTop;
+  	            oTmp = oTmp.offsetParent;
+              } while(oTmp.tagName!='BODY');
+              return pt;
+            }
+            function qqTip() {
+		        alert('QQ临时通话容易失败，请先加客服好友。');
+		        return true;
+		    }
+            </script>
+	<div class="help_s">
+		<div class="help_l">
+			<table class="clear" width="100%" border="0" cellspacing="5" cellpadding="0">
+				<tr>
+					<td><form action="{rewrite}/bbs/">
+						<input type="hidden" name="operation" value="search" />
+						<input type="hidden" name="fid" value="0" />
+							<input name="keyword" type="text" class="help_text" id="keyword" value="输入你想搜索的帮助主题关键词，如： 发布任务" onfocus="if(this.value.indexOf('输入你想搜索的帮助主题关键词')==0) this.value='';this.style.color='#000';" />
+							<input type="image" src="{$weburl2}images/help/btn_search.gif" />
+						</form></td>
+				</tr>
+				{eval
+						$hotKeyList = db::get_list('bbs_keys', '*', '', 'searchs desc', 1, 5);
+					}
+				<tr>
+					<td class="help_sk"><strong>热门搜索：</strong>{loop $hotKeyList $v}
+						<a href="{rewrite}/bbs/?operation=search&fid=$v[fid]&keyword={url $v[key]}" class="link_b_1">$v[key]</a>
+						{/loop} </td>
+				</tr>
+			</table>
+		</div>
+		<div class="help_r"><img src="{$weburl2}images/help/kf.gif" alt="客服" id="showKf" /></div>
+	</div>
+	<div class="clear"></div>

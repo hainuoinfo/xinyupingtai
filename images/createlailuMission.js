@@ -221,7 +221,7 @@ $(document).ready(function(){
 		if(isVip===false){
 		    $("#isLimitCity").removeAttr("checked");
 			$("#isMultiple").removeAttr("checked");
-			artDialog({content:"目前限制接手人IP功能仅针对大麦户VIP开放！",id:"alarm",yesText:"加入VIP",noText:"返回修改"},
+			artDialog({content:"目前限制接手人IP功能仅针对花兔兔VIP开放！",id:"alarm",yesText:"加入VIP",noText:"返回修改"},
         function(){window.open("/BuyPoint/");},
         function(){},function(){Init();});
 			}

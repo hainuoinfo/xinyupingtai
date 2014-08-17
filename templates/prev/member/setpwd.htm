@@ -1,0 +1,144 @@
+{teval
+	$title       = '维护密码/操作码 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('info', 'member'),css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{ad2 ad_memberHeadTop}
+{sub ../header}
+	<div class="main">
+	<div class="h_10"></div>
+	<div class="a"> {sub menu} </div>
+	<div class="b">
+		{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+		{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+			<div class="bar_edit">维护密码/操作码</div>
+			<form name="myForm" method="post" id="myForm" onsubmit="return checkForm();">
+			<div>$sys_hash_code2</div>
+			<div class="edit">
+					<table class="tbl_edit" width="100%" border="0" cellspacing="0" cellpadding="4">
+					<tr>
+							<td width="110" align="right">当前操作码：</td>
+							<td width="200"><input name="pwd2" type="password" class="text_normal" id="pwd2" /></td>
+							<td>修改密码需要提供当前操作码{if $errMsg} <span class='f_red'>$errMsg</span>{/if}</td>
+						</tr>
+					<tr>
+							<td align="right">&nbsp;</td>
+							<td>&nbsp;</td>
+							<td><a href="/bbs/t63/" target="_blank" class="link_o">什么是操作码？</a> 　<a href="javascript:;" onclick="$(this).resetPwd2();"  class="link_o">忘记我的操作码</a> 　<a href="/bbs/t63/" class="link_o">安全密码建议？</a></td>
+						</tr>
+					<tr>
+							<td align="right">登录密码：</td>
+							<td><input name="password" type="password" class="text_normal" id="password" /></td>
+							<td>留空则不修改</td>
+						</tr>
+					<tr>
+							<td align="right">登录密码确认：</td>
+							<td><input name="password_" type="password" class="text_normal" id="password_" /></td>
+							<td><span class="f_red">请不要设置太过于简单的密码</span></td>
+						</tr>
+					<tr>
+							<td align="right">&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+					<tr>
+							<td align="right">操作码：</td>
+							<td><input name="password2" type="password" class="text_normal" id="password2" /></td>
+							<td>留空则不修改</td>
+						</tr>
+					<tr>
+							<td align="right">操作码确认：</td>
+							<td><input name="password2_" type="password" class="text_normal" id="password2_" /></td>
+							<td>操作码不允许和登录密码相同，<span class="f_red">请不要设置太过于简单的密码</span></td>
+						</tr>
+					<tr>
+							<td align="right">&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+					<tr>
+							<td align="right">安全问题：</td>
+							<td><select name='questionid' id='questionId' class='slt_normal'>
+									<option value='0'{if !$member[questionid]} selected='selected'{/if}>无安全问题</option>
+									{loop $questions $k $v}
+									<option value="$k"{if $member[questionid]==$k} selected="selected"{/if}>$v</option>
+									{/loop}
+								</select></td>
+							<td>如果您启用安全提问，登录时需填入相应的项目才能登录</td>
+						</tr>
+					<tr>
+							<td align="right">回答：</td>
+							<td><input name="answer" type="text" class="text_normal" id="answer" value="$member[answer]" maxlength="20" /></td>
+							<td>留空则不修改，2-20个字，<span class="f_red">回答问题请认真，以免被账户被盗</span></td>
+						</tr>
+				</table>
+				</div>
+			<div class="edit_btn">
+					<input name="btnSave" type="submit" class="btn_2" id="btnSave" value="确认修改" />
+				</div>
+		</form>
+		</div>
+</div>
+	<script type="text/javascript">
+function checkForm() {
+	if (!isEmpty("pwd2", "操作码"))return false;
+	if ($("#password").val() == "" && $("#password2").val() == "" && $("#answer").val() == "") {
+	    doAlert("要修改的登录密码、操作密码、安全问题回答不能同时为空", $("#password"));
+	    return false;
+	}
+	
+	if ($("#password").val() != "" && !isLength("password", "登录密码", 6, 20)) {
+	    return false;
+	}
+	
+	if ($("#password").val() != "" && $("#password").val() != $("#password_").val()) {
+	    doAlert("登录密码确认不正确", $('#password_'));
+	    return false;
+	}
+	
+	if (getValue("password2") != "" && !isLength("password2", "操作码", 6, 20)) {
+	    return false;
+	}
+	
+	if (getValue("password2") != "" && getValue("password2") != getValue("password2_")) {
+	    alert("操作码确认不正确");
+	    return false;
+	}
+	
+	if (getValue("password") != "" && getValue("password") == getValue("password2")) {
+	    alert("操作码不允许和登录密码相同");
+	    return false;
+	}
+	avoidReSubmit();
+	return true;
+}
+
+function getPswTwo(obj) {
+    if (!confirm("点击【确定】将会重置您的操作码\n\n您确定要重置您的操作码么？"))
+        return false;
+    obj.disabled = true;
+	var xml =  makeXmlReq();
+	var url = "../ajax/GetPswTwo.aspx?ttime=" + Math.random();
+	xml.onreadystatechange = function() {
+		if (xml.readyState == 4) {
+			if (xml.status == 200 || xml.status == 304) {
+				var txt = xml.responseText;
+				alert(txt);
+			} else {
+				alert("对不起，检查到网络故障，请稍后再试");
+			}
+		    obj.disabled = false;
+		}
+	}
+	xml.open( "get", url, true );
+	xml.setRequestHeader("If-Modified-Since", "0");
+	xml.send("");
+	return false;
+}
+</script>
+{sub ../footer}

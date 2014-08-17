@@ -1,0 +1,369 @@
+{teval
+	$title       = '{webName}';
+	$keywords    = '{webName2}';
+	$description = '{webName}';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('index', 'index'));
+	$jsList      = array(javascript::getUrl('silde', 'index'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList, 'jsList'=>$jsList));
+}
+{sub headerBase}
+<!--banner 登录框开始-->
+<script type="text/javascript" src="/images/tinyslider.js"></script>
+<div id="m_banner">
+    <div class="kd">
+        <div class="banner" id="banner">
+            <div class="slider" id="slider" style="width: 655px; height: 310px; overflow: hidden;">
+            <ul style="left: 0px; width: 3930px;" class="s_u">
+               <li><a class="button-1" href="{rewrite}/member/reg/"></a>
+               </li>
+               <li>
+                    <img src="/images/new-banner-1.gif" height="310" width="655" /><img src="/images/new-banner-2.gif" height="310" width="655">
+                    <a class="button-2" href="{rewrite}/member/reg/"></a>
+                </li>
+               <li>
+                    <img src="/images/new-banner-3.gif" height="310" width="655">
+                    <a class="button-3" href="{rewrite}/member/reg/"></a>
+               </li>
+            </ul>
+            </div>
+            <ul class="slider_nav" id="slider_nav">
+                <a class="" href="javascript:void(0)" onclick="slideshow.pos(0)">1</a>
+                <a class="activeSlide" href="javascript:void(0)" onclick="slideshow.pos(1)">2</a>
+                <a class="" href="javascript:void(0)" onclick="slideshow.pos(2)">3</a>
+            </ul>
+            
+        </div>
+        
+        <div class="login">
+		{if $memberLogined}
+	
+			<ul id="goone">
+			<li style="">
+			<span style="width: 100%; float: left; text-align: center; font-size: 14px;">一个真实的淘宝信誉平台期待您的加入</span></li>
+			<li style="margin: 10px 0 5px 5px;font-size:16px;display:inline;">用户名：<a href="/member/info/?username=$member[username]"> <font style="font-size: 14px;color:#fe5500">$member[username]</font></a></li>
+			<li style="margin: 5px 0 5px 5px;font-size:16px;display:inline;">存款：
+			<a href="{rewrite}/member/PayDetails/?type=1" style="font-size: 14px;color:#fe5500">$memberFields[money]</a></li>
+			<li style="margin: 5px 0 5px 5px;font-size:16px;display:inline;">麦点：
+			<a href="{rewrite}/member/PayDetails/?type=2" style="font-size: 14px;color:#fe5500">$memberFields[fabudian]</a></li>
+			<li style="margin: 5px 0 5px 5px;font-size:16px;display:inline;">积分：
+			<a href="{rewrite}/member/PayDetails/?type=3" style="font-size: 14px;color:#fe5500">$memberFields[credits]</a></li>
+			<li style="margin: 5px 0 5px 5px;font-size:16px;display:inline;">登陆次数：
+			<a href="/member/PayDetails/?type=7" style="font-size: 14px;color:#fe5500">$member[log_count]</a></li>
+			<li style="text-align: center;margin-top: 10px ;font-size:16px;">
+			<a href="{rewrite}/task/tao/"><img src="images/goone.png" height="49/" width="275"></a></li>
+			<div class="touimg"><a href="{rewrite}/member"><img src="$memberFields[avatar]" height="100" width="100"></a></div>
+			</ul>
+		{else}
+		
+            <form method="post" name="myForm" id="myForm" onsubmit="return checkForm();">
+              <div> $sys_hash_code2 </div>
+               <ul>
+                    <li><a href="{rewrite}/member/reg/" class="reg">&nbsp;</a></li>
+                    <li class="t1">用户名：</li>
+                    <li><input name="username" id="lusername" class="u_bk" maxlength="16" type="text" value="{echo isset($username) ? $username : (isset($cookie[loginUsername]) ? $cookie[loginUsername] : '')}">
+                 </li>
+                    <!--li class="t2" id="username_msg">平台用户名</li-->
+                    <li class="t1">密&nbsp;&nbsp; 码：</li>
+                    <li><input name="password" id="lpassword" class="u_bk" maxlength="16" type="password"></li>
+                    <!--li class="t2" id="password_msg">输入6位以上密码</li-->
+                    <li>
+                        <TABLE border="0" cellSpacing="0" cellPadding="0" width="625" onblur="this.height='50px';this.css.overflow='hidden'">
+                            <TBODY>
+                            <TR>
+                                <TD height="30" vAlign="middle" width="89" align="right">选择问题：</TD>
+                                <TD style="color: rgb(135, 135, 135);">
+                                    <select name='questionId' id='questionId' class='slt_normal'>
+                                        <option value='0'{if !$member[questionid]} selected='selected'{/if}>无安全问题</option>
+                                        {loop $questions $k $v}
+                                        <option value="$k"{if $member[questionid]==$k} selected="selected"{/if}>$v</option>
+                                        {/loop}
+                                    </select></TR>
+                            <TR>
+                                <TD height="30" vAlign="middle" align="right">问题的答案：</TD>
+                                <TD style="color: rgb(135, 135, 135);">
+                                    <input name="answer" type="text" class="text_normal" id="answer" value="$member[answer]" maxlength="20" /></TD></TR>
+                            </TBODY></TABLE>
+                    </li>
+					<li><center>{if $indexMessage}<div style="color:#FF0000">$indexMessage</div>{/if}</center></li>
+
+                    <li>
+                   <input class="l_btn" id="login_sub" type="submit" name="btnSubmit">
+                      <p class="jz">
+					  <input type="checkbox" name="cookietime" id="cookietime" value="{teval echo 365 * 86400;}" /> 记住我 
+					  <a href="{rewrite}/member/forgotpwd/" target="_blank" class="chengse">忘记密码?</a>
+					  </p>
+                    </li>
+                </ul>
+            </form>
+			{/if}
+        </div>
+    </div>
+</div>
+
+<div id="content">
+		<!--发布方，接收方开始-->
+		<div id="c_bk">
+			<p class="f_tit">发布方任务存款转化成网店收款</p>
+			<ul class="fbf">
+				<li><a href="{rewrite}/member/BuyPoint/"></a></li>
+				<li><a href="{rewrite}/help/taskout/"></a></li>
+				<li><a href="{rewrite}/help/taskout/"></a></li>
+				<li style="margin-top:50px;"><a href="{rewrite}/help/taskout/"></a></li>
+			</ul>
+			<div class="c_kt"></div>
+			<p class="j_tit">接手方网店付款转化为平台收款</p>
+			<ul class="jsf">
+				<li><a href="{rewrite}/help/taskin/"></a></li>
+				<li><a href="{rewrite}/help/taskin/"></a></li>
+				<li><a href="{rewrite}/help/taskin/"></a></li>
+				<li style="margin-top:50px;"><a href="{rewrite}/help/taskin/"></a></li>
+			</ul>
+		</div>
+		<!--重点布告开始-->
+		<div id="c_bk2">
+			<a href="#" class="sp_img" target="_blank"><img src="images/sp_img.jpg" height="154" width="227">视频操作指南</a>
+              {eval $forumSimple=bbs_forums::getForumSimple('skill', 'ename');	$list=bbs_thread::getThreadList2("fid='$forumSimple[id]'",'timestamp desc',1,7);}
+			<ul class="c_info">
+				<h4 class="bt"></h4>
+				{loop $list $thread}
+                  <li>
+                    <a href="{rewrite}/bbs/t$thread[id]/" target="_blank" title="$thread[title]"><strong>{cutstr $thread[title],15}</strong></a><span>{date $v[stimestamp]}</span>
+                  </li>
+                {/loop}
+			</ul>
+		</div>
+		<!--正在发生开始-->
+		<div id="c_bk3" class="quctl">
+			<ul class="c_info ajax_i" style="left:15px;overflow:hidden;height:215px;">
+				<h4 class="bt2"></h4>
+                {loop $nowList $v}
+				<li><a href="{rewrite}/member/info.php?username={$v[susername]}" class="lanse" target="_blank">{$v[susername]}</a><span style="float:left">发布任务网店提升 <strong class="chengse">+1</strong></span><span class="date">{echo date('m-d',$v[stimestamp])}</span>
+                </li>
+                {/loop}
+			</ul>
+		</div>
+        <script>
+		var lastTime=1;
+		var allData=[];
+		function _getNowTask(){
+			var data={};
+			if (lastTime==1){
+				data = {frist:1};
+			}else
+				data = {lastTime:lastTime};
+				
+			$.post('/ajax/getNowTask.php',data,function(request){
+				lastTime = request.nowLookTime;
+				_addData(request.data);
+			},'json');
+		}
+		
+		function _addData(newData){
+			var count=0;
+			var str,newStr;
+			if (newData!=null){
+				str=_renderData(allData,false);
+				newStr = _renderData(newData,true);
+				$('.ajax_i li').remove();
+				$('.c_info .bt2').after(str);
+				$('.c_info .bt2').after(newStr);
+				$("[info='new']").fadeIn(2000);
+				if (allData.length==0)
+					allData = newData;
+				else{
+					for(var i=newData.length-1;i>=0;i--)
+						allData.unshift(newData[i]);
+				}
+				allData = allData.slice(0,7);
+			}else{
+				str=_renderData(allData,false);
+				$('.ajax_i li').remove();
+				$('.c_info .bt2').after(str);
+			}
+		}
+		
+		function _renderData(Data,type){
+			var str='',info='';
+			if (type){
+				info='info="new" style="display:none"';
+			}
+			for(var key in Data){
+				str +="<li "+info+" ><a href='/member/info/?username="+encodeURI(Data[key].susername)+"' class='lanse' target='_blank'>"+Data[key].susername+"</a><span style='float:left'>  发布任务获得信誉 <strong class='chengse'>+1</strong></span><span class='date'>"
+				if (lastTime-Data[key].ctimestamp>3000)
+					 str+='';
+				 else if (lastTime-Data[key].ctimestamp<60)
+					 str+=lastTime-Data[key].ctimestamp+3+'秒前';
+				 else
+					 str+=parseInt((lastTime-Data[key].ctimestamp)/60)+'分钟前';
+				 str+= '</span></li>';
+			}
+			return str;
+		}
+		//setInterval(_getNowTask,3000);
+		</script>
+        
+		<!--任务类表开始-->
+		<div id="c_bk2" class="reListTitle" style="height:348px;">
+		  <table align="center" border="0" cellpadding="0" cellspacing="0" width="95%">
+              <tbody><tr>
+                <td class="x_tit" height="48" align="left" valign="middle" width="164">任务编号</td>
+                <td class="x_tit" height="48" align="left" valign="middle" width="75">发布人</td>
+                <td class="x_tit" height="48" align="left" valign="middle" width="93">任务价格</td>
+                <td class="x_tit" height="48" align="left" valign="middle">发布者要求</td>
+                <td height="48" align="left" valign="middle" width="63">操作</td>
+              </tr>
+{sql select * from (select * from {$pre}task where status in ('1','2','3','4','5','6','7','8','9') order by status,svip desc,point desc,stimestamp desc$limit) t1 left join {$pre}memberfields t2 on t2.uid=t1.suid limit 5}
+{eval
+	$v['bLevel']=member_credit::getLevel($v['credits']);
+}			    
+              <tr> 
+                <td class="x_xian" height="54" align="left" valign="middle"><span class="{if $v[vistWay]==1} l {elseif $v[times]>=1}s {else}x {/if}" title="$v[credits]"></span><strong>$v[id]</strong><br>
+                <span class="f11">{date $v[stimestamp]}</span></td>
+                <td class="x_xian" align="left" valign="middle"><a class="lanse" title="接任务后方可查看到对方QQ号码" target="_blank" href="{rewrite}/member/info.php?username=$v[susername]">{echo string::getXin2($v[susername])}</a><br><span class="f11">exp:$v[point]</span></td>
+                <td class="x_xian" align="left" valign="middle"><span class="aq2" title="平台担保：此任务卖家已缴纳全额担保存款，买家可放心购买，任务完成时，买家平台账号自动获得相应存款。">$v[price]</span></td>
+				<td class="x_xian" align="left" valign="middle"><div style="width:117px; height:40px; text-align:center;overflow:hidden; vertical-align:middle;"><span class="yred" title="任务接手付款后，立即对宝贝进行好评并打五星！">$lang[times][$v[times]]</span></div></td>
+                <td class="x_xian" align="left" valign="middle"><span class="chengse">{if $v[status]==1}等待接手{else}已接手，任务进行中{/if}</span></td>
+              </tr>
+{/sql}
+
+           </tbody></table>
+		</div>
+        <!--平台总金额-->
+        <div id="c_bk3" style="height:348px;">
+			<ul class="c_info" style="left:15px;">
+				<h4 class="jine">
+					<!--花兔兔平台安全担保资金流水：<span class="sz">79958615</span>元-->
+					花兔兔平台安全担保资金，请您平台网店同步操作
+				</h4>
+				<div class="qh_btn">
+					<a href="javascript:;" class="nov">充值动态</a>
+					<a href="javascript:;">提现动态</a>
+				</div>
+				<div id="c_bnov" class="c_bnov">
+               
+					<div>
+					{loop $topList $v}
+					<li><span class="user lanse">{echo string::getXin($v[username],4)}</span><span class="come">{if $v[type]==card}充值卡充值{/if}{if $v[type]==alipay}支付宝充值{/if}{if $v[type]==yeepay}网银充值{/if}</span><span class="jg1">{$v[money]}</span><span class="date1">{echo date('m-d', $v[ctimestamp])}</span>
+					</li>
+                  	{/loop}
+					</div>
+					<div style="display:none;">
+					{loop $payList $v}
+					<li><span class="user lanse">{echo string::getXin($v[username],3)}</span><span class="come">{if $v[type]==alipay}支付宝提现{/if}{if $v[type]==taobao}淘宝商品提现{/if}{if $v[type]==tenpay}财付通提现{/if}{if $v[type]==bank}银行卡提现{/if}</span><span class="jg1">$v[money]</span><span class="date1">{echo date('m-d', $v[timestamp1])}</span></li>
+					{/loop}
+					</div>
+				</div>			
+			</ul>
+		</div>
+        <!--我是接收方，我是发布方-->
+		<div id="c_bk" style="height:439px;">
+
+			<div class="wb_left">
+                  {eval $forumSimple=bbs_forums::getForumSimple('skill', 'ename');	$list=bbs_thread::getThreadList2("fid='$forumSimple[id]'",'timestamp desc',1,4);}
+				<ul class="line">
+					<h4 class="bt"><strong><a href="{rewrite}/bbs/t$thread[id]/">我是接手方</a></strong></h4>
+					<p class="wb">接手淘宝信誉任务请注意不要使用阿里旺旺来催促任务，请使用对方留下的QQ联系。</p>
+                    {loop $list $thread}
+					<li><a href="{rewrite}/bbs/t$thread[id]/" target="_blank" title="$thread[title]">{cutstr $thread[title],12}</a><span class="date">{date $v[stimestamp]}</span></li>
+					{/loop}
+				</ul>
+                
+				<ul class="line">
+					<h4 class="bt2"><strong><a href="{rewrite}/bbs/t$thread[id]/">我是发布方</a></strong></h4>
+					<p class="wb">注册成功后需要首先设置掌柜和操作密码后才能正式开始刷信用。1个麦点≈1个信誉</p>
+                     {loop $list $thread}
+					<li><a href="{rewrite}/bbs/t$thread[id]/" target="_blank" title="$thread[title]">{cutstr $thread[title],12}</a><span class="date">{date $v[stimestamp]}</span></li>
+                    {/loop}
+				</ul>
+				<ul class="line">
+					<h4 class="bt3"><strong><a href="{rewrite}/bbs/t$thread[id]/">掌柜经验</a></strong></h4>
+					<p class="wb">我们是网商互动平台，你帮别人提升一次，别人帮你提升一次， 资金有流动，但无损失！</p>
+                     {loop $list $thread}
+					<li><a href="{rewrite}/bbs/t$thread[id]/" target="_blank" title="$thread[title]">{cutstr $thread[title],12}</a><span class="date">{date $v[stimestamp]}</span></li>
+				     {/loop}
+				</ul>
+				<ul class="line">
+					<h4 class="bt4"><strong><a href="{rewrite}/bbs/t$thread[id]/">问题&amp;建议</a></strong></h4>
+					<p class="wb">您客观坦率的意见将激励我们不断改进提高，为您提供更丰富的商品和更优质的服务。</p>
+                      {loop $list $thread}
+					<li><a href="{rewrite}/bbs/t$thread[id]/" target="_blank" title="$thread[title]">{cutstr $thread[title],12}</a><span class="date">{date $v[stimestamp]}</span></li>
+                     {/loop}
+				</ul>
+			</div>
+			<div class="wb_right">
+				<ul class="zgd">
+					<p>掌柜的<span class="jrsj">加入时间</span></p>
+					   {loop $userList $v}
+					   <li><a target="_blank" href="{rewrite}/member/info.php?username={$v[username]}">{$v[username]}</a><span class="date">刚刚加入</span></li>
+                       {/loop}
+				</ul>
+				<div class="tg">
+					<p class="text">推荐一个会员就可以产生丰厚收入!做花兔兔推广,轻松赚大钱！</p>
+					<a class="jp1" href="{rewrite}/member/info.php?username=yiboqq">yiboqq</a>
+					<a class="jp2" href="{rewrite}/member/info.php?username=wulanyang">wulanyang</a>
+					<a class="jp3" href="{rewrite}/member/info.php?username=bitong">bitong</a>
+					<a href="{rewrite}/member/spread/" class="tg_btn" title="加入花兔兔推广" alt="加入花兔兔推广">&nbsp;</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="cle"></div>        
+
+
+
+
+
+
+<div style="display: block;" class="_bottom_bg">
+</div>
+	<div style="display: block;" class="_bottom">
+		<div class="_c">
+			<div class="_c_i">
+				<div style="background: url(/images/zcfb.png) repeat scroll 0% 0% transparent; width: 500px; height: 25px; float: left; margin-top: 15px;"></div>
+			</div>
+			<div class="_c_b">
+			<a id="loginimg" href="{rewrite}/member/login/">
+				<img src="/images/dxh.gif" style="margin: 10px 15px;">
+			</a>
+			<a id="zhuceimg" href="{rewrite}/member/reg/">&nbsp;</a></div>
+			<div class="_c_cl"></div>
+		</div>
+	</div>
+<script>
+$(window).scroll( function(){
+	var h = $(this).scrollTop(),o=$('._bottom_bg,._bottom');
+	if (h>=160 && z_userinfo==null){
+		o.show();
+	}else
+		o.hide();
+});
+$('._c_cl').click(function(){
+	$('._bottom_bg,._bottom').hide();
+})
+</script>
+
+<script>
+	var slideshow=new TINY.slider.slide('slideshow',{
+		id:'slider',
+		auto:4,
+		resume:true,
+		vertical:false,
+		navid:'slider_nav',
+		activeclass:'activeSlide',
+		position:0,
+		rewind:false,
+		elastic:true
+	});
+</script>
+{sub footer}
+
+	<div class="center">
+	  <div style="top: 550px; left: auto; right: 60px; position: fixed;" id="tool_footer">
+		  <a id="tool_top_footer" onclick="javascript:To_top();" title="返回顶部"></a>
+		  <a id="tool_buy_footer" onclick="javascript:location.href='/help/taskout/'" title="购买麦点发布任务，信誉立即提升！"></a>
+		  <a id="tool_release_footer" onclick="javascript:location.href='/help/taskin/'" title="我有时间接任务拍宝贝，赚取麦点换现金！"></a>
+		</div>
+    </div>

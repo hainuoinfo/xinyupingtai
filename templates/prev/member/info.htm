@@ -1,0 +1,132 @@
+<?php
+	if($type=='post')
+		$title ="卖家";
+	else
+		$title ="买家";
+	$title.=$memberInfo['base']['username']."信誉---".$web_name;
+	$keywords    = '{$web_name2}';
+	$description = '{$web_name}';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description));
+?>
+{sub ../header}
+<DIV class="cle"></DIV>
+<DIV id="content">
+	<UL id="u_info">
+		<LI class="tx">
+			<IMG src="$memberInfo[attach][avatar]" width="86" height="86">
+		</LI>
+		<LI class="name">$memberInfo[base][username]</LI>
+		<LI name="">男
+				<SPAN class="jf_ico">$memberInfo[attach][credits]分 积分越高,信誉越高</SPAN>
+		</LI>
+		<LI class="pj">
+			 <SPAN class="hp">{if $type=='get'}$memberInfo[attach]['sgrade1']{else}$memberInfo[attach]['bgrade1']{/if}</SPAN>
+			 <SPAN class="zp">{if $type=='get'}$memberInfo[attach]['sgrade2']{else}$memberInfo[attach]['bgrade2']{/if}</SPAN>
+			 <SPAN class="cp">{if $type=='get'}$memberInfo[attach]['sgrade3']{else}$memberInfo[attach]['bgrade3']{/if}</SPAN>
+		</LI>
+		<LI class="jj">好评率：
+				<STRONG class="chengse">
+<?php
+	//在class/task/grade.php中是这样规定的  isbuyer sgrade +1  else bgrade +1
+	if($type=='get'){
+		$num=$memberInfo[attach]['sgrade1']+$memberInfo[attach]['sgrade2']+$memberInfo[attach]['sgrade3'];
+		if($num!=0)
+			$hpl=$memberInfo[attach]['sgrade1']/$num;
+		else 
+			$hpl=1;
+	}else{
+		$num=$memberInfo[attach]['bgrade1']+$memberInfo[attach]['bgrade2']+$memberInfo[attach]['bgrade3'];
+		
+		if($num!=0)
+			$hpl=$memberInfo[attach]['bgrade1']/$num;
+		else 
+			$hpl=1;
+	}
+	$haoping=ceil( $hpl*10000)/100;
+		echo $haoping;
+?>%</STRONG>
+		</LI>
+		<LI class="jj">注册时间：
+				<SPAN class="time">{echo date('Y年m月d日', $memberInfo[base][reg_timestamp])}</SPAN>
+		</LI>
+		<!--<li class="jj">最后登录：<span class="time">2013-10-15 11:52:06</span></li>-->
+		<LI class="jj">已被$memberInfo[attach][black2]人加入黑名单啦！
+			<A class="jh_btn" href="{rewrite}/member/black/?quickblack=1&amp;blackname=$memberInfo[base][username]"></A>
+		</LI>
+	</UL>
+	<UL id="lt_info">{loop $list $thread}
+		<LI>
+				<A title="thread[title]" href="{rewrite}/bbs/t$thread[id]/" target="_blank">·{cutstr $thread[title],20}</A>
+				<SPAN class="date">07-25</SPAN>
+		</LI>{/loop}
+		<LI>
+				<A title="你是麦友中的职业接手方吗？花兔兔可以申请职业接手方咯！" href="{rewrite}/bbs/t1689/" target="_blank">·你是麦友中的职业接手方吗？花兔兔可以申请职业接手…</A>
+				<SPAN class="date">09-09</SPAN>
+		</LI>
+		<LI>
+				<A title="【新手必读】发布任务麦点扣除标准" href="{rewrite}/bbs/t122/" target="_blank">·【新手必读】发布任务麦点扣除标准</A>
+				<SPAN class="date">02-27</SPAN>
+		</LI>
+		<LI>
+				<A title="官方绿色回收大行动 0.35元/麦点 日赚百元就是那么简单 " href="{rewrite}/bbs/t411/" target="_blank">·官方绿色回收大行动 0.35元/麦点 日赚百元就…</A>
+				<SPAN class="date">05-16</SPAN>
+		</LI>
+		<LI>
+				<A title="淘宝店铺自动充值图文教程" href="{rewrite}/bbs/t196/" target="_blank">·淘宝店铺自动充值图文教程</A>
+				<SPAN class="date">08-14</SPAN>
+		</LI>
+		<LI>
+				<A title="什么是真实快递签收任务？" href="{rewrite}/bbs/t1685/" target="_blank">·什么是真实快递签收任务？</A>
+				<SPAN class="date">12-30</SPAN>
+		</LI>
+		<LI>
+				<A title="新人必看+常见问题+精华归纳+会员经验+花兔兔教程" href="{rewrite}/bbs/t372/" target="_blank">·新人必看+常见问题+精华归纳+会员经验+花兔兔教程</A>
+				<SPAN class="date">07-17</SPAN>
+		</LI>
+	</UL>
+	<DIV class="cle"></DIV>
+	<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+		<TBODY>
+			<TR class="u_tit">
+				<TD class="u_left" height="38" vAlign="middle" width="10px" align="center">&nbsp;</TD>
+				<TD height="38" vAlign="middle" width="100px" align="center">好评用户</TD>
+				<TD height="38" vAlign="middle" width="100px" align="center">被好评用户</TD>
+				<TD height="38" vAlign="middle" width="500px" align="center">内容</TD>
+				<TD height="38" vAlign="middle" width="130px" align="center">提交时间</TD>
+				<TD vAlign="middle" width="50px" align="center">类型</TD>
+				<TD class="u_right" vAlign="middle" width="10px" align="center">&nbsp;</TD>
+			</TR>
+{loop $cList $v}			
+			<TR class="u_tit">
+				<TD class="u_left" height="38" vAlign="middle" align="center">&nbsp;</TD>
+				<TD height="38" vAlign="middle"  align="center">$v[fusername]</TD>
+				<TD height="38" vAlign="middle"  align="center">$v[tusername]</TD>
+				<TD height="38" vAlign="middle"  align="center" title="$v[remark]" style="overflow: hidden;white-space: nowrap;">$v[remark]</TD>
+				<TD height="38" vAlign="middle" align="center">
+<?php
+	echo date('Y-m-d H:i:s',$v['timestamp']);
+?>
+					
+				</TD>
+				<TD vAlign="middle" align="center">
+<?php
+	if($v['score']=='1')
+		echo '好评';
+	elseif($v['score']=='0')
+		echo '中评';
+	elseif($v['score']=='-1')
+		echo '差评';
+?>
+					
+				</TD>
+				<TD class="u_right" vAlign="middle" width="10" align="center">&nbsp;</TD>
+			</TR>
+{/loop}
+		</TBODY>
+	</TABLE>
+	<DIV id="page">$multipage</DIV>
+</DIV>
+<DIV class="cle"></DIV>{sub ../footer}

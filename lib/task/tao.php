@@ -260,12 +260,13 @@ switch ($m) {
 			}
 		} else {
 			$bbsNav[] = '已接任务';
-			$t || $t = 'ing';
+			//$t || 
+			$t = 'all';
 			if ($out){
 				$rs = task_tao::out($out, $uid);
 				if ($rs === true){
 					common::setMsg('退出成功');
-					common::goto_url($thisUrl.'&t=ing');
+					common::goto_url($thisUrl.'&t=all');
 				} else{
 					common::setMsg($rs, 'indexMessage');
 					common::goto_url($referer, true);
@@ -383,7 +384,8 @@ switch ($m) {
 	case 'taskOut'://已发任务
 		checkPwd2();
 		$bbsNav[] = '已发任务';
-		$t || $t = 'ing';
+		//$t || $t = 'ing';
+		$t = 'all';
 		$total = 0;
 		$where = "type='1' and suid='$uid'";
 		if ($resume) {
@@ -572,6 +574,11 @@ switch ($m) {
 								'status'     => 1
 							))) {
 								db::update('memberfields', 'sellers1=sellers1+1', "uid='$uid'");
+							$totalcount=db::data_count('sellers', "uid='$uid'");
+								
+								//从第二次绑定掌柜开始每次绑定一个扣除五元
+							if($totalcount>0)
+								member_base::redMoney($uid,'5','添加掌柜扣除5元');
 							}
 						} else {
 							$rs = '很抱歉，该掌柜已经被别人绑定了';
@@ -594,6 +601,9 @@ switch ($m) {
 			if($del){
 				if(task_seller::del($del, $uid)){
 					db::update('memberfields', 'sellers1=sellers1-1', "uid='$uid'");//删除绑定淘宝帐号是，刷新绑定的数量
+					//扣除5元钱
+					//db::update('memberfields', 'money=money-5', "uid='$uid'");
+					member_base::redMoney($uid,'5','删除掌柜扣除5元');
 				    common::setMsg('删除成功');
 				    common::goto_url($thisUrl);
 				}else{

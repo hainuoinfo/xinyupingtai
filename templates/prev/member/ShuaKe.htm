@@ -1,0 +1,159 @@
+{teval
+	$title       = '职业刷客 - {webName}';
+	$keywords    = '';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	$cssList     = array(css::getUrl('member', 'member'));
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
+}
+{sub ../header}
+<STYLE type="text/css" media="screen">
+.STYLE7 {
+    color: #999999;
+}
+.ke{ width:790px; margin-top:10px;}
+.ke h1{ font-size:14px; color:#408fcb; height:27px; line-height:27px; margin-bottom:5px; background:url(/images/skaa.jpg) no-repeat left top; width:790px; height:33px;}
+
+   .ke h1 span,.ke h1 a{ float:left; display:inline;}
+     .ke h1 span{ width:618px; overflow:hidden; padding-left:30px; font-size:12px; color:#000; padding-top:7px;}
+     
+.ke ul{ background:url(/images/bang_bg.gif) repeat-x; height:22px; line-height:22px; width:788px;
+                   border:1px #c0dbf8 solid;}
+   .ke ul li{ float:left; display:inline; color:#999;text-align:center;}
+.ke table{ border:1px solid #a8dbff; border-top:none;}
+   .ke table td{ line-height:30px;}
+   .ke table .k01{ width:180px; text-align:center;}
+   .ke table .k02{ width:340px; text-align:center;}
+   .ke table .k03{ width:260px; text-indent:50px; color:#ff5500;}
+.ke table .tcolor td{  background-color:#fbfbfb; border-top:1px #ebebeb dotted; border-bottom:1px #ebebeb dotted;} 
+.shuake { border:none; float:left;width:100px; height:27px; background:url(/images/shuake.jpg) no-repeat; text-indent:101px; line-height:99px; overflow:hidden; margin-top:3px; cursor:pointer;}
+.left2 {
+    float: left;
+    margin-top: 20px;
+    width: 184px;
+}
+</STYLE>
+<DIV class="cle"></DIV>
+<DIV id="content">
+        {sub menu}
+<DIV class="right">
+{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
+	{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+<DIV class="mh_tishi">
+				1、申请兼职刷客可以获得更高的金币回收价格、更多的同时接手任务次数、更多的买号绑定、推广用户可以获得更高的提成奖励，申请时限为一个月，到期后将自动恢复到当前积分对应等级；一旦申请成功，无法返回原始的会员等级，必须到期后才能取消，请申请前一定重视！<BR>
+2、为了保障发布方的利益，杜绝新手在毫无接手任务经验的情况下就加入刷客，<FONT 
+style="color: red;">平台限制刷客的申请条件为积分大于等于{$shuake}点，并且无有效投诉记录。</FONT><BR>
+3、职业刷客每周接手500个任务可获得100RMB奖励。<BR></DIV>
+<DIV class="ke">
+<FORM onsubmit="return confirm('一旦申请成功，无法返回原始的会员等级，必须到期后才能取消。您确定要申请吗？');" 
+method="post" name="myform" action="">
+$sys_hash_code2
+<H1><SPAN>成为职业刷客</SPAN>
+<INPUT name="applyfor" value="1" type="hidden">
+<INPUT class="shuake" value="提交查询内容" type="submit"></H1>
+</FORM>
+<UL>
+  <LI style="width: 180px;"></LI>
+  <LI style="width: 360px;">普通会员</LI>
+  <LI style="width: 240px; text-align: left; text-indent: 30px;">职业刷客</LI></UL>
+<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+  <TBODY>
+  <TR>
+    <TD class="k01">同时接任务数</TD>
+    <TD class="k02">30</TD>
+    <TD class="k03"><SPAN>400</SPAN></TD></TR>
+  <TR class="tcolor">
+    <TD class="k01">同时发任务数</TD>
+    <TD class="k02">15</TD>
+    <TD class="k03"><SPAN>1</SPAN></TD></TR>
+  <TR>
+    <TD class="k01">每日提现次数</TD>
+    <TD class="k02">2</TD>
+    <TD class="k03"><SPAN>3</SPAN></TD></TR>
+  <TR class="tcolor">
+    <TD class="k01">接任务消耗比例</TD>
+    <TD class="k02">15%</TD>
+    <TD class="k03"><SPAN>15%</SPAN></TD></TR>
+  <TR>
+    <TD class="k01">麦点回收价格</TD>
+    <TD class="k02">0.3元</TD>
+    <TD class="k03"><SPAN>0.35元</SPAN></TD></TR>
+  <TR class="tcolor">
+    <TD class="k01">绑定买号上限</TD>
+    <TD class="k02">12</TD>
+    <TD class="k03"><SPAN>280</SPAN></TD></TR>
+  <TR>
+    <TD class="k01">被推广用户任务提成</TD>
+    <TD class="k02">2%</TD>
+    <TD class="k03"><SPAN>4%</SPAN></TD></TR>
+  <TR>
+    <TD class="k01">每周接手任务500个以上</TD>
+    <TD class="k02">无奖励</TD>
+    <TD class="k03"><SPAN>奖励100元RMB</SPAN></TD></TR>
+  <TR>
+    <TD class="k01">周一双倍积分</TD>
+    <TD class="k02">无</TD>
+    <TD class="k03"><SPAN>是</SPAN></TD></TR>
+  <TR class="tcolor">
+    <TD class="k01">费用</TD>
+    <TD class="k02">免费</TD>
+    <TD class="k03"><SPAN>免费</SPAN></TD></TR></TBODY></TABLE></DIV>
+<DIV class="cle"></DIV>
+<P style="height: 18px; padding-top: 20px; font-size: 15px; font-weight: bold;">职业刷客套餐购买：</P>
+<DIV style="padding-top: 10px;">
+<FORM onsubmit="return confirm('您确定要购买吗？');" method="post" name="myform_rq" action="">
+$sys_hash_code2
+<INPUT name="applyfor" value="2" type="hidden">
+<UL>
+  <LI><INPUT name="sid" value="1" type="radio"> <IMG src="/images/icons/xin1.gif"> 
+  一心买号10个　<FONT color="red">45元</FONT></LI>
+  <li><input type="radio" value="2" name="sid" /> <img src="/images/icons/xin2.gif" /> 二心买号10个　<font color="red">45元</font></li>
+  <li><input type="radio" value="3" name="sid" /> <img src="/images/icons/xin3.gif" /> 三心买号10个　<font color="red">60元</font></li>
+ </UL>
+<P style="font-size: 15px; font-weight: bold;">套餐购买说明：</P>
+<P 
+style="padding: 10px 0px; color: rgb(102, 102, 102); line-height: 20px;">我们所提供的买号保证真实有效，密码在收到站内信后请立即更改，使用后在淘宝违规行为造成的封号，平台不承担任何责任。
+<FONT color="#ff0000">购买后24小时内，买号账号密码将以站内信的形式发放</FONT>，请登陆 会员中心 - 站内提醒 查看。</P>
+<P><INPUT class="hsmd_btn" value="提交查询内容" type="submit"></P>
+</FORM>
+</DIV><!--结束--></DIV>
+</DIV>
+<!--taopage_detail end-->
+<SCRIPT type="text/javascript">
+
+function checkForm() {
+  var nickname=$('#nickName').val();
+  if (nickname.length>1)
+		{
+		return true;
+		}
+		else {
+	    alert('淘宝掌柜帐号不能为空');
+		$('#nickName').focus();
+		return false;
+	}
+}
+function noactive(id)
+{
+	if (confirm('您确定要取消激活此帐号么？')) {
+    location.href='&noactive='+id;
+    return true;
+  } else {
+    return false;
+  }
+}
+function isactive(id)
+{
+	if (confirm('您确定要激活此帐号么？')) {
+    location.href='&isactive='+id;
+    return true;
+  } else {
+    return false;
+  }
+}
+</SCRIPT>
+
+<DIV class="cle"></DIV>
+	{sub ../footer}

@@ -1,0 +1,170 @@
+{subtemplate header}
+<div class="container" id="cpcontainer">
+	<div class="floattop">
+		<div class="itemtitle">
+			<h3>$menu_sub_name</h3>
+			<ul class="tab1">
+				<li{if $method=='sql'} class="current"{/if}><a href="$base_url&method=sql"><span>SQL工具</span></a></li>
+				<li{if $method=='import'} class="current"{/if}><a href="$base_url&method=import"><span>导入备份</span></a></li>
+				<li{if $method=='export'} class="current"{/if}><a href="$base_url&method=export"><span>备份数据</span></a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="floattopempty"></div>
+	{if $method=='sql'}
+<script language="javascript">
+var sql_create_table=function(){
+	var sql=$('#sql').val();
+	if(sql!=''){
+		if(sql.substr(sql.length-1,1)!=';')sql+=';';
+		sql+='\n';
+	}
+	$('#sql').val(sql+'CREATE TABLE `{$config[db_table_pre]}table_name` (\n\t`id` int unsigned not null auto_increment,\n\t`column_name` column_type,\n\tPRIMARY KEY (`id`)\n) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;');
+}
+var post_sql=function(sql){
+	if (sql != void(0))$('#sql').val(sql);
+	$('#form1').submit();
+}
+var sql_show_tables=function(){
+	$('#sql').val('show tables;');
+	post_sql();
+	
+}
+var sql_show_databases=function(){
+	$('#sql').val('show databases;');
+	post_sql();
+}
+var sql_create_user=function(){
+	$('#sql').val('grant all privileges on db_name.{$config[db_table_pre]}table_name to \'username\'@\'localhost\' identified by \'password\'/*创建用户*/;');
+}
+var sql_drop_user=function(){
+	$('#sql').val('drop user \'username\'@\'localhost\'/*删除用户*/;');
+};
+$.ajaxSetup({cache:false});
+var sqlList = {echo string::json_encode($sqlList1)};
+$(function(){
+	$('#addSql').click(function(){
+		var saveName = $('#saveName').val().replace(/^\s+|\s+$/g, '');
+		var sql      = $('#sql').val().replace(/^\s+|\s+$/g, '');
+		if (!saveName) {
+			alert('请输入保存的名字');
+			return;
+		}
+		if (!sql) {
+			alert('请输入要保存的SQL');
+		}
+		$.ajax({
+			type:'post',
+			url:'{$weburl2}ajax/sql.php?action=data&operation=save',
+			data:'hash='+encodeURI('$sys_hash')+'&name='+encodeURI(saveName)+'&sql='+encodeURI(sql),
+			dataType:'json',
+			success:function(json){
+				if (json.err) alert(err);
+				else if (json.status) {
+					$('#sqlList').append('<option value="'+json.id+'">'+saveName+'</option>');
+					sqlList[json.id] = sql;
+					alert('添加成功');
+				} else alert('未知错误');
+			},
+			error:function(){
+				alert('添加失败，请重试！');
+			}
+		});
+	});
+	$('#sqlList').change(function(){
+		if ($(this).val() != '') {
+			var id = $(this).val();
+			var sql = sqlList[id];
+			post_sql(sql);
+		}
+	});
+});
+</script>
+<form method="post" enctype="application/x-www-form-urlencoded" id="form1">
+<input type="hidden" name="exesql" value="yes" />
+<input type="hidden" name="hash" value="$sys_hash" />
+	<table class="tb tb2 fixpadding">
+		<tr class="hover">
+			<td><textarea name="sql" cols="100" rows="10" id="sql">{eval echo htmlspecialchars($sql);}</textarea></td>
+		</tr>
+		<tr class="hover">
+			<td><input type="submit" name="Submit2" value="执行" class="btn" />
+					<input type="button" value="创建表" onclick="sql_create_table()" class="btn" />
+					<input type="button" value="显示所有表" onclick="sql_show_tables()" class="btn" />
+					<input type="button" value="显示所有数据库" onclick="sql_show_databases()" class="btn" />
+					<input type="button" value="创建用户" onclick="sql_create_user()" class="btn" />
+					<input type="button" value="删除用户" onclick="sql_drop_user()" class="btn" />
+			</td>
+		</tr>
+		<tr class="hover">
+			<td>
+				SQL保存为：<input type="text" id="saveName" class="txt" style="width:120px" maxlength="32" /><input type="button" value="添加" class="btn" id="addSql" />&nbsp;
+				快捷SQL：<select id="sqlList">
+					<option value="">请选择要执行的SQL</option>
+					{loop $sqlList2 $k $v}
+					<option value="$k">$v</option>
+					{/loop}
+				</select>
+			</td>
+		</tr>
+		<tr class="hover">
+			<td><div style="width: 620px;border: 1px solid #CCCCCC;overflow-y: scroll;height: 200px;white-space: pre;">$show_result</div></td>
+		</tr>
+	</table>
+</form>
+{elseif $method=='import'}
+{if !$complate}
+<table width="100%" class="tb tb2 fixpadding">
+	<tr class="header">
+		<th>文件名</th>
+		<th>文件大小</th>
+		<th>最后修改时间</th>
+		<th></th>
+	</tr>
+	{loop $sql_file_list $v}
+	<tr class="hover">
+		<td><a href="$base_url&download={url $v[name]}" title="下载">$v[name]</a></td>
+		<td>$v[file_size]Byte</td>
+		<td>$v[filemtime]</td>
+		<td>[<a href="$nowurl&import={url $v[name]}&encoding=gbk">导入GBK</a>][<a href="$nowurl&import={url $v[name]}&encoding=utf-8">导入UTF-8</a>][<a href="$nowurl&del={url $v[name]}">删除</a>]</td>
+	</tr>
+	{/loop}
+</table>
+{else}
+<div>成功导入：$import</div>
+{/if}
+{elseif $method=='export'}
+{if !$complate}
+<style type="text/css">
+.tables{width:600px;clear:both}
+.tables li{width:200px;float:left;height:25px;line-height:25px;}
+</style>
+<form method="post" enctype="application/x-www-form-urlencoded">
+<table class="tb tb2 fixpadding">
+	<tr class="hover">
+		<td align="right">备份名称：</td>
+		<td align="left">./<input type="text" name="save_name" value="{echo date('Y-m-d H_i_s', $timestamp)}" class="txt" style="width:200px" />.sql</td>
+	</tr>
+	<tr class="hover">
+		<td valign="top" align="right">要备份的表：</td>
+		<td align="left"><input type="checkbox" id="back_all" checked onclick="check_all(this,'backup_tables[]')" class="checkbox" /><label for="bach_all">全部</label>
+			<ul class="tables">
+				{loop $tables $v}
+				<li><input type="checkbox" value="$v" name="backup_tables[]" id="$v" checked class="checkbox" /><label for="$v">$v</label></li>
+				{/loop}
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td align="left"><input type="submit" value="提交" class="btn" /></td>
+	</tr>
+</table>
+</form>
+{else}
+<div>备份成功：./data/sql/backup/$complate.sql</div>
+{/if}
+{/if}
+
+</div>
+{subtemplate footer}

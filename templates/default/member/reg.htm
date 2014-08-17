@@ -1,4 +1,16 @@
-{subtemplate ../regheader}
+<!--subtemplate ../regheader-->
+{teval
+	$title       = '注册账号 - 我的个人中心 - {webName}';
+	$keywords    = '注册账号,花兔兔';
+	$description = '';
+	$title       = common::replaceVars($title);
+	$keywords    = common::replaceVars($keywords);
+	$description = common::replaceVars($description);
+	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description));
+}
+{sub ../regheader}
+<script type="text/javascript" src="/images/login_damaihu.js"></script>
+<script type="text/javascript" src="/images/reg.js"></script>
 <div id="content">
 <div>
 	<form name="myForm" method="post" id="myForm" enctype="multipart/form-data">
@@ -65,7 +77,7 @@
 		<li>
         <INPUT id="btnSubmit" class="reg_btn" name="btnSubmit" value="提交查询内容" type="submit">
         </li>
-		<li><a href="###" class="STYLE1" id="agreement">《大麦户服务协议》</a></li>
+		<li><a href="###" class="STYLE1" id="agreement">《花兔兔服务协议》</a></li>
 		
 	</ul>
 	</form>
@@ -90,13 +102,14 @@
 		{if $indexMessage}<div style="color:#FF0000">$indexMessage</div>{/if}
 		<li class="login_tip" style="height:35px; clear:both; position:inherit"></li>
 		<li><input class="login_btn" style="margin-top:0px;" type="submit" id="btnSubmit" name="btnSubmit"></li>
-		<li onclick="alert('该功能正在完善中，亲，近期上线');">
+		<li style="display: none;" onclick="alert('该功能正在完善中，亲，近期上线');">
 			<span style="font-size: 14px;">合作账户登录：</span>
 			<img alt="bt_blue_76X24.png" src="/images/qq.png" style="vertical-align: middle; margin-right: 10px;">
 			<img alt="bt_blue_76X24.png" src="/images/sina.png" style="margin-right: 4px;vertical-align: middle;">
 		</li>
 	</ul>
 		</div>
+<div class="cle"></div>
 </div>
 <div class="cle"></div>
 {subtemplate ../footer}

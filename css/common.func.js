@@ -219,7 +219,7 @@ var copyText=function(text){
 	window.clipboardData.setData('Text',text);
 }
 function avoidReSubmit(a) {
-	dialog(400, 250, "正在提交数据", "", "<div class='submiting'>正在提交数据，请耐心等待</div>");
+		dialog(400, 250, "正在提交数据", "", "<div class='submiting'>正在提交数据，请耐心等待</div>");
 	if (a) {
 		$('#'+a).attr({disabled: true});
 	}
@@ -703,7 +703,7 @@ function thumbImg(b, a) {
 	}
 }
 function openDynaWin(c, b) {
-	var d = "<html><head><title>" + c + " - 大麦户网</title></head><body><table align='center' width='100%'><tr><td align='center' >";
+	var d = "<html><head><title>" + c + " - 花兔兔网</title></head><body><table align='center' width='100%'><tr><td align='center' >";
 	d += b + "</td></tr><tr><td align='center'><input type='button' style='font-size:9pt' value='关闭窗口' onclick='javascript:window.close()'></td></tr></table></body></html>";
 	var a = window.open();
 	a.document.write(d);

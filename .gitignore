@@ -1,3 +1,8 @@
 /MyProject.komodoproject
 /cache/default
+/cache/error/sql/
+/img/task/
+/img/attach/
 *.modoproject
+/data/sql/backup/
+*.bak

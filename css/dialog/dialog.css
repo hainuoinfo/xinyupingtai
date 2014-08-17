@@ -1,6 +1,6 @@
-@import url(../bbs/layout.css);
+/*@import url(../bbs/layout.css);*/
 
-.main_dl {padding:10px; text-align:left;}
+.main_dl {padding:10px; text-align:left;font-size:12px;}
 .bar_dl {line-height:30px; background:url(ico_1.gif) 20px center no-repeat; margin-top:10px; margin-bottom:10px; padding-left:40px; border-bottom:1px solid #A2C4E9; color:#FF6600; font-size:14px; font-weight:bold;}
 
 .linkbtn a{height:23px; color:#fff; background:#355582; padding:4px 15px; border-left:1px solid #fff; border-top:1px solid #fff; border-right:1px solid #6a6a6a; border-bottom:1px solid #6a6a6a;}
@@ -26,3 +26,5 @@
 *html .tb .a{position:relative;}
 .tb a{display:block;padding:0 10px;border:1px solid #A1C5E9;background:#F0F9FE;}
 .tb .a a{border-bottom-color:#FFF;background:#FFF;font-weight:700;}
+/* dialog 对话框 样式修正 */
+.f_b_org span{color: green; font-weight: bold;font-family: "微软雅黑", Arial, "MS Trebuchet", sans-serif;font-size:14px;}

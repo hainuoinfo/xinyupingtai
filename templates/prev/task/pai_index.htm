@@ -1,0 +1,327 @@
+{teval
+	
+	$cssList     = array(css::getUrl('task', 'task'));
+	echo string::getStaticCode(array('cssList'=>$cssList));
+}
+{sub ../header}
+<style type="text/css">
+.gold .yred { color:#D61810;}
+</style>
+<style type="text/css">
+.kd a:hover { text-decoration:underline;}
+#content table tr td{padding-left:13px;_padding-left:6px;*padding-left:6px!important;}
+.buyerspages a {background:#F8F8F8; border: 1px solid #E8E8E8;display: block; float: left;height: 25px;margin: 0 2px;text-align: center;width: 25px}
+.buyerspages a:hover,.buyerspages a.nov{ background:#EAF4FD; border-color: #B0D0E9;}
+.autotk {position:absolute; top:55px; right:30px; }
+.autotk input {margin-top:5px;}
+.autotk strong { color:#FF5500;}
+.rwdt_dexpress{background:url(/images/tx_ico_28.png) no-repeat;float:left;display:block;width:145px;text-indent:20px;height:17px;line-height:17px;color:#333;}
+</style>
+<script type="text/javascript">
+var zgMax=20;
+var curMoney={echo $memberFields[money]?'true':'false'};;
+var curG={echo $memberFields[fabudian]?'true':'false'};;
+var curExam={echo $memberFields[exam]?'true':'false'};;
+var isGetData=false;
+var webqq = 195230378;
+var webnoticeurl = "";
+var webnoticetit = "";
+var quick_qq ="13592747";
+</script>
+<script type="text/javascript">
+$(function() {
+	bechange('.sub_bt a','#buyboxcont>.task_header');
+	$("table > tr:odd").addClass("tcolor");
+});
+</script>
+<script type="text/javascript">
+function checkForm1() {
+   var checks = [
+		["isNumber", "money", "充值金额"]];
+	var result = doCheck(checks);
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+function checkForm2(){
+  var checks = [
+		["isEmpty", "cardPwd", "订单号"]];
+	var result = doCheck(checks);
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+function checkForm3() {
+   var checks = [
+		["isNumber", "cardnums", "购买麦点数量"] ];
+	var result = doCheck(checks);
+	if (result)
+		return avoidReSubmit();
+	return result;
+}
+
+</script>
+		<div id="content">
+	{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
+	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if} 
+
+ {sub pai_info}
+		{sub ../quick}
+		<div class="rwdt_bk2">
+			<a href="{rewrite}/member/safesz/" class="szsz_btn" target="_blank"></a>
+			<p class="ts">接实物任务后立即收货好评将 <span class="chengse">- 20 </span>麦点</p>
+			<p class="ts">任务过程中旺旺聊到刷信誉平台相关字眼 <span class="chengse">- 5 </span>麦点</p>
+			<p class="ts">为了您资金安全，接手方淘宝支付后务必在<span class="lanse">15</span>分钟内回到平台操作任务点击“已付款” </p>
+		</div>
+		<div class="rwdt_gg"><a href="{rewrite}/member/userjob/" target="_blank"><img src="/images/jrw.gif"></a></div>
+		<div class="rwdt_gg2"><a href="{rewrite}/bbs/t1538/" target="_blank"><img src="/images/frw.gif"></a></div>
+		{sub pai_tab}
+		<div class="rwdt_xx">
+			<p class="rwdt_lx"><a href="#" class="nov" seed="0">全部任务</a><a href="#"{if $stype==1} class="nov" {/if} seed="1">虚拟任务</a><a href="#" {if $stype==2  } class="nov" {/if}  seed="2">实物任务</a></p>
+			<ul class="rwdt_jg" id="rwdt_jg">
+				<li><span class="gdt1"></span></li>
+				<li><a href="#" jiages="0" title="不限" class="nov">不限</a></li>
+				<li><a href="#" title="1-30元" jiages="1">1-30元</a></li>
+				<li><a href="#" title="31-100元" jiages="2">31-100元</a></li>
+				<li><a href="#" title="101-400元" jiages="3">101-400元</a></li>
+				<li><a href="#" title="400以上" jiages="4">400以上</a></li>
+				<li><span class="gdt2"></span></li>
+			</ul>
+			<ul class="rwdt_jg" id="rwdt_jg2" style="display:none;">
+				<li><span class="gdt1"></span></li>
+				<li><a href="#" cid="6" title="不限" class="nov">不限</a></li>
+				<li><a href="#" title="1天收货" cid="2">1天收货</a></li>
+				<li><a href="#" title="2天收货" cid="3">2天收货</a></li>
+				<li><a href="#" title="3天收货" cid="4">3天收货</a></li>
+				<li><a href="#" title="4天以上收货" cid="5">4天以上收货</a></li>
+				<li><span class="gdt2"></span></li>
+			</ul>
+			<div class="rwdt_btn" >
+			<a href="$baseUrl?m=add" class="fb_btn"></a>
+			<a href="javascript:;" class="sx_btn" ></a>
+			<div id="task_panel" style="display:none"><input type="hidden" name="isAuto" id="isAuto" value="8" /></div>
+			</div>
+			
+		</div>
+	   <div class="cle"></div>
+	   <div id="taobao-lists">
+		<div id="taskList"></div>
+</div>
+</div>
+	<div class="cle"></div>
+<div id="divIDList" style="display:none;">
+<div class="divin">
+<div class="cont">
+<table class="namelist" style="margin-top:0px; margin-left:0px;" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr class="trListNormal">
+<td id="tdOpenNormalBa" style="background-color:#E1E1E1;color:Black; padding:6px 0px 5px 5px;cursor:pointer; border-bottom:solid 1px #FFFFFF;" onclick="OpenNormalBa()" colspan="2">
+<span id="spanNormalHead" style="color:black;">
+<img src="/images/hidden.gif" style="margin-bottom:2px;">
+普通买号
+</span>
+</td>
+</tr>
+<tr id="trListNormal" class="trListNormal">
+<td colspan="2">
+
+<table class="bpage1" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody>
+{loop $paiList $v}
+<tr name="L6">
+<td class="name" style="width:35%;">
+<label><input value="$v[id]" name="ba" type="radio">
+$v[nickname]</label>
+</td>
+<td style="width:65%;">(拍拍信用：0,本月已接：0,今日已接：0,拉黑：0)</td>
+</tr>
+{/loop}
+</tbody>
+</table>
+
+
+
+<div class="buyerspages" style="height:25px;margin:10px 0px;"><a href="javascript:;" onclick="Openbuyerspage(1);" class="nov">1</a>
+</div>
+
+</td>
+</tr>
+<tr>
+<td id="tdOpenTrueNameBa" style="background-color:#E1E1E1;color:Black;padding:6px 0px 5px 5px;cursor:pointer;" onclick="OpenTrueNameBa()" colspan="2">
+<span id="spanTrueNameHead" style="color:black;">
+<img src="/images/show.gif" style="margin-top:2px;">
+实名买号（点击查看实名买号）
+</span>
+</td>
+</tr>
+<tr id="trListNormal" class="trListNormal">
+<td colspan="2">
+
+<table class="bpage1" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody>
+{loop $paiList $v}
+<tr name="L6">
+<td class="name" style="width:35%;">
+<label><input value="$v[id]" name="ba" type="radio">
+$v[nickname]</label>
+</td>
+<td style="width:65%;">(拍拍信用：0,本月已接：0,今日已接：0,拉黑：0)</td>
+</tr>
+{/loop}
+</tbody>
+</table>
+
+
+
+<div class="buyerspages" style="height:25px;margin:10px 0px;"><a href="javascript:;" onclick="Openbuyerspage(1);" class="nov">1</a>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+</div>
+</div>
+</div>
+<script>
+var hideFlag = true;
+$(window).scroll(function(){
+    if(hideFlag) {
+        ($(this).scrollTop() > 200) ? $("#Bottom_Bar").fadeIn() : $("#Bottom_Bar").fadeOut();
+    }
+});
+var closeBottomBar = function () {
+    hideFlag = false;
+    $("#Bottom_Bar").fadeOut();
+}
+</script>
+<script type="text/javascript" src="/images/jquery.js"></script>
+<script type="text/javascript" src="/images/common.js"></script>
+<!--[if lte IE 6]>
+<script type="text/javascript" src="/javascript/cn/DD_belatedPNG_0.0.7a.js"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('*');
+</script>
+<![endif]-->
+<script type="text/javascript" src="/images/artDialog.js"></script>
+<script type="text/javascript" src="/images/Common.js"></script>
+<script type="text/javascript" src="/images/task_pai.js"></script> 
+<script type="text/javascript">
+function sortTask(obj) {
+    getObj('btnQuery').click();
+}
+function changeSort(val) {
+    setValue('sort', val);
+    getObj('btnQuery').click();
+    return false;
+}
+function showPanel() {
+    $('#task_panel').show();
+}
+function viptake() {                        
+    alert('对不起，您当前不是VIP，请先申请成为VIP');
+}
+function goPage(n) {
+    if(!isGetData){
+	isGetData=true;
+	if (n==void(0)) n = 1;
+    var pageSearch = '';
+    var page = new PageQuery(window.location.search);
+    for (var i=0; i<page.getLength(); i++) {
+        if (page.getParameters()[i] != 'page')
+            pageSearch += '&' + page.keyValuePairs[i];
+    }
+	pageSearch += '&page=' + n + '&now=' + (new Date()).getTime();
+	var stype=$('.rwdt_lx .nov').attr("seed");
+	var jiages=$('#rwdt_jg .nov').attr("jiages");
+	var swid=$('#rwdt_jg2 .nov').attr("cid");
+	if(stype==1){
+		pageSearch+="&stype="+stype+"&jiage="+jiages;
+	 }else if(stype==2){
+	    pageSearch+="&stype="+stype+"&swid="+swid;
+	 }else{
+	    pageSearch+="&jiage="+jiages;
+	 }
+    getObj('taskList').innerHTML = '<div class=\'submiting\'>任务加载中.....</div>';
+    getTask(pageSearch);
+	setTimeout("isGetData=false",1500);
+	}
+}
+$(".sx_btn").click(function(){goPage(1);});
+function getTask(qs) {
+   // var url = '/ajax/getTask.php?type=1' + '&au=' + $('#isAuto').val() + qs;
+   var url = '/ajax/getTask.php?type=2' + '&au=' + 8 + qs;
+    $.ajax({
+		type : 'GET',
+		url  : url,
+		success : function(html){
+			if (html.indexOf('任务进行中')<0 && html.indexOf('qrw_btn')<0 )
+				html = '<div class=\'pub_tip5 f_b\'>对不起，本互动区里所有任务都被抢光了，请过会再 <span class=\'btn_gl\' onclick=\'goPage(1);\'>刷新</span> 试试...</div>' + html;
+			$('#taskList').html(html);
+		},
+		error:function(){
+			$('#taskList').html('<p>&nbsp;</p><p>尊敬的会员，您遇到了一个未知的错误，请稍后重新点击。　　<a href="'+weburl2+'">返回主页</a></p>');
+		}
+	});
+}
+function autoTask() {
+    $('#taskList').html('<div class=\'submiting\'>任务加载中.....</div>');
+	var chkAuto = getObj('isAuto');
+	var auto = function() {
+		if (chkAuto && chkAuto.checked) {
+			goPage(1);
+		}
+	};
+    var t = parseInt(getValue('isAuto'));
+    if (t < 5) t = 20;
+	var tt_1 = window.setInterval(auto, t * 1000);
+}
+
+$(function(){
+	$("#rwdt_jg a").click(function(){
+		$("#rwdt_jg a").removeClass("nov");
+		$(this).addClass("nov");
+		var jiages="&jiage="+$(this).attr("jiages");
+		var stype=$('.rwdt_lx .nov').attr("seed");
+		if(stype==1){
+		jiages+="&stype="+stype;
+		}
+		getObj('taskList').innerHTML = '<div class=\'submiting\'>任务加载中.....</div>';
+		getTask(jiages);
+		return false;
+	});
+	$("#rwdt_jg2 a").click(function(){
+		$("#rwdt_jg2 a").removeClass("nov");
+		$(this).addClass("nov");
+		var sws="&swid="+$(this).attr("cid");
+		getObj('taskList').innerHTML = '<div class=\'submiting\'>任务加载中.....</div>';
+		getTask(sws);
+		return false;
+	});
+	$(".rwdt_lx a").click(function(){
+		$(".rwdt_lx a").removeClass("nov");
+		$(this).addClass("nov");
+		var swtask=$(this).attr("seed");
+		var jiages="&jiage="+$(this).attr("jiages");
+		var stype="&stype="+$(this).attr("seed");
+		if(swtask==2){
+		$('#rwdt_jg').css("display","none");
+		$('#rwdt_jg2').css("display","block");
+		}else{
+		$('#rwdt_jg').css("display","block");
+		$('#rwdt_jg2').css("display","none");
+		}
+		getObj('taskList').innerHTML = '<div class=\'submiting\'>任务加载中.....</div>';
+		getTask(stype);
+		return false;
+	});
+	showPanel();
+	goPage(1);
+});
+$('.web_qq').hover(function(){
+    $('.quick_qq').show();
+});
+</script>
+
+{sub ../footer}

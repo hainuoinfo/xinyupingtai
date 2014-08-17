@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>$title</title>
+<meta name="description" content="$description" />
+<meta name="keywords" content="$keywords" />
+{if $cssList}
+{loop $cssList $v}
+<link rel="stylesheet" type="text/css" href="$v" />
+{/loop}
+{else}
+{teval
+echo css::get_css('bbs', 'bbs');
+}
+{/if}
+{js_select jquery,common}
+{loop $jsList $v}
+<script type="text/javascript" src="$v"></script>
+{/loop}
+<script type="text/javascript">
+{if $showMessage}
+alert('{echo common::bf_addcslashes($showMessage)}');
+{/if}
+$.ajaxSetup({cache:false});
+var memberLogined={echo $memberLogined?'true':'false'};
+var loginUsername='{echo $memberLogined?$member['username']:''}';
+var weburl='$weburl';
+var weburl2='$weburl2';
+var sys_hash2='$sys_hash2';
+var webqq = 195230378 ;
+</script>
+</head>
+<body>
+	<!--头部开始-->
+	<div id="dmh_head">
+	<div class="kd">
+	    <div class="kmain">
+			<div class="hy">
+				<a href="###" class="dmhtel">手机版</a>
+				{if $memberLogined}
+				<DIV style="float: left;">
+                    <SPAN style="color:#1595DE">|</SPAN>
+                    <A href="{rewrite}/member/info/?username=$member[username]">$member[username]</A>
+                    <IMG title="积分：$memberFields[credits]" alt="积分" src="$memberLevel[icon]">
+                    <A class="col3" href="{rewrite}/member/logout/">退出</A>	
+                    </div>
+				{else}亲，欢迎来到{$web_name}
+				<div style="float:left;">
+				    <SPAN style="color:#1595DE">|</SPAN>
+					<a href="{rewrite}/member/login/" class="chengse">登录</a>
+					<a href="{rewrite}/member/reg/" class="lvse">免费注册</a>
+				</div>
+				  {/if}	
+			</div>
+			<div class="top_btn">
+			
+			{if $memberLogined}
+			<ul class="quick-menu">
+			 <LI class="menu-item">
+                <DIV class="menu">
+                 <A style="margin: 0px; width: 50px;" class="menu-hd" tabIndex="0" href="{rewrite}/member/eids/">单号搜索<b></b></A>
+                <DIV style="width: 88px; line-height: 1.7;" id="menu-0" class="menu-bd">
+                <DIV style="padding: 8px 5px;" class="menu-bd-panel">
+                <A href="{rewrite}/bbs/t730/" rel="nofollow" target="_top">使用教程</A>
+                <A href="{rewrite}/bbs/t730/" rel="nofollow" target="_top">如何激活</A></DIV>
+                </DIV></DIV>
+			 </LI>
+ 
+               <LI style="margin-top: -2px;">|</LI>
+               <LI class="menu-item">
+                <DIV class="menu"><A style="margin: 0px;" class="menu-hd" tabIndex="0" href="{rewrite}/member/topup/">存款：<b></b>
+                <SPAN style="font-weight: 700;" class="chengse moneyAll">$memberFields[money]</SPAN></A>
+                <DIV style="width: 88px; line-height: 1.7;" id="menu-0" class="menu-bd">
+                <DIV style="padding: 8px 5px;" class="menu-bd-panel">
+                <A href="{rewrite}/member/topup/" rel="nofollow" target="_top">账号充值</A>
+                <A href="{rewrite}/member/PayDetails/?type=1" rel="nofollow" target="_top">存款明细</A></DIV>
+                </DIV></DIV>
+			   </LI>
+               <LI style="margin-top: -2px;">|</LI>
+                <LI class="menu-item">
+               <DIV class="menu"><A style="margin: 0px;" class="menu-hd" tabIndex="0" href="{rewrite}/member/BuyPoint/">麦点：<b></b>
+                <SPAN style="font-weight: 700;" class="chengse moneyAll"></SPAN>$memberFields[fabudian]</A>
+                <DIV style="width: 88px; line-height: 1.7;" id="menu-0" class="menu-bd">
+                <DIV style="padding: 8px 5px;" class="menu-bd-panel">
+                <A href="{rewrite}/member/BuyPoint/" rel="nofollow" target="_top">购买麦点</A>
+                <A href="{rewrite}/member/PayDetails/?type=2" rel="nofollow" target="_top">麦点明细</A>
+           </DIV></DIV></DIV>
+		   </LI>
+           <LI style="margin-top: -2px;">|</LI>
+           <LI class="menu-item">
+           <DIV class="menu">
+           <A style="margin: 0px;" class="menu-hd" tabIndex="0" href="{rewrite}/member/message/">信息：<b></b>
+           <SPAN style="font-weight: 700;" class="chengse moneyAll">($memberFields[msg])</SPAN></A>
+           <DIV style="width: 90px; line-height: 1.7;" id="menu-0" class="menu-bd">
+           <DIV style="padding: 8px 5px;" class="menu-bd-panel">
+           <A href="{rewrite}/member/message/?type=inUser" rel="nofollow" target="_top">私人收件箱</A>
+          <A href="{rewrite}/member/message/?type=inSys" rel="nofollow" target="_top">官方收件箱</A>
+          <A href="{rewrite}/member/message/?type=setting" rel="nofollow" target="_top">站内提醒</A>
+          </DIV></DIV>
+          </DIV>
+          </LI>
+					<li style="margin-top: -2px;">|</li>
+					<li class="menu-item">
+						<div class="menu">
+							<a href="{rewrite}/member/userdata/?type=index" style="width:52px;margin:0;" class="menu-hd" tabindex="0">账号设置<b></b></a>
+							<div style="width: 90px;line-height:1.7;" class="menu-bd" id="menu-0">
+							  <div style="padding:8px 5px;" class="menu-bd-panel">
+								  <a rel="nofollow" target="_top" href="{rewrite}/member/forgotpwd/">找回密码</a>
+								  <a rel="nofollow" target="_top" href="{rewrite}/member/userdata/?type=GetPass">找回操作码</a>
+								  <a rel="nofollow" target="_top" href="{rewrite}/member/forgotpwd/">更多操作</a>
+							  </div>
+							</div>
+						</div>
+					</li>
+					
+				
+			</ul>
+			{else}
+			
+				<ul class="quick-menu">
+					<a href="{rewrite}/member/help/" style="float:left;margin-top: -1px;"><b>新手帮助</b></a>
+					<li style="margin-top: -2px;">|</li>
+					<li class="menu-item">
+						<div class="menu">
+							<a href="{rewrite}/member/eids/" style="width:50px;margin:0;" class="menu-hd" tabindex="0">单号搜索<b></b></a>
+							<div style="width: 88px;line-height:1.7;" class="menu-bd" id="menu-0">
+							  <div style="padding:8px 5px;" class="menu-bd-panel">
+								  <a rel="nofollow" target="_top" href="{rewrite}/bbs/t730/">使用教程</a>
+								  <a rel="nofollow" target="_top" href="{rewrite}/bbs/t730/">如何激活</a>
+							  </div>
+							</div>
+						</div>
+					</li>
+					<li style="margin-top: -2px;">|</li>
+					<li class="menu-item">
+						<div class="menu">
+							<a href="{rewrite}/member/userdata/?type=index" style="width:52px;margin:0;" class="menu-hd" tabindex="0">账号设置<b></b></a>
+							<div style="width: 90px;line-height:1.7;" class="menu-bd" id="menu-0">
+							  <div style="padding:8px 5px;" class="menu-bd-panel">
+								  <a rel="nofollow" target="_top" href="{rewrite}/member/forgotpwd/">找回密码</a>
+								  <a rel="nofollow" target="_top" href="{rewrite}/member/userdata/?type=GetPass">找回操作码</a>
+								  <a rel="nofollow" target="_top" href="{rewrite}/member/forgotpwd/">更多操作</a>
+							  </div>
+							</div>
+						</div>
+					</li>
+					<li style="margin-top: -2px;">|</li>
+					<a href="{rewrite}/rank.html" style="margin-top: -2px;">花兔兔排行榜</a>	
+				</ul>
+				 {/if}	
+			</div>
+		</div>
+		<div class="menu_qq">
+		<a class="qq_help" onmouseover="showcsqq();" href="javascript:;">客服帮助</a>
+		</div>
+		<div id="service_qq" class="help_down" style="display:none;"></div>
+	</div>
+</div>
+	<!--logo开始-->
+
+	<div id="m_logo">
+		<a href="/" class="logo"><img src="$web_logo" alt="花兔兔_淘宝刷信誉" /></a>
+		<a href="default/DmSEO.html" class="gg" target="_blank"><img src="/images/bkzl.jpg" alt="爆款教程" title="爆款教程" height="67" border="0" width="689"></a>
+	</div>
+<!--头部结束-->
+<!--菜单开始-->
+<div id="m_menu" style="position:relative; z-index:2;">
+	  <div class="menu_nav">
+		
+			<ul class="m_menu_nav">
+			<li><a {if $action=='index'} class="current"{/if} href="$weburl2">首页</a></li>
+			<li><a {if $action=='task' && $operation=='tao'} class="current"{/if} href="{rewrite}/task/tao/">淘宝大厅</a></li>
+			<li><a {if $action=='task' && $operation=='pai'} class="current"{/if} href="{rewrite}/task/pai/">拍拍大厅</a></li>
+			<li><a {if $action=='collect' && $operation=='collect'} class="current"{/if} href="{rewrite}/collect/">收藏流量</a></li>
+	       <li><a {if $action=='BuyPoint' && $operation=='BuyPoint'} class="current"{/if} href="{rewrite}/member/BuyPoint/">购买麦点</a></li>
+			<li><a {if $action=='tuoguan' && $operation=='tuoguan'} class="current"{/if} href="{rewrite}/tuoguan/">网店托管</a></li>
+			<li><a {if $action=='tbseo' && $operation=='tbseo'} class="current"{/if} href="{rewrite}/tbseo/">淘宝推广</a></li>
+			<li><a {if $action=='bbs'} class="current"{/if} href="{rewrite}/bbs/">有问必答</a></li>
+			<li><a {if $action=='member'} class="current"{/if} href="{rewrite}/member/">会员中心</a></li>
+			</ul>
+		  
+	  </div>
+</div>
+<script type="text/javascript" src="/images/jquery.js"></script>
+<script type="text/javascript" src="/images/common.js"></script>
+<script type="text/javascript" src="/images/index.js"></script>
+<script type="text/javascript" src="/javascript/index/task.js"></script>
+<!--[if lte IE 6]>
+<script type="text/javascript" src="/javascript/cn/DD_belatedPNG_0.0.7a.js"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('*');
+</script>
+<![endif]-->
+
+    <script type="text/javascript" src="/images/service.js"></script>
+
+<script>
+
+var z_userinfo = $.cookie('userinfo');
+if (z_userinfo){
+	z_userinfo = z_userinfo.split(',');
+}else
+	z_userinfo=null;
+</script>
+<script type="text/javascript">
+
+$('#tool_footer')
+	.css({
+	    'top': $(window).height()-270,
+		'left':"auto",
+	    'right': ($(window).width() - 1000)>0?($(window).width() - 1000)/2-$('#tool_footer').width()-5:0 ,
+		'position':"fixed"
+	});
+function To_top(){
+    $("html,body").animate({scrollTop: $("#m_menu").offset().top}, 100);
+}
+</script>
+<script type="text/javascript">
+$(function(){
+	$(".menu-item .menu-hd").hover(function(){
+		$(this).next('#menu-0').show();
+		$(this).children('b').css({borderColor:'#666666 white white',transform:'rotate(180deg',transformOrigin:'50% 30% 0px'});
+		$(this).parents(".menu-item").css({background:'rgb(255, 255, 255)',border:'1px solid rgb(191, 191, 191)'})
+	});
+	$(".menu-item .menu").mouseleave(function(){
+		$(this).children('#menu-0').hide();
+		$(this).children('.menu-hd').children('b').css({borderColor:'#666666 #EFF6FE #EFF6FE',transform:'none',transformOrigin:'none'});
+		$(this).parent(".menu-item").css({background:'none',border:'1px solid #EFF6FE'})
+	}); 
+})	
+</script>
+</body>

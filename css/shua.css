@@ -14,7 +14,7 @@
 	margin: 18px 0px 0px 13px; padding-left: 45px; font-size: 14px;
 }
 .ds_news .ds_btn .btn {
-	background: url(/images/dsym.gif) no-repeat 0px -308px; margin: 12px 0px 0px 12px; width: 145px; height: 45px; float: left; display: block;
+	background: url(/images/dsym.gif) no-repeat -1px -308px; margin: 12px 0px 0px 25px; width: 105px; height: 34px; float: left; display: block;
 }
 .ds_news .ds_btn .btn2 {
 	background: url(/images/dsym.gif) no-repeat 0px -308px; margin: 12px 0px 0px 12px; width: 145px; height: 45px; float: left; display: block;
@@ -59,11 +59,12 @@
 	color: rgb(36, 130, 207); font-size: 14px;
 }
 .ds_cplist {
-	width: 610px; height: 725px; margin-top: 5px; float: left;
+	width: 610px; min-height: 325px; margin-top: 5px; float: left;padding-left: 10px;
 }
 .ds_cplist .ds_tit {
-	background: url(/images/dsym.gif) no-repeat 0px -851px; height: 46px; line-height: 46px; text-indent: 55px; font-size: 14px;
+	background: url(/images/dsym.gif) no-repeat 0px -851px; height: 46px; line-height: 46px; text-indent: 55px; font-size: 14px;background-color: white;
 }
+.ds_cplist .ds_qq{background-color: white;}
 .ds_cplist .ds_line {
 	background: url(/images/dsym.gif) no-repeat 0px -1046px; margin: 7px 0px 0px 5px; width: 300px; height: 160px; float: left; position: relative; _margin: 7px 0 0 3px;
 }
@@ -417,6 +418,7 @@ a:hover{text-decoration:underline;}
 	left:33px;
 	width:270px;
 	}
+#gm_kd .bg2> p{top:115px;}
 #gm_kd .line .t2{
 	position:absolute;
 	top:135px;
@@ -428,7 +430,7 @@ a:hover{text-decoration:underline;}
 	width:75px;
 	border:1px solid #e4e4e4;
 	position:absolute;
-	top:135px;
+	top:132px;
 	left:92px;
 	color:#FF0000;
 	font-size:18px;

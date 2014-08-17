@@ -1,0 +1,16 @@
+{sub h}
+{if $method=='list'}
+	{adminList
+		删？|id|del
+		排序|sort|sort
+		名称|name
+		提交数量|count
+	}
+{elseif $method=='add'}
+	{adminForm
+		名称,null=请输入名称|name|text|240|64
+		是否可以输入|input|radio,0=否,1=是
+		输入的名称|inputName|text|240|32
+	}
+{/if}
+{sub f}

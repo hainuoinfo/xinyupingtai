@@ -1,0 +1,43 @@
+{sub header}
+    <table border="0" cellspacing="0" cellpadding="8">
+      <tr>
+        <td width="100" align="right" class="f_b">用户名：</td>
+        <td>$member[username]</td>
+      </tr>
+      <tr>
+        <td width="100" align="right" class="f_b">帐户剩余点数：</td>
+        <td>淘宝：$memberFields[fabudian1]个， 拍拍：$memberFields[fabudian2]个， 有啊：$memberFields[fabudian3]个</td>
+      </tr>
+      <tr>
+        <td align="right" class="f_b">宝物名称：</td>
+        <td>单次发布点卡</td>
+      </tr>
+      <tr>
+        <td width="100" align="right" class="f_b">卡面点数：</td>
+        <td>$card[total1]</td>
+      </tr>
+      <tr>
+        <td align="right" valign="top" class="f_b">归属互动区：</td>
+        <td><input name="fType" type="radio" id="radio1" value="1" checked="checked" />
+          淘宝互动区<br />
+          <input type="radio" name="fType" id="radio2" value="2" />
+          拍拍互动区<br />
+          <input type="radio" name="fType" id="radio3" value="3" />
+          有啊互动区</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><input name="btnSubmit" type="submit" class="btn_2" id="btnSubmit" value="确定" />
+          <input name="btnCancel" type="button" class="btn_2" onclick="parent.doCut();" id="btnCancel" value="取消" /></td>
+      </tr>
+    </table>
+<script type="text/javascript">
+function checkForm() {
+	return confirm("您确定要归属到选定的互动区么？");
+}
+</script>
+{sub footer}

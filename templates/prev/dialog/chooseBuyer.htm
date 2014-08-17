@@ -1,0 +1,46 @@
+{sub header}
+<div style="padding:5px 10px;line-height:20px;">为了保障您买号以及任务发布方账号安全，联盟系统建议每个买号每日最多接手6个任务，每周最多接手35个任务，超过限额的任务只能获得一半的任务发布点与奖励积分哦，请您尽量替换使用绑定的买号！</div>
+<table class="tbl" border="0" cellspacing="0" cellpadding="4">
+	<tr>
+		<td width="100" align="right" class="f_b">用户名：</td>
+		<td>$task[busername]<span class="f_b_red">　　{if $task[isReal]} {if $task[realname] == 1}本任务需要支付宝实名认证买号{else}本任务需要淘宝掌柜号才能绑定{/if}{/if}
+		{if $task[isFame]} 本任务需要买号信誉小于$task[fameLvl]{/if}</span></td>
+	</tr>
+	<tr>
+		<td align="right" class="f_b">任务编号：</td>
+		<td>$task[id] <span class="f_red"></span></td>
+	</tr>
+	<tr>
+		<td align="right" valign="top" class="f_b">已添加的买号：</td>
+		<td valign="top" >
+			{loop $buyerList $v}
+			<div style="line-height:16px; padding:3px 0px;">
+				<input name="bid" type="radio" value="$v[id]"{if $v[disabled]} disabled="disabled"{/if} />
+				$v[nickname]　信誉:<strong>$v[score]</strong>,
+				日:<strong>$v[todayTask]</strong>,
+				周:<strong>$v[tswkTask]</strong>,
+				状态:<strong>$bStatus[$v[status]]</strong> <span class="f_b_org">{if $v[isreal] > 0}{if $v[hasShop]}掌柜{else}实名{/if}{/if}</span> <img src="{$weburl2}images/ico/tip2.gif" title="已设置地址：" onclick="alert(this.title)" class="cursor f_b" title="$v[express]" /> <span class="f_b_green">{if $v[level]}$v[level]星{/if}</span></div>
+			{/loop}
+			</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><input name="btnSubmit" type="submit" class="btn_2" id="btnSubmit" value="确定" />
+			<input name="btnCancel" type="button" class="btn_2" onclick="parent.doCut();" id="btnCancel" value="取消" /></td>
+	</tr>
+</table>
+<script type="text/javascript">
+function checkForm() {	
+	if ($('[name=bid]').checked()) return true;
+	else {
+		alert('请选择要绑定的买号');
+		return false;
+	}
+
+}
+</script>
+{sub footer}

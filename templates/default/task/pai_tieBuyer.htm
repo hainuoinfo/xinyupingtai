@@ -1,5 +1,5 @@
 {teval
-	$cssList = array(css::getUrl('task', 'task'));
+	<!--$cssList = array(css::getUrl('task', 'task'));-->
 	$jsList  = array(javascript::getUrl('task', 'index'));
 	echo string::getStaticCode(array('cssList'=>$cssList, 'jsList' => $jsList));
 }
@@ -9,7 +9,7 @@ var webqq = 239087160;
 var webnoticeurl = "";
 var webnoticetit = "";
 </script>
-<link rel="stylesheet" type="text/css" href="/images/task.css">
+<!--<link rel="stylesheet" type="text/css" href="/images/task.css">-->
 
 <style type="text/css">
 .kd a:hover { text-decoration:underline;}
@@ -19,13 +19,14 @@ var webnoticetit = "";
 .bq_menu{
 	height:32px;
 	background:url(/images/fy_ico.jpg) 0 -1342px repeat;
+	padding-left: 20px;
 	}
 .bq_menu a{
 	float:left;
 	margin-right:3px;
 	background:url(/images/fy_ico.jpg)  -4px -806px no-repeat;
 	display:block;
-	font-size:14px;
+	font-size:12px;
 	text-align:center;
 	width:96px;
 	height:32px;
@@ -105,8 +106,8 @@ function checkForm3() {
 </script>
 		{sub tab}
 	<div class="cle"></div>
-		<div class="lst_info" style="background:none;">
-		  {if $_showmessage}<div class='error_panel'><div>$_showmessage</div></div>{/if}
+		<div class="lst_info" style="background:white;">
+		  {if $_showmessage}<div class='true_panel'><div>$_showmessage</div></div>{/if}
 	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
 	<div class="mh_tishi">
 				1、该页面主要用来绑定和维护用来接任务，购买任务商品的淘宝买号；  <a href="/bbs/t24/" class="chengse">什么是买号？</a><br>
@@ -199,19 +200,19 @@ function checkForm3() {
 		            </tbody>
 			        </table></td>
 		        </tr>
-			    <tr>
+			    <tr style="display: none;">
 			      <td align="left" valign="middle"><input class="mh_xg" type="submit" /></td>
 		        </tr>
 		      </tbody>
 		    </table>
 		  </form>
-            <div class="rwdt_dlm">
+            <div class="rwdt_dlm" style="display: none;">
 			  <div id="page">
 				
 				
 				<a href="{rewrite}/task/pai/?m=tieBuyer&amp;status=0&amp;page=$multipage" class="nov">1</a>
 				
-				<p class="pr">总：共1页 当前第<span class="hong">1 </span>页</p>
+				<p class="pr" >总：共1页 当前第<span class="hong">1 </span>页</p>
 				
 			  </div>
 			</div>
@@ -300,7 +301,7 @@ function checkForm() {
 <script type="text/javascript">
 var webnoticeurl = "";
 var webnoticetit = "";
-var quick_qq = '<a target="_blank" href="http://wp.qq.com/wpa/qunwpa?idkey=0fa4d251b350d03b020586387709ac11b8f101a2b60eaf80b4d6a93cb9fbe8fc"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="大麦户网商平台30群" title="大麦户网商平台30群"></a>';
+var quick_qq = '<a target="_blank" href="http://wp.qq.com/wpa/qunwpa?idkey=0fa4d251b350d03b020586387709ac11b8f101a2b60eaf80b4d6a93cb9fbe8fc"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="花兔兔网商平台30群" title="花兔兔网商平台30群"></a>';
 $('.web_qq').hover(function(){
     $('.quick_qq').show();
 });

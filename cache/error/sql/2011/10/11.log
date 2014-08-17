@@ -1,6 +1,0 @@
-2011-10-11 22:37:38
-SQL:
-update bf_payfor_interface set `name`='网银在线',`ename`='chinabank',`type`='后台手动充值',`username`='',`userid`='21557434',`userpwd`='cn12315119',`status`='1',`time`='1318343858' where id='id='1''
-message:
-You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1''' at line 1
-

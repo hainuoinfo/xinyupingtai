@@ -1,0 +1,43 @@
+{teval
+$title       = ' - {webName} - 中国最好的免费刷信誉,互刷信誉平台';
+$keywords    = '刷信誉,刷信用,互刷信誉平台,刷收藏,刷流量,{webName2}';
+$description = '刷信誉安全吗？{webName}不仅给淘宝卖家提供安全刷信誉的经验、教材和指导，还提供一个安全可靠的专业互刷信誉平台，同时还有淘宝刷收藏、刷流量等增值服务';
+$title       = common::replaceVars($title);
+$keywords    = common::replaceVars($keywords);
+$description = common::replaceVars($description);
+$cssList     = array(css::getUrl('article', 'info'));
+echo string::getStaticCode(array('title'=>$title,'keywords'=>$keywords,'description'=>$description,'cssList'=>$cssList));
+}
+{eval
+$title = $a_title.$title;
+}
+
+<link href="/images/main.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+#aboutbg .ab_kd {height:3450px;}
+</style>
+
+  <div id="aboutbg">
+    <div class="ab_kd">
+        <div class="ab_top">
+          <a href="{rewrite}/info/aboutus.html" class="ab_btn1">&nbsp;</a>
+          <a href="{rewrite}/" class="ab_btn2"></a>
+          <a href="{rewrite}/help/" class="ab_btn3"></a>			
+        </div>
+        <ul class="ab_menu">
+         {loop $list $v}
+          <li>
+          <a style=" text-decoration:none; text-align:left;" href="{rewrite}/$action/{echo $v[ename]?$v[ename]:$v[id]}.html" {if $id==$v[id]} class="nov" {/if}>$v[title]</a>
+          </li>
+          {/loop}
+        </ul>
+        <div class="ab_text">
+        <h4 class="ab_tit" style="text-align:left;">$v[title]</h4>
+            <div style="text-align:left;">$content</div>
+        </div>
+    </div>
+  </div>
+	  
+<div class="cle"></div>
+{sub ../footer2}

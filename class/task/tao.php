@@ -808,40 +808,42 @@ class task_tao{
 	}
 	return $i;
 	}
-	public static function in($id, $uid){
+	public static function in($id, $uid,$bid=0){
 		global $timestamp, $ipint, $ipint2, $today_start, $today_end, $sys_debug, $isVip, $is_v_num;
 		if ($task = self :: get($id)){
 		if ($task['suid'] != $uid){
 		     if ($task['status'] == 1){
 		         $memberFields = member_base :: getMemberFields($uid);
 		         $members = member_base :: getMember($uid);
-		         if ($sys_debug){
+		         $buyer = task_buyer::getBuyer($bid, $uid);
+		         //if ($sys_debug){//全局启用严格模式
 		             // 验证手机激活
 		            // if(!$members['status'])
 		            // return'2';
 		            if (db :: exists('blacks', array('fuid' => $task['suid'], 'tuid' => $uid, 'status' => 0)))
 		                 return '对不起，该用户已经把您列入黑名单，您不能接手他的任务';
 		             // 强制限制同一买号同一IP一天只能接同一掌柜一次
-		            $inCount = db :: data_count('task', "sid='$task[sid]' and buid='$uid' and (btimestamp>=$today_start and btimestamp<=$today_end) and bip='$ipint2'");
+		            $inCount = db :: data_count('task', "sid='$task[sid]' and buid='$uid ' and bid='$bid' and (btimestamp>=$today_start and btimestamp<=$today_end) and bip='$ipint2'");
 		             if ($inCount > 0)
-		                 return '对不起，同一买号，同一IP一天只能接手同一掌柜一次任务，请更换IP并清空COOKIE！';
-		             if ($task['svip']){
-		                 $inCount = db :: data_count('task', "sid='$task[sid]' and buid='$uid' and bip='$ipint2'");
+		                 return '对不起，同一买号，同一IP，一天只能接手同一掌柜一次任务，请更换IP并清空COOKIE！';
+		             //if ($task['svip']){
+		         	 if ($sys_debug|| $task['svip']){//启用严格模式
+		                 $inCount = db :: data_count('task', "sid='$task[sid]' and buid='$uid'and bid='$bid'  and bip='$ipint2'");
 		                 if ($inCount > 0)
 		                     return '对不起，同一IP只能接手同一掌柜一次任务，请更换IP并清空COOKIE！';
 		                 }
 		             $t1 = $today_start - 13 * 86400;
 		             $t2 = $today_end;
-		             $inCount = db :: data_count('task', "sid='$task[sid]' and buid='$uid' and (btimestamp>=$t1 and btimestamp<=$t2)");
+		             $inCount = db :: data_count('task', "sid='$task[sid]' and buid='$uid' and bid='$bid'  and (btimestamp>=$t1 and btimestamp<=$t2)");
 		             if ($inCount > 0)
 		                 return '对不起，同一买号，14天之内只能接手同一卖家一次任务';
 		            
-		             $inCount = db :: data_count('task', "bip='$ipint2'");
-		             if ($inCount > 0) return '对不起，同一IP只能接手一次任务，请换IP并清空缓存';
+		             //$inCount = db :: data_count('task', "bip='$ipint2'");
+		             //if ($inCount > 0) return '对不起，同一IP只能接手一次任务，请换IP并清空缓存';
 		             // THE END
 		            if ($task['isLimit']){
 		                 // 限制同一天内接手人不允许重复接手相同掌柜的任务
-		                $inCount = db :: data_count('task', "sid='$task[sid]' and buid='$uid' and (btimestamp>=$today_start and btimestamp<=$today_end)");
+		                $inCount = db :: data_count('task', "sid='$task[sid]' and buid='$uid' and bid='$bid'  and (btimestamp>=$today_start and btimestamp<=$today_end)");
 		                 if ($inCount + 1 > $task['limit'])
 		                     return '对不起，卖家限制了每天接同一掌柜的数量，你今天已经超过啦！';
 		                 }
@@ -852,13 +854,13 @@ class task_tao{
 		                 }
 		             if ($task['isCredit']){
 		                 // 限制接手人信用值
-		                if ($memberFields['credit'] < $task['creditLvl'])
-		                     return '对不起，您的信誉不足以接该任务';
+		                if ($buyer['score'] < $task['creditLvl'])
+		                     return '对方要求买号信誉要大于'.$task['creditLvl'].'，你的信誉是'.$buyer['score'].',对不起，您的信誉不足以接该任务';
 		                 }
 		             if ($task['isGood']){
 		                 // 限制刷客满意度
 		                if (($memberFields['bgrade'] > 0 && ($memberFields['bgrade1'] / $memberFields['bgrade']) * 100 < $task['goodLvl']) || $memberFields['bgrade'] <= 0)
-		                     return '对不起，刷客满意度不足以接该任务';
+		                     return $memberFields['bgrade'].'满意度'.($memberFields['bgrade1'] / $memberFields['bgrade']) * 100 < $task['goodLvl'].'对不起，刷客满意度不足以接该任务';
 		                 }
 		             if ($task['isBlack']){
 		                 // 限制被拉黑次数
@@ -870,21 +872,21 @@ class task_tao{
 		                if ($memberFields['black2'] >= $task['blackLvl'])
 		                     return '11';
 		                 }
-		             }
-		         // 限制地区。。。
-		        if($task['isLimitCity']){
-			        $ak = '8zVCsYVy8yq41GN8g6vWyBeW';
-					 $ip = common :: intip();
-					 if($ip == '127.0.0.1')
-					 $ip = '114.80.166.240';
-					 $url = 'http://api.map.baidu.com/location/ip?ak=' . $ak . '&ip=' . $ip . '&coor=bd09ll';
-					 $result = file_get_contents($url);
-					 $result=json_decode($result) -> content -> address_detail -> province;
-		             $prov = unserialize($task['Province']);
-		             if(!in_array($result, $prov)){
-		                 return '对不起，您所在的地区不再发布方指定的地区' . implode(',', $prov) . '内！';
-		                 }
-		        }
+		             //}
+			         // 限制地区。。。
+			        if($task['isLimitCity']){
+				        $ak = '8zVCsYVy8yq41GN8g6vWyBeW';
+						 $ip = common :: intip();
+						 //if($ip == '127.0.0.1')
+						 //$ip = '114.80.166.240';
+						 $url = 'http://api.map.baidu.com/location/ip?ak=' . $ak . '&ip=' . $ip . '&coor=bd09ll';
+						 $result = file_get_contents($url);
+						 $result=json_decode($result) -> content -> address_detail -> province;
+			             $prov = unserialize($task['Province']);
+			             if(!in_array($result, $prov)){
+			                 return '对不起，您所在的地区不再发布方指定的地区' . implode(',', $prov) . '内！';
+			                 }
+			        }
 		         if ($task['isEnsure']){
 		             // 对不起，该任务需要商保用户才能接手
 		            if (!$memberFields['isEnsure']) 
@@ -892,13 +894,14 @@ class task_tao{
 		             // 对不起，您的商保担保金小于该任务金额，不能接手
 		            if ($memberFields['ensureMoney'] < $task['price'])
 		                 return '3';
-		             }
+		         }
 		         if ($task['isReal']){
 		             // 对不起，实名认证用户才能接手
 		            $realCount = db :: data_count('buyers', "uid='$uid' and isreal='1'");
 		             if (!$realCount)
 		                 return '5';
-		             }
+		         }
+		         
 		         if (db :: update('task', array(
 		                    'buid' => $uid,
 		                     'busername' => member_base :: getUsername($uid),
@@ -907,11 +910,12 @@ class task_tao{
 		                         'status' => 2,
 		                         'isVisit' => 0,
 		                         'isSendMsg' => 0
-		                        ), "id='$id'")){
-		             db :: update('membertask', 'in1=in1+1,ining1=ining1+1', "uid='$uid'");
-		             db :: update('membertask', 'outWaiting1=outWaiting1-1,outing1=outing1+1', "uid='$task[suid]'");
-		             member_base :: sendSms($task['suid'], '您的任务“' . $task['id'] . '”被' . member_base :: getUsername($uid) . '接手了', 'out_take');
-		             }
+		                        ), "id='$id'"))
+		            {
+		            	 db :: update('membertask', 'in1=in1+1,ining1=ining1+1', "uid='$uid'");
+		             	db :: update('membertask', 'outWaiting1=outWaiting1-1,outing1=outing1+1', "uid='$task[suid]'");
+		             	member_base :: sendSms($task['suid'], '您的任务“' . $task['id'] . '”被' . member_base :: getUsername($uid) . '接手了', 'out_take');
+		            }
 		         return '0';
 		         }
 		     return '哦，不好意思！您稍微慢了点这个任务已经被其他用户抢去了。<br />别放弃，加油再试试吧！！ <br />或者现在就去【点卡中心】购买“任务定制卡”立刻享用最新的“优先预定任务服务”吧！';

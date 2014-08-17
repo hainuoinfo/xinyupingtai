@@ -1,0 +1,250 @@
+{teval
+	$cssList     = array(css::getUrl('bbs', 'bbs'));
+	echo string::getStaticCode(array('cssList'=>$cssList));
+}
+{sub ../header}
+<STYLE type=text/css>.kd A:hover {
+	TEXT-DECORATION: underline
+}
+.luntan_btn {
+	BORDER-BOTTOM-STYLE: none; LINE-HEIGHT: 99px; BORDER-RIGHT-STYLE: none; TEXT-INDENT: 99px; BORDER-TOP-STYLE: none; BORDER-LEFT-STYLE: none; OVERFLOW: hidden
+}
+.ltlook_a A {
+	COLOR: #3372a2
+}
+.ltlook_a A:hover {
+	COLOR: #ff5500; TEXT-DECORATION: underline
+}
+.ltlook_do {
+	TEXT-ALIGN: right; LINE-HEIGHT: 50px; PADDING-RIGHT: 30px; HEIGHT: 50px; COLOR: #cccccc
+}
+.luntan_topic {
+	BORDER-BOTTOM: #e5e5e5 2px solid; POSITION: relative; BORDER-LEFT: #e5e5e5 2px solid; MARGIN-BOTTOM: 10px; HEIGHT: 361px; BORDER-TOP: #e5e5e5 2px solid; BORDER-RIGHT: #e5e5e5 2px solid
+}
+.luntan_cont {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 40px; PADDING-RIGHT: 0px; PADDING-TOP: 25px
+}
+.luntan_cont TABLE TR TD {
+	PADDING-BOTTOM: 7px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 7px
+}
+.lun_postl {
+	TEXT-ALIGN: right; WIDTH: 100px; FONT-FAMILY: 微软雅黑,​雅黑,​verdana,​arial,​宋体; COLOR: #a29f9f; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.luntan_cont TEXTAREA {
+	BORDER-BOTTOM: #c5c5c5 1px solid; BORDER-LEFT: #c5c5c5 1px solid; PADDING-BOTTOM: 3px; LINE-HEIGHT: 1.5; OVERFLOW-X: hidden; PADDING-LEFT: 3px; WIDTH: 570px; PADDING-RIGHT: 3px; HEIGHT: 100px; FONT-SIZE: 14px; BORDER-TOP: #c5c5c5 1px solid; BORDER-RIGHT: #c5c5c5 1px solid; PADDING-TOP: 3px
+}
+.qq_td {
+	BORDER-BOTTOM: #f0f0ee 1px solid; BORDER-LEFT: #f0f0ee 1px solid; PADDING-BOTTOM: 1px; MARGIN: 0px; PADDING-LEFT: 1px; PADDING-RIGHT: 1px; BORDER-TOP: #f0f0ee 1px solid; CURSOR: pointer; BORDER-RIGHT: #f0f0ee 1px solid; PADDING-TOP: 1px
+}
+.tb_face {
+	POSITION: absolute; WIDTH: 308px; BACKGROUND: #fff; HEIGHT: 196px; TOP: 142px; LEFT: 168px
+}
+.qq_span {
+	BACKGROUND-IMAGE: url(/images/qqface.gif); WIDTH: 24px; DISPLAY: block; BACKGROUND-REPEAT: no-repeat; HEIGHT: 24px; OVERFLOW: hidden
+}
+.lunreplay {
+	BORDER-BOTTOM-STYLE: none; LINE-HEIGHT: 99px; BORDER-RIGHT-STYLE: none; TEXT-INDENT: 999px; WIDTH: 128px; DISPLAY: block; BORDER-TOP-STYLE: none; BACKGROUND: url(/images/lunreplay.jpg) no-repeat; HEIGHT: 37px; BORDER-LEFT-STYLE: none; OVERFLOW: hidden; CURSOR: pointer
+}
+.luntan_hf {
+	LINE-HEIGHT: 99px; OVERFLOW: hidden
+}
+</STYLE>
+<div id="content">
+  <DIV class=lt_left>
+        <P style="FLOAT: none" class=lthd_wz>当前位置：
+		<A class=comlink href="{rewrite}/">首页</A> &gt; 
+		<A class=comlink href="{rewrite}/bbs/">有问必答</A> &gt; 
+		<A class=comlink href="{rewrite}/bbs/$forum[ename]/">$forum[name]</A> &gt; 
+		<SPAN title=$thread[title]>$thread[title]</SPAN></P>
+        <DIV id=defalutpost>
+      <DIV class=luntan_top>
+       <FORM method=get name=bbs-search action=/bbs/search.php>
+          <TABLE style="FLOAT: right" border=0 cellSpacing=0 cellPadding=0 width=365 height=37>
+                <TBODY>
+              <TR>
+                    <TD align=right><INPUT class=luntan_inp name=keyword></TD>
+                    <TD width=50><INPUT class=luntan_btn value="" type=submit></TD>
+                  </TR>
+            </TBODY>
+              </TABLE>
+        </FORM>
+            <A style="FLOAT: left" class=luntan_ft href="{rewrite}/bbs/post.php?fid=$thread[fid]"></A>
+			<A style="FLOAT: left" class=luntan_hf href="javascript:void(0);">回复</A> 
+		</DIV>
+      <DIV class=ltlook_tit>
+	  <SPAN class=ltlook_ico2></SPAN>
+	  <SPAN class=ltlook_ico1></SPAN>[$forum[name]]
+            <H1 style="DISPLAY: inline; FONT-SIZE: 16px" title=$thread[title]>$thread[title]</H1>
+            <SPAN class=ltlook_sz>$thread[posts]/ $thread[clicks]</SPAN>
+		</DIV>
+		{loop $postList $k $post}
+      <DIV class=luntan_bk>
+        <DIV class=ltlook_user>
+		<A href="{rewrite}/member/info.php?username={url $post[username]}" target=_blank>
+		<IMG alt='$post[username]' src='$post[avatar]' width=50 height=50></A>
+          <P><STRONG>
+		  <A class=ltlook_name href="{rewrite}/member/info.php?username={url $post[username]}" target=_blank>$post[username]</A></STRONG></P>
+          <P class=ltlook_dj>会员等级：<SPAN class=hongse>平台教官</SPAN></SPAN></P>
+          <P class=ltlook_lc>{++ $k}楼</P>
+          <P class=ltlook_sj>{date $post[timestamp]}</P>
+        </DIV>
+        <DIV class="ltlook_text ltlook_a">
+          <DIV class=bbs-lc-C>
+{if $post[first]}
+<h1>$thread[title]</h1>
+$post[message]
+{else}
+{if $post[title]}
+<h2>$post[title]</h2>
+{/if}
+$post[message]
+{/if} 
+
+		  </DIV>
+          <P>&nbsp;</P>
+        </DIV>
+            <DIV class="ltlook_do ltlook_a">　
+			<A href="javascript:void(0);">回复</A></DIV>
+          </DIV>
+		{/loop}
+
+      <DIV style="MARGIN: 25px 0px 30px" id=page>
+	  $multipage
+	  </DIV>
+      <DIV class=cle></DIV>
+      <DIV style="MARGIN-TOP: 10px" class=luntan_topic>
+            <TABLE style="DISPLAY: none" id=tb_face class=tb_face cellSpacing=2 cellPadding=0>
+          <TBODY>
+              </TBODY>
+        </TABLE>
+            <FORM id=myForm onsubmit="return checkForm();" method=post name=myForm action="{rewrite}/bbs/reply.php?tid=$tid&pid=$post[id]">
+          $sys_hash_code2
+          <INPUT value=1 type=hidden name=isQuick>
+          <DIV class=luntan_cont>
+                <TABLE style="Z-INDEX: 1" border=0 cellSpacing=0 cellPadding=0 width="100%">
+              <TBODY>
+                    <TR>
+                  <TD class=lun_postl vAlign=top>快速回复：</TD>
+                  <TD><TEXTAREA id=message name=message></TEXTAREA>
+                        <P style="MARGIN-TOP: 3px; HEIGHT: 26px">
+						<A onclick=show_fase(); href="javascript:;"><IMG src="/images/bbs_face.jpg" width=26 
+      height=26></A></P>
+	  </TD>
+                </TR>
+                    <TR>
+                  <TD class=lun_postl vAlign=top>图片：</TD>
+                  <TD><INPUT style="WIDTH: 375px" id=ImageUrl value=http:// name=ImageUrl>
+                      </TD>
+                </TR>
+                <TR>
+                  <TD class=lun_postl vAlign=top>验证码：</TD>
+                  <TD><INPUT style="WIDTH: 70px" id=vcode name=vcode>
+                        <SPAN><img id="imgCode" src="{$weburl2}images/vcode2.php" style="cursor:pointer" onclick="$(this).attr({src:'{$weburl2}images/vcode2.php?'+Math.random()});" alt="点击刷新校验码" align="absmiddle" /></SPAN></SPAN></TD>
+                </TR>
+                    <TR>
+                  <TD class=lun_postl>&nbsp;</TD>
+                  <TD>
+				  <INPUT id="btnSubmit" class="lunreplay" value="" type="submit" name="btnSubmit">
+                      </TD>
+                </TR>
+                  </TBODY>
+            </TABLE>
+              </DIV>
+        </FORM>
+          </DIV>
+    </DIV>
+      </DIV>
+  {subtemplate right} </div>
+    </div>
+    <div class="cle"></div>
+<SCRIPT type=text/javascript src="/images/service.js"></SCRIPT>
+<SCRIPT type=text/javascript src="/images/task.js"></SCRIPT>
+<SCRIPT type=text/javascript>
+    $("a:contains('回复')").click(function(){
+	$("#btnSubmit").focus();
+	}); 
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+	function checkForm() {
+		var s = getValue("message");
+		var sof = s.indexOf("[emot=qq,");
+		var sreplace = s.replace(/\[emot=qq,\d+\/\]/ig, "");
+		var txtCheckCode=$('#vcode').val().trim().length;
+		if (sreplace.trim().length<5) {
+			alert("回复不允许纯表情，且必须至少5个字符");
+			return false;		
+		}
+		if (txtCheckCode!=4) {
+		alert('验证码不正确');
+		$('#vcode').focus();
+		return false;
+		}
+		return avoidReSubmit();
+	}
+	function setCaret(textObj) {
+		if(textObj.createTextRange)
+			textObj.caretPos = document.selection.createRange().duplicate();
+    } 
+	function insertFace(i) {
+		i = "[emot=qq," + i + "/]";
+		var obj = getObj("message");
+		if (document.all){
+				var caretPos = obj.caretPos;
+			if (obj.createTextRange && caretPos)
+				caretPos.text = caretPos.text.charAt(caretPos.text.length-1)==''?i+'':i;
+			else
+				obj.value = obj.value + i;
+		} else {
+			if(obj.setSelectionRange){   
+				var rangeStart = obj.selectionStart;   
+				var rangeEnd = obj.selectionEnd;   
+				var tempStr1 = obj.value.substring(0,rangeStart);   
+				var tempStr2 = obj.value.substring(rangeEnd);   
+				obj.value = tempStr1 + i + tempStr2;   
+			} else
+				alert("对不起，您的浏览器不支持插入表情");   
+		}
+	}
+	function show_fase(){
+		var face_dis=$('#tb_face').css("display");
+		if(face_dis=='none'){
+		$('#tb_face').css({"display":"block"});
+		}else{
+		$('#tb_face').css({"display":"none"});
+		}
+	}
+
+	$(document).ready(function(){
+			var table = getObj("tb_face");
+			var num = 0;
+			for (var i = 0; i < 7; i++) {
+				var row = table.insertRow(i);
+				for (var j = 0; j < 11; j++) {
+					var cell = row.insertCell(j);
+					cell.className = 'qq_td';
+					cell.onmouseover = function() { this.style.borderColor = '#000000'; }
+					cell.onmouseout = function() { this.style.borderColor = '#F0F0EE'; }
+					cell.onclick = new Function('insertFace(' + num + ')');
+					var span = document.createElement('span');
+					span.className = 'qq_span';
+					span.style.backgroundPosition = '-' + (24 * num) + 'px 0px';
+					cell.appendChild(span);
+					num++;
+				}
+			}
+			
+	});
+$(window).load(function() {   
+    $("#defalutpost img").each( function() {
+  var maxwidth = 670;
+  if ($(this).width() > maxwidth) {
+   $(this).width(maxwidth);
+  }
+});  
+});
+$('.web_qq').hover(function(){
+    $('.quick_qq').show();
+});
+</SCRIPT>
+    {sub ../footer}

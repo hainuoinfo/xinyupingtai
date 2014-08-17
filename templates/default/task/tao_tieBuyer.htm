@@ -1,10 +1,10 @@
 {teval
-	$cssList = array(css::getUrl('task', 'task'));
+	<!--$cssList = array(css::getUrl('task', 'task'));-->
 	$jsList  = array(javascript::getUrl('task', 'index'));
 	echo string::getStaticCode(array('cssList'=>$cssList, 'jsList' => $jsList));
 }
 {sub ../headerBase}
-<link rel="stylesheet" type="text/css" href="/images/task.css">
+<!--<link rel="stylesheet" type="text/css" href="/images/task.css">-->
 <style type="text/css">
 .kd a:hover { text-decoration:underline;}
 .link_tt{ display:block; width:52px; height:22px;color:#a68d8b; background:url(/images/buyers_btn.png) no-repeat; margin-bottom:2px;}
@@ -13,13 +13,14 @@
 .bq_menu{
 	height:32px;
 	background:url(/images/fy_ico.jpg) 0 -1342px repeat;
+	padding-left: 20px;
 	}
 .bq_menu a{
 	float:left;
 	margin-right:3px;
 	background:url(/images/fy_ico.jpg)  -4px -806px no-repeat;
 	display:block;
-	font-size:14px;
+	font-size:12px;
 	text-align:center;
 	width:96px;
 	height:32px;
@@ -73,8 +74,8 @@
 
 		{sub tab}
 	<div class="cle"></div>
-		<div class="lst_info" style="background:none;">
-		  {if $_showmessage}<div class='error_panel'><div>$_showmessage</div></div>{/if}
+		<div class="lst_info" style="">
+		  {if $_showmessage}<div class='true_panel'><div>$_showmessage</div></div>{/if}
 	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
 	<div class="mh_tishi">
 				1、该页面主要用来绑定和维护用来接任务，购买任务商品的淘宝买号；  <a href="/bbs/t24/" class="chengse">什么是买号？</a><br>
@@ -106,7 +107,7 @@
               </tr>
               <tr>
                 <td align="left" height="60" valign="middle">    
-				<input class="mh_bdbtn" name="btnSave" type="submit"></td>
+				<input class="mh_bdbtn" name="btnSave" type="submit" style="width:140px;"></td>
               </tr>
 			  
               <tr>
@@ -173,7 +174,7 @@
 				 
 				</tbody></table></td>
               </tr>
-              <tr>
+              <tr style="display: none;">
                 <td align="left" valign="middle"><input class="mh_xg" type="submit"></td>
               </tr>
             </tbody></table>

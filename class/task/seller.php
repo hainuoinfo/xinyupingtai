@@ -82,7 +82,7 @@ class task_seller{
 		global $timestamp;
 		if ($Seller = self::getSeller($id, $uid)) {
 			if ($buyer['tasking'] == 0) {
-				db::delete('Sellers', "id='$id' and uid='$uid'");
+				db::update('Sellers','type=0', "id='$id' and uid='$uid'");
 				return true;
 			}
 			return '该掌柜目前还有任务没有完成，请完成后再删除';

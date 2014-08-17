@@ -1,5 +1,5 @@
 <?php
-//loadLib($libP . 'taobaoBase');
+loadLib($libP . 'taobaoBase');
 loadLib('Dom');//引入Dom 采集工具类   方法在class下的index.php中定义
 class data_taobaoUser //extends data_taobaoBase
 {
@@ -57,7 +57,7 @@ class data_taobaoUser //extends data_taobaoBase
     public static function getUser($nick)//因为淘宝的api收费故而直接通过黑兔兔来获取
     {
         //return self::getApiUser($nick);
-        $dom=file_get_html('http://tertw.net:81/getMember/username/'.urlencode($nick).".html");
+        $dom=file_get_html('http://www.heitutu.com/getMember/username/'.urlencode($nick).".html");
         $isreal=$dom->find('div.r-c',0)->find('ul li',0)->find('font',0)->plaintext;
         $isreal=trim($isreal);
         if($isreal=='支付宝认证')
@@ -89,13 +89,13 @@ class data_taobaoUser //extends data_taobaoBase
     }
 	public static function nickname($nick)
     {
-	    $dom=file_get_html('http://tertw.net:81/getMember/username/'.urlencode($nick).".html");
+	    $dom=file_get_html('http://www.heitutu.com/getMember/username/'.urlencode($nick).".html");
         return trim($dom->find('ul.u',1)->find('li',1)->find('span',0)->find('b',0)->plaintext);
     }
 	public static function realname($nick)
     {
         $u=$nick;
-        $dom=file_get_html('http://tertw.net:81/getMember/username/'.urlencode($nick).".html");
+        $dom=file_get_html('http://www.heitutu.com/getMember/username/'.urlencode($nick).".html");
         $renzheng=trim($dom->find('.r-c ul',0)->find('li',0)->find('font',0)->plaintext);
 		if($renzheng=='支付宝认证'){
 		    return 1;
@@ -113,7 +113,7 @@ class data_taobaoUser //extends data_taobaoBase
 	    $agent = $_SERVER['HTTP_USER_AGENT']; 
 	    if(!strpos($agent,"MSIE") && !strpos($agent,"Chrome")) 
 	      $u = iconv("utf-8","gbk",$u);
-        $dom=file_get_html('http://tertw.net:81/getMember/username/'.urlencode($nick).".html");
+        $dom=file_get_html('http://www.heitutu.com/getMember/username/'.urlencode($nick).".html");
         return trim($dom->find('ul.u',0)->find('li',1)->find('span',0)->find('b',0)->plaintext);
     }
 }

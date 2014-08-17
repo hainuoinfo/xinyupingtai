@@ -1,4 +1,4 @@
-@import url(../css/bbs/layout.css);
+/*@import url(../css/bbs/layout.css);*/
 img {border:0;}
 h1,h2,h3,h4,h5,h6 {margin:0px; padding:0px; font-size:1em;}
 
@@ -56,7 +56,12 @@ li.tab_ya strong{background-position:left -490px; color:#FFF;}
 .publish{padding:10px 0px; text-align:center; }
 .pub_tip5 {margin:10px 0; clear:both; line-height:18px; min-height:24px; color:#555; border:1px dashed #CCCCCC; padding:10px 50px 10px 60px; background:#FFC url(ico_info.gif) 15px 8px no-repeat;}
 
-.msg_panel 		{clear:both; border:1px dashed #CCCCCC; margin:5px 0px 5px 0px; background:#FFFFCC url(ico_info.gif) no-repeat 10px 5px;}
+.msg_panel {clear:both; border:1px dashed #CCCCCC; margin:5px 0px 5px 0px; background:#FFFFCC url(ico_info.gif) no-repeat 10px 5px;min-height:45px;}
+.msg_panel div{  font-size: 18px;
+    color: green;
+    font-weight: bold;
+    padding: 5px 55px;
+}
 
 .info2 {padding:15px 20px 15px 20px; border-top:1px solid #E8F2FC; border-bottom:1px solid #E8F2FC;}
 .wel {font-size:14px; line-height:30px;}
@@ -71,7 +76,7 @@ li.tab_ya strong{background-position:left -490px; color:#FFF;}
 .bar{line-height:30px; background:url(ico_1.gif) 20px center no-repeat; margin-top:10px; padding-left:40px; border-bottom:1px solid #A2C4E9; color:#FF6600; font-size:14px; font-weight:bold;}
 
 .tbl {}
-.p_l_20 {padding-left:20px;}
+/*.p_l_20 {padding-left:20px;}*/
 .tbl td {border-bottom:1px solid #E8F2FC; line-height:20px; vertical-align:top; clear:both;}
 .tbl tr:hover td{background-color:#F8F8F8}
 .tbl img {vertical-align:middle;}
@@ -162,16 +167,16 @@ li.tab_ya strong{background-position:left -490px; color:#FFF;}
 .pai_s_d {width:18px;background-position:0 -20px;}
 
 
-.accordion {    
-    padding: 4px;    
-    margin-left: auto;    
-    margin-bottom: 6px;    
+.accordion {
+    padding: 4px;
+    margin-left: auto;
+    margin-bottom: 6px;
     /*border:solid 1px #6e8bde;*/
     /*background: #FFFFCC;    */
-    height: auto;    
-    width: auto;    
-}    
-   
+    height: auto;
+    width: auto;
+}
+
 .accordion h3 {
 	font-weight:bold;
 	padding-left: 16px;
@@ -179,8 +184,8 @@ li.tab_ya strong{background-position:left -490px; color:#FFF;}
 	background-image: url(plus.gif);
 	background-repeat: no-repeat;
 	background-position: 2px;
-}    
-   
+}
+
 .accordion h3.active {
 	font-size: 12px;
 	font-weight:bold;
@@ -189,12 +194,12 @@ li.tab_ya strong{background-position:left -490px; color:#FFF;}
 	background-image: url(minus.gif);
 	background-repeat: no-repeat;
 	background-position: 2px;
-}    
-   
-.accordion p {    
-    padding-left: 3px;    
-    padding-top: 2px;    
-    margin-left: 6px;    
-    margin-right: 6px;    
-    border: dashed  1px gray;    
+}
+
+.accordion p {
+    padding-left: 3px;
+    padding-top: 2px;
+    margin-left: 6px;
+    margin-right: 6px;
+    border: dashed  1px gray;
 }

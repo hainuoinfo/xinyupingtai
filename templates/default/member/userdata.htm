@@ -134,7 +134,7 @@ $sys_hash_code2
           <TD height="40" vAlign="middle" align="right">签收快递收货详细信息：</TD>
           <TD vAlign="middle" align="left">
 		  <INPUT onclick="if(this.value=='收件人姓名')this.value='';" name="name2" maxLength="8" value="收件人姓名" size="8" type="text"> 
-            <INPUT onclick="if(this.value=='收货地址')this.value='';" name="address" value="$member[address]" maxLength="150" value="收货地址" size="30" type="text"> 
+            <INPUT onclick="if(this.value=='收货地址')this.value='';" name="address" value="$member[address]" maxLength="150" size="30" type="text"> 
 			<INPUT onclick="if(this.value=='手机号码')this.value='';" name="tel2" maxLength="15" value="手机号码" size="15" type="text"> 
             <INPUT onclick="if(this.value=='邮编')this.value='';" name="code2" maxLength="8" value="邮编" size="8" type="text"></TD>
 		</TR>
@@ -149,11 +149,9 @@ $sys_hash_code2
           <TD></TD>
 		</TR>
         <TR>
-          <TD height="35">&nbsp;</TD>
-          <TD height="70" vAlign="middle" align="right">&nbsp;</TD>
-          <TD vAlign="middle" align="left">
-		  <INPUT class="xginfo_qr" value="提交查询内容" type="submit"></TD>
-          <TD></TD>
+          <TD vAlign="middle" align="left" colSpan=4>
+		  <INPUT class="xginfo_qr" value="提交查询内容" style="max-width:110px;margin:0px auto;" type="submit"></TD>
+
 		</TR>
 		</TBODY></TABLE></TD></TR></TBODY></TABLE>
 </FORM>
@@ -167,7 +165,7 @@ $sys_hash_code2
   <TBODY>
   <TR>
     <TD style="border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: solid;" 
-    height="30" vAlign="middle" width="89" align="right">安全操作码：</TD>
+    height="30" vAlign="middle" width="259" align="right">安全操作码：</TD>
     <TD style="color: rgb(135, 135, 135); border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: solid;">
 	<INPUT id="pwd3" class="aninput" name="pwd2" type="password"></TD>
    </TR>
@@ -181,9 +179,8 @@ $sys_hash_code2
     <TD><INPUT id="password2" class="aninput" name="password_" type="password"></TD>
   </TR>
   <TR>
-    <TD> </TD>
-    <TD><!--<input type="submit" class="xginfo_fs">-->
-	<INPUT class="xginfo_qr" value="提交查询内容" type="submit"></TD></TR></TBODY></TABLE>
+    <TD colSpan=2><!--<input type="submit" class="xginfo_fs">-->
+	<INPUT class="xginfo_qr" value="提交查询内容" style="max-width:110px;margin:0px auto;"  type="submit"></TD></TR></TBODY></TABLE>
 	</FORM>
 
 <!--安全码-->
@@ -195,7 +192,7 @@ $sys_hash_code2
   <TBODY>
   <TR>
     <TD style="border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: solid;" 
-    height="30" vAlign="middle" width="89" align="right">原安全操作码：</TD>
+    height="30" vAlign="middle" width="259" align="right">原安全操作码：</TD>
     <TD style="color: rgb(135, 135, 135); border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: solid;">
 	<INPUT id="pwd3" class="aninput" name="pwd2" type="password"></TD></TR>
   <TR>
@@ -209,25 +206,22 @@ $sys_hash_code2
   <TR>
     <TD height="30" vAlign="middle" colSpan="2" align="left">$errMsg</TD></TR>
   <TR>
-    <TD> </TD>
-    <TD><!--<input type="submit" class="xginfo_fs">-->
-	<INPUT class="xginfo_qr" value="提交查询内容" type="submit"></TD></TR></TBODY></TABLE>
+    <TD colSpan=2><!--<input type="submit" class="xginfo_fs">-->
+	<INPUT class="xginfo_qr" value="提交查询内容" style="max-width:110px;margin:0px auto;"  type="submit"></TD></TR></TBODY></TABLE>
 </FORM>
 <!--取回安全码-->
 {elseif $type=='GetPass'}
 <FORM method="post" name="myForm1" onsubmit="return checkForm4();">
 <input type="hidden" name="type" value="GetPass">
 $sys_hash_code2
-<TABLE border="0" cellSpacing="0" cellPadding="0" width="625">
+<TABLE border="0" cellSpacing="0" cellPadding="0" style="max-width:625px;">
   <TBODY>
   <TR>
-    <TD height="30" vAlign="middle" align="right">输入您的账号邮箱：</TD>
-    <TD><INPUT style="width: 200px;" id="email" class="aninput" name="email" type="text"></TD>
+    <TD height="30" style="max-width:500px;"  vAlign="middle" align="left">输入您的账号邮箱：<INPUT style="width: 200px;" id="email" class="aninput" name="email" type="text"></TD>
   </TR>
   <TR>
-    <TD> </TD>
-    <TD><!--<input type="submit" class="xginfo_fs">-->
-	<INPUT class="xginfo_qr" value="提交查询内容" type="submit"></TD>
+    <TD align="center" style="text-align: center;"><!--<input type="submit" class="xginfo_fs">-->
+	<INPUT class="xginfo_qr" value="提交查询内容" style="max-width:110px;margin:0px auto;" type="submit"></TD>
    </TR>
   </TBODY>
 </TABLE>
@@ -240,7 +234,7 @@ $sys_hash_code2
 <TABLE border="0" cellSpacing="0" cellPadding="0" width="625">
   <TBODY>
   <TR>
-    <TD height="30" vAlign="middle" width="89" align="right">选择问题：</TD>
+    <TD height="30" vAlign="middle" width="259" align="right">选择问题：</TD>
     <TD style="color: rgb(135, 135, 135);">
 	                            <select name='questionId' id='questionId' class='slt_normal'>
 									<option value='0'{if !$member[questionid]} selected='selected'{/if}>无安全问题</option>
@@ -256,9 +250,8 @@ $sys_hash_code2
     <TD height="30" vAlign="middle" align="right">安全操作码：</TD>
     <TD><INPUT id="pwd3" class="aninput" name="pwd2" type="password"></TD></TR>
   <TR>
-    <TD> </TD>
-    <TD><!--<input type="submit" class="xginfo_fs">-->
-	<INPUT class="xginfo_qr" value="提交查询内容" type="submit"></TD></TR></TBODY></TABLE>
+    <TD colSpan=2><!--<input type="submit" class="xginfo_fs">-->
+	<INPUT class="xginfo_qr" value="提交查询内容" style="max-width:110px;margin:0px auto;" type="submit"></TD></TR></TBODY></TABLE>
 	</FORM>
 {/if}
 
