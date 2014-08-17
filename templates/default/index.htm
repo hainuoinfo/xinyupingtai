@@ -20,7 +20,7 @@
             <a href="#"><img src="/img/att_16.png" class="sht-3"/></a>
             </div>
       </div>
-    	<div class="zck"><?php //登陆框开始
+    	<div class="zck row-fluid" onmouseover="$('#showQuestions').css('display','block');" onmouseout="$('#showQuestions').css('display','none');"><?php //登陆框开始
     	 ?>
 {if $memberLogined}
        	  <h2>一个<span>真实的</span>淘宝信誉平台期待为您服务</h2>
@@ -37,10 +37,25 @@
        	  <h2>立即注册花兔兔</h2>
             <form method="post" name="myForm" id="myForm" onsubmit="return checkForm();">
               <div style="display:none;"> $sys_hash_code2 </div>
-            <div class="form1"><input name="username" id="lusername" type="text" value="{echo isset($username) ? $username : (isset($cookie[loginUsername]) ? $cookie[loginUsername] : '')}" maxlength="16" class="yhm"/></div>
-          <div class="form2"><input type="password"  name="password" id="lpassword" maxlength="16" value="" class="mm"/></div>
-             <div class="form3"><input id="login_sub" type="submit" name="btnSubmit" value="登陆"  class="dlx"/></div>
-             <p>{if $indexMessage}<div style="color:#FF0000">$indexMessage</div>{else}<a href="{rewrite}/member/forgotpwd/">忘记密码？</a>{/if}</p>
+            <div class="form1"><i class="icon-user"></i><input name="username" id="lusername" type="text" value="{echo isset($username) ? $username : (isset($cookie[loginUsername]) ? $cookie[loginUsername] : '')}" maxlength="16" class="yhm"/></div>
+          	<div class="form2"><i class="icon-lock"></i><input type="password"  name="password" id="lpassword" maxlength="16" value="" class="mm"/></div>
+          	<div id="showQuestions" style="overflow: hidden;min-height:50px;display: none;">
+	          	<div class="form2" style="display: block">
+		            <i class="icon-question-sign"></i>
+		            <select name='questionId' id='questionId' class='select'>
+						<option value='0'{if !$member[questionid]} selected='selected'{/if}>无安全问题</option>
+						{loop $questions $k $v}
+						<option value="$k"{if $member[questionid]==$k} selected="selected"{/if}>$v</option>
+						{/loop}
+	                </select>
+	            </div>
+	          	<div class="form2" style="display: block">
+		            <i class="icon-circle-arrow-right"></i>
+		            <input name="answer" type="text" class="mm" id="answer" value="" maxlength="20" />
+	            </div>
+            </div>
+            <div class="form3 clearfix"><input id="login_sub" type="submit" name="btnSubmit" value="登陆"  class="dlx"/></div>
+            <p>{if $indexMessage}<div style="color:#FF0000">$indexMessage</div>{else}<a href="{rewrite}/member/forgotpwd/">忘记密码？</a>{/if}</p>
             </form>
 {/if}
    		</div>
