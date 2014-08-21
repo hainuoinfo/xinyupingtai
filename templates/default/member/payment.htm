@@ -17,7 +17,7 @@
 		{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
     <DIV class="tixian_text">
       <P class="f16">下一个提现处理时间：<SPAN class="lvse">12:00点 </SPAN></P>
-      <P>请在<SPAN class="lanse"><STRONG>0小时59分</STRONG></SPAN>内申请提现，您是{if $memberFields[shuake]==1}职业刷客{elseif $memberFields[vip]==1 || $memberFields[vip]==2 || $memberFields[vip]==3}{$vip}{else}{$credits}{/if} ，今日您还可以进行
+      <P>请在<SPAN class="lanse"><STRONG>0小时59分</STRONG></SPAN>内申请提现，您是{if $memberFields[shuake]==1}职业刷客{elseif $memberFields[vip]==1 || $memberFields[vip]==2 || $memberFields[vip]==3} $vip {else}$credits {/if} ，今日您还可以进行
 	  <SPAN class="hongse"><STRONG>$paymentCountMax </STRONG></SPAN>次提现，每日最大可提现额度为 ￥$paymentMoneyMax 元。今天已经使用 $paymentCount 次，还能提现￥<?php echo  $paymentMoneyMax-$paymentMoney;?>元。<A class="hongse" href="{rewrite}/member/vip/?type=add" target="_blank">立即申请
       <SPAN style="font-weight: bold;">VIP</SPAN></A>提高提现次数。</P>
       <P>提现客服 <IMG border="0" src="/images/button_old_170.gif"> 

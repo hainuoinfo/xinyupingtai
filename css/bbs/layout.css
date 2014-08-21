@@ -3500,7 +3500,7 @@ input.mh_bdbtn4 {
 	padding-top:15px;
 }
 .vipsp_b1 {
-	background:url(/images/vip_ico.png) 0 -1289px no-repeat;
+	/*background:url(/images/vip_ico.png) 0 -1289px no-repeat;*/
 }
 .vipsp_b2 {
 	background:url(/images/vip_ico.png) 0 -1483px repeat-x;
@@ -3508,7 +3508,7 @@ input.mh_bdbtn4 {
 	display:block;
 }
 .vipsp_b3 {
-	background:url(/images/vip_ico.png) right -1676px no-repeat;
+	/*background:url(/images/vip_ico.png) right -1676px no-repeat;*/
 }
 .vip_tit {
 	background:url(/images/vip_ico.png) 0 -939px no-repeat;
@@ -3551,7 +3551,8 @@ input.mh_bdbtn4 {
 	top:23px;
 	left:117px;
 }
-.vip_dj3 {
+.vip_list .vip_dj2 select {width:110px}
+.vip_list .vip_dj3 {
 	background:url(/images/vip_ico.png) 0 -1131px no-repeat;
 	display:block;
 	width:97px;
