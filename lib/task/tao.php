@@ -241,8 +241,8 @@ switch ($m) {
 			}
 		} else {
 			$bbsNav[] = '已接任务';
-			//$t || 
-			$t = 'all';
+			$t || $t='img';
+			//$t = 'all';
 			if ($out){
 				$rs = task_tao::out($out, $uid);
 				if ($rs === true){
@@ -303,8 +303,8 @@ switch ($m) {
 					case 'tWatting2':
 					    (($where && $where .= ' and ') || !$where) && $where .= "status in('8','9')";
 					break;
-					case 'ing':
-						(($where && $where .= ' and ') || !$where) && $where .= "status in('2','3','4','5','6','7')";
+					case 'ing'://因为前台合并所以将状态8 9 合并进来
+						(($where && $where .= ' and ') || !$where) && $where .= "status in('2','3','4','5','6','7','8','9')";
 					break;
 					case 'expire':
 						(($where && $where .= ' and ') || !$where) && $where .= "status in('8','9')";
@@ -340,12 +340,12 @@ switch ($m) {
 					case 'all':
 						$total = $memberTask['in1'];
 					break;
-					case 'ing':
+					case 'ing'://因为前台合并所以将expire 合并过来
 						if ($showTaskTip = $cookie['showTaskTip']) {
 							$_taskId = $cookie['_taskId'];
 							common::unsetcookie('showTaskTip', '_taskId');
 						}
-						$total = $memberTask['ining1'];
+						$total = $memberTask['ining1']+$memberTask['inExpire1'];
 					break;
 					case 'expire':
 						$total = $memberTask['inExpire1'];
@@ -365,8 +365,8 @@ switch ($m) {
 	case 'taskOut'://已发任务
 		checkPwd2();
 		$bbsNav[] = '已发任务';
-		//$t || $t = 'ing';
-		$t = 'all';
+		$t || $t = 'ing';
+		//$t = 'all';
 		$total = 0;
 		$where = "type='1' and suid='$uid'";
 		if ($resume) {
@@ -454,8 +454,8 @@ switch ($m) {
 				case 'pause':
 					(($where && $where .= ' and ') || !$where) && $where .= "status='0'";
 				break;
-				case 'ing':
-					(($where && $where .= ' and ') || !$where) && $where .= "status in('2','3','4','5','6','7')";
+				case 'ing': //因为前台合并所以将状态8 9 合并过来
+					(($where && $where .= ' and ') || !$where) && $where .= "status in('2','3','4','5','6','7','8','9')";
 				break;
 				case 'expire':
 					(($where && $where .= ' and ') || !$where) && $where .= "status in('8','9')";
@@ -507,8 +507,8 @@ switch ($m) {
 						common::goto_url($thisUrl.'&t=waiting');
 					}
 				break;
-				case 'ing':
-					$total = $memberTask['outing1'];
+				case 'ing'://因为前台合并所以将expire waiting 合并过来
+					$total = $memberTask['outing1']+$memberTask['outExpire1']+$memberTask['outWaiting1'];
 				break;
 				case 'expire':
 					$total = $memberTask['outExpire1'];

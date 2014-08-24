@@ -422,6 +422,7 @@ if (DB_CONNECT === true) {
     }
     $isAdmin = $isModerator = $isVip = $isVip2 = $isFlowVip = $isEnsure = false;
     if ($memberLogined) {
+	    //如果用户登陆了，则检查用户相关任务属性
         if (!$cookie['ipint2']) {
             $ipint2 = $ipint;
             common::setcookie('ipint2', $ipint2, 365 * 86400);
@@ -430,13 +431,13 @@ if (DB_CONNECT === true) {
         }
         $memberFields         = member_base::getMemberFields($member['id']);
         $memberTask           = member_base::getMemberTask($member['id']);
-        $memberTask['ining']  = $memberTask['ining1'] + $memberTask['ining2'] + $memberTask['ining3'] + $memberTask['ining4'];
-        $memberTask['outing'] = $memberTask['outing1'] + $memberTask['outing2'] + $memberTask['outing3'] + $memberTask['outing4'];
-        if ($cookie['checkPwd2'])
+        $memberTask['ining']  = $memberTask['ining1'] + $memberTask['ining2'] + $memberTask['ining3'] + $memberTask['ining4'];//接手任务总数
+        $memberTask['outing'] = $memberTask['outing1'] + $memberTask['outing2'] + $memberTask['outing3'] + $memberTask['outing4'];//发布任务总数
+        if ($cookie['checkPwd2'])//检查是否经过二次安全码认证
             $member['checkPwd2'] = true;
         else
             $member['checkPwd2'] = false;
-        $memberGroup = $userGroups2[$member['groupid']];
+        $memberGroup = $userGroups2[$member['groupid']];//得到用户组
         if ($memberGroup['key'] == 'admin')
             $isAdmin = true;
         $memberLevel = member_credit::getLevelAll($memberFields['credits']);
@@ -444,9 +445,11 @@ if (DB_CONNECT === true) {
             $isVip = true;
         if ($memberFields['vip2'])
             $isVip2 = true;
+        if ($memberFields['vip3'])
+            $isVip3 = true;
         if ($memberFields['flowVip'])
             $isFlowVip = true;
-        if ($memberFields['isEnsure'])
+        if ($memberFields['isEnsure'])//是否加入商保
             $isEnsure = true;
         /*
         积分对应的同时接手 发布最大数量

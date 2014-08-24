@@ -8,7 +8,7 @@ a{ text-decoration:none;}
 a:hover{ text-decoration:none;}
 body{ background:#e6e6e6;}
 
-#top{margin: 0px auto; max-width:990px;height:25px; background:#a3a4a5;background-image: none;color: white;}
+#top{margin: 0px auto; max-width:1020px;height:25px; background:#a3a4a5;background-image: none;color: white;}
 ul.middle  li.text{height:23px;line-height:23px;}
 
 .kfbz{ width:379px; height:148px; background:url(../img/att543_03.png) no-repeat; position:absolute; right:-20px; top:22px; display:none;z-index:999;padding-top: 10px;}
