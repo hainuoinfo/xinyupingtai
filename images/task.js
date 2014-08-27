@@ -268,7 +268,7 @@ function SelectBuyerAccountNew(mid, btn, $accountList, IsReal) {
 	var Reallen = $("#trListTrueName").find("input:radio[disabled]").size();
 	var AllReallen = $("#trListTrueName").find("input:radio").size();
 	var Normal = $(".trListNormal");
-	if (Reallen = AllReallen && IsReal == 1) {
+	if (Reallen == AllReallen && IsReal == 1) {
 		artDialog({
 			content: "温馨提示：您必须绑定一个支付宝实名买号才可以接手此任务！",
 			id: "al1",
@@ -483,8 +483,9 @@ function SelectBuyerAccount(mid, btn, $accountList, IsReal) {
 	var alllen = $accountList.find("input:radio").size();
 	var Reallen = $("#trListTrueName").find("input:radio[disabled]").size();
 	var AllReallen = $("#trListTrueName").find("input:radio").size();
+	alert(Reallen+"    "+AllReallen);
 	var Normal = $(".trListNormal");
-	if (Reallen = AllReallen && IsReal == 1) {
+	if (Reallen == AllReallen && IsReal == 1) {
 		artDialog({
 			content: "温馨提示：您必须绑定一个支付宝实名买号才可以接手此任务！",
 			id: "al1",

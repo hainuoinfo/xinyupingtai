@@ -241,7 +241,7 @@ switch ($m) {
 			}
 		} else {
 			$bbsNav[] = '已接任务';
-			$t || $t='img';
+			$t || $t='ing';
 			//$t = 'all';
 			if ($out){
 				$rs = task_tao::out($out, $uid);
