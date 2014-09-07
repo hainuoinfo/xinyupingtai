@@ -162,10 +162,10 @@
 		</td>
 					<td class="mh_xxian" align="center">
 					{if $v[status]!=6}
-					<a href="javascript:;" onclick="dialog(650,500,'设置买号收货地址','{rewrite}/dialog/buyerAddress/?id=$v[id]');return false;" class="link_tt">收货地址</a>
+					<a href="javascript:;" onclick="dialog(650,500,'设置买号收货地址','{rewrite}/dialog/buyerAddress/?id=$v[id]');return false;" class="link_tt"><!--收货地址--></a>
 					{/if}
 					{if $v[status]==0}
-			        <a href="javascript:;" onclick="return IsDelAcc(this,$v[id]);" class="mh_cz">删除</a>
+			        <a href="javascript:;" onclick="return IsDelAcc(this,$v[id]);" class="mh_cz"><!--删除--></a>
                      {/if}
 					</td>
 					<td>&nbsp;</td>

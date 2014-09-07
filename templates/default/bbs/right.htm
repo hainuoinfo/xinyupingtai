@@ -1,38 +1,27 @@
-  <DIV class="lt_right">
-    <P style="height: 92px; margin-top: 10px;"><A href="{rewrite}/help/fpcs/" 
-target="_blank"><IMG title="防骗常识" alt="防骗常识" src="/images/DM_2293137b.jpg" 
-width="245" height="92"></A></P>
-    <H4 class="luntan_zt">最近发表</H4>
-	{eval $list=bbs_thread::getThreadList2('','timestamp desc',1,8);}
-    <UL class="luntan_rmbk">
-				{loop $list $thread}
-				<li><a href="{rewrite}/bbs/t$thread[id]/" class="link_b_1" target="_blank" title="$thread[title]">{if $thread[title_style]}
-				<span style="$thread[title_style]">{cutstr $thread[title],16}</span>{else}{cutstr $thread[title],16}{/if}</a></li>
-				{/loop}
-	  
-    </UL>
-	{eval
-		$forumSimple = bbs_forums::getForumSimple('gonggao', 'ename');
-		$list=bbs_thread::getThreadList2("fid='$forumSimple[id]'",'timestamp desc',1,7);
-	}
-    <IMG style="margin-top: 10px;" border="0" src="/images/wsxs_img.jpg" 
-useMap="#Map">
-    <MAP id="Map" name="Map">
-      <AREA href="{rewrite}/help/" shape="rect" coords="19,145,105,177">
-    </MAP>
-    <H4 class="luntan_zt">精华主题</H4>
-	
-    <UL class="luntan_rmbk">
-      {loop $list $thread}
-				<li><a href="{rewrite}/bbs/t$thread[id]/" class="link_b_1" target="_blank" title="$thread[title]">{if $thread[title_style]}
-				<span style="$thread[title_style]">{cutstr $thread[title],14}</span>{else}{cutstr $thread[title],14}{/if}</a></li>
-				{/loop}
-    </UL>
-	
-    <IMG style="margin-top: 10px;" 
-border="0" src="/images/wsxdz_img.jpg" useMap="#Map2">
-    <MAP id="Map2" name="Map2">
-      <AREA 
-  href="{rewrite}/Tuoguanfuwu/" shape="rect" coords="18,156,104,187">
-    </MAP>
-  </DIV>
+<DIV class="lt_right">
+	<P style="height: 92px; margin-top: 10px;">
+		<IMG title="防骗常识" alt="防骗常识" src="/images/DM_2293137b.jpg" width="245" height="92" useMap="#map1">	<MAP id="Map1" name="Map1">
+		<AREA href="{rewrite}/help/fpcs/" shape="rect" coords="48,65,134,88">
+	</MAP>
+	</P>
+	 <H4 class="luntan_zt">最近发表</H4>
+{eval $list=bbs_thread::getThreadList2('','timestamp desc',1,8);}
+	<UL class="luntan_rmbk">{loop $list $thread}
+		<li><a href="{rewrite}/bbs/t$thread[id]/" class="link_b_1" target="_blank" title="$thread[title]">{if $thread[title_style]}
+				<span style="$thread[title_style]">{cutstr $thread[title],16}</span>{else}{cutstr $thread[title],16}{/if}</a>
+		</li>{/loop}</UL>{eval $forumSimple = bbs_forums::getForumSimple('gonggao', 'ename'); $list=bbs_thread::getThreadList2("fid='$forumSimple[id]'",'timestamp desc',1,7); }
+	<IMG style="margin-top: 10px;" border="0" src="/images/wsxs_img.jpg" useMap="#Map">
+	<MAP id="Map" name="Map">
+		<AREA href="{rewrite}/help/taskout/" shape="rect" coords="19,137,105,162">
+	</MAP>
+	 <H4 class="luntan_zt">精华主题</H4>
+
+	<UL class="luntan_rmbk">{loop $list $thread}
+		<li><a href="{rewrite}/bbs/t$thread[id]/" class="link_b_1" target="_blank" title="$thread[title]">{if $thread[title_style]}
+				<span style="$thread[title_style]">{cutstr $thread[title],14}</span>{else}{cutstr $thread[title],14}{/if}</a>
+		</li>{/loop}</UL>
+	<IMG style="margin-top: 10px;" border="0" src="/images/wsxdz_img.jpg" useMap="#Map2">
+	<MAP id="Map2" name="Map2">
+		<AREA href="{rewrite}/Tuoguan/" shape="rect" coords="78,206,164,235">
+	</MAP>
+</DIV>

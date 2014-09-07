@@ -71,9 +71,9 @@ hr{ border-bottom:1px solid #b8b9b9;}
 .sht-1:hover{ background:url(../img/att_12.png) no-repeat;}
 .sht-2:hover{ background:url(../img/att_12.png) no-repeat;}
 .sht-3:hover{ background:url(../img/att_12.png) no-repeat;}
-.zck{ width:292px; min-height:200px; background:url(../img/att_25.png) repeat; position:absolute; bottom:9px; left:102px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;/* filter:alpha(opacity=20);opacity: 0.9;
+.zck{ width:292px; min-height:200px; background:url(../img/att_25.png) repeat; position:absolute; bottom:32px; left:102px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;/* filter:alpha(opacity=20);opacity: 0.9;
 -moz-opacity: 0.5;*/
-filter:alpha(opacity=80);}
+}
 .zck h2{font:100 16px/40px "微软雅黑"; color:#fff; width:274px; height:40px; background:#349dc2; text-align:center; margin:10px auto; }
 .form1{ width:274px; height:38px; /*background:url(../img/att_02.jpg) no-repeat;*/ margin:auto;}
 .form1 .yhm{ width:201px; height:28px; background:#eae9e9; float:right;font:100 14px/38px "微软雅黑"; color:#545454; text-indent:10px;}
@@ -236,3 +236,6 @@ p.taskbutton input.taskadd{width:162px;}
 /*论坛修正*/
 #ImageUrl,#vcode{border:1px solid #c5c5c5;}
 input.luntan_inp{margin:0px;min-height:23px;}
+
+/*首页网站托管部分样式修正*/
+.wdtg h2,.yyzd h2,.rwdt h2{margin: 0px;}

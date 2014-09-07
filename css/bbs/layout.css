@@ -4415,9 +4415,10 @@ input.mh_bdbtn4 {
 	margin-top:10px;
 	text-indent:15px;
 }
+.lt_right ul{margin: 0;}
 .luntan_rmbk {
 	border:1px solid #b9dcf7;
-	padding:10px 15px;
+	/*padding:10px 15px;*/
 }
 .luntan_rmbk li {
 	background:url(/images/luntan_ico.png) 0 -809px no-repeat;

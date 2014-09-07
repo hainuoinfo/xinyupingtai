@@ -5,7 +5,7 @@
 	margin: 0px auto; width: 1000px; position: relative;
 }
 .ds_news {
-	background: url(/images/dsym.gif) no-repeat -1px -1px; top: 5px; width: 341px; height: 292px; right: 14px; position: absolute;
+	background: url(/images/dsym.jpg) no-repeat -1px -1px; top: 5px; width: 341px; height: 292px; right: 14px; position: absolute;
 }
 .ds_news .ds_zxlist {
 	margin: 40px 0px 0px 15px; height: 138px;
@@ -14,10 +14,10 @@
 	margin: 18px 0px 0px 13px; padding-left: 45px; font-size: 14px;
 }
 .ds_news .ds_btn .btn {
-	background: url(/images/dsym.gif) no-repeat -1px -308px; margin: 12px 0px 0px 25px; width: 105px; height: 34px; float: left; display: block;
+	background: url(/images/dsym.jpg) no-repeat -1px -308px; margin: 12px 0px 0px 25px; width: 105px; height: 34px; float: left; display: block;
 }
 .ds_news .ds_btn .btn2 {
-	background: url(/images/dsym.gif) no-repeat 0px -308px; margin: 12px 0px 0px 12px; width: 145px; height: 45px; float: left; display: block;
+	background: url(/images/dsym.jpg) no-repeat 0px -308px; margin: 12px 0px 0px 12px; width: 145px; height: 45px; float: left; display: block;
 }
 .ds_news .ds_btn .btn2 {
 	background: url(/images/shua_btn2.gif) no-repeat; margin: 9px 0px 0px 12px; width: 147px; height: 47px;
@@ -26,28 +26,28 @@
 	margin: 10px 0px 0px;
 }
 .ds_about .ds_a1 {
-	background: url(/images/dsym.gif) no-repeat left -360px;
+	background: url(/images/dsym.png) no-repeat left -360px;
 }
 .ds_about .ds_a2 {
-	background: url(/images/dsym.gif) repeat-x left -482px;
+	background: url(/images/dsym.png) repeat-x left -482px;
 }
 .ds_about .ds_a3 {
-	background: url(/images/dsym.gif) no-repeat right -604px;
+	background: url(/images/dsym.png) no-repeat right -604px;
 }
 .ds_about .ds_fw {
-	background: url(/images/dsym.gif) no-repeat 0px -744px; width: 83px; height: 68px; float: left; display: block;
+	background: url(/images/dsym.png) no-repeat 0px -744px; width: 83px; height: 68px; float: left; display: block;
 }
 .ds_about .ds_fw2 {
-	background: url(/images/dsym.gif) no-repeat 0px -744px; width: 83px; height: 68px; float: left; display: block;
+	background: url(/images/dsym.png) no-repeat 0px -744px; width: 83px; height: 68px; float: left; display: block;
 }
 .ds_about .ds_fw3 {
-	background: url(/images/dsym.gif) no-repeat 0px -744px; width: 83px; height: 68px; float: left; display: block;
+	background: url(/images/dsym.png) no-repeat 0px -744px; width: 83px; height: 68px; float: left; display: block;
 }
 .ds_about .ds_fw2 {
-	background: url(/images/dsym.gif) no-repeat -119px -744px;
+	background: url(/images/dsym.png) no-repeat -119px -744px;
 }
 .ds_about .ds_fw3 {
-	background: url(/images/dsym.gif) no-repeat -233px -744px;
+	background: url(/images/dsym.png) no-repeat -233px -744px;
 }
 .ds_about .ds_a2 p {
 	color: rgb(36, 130, 207); font-size: 14px;
@@ -62,11 +62,11 @@
 	width: 610px; min-height: 325px; margin-top: 5px; float: left;padding-left: 10px;
 }
 .ds_cplist .ds_tit {
-	background: url(/images/dsym.gif) no-repeat 0px -851px; height: 46px; line-height: 46px; text-indent: 55px; font-size: 14px;background-color: white;
+	background: url(/images/dsym.png) no-repeat 0px -851px; height: 46px; line-height: 46px; text-indent: 55px; font-size: 14px;background-color: white;
 }
 .ds_cplist .ds_qq{background-color: white;}
 .ds_cplist .ds_line {
-	background: url(/images/dsym.gif) no-repeat 0px -1046px; margin: 7px 0px 0px 5px; width: 300px; height: 160px; float: left; position: relative; _margin: 7px 0 0 3px;
+	background: url(/images/dsym.png) no-repeat 0px -1046px; margin: 7px 0px 0px 5px; width: 300px; height: 160px; float: left; position: relative; _margin: 7px 0 0 3px;
 }
 .ds_cplist .ds_line .name {
 	left: 3px; top: 15px; color: rgb(36, 130, 207); font-weight: bold; position: absolute;
@@ -75,58 +75,58 @@
 	left: 118px; top: 43px; position: absolute;
 }
 .ds_cplist .ds_line .ds_dj1 {
-	background: url(/images/dsym.gif) no-repeat -2px -1231px; left: 24px; top: 58px; width: 85px; height: 72px; position: absolute;
+	background: url(/images/dsym.png) no-repeat -2px -1231px; left: 24px; top: 58px; width: 85px; height: 72px; position: absolute;
 }
 .ds_cplist .ds_line .ds_dj2 {
-	background: url(/images/dsym.gif) no-repeat -2px -1231px; left: 24px; top: 58px; width: 85px; height: 72px; position: absolute;
+	background: url(/images/dsym.png) no-repeat -2px -1231px; left: 24px; top: 58px; width: 85px; height: 72px; position: absolute;
 }
 .ds_cplist .ds_line .ds_dj3 {
-	background: url(/images/dsym.gif) no-repeat -2px -1231px; left: 24px; top: 58px; width: 85px; height: 72px; position: absolute;
+	background: url(/images/dsym.png) no-repeat -2px -1231px; left: 24px; top: 58px; width: 85px; height: 72px; position: absolute;
 }
 .ds_cplist .ds_line .ds_dj4 {
-	background: url(/images/dsym.gif) no-repeat -2px -1231px; left: 24px; top: 58px; width: 85px; height: 72px; position: absolute;
+	background: url(/images/dsym.png) no-repeat -2px -1231px; left: 24px; top: 58px; width: 85px; height: 72px; position: absolute;
 }
 .ds_cplist .ds_line .ds_dj5 {
-	background: url(/images/dsym.gif) no-repeat -2px -1231px; left: 24px; top: 58px; width: 85px; height: 72px; position: absolute;
+	background: url(/images/dsym.png) no-repeat -2px -1231px; left: 24px; top: 58px; width: 85px; height: 72px; position: absolute;
 }
 .ds_cplist .ds_line .ds_dj6 {
-	background: url(/images/dsym.gif) no-repeat -2px -1231px; left: 24px; top: 58px; width: 85px; height: 72px; position: absolute;
+	background: url(/images/dsym.png) no-repeat -2px -1231px; left: 24px; top: 58px; width: 85px; height: 72px; position: absolute;
 }
 .ds_cplist .ds_line .ds_dj7 {
-	background: url(/images/dsym.gif) no-repeat -2px -1231px; left: 24px; top: 58px; width: 85px; height: 72px; position: absolute;
+	background: url(/images/dsym.png) no-repeat -2px -1231px; left: 24px; top: 58px; width: 85px; height: 72px; position: absolute;
 }
 .ds_cplist .ds_line .ds_dj8 {
-	background: url(/images/dsym.gif) no-repeat -2px -1231px; left: 24px; top: 58px; width: 85px; height: 72px; position: absolute;
+	background: url(/images/dsym.png) no-repeat -2px -1231px; left: 24px; top: 58px; width: 85px; height: 72px; position: absolute;
 }
 .ds_cplist .ds_line .ds_dj2 {
-	background: url(/images/dsym.gif) no-repeat -115px -1231px;
+	background: url(/images/dsym.png) no-repeat -115px -1231px;
 }
 .ds_cplist .ds_line .ds_dj3 {
-	background: url(/images/dsym.gif) no-repeat -239px -1231px;
+	background: url(/images/dsym.png) no-repeat -239px -1231px;
 }
 .ds_cplist .ds_line .ds_dj4 {
-	background: url(/images/dsym.gif) no-repeat -7px -1342px;
+	background: url(/images/dsym.png) no-repeat -7px -1342px;
 }
 .ds_cplist .ds_line .ds_dj5 {
-	background: url(/images/dsym.gif) no-repeat -119px -1342px;
+	background: url(/images/dsym.png) no-repeat -119px -1342px;
 }
 .ds_cplist .ds_line .ds_dj6 {
-	background: url(/images/dsym.gif) no-repeat -243px -1342px;
+	background: url(/images/dsym.png) no-repeat -243px -1342px;
 }
 .ds_cplist .ds_line .ds_dj7 {
-	background: url(/images/dsym.gif) no-repeat -7px -1445px;
+	background: url(/images/dsym.png) no-repeat -7px -1445px;
 }
 .ds_cplist .ds_line .ds_dj8 {
-	background: url(/images/dsym.gif) no-repeat -119px -1445px;
+	background: url(/images/dsym.png) no-repeat -119px -1445px;
 }
 .ds_cplist .ds_line .text .ds_btn {
-	background: url(/images/dsym.gif) no-repeat 0px -1737px; width: 81px; height: 25px; margin-top: 5px; display: block;
+	background: url(/images/dsym.png) no-repeat 0px -1737px; width: 81px; height: 25px; margin-top: 5px; display: block;
 }
 .dsym_bt {
-	background: url(/images/dsym.gif) no-repeat -10px -919px; height: 50px;
+	background: url(/images/dsym.png) no-repeat -10px -919px; height: 50px;
 }
 .dsym_bt2 {
-	background: url(/images/dsym.gif) no-repeat -10px -983px; height: 50px;
+	background: url(/images/dsym.png) no-repeat -10px -983px; height: 50px;
 }
 
 .xuanchuan-content {width:960px; margin:0 auto; font-family:微软雅黑; background:#eee; }
@@ -142,7 +142,7 @@
 	.xuanchuan-n-part p {margin-left:15px; line-height:20px; font-size:13px; margin-top:15px; margin-bottom:10px;}
 	.xuanchuan-id-tit {background:url(/images/xuanchuan-5.jpg) no-repeat; width:960px; height:41px; color:#fff; text-align:center; font-weight:bold; font-size:16px; line-height:41px;}
 	.xuanchuan-wenda {font-size:14px; padding:30px;}
-	
+
 	.xbox{width:auto;height:auto;padding:15px 20px}
 .xbox a { text-decoration:none;}
 .xbox a:hover { color:#FF6600; text-decoration:underline;}
@@ -161,13 +161,13 @@
     padding-left: 25px;
     width: 36px;
 }
-div, h1, h2, h3, h4, p, form, label, input, img, span{ 
-	margin:0; 
+div, h1, h2, h3, h4, p, form, label, input, img, span{
+	margin:0;
 	padding:0;
 	}
 ul{
-	margin:0; 
-	padding:0; 
+	margin:0;
+	padding:0;
 	list-style-type:none;
 }
 img{border:none;}
@@ -221,9 +221,9 @@ a.kf2c { color:#999999;}
 	width:1000px;
 	height:102px;
 	}
-#m_logo .kd .hy a.dmhtel { 
+#m_logo .kd .hy a.dmhtel {
 	width:36px;
-	height:22px; 
+	height:22px;
 	background:url(/images/dmhtel.png no-repeat);
 	float:left;
 	padding-left:18px;
@@ -375,13 +375,13 @@ body{
 	width:100%;
 	color:#666;
 	}
-div, h1, h2, h3, h4, p, form, label, input, img, span{ 
-	margin:0; 
+div, h1, h2, h3, h4, p, form, label, input, img, span{
+	margin:0;
 	padding:0;
 	}
 ul{
-	margin:0; 
-	padding:0; 
+	margin:0;
+	padding:0;
 	list-style-type:none;
 }
 a{color:#666; text-decoration:none; }
