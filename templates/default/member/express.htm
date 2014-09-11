@@ -141,6 +141,8 @@
 .fh_gl .map { width:790px;  height:330px; background:url(/images/fh_gg.jpg) no-repeat; position:relative;}
 .fh_gl .map_ct { height:593px; width:790px; background:url(/images/fh_gg_03.jpg) repeat-x;}
 -->
+#content .right{margin: 0px;}
+#content .left_lan{margin: 0px;}
 </STYLE>
 <SCRIPT>
 $(function(){
@@ -164,10 +166,10 @@ $(function(){
   <DIV class="right">
   	{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
 	{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
-    <FORM id="myForm" onSubmit="return checkForm();" method="post" name="myForm">
+    <FORM id="myForm" onSubmit="return checkForm();" method="post" name="myForm" STYLE="margin: 0px;">
       <div>$sys_hash_code2</div>
 	  <INPUT id="type" name="money" value="3" type="hidden">
-      <DIV id="fh_gg">
+      <DIV id="fh_gg" STYLE="max-height:740px;">
         <P class="fh_cl"><A href="$baseUrl?type=processing">处理中的单号（0）</A></P>
         <P class="fh_cl2"><A href="$baseUrl?type=processed">已生成的单号（0）</A></P>
         <P class="fh_cl3"><A href="$baseUrl?type=map">申请底单（0）</A></P>

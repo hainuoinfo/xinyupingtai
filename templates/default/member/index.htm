@@ -8,6 +8,9 @@
 	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description));
 }
 {subtemplate ../header}
+<style>
+.trends p{width:500px;float: left;}
+</style>
 <SCRIPT type="text/javascript" src="/css/jq.js"></SCRIPT>
 <DIV class="wrap">
 <DIV class="main">
@@ -125,8 +128,8 @@
           </DIV>
     </DIV>
         <!-- 我的动态 -->
-    <DIV class="trends">
-      <DIV class="imgico trends_img"> </DIV>
+    <DIV class="trends" style="width:710px;">
+      <DIV class="imgico trends_img" style="height:30px;float: left;"> </DIV>
 	    {loop $task_list $v}
 		<p>发布任务$v[id],我付出了$v[point] 麦点, {date $v[stimestamp]}</p> 		
 	    {/loop}
