@@ -17,7 +17,7 @@ if( $memberFields['credits'] < $minCredit) {
 $thisUrl = $baseUrl0.'?m='.$m;
 $lang = array(
 	/*'status'     => array('暂停中', '已发布，等待接手人接手', '已接手，等待接手人绑定买号', '等待发布方审核', '已绑定买号，等待接手方支付', '已支付，等待发布人发货', '已发货，等待收货与好评', '已确认，等待卖家确认', '交易完成'),*/
- 	'status'     => array(
+	'status'     => array(
 		'暂停中',
 		'等待接手',
 		'已接手，等待绑定买号', '等待发布方审核', '等待接手人对商品付款', '已支付，待核对快递地址', '准备发货，等待快递单号', '已支付，等待发布人发货',
@@ -92,16 +92,16 @@ switch ($m) {
 				array('ispinimage', 'int'),
 				array('ensurePoint', 'float'),
 				array('isScore', 'int'),
-                array('scoreLvl', 'int'),
-                array('isCredit', 'int'),//没找到这个地方  查看模板源文件后，修正到信誉限制项目
-                array('creditLvl', 'int'),//没找到这个地方 查看模板源文件后，修正到信誉限制项目
-                array('isGood', 'int'),
-                array('goodLvl', 'int'),
-                array('isBlack', 'int'),
-                array('blackLvl', 'int'),
-                array('isFame', 'int'),//定义项不对 已经更改 现在没有相关设置项保留
-                array('fameLvl', 'int'),//定义项不对 已经更改  现在没有相关设置项保留
-                array('isPlan', 'int'), 'planDate');
+		array('scoreLvl', 'int'),
+		array('isCredit', 'int'),//没找到这个地方  查看模板源文件后，修正到信誉限制项目
+		array('creditLvl', 'int'),//没找到这个地方 查看模板源文件后，修正到信誉限制项目
+		array('isGood', 'int'),
+		array('goodLvl', 'int'),
+		array('isBlack', 'int'),
+		array('blackLvl', 'int'),
+		array('isFame', 'int'),//定义项不对 已经更改 现在没有相关设置项保留
+		array('fameLvl', 'int'),//定义项不对 已经更改  现在没有相关设置项保留
+		array('isPlan', 'int'), 'planDate');
 
 			if ($isHot) $count = (int)$_POST['count'];
 			else $count = 1;
@@ -122,14 +122,14 @@ switch ($m) {
 				$datas2 && extract($datas2);
 				if ($isTpl && $tplTo) {
 					$tplTo = common::cutstr($tplTo, 64);
-	             	if ($members[groupid]==4) $maxTplCount = 30;
-		            if ($members[groupid]==5) $maxTplCount = 15;
-		            if ($members[groupid]==6) $maxTplCount = 9;
-		            if ($members[groupid]==7) $maxTplCount = 6;
-		            if ($members[groupid]==8) $maxTplCount = 5;
-		            if ($members[groupid]==9) $maxTplCount = 4;
-		            if ($members[groupid]==10) $maxTplCount = 3;
-		            if ($members[groupid]==11) $maxTplCount = 3;
+			if ($members[groupid]==4) $maxTplCount = 30;
+			    if ($members[groupid]==5) $maxTplCount = 15;
+			    if ($members[groupid]==6) $maxTplCount = 9;
+			    if ($members[groupid]==7) $maxTplCount = 6;
+			    if ($members[groupid]==8) $maxTplCount = 5;
+			    if ($members[groupid]==9) $maxTplCount = 4;
+			    if ($members[groupid]==10) $maxTplCount = 3;
+			    if ($members[groupid]==11) $maxTplCount = 3;
 
 					/* if ($isVip) $maxTplCount = 10;
 					elseif ($isVip2) $maxTplCount = 5;
@@ -188,14 +188,14 @@ switch ($m) {
 				if ($isTpl && $tplTo) {
 					$tplTo = common::cutstr($tplTo, 64);
 					$members = member_base::getMember($uid);
-	             	if ($members[groupid]==4) $maxTplCount = 30;
-		            if ($members[groupid]==5) $maxTplCount = 15;
-		            if ($members[groupid]==6) $maxTplCount = 9;
-		            if ($members[groupid]==7) $maxTplCount = 6;
-		            if ($members[groupid]==8) $maxTplCount = 5;
-		            if ($members[groupid]==9) $maxTplCount = 4;
-		            if ($members[groupid]==10) $maxTplCount = 3;
-		            if ($members[groupid]==11) $maxTplCount = 3;
+			if ($members[groupid]==4) $maxTplCount = 30;
+			    if ($members[groupid]==5) $maxTplCount = 15;
+			    if ($members[groupid]==6) $maxTplCount = 9;
+			    if ($members[groupid]==7) $maxTplCount = 6;
+			    if ($members[groupid]==8) $maxTplCount = 5;
+			    if ($members[groupid]==9) $maxTplCount = 4;
+			    if ($members[groupid]==10) $maxTplCount = 3;
+			    if ($members[groupid]==11) $maxTplCount = 3;
 					if (db::data_count('task_tpl', "uid='$uid'") < $maxTplCount) {
 						db::insert('task_tpl', array(
 							'type'      => 1,
@@ -271,18 +271,18 @@ switch ($m) {
 					common::goto_url($referer, true);
 				}
 			} elseif ($receive){
-                $task = task_base::_get($receive);//先判断是否需要上传图片，如果需要上传图片，则跳转回原先的网址
-                if ($task&&($task['isShare']||$task['ispinimage'])) {
-                    if($task['ispinimage']&&$task['pinimage']=='')
-                        $upimage=true;
-                    if($task['isshare']&&$task['shareiamge']=='')
-                        $upimage=true;
-                }
-                if($upimage){
-                    common::setMsg('你尚未上传好评图！请返回上传好评图');
-                    common::goto_url($referer, true);
-                    exit;
-                }
+		$task = task_base::_get($receive);//先判断是否需要上传图片，如果需要上传图片，则跳转回原先的网址
+		if ($task&&($task['isShare']||$task['ispinimage'])) {
+		    if($task['ispinimage']&&$task['pinimage']=='')
+			$upimage=true;
+		    if($task['isshare']&&$task['shareiamge']=='')
+			$upimage=true;
+		}
+		if($upimage){
+		    common::setMsg('你尚未上传好评图！请返回上传好评图');
+		    common::goto_url($referer, true);
+		    exit;
+		}
 				$rs = task_tao::receive($receive, $uid);
 				if ($rs === true){
 					common::setMsg('已经确认收货，等待卖家确认');
@@ -556,7 +556,7 @@ switch ($m) {
 							))) {
 								db::update('memberfields', 'sellers1=sellers1+1', "uid='$uid'");
 							$totalcount=db::data_count('sellers', "uid='$uid'");
-								
+
 								//从第二次绑定掌柜开始每次绑定一个扣除五元
 							if($totalcount>0)
 								member_base::redMoney($uid,'5','添加掌柜扣除5元');
@@ -631,10 +631,10 @@ switch ($m) {
 		}
 		if ($rs = form::is_form_hash2()) {
 			if ($rs === true) {
-                $row=data_taobaoUser::realname($_POST['nickname']);
+		$row=data_taobaoUser::realname($_POST['nickname']);
 			    if($row){
 				    if ($maxTieCount > 0 && $memberFields['buyers1'] + 1 > $maxTieCount){
-				          $rs='对不起，您不可以绑定更多的买号了';
+					  $rs='对不起，您不可以绑定更多的买号了';
 				    }else {
 					      $nickname = $_POST['nickname'];
 					      $rs = task_buyer::tie($uid, 1, $nickname,$row);
@@ -700,7 +700,7 @@ switch ($m) {
 		checkPwd2();
 		$members = member_base::getMember($uid);
 		if ($rs = form::is_form_hash2()) {
-			$datas = form::get('nickname', 'itemurl', 'visitTip', 'visitKey', array('visitWay', 'int'), array('price', 'float'), array('isPriceFit', 'int'), array('pointExt', 'float'), array('times', 'int'),  array('scores', 'int'), array('isRemark', 'int'), 'remark', array('isShare', 'int'),array('isAddress', 'int'), 'address',array('share', 'int'), 'tips', array('isDbssc', 'int'),array('isVerify', 'int'), array('issphb', 'float'),'sphbdz',array('isLimit', 'int'), array('limit', 'int'), 
+			$datas = form::get('nickname', 'itemurl', 'visitTip', 'visitKey', array('visitWay', 'int'), array('price', 'float'), array('isPriceFit', 'int'), array('pointExt', 'float'), array('times', 'int'),  array('scores', 'int'), array('isRemark', 'int'), 'remark', array('isShare', 'int'),array('isAddress', 'int'), 'address',array('share', 'int'), 'tips', array('isDbssc', 'int'),array('isVerify', 'int'), array('issphb', 'float'),'sphbdz',array('isLimit', 'int'), array('limit', 'int'),
 			array('chssp', 'int'),array('isNoword', 'int'),
 				array('isReal', 'int'), array('cbxIsTip', 'int'),'txtBuyCount','cbIsHiddenName','cbIsNoneAssess','txtAreaService','txtAccount','txtMobile','txtSpecs','ddlDeliver','cbxName','cbxMobile','cbxcode',
 				array('realname', 'int'),'isFMaxBTSCount'.'FMaxBTSCount','cbxIsTaoG','txtTaoG','isawb','expressfull','isSign','Province',
@@ -718,7 +718,7 @@ switch ($m) {
 				if($datas['isLimitCity'])
 					$datas['Province']=serialize($datas['Province']);
 				else
-					$datas['Province']='';				
+					$datas['Province']='';
 				$rs = task_tao::add($datas, $uid, $count);
 			}
 			if ($rs === true) {
@@ -728,14 +728,14 @@ switch ($m) {
 				if ($isTpl && $tplTo) {
 					$tplTo = common::cutstr($tplTo, 64);
 					$members = member_base::getMember($uid);
-	             	if ($members[groupid]==4) $maxTplCount = 30;
-		            if ($members[groupid]==5) $maxTplCount = 15;
-		            if ($members[groupid]==6) $maxTplCount = 9;
-		            if ($members[groupid]==7) $maxTplCount = 6;
-		            if ($members[groupid]==8) $maxTplCount = 5;
-		            if ($members[groupid]==9) $maxTplCount = 4;
-		            if ($members[groupid]==10) $maxTplCount = 3;
-		            if ($members[groupid]==11) $maxTplCount = 3;
+			if ($members[groupid]==4) $maxTplCount = 30;
+			    if ($members[groupid]==5) $maxTplCount = 15;
+			    if ($members[groupid]==6) $maxTplCount = 9;
+			    if ($members[groupid]==7) $maxTplCount = 6;
+			    if ($members[groupid]==8) $maxTplCount = 5;
+			    if ($members[groupid]==9) $maxTplCount = 4;
+			    if ($members[groupid]==10) $maxTplCount = 3;
+			    if ($members[groupid]==11) $maxTplCount = 3;
 					if (db::data_count('task_tpl', "uid='$uid'") < $maxTplCount) {
 						db::insert('task_tpl', array(
 							'type'      => 1,
@@ -806,14 +806,14 @@ switch ($m) {
 				if ($isTpl && $tplTo) {
 					$tplTo = common::cutstr($tplTo, 64);
 					$members = member_base::getMember($uid);
-	             	if ($members[groupid]==4) $maxTplCount = 30;
-		            if ($members[groupid]==5) $maxTplCount = 15;
-		            if ($members[groupid]==6) $maxTplCount = 9;
-		            if ($members[groupid]==7) $maxTplCount = 6;
-		            if ($members[groupid]==8) $maxTplCount = 5;
-		            if ($members[groupid]==9) $maxTplCount = 4;
-		            if ($members[groupid]==10) $maxTplCount = 3;
-		            if ($members[groupid]==11) $maxTplCount = 3;
+			if ($members[groupid]==4) $maxTplCount = 30;
+			    if ($members[groupid]==5) $maxTplCount = 15;
+			    if ($members[groupid]==6) $maxTplCount = 9;
+			    if ($members[groupid]==7) $maxTplCount = 6;
+			    if ($members[groupid]==8) $maxTplCount = 5;
+			    if ($members[groupid]==9) $maxTplCount = 4;
+			    if ($members[groupid]==10) $maxTplCount = 3;
+			    if ($members[groupid]==11) $maxTplCount = 3;
 					if (db::data_count('task_tpl', "uid='$uid'") < $maxTplCount) {
 						db::insert('task_tpl', array(
 							'type'      => 1,
@@ -866,14 +866,14 @@ switch ($m) {
 				if ($isTpl && $tplTo) {
 					$tplTo = common::cutstr($tplTo, 64);
 					$members = member_base::getMember($uid);
-	             	if ($members[groupid]==4) $maxTplCount = 30;
-		            if ($members[groupid]==5) $maxTplCount = 15;
-		            if ($members[groupid]==6) $maxTplCount = 9;
-		            if ($members[groupid]==7) $maxTplCount = 6;
-		            if ($members[groupid]==8) $maxTplCount = 5;
-		            if ($members[groupid]==9) $maxTplCount = 4;
-		            if ($members[groupid]==10) $maxTplCount = 3;
-		            if ($members[groupid]==11) $maxTplCount = 3;
+			if ($members[groupid]==4) $maxTplCount = 30;
+			    if ($members[groupid]==5) $maxTplCount = 15;
+			    if ($members[groupid]==6) $maxTplCount = 9;
+			    if ($members[groupid]==7) $maxTplCount = 6;
+			    if ($members[groupid]==8) $maxTplCount = 5;
+			    if ($members[groupid]==9) $maxTplCount = 4;
+			    if ($members[groupid]==10) $maxTplCount = 3;
+			    if ($members[groupid]==11) $maxTplCount = 3;
 					if (db::data_count('task_tpl', "uid='$uid'") < $maxTplCount) {
 						db::insert('task_tpl', array(
 							'type'      => 1,
