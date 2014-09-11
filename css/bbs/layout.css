@@ -3817,7 +3817,7 @@ input.mh_bdbtn4 {
 	background:url(/images/jrsb_btn.gif) -416px -633px no-repeat;
 	overflow:hidden;
 	line-height:99px;
-	text-indent:99px;
+	text-indent:25px;
 	border:none;
 	cursor:pointer;
 }
@@ -3945,13 +3945,13 @@ input.mh_bdbtn4 {
 }
 .wdtg_bg1 {
 	background:url(/images/wdtg_ico.gif) 0 0 no-repeat;
-	width:980px;
+	width:976px;
 	margin:0 auto;
 	height:405px;
 }
 .wdtg_bg2 {
 	width:972px;
-	border:2px solid #81b3e0;
+	border:2px solid #f6fbff;
 	border-top:none;
 	border-bottom:none;
 	background:#f6fbff;
@@ -3960,7 +3960,7 @@ input.mh_bdbtn4 {
 .wdtg_bg3 {
 	background:url(/images/wdtg_ico.gif) 0 -419px no-repeat;
 	height:23px;
-	width:980px;
+	width:976px;
 	margin:0 auto;
 }
 .wdtg_inp {
