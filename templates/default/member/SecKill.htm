@@ -9,6 +9,9 @@
 	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description,'cssList'=>$cssList));
 }
 {sub ../header}
+<style>
+form{margin:0px;}
+</style>
 <DIV id="content">{sub menu}
 	<DIV class="right">{if $indexMessage}
 		<div class='error_panel'>
@@ -31,14 +34,14 @@
 					<SPAN>{$kill_price}</SPAN>元一个</P>
 				<P class="SecKill_txt">
 					
-<SPAN class="SecKill_txt1">
+<SPAN class="SecKill_txt1" style="margin-top:2px;">
 
-<INPUT id="nums" name="nums" maxLength="4" type="text"></SPAN>
+<INPUT id="nums" name="nums" maxLength="4" type="text" style="border:0px;width:160px;margin:0px;padding:0px;height:37px;"></SPAN>
 					<INPUT name="jiage" value="{$kill_price}" type="hidden">
 					
 <SPAN id="SecKill_buy" class="SecKill_buy">
 
-<INPUT type="button"></SPAN>
+<INPUT type="button" style="width:110px;"></SPAN>
 				</P>
 				<P class="SecKill_explain">
 					<SPAN>1</SPAN>个起售（剩余
@@ -72,7 +75,7 @@
 	        if (t <= 0) {
 			    window.clearInterval(tt_0);
 				$(".dleft").html("秒杀活动进行中！");
-				$("#SecKill_buy").removeClass("SecKill_buy").addClass("SecKill_buy1").html("<input type=\"submit\" />");
+				$("#SecKill_buy").removeClass("SecKill_buy").addClass("SecKill_buy1").html("<input type=\"submit\" style=\"width:110px;\"/>");
 	            t = 0;
 	        }
 			$(id).html(parseInt(t/3600) + ":" + m + ":" + s +"后" );
