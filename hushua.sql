@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost_3306
+Source Server         : localhost
 Source Server Version : 50538
 Source Host           : localhost:3306
 Source Database       : hushua
@@ -10,13 +10,13 @@ Target Server Type    : MYSQL
 Target Server Version : 50538
 File Encoding         : 65001
 
-Date: 2014-08-09 19:40:59
+Date: 2014-10-01 11:31:27
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `bf_ad`
+-- Table structure for bf_ad
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_ad`;
 CREATE TABLE `bf_ad` (
@@ -39,7 +39,7 @@ INSERT INTO `bf_ad` VALUES ('4', '4', '顶部滚动公告', 'index_head_scroll',
 INSERT INTO `bf_ad` VALUES ('5', '4', '首页广告1', 'index_ad1', '<a href=\"http://www.sszgclub.com/\" target=\"_blank\"><img src=\"/images/bar_pro.jpg\" alt=\"甩手掌柜 - 美乐平台、刷信誉的合作伙伴\" /></a>', '0');
 
 -- ----------------------------
--- Table structure for `bf_admins`
+-- Table structure for bf_admins
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_admins`;
 CREATE TABLE `bf_admins` (
@@ -59,7 +59,7 @@ CREATE TABLE `bf_admins` (
 INSERT INTO `bf_admins` VALUES ('4', 'test', '394eb1553c5b4f1d2e67737a07cd1500', '8522dc', '1360050920', '1402198417', '13');
 
 -- ----------------------------
--- Table structure for `bf_admin_authority`
+-- Table structure for bf_admin_authority
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_admin_authority`;
 CREATE TABLE `bf_admin_authority` (
@@ -263,7 +263,7 @@ INSERT INTO `bf_admin_authority` VALUES ('4', 'i_payfor', '1');
 INSERT INTO `bf_admin_authority` VALUES ('4', 'plugins_manage', '1');
 
 -- ----------------------------
--- Table structure for `bf_admin_custom_menu`
+-- Table structure for bf_admin_custom_menu
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_admin_custom_menu`;
 CREATE TABLE `bf_admin_custom_menu` (
@@ -279,7 +279,7 @@ CREATE TABLE `bf_admin_custom_menu` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_ad_cate`
+-- Table structure for bf_ad_cate
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_ad_cate`;
 CREATE TABLE `bf_ad_cate` (
@@ -299,7 +299,7 @@ INSERT INTO `bf_ad_cate` VALUES ('3', '0', '论坛', '0');
 INSERT INTO `bf_ad_cate` VALUES ('4', '0', '前台', '0');
 
 -- ----------------------------
--- Table structure for `bf_attach`
+-- Table structure for bf_attach
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_attach`;
 CREATE TABLE `bf_attach` (
@@ -332,7 +332,7 @@ INSERT INTO `bf_attach` VALUES ('19', '117', '10', '77119', 'img', '2011/04/111.
 INSERT INTO `bf_attach` VALUES ('20', '0', '3', '29820', 'img', '2012/02/3FD.jpg', '2012/02/3FD_thumb.jpg', '1328630023', '0');
 
 -- ----------------------------
--- Table structure for `bf_bbs_keys`
+-- Table structure for bf_bbs_keys
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_bbs_keys`;
 CREATE TABLE `bf_bbs_keys` (
@@ -549,7 +549,7 @@ INSERT INTO `bf_bbs_keys` VALUES ('201', '1', '好消息', '3', '13', '135866931
 INSERT INTO `bf_bbs_keys` VALUES ('202', '0', 'www.zhaoyaofang.cn', '0', '2', '1359190077');
 
 -- ----------------------------
--- Table structure for `bf_bbs_key_threads`
+-- Table structure for bf_bbs_key_threads
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_bbs_key_threads`;
 CREATE TABLE `bf_bbs_key_threads` (
@@ -2046,7 +2046,7 @@ INSERT INTO `bf_bbs_key_threads` VALUES ('28', '24');
 INSERT INTO `bf_bbs_key_threads` VALUES ('28', '25');
 
 -- ----------------------------
--- Table structure for `bf_blacks`
+-- Table structure for bf_blacks
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_blacks`;
 CREATE TABLE `bf_blacks` (
@@ -2069,7 +2069,7 @@ CREATE TABLE `bf_blacks` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_block`
+-- Table structure for bf_block
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_block`;
 CREATE TABLE `bf_block` (
@@ -2113,7 +2113,7 @@ INSERT INTO `bf_block` VALUES ('33', '14', '0', '账户余额', '右_余额', '<
 INSERT INTO `bf_block` VALUES ('34', '14', '0', '右侧余额讲解', '右_关于余额', '<div class=\"sbox\">\r\n			<h2 class=\"first\">什么是账户余额？</h2>\r\n			<div class=\"sidebar_div_inside\">\r\n				<p>账户余额是您在嘀嗒团团购时可用于支付的金额。</p>\r\n			</div>\r\n			<h2 class=\"sidebar_h2_inside\">可以往账户里充值么？</h2>\r\n			<div class=\"sidebar_div_inside\">\r\n				<p>请到<a href=\"{rewrite}/user/credit\">账户余额</a>菜单，在线充值。</p>\r\n			</div>\r\n			<h2 class=\"sidebar_h2_inside\">那怎样才能有余额？</h2>\r\n			<div class=\"sidebar_div_inside\">\r\n				<p>邀请好友获得返利将充值到账户余额，参加团购亦可获得返利。</p>\r\n			</div>\r\n			<div class=\"sbox_bottom\"></div>\r\n		</div>', '1292739140', '1292739140');
 
 -- ----------------------------
--- Table structure for `bf_buyers`
+-- Table structure for bf_buyers
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_buyers`;
 CREATE TABLE `bf_buyers` (
@@ -2148,17 +2148,18 @@ CREATE TABLE `bf_buyers` (
   KEY `i1` (`type`,`uid`,`score`,`status`,`timestamp`,`id`),
   KEY `i2` (`type`,`nickname`,`uid`,`id`),
   KEY `i3` (`type`,`status`,`cStatus`,`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bf_buyers
 -- ----------------------------
-INSERT INTO `bf_buyers` VALUES ('10', '1', '4', 'ceshi1', 'lcncn', '1', '', '38', '38', '50000', '1', '0', '1406630145', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', null, '0', '0');
-INSERT INTO `bf_buyers` VALUES ('11', '1', '8', 'ceshi2', 'zhanglinlin711', '1', '', '334', '335', '50000', '1', '0', '1407224425', '0', '0', '1', '1', '0', '0', '0', '0', '0', '0', '0', null, '0', '0');
+INSERT INTO `bf_buyers` VALUES ('10', '1', '4', 'ceshi1', 'lcncn', '1', '', '38', '40', '50000', '1', '0', '1406630145', '0', '0', '0', '2', '0', '0', '1409831537', '0', '0', '0', '0', null, '0', '0');
+INSERT INTO `bf_buyers` VALUES ('11', '1', '8', 'ceshi2', 'zhanglinlin711', '1', '', '334', '336', '50000', '1', '0', '1407224425', '0', '0', '0', '2', '0', '0', '0', '0', '0', '0', '0', null, '0', '0');
 INSERT INTO `bf_buyers` VALUES ('12', '0', '8', 'ceshi2', '大麦牙', '0', '', '0', '0', '342', '0', '7', '1407224595', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', null, '0', '0');
+INSERT INTO `bf_buyers` VALUES ('13', '1', '13', 'ceshi3', 'leohainuo', '1', '', '246', '246', '50000', '1', '0', '1407680770', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', null, '0', '0');
 
 -- ----------------------------
--- Table structure for `bf_b_navs`
+-- Table structure for bf_b_navs
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_b_navs`;
 CREATE TABLE `bf_b_navs` (
@@ -2183,7 +2184,7 @@ INSERT INTO `bf_b_navs` VALUES ('13', '4', '0', '新手任务', 'tyrotask', '0',
 INSERT INTO `bf_b_navs` VALUES ('14', '4', '0', '快递号配置', 'epcfg', '0', '0');
 
 -- ----------------------------
--- Table structure for `bf_cache_upload`
+-- Table structure for bf_cache_upload
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_cache_upload`;
 CREATE TABLE `bf_cache_upload` (
@@ -2195,14 +2196,14 @@ CREATE TABLE `bf_cache_upload` (
   `size` int(10) unsigned NOT NULL,
   `dateline` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=294 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=296 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bf_cache_upload
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_card`
+-- Table structure for bf_card
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_card`;
 CREATE TABLE `bf_card` (
@@ -2233,7 +2234,7 @@ CREATE TABLE `bf_card` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_cate_block`
+-- Table structure for bf_cate_block
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_cate_block`;
 CREATE TABLE `bf_cate_block` (
@@ -2253,7 +2254,7 @@ INSERT INTO `bf_cate_block` VALUES ('22', '底部链接', '0', '0');
 INSERT INTO `bf_cate_block` VALUES ('23', '导航', '0', '0');
 
 -- ----------------------------
--- Table structure for `bf_club`
+-- Table structure for bf_club
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_club`;
 CREATE TABLE `bf_club` (
@@ -2276,7 +2277,7 @@ CREATE TABLE `bf_club` (
 INSERT INTO `bf_club` VALUES ('1', '3', '美乐联盟', '2011/04/1E11.jpg', '美乐刷客联盟，刷出激情，刷出精彩', '123456', '2', '', '1302259994', '1');
 
 -- ----------------------------
--- Table structure for `bf_cms_epcfg`
+-- Table structure for bf_cms_epcfg
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_cms_epcfg`;
 CREATE TABLE `bf_cms_epcfg` (
@@ -2306,7 +2307,7 @@ INSERT INTO `bf_cms_epcfg` VALUES ('5', '0', '2', '1332098548', '1332098548', '2
 INSERT INTO `bf_cms_epcfg` VALUES ('6', '0', '2', '1332098559', '1332098559', '2130706433', '0', '0', '6', '10', '1', '120000000');
 
 -- ----------------------------
--- Table structure for `bf_cms_epcfg_cate`
+-- Table structure for bf_cms_epcfg_cate
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_cms_epcfg_cate`;
 CREATE TABLE `bf_cms_epcfg_cate` (
@@ -2329,7 +2330,7 @@ INSERT INTO `bf_cms_epcfg_cate` VALUES ('2', '0', '圆通', 'yuantong', '1332097
 INSERT INTO `bf_cms_epcfg_cate` VALUES ('3', '0', '申通', 'shentong', '1332097959', '1332097959', '3');
 
 -- ----------------------------
--- Table structure for `bf_cms_model`
+-- Table structure for bf_cms_model
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_cms_model`;
 CREATE TABLE `bf_cms_model` (
@@ -2354,7 +2355,7 @@ INSERT INTO `bf_cms_model` VALUES ('5', '0', '新手任务', 'tyrotask', '13', '
 INSERT INTO `bf_cms_model` VALUES ('6', '0', '快递号配置', 'epcfg', '14', '快递号配置', '4', '插件中心', '1332082377', '0');
 
 -- ----------------------------
--- Table structure for `bf_cms_model_fields`
+-- Table structure for bf_cms_model_fields
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_cms_model_fields`;
 CREATE TABLE `bf_cms_model_fields` (
@@ -2396,7 +2397,7 @@ INSERT INTO `bf_cms_model_fields` VALUES ('13', '6', '3', '开始数', 'start', 
 INSERT INTO `bf_cms_model_fields` VALUES ('14', '6', '4', '结束数', 'end', 'varchar(32) DEFAULT NULL', 'end', 'txt', '240', '0', '0', '0', '', '', '0', '', '', '1');
 
 -- ----------------------------
--- Table structure for `bf_cms_model_index`
+-- Table structure for bf_cms_model_index
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_cms_model_index`;
 CREATE TABLE `bf_cms_model_index` (
@@ -2415,7 +2416,7 @@ CREATE TABLE `bf_cms_model_index` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_cms_tyrotask`
+-- Table structure for bf_cms_tyrotask
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_cms_tyrotask`;
 CREATE TABLE `bf_cms_tyrotask` (
@@ -2448,7 +2449,7 @@ INSERT INTO `bf_cms_tyrotask` VALUES ('13', '7', '1', '1331712743', '1331712743'
 INSERT INTO `bf_cms_tyrotask` VALUES ('14', '8', '1', '1331713198', '1331713198', '2130706433', '0', '0', '考试通过', '<p>\r\n	考试考试。。。</p>\r\n', '3', '2', 'return db::exists(\'memberfields\', array(\'uid\' => $uid, \'exam\' => 1));');
 
 -- ----------------------------
--- Table structure for `bf_cms_tyrotask_cate`
+-- Table structure for bf_cms_tyrotask_cate
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_cms_tyrotask_cate`;
 CREATE TABLE `bf_cms_tyrotask_cate` (
@@ -2468,7 +2469,7 @@ CREATE TABLE `bf_cms_tyrotask_cate` (
 INSERT INTO `bf_cms_tyrotask_cate` VALUES ('1', '0', '默认分类', 'default', '1331707312', '1331707312', '8');
 
 -- ----------------------------
--- Table structure for `bf_cms_video`
+-- Table structure for bf_cms_video
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_cms_video`;
 CREATE TABLE `bf_cms_video` (
@@ -2493,7 +2494,7 @@ INSERT INTO `bf_cms_video` VALUES ('1', '0', '1', '1331622362', '1331622396', '2
 INSERT INTO `bf_cms_video` VALUES ('2', '0', '1', '1331622417', '1331622417', '2130706433', '0', '0', '视频2', 'http://player.youku.com/player.php/Type/Folder/Fid/17164104/Ob/1/Pt/0/sid/XMzY0NzIyMDU2/v.swf', '<p>\r\n	<strong>1232323</strong></p>\r\n');
 
 -- ----------------------------
--- Table structure for `bf_cms_video_cate`
+-- Table structure for bf_cms_video_cate
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_cms_video_cate`;
 CREATE TABLE `bf_cms_video_cate` (
@@ -2513,7 +2514,7 @@ CREATE TABLE `bf_cms_video_cate` (
 INSERT INTO `bf_cms_video_cate` VALUES ('1', '0', '默认分类', 'default', '1331620479', '1331620479', '2');
 
 -- ----------------------------
--- Table structure for `bf_collect`
+-- Table structure for bf_collect
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_collect`;
 CREATE TABLE `bf_collect` (
@@ -2537,7 +2538,7 @@ CREATE TABLE `bf_collect` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_collection`
+-- Table structure for bf_collection
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_collection`;
 CREATE TABLE `bf_collection` (
@@ -2558,7 +2559,7 @@ INSERT INTO `bf_collection` VALUES ('4', '3', '【VIP卡信托】怎样成为双
 INSERT INTO `bf_collection` VALUES ('5', '3', '【VIP卡信托】怎样识别是否是卡信托用户', '/bbs/t60/', '1300887515');
 
 -- ----------------------------
--- Table structure for `bf_complain`
+-- Table structure for bf_complain
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_complain`;
 CREATE TABLE `bf_complain` (
@@ -2583,7 +2584,7 @@ CREATE TABLE `bf_complain` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_complain_message`
+-- Table structure for bf_complain_message
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_complain_message`;
 CREATE TABLE `bf_complain_message` (
@@ -2599,7 +2600,7 @@ CREATE TABLE `bf_complain_message` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_credits`
+-- Table structure for bf_credits
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_credits`;
 CREATE TABLE `bf_credits` (
@@ -2618,14 +2619,21 @@ CREATE TABLE `bf_credits` (
   PRIMARY KEY (`id`),
   KEY `k1` (`tid`,`fuid`),
   KEY `i2` (`tuid`,`isBuyer`,`timestamp`,`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bf_credits
 -- ----------------------------
+INSERT INTO `bf_credits` VALUES ('16', 'TB0805161705350862', '8', 'ceshi2', '4', 'ceshi1', '1', '1', '0', '0', '的风的发送到', '1407589589');
+INSERT INTO `bf_credits` VALUES ('17', 'TB0810215823733075', '13', 'ceshi3', '4', 'ceshi1', '0', '1', '0', '0', '法国队的说法', '1408100473');
+INSERT INTO `bf_credits` VALUES ('18', 'TB0810215823733075', '4', 'ceshi1', '13', 'ceshi3', '1', '1', '0', '0', '范德萨分', '1408100484');
+INSERT INTO `bf_credits` VALUES ('19', 'TB0805154847353907', '4', 'ceshi1', '8', 'ceshi2', '1', '1', '0', '0', '范德萨分', '1408101576');
+INSERT INTO `bf_credits` VALUES ('20', 'TB0810215403873277', '13', 'ceshi3', '8', 'ceshi2', '0', '1', '0', '0', '范德萨分', '1408101587');
+INSERT INTO `bf_credits` VALUES ('21', 'TB0805154847353907', '8', 'ceshi2', '4', 'ceshi1', '0', '1', '0', '0', '忿忿地说', '1408101610');
+INSERT INTO `bf_credits` VALUES ('22', 'TB0810215403873277', '8', 'ceshi2', '13', 'ceshi3', '1', '1', '0', '0', '发生大法师的', '1408104006');
 
 -- ----------------------------
--- Table structure for `bf_eids`
+-- Table structure for bf_eids
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_eids`;
 CREATE TABLE `bf_eids` (
@@ -2651,7 +2659,7 @@ INSERT INTO `bf_eids` VALUES ('14', null, '圆通快递 1878888215 2012-09-17 17
 INSERT INTO `bf_eids` VALUES ('15', null, '圆通快递 1878888215 2012-09-17 17:57 上海市长宁区/业务员收件 2012-09-18 11:12 浙江省杭州市九堡/PDA正常签收扫描 签收人:小周。1234567890123456789012345678901', '14', 'asdasd', '1348071843', '1348365434', '1');
 
 -- ----------------------------
--- Table structure for `bf_ensure`
+-- Table structure for bf_ensure
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_ensure`;
 CREATE TABLE `bf_ensure` (
@@ -2676,7 +2684,7 @@ CREATE TABLE `bf_ensure` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_ensure_log`
+-- Table structure for bf_ensure_log
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_ensure_log`;
 CREATE TABLE `bf_ensure_log` (
@@ -2694,7 +2702,7 @@ CREATE TABLE `bf_ensure_log` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_ensure_message`
+-- Table structure for bf_ensure_message
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_ensure_message`;
 CREATE TABLE `bf_ensure_message` (
@@ -2710,7 +2718,7 @@ CREATE TABLE `bf_ensure_message` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_express`
+-- Table structure for bf_express
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_express`;
 CREATE TABLE `bf_express` (
@@ -2734,7 +2742,7 @@ INSERT INTO `bf_express` VALUES ('1', '1', '汇通', 'MG', '上海{上海市{闵
 INSERT INTO `bf_express` VALUES ('2', '2', '星辰', 'MG', '浙江省{杭州市{滨江区{滨江市区}拱墅区{拱墅市区}江干区{江干市区}上城区{上城市区}西湖区{西湖市区}下城区{下城市区}萧山区{萧山市区}余杭区{临平市区}富阳市{富阳市区}临安市{临安市区}桐庐县{桐君街道}}湖州市{吴兴区{红丰路}安吉县{递铺城区}长兴县{雉城镇}}嘉兴市{秀洲区{秀洲市区}南湖区{南湖市区}海宁市{海宁市区}平湖市{平湖市区}桐乡市{梧桐街道}海盐县{武原镇}}金华市{金东区{金东市区}婺城区{婺城市区}东阳市{东阳市区}兰溪市{兰溪市区}义乌市{商贸城}永康市{永康市区}浦江县{浦江县城城区}武义县{武义城区}}丽水市{莲都区{莲都市区}缙云县{县城}}宁波市{北仑区{新碶街道}海曙区{月湖街道}江东区{东胜街道}镇海区{招宝山街道}慈溪市{浒山街道}余姚市{凤山街道}}衢州市{柯城区{柯城区市中心}龙游县{龙游市区}}绍兴市{越城区{越城市区}绍兴县{柯桥}}台州市{黄岩区{黄岩市区}椒江区{经济开发区}路桥区{路南街道}临海市{临海市区}温岭市{温岭市区}天台县{天台县市区}}温州市{龙湾区{温州经济技术开发区}瓯海区{新桥镇}瑞安市{瑞安市区}苍南县{龙港镇区}平阳县{郑楼镇区}}}', '浙江省{杭州市{滨江区{滨江市区}拱墅区{拱墅市区}江干区{江干市区}上城区{上城市区}下城区{下城市区}萧山区{萧山市区}余杭区{临平市区}富阳市{富阳市区}临安市{临安市区}桐庐县{桐君街道}}}', '浙江省{嘉兴市{桐乡市{梧桐街道;濮院镇}}}', '1301589690', '0');
 
 -- ----------------------------
--- Table structure for `bf_express_buyers`
+-- Table structure for bf_express_buyers
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_express_buyers`;
 CREATE TABLE `bf_express_buyers` (
@@ -2764,7 +2772,7 @@ INSERT INTO `bf_express_buyers` VALUES ('5', '46', '1', '54', '', '', '未央达
 INSERT INTO `bf_express_buyers` VALUES ('6', '11', '1', '8', '', '', '泰山大街22号', '得得得', '15987452364', '1407224753');
 
 -- ----------------------------
--- Table structure for `bf_express_sellers`
+-- Table structure for bf_express_sellers
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_express_sellers`;
 CREATE TABLE `bf_express_sellers` (
@@ -2793,7 +2801,7 @@ INSERT INTO `bf_express_sellers` VALUES ('14', '7', '1', '3', '', '浙江省 温
 INSERT INTO `bf_express_sellers` VALUES ('15', '7', '2', '3', '', '浙江省 嘉兴市 桐乡市 梧桐街道', '官网帮我随便写吧', '江哥MG', '13982017238', '1302150822');
 
 -- ----------------------------
--- Table structure for `bf_e_answer`
+-- Table structure for bf_e_answer
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_e_answer`;
 CREATE TABLE `bf_e_answer` (
@@ -2804,7 +2812,7 @@ CREATE TABLE `bf_e_answer` (
   `status` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `timestamp` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=374 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=379 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bf_e_answer
@@ -3163,9 +3171,14 @@ INSERT INTO `bf_e_answer` VALUES ('370', '9', '4', '0', '1', '1406546795');
 INSERT INTO `bf_e_answer` VALUES ('371', '9', '3', '0', '1', '1406546799');
 INSERT INTO `bf_e_answer` VALUES ('372', '9', '2', '0', '1', '1406546805');
 INSERT INTO `bf_e_answer` VALUES ('373', '9', '1', '0', '1', '1406546810');
+INSERT INTO `bf_e_answer` VALUES ('374', '13', '5', '0', '1', '1407679567');
+INSERT INTO `bf_e_answer` VALUES ('375', '13', '4', '0', '1', '1407679574');
+INSERT INTO `bf_e_answer` VALUES ('376', '13', '3', '0', '1', '1407679580');
+INSERT INTO `bf_e_answer` VALUES ('377', '13', '2', '0', '1', '1407679585');
+INSERT INTO `bf_e_answer` VALUES ('378', '13', '1', '0', '1', '1407679589');
 
 -- ----------------------------
--- Table structure for `bf_e_question`
+-- Table structure for bf_e_question
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_e_question`;
 CREATE TABLE `bf_e_question` (
@@ -3188,7 +3201,7 @@ INSERT INTO `bf_e_question` VALUES ('4', '4', '下面关于美乐积分的描述
 INSERT INTO `bf_e_question` VALUES ('5', '5', '下面哪项不属于九大平台禁忌a', '1', '0', '1348098535');
 
 -- ----------------------------
--- Table structure for `bf_e_select`
+-- Table structure for bf_e_select
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_e_select`;
 CREATE TABLE `bf_e_select` (
@@ -3304,7 +3317,7 @@ INSERT INTO `bf_e_select` VALUES ('18', '4', 'A B C都正确');
 INSERT INTO `bf_e_select` VALUES ('17', '5', '以上几种都是；');
 
 -- ----------------------------
--- Table structure for `bf_flow_cache`
+-- Table structure for bf_flow_cache
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_flow_cache`;
 CREATE TABLE `bf_flow_cache` (
@@ -3319,7 +3332,7 @@ CREATE TABLE `bf_flow_cache` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_forums`
+-- Table structure for bf_forums
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_forums`;
 CREATE TABLE `bf_forums` (
@@ -3362,7 +3375,7 @@ INSERT INTO `bf_forums` VALUES ('8', '7', '投诉建议', 'sfc', '投诉建议�
 INSERT INTO `bf_forums` VALUES ('9', '8', '灌水乐园', '', '本版发帖、回复不得积分，精华帖子版主可以加分；本版不允许发布有关政策敏感的话题，违者扣分加删帖，严重者论坛禁言', '9', '8', '0', '0', '95', '淘宝分销商好做吗?分销商如何保护自身利益！', '1359898143', '39', 'windows', '135', '1359898577', '51', '懒懒的温暖', '0', '0', '0', '0', '1299497092');
 
 -- ----------------------------
--- Table structure for `bf_from`
+-- Table structure for bf_from
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_from`;
 CREATE TABLE `bf_from` (
@@ -3379,7 +3392,7 @@ CREATE TABLE `bf_from` (
 INSERT INTO `bf_from` VALUES ('2', '8', 'ceshi2', '', '1406543904');
 
 -- ----------------------------
--- Table structure for `bf_from_cate`
+-- Table structure for bf_from_cate
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_from_cate`;
 CREATE TABLE `bf_from_cate` (
@@ -3404,7 +3417,7 @@ INSERT INTO `bf_from_cate` VALUES ('6', '6', '朋友介绍', '0', '', '1');
 INSERT INTO `bf_from_cate` VALUES ('7', '7', '平台邀请', '0', '', '0');
 
 -- ----------------------------
--- Table structure for `bf_groups`
+-- Table structure for bf_groups
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_groups`;
 CREATE TABLE `bf_groups` (
@@ -3420,7 +3433,7 @@ CREATE TABLE `bf_groups` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_help`
+-- Table structure for bf_help
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_help`;
 CREATE TABLE `bf_help` (
@@ -3494,7 +3507,7 @@ INSERT INTO `bf_help` VALUES ('55', '6', '7', '怎样识别用户是否是VIP', 
 INSERT INTO `bf_help` VALUES ('56', '6', '8', '怎样识别是否是卡信托用户', '/bbs/t60/', '1300819488');
 
 -- ----------------------------
--- Table structure for `bf_help_cate`
+-- Table structure for bf_help_cate
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_help_cate`;
 CREATE TABLE `bf_help_cate` (
@@ -3517,7 +3530,7 @@ INSERT INTO `bf_help_cate` VALUES ('5', '4', '/images/help/ico_5.gif', '帐户�
 INSERT INTO `bf_help_cate` VALUES ('6', '6', '/images/help/ico_6.gif', 'VIP信托帮助', '8');
 
 -- ----------------------------
--- Table structure for `bf_kefu`
+-- Table structure for bf_kefu
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_kefu`;
 CREATE TABLE `bf_kefu` (
@@ -3547,7 +3560,7 @@ INSERT INTO `bf_kefu` VALUES ('8', '0', '4', 'VIP1号', '2011/03/1A41.jpg', '121
 INSERT INTO `bf_kefu` VALUES ('9', '0', '7', '智能客服1', '2011/03/2031.jpg', '914527864', '0', '0', '0', '0', '1300203957');
 
 -- ----------------------------
--- Table structure for `bf_kefu_cate`
+-- Table structure for bf_kefu_cate
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_kefu_cate`;
 CREATE TABLE `bf_kefu_cate` (
@@ -3568,7 +3581,7 @@ INSERT INTO `bf_kefu_cate` VALUES ('4', '4', 'VIP专员', '1');
 INSERT INTO `bf_kefu_cate` VALUES ('7', '5', '其它客服', '1');
 
 -- ----------------------------
--- Table structure for `bf_kefu_review`
+-- Table structure for bf_kefu_review
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_kefu_review`;
 CREATE TABLE `bf_kefu_review` (
@@ -3595,7 +3608,7 @@ CREATE TABLE `bf_kefu_review` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_kill`
+-- Table structure for bf_kill
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_kill`;
 CREATE TABLE `bf_kill` (
@@ -3611,7 +3624,7 @@ CREATE TABLE `bf_kill` (
 INSERT INTO `bf_kill` VALUES ('1', '0', '2014-07-18 00:00:00');
 
 -- ----------------------------
--- Table structure for `bf_log`
+-- Table structure for bf_log
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_log`;
 CREATE TABLE `bf_log` (
@@ -3628,7 +3641,7 @@ CREATE TABLE `bf_log` (
   `timestamp` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `i1` (`type`,`uid`,`id`,`timestamp`)
-) ENGINE=MyISAM AUTO_INCREMENT=203 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=230 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bf_log
@@ -3665,9 +3678,36 @@ INSERT INTO `bf_log` VALUES ('199', 'fabudian', '8', 'ceshi2', '2.80', '53.80', 
 INSERT INTO `bf_log` VALUES ('200', 'credits', '8', 'ceshi2', '5.00', '0.00', '10.00', '0.00', '0', '完成任务TB0805161705350862', '1407226952');
 INSERT INTO `bf_log` VALUES ('201', 'fabudian', '8', 'ceshi2', '-20.00', '33.80', '0.00', '0.00', '1', '麦点兑换现金', '1407230903');
 INSERT INTO `bf_log` VALUES ('202', 'money', '8', 'ceshi2', '8.00', '0.00', '0.00', '386.00', '0', '麦点兑换现金', '1407230903');
+INSERT INTO `bf_log` VALUES ('203', 'money', '4', 'ceshi1', '-20.00', '0.00', '0.00', '4851.40', '0', '淘宝区发布任务', '1407654376');
+INSERT INTO `bf_log` VALUES ('204', 'fabudian', '4', 'ceshi1', '-3.50', '104.00', '0.00', '0.00', '1', '淘宝区发布任务', '1407654376');
+INSERT INTO `bf_log` VALUES ('205', 'credits', '4', 'ceshi1', '5.00', '0.00', '520.00', '0.00', '0', '淘宝区发任务奖励积分', '1407654376');
+INSERT INTO `bf_log` VALUES ('206', 'credits', '8', 'ceshi2', '500.00', '0.00', '510.00', '0.00', '0', '后台增加', '1407673819');
+INSERT INTO `bf_log` VALUES ('207', 'credits', '13', 'ceshi3', '200.00', '0.00', '200.00', '0.00', '0', '后台增加', '1407678701');
+INSERT INTO `bf_log` VALUES ('208', 'money', '13', 'ceshi3', '20000.00', '0.00', '0.00', '20000.00', '0', '后台增加', '1407678710');
+INSERT INTO `bf_log` VALUES ('209', 'fabudian', '13', 'ceshi3', '1000.00', '1000.00', '0.00', '0.00', '1', '后台增加淘宝发布点', '1407678720');
+INSERT INTO `bf_log` VALUES ('210', 'money', '13', 'ceshi3', '-5.00', '0.00', '0.00', '19995.00', '0', '添加掌柜扣除5元', '1407678786');
+INSERT INTO `bf_log` VALUES ('211', 'money', '13', 'ceshi3', '-10.00', '0.00', '0.00', '19985.00', '0', '淘宝区发布任务', '1407678843');
+INSERT INTO `bf_log` VALUES ('212', 'fabudian', '13', 'ceshi3', '-1.00', '999.00', '0.00', '0.00', '1', '淘宝区发布任务', '1407678843');
+INSERT INTO `bf_log` VALUES ('213', 'credits', '13', 'ceshi3', '5.00', '0.00', '205.00', '0.00', '0', '淘宝区发任务奖励积分', '1407678843');
+INSERT INTO `bf_log` VALUES ('214', 'money', '8', 'ceshi2', '10.00', '0.00', '0.00', '396.00', '0', '完成任务TB0810215403873277', '1407679029');
+INSERT INTO `bf_log` VALUES ('215', 'fabudian', '8', 'ceshi2', '0.85', '34.65', '0.00', '0.00', '1', '完成任务TB0810215403873277奖励发布点', '1407679029');
+INSERT INTO `bf_log` VALUES ('216', 'credits', '8', 'ceshi2', '5.00', '0.00', '515.00', '0.00', '0', '完成任务TB0810215403873277', '1407679029');
+INSERT INTO `bf_log` VALUES ('217', 'money', '13', 'ceshi3', '-10.00', '0.00', '0.00', '19975.00', '0', '淘宝区发布任务', '1407679103');
+INSERT INTO `bf_log` VALUES ('218', 'fabudian', '13', 'ceshi3', '-1.00', '998.00', '0.00', '0.00', '1', '淘宝区发布任务', '1407679103');
+INSERT INTO `bf_log` VALUES ('219', 'credits', '13', 'ceshi3', '5.00', '0.00', '210.00', '0.00', '0', '淘宝区发任务奖励积分', '1407679103');
+INSERT INTO `bf_log` VALUES ('220', 'fabudian', '13', 'ceshi3', '1.00', '999.00', '0.00', '0.00', '1', '调查考试通过奖励', '1407679589');
+INSERT INTO `bf_log` VALUES ('221', 'money', '4', 'ceshi1', '10.00', '0.00', '0.00', '4861.40', '0', '完成任务TB0810215823733075', '1408100463');
+INSERT INTO `bf_log` VALUES ('222', 'fabudian', '4', 'ceshi1', '0.85', '104.85', '0.00', '0.00', '1', '完成任务TB0810215823733075奖励发布点', '1408100463');
+INSERT INTO `bf_log` VALUES ('223', 'credits', '4', 'ceshi1', '5.00', '0.00', '525.00', '0.00', '0', '完成任务TB0810215823733075', '1408100463');
+INSERT INTO `bf_log` VALUES ('224', 'money', '4', 'ceshi1', '12.00', '0.00', '0.00', '4873.40', '0', '完成任务TB0805154847353907', '1408101554');
+INSERT INTO `bf_log` VALUES ('225', 'fabudian', '4', 'ceshi1', '0.85', '105.70', '0.00', '0.00', '1', '完成任务TB0805154847353907奖励发布点', '1408101554');
+INSERT INTO `bf_log` VALUES ('226', 'credits', '4', 'ceshi1', '5.00', '0.00', '530.00', '0.00', '0', '完成任务TB0805154847353907', '1408101554');
+INSERT INTO `bf_log` VALUES ('227', 'money', '13', 'ceshi3', '-10.00', '0.00', '0.00', '19965.00', '0', '淘宝区发布任务', '1408104393');
+INSERT INTO `bf_log` VALUES ('228', 'fabudian', '13', 'ceshi3', '-4.00', '995.00', '0.00', '0.00', '1', '淘宝区发布任务', '1408104393');
+INSERT INTO `bf_log` VALUES ('229', 'credits', '13', 'ceshi3', '5.00', '0.00', '215.00', '0.00', '0', '淘宝区发任务奖励积分', '1408104393');
 
 -- ----------------------------
--- Table structure for `bf_log_exception`
+-- Table structure for bf_log_exception
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_log_exception`;
 CREATE TABLE `bf_log_exception` (
@@ -3687,7 +3727,7 @@ INSERT INTO `bf_log_exception` VALUES ('2', '3', '美乐管理员', 'qS6b7J3u6n6
 INSERT INTO `bf_log_exception` VALUES ('3', '3', '美乐管理员', '84181394', '1331745200');
 
 -- ----------------------------
--- Table structure for `bf_log_exchange`
+-- Table structure for bf_log_exchange
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_log_exchange`;
 CREATE TABLE `bf_log_exchange` (
@@ -3709,7 +3749,7 @@ CREATE TABLE `bf_log_exchange` (
 INSERT INTO `bf_log_exchange` VALUES ('1', '2', '8', 'ceshi2', '20.00', '8.00', '0.00', '1.000', '1407230903');
 
 -- ----------------------------
--- Table structure for `bf_log_express`
+-- Table structure for bf_log_express
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_log_express`;
 CREATE TABLE `bf_log_express` (
@@ -3726,7 +3766,7 @@ CREATE TABLE `bf_log_express` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_log_flow_vip`
+-- Table structure for bf_log_flow_vip
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_log_flow_vip`;
 CREATE TABLE `bf_log_flow_vip` (
@@ -3743,7 +3783,7 @@ CREATE TABLE `bf_log_flow_vip` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_log_member`
+-- Table structure for bf_log_member
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_log_member`;
 CREATE TABLE `bf_log_member` (
@@ -3756,7 +3796,7 @@ CREATE TABLE `bf_log_member` (
   `timestamp` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `i1` (`uid`,`timestamp`,`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=90 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=120 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bf_log_member
@@ -3806,9 +3846,39 @@ INSERT INTO `bf_log_member` VALUES ('86', '4', 'ceshi1', '登陆网站', 'ceshi1
 INSERT INTO `bf_log_member` VALUES ('87', '4', 'ceshi1', '登陆网站', 'ceshi1登陆网站', '2074700230', '1407505916');
 INSERT INTO `bf_log_member` VALUES ('88', '4', 'ceshi1', '登陆网站', 'ceshi1登陆网站', '2074700230', '1407507691');
 INSERT INTO `bf_log_member` VALUES ('89', '4', 'ceshi1', '登陆网站', 'ceshi1登陆网站', '2074700230', '1407515139');
+INSERT INTO `bf_log_member` VALUES ('90', '4', 'ceshi1', '登陆网站', 'ceshi1登陆网站', '2130706433', '1407584743');
+INSERT INTO `bf_log_member` VALUES ('91', '4', 'ceshi1', '登陆网站', 'ceshi1登陆网站', '2130706433', '1407585280');
+INSERT INTO `bf_log_member` VALUES ('92', '8', 'ceshi2', '登陆网站', 'ceshi2登陆网站', '2130706433', '1407589043');
+INSERT INTO `bf_log_member` VALUES ('93', '4', 'ceshi1', '登陆网站', 'ceshi1登陆网站', '2130706433', '1407596362');
+INSERT INTO `bf_log_member` VALUES ('94', '4', 'ceshi1', '登陆网站', 'ceshi1登陆网站', '2130706433', '1407644781');
+INSERT INTO `bf_log_member` VALUES ('95', '8', 'ceshi2', '登陆网站', 'ceshi2登陆网站', '2130706433', '1407655849');
+INSERT INTO `bf_log_member` VALUES ('96', '4', 'ceshi1', '登陆网站', 'ceshi1登陆网站', '2130706433', '1407659256');
+INSERT INTO `bf_log_member` VALUES ('97', '8', 'ceshi2', '登陆网站', 'ceshi2登陆网站', '2130706433', '1407673767');
+INSERT INTO `bf_log_member` VALUES ('98', '8', 'ceshi2', '登陆网站', 'ceshi2登陆网站', '2130706433', '1407674833');
+INSERT INTO `bf_log_member` VALUES ('99', '4', 'ceshi1', '登陆网站', 'ceshi1登陆网站', '2130706433', '1407679175');
+INSERT INTO `bf_log_member` VALUES ('100', '4', 'ceshi1', '登陆网站', 'ceshi1登陆网站', '2130706433', '1407757997');
+INSERT INTO `bf_log_member` VALUES ('101', '13', 'ceshi3', '登陆网站', 'ceshi3登陆网站', '2130706433', '1407758010');
+INSERT INTO `bf_log_member` VALUES ('102', '4', 'ceshi1', '登陆网站', 'ceshi1登陆网站', '2130706433', '1407761069');
+INSERT INTO `bf_log_member` VALUES ('103', '4', 'ceshi1', '登陆网站', 'ceshi1登陆网站', '2130706433', '1407845213');
+INSERT INTO `bf_log_member` VALUES ('104', '4', 'ceshi1', '修改个人资料', 'ceshi1修改了自己的个人资料', '2130706433', '1407846294');
+INSERT INTO `bf_log_member` VALUES ('105', '4', 'ceshi1', '登陆网站', 'ceshi1登陆网站', '2130706433', '1407935329');
+INSERT INTO `bf_log_member` VALUES ('106', '4', 'ceshi1', '登陆网站', 'ceshi1登陆网站', '2130706433', '1408015876');
+INSERT INTO `bf_log_member` VALUES ('107', '4', 'ceshi1', '登陆网站', 'ceshi1登陆网站', '2130706433', '1408099300');
+INSERT INTO `bf_log_member` VALUES ('108', '13', 'ceshi3', '登陆网站', 'ceshi3登陆网站', '2130706433', '1408100283');
+INSERT INTO `bf_log_member` VALUES ('109', '13', 'ceshi3', '修改个人资料', 'ceshi3修改了自己的个人资料', '2130706433', '1408100366');
+INSERT INTO `bf_log_member` VALUES ('110', '13', 'ceshi3', '修改个人资料', 'ceshi3修改了自己的个人资料', '2130706433', '1408100376');
+INSERT INTO `bf_log_member` VALUES ('111', '8', 'ceshi2', '登陆网站', 'ceshi2登陆网站', '2130706433', '1408100634');
+INSERT INTO `bf_log_member` VALUES ('112', '4', 'ceshi1', '登陆网站', 'ceshi1登陆网站', '2130706433', '1408247672');
+INSERT INTO `bf_log_member` VALUES ('113', '4', 'ceshi1', '登陆网站', 'ceshi1登陆网站', '2130706433', '1408615445');
+INSERT INTO `bf_log_member` VALUES ('114', '4', 'ceshi1', '登陆网站', 'ceshi1登陆网站', '2130706433', '1408880729');
+INSERT INTO `bf_log_member` VALUES ('115', '4', 'ceshi1', '登陆网站', 'ceshi1登陆网站', '2130706433', '1409138436');
+INSERT INTO `bf_log_member` VALUES ('116', '4', 'ceshi1', '登陆网站', 'ceshi1登陆网站', '2130706433', '1409831334');
+INSERT INTO `bf_log_member` VALUES ('117', '4', 'ceshi1', '登陆网站', 'ceshi1登陆网站', '2130706433', '1410011622');
+INSERT INTO `bf_log_member` VALUES ('118', '8', 'ceshi2', '登陆网站', 'ceshi2登陆网站', '2130706433', '1410437510');
+INSERT INTO `bf_log_member` VALUES ('119', '4', 'ceshi1', '登陆网站', 'ceshi1登陆网站', '2130706433', '1410950531');
 
 -- ----------------------------
--- Table structure for `bf_log_soft`
+-- Table structure for bf_log_soft
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_log_soft`;
 CREATE TABLE `bf_log_soft` (
@@ -3832,7 +3902,7 @@ INSERT INTO `bf_log_soft` VALUES ('4', '6', '测试扣钱软件', '3', '美乐�
 INSERT INTO `bf_log_soft` VALUES ('5', '6', '测试扣钱软件', '3', '美乐管理员', '1331567989', '2130706433');
 
 -- ----------------------------
--- Table structure for `bf_log_vip`
+-- Table structure for bf_log_vip
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_log_vip`;
 CREATE TABLE `bf_log_vip` (
@@ -3852,7 +3922,7 @@ CREATE TABLE `bf_log_vip` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_memberconfigs`
+-- Table structure for bf_memberconfigs
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_memberconfigs`;
 CREATE TABLE `bf_memberconfigs` (
@@ -3910,9 +3980,10 @@ INSERT INTO `bf_memberconfigs` VALUES ('9', '1', '0', '0', '1', '1', '1', '1', '
 INSERT INTO `bf_memberconfigs` VALUES ('10', '1', '0', '0', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '0', '1', '1', '0', '1', '0', '1', '1', '0', '1', '1', '1', '1');
 INSERT INTO `bf_memberconfigs` VALUES ('11', '1', '0', '0', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '0', '1', '1', '0', '1', '0', '1', '1', '0', '1', '1', '1', '1');
 INSERT INTO `bf_memberconfigs` VALUES ('12', '1', '0', '0', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '0', '1', '1', '0', '1', '0', '1', '1', '0', '1', '1', '1', '1');
+INSERT INTO `bf_memberconfigs` VALUES ('13', '1', '0', '0', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '0', '1', '1', '0', '1', '0', '1', '1', '0', '1', '1', '1', '1');
 
 -- ----------------------------
--- Table structure for `bf_memberfields`
+-- Table structure for bf_memberfields
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_memberfields`;
 CREATE TABLE `bf_memberfields` (
@@ -3975,16 +4046,17 @@ CREATE TABLE `bf_memberfields` (
 -- ----------------------------
 -- Records of bf_memberfields
 -- ----------------------------
-INSERT INTO `bf_memberfields` VALUES ('4', null, '515', '0', '4871.40', null, '2', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '107.50', '0.00', '0.00', '0', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0.00', '0', '0', '0', '8', '0', '0', '0');
+INSERT INTO `bf_memberfields` VALUES ('4', '00/00/00/_04.jpg', '530', '0', '4873.40', null, '28', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '105.70', '0.00', '0.00', '0', '1', '1', '0', '0', '0', '0', '1', '0', '0', '2', '0', '0', '0', '0', '0', '0', '0', '0', '0.00', '0', '0', '0', '8', '0', '0', '0');
 INSERT INTO `bf_memberfields` VALUES ('7', null, '0', '0', '0.00', null, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0.00', '0.00', '0.00', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0.00', '0', '0', '0', '8', '0', '0', '0');
-INSERT INTO `bf_memberfields` VALUES ('8', null, '10', '0', '386.00', null, '5', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '33.80', '0.00', '0.00', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0.00', '0', '0', '0', '8', '0', '0', '0');
+INSERT INTO `bf_memberfields` VALUES ('8', null, '515', '0', '396.00', null, '17', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '34.65', '0.00', '0.00', '0', '1', '0', '0', '0', '0', '0', '1', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0.00', '0', '0', '0', '8', '0', '0', '0');
 INSERT INTO `bf_memberfields` VALUES ('9', null, '0', '0', '0.00', null, '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1.00', '0.00', '0.00', '0', '0', '2', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0.00', '0', '0', '0', '8', '0', '0', '0');
 INSERT INTO `bf_memberfields` VALUES ('10', null, '0', '0', '0.00', null, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0.00', '0.00', '0.00', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0.00', '0', '0', '0', '8', '0', '0', '0');
 INSERT INTO `bf_memberfields` VALUES ('11', null, '0', '0', '0.00', null, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0.00', '0.00', '0.00', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0.00', '0', '0', '0', '8', '0', '0', '0');
 INSERT INTO `bf_memberfields` VALUES ('12', null, '0', '0', '0.00', null, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0.00', '0.00', '0.00', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0.00', '0', '0', '0', '8', '0', '0', '0');
+INSERT INTO `bf_memberfields` VALUES ('13', '00/00/00/0D.png', '215', '0', '19965.00', null, '11', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '995.00', '0.00', '0.00', '0', '1', '1', '0', '0', '0', '0', '2', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0.00', '0', '0', '0', '8', '0', '0', '0');
 
 -- ----------------------------
--- Table structure for `bf_memberlog`
+-- Table structure for bf_memberlog
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_memberlog`;
 CREATE TABLE `bf_memberlog` (
@@ -4002,9 +4074,10 @@ INSERT INTO `bf_memberlog` VALUES ('8', '1406476800', '0');
 INSERT INTO `bf_memberlog` VALUES ('9', '0', '0');
 INSERT INTO `bf_memberlog` VALUES ('10', '0', '0');
 INSERT INTO `bf_memberlog` VALUES ('11', '0', '0');
+INSERT INTO `bf_memberlog` VALUES ('13', '0', '0');
 
 -- ----------------------------
--- Table structure for `bf_members`
+-- Table structure for bf_members
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_members`;
 CREATE TABLE `bf_members` (
@@ -4052,22 +4125,23 @@ CREATE TABLE `bf_members` (
   KEY `i7` (`parent`,`status`,`reg_timestamp`,`id`),
   KEY `i8` (`childMonth`,`id`),
   KEY `i9` (`clientId`,`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bf_members
 -- ----------------------------
-INSERT INTO `bf_members` VALUES ('3', '952c5e4fe106d5f8a08df8809e0348b9', '3', '0', '美乐管理员', '0c564666608fa4d9355b5421587a811c', '0c564666608fa4d9355b5421587a811c', '阿江', '373718549', '373718549@qq.com', '13982017238', '2', '河北省秦皇岛市海港区迎宾路天洋新城1号1单元602', '0', '5', '3', '0', '10', '0', '10', '0', '', 'e9bb48', '1299826011', '2130706433', '1360043711', '3084473953', '1', '18', '0', '0', '0', '1', '0');
-INSERT INTO `bf_members` VALUES ('4', null, '11', '0', 'ceshi1', 'faf8b10cb63024893a06d66625fd4dee', 'd4cc4a55c9b8e4ab7928a1f5bbfff02f', '中国', '399709335', '399709335@qq.com', '13564251268', '1', null, '', '1', '0', '0', '0', '0', '0', '0', '', 'd1738c', '1405862893', '2130706433', '1407515139', '2074700230', '0', '1', '0', '0', '1405863029', '1', '44');
-INSERT INTO `bf_members` VALUES ('7', null, '11', '0', 'jtsts', 'bb70df4e798b98b16594ae945b0a6835', 'df40efdd89c907000c9753b7491272b4', '洪米', '150040481', '150040481@qq.com', '13675967555', '1', null, '', '0', '0', '0', '0', '0', '0', '0', '', 'fd9616', '1406387551', '2016057209', '1406387551', '2016057209', '0', '1', '0', '0', '1406387745', '1', '0');
-INSERT INTO `bf_members` VALUES ('8', null, '11', '0', 'ceshi2', 'f06d18a5a875f4d34a6a24a8d88d8520', '7be056c5c31aea1c6903a5c00ac6ec7e', '但是', '845215', '845215@qq.com', '15858522633', '1', null, '', '0', '0', '0', '0', '0', '0', '0', '', 'd062b0', '1406543084', '2365227533', '1407223219', '2365227533', '0', '1', '0', '0', '1406544399', '1', '1');
-INSERT INTO `bf_members` VALUES ('9', null, '11', '0', 'qqq11113131231', 'c6f15ba3fa8e39e29eddda224f343053', '9cd98e52057c062f3a17a1a38223b523', '尼尔', '13213121', '13213121@qq.com', '13333333333', '1', null, '', '0', '0', '0', '0', '0', '0', '0', '', '09ecc1', '1406546656', '1911382896', '1406546656', '1911382896', '0', '1', '0', '0', '1406546822', '1', '0');
-INSERT INTO `bf_members` VALUES ('10', null, '11', '0', 'QQ906818', '49ba7aa74d31964cb4dca423b601e920', '5d0a8f062ef0d0c114d89f661a0a86d4', '高祖坤', '906818', '906818@qq.com', '18560630881', '1', null, '', '0', '0', '0', '0', '0', '0', '0', '', '11ae84', '1406624753', '1893896869', '1406624753', '1893896869', '0', '1', '0', '0', '1406624776', '1', '0');
-INSERT INTO `bf_members` VALUES ('11', null, '11', '0', 'boysee', '13641f39dc4d28dc8e2fe24a552f7f0e', '4666cd71b8918c9410288a6d6377eab3', '发地方', '123123123', '123123123@qq.com', '15687978933', '1', null, '', '0', '0', '0', '0', '0', '0', '0', '', '5b1022', '1407119909', '3684045498', '1407119909', '3684045498', '0', '1', '0', '0', '1407120017', '1', '0');
-INSERT INTO `bf_members` VALUES ('12', null, '11', '0', 'ceshi7', '0328d797b260966a2465a833ba87c094', '725a8f48639a7e2489395fe8bce1bf75', '臧涛', '30746', '30746@qq.com', '15550866333', '1', null, '4', '0', '0', '0', '0', '0', '0', '0', '', '7316a3', '1407147703', '2365227533', '1407147703', '2365227533', '0', '0', '0', '0', '1407148070', '1', '0');
+INSERT INTO `bf_members` VALUES ('3', '952c5e4fe106d5f8a08df8809e0348b9', '3', '0', '美乐管理员', '0c564666608fa4d9355b5421587a811c', '0c564666608fa4d9355b5421587a811c', '阿江', '373718549', '373718549@qq.com', '13982017238', '2', '河北省秦皇岛市海港区迎宾路天洋新城1号1单元602', '0', '5', '3', '0', '10', '0', '10', '0', '', 'e9bb48', '1299826011', '2130706433', '1360043711', '3084473953', '1', '19', '0', '0', '0', '1', '0');
+INSERT INTO `bf_members` VALUES ('4', null, '11', '0', 'ceshi1', 'faf8b10cb63024893a06d66625fd4dee', 'd4cc4a55c9b8e4ab7928a1f5bbfff02f', '中国', '399709335', '399709335@qq.com', '13564251268', '1', '', '', '1', '0', '0', '0', '0', '0', '0', '', 'd1738c', '1405862893', '2130706433', '1410950531', '2130706433', '0', '2', '0', '0', '1405863029', '1', '63');
+INSERT INTO `bf_members` VALUES ('7', null, '11', '0', 'jtsts', 'bb70df4e798b98b16594ae945b0a6835', 'df40efdd89c907000c9753b7491272b4', '洪米', '150040481', '150040481@qq.com', '13675967555', '1', null, '', '0', '0', '0', '0', '0', '0', '0', '', 'fd9616', '1406387551', '2016057209', '1406387551', '2016057209', '0', '2', '0', '0', '1406387745', '1', '0');
+INSERT INTO `bf_members` VALUES ('8', null, '11', '0', 'ceshi2', 'f06d18a5a875f4d34a6a24a8d88d8520', '7be056c5c31aea1c6903a5c00ac6ec7e', '但是', '845215', '845215@qq.com', '15858522633', '1', null, '', '0', '0', '0', '0', '0', '0', '0', '', 'd062b0', '1406543084', '2365227533', '1410437510', '2130706433', '0', '2', '0', '0', '1406544399', '1', '7');
+INSERT INTO `bf_members` VALUES ('9', null, '11', '0', 'qqq11113131231', 'c6f15ba3fa8e39e29eddda224f343053', '9cd98e52057c062f3a17a1a38223b523', '尼尔', '13213121', '13213121@qq.com', '13333333333', '1', null, '', '0', '0', '0', '0', '0', '0', '0', '', '09ecc1', '1406546656', '1911382896', '1406546656', '1911382896', '0', '2', '0', '0', '1406546822', '1', '0');
+INSERT INTO `bf_members` VALUES ('10', null, '11', '0', 'QQ906818', '49ba7aa74d31964cb4dca423b601e920', '5d0a8f062ef0d0c114d89f661a0a86d4', '高祖坤', '906818', '906818@qq.com', '18560630881', '1', null, '', '0', '0', '0', '0', '0', '0', '0', '', '11ae84', '1406624753', '1893896869', '1406624753', '1893896869', '0', '2', '0', '0', '1406624776', '1', '0');
+INSERT INTO `bf_members` VALUES ('11', null, '11', '0', 'boysee', '13641f39dc4d28dc8e2fe24a552f7f0e', '4666cd71b8918c9410288a6d6377eab3', '发地方', '123123123', '123123123@qq.com', '15687978933', '1', null, '', '0', '0', '0', '0', '0', '0', '0', '', '5b1022', '1407119909', '3684045498', '1407119909', '3684045498', '0', '2', '0', '0', '1407120017', '1', '0');
+INSERT INTO `bf_members` VALUES ('12', null, '11', '0', 'ceshi7', '0328d797b260966a2465a833ba87c094', '725a8f48639a7e2489395fe8bce1bf75', '臧涛', '30746', '30746@qq.com', '15550866333', '1', null, '4', '0', '0', '0', '0', '0', '0', '0', '', '7316a3', '1407147703', '2365227533', '1407147703', '2365227533', '0', '1', '0', '0', '1407148070', '1', '0');
+INSERT INTO `bf_members` VALUES ('13', null, '11', '0', 'ceshi3', 'a6cee8ae8405a199dd3f220c1d6f77b8', '3171041a68f43c0944820072b046fd4d', '海诺者', '352645', '352645@qq.com', '18678337103', '1', '', '', '0', '0', '0', '0', '0', '0', '0', '', '9122df', '1407676217', '2130706433', '1408100283', '2130706433', '0', '1', '0', '0', '1407681874', '1', '2');
 
 -- ----------------------------
--- Table structure for `bf_membertask`
+-- Table structure for bf_membertask
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_membertask`;
 CREATE TABLE `bf_membertask` (
@@ -4121,16 +4195,17 @@ CREATE TABLE `bf_membertask` (
 -- ----------------------------
 -- Records of bf_membertask
 -- ----------------------------
-INSERT INTO `bf_membertask` VALUES ('4', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '3', '0', '0', '0', '2', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '1');
+INSERT INTO `bf_membertask` VALUES ('4', '2', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '2', '0', '0', '0', '2', '4', '0', '0', '0', '3', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '1');
 INSERT INTO `bf_membertask` VALUES ('7', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `bf_membertask` VALUES ('8', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '1', '1', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `bf_membertask` VALUES ('8', '2', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '2', '0', '0', '0', '2', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '1');
 INSERT INTO `bf_membertask` VALUES ('9', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `bf_membertask` VALUES ('10', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `bf_membertask` VALUES ('11', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `bf_membertask` VALUES ('12', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `bf_membertask` VALUES ('13', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '3', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '2', '0', '0', '0', '2');
 
 -- ----------------------------
--- Table structure for `bf_member_questions`
+-- Table structure for bf_member_questions
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_member_questions`;
 CREATE TABLE `bf_member_questions` (
@@ -4151,7 +4226,7 @@ INSERT INTO `bf_member_questions` VALUES ('5', '5', '爱人的生日？');
 INSERT INTO `bf_member_questions` VALUES ('8', '6', '你大爷叫什么？');
 
 -- ----------------------------
--- Table structure for `bf_message_log`
+-- Table structure for bf_message_log
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_message_log`;
 CREATE TABLE `bf_message_log` (
@@ -4173,7 +4248,7 @@ CREATE TABLE `bf_message_log` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_moderator`
+-- Table structure for bf_moderator
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_moderator`;
 CREATE TABLE `bf_moderator` (
@@ -4188,7 +4263,7 @@ CREATE TABLE `bf_moderator` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_msg`
+-- Table structure for bf_msg
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_msg`;
 CREATE TABLE `bf_msg` (
@@ -4204,7 +4279,7 @@ CREATE TABLE `bf_msg` (
   `timestamp` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `i1` (`type`,`from_uid`,`to_uid`,`timestamp`,`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=114 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=164 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bf_msg
@@ -4221,10 +4296,60 @@ INSERT INTO `bf_msg` VALUES ('109', '1', '0', '', '8', 'ceshi2', '0', '接手的
 INSERT INTO `bf_msg` VALUES ('110', '1', '0', '', '4', 'ceshi1', '1', '任务“TB0805161705350862”已确认好评', '您在淘宝区的任务“TB0805161705350862”，买家已确认好评', '1407226943');
 INSERT INTO `bf_msg` VALUES ('111', '1', '0', '', '4', 'ceshi1', '1', '请核实任务“TB0805161705350862”的货款', '您在淘宝区的任务“TB0805161705350862”，买家已确认收货并好评，请核实货款', '1407226943');
 INSERT INTO `bf_msg` VALUES ('112', '1', '0', '', '8', 'ceshi2', '0', '接手的任务“TB0805161705350862”卖家已核实货款', '您在淘宝区接手的任务“TB0805161705350862”，卖家已核实货款', '1407226952');
-INSERT INTO `bf_msg` VALUES ('113', '1', '0', '', '8', 'ceshi2', '0', '网站提醒：发布点兑换存款', '您于2014-08-05 17:28:23使用20个发布点兑换了8元存款', '1407230903');
+INSERT INTO `bf_msg` VALUES ('113', '1', '0', '', '8', 'ceshi2', '1', '网站提醒：发布点兑换存款', '您于2014-08-05 17:28:23使用20个发布点兑换了8元存款', '1407230903');
+INSERT INTO `bf_msg` VALUES ('114', '1', '0', '', '4', 'ceshi1', '0', '任务“TB0805161705350862”，买家已评分', '您在淘宝区的任务“TB0805161705350862”，买家已评分', '1407589589');
+INSERT INTO `bf_msg` VALUES ('115', '1', '0', '', '4', 'ceshi1', '0', '任务“TB0728183109264027”被接手', '您的任务“TB0728183109264027”被ceshi2接手了', '1407657691');
+INSERT INTO `bf_msg` VALUES ('116', '1', '0', '', '4', 'ceshi1', '0', '任务“TB0728183109264027”被接手', '您的任务“TB0728183109264027”被ceshi2接手了', '1407658929');
+INSERT INTO `bf_msg` VALUES ('117', '1', '0', '', '4', 'ceshi1', '0', '任务“TB0728183109264027”被接手', '您的任务“TB0728183109264027”被ceshi2接手了', '1407659233');
+INSERT INTO `bf_msg` VALUES ('118', '1', '0', '', '4', 'ceshi1', '0', '任务“TB0810150617044801”被接手', '您的任务“TB0810150617044801”被ceshi2接手了', '1407659291');
+INSERT INTO `bf_msg` VALUES ('119', '1', '0', '', '4', 'ceshi1', '0', '任务“TB0728183109264027”被接手', '您的任务“TB0728183109264027”被ceshi2接手了', '1407659493');
+INSERT INTO `bf_msg` VALUES ('120', '1', '0', '', '4', 'ceshi1', '0', '任务“TB0728183109264027”被接手', '您的任务“TB0728183109264027”被ceshi2接手了', '1407660531');
+INSERT INTO `bf_msg` VALUES ('121', '1', '0', '', '4', 'ceshi1', '0', '任务“TB0728183109264027”被接手', '您的任务“TB0728183109264027”被ceshi2接手了', '1407660705');
+INSERT INTO `bf_msg` VALUES ('122', '1', '0', '', '4', 'ceshi1', '0', '任务“TB0810150617044801”被接手', '您的任务“TB0810150617044801”被ceshi2接手了', '1407661114');
+INSERT INTO `bf_msg` VALUES ('123', '1', '0', '', '4', 'ceshi1', '0', '任务“TB0728183109264027”被接手', '您的任务“TB0728183109264027”被ceshi2接手了', '1407661121');
+INSERT INTO `bf_msg` VALUES ('124', '1', '0', '', '4', 'ceshi1', '0', '任务“TB0728183109264027”被接手', '您的任务“TB0728183109264027”被ceshi2接手了', '1407661422');
+INSERT INTO `bf_msg` VALUES ('125', '1', '0', '', '4', 'ceshi1', '0', '任务“TB0810150617044801”被接手', '您的任务“TB0810150617044801”被ceshi2接手了', '1407661991');
+INSERT INTO `bf_msg` VALUES ('126', '1', '0', '', '4', 'ceshi1', '0', '任务“TB0810150617044801”被接手', '您的任务“TB0810150617044801”被ceshi2接手了', '1407662060');
+INSERT INTO `bf_msg` VALUES ('127', '1', '0', '', '4', 'ceshi1', '0', '任务“TB0728183109264027”被接手', '您的任务“TB0728183109264027”被ceshi2接手了', '1407662086');
+INSERT INTO `bf_msg` VALUES ('128', '1', '0', '', '4', 'ceshi1', '0', '任务“TB0728183109264027”被接手', '您的任务“TB0728183109264027”被ceshi2接手了', '1407662106');
+INSERT INTO `bf_msg` VALUES ('129', '1', '0', '', '4', 'ceshi1', '0', '任务“TB0728182941455043”被接手', '您的任务“TB0728182941455043”被ceshi2接手了', '1407662126');
+INSERT INTO `bf_msg` VALUES ('130', '1', '0', '', '4', 'ceshi1', '0', '任务“TB0728183109264027”被接手', '您的任务“TB0728183109264027”被ceshi2接手了', '1407662162');
+INSERT INTO `bf_msg` VALUES ('131', '1', '0', '', '13', 'ceshi3', '0', '任务“TB0810215403873277”被接手', '您的任务“TB0810215403873277”被ceshi2接手了', '1407678929');
+INSERT INTO `bf_msg` VALUES ('132', '1', '0', '', '8', 'ceshi2', '0', '接手的任务“TB0810215403873277”卖家已发货', '您在淘宝区接手的任务“TB0810215403873277”，卖家已发货', '1407679007');
+INSERT INTO `bf_msg` VALUES ('133', '1', '0', '', '8', 'ceshi2', '0', '接手的任务“TB0810215403873277”已到期，请收货好评', '', '1407679008');
+INSERT INTO `bf_msg` VALUES ('134', '1', '0', '', '13', 'ceshi3', '0', '任务“TB0810215403873277”已确认好评', '您在淘宝区的任务“TB0810215403873277”，买家已确认好评', '1407679020');
+INSERT INTO `bf_msg` VALUES ('135', '1', '0', '', '13', 'ceshi3', '0', '请核实任务“TB0810215403873277”的货款', '您在淘宝区的任务“TB0810215403873277”，买家已确认收货并好评，请核实货款', '1407679020');
+INSERT INTO `bf_msg` VALUES ('136', '1', '0', '', '8', 'ceshi2', '0', '接手的任务“TB0810215403873277”卖家已核实货款', '您在淘宝区接手的任务“TB0810215403873277”，卖家已核实货款', '1407679029');
+INSERT INTO `bf_msg` VALUES ('137', '1', '0', '', '13', 'ceshi3', '0', '任务“TB0810215823733075”被接手', '您的任务“TB0810215823733075”被ceshi1接手了', '1407679735');
+INSERT INTO `bf_msg` VALUES ('138', '1', '0', '', '8', 'ceshi2', '0', '任务“TB0805154847353907”被接手', '您的任务“TB0805154847353907”被ceshi1接手了', '1407679802');
+INSERT INTO `bf_msg` VALUES ('139', '1', '0', '', '8', 'ceshi2', '0', '任务“TB0805154847353907”被接手', '您的任务“TB0805154847353907”被ceshi1接手了', '1407679965');
+INSERT INTO `bf_msg` VALUES ('140', '1', '0', '', '8', 'ceshi2', '0', '任务“TB0805154847353907”被接手', '您的任务“TB0805154847353907”被ceshi1接手了', '1407680073');
+INSERT INTO `bf_msg` VALUES ('141', '1', '0', '', '8', 'ceshi2', '0', '任务“TB0805154847353907”被接手', '您的任务“TB0805154847353907”被ceshi1接手了', '1407680483');
+INSERT INTO `bf_msg` VALUES ('142', '1', '0', '', '8', 'ceshi2', '0', '任务“TB0805154847353907”被接手', '您的任务“TB0805154847353907”被ceshi1接手了', '1407680688');
+INSERT INTO `bf_msg` VALUES ('143', '1', '0', '', '4', 'ceshi1', '0', '用户资料修改', '修改资料成功', '1407846294');
+INSERT INTO `bf_msg` VALUES ('144', '1', '0', '', '13', 'ceshi3', '0', '用户资料修改', '修改资料成功', '1408100366');
+INSERT INTO `bf_msg` VALUES ('145', '1', '0', '', '13', 'ceshi3', '0', '用户资料修改', '修改资料成功', '1408100376');
+INSERT INTO `bf_msg` VALUES ('146', '1', '0', '', '4', 'ceshi1', '0', '接手的任务“TB0810215823733075”卖家已发货', '您在淘宝区接手的任务“TB0810215823733075”，卖家已发货', '1408100439');
+INSERT INTO `bf_msg` VALUES ('147', '1', '0', '', '4', 'ceshi1', '0', '接手的任务“TB0810215823733075”已到期，请收货好评', '', '1408100448');
+INSERT INTO `bf_msg` VALUES ('148', '1', '0', '', '13', 'ceshi3', '0', '任务“TB0810215823733075”已确认好评', '您在淘宝区的任务“TB0810215823733075”，买家已确认好评', '1408100451');
+INSERT INTO `bf_msg` VALUES ('149', '1', '0', '', '13', 'ceshi3', '0', '请核实任务“TB0810215823733075”的货款', '您在淘宝区的任务“TB0810215823733075”，买家已确认收货并好评，请核实货款', '1408100451');
+INSERT INTO `bf_msg` VALUES ('150', '1', '0', '', '4', 'ceshi1', '0', '接手的任务“TB0810215823733075”卖家已核实货款', '您在淘宝区接手的任务“TB0810215823733075”，卖家已核实货款', '1408100463');
+INSERT INTO `bf_msg` VALUES ('151', '1', '0', '', '4', 'ceshi1', '0', '任务“TB0810215823733075”，卖家已评分', '您在淘宝区接的任务“TB0810215823733075”，卖家已评分', '1408100473');
+INSERT INTO `bf_msg` VALUES ('152', '1', '0', '', '13', 'ceshi3', '0', '任务“TB0810215823733075”，买家已评分', '您在淘宝区的任务“TB0810215823733075”，买家已评分', '1408100484');
+INSERT INTO `bf_msg` VALUES ('153', '1', '0', '', '8', 'ceshi2', '0', '任务“TB0805154847353907”被接手', '您的任务“TB0805154847353907”被ceshi1接手了', '1408100590');
+INSERT INTO `bf_msg` VALUES ('154', '1', '0', '', '4', 'ceshi1', '0', '接手的任务“TB0805154847353907”卖家已发货', '您在淘宝区接手的任务“TB0805154847353907”，卖家已发货', '1408100648');
+INSERT INTO `bf_msg` VALUES ('155', '1', '0', '', '4', 'ceshi1', '0', '接手的任务“TB0805154847353907”已到期，请收货好评', '', '1408100658');
+INSERT INTO `bf_msg` VALUES ('156', '1', '0', '', '8', 'ceshi2', '0', '任务“TB0805154847353907”已确认好评', '您在淘宝区的任务“TB0805154847353907”，买家已确认好评', '1408101549');
+INSERT INTO `bf_msg` VALUES ('157', '1', '0', '', '8', 'ceshi2', '0', '请核实任务“TB0805154847353907”的货款', '您在淘宝区的任务“TB0805154847353907”，买家已确认收货并好评，请核实货款', '1408101549');
+INSERT INTO `bf_msg` VALUES ('158', '1', '0', '', '4', 'ceshi1', '0', '接手的任务“TB0805154847353907”卖家已核实货款', '您在淘宝区接手的任务“TB0805154847353907”，卖家已核实货款', '1408101554');
+INSERT INTO `bf_msg` VALUES ('159', '1', '0', '', '8', 'ceshi2', '0', '任务“TB0805154847353907”，买家已评分', '您在淘宝区的任务“TB0805154847353907”，买家已评分', '1408101576');
+INSERT INTO `bf_msg` VALUES ('160', '1', '0', '', '8', 'ceshi2', '0', '任务“TB0810215403873277”，卖家已评分', '您在淘宝区接的任务“TB0810215403873277”，卖家已评分', '1408101587');
+INSERT INTO `bf_msg` VALUES ('161', '1', '0', '', '4', 'ceshi1', '0', '任务“TB0805154847353907”，卖家已评分', '您在淘宝区接的任务“TB0805154847353907”，卖家已评分', '1408101610');
+INSERT INTO `bf_msg` VALUES ('162', '1', '0', '', '13', 'ceshi3', '0', '任务“TB0810215403873277”，买家已评分', '您在淘宝区的任务“TB0810215403873277”，买家已评分', '1408104006');
+INSERT INTO `bf_msg` VALUES ('163', '1', '0', '', '13', 'ceshi3', '0', '任务“TB0815200634114534”被接手', '您的任务“TB0815200634114534”被ceshi1接手了', '1409140936');
 
 -- ----------------------------
--- Table structure for `bf_page_article`
+-- Table structure for bf_page_article
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_page_article`;
 CREATE TABLE `bf_page_article` (
@@ -4246,7 +4371,7 @@ INSERT INTO `bf_page_article` VALUES ('3', '1', '会员中心首页DIALOG提示�
 INSERT INTO `bf_page_article` VALUES ('4', '1', '客服评分', 'kefu_review', ' [b]评分说明：[/b]\r\n为了避免恶意评分，刷客积分满五十分后才可以对客服进行评分！\r\n您可以在这里对给您服务过的联盟客服打分；客服评分 计分规则：好评加两分，中评加一分，差评减三分；每位刷客每周只能对同一位客服进行一次评价；为了给每位刷客提供最优质的服务，联盟会把客服每个月的积分与其奖金直接挂钩，请您根据得到的服务，给予真实客观、仔细地评价。\r\n为了奖励您对改善美乐客服工作作出的贡献，系统会在您打分后自动为您增加平台积分3分。 ');
 
 -- ----------------------------
--- Table structure for `bf_page_article_cate`
+-- Table structure for bf_page_article_cate
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_page_article_cate`;
 CREATE TABLE `bf_page_article_cate` (
@@ -4263,7 +4388,7 @@ CREATE TABLE `bf_page_article_cate` (
 INSERT INTO `bf_page_article_cate` VALUES ('1', '0', '前台页面调用', '0');
 
 -- ----------------------------
--- Table structure for `bf_payfor_interface`
+-- Table structure for bf_payfor_interface
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_payfor_interface`;
 CREATE TABLE `bf_payfor_interface` (
@@ -4290,7 +4415,7 @@ INSERT INTO `bf_payfor_interface` VALUES ('4', '2', '支付宝转账', 'alipay',
 INSERT INTO `bf_payfor_interface` VALUES ('5', '3', '财付通转账', 'tenpay', '0', '', '', '', '1', '1347345325');
 
 -- ----------------------------
--- Table structure for `bf_payment`
+-- Table structure for bf_payment
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_payment`;
 CREATE TABLE `bf_payment` (
@@ -4334,7 +4459,7 @@ INSERT INTO `bf_payment` VALUES ('TB0718225109514862', 'alipay', '4', 'ceshi1', 
 INSERT INTO `bf_payment` VALUES ('TB0719214731282725', 'alipay', '4', 'ceshi1', '臧涛', '3000.00', '0.015', '3045.00', 'wulanyang', 'hainuo@foxmai.com', null, null, '1405777651', '0', '0');
 
 -- ----------------------------
--- Table structure for `bf_posts`
+-- Table structure for bf_posts
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_posts`;
 CREATE TABLE `bf_posts` (
@@ -4461,7 +4586,7 @@ INSERT INTO `bf_posts` VALUES ('147', '104', '121', 'ceshi1', '1', '0', 'ggggddd
 INSERT INTO `bf_posts` VALUES ('148', '105', '121', 'ceshi1', '1', '0', 'ddddddddddddddd', 'dddddddddddddddddddddddddddd', '1402044807');
 
 -- ----------------------------
--- Table structure for `bf_pwd2_log`
+-- Table structure for bf_pwd2_log
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_pwd2_log`;
 CREATE TABLE `bf_pwd2_log` (
@@ -4479,7 +4604,7 @@ CREATE TABLE `bf_pwd2_log` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_pwd_log`
+-- Table structure for bf_pwd_log
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_pwd_log`;
 CREATE TABLE `bf_pwd_log` (
@@ -4498,7 +4623,7 @@ CREATE TABLE `bf_pwd_log` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_rate`
+-- Table structure for bf_rate
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_rate`;
 CREATE TABLE `bf_rate` (
@@ -4524,7 +4649,7 @@ CREATE TABLE `bf_rate` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_rcard`
+-- Table structure for bf_rcard
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_rcard`;
 CREATE TABLE `bf_rcard` (
@@ -4544,7 +4669,7 @@ CREATE TABLE `bf_rcard` (
 INSERT INTO `bf_rcard` VALUES ('20140728182258367594', '5000.00', '5174E6DAE2F0E3F2F7D843E136A66911', '4', 'ceshi1', '1406542978', '1406542996', '1');
 
 -- ----------------------------
--- Table structure for `bf_related_links`
+-- Table structure for bf_related_links
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_related_links`;
 CREATE TABLE `bf_related_links` (
@@ -4571,7 +4696,7 @@ INSERT INTO `bf_related_links` VALUES ('10', '6', '深圳发展银行', 'http://
 INSERT INTO `bf_related_links` VALUES ('11', '7', '美乐专业平台', 'http://www.mei-le.com/', '/images/links/yeepay.gif', '1', '1360065857');
 
 -- ----------------------------
--- Table structure for `bf_sellers`
+-- Table structure for bf_sellers
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_sellers`;
 CREATE TABLE `bf_sellers` (
@@ -4590,18 +4715,19 @@ CREATE TABLE `bf_sellers` (
   PRIMARY KEY (`id`),
   KEY `i1` (`type`,`uid`,`timestamp1`,`id`),
   KEY `i2` (`type`,`nickname`,`uid`,`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bf_sellers
 -- ----------------------------
-INSERT INTO `bf_sellers` VALUES ('7', '1', '4', 'ceshi1', '知味书屋', '0', '', '1406543054', '0', '1', '1', '2');
+INSERT INTO `bf_sellers` VALUES ('7', '1', '4', 'ceshi1', '知味书屋', '0', '', '1406543054', '0', '1', '1', '3');
 INSERT INTO `bf_sellers` VALUES ('8', '1', '9', 'qqq11113131231', '123123', '0', '', '1406546721', '0', '1', '0', '0');
 INSERT INTO `bf_sellers` VALUES ('9', '1', '9', 'qqq11113131231', '啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊', '0', '', '1406546729', '0', '1', '0', '0');
 INSERT INTO `bf_sellers` VALUES ('10', '1', '11', 'boysee', 'boyseeshi', '0', '', '1407119948', '0', '1', '0', '0');
+INSERT INTO `bf_sellers` VALUES ('14', '1', '13', 'ceshi3', 'zpy520814', '0', '', '1407678786', '0', '1', '2', '1');
 
 -- ----------------------------
--- Table structure for `bf_shops`
+-- Table structure for bf_shops
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_shops`;
 CREATE TABLE `bf_shops` (
@@ -4631,7 +4757,7 @@ INSERT INTO `bf_shops` VALUES ('3', '1', '3', '美乐管理员', '支付宝实�
 INSERT INTO `bf_shops` VALUES ('4', '1', '0', null, '旺旺账号', '蓝精灵卡 ', '健康蓝精灵 ', '10.00', '52134', '1402220795', '0', '0', '0');
 
 -- ----------------------------
--- Table structure for `bf_shop_cate`
+-- Table structure for bf_shop_cate
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_shop_cate`;
 CREATE TABLE `bf_shop_cate` (
@@ -4650,7 +4776,7 @@ CREATE TABLE `bf_shop_cate` (
 INSERT INTO `bf_shop_cate` VALUES ('1', '0', '支付宝实名帐号', '3', '0', '1');
 
 -- ----------------------------
--- Table structure for `bf_sms`
+-- Table structure for bf_sms
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_sms`;
 CREATE TABLE `bf_sms` (
@@ -4667,7 +4793,7 @@ CREATE TABLE `bf_sms` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_softs`
+-- Table structure for bf_softs
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_softs`;
 CREATE TABLE `bf_softs` (
@@ -4694,7 +4820,7 @@ INSERT INTO `bf_softs` VALUES ('7', '3', '提升店铺宝贝浏览量工具', '�
 INSERT INTO `bf_softs` VALUES ('8', '3', '淘宝拉客助手(破解版)', '本软件Windows Vista ,Windows7,Windows8 或更高版本可直接完美运行。\r\n\r\n如果本软件您不能正常运行一般是因为您系统中缺少 .NetFramework 2.0 ,安装后即可正常运行。\r\n您可从WindowsUpdate进行更新或者直接下载安装，安装.Net 2.0 是一次性的，安装后以后不必再次安装,这将提高您系统的兼容性。\r\n\r\n.Net 2.0 下载地址。\r\n\r\n[天空软件站下载（下载速度快）] [url]http://www.skycn.com/soft/39946.html[/url]\r\n\r\n[太平洋下载（下载速度快）] [url]http://dl.pconline.com.cn/html_2/1/82/id=10637&pn=0.html[/url]\r\n\r\n[新浪网下载（下载速度快）] [url]http://down.tech.sina.com.cn/content/16927.html[/url]\r\n\r\n[微软官方站下载（下载速度慢）] [url]http://www.microsoft.com/downloads/details.aspx?familyid=0856EACB-4362-4B0D-8EDD-AAB15C5E04F5&displaylang=zh-cn[/url]\r\n\r\n其他帮助进行运行起软件，软件内部有帮助.    ', '2013/02/23441.jpg', '2013/02/217F.rar', '1218143', '0.00', '0', '0', '1359953937');
 
 -- ----------------------------
--- Table structure for `bf_soft_cate`
+-- Table structure for bf_soft_cate
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_soft_cate`;
 CREATE TABLE `bf_soft_cate` (
@@ -4712,7 +4838,7 @@ INSERT INTO `bf_soft_cate` VALUES ('2', '2', '推广软件', '0');
 INSERT INTO `bf_soft_cate` VALUES ('3', '1', '网店助手软件', '2');
 
 -- ----------------------------
--- Table structure for `bf_spread`
+-- Table structure for bf_spread
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_spread`;
 CREATE TABLE `bf_spread` (
@@ -4733,7 +4859,7 @@ CREATE TABLE `bf_spread` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_sql`
+-- Table structure for bf_sql
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_sql`;
 CREATE TABLE `bf_sql` (
@@ -4754,7 +4880,7 @@ INSERT INTO `bf_sql` VALUES ('7', '设置表的auto_increment', 'alter table {pr
 INSERT INTO `bf_sql` VALUES ('9', '校正掌柜号和小号数量', 'UPDATE \r\n	{pre}memberfields t0 \r\nLEFT JOIN \r\n	(SELECT \r\n		t0.uid,IFNULL(t1.total,0) sellers1,IFNULL(t2.total,0) sellers2,IFNULL(t3.total,0) sellers3\r\n	FROM\r\n		{pre}memberfields t0\r\n	LEFT JOIN\r\n		(SELECT uid,COUNT(*) total FROM {pre}sellers WHERE type=\'1\' GROUP BY uid) t1\r\n	ON\r\n		t1.uid=t0.uid\r\n	LEFT JOIN\r\n		(SELECT uid,COUNT(*) total FROM {pre}sellers WHERE type=\'2\' GROUP BY uid) t2\r\n	ON\r\n		t2.uid=t0.uid\r\n	LEFT JOIN\r\n		(SELECT uid,COUNT(*) total FROM {pre}sellers WHERE type=\'3\' GROUP BY uid) t3\r\n	ON \r\n		t3.uid=t0.uid) t1\r\nON\r\n	t1.uid=t0.uid\r\nSET\r\n	t0.sellers1=t1.sellers1,t0.sellers2=t1.sellers2,t0.sellers3=t1.sellers3;\r\nUPDATE \r\n	{pre}memberfields t0 \r\nLEFT JOIN \r\n	(SELECT \r\n		t0.uid,IFNULL(t1.total,0) buyers1,IFNULL(t2.total,0) buyers2,IFNULL(t3.total,0) buyers3\r\n	FROM\r\n		{pre}memberfields t0\r\n	LEFT JOIN\r\n		(SELECT uid,COUNT(*) total FROM {pre}buyers WHERE type=\'1\' GROUP BY uid) t1\r\n	ON\r\n		t1.uid=t0.uid\r\n	LEFT JOIN\r\n		(SELECT uid,COUNT(*) total FROM {pre}buyers WHERE type=\'2\' GROUP BY uid) t2\r\n	ON\r\n		t2.uid=t0.uid\r\n	LEFT JOIN\r\n		(SELECT uid,COUNT(*) total FROM {pre}buyers WHERE type=\'3\' GROUP BY uid) t3\r\n	ON \r\n		t3.uid=t0.uid) t1\r\nON\r\n	t1.uid=t0.uid\r\nSET\r\n	t0.buyers1=t1.buyers1,t0.buyers2=t1.buyers2,t0.buyers3=t1.buyers3', '');
 
 -- ----------------------------
--- Table structure for `bf_sql_log`
+-- Table structure for bf_sql_log
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_sql_log`;
 CREATE TABLE `bf_sql_log` (
@@ -4773,7 +4899,7 @@ INSERT INTO `bf_sql_log` VALUES ('4', '查询所有快递', 'select id,name from
 INSERT INTO `bf_sql_log` VALUES ('5', '更新小号状态', 'update bf_buyers set status=0 where status in(1,2);\nupdate bf_buyers set todayTask=\'0\';', '1306906952');
 
 -- ----------------------------
--- Table structure for `bf_store`
+-- Table structure for bf_store
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_store`;
 CREATE TABLE `bf_store` (
@@ -4799,7 +4925,7 @@ CREATE TABLE `bf_store` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_sys_article`
+-- Table structure for bf_sys_article
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_sys_article`;
 CREATE TABLE `bf_sys_article` (
@@ -4830,7 +4956,7 @@ INSERT INTO `bf_sys_article` VALUES ('11', 'hr', '1', '9', '招贤纳士', '[col
 INSERT INTO `bf_sys_article` VALUES ('12', 'map', '1', '10', '网站地图', '[align=center][b][color=#ff6600] 有任何疑问请您联系在线客服！[/color][/b][/align]', '1357798834');
 
 -- ----------------------------
--- Table structure for `bf_sys_article_cate`
+-- Table structure for bf_sys_article_cate
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_sys_article_cate`;
 CREATE TABLE `bf_sys_article_cate` (
@@ -4847,7 +4973,7 @@ CREATE TABLE `bf_sys_article_cate` (
 INSERT INTO `bf_sys_article_cate` VALUES ('1', '1', '客户服务', '10');
 
 -- ----------------------------
--- Table structure for `bf_sys_cfg_cate`
+-- Table structure for bf_sys_cfg_cate
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_sys_cfg_cate`;
 CREATE TABLE `bf_sys_cfg_cate` (
@@ -4876,7 +5002,7 @@ INSERT INTO `bf_sys_cfg_cate` VALUES ('18', 'epCfg', '快递单号获取配置')
 INSERT INTO `bf_sys_cfg_cate` VALUES ('19', 'store', '网店托管');
 
 -- ----------------------------
--- Table structure for `bf_sys_cfg_list`
+-- Table structure for bf_sys_cfg_list
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_sys_cfg_list`;
 CREATE TABLE `bf_sys_cfg_list` (
@@ -5025,7 +5151,7 @@ INSERT INTO `bf_sys_cfg_list` VALUES ('150', '13', 'vip3Count', '4', '', 'text',
 INSERT INTO `bf_sys_cfg_list` VALUES ('151', '13', 'vip3MaxMoney', '9000', '', 'text', '皇冠会员每日提现金额');
 
 -- ----------------------------
--- Table structure for `bf_task`
+-- Table structure for bf_task
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_task`;
 CREATE TABLE `bf_task` (
@@ -5167,13 +5293,16 @@ CREATE TABLE `bf_task` (
 -- ----------------------------
 -- Records of bf_task
 -- ----------------------------
+INSERT INTO `bf_task` VALUES ('TB0810215403873277', '1', '0', '0', '13', '352645', '0', '14', 'ceshi3', 'zpy520814', '1', '', '18576641803', 'http://item.taobao.com/item.htm?id=18576641803&pm2=1', null, '0.00', '0', null, null, '0', '10.00', '0', '1.00', '0.00', '0', '0', '0', '此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字', '0', null, '0', '0', '0', '', '', '0', '0', '0', '1', '0', '0', null, '0', '0', null, null, '0', '1', '0', '0', '0', '3', '0', '0.30', '0', '100', '0', '30', '0', '90', '0', '3', '0', '90', '0', '41', '0', '0', '2130706433', '1407678843', '8', 'ceshi2', '11', 'zhanglinlin711', '2130706433', '1407678929', '1407679829', '1407679007', '1407679029', '10', '0', '3', '0', '0', '1', '0', null, '0', null, null, null, null, '0', null, null, null, null, null, null, null, null, '', '', '0', '此处填写您要求接手人的修改的收货地址，包含具体省、市、区及详细地址，请不要填写“请带字好评”等引导的文字。', null, '', null, '0', '0', null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `bf_task` VALUES ('TB0805154847353907', '1', '0', '0', '8', '845215', '0', '12', 'ceshi2', '黄海锋123', '1', '', '15003390531', 'http://item.taobao.com/item.htm?spm=a230r.1.14.44.CEMbN3&id=15003390531&ns=1#detail', null, '0.00', '0', null, null, '0', '12.00', '0', '1.00', '0.00', '0', '0', '0', '此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字', '0', null, '0', '0', '0', '', '', '0', '0', '0', '1', '0', '0', null, '0', '0', null, null, '0', '1', '0', '0', '0', '3', '0', '0.30', '0', '100', '0', '30', '0', '90', '0', '3', '0', '90', '0', '41', '0', '0', '2365227533', '1407224927', '4', 'ceshi1', '10', 'lcncn', '2130706433', '1408100590', '1408101490', '1408100648', '1408101554', '10', '0', '3', '0', '0', '1', '0', null, '0', null, null, null, null, '0', null, null, null, null, null, null, null, null, '', '', '0', '此处填写您要求接手人的修改的收货地址，包含具体省、市、区及详细地址，请不要填写“请带字好评”等引导的文字。', null, '', null, '0', '0', null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `bf_task` VALUES ('TB0805161705350862', '1', '0', '0', '4', '399709335', '0', '7', 'ceshi1', '知味书屋', '1', '', '37746897266', 'http://item.taobao.com/item.htm?spm=a1z10.3.w4002-7643149718.36.d9HUvh&id=37746897266', null, '0.00', '0', null, null, '0', '10.00', '0', '2.80', '0.00', '0', '0', '0', '此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字', '0', null, '0', '0', '0', '', '', '1', '0', '0', '1', '0', '0', null, '0', '0', null, null, '0', '1', '1', '1', '0', '3', '0', '0.30', '0', '100', '0', '30', '0', '90', '0', '3', '0', '90', '0', '41', '0', '0', '2365227533', '1407226625', '8', 'ceshi2', '11', 'zhanglinlin711', '2365227533', '1407226668', '1407227686', '1407226881', '1407226952', '10', '0', '0', '0', '0', '1', '0', null, '0', null, null, null, null, '0', null, null, null, null, null, null, null, null, '', '', '0', '此处填写您要求接手人的修改的收货地址，包含具体省、市、区及详细地址，请不要填写“请带字好评”等引导的文字。', null, '', null, '0', '0', null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 INSERT INTO `bf_task` VALUES ('TB0728182941455043', '1', '0', '0', '4', '399709335', '0', '7', 'ceshi1', '知味书屋', '1', '', '37746897266', 'http://item.taobao.com/item.htm?spm=a230r.7195193.1997079397.8.ZUwjAk&id=37746897266', null, '0.00', '0', null, null, '0', '10.00', '0', '3.80', '0.00', '0', '0', '0', '333333333333', '0', null, '1', '1', '0', '', '手机请填333\r\n区服请填33333\r\n帐号请填333\r\n请拍件333,规格为333\r\n', '1', '0', '0', '1', '0', '1', null, '0', '0', null, null, '1', '1', '1', '1', '0', '3', '0', '0.30', '0', '100', '0', '30', '0', '90', '0', '3', '0', '90', '0', '41', '0', '0', '2365227533', '1406543381', '0', '', '0', '', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', null, '1', null, null, null, null, '1', null, null, null, null, null, null, null, null, '222', '222', '222', '2222', null, '', null, '0', '0', null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 INSERT INTO `bf_task` VALUES ('TB0728183109264027', '1', '0', '0', '4', '399709335', '0', '7', 'ceshi1', '知味书屋', '1', '', '37746897266', 'http://item.taobao.com/item.htm?spm=a230r.7195193.1997079397.8.ZUwjAk&id=37746897266', null, '0.00', '0', null, null, '0', '50.00', '0', '5.90', '0.00', '0', '0', '1', '222222 50分', '0', null, '1', '1', '0', '', '手机请填3333\r\n动态评分打5分\r\n区服请填3333\r\n帐号请填333\r\n请拍件333,规格为333\r\n物流平邮\r\n', '1', '0', '0', '1', '0', '1', null, '0', '0', null, null, '1', '1', '1', '1', '0', '3', '0', '0.30', '1', '100', '0', '30', '0', '90', '0', '3', '0', '90', '0', '41', '0', '0', '2365227533', '1406543469', '0', null, '0', null, '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', null, '1', null, null, null, null, '1', null, null, null, null, null, null, null, null, '11111', '1111111', '111111', '1111111111', null, '', '1', '10', '0', null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `bf_task` VALUES ('TB0805161705350862', '1', '0', '0', '4', '399709335', '0', '7', 'ceshi1', '知味书屋', '1', '', '37746897266', 'http://item.taobao.com/item.htm?spm=a1z10.3.w4002-7643149718.36.d9HUvh&id=37746897266', null, '0.00', '0', null, null, '0', '10.00', '0', '2.80', '0.00', '0', '0', '0', '此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字', '0', null, '0', '0', '0', '', '', '1', '0', '0', '1', '0', '0', null, '0', '0', null, null, '0', '1', '1', '1', '0', '3', '0', '0.30', '0', '100', '0', '30', '0', '90', '0', '3', '0', '90', '0', '41', '0', '0', '2365227533', '1407226625', '8', 'ceshi2', '11', 'zhanglinlin711', '2365227533', '1407226668', '1407227686', '1407226881', '1407226952', '10', '0', '0', '0', '0', '1', '0', null, '0', null, null, null, null, '0', null, null, null, null, null, null, null, null, '', '', '0', '此处填写您要求接手人的修改的收货地址，包含具体省、市、区及详细地址，请不要填写“请带字好评”等引导的文字。', null, '', null, '0', '0', null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `bf_task` VALUES ('TB0805154847353907', '1', '0', '0', '8', '845215', '0', '12', 'ceshi2', '黄海锋123', '1', '', '15003390531', 'http://item.taobao.com/item.htm?spm=a230r.1.14.44.CEMbN3&id=15003390531&ns=1#detail', null, '0.00', '0', null, null, '0', '12.00', '0', '1.00', '0.00', '0', '0', '0', '此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字', '0', null, '0', '0', '0', '', '', '0', '0', '0', '1', '0', '0', null, '0', '0', null, null, '0', '1', '0', '0', '0', '3', '0', '0.30', '0', '100', '0', '30', '0', '90', '0', '3', '0', '90', '0', '41', '0', '0', '2365227533', '1407224927', '0', null, '0', null, '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', null, '0', null, null, null, null, '0', null, null, null, null, null, null, null, null, '', '', '0', '此处填写您要求接手人的修改的收货地址，包含具体省、市、区及详细地址，请不要填写“请带字好评”等引导的文字。', null, '', null, '0', '0', null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `bf_task` VALUES ('TB0810215823733075', '1', '0', '0', '13', '352645', '0', '14', 'ceshi3', 'zpy520814', '1', '', '18576641803', 'http://item.taobao.com/item.htm?id=18576641803&pm2=1', null, '0.00', '0', null, null, '0', '10.00', '0', '1.00', '0.00', '0', '0', '0', '此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字', '0', null, '0', '0', '0', '', '', '0', '0', '0', '1', '0', '0', null, '0', '0', null, null, '0', '1', '0', '0', '0', '3', '0', '0.30', '0', '100', '0', '30', '0', '90', '0', '3', '0', '90', '0', '41', '0', '0', '2130706433', '1407679103', '4', 'ceshi1', '10', 'lcncn', '2130706433', '1407679735', '1407680635', '1408100439', '1408100463', '10', '0', '3', '0', '0', '1', '0', null, '0', null, null, null, null, '0', null, null, null, null, null, null, null, null, '', '', '0', '此处填写您要求接手人的修改的收货地址，包含具体省、市、区及详细地址，请不要填写“请带字好评”等引导的文字。', null, '', null, '0', '0', null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `bf_task` VALUES ('TB0815200634114534', '1', '0', '0', '13', '352645', '0', '14', 'ceshi3', 'zpy520814', '1', '', '18576641803', 'http://item.taobao.com/item.htm?id=18576641803&pm2=1', null, '0.00', '0', null, null, '0', '10.00', '0', '4.00', '0.00', '0', '0', '0', '此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字', '0', null, '0', '0', '0', '', '', '0', '0', '1', '1', '0', '0', null, '0', '0', null, null, '1', '1', '0', '0', '0', '3', '0', '0.30', '1', '100', '1', '30', '1', '90', '1', '3', '0', '90', '0', '41', '0', '0', '2130706433', '1408104393', '0', '', '0', '', '0', '0', '1409141836', '0', '0', '1', '0', '0', '0', '0', '0', '0', null, '0', null, null, null, null, '0', null, null, null, null, null, null, null, null, '', '', '0', '此处填写您要求接手人的修改的收货地址，包含具体省、市、区及详细地址，请不要填写“请带字好评”等引导的文字。', null, '', null, '0', '0', null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 
 -- ----------------------------
--- Table structure for `bf_taskshops`
+-- Table structure for bf_taskshops
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_taskshops`;
 CREATE TABLE `bf_taskshops` (
@@ -5188,7 +5317,7 @@ CREATE TABLE `bf_taskshops` (
   `texts` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `i1` (`tid`)
-) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bf_taskshops
@@ -5197,9 +5326,13 @@ INSERT INTO `bf_taskshops` VALUES ('30', 'TB0728182941455043', '', 'http://item.
 INSERT INTO `bf_taskshops` VALUES ('31', 'TB0728183109264027', '', 'http://item.taobao.com/item.htm?spm=a230r.7195193.1997079397.8.ZUwjAk&id=37746897266', '0.00', '0.00', null, null, null);
 INSERT INTO `bf_taskshops` VALUES ('32', 'TB0805154847353907', '', 'http://item.taobao.com/item.htm?spm=a230r.1.14.44.CEMbN3&id=15003390531&ns=1#detail', '0.00', '0.00', null, null, null);
 INSERT INTO `bf_taskshops` VALUES ('33', 'TB0805161705350862', '', 'http://item.taobao.com/item.htm?spm=a1z10.3.w4002-7643149718.36.d9HUvh&id=37746897266', '0.00', '0.00', null, null, null);
+INSERT INTO `bf_taskshops` VALUES ('34', 'TB0810150617044801', '', 'http://item.taobao.com/item.htm?id=37746897266&pm2=1', '0.00', '0.00', null, null, null);
+INSERT INTO `bf_taskshops` VALUES ('35', 'TB0810215403873277', '', 'http://item.taobao.com/item.htm?id=18576641803&pm2=1', '0.00', '0.00', null, null, null);
+INSERT INTO `bf_taskshops` VALUES ('36', 'TB0810215823733075', '', 'http://item.taobao.com/item.htm?id=18576641803&pm2=1', '0.00', '0.00', null, null, null);
+INSERT INTO `bf_taskshops` VALUES ('37', 'TB0815200634114534', '', 'http://item.taobao.com/item.htm?id=18576641803&pm2=1', '0.00', '0.00', null, null, null);
 
 -- ----------------------------
--- Table structure for `bf_task_book`
+-- Table structure for bf_task_book
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_task_book`;
 CREATE TABLE `bf_task_book` (
@@ -5223,7 +5356,7 @@ CREATE TABLE `bf_task_book` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_task_book_filter`
+-- Table structure for bf_task_book_filter
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_task_book_filter`;
 CREATE TABLE `bf_task_book_filter` (
@@ -5237,7 +5370,7 @@ CREATE TABLE `bf_task_book_filter` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_task_collect`
+-- Table structure for bf_task_collect
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_task_collect`;
 CREATE TABLE `bf_task_collect` (
@@ -5266,7 +5399,7 @@ CREATE TABLE `bf_task_collect` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_task_collects`
+-- Table structure for bf_task_collects
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_task_collects`;
 CREATE TABLE `bf_task_collects` (
@@ -5293,7 +5426,7 @@ CREATE TABLE `bf_task_collects` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_task_flow`
+-- Table structure for bf_task_flow
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_task_flow`;
 CREATE TABLE `bf_task_flow` (
@@ -5327,7 +5460,7 @@ CREATE TABLE `bf_task_flow` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_task_log`
+-- Table structure for bf_task_log
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_task_log`;
 CREATE TABLE `bf_task_log` (
@@ -5337,32 +5470,120 @@ CREATE TABLE `bf_task_log` (
   `isBuyer` tinyint(3) unsigned NOT NULL,
   `title` varchar(32) DEFAULT NULL,
   `message` varchar(255) DEFAULT NULL,
-  `timestamp` int(10) unsigned NOT NULL,
+  `timestamp` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=199 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=287 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bf_task_log
 -- ----------------------------
-INSERT INTO `bf_task_log` VALUES ('183', 'TB0728182941455043', '4', '0', '绑定买号', 'ceshi2向任务TB0728182941455043绑定了买号', '1407224780');
-INSERT INTO `bf_task_log` VALUES ('184', 'TB0728182941455043', '8', '1', '绑定买号', 'ceshi2向任务TB0728182941455043绑定了买号', '1407224780');
-INSERT INTO `bf_task_log` VALUES ('185', 'TB0728182941455043', '4', '0', '退出任务', 'ceshi2退出任务TB0728182941455043', '1407224934');
-INSERT INTO `bf_task_log` VALUES ('186', 'TB0728182941455043', '8', '1', '退出任务', 'ceshi2退出任务TB0728182941455043', '1407224934');
-INSERT INTO `bf_task_log` VALUES ('187', 'TB0805161705350862', '4', '0', '绑定买号', 'ceshi2向任务TB0805161705350862绑定了买号', '1407226677');
-INSERT INTO `bf_task_log` VALUES ('188', 'TB0805161705350862', '8', '1', '绑定买号', 'ceshi2向任务TB0805161705350862绑定了买号', '1407226677');
-INSERT INTO `bf_task_log` VALUES ('189', 'TB0805161705350862', '4', '0', '任务审核', 'ceshi1审核了任务TB0805161705350862的接手方ceshi2', '1407226786');
-INSERT INTO `bf_task_log` VALUES ('190', 'TB0805161705350862', '8', '1', '任务审核', 'ceshi1审核了任务TB0805161705350862的接手方ceshi2', '1407226786');
-INSERT INTO `bf_task_log` VALUES ('191', 'TB0805161705350862', '4', '0', '确认支付', 'ceshi2确认支付任务TB0805161705350862', '1407226857');
-INSERT INTO `bf_task_log` VALUES ('192', 'TB0805161705350862', '8', '1', '确认支付', 'ceshi2确认支付任务TB0805161705350862', '1407226857');
-INSERT INTO `bf_task_log` VALUES ('193', 'TB0805161705350862', '4', '0', '确认发布', 'ceshi1确认了任务TB0805161705350862的发货', '1407226881');
-INSERT INTO `bf_task_log` VALUES ('194', 'TB0805161705350862', '8', '1', '确认发布', 'ceshi1确认了任务TB0805161705350862的发货', '1407226881');
-INSERT INTO `bf_task_log` VALUES ('195', 'TB0805161705350862', '4', '0', '确认收货', 'ceshi2确认了任务TB0805161705350862的收货', '1407226943');
-INSERT INTO `bf_task_log` VALUES ('196', 'TB0805161705350862', '8', '1', '确认收货', 'ceshi2确认了任务TB0805161705350862的收货', '1407226943');
-INSERT INTO `bf_task_log` VALUES ('197', 'TB0805161705350862', '4', '0', '核实货款', 'ceshi1已核实货款任务TB0805161705350862', '1407226952');
-INSERT INTO `bf_task_log` VALUES ('198', 'TB0805161705350862', '8', '1', '核实货款', 'ceshi1已核实货款任务TB0805161705350862', '1407226952');
+INSERT INTO `bf_task_log` VALUES ('183', 'TB0728182941455043', '4', '0', '绑定买号', 'ceshi2向任务TB0728182941455043绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('184', 'TB0728182941455043', '8', '1', '绑定买号', 'ceshi2向任务TB0728182941455043绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('185', 'TB0728182941455043', '4', '0', '退出任务', 'ceshi2退出任务TB0728182941455043', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('186', 'TB0728182941455043', '8', '1', '退出任务', 'ceshi2退出任务TB0728182941455043', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('187', 'TB0805161705350862', '4', '0', '绑定买号', 'ceshi2向任务TB0805161705350862绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('188', 'TB0805161705350862', '8', '1', '绑定买号', 'ceshi2向任务TB0805161705350862绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('189', 'TB0805161705350862', '4', '0', '任务审核', 'ceshi1审核了任务TB0805161705350862的接手方ceshi2', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('190', 'TB0805161705350862', '8', '1', '任务审核', 'ceshi1审核了任务TB0805161705350862的接手方ceshi2', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('191', 'TB0805161705350862', '4', '0', '确认支付', 'ceshi2确认支付任务TB0805161705350862', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('192', 'TB0805161705350862', '8', '1', '确认支付', 'ceshi2确认支付任务TB0805161705350862', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('193', 'TB0805161705350862', '4', '0', '确认发布', 'ceshi1确认了任务TB0805161705350862的发货', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('194', 'TB0805161705350862', '8', '1', '确认发布', 'ceshi1确认了任务TB0805161705350862的发货', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('195', 'TB0805161705350862', '4', '0', '确认收货', 'ceshi2确认了任务TB0805161705350862的收货', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('196', 'TB0805161705350862', '8', '1', '确认收货', 'ceshi2确认了任务TB0805161705350862的收货', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('197', 'TB0805161705350862', '4', '0', '核实货款', 'ceshi1已核实货款任务TB0805161705350862', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('198', 'TB0805161705350862', '8', '1', '核实货款', 'ceshi1已核实货款任务TB0805161705350862', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('199', 'TB0728183109264027', '4', '0', '绑定买号', '向任务TB0728183109264027绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('200', 'TB0728183109264027', '4', '0', '绑定买号', '向任务TB0728183109264027绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('201', 'TB0728183109264027', '4', '0', '绑定买号', '向任务TB0728183109264027绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('202', 'TB0810150617044801', '4', '0', '绑定买号', '向任务TB0810150617044801绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('203', 'TB0728183109264027', '4', '0', '绑定买号', '向任务TB0728183109264027绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('204', 'TB0728183109264027', '4', '0', '绑定买号', '向任务TB0728183109264027绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('205', 'TB0728183109264027', '4', '0', '绑定买号', '向任务TB0728183109264027绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('206', 'TB0810150617044801', '4', '0', '绑定买号', '向任务TB0810150617044801绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('207', 'TB0728183109264027', '4', '0', '绑定买号', '向任务TB0728183109264027绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('208', 'TB0728183109264027', '4', '0', '绑定买号', '向任务TB0728183109264027绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('209', 'TB0810150617044801', '4', '0', '绑定买号', '向任务TB0810150617044801绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('210', 'TB0810150617044801', '4', '0', '绑定买号', '向任务TB0810150617044801绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('211', 'TB0728183109264027', '4', '0', '绑定买号', '向任务TB0728183109264027绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('212', 'TB0728183109264027', '4', '0', '绑定买号', '向任务TB0728183109264027绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('213', 'TB0728182941455043', '4', '0', '绑定买号', '向任务TB0728182941455043绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('214', 'TB0728183109264027', '4', '0', '绑定买号', '向任务TB0728183109264027绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('215', 'TB0810215403873277', '13', '0', '绑定买号', 'ceshi2向任务TB0810215403873277绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('216', 'TB0810215403873277', '8', '1', '绑定买号', 'ceshi2向任务TB0810215403873277绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('217', 'TB0810215403873277', '13', '0', '退出任务', 'ceshi2退出任务TB0810215403873277', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('218', 'TB0810215403873277', '8', '1', '退出任务', 'ceshi2退出任务TB0810215403873277', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('219', 'TB0810215403873277', '13', '0', '绑定买号', 'ceshi2向任务TB0810215403873277绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('220', 'TB0810215403873277', '8', '1', '绑定买号', 'ceshi2向任务TB0810215403873277绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('221', 'TB0810215403873277', '13', '0', '确认支付', 'ceshi2确认支付任务TB0810215403873277', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('222', 'TB0810215403873277', '8', '1', '确认支付', 'ceshi2确认支付任务TB0810215403873277', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('223', 'TB0810215403873277', '13', '0', '确认发布', 'ceshi3确认了任务TB0810215403873277的发货', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('224', 'TB0810215403873277', '8', '1', '确认发布', 'ceshi3确认了任务TB0810215403873277的发货', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('225', 'TB0810215403873277', '13', '0', '确认收货', 'ceshi2确认了任务TB0810215403873277的收货', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('226', 'TB0810215403873277', '8', '1', '确认收货', 'ceshi2确认了任务TB0810215403873277的收货', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('227', 'TB0810215403873277', '13', '0', '核实货款', 'ceshi3已核实货款任务TB0810215403873277', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('228', 'TB0810215403873277', '8', '1', '核实货款', 'ceshi3已核实货款任务TB0810215403873277', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('229', 'TB0810215823733075', '13', '0', '绑定买号', 'ceshi1向任务TB0810215823733075绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('230', 'TB0810215823733075', '4', '1', '绑定买号', 'ceshi1向任务TB0810215823733075绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('231', 'TB0810215823733075', '13', '0', '确认支付', 'ceshi1确认支付任务TB0810215823733075', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('232', 'TB0810215823733075', '4', '1', '确认支付', 'ceshi1确认支付任务TB0810215823733075', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('233', 'TB0805154847353907', '8', '0', '绑定买号', 'ceshi1向任务TB0805154847353907绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('234', 'TB0805154847353907', '4', '1', '绑定买号', 'ceshi1向任务TB0805154847353907绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('235', 'TB0805154847353907', '8', '0', '退出任务', 'ceshi1退出任务TB0805154847353907', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('236', 'TB0805154847353907', '4', '1', '退出任务', 'ceshi1退出任务TB0805154847353907', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('237', 'TB0805154847353907', '8', '0', '绑定买号', 'ceshi1向任务TB0805154847353907绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('238', 'TB0805154847353907', '4', '1', '绑定买号', 'ceshi1向任务TB0805154847353907绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('239', 'TB0805154847353907', '8', '0', '退出任务', 'ceshi1退出任务TB0805154847353907', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('240', 'TB0805154847353907', '4', '1', '退出任务', 'ceshi1退出任务TB0805154847353907', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('241', 'TB0805154847353907', '8', '0', '绑定买号', 'ceshi1向任务TB0805154847353907绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('242', 'TB0805154847353907', '4', '1', '绑定买号', 'ceshi1向任务TB0805154847353907绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('243', 'TB0805154847353907', '8', '0', '退出任务', 'ceshi1退出任务TB0805154847353907', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('244', 'TB0805154847353907', '4', '1', '退出任务', 'ceshi1退出任务TB0805154847353907', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('245', 'TB0805154847353907', '8', '0', '绑定买号', 'ceshi1向任务TB0805154847353907绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('246', 'TB0805154847353907', '4', '1', '绑定买号', 'ceshi1向任务TB0805154847353907绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('247', 'TB0805154847353907', '8', '0', '退出任务', 'ceshi1退出任务TB0805154847353907', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('248', 'TB0805154847353907', '4', '1', '退出任务', 'ceshi1退出任务TB0805154847353907', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('249', 'TB0805154847353907', '8', '0', '绑定买号', 'ceshi1向任务TB0805154847353907绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('250', 'TB0805154847353907', '4', '1', '绑定买号', 'ceshi1向任务TB0805154847353907绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('251', 'TB0805154847353907', '8', '0', '退出任务', 'ceshi1退出任务TB0805154847353907', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('252', 'TB0805154847353907', '4', '1', '退出任务', 'ceshi1退出任务TB0805154847353907', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('253', 'TB0810215823733075', '13', '0', '确认发布', 'ceshi3确认了任务TB0810215823733075的发货', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('254', 'TB0810215823733075', '4', '1', '确认发布', 'ceshi3确认了任务TB0810215823733075的发货', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('255', 'TB0810215823733075', '13', '0', '确认收货', 'ceshi1确认了任务TB0810215823733075的收货', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('256', 'TB0810215823733075', '4', '1', '确认收货', 'ceshi1确认了任务TB0810215823733075的收货', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('257', 'TB0810215823733075', '13', '0', '核实货款', 'ceshi3已核实货款任务TB0810215823733075', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('258', 'TB0810215823733075', '4', '1', '核实货款', 'ceshi3已核实货款任务TB0810215823733075', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('259', 'TB0805154847353907', '8', '0', '绑定买号', 'ceshi1向任务TB0805154847353907绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('260', 'TB0805154847353907', '4', '1', '绑定买号', 'ceshi1向任务TB0805154847353907绑定了买号', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('261', 'TB0805154847353907', '8', '0', '确认支付', 'ceshi1确认支付任务TB0805154847353907', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('262', 'TB0805154847353907', '4', '1', '确认支付', 'ceshi1确认支付任务TB0805154847353907', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('263', 'TB0805154847353907', '8', '0', '确认发布', 'ceshi2确认了任务TB0805154847353907的发货', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('264', 'TB0805154847353907', '4', '1', '确认发布', 'ceshi2确认了任务TB0805154847353907的发货', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('265', 'TB0805154847353907', '8', '0', '确认收货', 'ceshi1确认了任务TB0805154847353907的收货', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('266', 'TB0805154847353907', '4', '1', '确认收货', 'ceshi1确认了任务TB0805154847353907的收货', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('267', 'TB0805154847353907', '8', '0', '核实货款', 'ceshi2已核实货款任务TB0805154847353907', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('268', 'TB0805154847353907', '4', '1', '核实货款', 'ceshi2已核实货款任务TB0805154847353907', '0000-00-00 ');
+INSERT INTO `bf_task_log` VALUES ('269', 'TB0815200634114534', '13', '0', '绑定小号超时', '未在规定时间内绑定买号，系统撤销了接手人ceshi1的任务TB0815200634114534', '1409139149');
+INSERT INTO `bf_task_log` VALUES ('270', 'TB0815200634114534', '4', '1', '绑定小号超时', '未在规定时间内绑定买号，系统撤销了接手人ceshi1的任务TB0815200634114534', '1409139149');
+INSERT INTO `bf_task_log` VALUES ('271', 'TB0815200634114534', '13', '0', '绑定小号超时', '未在规定时间内绑定买号，系统撤销了接手人ceshi1的任务TB0815200634114534', '1409139417');
+INSERT INTO `bf_task_log` VALUES ('272', 'TB0815200634114534', '4', '1', '绑定小号超时', '未在规定时间内绑定买号，系统撤销了接手人ceshi1的任务TB0815200634114534', '1409139417');
+INSERT INTO `bf_task_log` VALUES ('273', 'TB0815200634114534', '13', '0', '退出任务', 'ceshi1退出任务TB0815200634114534', '1409139567');
+INSERT INTO `bf_task_log` VALUES ('274', 'TB0815200634114534', '4', '1', '退出任务', 'ceshi1退出任务TB0815200634114534', '1409139567');
+INSERT INTO `bf_task_log` VALUES ('275', 'TB0815200634114534', '13', '0', '绑定小号超时', '未在规定时间内绑定买号，系统撤销了接手人ceshi1的任务TB0815200634114534', '1409139781');
+INSERT INTO `bf_task_log` VALUES ('276', 'TB0815200634114534', '4', '1', '绑定小号超时', '未在规定时间内绑定买号，系统撤销了接手人ceshi1的任务TB0815200634114534', '1409139781');
+INSERT INTO `bf_task_log` VALUES ('277', 'TB0815200634114534', '13', '0', '绑定买号', 'ceshi1向任务TB0815200634114534绑定了买号', '1409139844');
+INSERT INTO `bf_task_log` VALUES ('278', 'TB0815200634114534', '4', '1', '绑定买号', 'ceshi1向任务TB0815200634114534绑定了买号', '1409139844');
+INSERT INTO `bf_task_log` VALUES ('279', 'TB0815200634114534', '13', '0', '退出任务', 'ceshi1退出任务TB0815200634114534', '1409139849');
+INSERT INTO `bf_task_log` VALUES ('280', 'TB0815200634114534', '4', '1', '退出任务', 'ceshi1退出任务TB0815200634114534', '1409139849');
+INSERT INTO `bf_task_log` VALUES ('281', 'TB0815200634114534', '13', '0', '绑定小号超时', '未在规定时间内绑定买号，系统撤销了接手人ceshi1的任务TB0815200634114534', '1409140590');
+INSERT INTO `bf_task_log` VALUES ('282', 'TB0815200634114534', '4', '1', '绑定小号超时', '未在规定时间内绑定买号，系统撤销了接手人ceshi1的任务TB0815200634114534', '1409140590');
+INSERT INTO `bf_task_log` VALUES ('283', 'TB0815200634114534', '13', '0', '绑定买号', 'ceshi1向任务TB0815200634114534绑定了买号', '1409140936');
+INSERT INTO `bf_task_log` VALUES ('284', 'TB0815200634114534', '4', '1', '绑定买号', 'ceshi1向任务TB0815200634114534绑定了买号', '1409140936');
+INSERT INTO `bf_task_log` VALUES ('285', 'TB0815200634114534', '13', '0', '支付超时', '未在规定时间内支付，系统撤销了接手人ceshi1的任务TB0815200634114534', '1409142918');
+INSERT INTO `bf_task_log` VALUES ('286', 'TB0815200634114534', '4', '1', '支付超时', '未在规定时间内支付，系统撤销了接手人ceshi1的任务TB0815200634114534', '1409142918');
 
 -- ----------------------------
--- Table structure for `bf_task_reflow`
+-- Table structure for bf_task_reflow
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_task_reflow`;
 CREATE TABLE `bf_task_reflow` (
@@ -5414,7 +5635,7 @@ CREATE TABLE `bf_task_reflow` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_task_reflow_log`
+-- Table structure for bf_task_reflow_log
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_task_reflow_log`;
 CREATE TABLE `bf_task_reflow_log` (
@@ -5439,7 +5660,7 @@ CREATE TABLE `bf_task_reflow_log` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_task_reflow_tpl`
+-- Table structure for bf_task_reflow_tpl
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_task_reflow_tpl`;
 CREATE TABLE `bf_task_reflow_tpl` (
@@ -5458,7 +5679,7 @@ CREATE TABLE `bf_task_reflow_tpl` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_task_tpl`
+-- Table structure for bf_task_tpl
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_task_tpl`;
 CREATE TABLE `bf_task_tpl` (
@@ -5472,14 +5693,16 @@ CREATE TABLE `bf_task_tpl` (
   `timestamp` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `i1` (`type`,`uid`,`isAdds`,`timestamp`,`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bf_task_tpl
 -- ----------------------------
+INSERT INTO `bf_task_tpl` VALUES ('9', '1', '1', '13', '0', '马上好评', 'a:23:{s:8:\"nickname\";s:9:\"zpy520814\";s:7:\"itemurl\";s:52:\"http://item.taobao.com/item.htm?id=18576641803&pm2=1\";s:5:\"price\";d:10;s:8:\"pointExt\";d:0;s:5:\"times\";i:0;s:6:\"scores\";i:0;s:6:\"remark\";s:232:\"此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字\";s:5:\"limit\";i:3;s:11:\"txtBuyCount\";s:0:\"\";s:14:\"txtAreaService\";s:0:\"\";s:10:\"txtAccount\";s:0:\"\";s:9:\"txtMobile\";s:0:\"\";s:8:\"txtSpecs\";s:0:\"\";s:10:\"ddlDeliver\";s:0:\"\";s:7:\"cbxName\";s:0:\"\";s:9:\"cbxMobile\";s:0:\"\";s:7:\"cbxcode\";s:0:\"\";s:7:\"txtTaoG\";s:0:\"\";s:2:\"qq\";s:6:\"352645\";s:10:\"cbxAddress\";s:159:\"此处填写您要求接手人的修改的收货地址，包含具体省、市、区及详细地址，请不要填写“请带字好评”等引导的文字。\";s:11:\"ensurePoint\";d:0.299999999999999988897769753748434595763683319091796875;s:8:\"scoreLvl\";i:100;s:8:\"planDate\";s:0:\"\";}', '1407678843');
+INSERT INTO `bf_task_tpl` VALUES ('10', '1', '1', '13', '0', '限制接手人', 'a:33:{s:8:\"nickname\";s:9:\"zpy520814\";s:7:\"itemurl\";s:52:\"http://item.taobao.com/item.htm?id=18576641803&pm2=1\";s:5:\"price\";d:10;s:8:\"pointExt\";d:0;s:5:\"times\";i:0;s:6:\"scores\";i:0;s:6:\"remark\";s:232:\"此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字\";s:7:\"isLimit\";i:1;s:5:\"limit\";i:1;s:6:\"isReal\";i:1;s:11:\"txtBuyCount\";s:0:\"\";s:14:\"txtAreaService\";s:0:\"\";s:10:\"txtAccount\";s:0:\"\";s:9:\"txtMobile\";s:0:\"\";s:8:\"txtSpecs\";s:0:\"\";s:10:\"ddlDeliver\";s:0:\"\";s:7:\"cbxName\";s:0:\"\";s:9:\"cbxMobile\";s:0:\"\";s:7:\"cbxcode\";s:0:\"\";s:8:\"realname\";i:1;s:7:\"txtTaoG\";s:0:\"\";s:2:\"qq\";s:6:\"352645\";s:10:\"cbxAddress\";s:159:\"此处填写您要求接手人的修改的收货地址，包含具体省、市、区及详细地址，请不要填写“请带字好评”等引导的文字。\";s:11:\"ensurePoint\";d:0.299999999999999988897769753748434595763683319091796875;s:7:\"isScore\";i:1;s:8:\"scoreLvl\";i:10;s:8:\"isCredit\";i:1;s:9:\"creditLvl\";i:10;s:6:\"isGood\";i:1;s:7:\"goodLvl\";i:90;s:7:\"isBlack\";i:1;s:8:\"blackLvl\";i:5;s:8:\"planDate\";s:19:\"2014-08-07 20:06:08\";}', '1408104393');
 
 -- ----------------------------
--- Table structure for `bf_threads`
+-- Table structure for bf_threads
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_threads`;
 CREATE TABLE `bf_threads` (
@@ -5515,7 +5738,7 @@ INSERT INTO `bf_threads` VALUES ('10', '3', '0', '0', '8', '0', '', '【新手�
 INSERT INTO `bf_threads` VALUES ('11', '3', '0', '0', '2', '0', '', '了解美乐平台积分级别详情，如何获得积分', '3', '美乐管理员', '80', '1360046983', '1', '41', '3', '', '1360046983');
 INSERT INTO `bf_threads` VALUES ('12', '3', '0', '0', '0', '0', '', '【赢规定】美乐刷客积分与接发任务数量对应关系', '3', '美乐管理员', '87', '1300817389', '1', '42', '3', '美乐管理员', '1300817389');
 INSERT INTO `bf_threads` VALUES ('13', '1', '0', '0', '0', '0', '', '【好消息】点卡中心推出双倍积分卡，积分翻倍增长的秘密！', '3', '美乐管理员', '152', '1358766961', '1', '43', '3', '', '1358766961');
-INSERT INTO `bf_threads` VALUES ('14', '1', '0', '0', '0', '0', '', '【好消息】平台充值有奖励喽！', '3', '美乐管理员', '141', '1300817471', '1', '44', '3', '美乐管理员', '1300817471');
+INSERT INTO `bf_threads` VALUES ('14', '1', '0', '0', '0', '0', '', '【好消息】平台充值有奖励喽！', '3', '美乐管理员', '142', '1300817471', '1', '44', '3', '美乐管理员', '1300817471');
 INSERT INTO `bf_threads` VALUES ('15', '3', '0', '0', '5', '0', '', '【大讲堂】美乐信用额度，刷客满意度 详细解读', '3', '美乐管理员', '65', '1360046930', '1', '45', '3', '', '1360046930');
 INSERT INTO `bf_threads` VALUES ('16', '3', '0', '0', '5', '0', '', '【新手教程】如何维护个人资料', '3', '美乐管理员', '67', '1360046841', '1', '46', '3', '', '1360046841');
 INSERT INTO `bf_threads` VALUES ('17', '3', '0', '0', '4', '0', '', '【新手教程】如何修改密码，操作码', '3', '美乐管理员', '64', '1360046789', '1', '47', '3', '', '1360046789');
@@ -5531,7 +5754,7 @@ INSERT INTO `bf_threads` VALUES ('26', '5', '0', '0', '0', '0', '', '【帮助�
 INSERT INTO `bf_threads` VALUES ('27', '5', '0', '0', '0', '0', '', '【帮助中心】接手任务注意事项', '3', '美乐管理员', '125', '1300818001', '1', '57', '3', '美乐管理员', '1300818001');
 INSERT INTO `bf_threads` VALUES ('28', '3', '0', '0', '0', '0', '', '【美乐强调】美乐刷客积分与接发任务数量对应关系', '3', '美乐管理员', '68', '1360046284', '1', '58', '3', '', '1360046284');
 INSERT INTO `bf_threads` VALUES ('29', '4', '0', '0', '0', '0', '', '【新手必读】任务商品价格与所需基本发布点数的对应关系', '3', '美乐管理员', '150', '1300818093', '1', '59', '3', '美乐管理员', '1300818093');
-INSERT INTO `bf_threads` VALUES ('30', '4', '0', '0', '0', '0', '', '【新手必读】任务商品价格与所需基本发布点数的对应关系', '3', '美乐管理员', '130', '1300818093', '1', '60', '3', '美乐管理员', '1300818093');
+INSERT INTO `bf_threads` VALUES ('30', '4', '0', '0', '0', '0', '', '【新手必读】任务商品价格与所需基本发布点数的对应关系', '3', '美乐管理员', '131', '1300818093', '1', '60', '3', '美乐管理员', '1300818093');
 INSERT INTO `bf_threads` VALUES ('31', '6', '0', '0', '4', '0', '', '【发布任务】发布任务增值服务区详解', '3', '美乐管理员', '173', '1360048938', '1', '61', '3', '', '1360048938');
 INSERT INTO `bf_threads` VALUES ('32', '1', '2', '3', '0', '1', '#ff0000', '【新功能】新用户“免费发布一元体验任务”功能上线！', '3', '美乐管理员', '207', '1300818173', '2', '121', '39', 'windows', '1358520765');
 INSERT INTO `bf_threads` VALUES ('33', '4', '0', '0', '0', '0', '', '【发布任务】善用发布任务模板', '3', '美乐管理员', '134', '1360047506', '1', '63', '3', '', '1360047506');
@@ -5597,14 +5820,14 @@ INSERT INTO `bf_threads` VALUES ('97', '4', '0', '0', '10', '0', '', '淘宝最�
 INSERT INTO `bf_threads` VALUES ('98', '1', '1', '3', '2', '1', '#990099', '【新功能！】注册淘宝账号必备手机验证码服务，任务举报', '3', '美乐管理员', '33', '1359989334', '1', '138', '3', '', '1359989334');
 INSERT INTO `bf_threads` VALUES ('99', '1', '2', '0', '2', '1', '#000099', '【公告】关于24/48/72小时任务，接手人淘宝提前好评的处罚通知', '3', '美乐管理员', '17', '1359989555', '1', '139', '3', '美乐管理员', '1359989555');
 INSERT INTO `bf_threads` VALUES ('100', '1', '2', '3', '4', '1', '#ff0000', '【注意】关于不使用绑定买号购买任务商品的规定', '3', '美乐管理员', '27', '1359989798', '1', '140', '3', '', '1359989798');
-INSERT INTO `bf_threads` VALUES ('101', '1', '2', '3', '3', '1', '#cc3399', '【新手入门】如何使用卡密充值，卡密充值流程详解', '3', '美乐管理员', '30', '1360044880', '1', '142', '3', '美乐管理员', '1360044880');
+INSERT INTO `bf_threads` VALUES ('101', '1', '2', '3', '3', '1', '#cc3399', '【新手入门】如何使用卡密充值，卡密充值流程详解', '3', '美乐管理员', '44', '1360044880', '1', '142', '3', '美乐管理员', '1360044880');
 INSERT INTO `bf_threads` VALUES ('102', '3', '0', '0', '2', '0', '', '【新手入门】如何在支付宝转账（新版支付宝）', '3', '美乐管理员', '12', '1360045559', '1', '143', '3', '美乐管理员', '1360045559');
 INSERT INTO `bf_threads` VALUES ('103', '6', '0', '0', '3', '0', '', '【重要】淘宝客出没，请发布方谨慎核实货款以免被骗！', '3', '美乐管理员', '17', '1360048433', '1', '144', '3', '美乐管理员', '1360048433');
 INSERT INTO `bf_threads` VALUES ('104', '3', '0', '0', '0', '0', '', 'ggggdddddddddddddd', '121', 'ceshi1', '4', '1402044577', '1', '147', '121', 'ceshi1', '1402044577');
-INSERT INTO `bf_threads` VALUES ('105', '3', '0', '0', '0', '0', '', 'ddddddddddddddd', '121', 'ceshi1', '3', '1402044807', '1', '148', '121', 'ceshi1', '1402044807');
+INSERT INTO `bf_threads` VALUES ('105', '3', '0', '0', '0', '0', '', 'ddddddddddddddd', '121', 'ceshi1', '4', '1402044807', '1', '148', '121', 'ceshi1', '1402044807');
 
 -- ----------------------------
--- Table structure for `bf_tie_account`
+-- Table structure for bf_tie_account
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_tie_account`;
 CREATE TABLE `bf_tie_account` (
@@ -5621,7 +5844,7 @@ CREATE TABLE `bf_tie_account` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_topup`
+-- Table structure for bf_topup
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_topup`;
 CREATE TABLE `bf_topup` (
@@ -5652,7 +5875,7 @@ INSERT INTO `bf_topup` VALUES ('20140728182556623312', 'alipay', '8', 'ceshi2', 
 INSERT INTO `bf_topup` VALUES ('20140728182612496191', 'alipay', '8', 'ceshi2', '200.00', '200.00', '200.00', '0.000', '0', '1', '1406543172', '1406544358', '', '185151', '0');
 
 -- ----------------------------
--- Table structure for `bf_top_buyer`
+-- Table structure for bf_top_buyer
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_top_buyer`;
 CREATE TABLE `bf_top_buyer` (
@@ -5671,9 +5894,10 @@ INSERT INTO `bf_top_buyer` VALUES ('9', '0', '0');
 INSERT INTO `bf_top_buyer` VALUES ('10', '0', '0');
 INSERT INTO `bf_top_buyer` VALUES ('11', '0', '0');
 INSERT INTO `bf_top_buyer` VALUES ('12', '0', '0');
+INSERT INTO `bf_top_buyer` VALUES ('13', '0', '0');
 
 -- ----------------------------
--- Table structure for `bf_top_credit`
+-- Table structure for bf_top_credit
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_top_credit`;
 CREATE TABLE `bf_top_credit` (
@@ -5685,16 +5909,17 @@ CREATE TABLE `bf_top_credit` (
 -- ----------------------------
 -- Records of bf_top_credit
 -- ----------------------------
-INSERT INTO `bf_top_credit` VALUES ('4', '2', '1');
-INSERT INTO `bf_top_credit` VALUES ('7', '1', '5');
-INSERT INTO `bf_top_credit` VALUES ('8', '0', '4');
-INSERT INTO `bf_top_credit` VALUES ('9', '0', '3');
-INSERT INTO `bf_top_credit` VALUES ('10', '0', '2');
-INSERT INTO `bf_top_credit` VALUES ('11', '0', '0');
-INSERT INTO `bf_top_credit` VALUES ('12', '0', '0');
+INSERT INTO `bf_top_credit` VALUES ('4', '1', '1');
+INSERT INTO `bf_top_credit` VALUES ('7', '8', '8');
+INSERT INTO `bf_top_credit` VALUES ('8', '2', '2');
+INSERT INTO `bf_top_credit` VALUES ('9', '7', '7');
+INSERT INTO `bf_top_credit` VALUES ('10', '6', '6');
+INSERT INTO `bf_top_credit` VALUES ('11', '5', '5');
+INSERT INTO `bf_top_credit` VALUES ('12', '4', '4');
+INSERT INTO `bf_top_credit` VALUES ('13', '3', '3');
 
 -- ----------------------------
--- Table structure for `bf_top_seller`
+-- Table structure for bf_top_seller
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_top_seller`;
 CREATE TABLE `bf_top_seller` (
@@ -5713,9 +5938,10 @@ INSERT INTO `bf_top_seller` VALUES ('9', '0', '0');
 INSERT INTO `bf_top_seller` VALUES ('10', '0', '0');
 INSERT INTO `bf_top_seller` VALUES ('11', '0', '0');
 INSERT INTO `bf_top_seller` VALUES ('12', '0', '0');
+INSERT INTO `bf_top_seller` VALUES ('13', '0', '0');
 
 -- ----------------------------
--- Table structure for `bf_top_spread`
+-- Table structure for bf_top_spread
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_top_spread`;
 CREATE TABLE `bf_top_spread` (
@@ -5734,9 +5960,10 @@ INSERT INTO `bf_top_spread` VALUES ('9', '0', '0');
 INSERT INTO `bf_top_spread` VALUES ('10', '0', '0');
 INSERT INTO `bf_top_spread` VALUES ('11', '0', '0');
 INSERT INTO `bf_top_spread` VALUES ('12', '0', '0');
+INSERT INTO `bf_top_spread` VALUES ('13', '0', '0');
 
 -- ----------------------------
--- Table structure for `bf_tyro_task_list`
+-- Table structure for bf_tyro_task_list
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_tyro_task_list`;
 CREATE TABLE `bf_tyro_task_list` (
@@ -5752,7 +5979,7 @@ CREATE TABLE `bf_tyro_task_list` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bf_user_groups`
+-- Table structure for bf_user_groups
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_user_groups`;
 CREATE TABLE `bf_user_groups` (
@@ -5777,10 +6004,10 @@ INSERT INTO `bf_user_groups` VALUES ('7', '7', 'diamond_users', '钻石会员', 
 INSERT INTO `bf_user_groups` VALUES ('8', '8', 'platinum_users', '白金会员', '0');
 INSERT INTO `bf_user_groups` VALUES ('9', '9', 'ordinary_users', '普通会员', '0');
 INSERT INTO `bf_user_groups` VALUES ('10', '10', 'gold_users', '金牌会员', '0');
-INSERT INTO `bf_user_groups` VALUES ('11', '11', 'novice_users', '新手会员', '7');
+INSERT INTO `bf_user_groups` VALUES ('11', '11', 'novice_users', '新手会员', '8');
 
 -- ----------------------------
--- Table structure for `bf_vars`
+-- Table structure for bf_vars
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_vars`;
 CREATE TABLE `bf_vars` (
@@ -5823,7 +6050,7 @@ INSERT INTO `bf_vars` VALUES ('48', 'is_v_num', '0', '是否开启虚拟任务,1
 INSERT INTO `bf_vars` VALUES ('49', 'r_num', '15', '每页真实任务显示数量');
 
 -- ----------------------------
--- Table structure for `bf_vcode_log`
+-- Table structure for bf_vcode_log
 -- ----------------------------
 DROP TABLE IF EXISTS `bf_vcode_log`;
 CREATE TABLE `bf_vcode_log` (
