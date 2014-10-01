@@ -7,3 +7,5 @@
 *.modoproject
 /data/sql/backup/
 *.bak
+.sss
+/.project

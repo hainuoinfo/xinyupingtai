@@ -183,7 +183,7 @@ $(document).ready(function() {
 				return false;
 			} else {
 				var dialog = artDialog({
-					content: "正在验证您输入的商品url地址，请稍候... ，<br>如果长时间未响应，请按ESC键取消操作。",
+					content: "正在验证您输入的商品url地址，请稍候... ，如果尝试见危<br>如果长时间未响应，请按ESC键取消操作。",
 					id: "VGU",
 					fixed: true,
 					lock: true
