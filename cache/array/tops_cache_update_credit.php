@@ -1,1 +1,1 @@
-<?php exit;?>a:1:{s:8:"lasttime";i:1411315200;}
+<?php exit;?>a:1:{s:8:"lasttime";i:1411920000;}
