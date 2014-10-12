@@ -42,16 +42,16 @@ $sys_hash_code
 }
 {elseif $method=='add_fabudian'}
 	{adminForm
-		注：如果要减掉用户发布点的话，就把发布点写成负数
+		注：如果要减掉用户兔粮的话，就把兔粮写成负数
 		用户名,null=请输入要余额的用户名  |username|text|240|16
-		增加发布点,float=要增加的发布点|fabudian |text|240
+		增加兔粮,float=要增加的兔粮|fabudian |text|240
 		要增加的区域|type|code,<select name="type"><option value="1">淘宝区</option><option value="2">拍拍区</option></select>
 	}
 {elseif $method == 'minusPoint'}
 	{adminForm
 		扣除用户发布掉|tip
-		用户名,null=请输入要扣除发布点的用户名  |username|text|240|16
-		扣除发布点,null=请输入要扣除的发布点  |count|text|240|10
+		用户名,null=请输入要扣除兔粮的用户名  |username|text|240|16
+		扣除兔粮,null=请输入要扣除的兔粮  |count|text|240|10
 		要扣除的区域|type|code,<select name="type"><option value="1">淘宝区</option><option value="2">拍拍区</option></select>
 		扣除理由|remark|textarea
 	}
@@ -118,11 +118,11 @@ $sys_hash_code
 			<td>￥$memberInfo[attach][money]</td>
 		</tr>
 		<tr>
-			<th>淘宝区发布点</th>
+			<th>淘宝区兔粮</th>
 			<td>$memberInfo[attach][fabudian1]</td>
 		</tr>
 		<tr>
-			<th>拍拍区发布点</th>
+			<th>拍拍区兔粮</th>
 			<td>$memberInfo[attach][fabudian2]</td>
 		</tr>
 		<tr>

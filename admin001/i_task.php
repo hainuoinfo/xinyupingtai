@@ -68,7 +68,7 @@ switch($method){
 							db::update('buyers', 'tasking=tasking-1', "id='$task[bid]'");
 						}
 						member_base::addMoney($task['suid'], $task['price'], '后台删除任务，返还担保金');
-						member_base::addFabudian($task['suid'], $task['point'], $task['type'] == 4?1:$task['type'], '后台删除任务，返还发布点');
+						member_base::addFabudian($task['suid'], $task['point'], $task['type'] == 4?1:$task['type'], '后台删除任务，返还兔粮');
 						member_base::addCredit($task['suid'], -($task['svip']?6:5), '后台删除任务，扣除发布奖励积分');
 						$ids[] = $id;
 					} elseif($task['status'] == 10) {
@@ -130,7 +130,7 @@ switch($method){
 							db::update('buyers', 'tasking=tasking-1', "id='$task[bid]'");
 						}
 						member_base::addMoney($task['suid'], $task['price'], '后台删除任务，返还担保金');
-						member_base::addFabudian($task['suid'], $task['point'], $task['type'] == 4?1:$task['type'], '后台删除任务，返还发布点');
+						member_base::addFabudian($task['suid'], $task['point'], $task['type'] == 4?1:$task['type'], '后台删除任务，返还兔粮');
 						member_base::addCredit($task['suid'], -($task['svip']?6:5), '后台删除任务，扣除发布奖励积分');
 						$ids[] = $id;
 					} elseif($task['status'] == 10) {
@@ -192,7 +192,7 @@ switch($method){
 							db::update('buyers', 'tasking=tasking-1', "id='$task[bid]'");
 						}
 						member_base::addMoney($task['suid'], $task['price'], '后台删除任务，返还担保金');
-						member_base::addFabudian($task['suid'], $task['point'], $task['type'] == 4?1:$task['type'], '后台删除任务，返还发布点');
+						member_base::addFabudian($task['suid'], $task['point'], $task['type'] == 4?1:$task['type'], '后台删除任务，返还兔粮');
 						member_base::addCredit($task['suid'], -($task['svip']?6:5), '后台删除任务，扣除发布奖励积分');
 						$ids[] = $id;
 					} elseif($task['status'] == 10) {
@@ -254,7 +254,7 @@ switch($method){
 							db::update('buyers', 'tasking=tasking-1', "id='$task[bid]'");
 						}
 						member_base::addMoney($task['suid'], $task['price'], '后台删除任务，返还担保金');
-						member_base::addFabudian($task['suid'], $task['point'], $task['type'] == 4?1:$task['type'], '后台删除任务，返还发布点');
+						member_base::addFabudian($task['suid'], $task['point'], $task['type'] == 4?1:$task['type'], '后台删除任务，返还兔粮');
 						member_base::addCredit($task['suid'], -($task['svip']?6:5), '后台删除任务，扣除发布奖励积分');
 						$ids[] = $id;
 					} elseif($task['status'] == 10) {

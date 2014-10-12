@@ -144,7 +144,7 @@ switch($method){
 								member_base::sendPm($complain['tuid'], '被申诉任务'.$complain['tid'].'成功', '申诉结果', 'complain_end');
 								member_base::sendSms($complain['tuid'], '被申诉任务'.$complain['tid'].'成功', 'complain_end');
 							}
-							//扣除附加的金钱和发布点
+							//扣除附加的金钱和兔粮
 							if ($sprice != 0) {
 								member_base::addMoney($task['suid'], $sprice, '申诉任务'.$task['id'].'处理');
 							}

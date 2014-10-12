@@ -86,7 +86,7 @@ class task_pai{
 					$datas = self::formatData($datas);
 					// THE END
 					if ($datas['price'] > 0) {
-						//计算发布点
+						//计算兔粮
 						if ($price <= 40)       $point = 1;
 						elseif ($price <= 80)   $point = 1.5;
 						elseif ($price <= 120)  $point = 2;
@@ -182,7 +182,7 @@ class task_pai{
 								if ($j > 0) return true;
 								return 'insert_error';
 							}
-							return '拍拍区发布点不足，发布失败';
+							return '拍拍区兔粮不足，发布失败';
 						}
 						return '余额不足，发布失败';
 					}
@@ -203,7 +203,7 @@ class task_pai{
 				//echo $price;
 				if ($datas['itemurl']) {
 					$urls = $ids = $prices = $shopPrices = $points = $pointExts = $shops = array();
-					//计算发布点
+					//计算兔粮
 					
 					$point = 0;
 					/*if ($datas['times'] > 1) {
@@ -273,7 +273,7 @@ class task_pai{
 									$ids[]    = $itemid;
 									$prices[] = $price;
 									$shopPrices[] = $shopPrice;
-									//计算发布点
+									//计算兔粮
 									if ($price <= 40)       $point = 1;
 									elseif ($price <= 80)   $point = 1.5;
 									elseif ($price <= 120)  $point = 2;
@@ -393,7 +393,7 @@ class task_pai{
 							}
 							return $i;
 						}
-						return '拍拍区发布点不足，发布失败';
+						return '拍拍区兔粮不足，发布失败';
 					}
 					return '余额不足，发布失败';
 					
@@ -549,9 +549,9 @@ class task_pai{
 							db::update('membertask', 'outWaiting'.self::$taskId.'=outWaiting'.self::$taskId.'-1,out'.self::$taskId.'=out'.self::$taskId.'-1', "uid='$uid'");
 							//member_base::addMoney($uid, - $onePrice, '取消拍拍区任务');
 							member_base::addMoney($uid, $task['price'], '取消拍拍区任务');
-							//member_base::addMoney($uid, -0.2, '取消拍拍区任务扣除0.2个发布点');
+							//member_base::addMoney($uid, -0.2, '取消拍拍区任务扣除0.2个兔粮');
 							member_base::addFabudian($uid, $task['point'], $task['type'], '取消拍拍区任务');
-							member_base::addFabudian($uid, -cfg::getMoney('sys', 'point_task_del'), $task['type'], '取消拍拍区任务扣除0.2个发布点');
+							member_base::addFabudian($uid, -cfg::getMoney('sys', 'point_task_del'), $task['type'], '取消拍拍区任务扣除0.2个兔粮');
 							task_base::addLog($id, '取消任务', '{susername}取消了任务{id}');
 							return true;
 						}
@@ -578,7 +578,7 @@ class task_pai{
 							db::update('membertask', 'outWaiting'.self::$taskId.'=outWaiting'.self::$taskId.'+1,outing'.self::$taskId.'=outing'.self::$taskId.'-1', "uid='$uid'");
 							db::update('membertask', 'in'.self::$taskId.'=in'.self::$taskId.'-1,ining'.self::$taskId.'=ining'.self::$taskId.'-1', "uid='$task[buid]'");//更新买家任务数
 							db::update('buyers', 'tasking=tasking-1', "id='$task[bid]'");// 更新买号正在进行的任务
-							if ($getMoney) member_base::addMoney($uid, - $onePrice, '辞退任务'.$task['id'].'的第'.($task['reject'] + 1).'个接手人'.$task['busername'].', 扣除发布点 '.$onePrice.'个');
+							if ($getMoney) member_base::addMoney($uid, - $onePrice, '辞退任务'.$task['id'].'的第'.($task['reject'] + 1).'个接手人'.$task['busername'].', 扣除兔粮 '.$onePrice.'个');
 							return true;
 						}
 					}

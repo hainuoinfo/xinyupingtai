@@ -21,7 +21,7 @@
           <p><a href="$baseUrl?type=0"><strong>系统奖励</strong></a></p>
         </li>
         <li{if $type==1} class="nov"{/if}>
-          <p><a href="$baseUrl?type=1"><strong>发布点信托卡</strong></a></p>
+          <p><a href="$baseUrl?type=1"><strong>兔粮信托卡</strong></a></p>
         </li>
         <li{if $type==2} class="nov"{/if}>
           <p><a href="$baseUrl?type=2"><strong>双倍积分卡</strong></a></p>
@@ -59,12 +59,12 @@
 			  <td class="tbl_s">$v[name]</td>
 			  <td>{date $v[timestamp1]}</td>
 			  <td>{if $v[status]==1}{date $v[timestamp2]}{else}&nbsp;{/if}</td>
-			  <td>发布点$v[total1]个</td>
+			  <td>兔粮$v[total1]个</td>
 			  <td>{date $v[timestamp3]}</td>
 			  <td>{if $v[status]==1}已激活{elseif $v[status]==2}已过期{else}待激活{/if}</td>
 			  <td>
 			  {if !$v[status]}
-			  <a href="javascript:;" onclick="dialog(460,460,'激活发布点卡','{rewrite}/dialog/card/?active=$v[id]');return false;" class="link_b_2">激活</a>
+			  <a href="javascript:;" onclick="dialog(460,460,'激活兔粮卡','{rewrite}/dialog/card/?active=$v[id]');return false;" class="link_b_2">激活</a>
 			  {else}
 			  {/if}
 			  </td>
@@ -98,7 +98,7 @@
 				  <td>
 				  {if !$v[status]}
 				  {if $v[cid] == 1 || ($v[cid] >= 3 && $v[cid] <= 8)}
-				  <a href="javascript:;" onclick="dialog(460,460,'激活发布点卡','{rewrite}/dialog/card/?active=$v[id]');return false;" class="link_b_2">激活</a>
+				  <a href="javascript:;" onclick="dialog(460,460,'激活兔粮卡','{rewrite}/dialog/card/?active=$v[id]');return false;" class="link_b_2">激活</a>
 				  {else}
 				  <a href="$baseUrl?active=$v[id]" onclick="return isActive();" class="link_b_2">激活</a>
 				  {/if}

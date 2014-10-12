@@ -1,5 +1,5 @@
 {teval
-	$title       = '麦点购买--{webName}';
+	$title       = '兔粮购买--{webName}';
 	$keywords    = '{webName2}';
 	$description = '{webName}';
 	$title       = common::replaceVars($title);
@@ -74,7 +74,7 @@ target="_blank">查看VIP特权</A>
   </FORM>
   </DIV>
   <P class="text">为您增加<SPAN 
-  class="hongse"><STRONG>260</STRONG></SPAN>个麦点，尽情发布任务去吧</P>
+  class="hongse"><STRONG>260</STRONG></SPAN>个兔粮，尽情发布任务去吧</P>
   </LI>
   <LI class="k2">
   <DIV class="kp">
@@ -85,7 +85,7 @@ target="_blank">查看VIP特权</A>
   <INPUT name="jiage" value="290" type="hidden">
   <INPUT class="btn2" value="提交查询内容" type="submit"></FORM></DIV>
   <P class="text">卡内含
-  <SPAN class="hongse"><STRONG>501</STRONG></SPAN>个麦点，发布任务也如此激情</P></LI>
+  <SPAN class="hongse"><STRONG>501</STRONG></SPAN>个兔粮，发布任务也如此激情</P></LI>
   <LI class="k3">
   <DIV class="kp">
   <FORM id="formc" onSubmit="return checkForm1();" method="post" name="formc" action="">
@@ -95,7 +95,7 @@ target="_blank">查看VIP特权</A>
   <INPUT name="jiage" value="570" type="hidden">
   <INPUT class="btn2" value="提交查询内容" type="submit"></FORM></DIV>
   <P class="text">卡内含<SPAN 
-  class="hongse"><STRONG>1001</STRONG></SPAN>个麦点，畅快淋漓尊享三钻</P></LI>
+  class="hongse"><STRONG>1001</STRONG></SPAN>个兔粮，畅快淋漓尊享三钻</P></LI>
   <LI class="k4">
   <DIV class="kp">
   <FORM id="formd" onSubmit="return checkForm1();" method="post" name="formd" action="">
@@ -105,7 +105,7 @@ target="_blank">查看VIP特权</A>
   <INPUT name="jiage" value="1080" type="hidden">
   <INPUT class="btn2" value="提交查询内容" type="submit"></FORM></DIV>
   <P class="text">内含<SPAN 
-  class="hongse"><STRONG>2001</STRONG></SPAN>个麦点，四钻到手莫着急</P></LI>
+  class="hongse"><STRONG>2001</STRONG></SPAN>个兔粮，四钻到手莫着急</P></LI>
   <LI class="k5">
   <DIV class="kp">
   <FORM id="forme" onSubmit="return checkForm1();" method="post" name="forme" action="">
@@ -115,7 +115,7 @@ target="_blank">查看VIP特权</A>
   <INPUT name="jiage" value="2600" type="hidden">
   <INPUT class="btn2" value="提交查询内容" type="submit"></FORM></DIV>
   <P class="text">内含
-  <SPAN class="hongse"><STRONG>5001</STRONG></SPAN>个麦点，五钻是幸福的</P></LI>
+  <SPAN class="hongse"><STRONG>5001</STRONG></SPAN>个兔粮，五钻是幸福的</P></LI>
   <LI class="k6">
   <DIV class="kp">
   <FORM id="formf" onSubmit="return checkForm1();" method="post" name="formf" action="">
@@ -126,7 +126,7 @@ target="_blank">查看VIP特权</A>
   <INPUT class="btn2" value="提交查询内容" type="submit">
   </FORM>
   </DIV>
-  <P class="text">内含<SPAN class="hongse"><STRONG>10001</STRONG></SPAN>个麦点，<SPAN 
+  <P class="text">内含<SPAN class="hongse"><STRONG>10001</STRONG></SPAN>个兔粮，<SPAN 
   class="STYLE1">至尊信誉，皇冠在手</SPAN></P></LI>
   <LI class="k7">
   <DIV style="cursor: pointer;" id="formj" class="kp"></DIV>
@@ -249,11 +249,11 @@ function checkForm() {
    var n=$("#nums").val();
    var j=$("#jiage").val();
    var checks = [
-		["isNumber", "nums", "购买麦点数量"] ];
+		["isNumber", "nums", "购买兔粮数量"] ];
 	var result = doCheck(checks);
 	if(n>9999){alert('购买数量不能超过9999');return false;}
 	if (result){
-	  if(confirm('请确定购买信息' + '\n麦点价格：' + j + '\n麦点数量：' + n + '\n消耗存款：'+ (j*n).toFixed(2)+'元')){
+	  if(confirm('请确定购买信息' + '\n兔粮价格：' + j + '\n兔粮数量：' + n + '\n消耗存款：'+ (j*n).toFixed(2)+'元')){
 	  return avoidReSubmit();
 	  }else{
 	  return false;}
@@ -264,22 +264,22 @@ function checkForm() {
 $(document).ready(function(){
     var hash     =$("input[name=hash2]").val();
 	$('#forma').submit(function(){
-	return kefu_cx('a',hash,'购买一钻卡获得：260个麦点 0.6元/个','156');
+	return kefu_cx('a',hash,'购买一钻卡获得：260个兔粮 0.6元/个','156');
     });
 	$('#formb').submit(function(){
-	return kefu_cx('b',hash,'购买二钻卡获得：501个麦点 0.58元/个','290');
+	return kefu_cx('b',hash,'购买二钻卡获得：501个兔粮 0.58元/个','290');
     });
 	$('#formc').submit(function(){
-	return kefu_cx('c',hash,'购买三钻卡获得：1001个麦点 0.57元/个','570');
+	return kefu_cx('c',hash,'购买三钻卡获得：1001个兔粮 0.57元/个','570');
     });
 	$('#formd').submit(function(){
-	return kefu_cx('d',hash,'购买四钻卡获得：2001个麦点 0.56元/个','1080');
+	return kefu_cx('d',hash,'购买四钻卡获得：2001个兔粮 0.56元/个','1080');
     });
 	$('#forme').submit(function(){
-	return kefu_cx('e',hash,'购买五钻卡获得：5001个麦点 0.55元/个','2600');
+	return kefu_cx('e',hash,'购买五钻卡获得：5001个兔粮 0.55元/个','2600');
     });
 	$('#formf').submit(function(){
-	return kefu_cx('f',hash,'购买皇冠卡获得：10001个麦点 0.5元/个','5000');
+	return kefu_cx('f',hash,'购买皇冠卡获得：10001个兔粮 0.5元/个','5000');
     });
 	$('#formj').click(function(){
 	  if(confirm('新平台用户积分增长利器，早日成为万人敬仰的平台皇冠达人！\n购买后积分实效为24小时，\n不与会员等级相累计！您确定购买吗？')){

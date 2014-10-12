@@ -50,7 +50,7 @@ $(function(){
           <p><a href="$baseUrl?type=1"><strong>存款变化日志</strong></a></p>
         </li>
         <li{if $type==2} class="tab_on"{/if}>
-          <p><a href="$baseUrl?type=2"><strong>发布点变化日志</strong></a></p>
+          <p><a href="$baseUrl?type=2"><strong>兔粮变化日志</strong></a></p>
         </li>
         <li{if $type==3} class="tab_on"{/if}>
           <p><a href="$baseUrl?type=3"><strong>积分变化日志</strong></a></p>
@@ -62,7 +62,7 @@ $(function(){
         <tr>
           <td>&nbsp;操作类型</td>
           <td>详细内容</td>
-          <td width="100">{if $type==1}存款{elseif $type==2}发布点{elseif $type==3}积分{else}数量{/if}</td>
+          <td width="100">{if $type==1}存款{elseif $type==2}兔粮{elseif $type==3}积分{else}数量{/if}</td>
           <td width="120">时间</td>
         </tr>
       </thead>
@@ -75,7 +75,7 @@ $(function(){
 		  {elseif $v[type]=='money'}
 		  存款
 		  {elseif $v[type]=='fabudian'}
-		  发布点
+		  兔粮
 		  {else}
 		  其它
 		  {/if}

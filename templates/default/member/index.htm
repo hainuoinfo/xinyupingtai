@@ -28,7 +28,7 @@
           <UL>
                 <LI class="content_name"><a href="http://damaihu.tertw.net/member/info/?username=$member[username]">$member[truename]</a></LI>
                 <LI class="content_li1"><SPAN class="imgico"></SPAN>存款: <FONT style="color: rgb(250, 92, 18);">$memberFields[money]</FONT>元 <A style="margin-left: 45px;" href="{rewrite}/member/topup/">充值</A> <A href="{rewrite}/member/payment/?m=bank">提现</A> <A href="{rewrite}/member/PayDetails/?type=1">明细</A> </LI>
-                <LI class="content_li2"><SPAN class="imgico"> </SPAN>麦点: <FONT style="color: rgb(250, 92, 18);">$memberFields[fabudian]</FONT>个 <A style="margin-left: 45px;" href="{rewrite}/member/BuyPoint/">购买麦点</A></LI>
+                <LI class="content_li2"><SPAN class="imgico"> </SPAN>兔粮: <FONT style="color: rgb(250, 92, 18);">$memberFields[fabudian]</FONT>个 <A style="margin-left: 45px;" href="{rewrite}/member/BuyPoint/">购买兔粮</A></LI>
                 <LI class="content_li3"><SPAN class="imgico"></SPAN>本次登录：{ip $ipint}   <A style="margin-left: 45px;" href="{rewrite}/member/credit/">查看信誉</A></LI>
                 <LI class="content_li4">
               <DIV class="progress">
@@ -67,15 +67,15 @@
             <DIV class="tweer" {if $member[status]} type="1" {else} type="0"{/if}>
 			<A href="{rewrite}/member/active/">
 			<DIV id="icotwe" class="imgico tweer_1"></DIV></A> 
-			<FONT class="imgico tweer_f1"></FONT> <SPAN>送1个麦点</SPAN> </DIV>
+			<FONT class="imgico tweer_f1"></FONT> <SPAN>送1个兔粮</SPAN> </DIV>
             <DIV class="tweer" {if $memberFields[exam]} type="1" {else} type="0"{/if}> 
 			<A href="{rewrite}/member/exam/">
 			<DIV id="icotwe" class="imgico tweer_2"></DIV></A> 
-			<FONT class="imgico tweer_f2"></FONT><SPAN>送1个麦点</SPAN></DIV>
+			<FONT class="imgico tweer_f2"></FONT><SPAN>送1个兔粮</SPAN></DIV>
             <DIV class="tweer" {if $isFrom} type="1" {else} type="0"{/if}>
 			<A href="{rewrite}/member/from/">
             <DIV id="icotwe" class="imgico tweer_3"></DIV></A> 
-			<FONT class="imgico tweer_f3"></FONT><SPAN>送1个麦点</SPAN></DIV>
+			<FONT class="imgico tweer_f3"></FONT><SPAN>送1个兔粮</SPAN></DIV>
           </DIV>
     </DIV>
         <!-- 中右栏 投诉-->
@@ -131,7 +131,7 @@
     <DIV class="trends" style="width:710px;">
       <DIV class="imgico trends_img" style="height:30px;float: left;"> </DIV>
 	    {loop $task_list $v}
-		<p>发布任务$v[id],我付出了$v[point] 麦点, {date $v[stimestamp]}</p> 		
+		<p>发布任务$v[id],我付出了$v[point] 兔粮, {date $v[stimestamp]}</p> 		
 	    {/loop}
     </DIV>
         <!-- 帮助 -->
@@ -141,7 +141,7 @@
             <DIV class="help_head_text"><SPAN class="bangzu_link"> 
 			<A href="{rewrite}/help/taskout/" target="_blank">卖家帮助</A> 
 			<A href="{rewrite}/help/taskin/" target="_blank">买家帮助</A> 
-			<A href="{rewrite}/help/text/" target="_blank">常见问题</A></SPAN></DIV>
+			<!--<A href="{rewrite}/help/text/" target="_blank">常见问题</A>--></SPAN></DIV>
       </DIV>
       <A class="zhuanshi" href="{rewrite}/help/taskout/" target="_blank"></A> 
 	  <A class="yongjin" href="{rewrite}/help/taskin/" target="_blank"></A>

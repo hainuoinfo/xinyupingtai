@@ -109,8 +109,8 @@ var webnoticetit = "";
 		{sub ../quick}
 		<div class="rwdt_bk2">
 			<a href="{rewrite}/member/safesz/" class="szsz_btn" target="_blank"></a>
-			<p class="ts">接实物任务后立即收货好评将 <span class="chengse">- 20 </span>麦点</p>
-			<p class="ts">任务过程中旺旺聊到刷信誉平台相关字眼 <span class="chengse">- 5 </span>麦点</p>
+			<p class="ts">接实物任务后立即收货好评将 <span class="chengse">- 20 </span>兔粮</p>
+			<p class="ts">任务过程中旺旺聊到刷信誉平台相关字眼 <span class="chengse">- 5 </span>兔粮</p>
 			<p class="ts">为了您资金安全，接手方淘宝支付后务必在<span class="lanse">15</span>分钟内回到平台操作任务点击“已付款” </p>
 		</div>
 		<div class="rwdt_gg"><a href="{rewrite}/member/userjob/" target="_blank"><img src="/images/renwujs.jpg"></a></div>
@@ -141,7 +141,7 @@ function checkForm2(){
 }
 function checkForm3() {
    var checks = [
-		["isNumber", "cardnums", "购买麦点数量"] ];
+		["isNumber", "cardnums", "购买兔粮数量"] ];
 	var result = doCheck(checks);
 	if (result)
 		return avoidReSubmit();
@@ -192,7 +192,7 @@ $(function(){
             <td class="rwdt_bt2" align="center" valign="middle" width="200">任务编号</td>
             <td class="rwdt_bt2" align="center" valign="middle" width="12%">任务价格</td>
             <td class="rwdt_bt2" align="center" valign="middle" width="18%">发布者要求</td>
-            <td class="rwdt_bt2" align="center" valign="middle" width="12%">悬赏麦点</td>
+            <td class="rwdt_bt2" align="center" valign="middle" width="12%">悬赏兔粮</td>
             <td class="rwdt_bt2" align="center" valign="middle" width="12%">任务状态</td>
             <td class="rwdt_bt2" align="center" valign="middle" width="1%"></td>
             <td class="rwdt_bt2" align="center" valign="middle" width="24%">操作</td>
@@ -221,7 +221,7 @@ $(function(){
 				{/if}{if $v[isShare]}<span class='chengse'>分享</span>{/if}<br>
 			</td>
             <td class="yf_pd" align="center" width="120">
-				<span class="chengse" ><strong style="color:#390;">$v[point]个麦点</strong></span>
+				<span class="chengse" ><strong style="color:#390;">$v[point]个兔粮</strong></span>
 			</td>
             <td class="yf_pd" align="center" width="120">
 				{if $v[complain]}
@@ -371,7 +371,7 @@ $(function(){
            {eval $allPoint += $v[point];}
 		   {/loop}
 					
-            <div style="padding-top:10px;">本页任务的资金合计：<span class="chengse">$allPrice</span> 元　麦点合计：<span class="chengse">$allPoint</span> 个</div>
+            <div style="padding-top:10px;">本页任务的资金合计：<span class="chengse">$allPrice</span> 元　兔粮合计：<span class="chengse">$allPoint</span> 个</div>
 			<div class="rwdt_dlm">
 			<div id="page" style="margin:0px 10px 10px;">
 				

@@ -1,11 +1,11 @@
 $(document).ready(function() {
 	if (curG < 1) {
 		artDialog({
-			content: "对不起！您的麦点不够了，发布任务最少需要1个麦点，请充值购买麦点或者接任务免费获得麦点。",
+			content: "对不起！您的兔粮不够了，发布任务最少需要1个兔粮，请充值购买兔粮或者接任务免费获得兔粮。",
 			id: "alarm",
 			fixed: true,
 			lock: true,
-			yesText: "立即购买麦点",
+			yesText: "立即购买兔粮",
 			noText: "马上去接任务"
 		}, function() {
 			window.location.href = "/member/BuyPoint/"
@@ -34,7 +34,7 @@ $(document).ready(function() {
 			if (this.value < 0) {
 				this.value = 0;
 				artDialog({
-					content: "悬赏麦点不能小于0。",
+					content: "悬赏兔粮不能小于0。",
 					id: "alarm"
 				}, function() {}, null, function() {
 					Init();
@@ -254,7 +254,7 @@ $(document).ready(function() {
 			else {
 				var minPrice = $("#txtMinMPrice").val();
 				var addPrice = (minPrice * basePriceDouble + okDay - 1) - minPrice;
-				$("#pOKDes").html("额外支出麦点<em>" + addPrice + "</em>个");
+				$("#pOKDes").html("额外支出兔粮<em>" + addPrice + "</em>个");
 			}
 		});
 
@@ -547,15 +547,15 @@ function addconfirm() {
 	s += '</p>';
 	if (getObj('isPlan').checked) s += '<p>定时发布：' + txtdelaydate + '日' + txtdelayhh + '时' + txtdelayhh + '分时发布任务</p>';
 	if (getObj('isawb').checked) s += '<p>快递单号费用：<em>3</em>元</p>';
-	s += '<p>商品价格<em>' + price_count + '</em>元　　消耗麦点<em>' + point_count + '</em>个</p></div>';
+	s += '<p>商品价格<em>' + price_count + '</em>元　　消耗兔粮<em>' + point_count + '</em>个</p></div>';
 
 	if (curG < point_count) {
 		artDialog({
-			content: "对不起！您的麦点不够了，发布此次任务需要" + point_count + "个麦点，请充值购买麦点或者修改任务信息。",
+			content: "对不起！您的兔粮不够了，发布此次任务需要" + point_count + "个兔粮，请充值购买兔粮或者修改任务信息。",
 			id: "alarm",
 			fixed: true,
 			lock: true,
-			yesText: "立即购买麦点",
+			yesText: "立即购买兔粮",
 			noText: "返回修改"
 		}, function() {
 			window.location.href = "/member/BuyPoint/"

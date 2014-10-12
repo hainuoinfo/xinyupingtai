@@ -18,7 +18,7 @@
 
   {if $indexShowMessage}<div class='msg_panel'><div>$indexShowMessage</div></div>{/if}
   {if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
-    <DIV class="mh_tishi"> 为了保障任务安全，请先通过手机验证，亲。 还可获得 <STRONG class="chengse2">1 </STRONG>麦点哦！</DIV>
+    <DIV class="mh_tishi"> 为了保障任务安全，请先通过手机验证，亲。 还可获得 <STRONG class="chengse2">1 </STRONG>兔粮哦！</DIV>
     <form name="myForm" method="post" id="myForm" onsubmit="return checkSms();">
 		<div>$sys_hash_code2</div>
       <TABLE border="0" cellSpacing="0" cellPadding="0" style="width:790px;">
@@ -27,10 +27,10 @@
             <TD class="dxyz_tb" rowSpan="2">&nbsp;</TD>
             <TD height="45">
 			<DIV align="right">手机号码：</DIV></TD>
-            <TD >
+            <TD width="150">
 			<INPUT id="mobilephone" class="xginfo_bk" name="mobilephone" maxLength="13" value="$member[mobilephone]" type="text"></TD>
             <TD>
-			<INPUT id="getvcode" class="dxyz_fs" onclick="SendSmsActivation($msg_vcode_time);" type="button">
+			<INPUT id="getvcode" class="dxyz_fs" style="width:138px;" onclick="SendSmsActivation($msg_vcode_time);" type="button">
 			</TD>
           </TR>
           <TR>
@@ -106,7 +106,7 @@ $.ajax({
 	dataType:"text",
 	success: function(data){
 		if(!isNaN(data)){
-		alert('发送成功');
+		alert(data);
 		$("#SendTimes").html('('+time+')秒后可重新发送');
 		if(time==0){
 		$("#getvcode").attr({disabled: false});

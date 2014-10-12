@@ -23,7 +23,7 @@ echo javascript::get_js('WdatePicker', 'index');
     <span class="f_red">4. 商品网址必须从店铺首页点击进入的地址，格式为 http://item.taobao.com/item.htm?id=xxxxx</span></div>
   <div class="info2">
     <div class="wel">尊敬的<span class='f_orange'> $member[truename]</span>{if $member[sex]==1}先生{elseif $member[sex]==2}女士{/if}，欢迎您！</div>
-    <div class="stat">VIP：{if $isVip}是{else}否{/if} , 卡信托：{if $isVip2}是{else}否{/if} ， 积分：<span class='f_b_org'>$memberFields[credits]</span> <img src='$memberLevel[icon]' alt='当前等级' /> ， <img src='{$weburl2}images/ico/ico_gold_2.gif' alt='' /> 存款余额：<span class='f_b_org'>$memberFields[money]</span>元 　　　　　<img src="{$weburl2}images/ico/ico_gold_3.gif" /> 流量发布点：<span class="f_b_org">$memberFields[liuliang]</span>个</div>
+    <div class="stat">VIP：{if $isVip}是{else}否{/if} , 卡信托：{if $isVip2}是{else}否{/if} ， 积分：<span class='f_b_org'>$memberFields[credits]</span> <img src='$memberLevel[icon]' alt='当前等级' /> ， <img src='{$weburl2}images/ico/ico_gold_2.gif' alt='' /> 存款余额：<span class='f_b_org'>$memberFields[money]</span>元 　　　　　<img src="{$weburl2}images/ico/ico_gold_3.gif" /> 流量兔粮：<span class="f_b_org">$memberFields[liuliang]</span>个</div>
   </div>
   <form name="myForm" method="post" id="myForm" onsubmit="return checkForm();">
 <div>$sys_hash_code2</div>

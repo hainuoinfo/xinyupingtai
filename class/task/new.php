@@ -52,7 +52,7 @@ class task_new{
 		in_array($datas['lvlStar'], array(3, 4, 5)) || $datas['lvlStar'] = 3;//买号星星级别
 		$datas['isEnsure']    = $datas['isEnsure'] ? 1: 0;//是否商保
 		$datas['ensurePoint'] < 0.3 && $datas['ensurePoint'] = 0.3;//奖励的商保点
-		$datas['ensurePoint'] = common::formatMoney($datas['ensurePoint']);//接手方奖励的商保发布点
+		$datas['ensurePoint'] = common::formatMoney($datas['ensurePoint']);//接手方奖励的商保兔粮
 		$datas['isScore']     = $datas['isScore']?1:0;//限制积分
 		if (!in_array($datas['scoreLvl'], array(100, 400, 900))) $datas['scoreLvl'] = 100;//
 		$datas['isCredit']    = $datas['isCredit']?1:0;//限制信誉不低于
@@ -84,7 +84,7 @@ class task_new{
 					if ($isFree) {
 						if ($datas['price'] != 1) return '很抱歉，1元免费体验任务担保价只能为1元';
 					}
-					if (!$sys_debug && !data_taobaoShop::exists($itemid)) return '您所发布点商品不存在';
+					if (!$sys_debug && !data_taobaoShop::exists($itemid)) return '您所兔粮商品不存在';
 					if (!$sys_debug && data_taobaoShop::getNick($itemid) != $datas['nickname']) return '淘宝地址对应的掌柜名与您所选的掌柜不一致';
 					
 					$shopPrice = (float)data_taobaoShop::getPrice($itemid);
@@ -97,7 +97,7 @@ class task_new{
 					$datas = self::formatData($datas);
 					// THE END
 					if ($datas['price'] > 0) {
-						//计算发布点
+						//计算兔粮
 						if ($price <= 40)       $point = 1;
 						elseif ($price <= 80)   $point = 1.5;
 						elseif ($price <= 120)  $point = 2;
@@ -186,7 +186,7 @@ class task_new{
 								}
 								return 'insert_error';
 							}
-							return '淘宝区发布点不足，发布失败';
+							return '淘宝区兔粮不足，发布失败';
 						}
 						return '余额不足，发布失败';
 					}
@@ -341,9 +341,9 @@ class task_new{
 							db::update('membertask', 'outWaiting4=outWaiting4-1,out4=out4-1', "uid='$uid'");
 							member_base::addMoney($uid, - $onePrice, '取消新手互动区任务');
 							member_base::addMoney($uid, $task['price'], '取消新手互动区任务');
-							//member_base::addMoney($uid, -0.2, '取消新手互动区任务扣除0.2个发布点');
-							member_base::addFabudian($uid, $task['point'], 1, '取消新手互动区任务');//由于是特殊区  新手区和淘宝区共享淘宝区发布点
-							member_base::addFabudian($uid, -cfg::getMoney('sys', 'point_task_del'), 1, '取消新手区任务扣除0.2个发布点');
+							//member_base::addMoney($uid, -0.2, '取消新手互动区任务扣除0.2个兔粮');
+							member_base::addFabudian($uid, $task['point'], 1, '取消新手互动区任务');//由于是特殊区  新手区和淘宝区共享淘宝区兔粮
+							member_base::addFabudian($uid, -cfg::getMoney('sys', 'point_task_del'), 1, '取消新手区任务扣除0.2个兔粮');
 							task_base::addLog($id, '取消任务', '{susername}取消了任务{id}');
 							return true;
 						}
@@ -370,7 +370,7 @@ class task_new{
 							db::update('membertask', 'outWaiting4=outWaiting4+1,outing4=outing4-1', "uid='$uid'");
 							db::update('membertask', 'in4=in4-1,ining4=ining4-1', "uid='$task[buid]'");//更新买家任务数
 							db::update('buyers', 'tasking=tasking-1', "id='$task[bid]'");// 更新买号正在进行的任务
-							if ($getMoney) member_base::addMoney($uid, - $onePrice, '辞退任务'.$task['id'].'的第'.($task['reject'] + 1).'个接手人'.$task['busername'].', 扣除发布点 '.$onePrice.'个');
+							if ($getMoney) member_base::addMoney($uid, - $onePrice, '辞退任务'.$task['id'].'的第'.($task['reject'] + 1).'个接手人'.$task['busername'].', 扣除兔粮 '.$onePrice.'个');
 							return true;
 						}
 					}

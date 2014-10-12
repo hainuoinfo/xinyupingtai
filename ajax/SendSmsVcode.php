@@ -7,7 +7,7 @@ if (!$memberLogined) {
 	exit;
 }
 $_POST && extract($_POST);
-if ($rs = form::is_form_hash2()) {
+if ( form::is_form_hash2()) {
 	extract($_POST);
 		if (form::check_mobilephone($mobilephone)){
 			$next = true;
@@ -28,11 +28,13 @@ if ($rs = form::is_form_hash2()) {
 				    }
 			    }
 			    if ($next){
-			        extract($_POST);
+			        //extract($_POST);
 			        $salt = common::salt();
-			         if (message::send($mobilephone, '您的激活码为：'.$salt.'['.$web_name.']')==1){
+			         if (($rs=message::send($mobilephone, '您的激活码为：'.$salt.'['.$web_name.']'))==1){
 				        db::insert('vcode_log', array('uid' => $uid, 'mobilephone' => $mobilephone, 'vcode' => $salt, 'timestamp' => $timestamp));
 				        $rs= '验证码已经发到您的手机上，请注意查收手机短信';
+			        }else{
+				    	$rs=language::get($rs);
 			        }
 			    }
 		    }

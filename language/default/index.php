@@ -60,10 +60,10 @@ $lang = array(
 	'card_is_vip'                  => '已经是VIP了,请过期后再体验VIP',
 	'already_is_vip'               => '已经是VIP了',
 	'already_is_flowVip'           => '已经是流量VIP了',
-	//发布点兑换
-	'fabudian1_error'              => '淘宝区发布点余额不足',
-	'fabudian2_error'              => '拍拍区发布点余额不足',
-	'fabudian3_error'              => '有啊区发布点余额不足',
+	//兔粮兑换
+	'fabudian1_error'              => '淘宝区兔粮余额不足',
+	'fabudian2_error'              => '拍拍区兔粮余额不足',
+	'fabudian3_error'              => '有啊区兔粮余额不足',
 	'credit_error'                 => '积分不足',
 	'qu1'                          => '淘宝',
 	'qu2'                          => '拍拍',

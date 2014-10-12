@@ -93,7 +93,7 @@ $(function(){
         <span class="f_orange">{if $v[isExpress] && $v[status]>6}快递名称：$v[expressName]<br />快递单号：$v[expressNum]{/if}</span></td>
       <td><span class="s1">平台担保</span>：<span class="dm_gold">$v[price]</span>元<br />
         <span class="s1">修改价格</span>：<span class='f_orange'>$lang[isPriceFit][$v[isPriceFit]]</span><br />
-        <span class="s1">奖励发布点</span>：$v[point]个</td>
+        <span class="s1">奖励兔粮</span>：$v[point]个</td>
       <td>掌柜：$v[nickname]<br />
 				商品：<span title="$v[title]" class="mouse">{cutstr $v[title],10}</span><br />
 				网址：<a href="javascript:;" onclick="return copyComment('$v[itemurl]')" class="link_o">复制网址</a><!--<a href="javascript:;" onclick="return openPrdUrl('$v[itemurl]')" class="link_o">打开网址</a>--><br />　　　<a href='javascript:;' class='link_o' title='$v[tips]' onclick="alert('发布方的留言提醒：\n\n{echo string::formatAlert($v[tips])}');return false;">查看留言提醒</a></td>

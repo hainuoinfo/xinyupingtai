@@ -299,8 +299,8 @@ case 'BuyPoint':
                 $money = $nums * $jiage;
                 if($money <= $memberFields['money']){
                     // addFabudian第三个参数参考  task【type】
-                    member_base :: addFabudian($uid, $nums, 1, '购买麦点');
-                    member_base :: addMoney($uid, - $money, '购买麦点');
+                    member_base :: addFabudian($uid, $nums, 1, '购买兔粮');
+                    member_base :: addMoney($uid, - $money, '购买兔粮');
                     }else{
                     error :: bbsMsg($errorMessag);
                     }
@@ -345,8 +345,8 @@ case 'BuyPoint':
             if($Type == 3){
                 $money = $jiage;
                 if($money <= $memberFields['money']){
-                    member_base :: addFabudian($uid, $nums, 1, '购买麦点');
-                    member_base :: addMoney($uid, - $money, '购买麦点');
+                    member_base :: addFabudian($uid, $nums, 1, '购买兔粮');
+                    member_base :: addMoney($uid, - $money, '购买兔粮');
                     }else{
                     error :: bbsMsg($errorMessag);
                     }
@@ -360,8 +360,8 @@ case 'BuyPoint':
             if($Type == 4){
                 $money = $jiage;
                 if($money <= $memberFields['money']){
-                    member_base :: addFabudian($uid, $nums, 1, '购买麦点');
-                    member_base :: addMoney($uid, - $money, '购买麦点');
+                    member_base :: addFabudian($uid, $nums, 1, '购买兔粮');
+                    member_base :: addMoney($uid, - $money, '购买兔粮');
                     }else{
                     error :: bbsMsg($errorMessag);
                     }
@@ -375,8 +375,8 @@ case 'BuyPoint':
             if($Type == 5){
                 $money = $jiage;
                 if($money <= $memberFields['money']){
-                    member_base :: addFabudian($uid, $nums, 1, '购买麦点');
-                    member_base :: addMoney($uid, - $money, '购买麦点');
+                    member_base :: addFabudian($uid, $nums, 1, '购买兔粮');
+                    member_base :: addMoney($uid, - $money, '购买兔粮');
                     }else{
                     error :: bbsMsg($errorMessag);
                     }
@@ -390,8 +390,8 @@ case 'BuyPoint':
             if($Type == 6){
                 $money = $jiage;
                 if($money <= $memberFields['money']){
-                    member_base :: addFabudian($uid, $nums, 1, '购买麦点');
-                    member_base :: addMoney($uid, - $money, '购买麦点');
+                    member_base :: addFabudian($uid, $nums, 1, '购买兔粮');
+                    member_base :: addMoney($uid, - $money, '购买兔粮');
                     }else{
                     error :: bbsMsg($errorMessag);
                     }
@@ -405,8 +405,8 @@ case 'BuyPoint':
             if($Type == 7){
                 $money = $jiage;
                 if($money <= $memberFields['money']){
-                    member_base :: addFabudian($uid, $nums, 1, '购买麦点');
-                    member_base :: addMoney($uid, - $money, '购买麦点');
+                    member_base :: addFabudian($uid, $nums, 1, '购买兔粮');
+                    member_base :: addMoney($uid, - $money, '购买兔粮');
                     }else{
                     error :: bbsMsg($errorMessag);
                     }
@@ -420,8 +420,8 @@ case 'BuyPoint':
             if($Type == 8){
                 $money = $jiage;
                 if($money <= $memberFields['money']){
-                    member_base :: addFabudian($uid, $nums, 1, '购买麦点');
-                    member_base :: addMoney($uid, - $money, '购买麦点');
+                    member_base :: addFabudian($uid, $nums, 1, '购买兔粮');
+                    member_base :: addMoney($uid, - $money, '购买兔粮');
                     }else{
                     error :: bbsMsg($errorMessag);
                     }
@@ -579,7 +579,7 @@ case 'BuyPoint':
     break;
 case 'SecKill':
     $updatetime = db :: one_one('kill', 'updatetime', "id='1'");
-    //if($seckill['name']==0){//是否只有当为0时，才会更新麦点
+    //if($seckill['name']==0){//是否只有当为0时，才会更新兔粮
 	    $lastFriday=strtotime('last friday');//获取上周五日期  
 	    $updatetime=strtotime(date("Y-m-d",strtotime($updatetime)));//对数据库时间进行格式化只保留日期
 	    //var_dump($lastFriday,$updatetime);
@@ -603,9 +603,9 @@ case 'SecKill':
                 $money = $nums * $price;
                 if($money <= $memberFields['money']){
                     if(db :: update('kill', 'name=name' . - $nums, "id=1")){
-                        member_base :: addFabudian($uid, $nums, 1, '麦点秒杀');
-                        member_base :: addMoney($uid, - $money, '麦点秒杀');
-                        member_base :: sendSms($uid, '您于' . date('Y-m-d H:i:s', $timestamp) . '使用' . $money . '秒杀了' . $nums . '个麦点', 'score_points');
+                        member_base :: addFabudian($uid, $nums, 1, '兔粮秒杀');
+                        member_base :: addMoney($uid, - $money, '兔粮秒杀');
+                        member_base :: sendSms($uid, '您于' . date('Y-m-d H:i:s', $timestamp) . '使用' . $money . '秒杀了' . $nums . '个兔粮', 'score_points');
                         common :: setMsg('恭喜您，秒杀成功！');
                         common::goto_url($referer, true);
                         }else{
@@ -615,7 +615,7 @@ case 'SecKill':
                     error :: bbsMsg('余额不足！');
                     }
                 }else{
-                error :: bbsMsg('对不起，麦点不足！');
+                error :: bbsMsg('对不起，兔粮不足！');
                 }
             }else{
             error :: bbsMsg('参数错误！');
@@ -1741,9 +1741,9 @@ case 'active':
                                     'remit_fail' => array('title' => '充值失败通知', 'disabled' => true),
                                     'payment_app' => array('title' => '申请提现通知', 'disabled' => true),
                                     'payment' => array('title' => '发放提现通知', 'disabled' => true),
-                                    'buy_points' => '购买发布点通知',
-                                    'score_points' => '积分兑换发布点通知',
-                                    'points_gold' => array('title' => '发布点换存款通知', 'disabled' => true),
+                                    'buy_points' => '购买兔粮通知',
+                                    'score_points' => '积分兑换兔粮通知',
+                                    'points_gold' => array('title' => '兔粮换存款通知', 'disabled' => true),
                                     'luck' => array('title' => '抽奖中心中奖通知', 'disabled' => true),
                                     'rmd_bonus' => '推广奖励发放',
                                     'rmd_reg' => '推广用户注册通知',
@@ -1912,8 +1912,8 @@ case 'active':
                                     if ($num < $memberFields[fabudian]){
                                         $money = $num * $oneMoney;
                                         if($money){
-                                            member_base :: addFabudian($uid, - $num, 1, '麦点兑换现金');
-                                            member_base :: addMoney($uid, $money, '麦点兑换现金');
+                                            member_base :: addFabudian($uid, - $num, 1, '兔粮兑换现金');
+                                            member_base :: addMoney($uid, $money, '兔粮兑换现金');
                                             }
                                         db :: insert('log_exchange', array(
                                                 'type' => $type,
@@ -1925,12 +1925,12 @@ case 'active':
                                                 'p' => 1,
                                                 'timestamp' => $timestamp
                                                 ));
-                                        member_base :: sendPm($uid, '您于' . date('Y-m-d H:i:s', $timestamp) . '使用' . $num . '个发布点兑换了' . $money . '元存款', '网站提醒：发布点兑换存款', 'points_gold');
-                                        member_base :: sendSms($uid, '您于' . date('Y-m-d H:i:s', $timestamp) . '使用' . $num . '个发布点兑换了' . $money . '元存款', 'points_gold');
+                                        member_base :: sendPm($uid, '您于' . date('Y-m-d H:i:s', $timestamp) . '使用' . $num . '个兔粮兑换了' . $money . '元存款', '网站提醒：兔粮兑换存款', 'points_gold');
+                                        member_base :: sendSms($uid, '您于' . date('Y-m-d H:i:s', $timestamp) . '使用' . $num . '个兔粮兑换了' . $money . '元存款', 'points_gold');
                                         echo "<script>alert('兑换成功！');window.location.href='';</script>";
                                         }
                                     else{
-                                        echo "<script>alert('麦点不足！!');window.location.href='';</script>";
+                                        echo "<script>alert('兔粮不足！!');window.location.href='';</script>";
                                         }
                                     }else{
                                     $rs = 'data_error';
@@ -1939,8 +1939,8 @@ case 'active':
                                     if($num != '' && $jifen != ''){
                                         if($jifen < $ke_jifen){
                                             if($num > 0){
-                                                member_base :: addCredit($uid, - $jifen, '积分兑换麦点');
-                                                member_base :: addFabudian($uid, $num, 1, '积分兑换麦点');
+                                                member_base :: addCredit($uid, - $jifen, '积分兑换兔粮');
+                                                member_base :: addFabudian($uid, $num, 1, '积分兑换兔粮');
                                                 db :: insert('log_exchange', array(
                                                         'type' => $type,
                                                         'uid' => $uid,
@@ -1951,9 +1951,9 @@ case 'active':
                                                         'p' => 1,
                                                         'timestamp' => $timestamp
                                                         ));
-                                                member_base :: sendPm($uid, '您于' . date('Y-m-d H:i:s', $timestamp) . '使用' . $jifen . '积分兑换了' . $nums . '个发布点', '网站提醒：积分兑换发布点', 'score_points');
-                                                member_base :: sendSms($uid, '您于' . date('Y-m-d H:i:s', $timestamp) . '使用' . $jifen . '积分兑换了' . $nums . '个发布点', 'score_points');
-                                                echo "<script>alert('积分成功兑换麦点！');window.location.href='';</script>";
+                                                member_base :: sendPm($uid, '您于' . date('Y-m-d H:i:s', $timestamp) . '使用' . $jifen . '积分兑换了' . $nums . '个兔粮', '网站提醒：积分兑换兔粮', 'score_points');
+                                                member_base :: sendSms($uid, '您于' . date('Y-m-d H:i:s', $timestamp) . '使用' . $jifen . '积分兑换了' . $nums . '个兔粮', 'score_points');
+                                                echo "<script>alert('积分成功兑换兔粮！');window.location.href='';</script>";
                                                 }else{
                                                 echo "<script>alert('参数错误！');window.location.href='';</script>";
                                                 }
@@ -2045,7 +2045,7 @@ case 'active':
                                 $multipage = multi_page :: parse($total, $pagesize, $page, common :: getUrl('/' . $action . '/' . $operation . '/?type=' . $type . ($dateStart?'&dateStart=' . $dateStart:'') . ($dateEnd?'&dateEnd=' . $dateEnd:'') . '&page={page}'), $pageStyle, 10, 'member1');
                                 }
                             break;
-                        case 2:// 麦点
+                        case 2:// 兔粮
                             $type = (int)$type;
                             $type || $type = 0;
                             $where = '';
@@ -2516,7 +2516,7 @@ case 'active':
                                     $total = rand(3, 5);
                                     card :: buy($uid, 0, $total);
                                     db :: update('memberfields', array('from' => 1), "uid='$uid'");
-                                    common :: setMsg('恭喜您，抽奖中了' . $total . '个发布点，请到我的宝物中进行激活即可使用');
+                                    common :: setMsg('恭喜您，抽奖中了' . $total . '个兔粮，请到我的宝物中进行激活即可使用');
                                     common :: goto_url($baseUrl0 . '?type=' . $type);
                                     }
                                 break;

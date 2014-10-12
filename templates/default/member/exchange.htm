@@ -1,5 +1,5 @@
 {teval
-	$title       = '发布点兑换 - {webName}';
+	$title       = '兔粮兑换 - {webName}';
 	$keywords    = '';
 	$description = '';
 	$title       = common::replaceVars($title);
@@ -46,16 +46,16 @@ form{margin:0px;}
   {if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
  {if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
   
-    <DIV class="mh_tishi">您可以在这里将您接任务赚取的麦点转换成存款哦！每个麦点根据您的平台等级的提高可以换取
+    <DIV class="mh_tishi">您可以在这里将您接任务赚取的兔粮转换成存款哦！每个兔粮根据您的平台等级的提高可以换取
 	<SPAN class="chengse2">0.3元-0.4元</SPAN>，详细数据请查看“
 	<A class="comlink" href="{rewrite}/vip.html" target="_blank">VIP申请栏目</A>”</DIV>
     <DIV class="bq_menu2">
-	<A id="bq_menu2_1"  class="nov" href="javascript:;">麦点回收</A>
+	<A id="bq_menu2_1"  class="nov" href="javascript:;">兔粮回收</A>
 	<A id="bq_menu2_2" href="javascript:;">积分兑换</A></DIV>
     <DIV id="bq_menu2_cont_1">
       <P class="hsmd_ts">您当前等级为：{if $memberFields[credits]==0} 新手会员{elseif $memberFields[credits]< 100 } 普通会员{elseif $memberFields[credits]< 1000 } 金牌会员{elseif $memberFields[credits]< 5000 } 白金会员{elseif $memberFields[credits]< 10000 } 黄金会员{elseif $memberFields[credits]< 100000 }钻石会员{/if}，你现在有
-	  <SPAN class="chengse2"><STRONG>$memberFields[fabudian]</STRONG></SPAN>个麦点。　麦点回收价格：<SPAN class="chengse2">
-	  <SPAN class="STYLE1">1个麦点=</SPAN>{$oneMoney}元</SPAN>　
+	  <SPAN class="chengse2"><STRONG>$memberFields[fabudian]</STRONG></SPAN>个兔粮。　兔粮回收价格：<SPAN class="chengse2">
+	  <SPAN class="STYLE1">1个兔粮=</SPAN>{$oneMoney}元</SPAN>　
 	  <A class="comlink" href="{rewrite}/vip.html" target="_blank">查看高等级回收价格</A></P>
       <form name="myForm" method="post" id="myForm" onsubmit="return checkForm();">
 		<div>$sys_hash_code2</div>
@@ -89,7 +89,7 @@ form{margin:0px;}
 		<INPUT name="jifen" value="150" type="hidden">
         <UL class="hsmd_list">
           <LI class="hs_jf">150积分</LI>
-          <LI class="hs_jb">可兑换麦点<SPAN class="hongse">1</SPAN>个</LI>
+          <LI class="hs_jb">可兑换兔粮<SPAN class="hongse">1</SPAN>个</LI>
           <LI>
             <INPUT name="num" value="1" type="hidden" id="num">
             <INPUT name="btnSave" id="btnSave" class="hs_dh" value="提交查询内容" type="submit">
@@ -103,7 +103,7 @@ form{margin:0px;}
 		<INPUT name="jifen" value="300" type="hidden">
         <UL class="hsmd_list">
           <LI class="hs_jf">300积分</LI>
-          <LI class="hs_jb">可兑换麦点<SPAN class="hongse">2</SPAN>个</LI>
+          <LI class="hs_jb">可兑换兔粮<SPAN class="hongse">2</SPAN>个</LI>
           <LI>
             <INPUT name="num" value="2" type="hidden">
             <INPUT class="hs_dh" value="提交查询内容" type="submit">
@@ -116,7 +116,7 @@ form{margin:0px;}
 		<INPUT name="jifen" value="600" type="hidden">
         <UL class="hsmd_list">
           <LI class="hs_jf">600积分</LI>
-          <LI class="hs_jb">可兑换麦点<SPAN class="hongse">4</SPAN>个</LI>
+          <LI class="hs_jb">可兑换兔粮<SPAN class="hongse">4</SPAN>个</LI>
           <LI>
             <INPUT name="num" value="4" type="hidden">
             <INPUT class="hs_dh" value="提交查询内容" type="submit">
@@ -129,7 +129,7 @@ form{margin:0px;}
 		<INPUT name="jifen" value="1200" type="hidden">
         <UL class="hsmd_list">
           <LI class="hs_jf">1200积分</LI>
-          <LI class="hs_jb">可兑换麦点<SPAN class="hongse">8</SPAN>个</LI>
+          <LI class="hs_jb">可兑换兔粮<SPAN class="hongse">8</SPAN>个</LI>
           <LI>
             <INPUT name="num" value="8" type="hidden">
             <INPUT class="hs_dh" value="提交查询内容" type="submit">
@@ -142,7 +142,7 @@ form{margin:0px;}
 		<INPUT name="jifen" value="1500" type="hidden">
         <UL class="hsmd_list">
           <LI class="hs_jf">1500积分</LI>
-          <LI class="hs_jb">可兑换麦点<SPAN class="hongse">10</SPAN>个</LI>
+          <LI class="hs_jb">可兑换兔粮<SPAN class="hongse">10</SPAN>个</LI>
           <LI>
             <INPUT name="num" value="10" type="hidden">
             <INPUT class="hs_dh" value="提交查询内容" type="submit">
@@ -155,7 +155,7 @@ form{margin:0px;}
 		<INPUT name="jifen" value="3000" type="hidden">
         <UL class="hsmd_list">
           <LI class="hs_jf">3000积分</LI>
-          <LI class="hs_jb">可兑换麦点<SPAN class="hongse">20</SPAN>个</LI>
+          <LI class="hs_jb">可兑换兔粮<SPAN class="hongse">20</SPAN>个</LI>
           <LI>
             <INPUT name="num" value="20" type="hidden">
             <INPUT class="hs_dh" value="提交查询内容" type="submit">
@@ -164,7 +164,7 @@ form{margin:0px;}
       </FORM>
     </DIV>
     <DIV class="cle"></DIV>
-    <P style="height: 18px; padding-top: 20px; font-size: 15px; font-weight: bold;">麦点还可以换以下福利：</P>
+    <P style="height: 18px; padding-top: 20px; font-size: 15px; font-weight: bold;">兔粮还可以换以下福利：</P>
     <DIV style="padding-top: 10px;">
       <FORM onSubmit="return confirm('您确定要兑换吗？');" method="post" name="myform_rq" action="">
        $sys_hash_code2
@@ -172,18 +172,18 @@ form{margin:0px;}
         <UL>
           <LI>
             <INPUT name="sid" value="1" type="radio">
-            <IMG src="/images/icons/xin1.gif"> 一心普通买号2个　<FONT color="red">30麦点</FONT></LI>
-          <li><input type="radio" value="2" name="sid" /> <img src="/images/icons/xin2.gif" /> 二心普通买号2个　<font color="red">35麦点</font></li>
-				<li><input type="radio" value="3" name="sid" /> <img src="/images/icons/xin3.gif" /> 三心普通买号2个　<font color="red">40麦点</font></li>
+            <IMG src="/images/icons/xin1.gif"> 一心普通买号2个　<FONT color="red">30兔粮</FONT></LI>
+          <li><input type="radio" value="2" name="sid" /> <img src="/images/icons/xin2.gif" /> 二心普通买号2个　<font color="red">35兔粮</font></li>
+				<li><input type="radio" value="3" name="sid" /> <img src="/images/icons/xin3.gif" /> 三心普通买号2个　<font color="red">40兔粮</font></li>
           <LI>
             <INPUT name="sid" value="4" type="radio">
-            <IMG src="/images/icons/rechange4.gif"> 一级VIP月使用权　<FONT color="red">60麦点</FONT></LI>
+            <IMG src="/images/icons/rechange4.gif"> 一级VIP月使用权　<FONT color="red">60兔粮</FONT></LI>
           <LI>
             <INPUT name="sid" value="5" type="radio">
-            <IMG src="/images/icons/rechange6.gif"> 钻石VIP月使用权　<FONT color="red">100麦点</FONT></LI>
+            <IMG src="/images/icons/rechange6.gif"> 钻石VIP月使用权　<FONT color="red">100兔粮</FONT></LI>
           <LI>
             <INPUT name="sid" value="6" type="radio">
-            <IMG src="/images/icons/rechange5.gif"> 皇冠VIP月使用权　<FONT color="red">200麦点</FONT></LI>
+            <IMG src="/images/icons/rechange5.gif"> 皇冠VIP月使用权　<FONT color="red">200兔粮</FONT></LI>
         </UL>
         <P 
 style="padding: 10px 0px; color: rgb(102, 102, 102); line-height: 20px;">我们所提供的均为安全有效买号，售出后由于违反淘宝规则造成封号，不予任何售后。

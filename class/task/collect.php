@@ -33,7 +33,7 @@ class task_collect{
 	}
 	public static function add($datas, $uid){
 		global $timestamp;
-		$onePrice = 0.1;//每条价格(发布点)
+		$onePrice = 0.1;//每条价格(兔粮)
 		if ($member = member_base::getMemberAll($uid)) {
 			if ($seller = task_seller::getSeller2(self::$taskId, $datas['nickname'], $uid)) {
 				
@@ -67,7 +67,7 @@ class task_collect{
 					return '参数错误';
 				}
 				$point = $datas['total'] * $onePrice;
-				if ($point > $member['attach']['fabudian'.self::$taskId]) return '对不起， 您的发布点不足';
+				if ($point > $member['attach']['fabudian'.self::$taskId]) return '对不起， 您的兔粮不足';
 				unset($datas['shopurl'], $datas['itemurl']);
 				$datas = array_merge(array(
 					'type'          => self::$taskId,

@@ -46,7 +46,7 @@
 			<li style="margin: 10px 0 5px 5px;font-size:16px;display:inline;">用户名：<a href="/member/info/?username=$member[username]"> <font style="font-size: 14px;color:#fe5500">$member[username]</font></a></li>
 			<li style="margin: 5px 0 5px 5px;font-size:16px;display:inline;">存款：
 			<a href="{rewrite}/member/PayDetails/?type=1" style="font-size: 14px;color:#fe5500">$memberFields[money]</a></li>
-			<li style="margin: 5px 0 5px 5px;font-size:16px;display:inline;">麦点：
+			<li style="margin: 5px 0 5px 5px;font-size:16px;display:inline;">兔粮：
 			<a href="{rewrite}/member/PayDetails/?type=2" style="font-size: 14px;color:#fe5500">$memberFields[fabudian]</a></li>
 			<li style="margin: 5px 0 5px 5px;font-size:16px;display:inline;">积分：
 			<a href="{rewrite}/member/PayDetails/?type=3" style="font-size: 14px;color:#fe5500">$memberFields[credits]</a></li>
@@ -273,7 +273,7 @@
                 
 				<ul class="line">
 					<h4 class="bt2"><strong><a href="{rewrite}/bbs/t$thread[id]/">我是发布方</a></strong></h4>
-					<p class="wb">注册成功后需要首先设置掌柜和操作密码后才能正式开始刷信用。1个麦点≈1个信誉</p>
+					<p class="wb">注册成功后需要首先设置掌柜和操作密码后才能正式开始刷信用。1个兔粮≈1个信誉</p>
                      {loop $list $thread}
 					<li><a href="{rewrite}/bbs/t$thread[id]/" target="_blank" title="$thread[title]">{cutstr $thread[title],12}</a><span class="date">{date $v[stimestamp]}</span></li>
                     {/loop}
@@ -363,7 +363,7 @@ $('._c_cl').click(function(){
 	<div class="center">
 	  <div style="top: 550px; left: auto; right: 60px; position: fixed;" id="tool_footer">
 		  <a id="tool_top_footer" onclick="javascript:To_top();" title="返回顶部"></a>
-		  <a id="tool_buy_footer" onclick="javascript:location.href='/help/taskout/'" title="购买麦点发布任务，信誉立即提升！"></a>
-		  <a id="tool_release_footer" onclick="javascript:location.href='/help/taskin/'" title="我有时间接任务拍宝贝，赚取麦点换现金！"></a>
+		  <a id="tool_buy_footer" onclick="javascript:location.href='/help/taskout/'" title="购买兔粮发布任务，信誉立即提升！"></a>
+		  <a id="tool_release_footer" onclick="javascript:location.href='/help/taskin/'" title="我有时间接任务拍宝贝，赚取兔粮换现金！"></a>
 		</div>
     </div>

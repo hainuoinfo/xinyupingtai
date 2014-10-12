@@ -20,7 +20,7 @@
   <div class="lst_info">
     <table class="lst_query" width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td align="right"><strong>当前已完成但未结算任务：{$noChange}个，合计 {echo $noChange * 0.09}个发布点</strong>，<strong>$minChange</strong>个以上才可以结算</td>
+        <td align="right"><strong>当前已完成但未结算任务：{$noChange}个，合计 {echo $noChange * 0.09}个兔粮</strong>，<strong>$minChange</strong>个以上才可以结算</td>
         <td width="50" style="padding:4px; text-align:center;"><a href="$thisUrl&change=all"{if $noChange < $minChange} disabled='disabled' onclick='return false;'{/if} class="link_b_2">结算</a></td>
         <td width="80"><img src="{$weburl2}images/btn/task_reflesh.gif" alt="点击刷新任务" class="cursor" onclick="window.location.reload();" /></td>
       </tr>

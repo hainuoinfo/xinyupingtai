@@ -11,7 +11,7 @@ var curMisIsDisWW = false;
 function taskin(mid, isDisWW, btn) {
 	if (!curExam) {
 		artDialog({
-			content: "您还未通过新手考试，通过考试还能获得1个麦点哦！",
+			content: "您还未通过新手考试，通过考试还能获得1个兔粮哦！",
 			id: "alarm",
 			fixed: true,
 			yesText: "立即去考试",
@@ -721,7 +721,7 @@ function AutoAMResult(result) {
 						continue;
 					}
 					if (misItem.point < at_txtMinpoint) {
-						ShowAMTip(" " + curTimeDes + "，接任务失败！原因是任务奖励的麦点低于" + at_txtMinpoint);
+						ShowAMTip(" " + curTimeDes + "，接任务失败！原因是任务奖励的兔粮低于" + at_txtMinpoint);
 						continue;
 					}
 					if (at_NoSB && misItem.isEnsure > 0) {

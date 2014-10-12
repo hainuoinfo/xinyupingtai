@@ -24,7 +24,7 @@
 			<td>&nbsp;</td>
 			<td width="150"><strong>模板名称</strong></td>
 			<td><strong>掌柜/商品/网址</strong></td>
-			<td><strong>价格/发布点</strong></td>
+			<td><strong>价格/兔粮</strong></td>
 			<td><strong>任务要求/过滤条件</strong></td>
 			<td><strong>审核/计划发布</strong></td>
 			<td><strong>操作</strong></td>
@@ -38,7 +38,7 @@
         <span class="f_orange">{if $v[isExpress] && $v[status]>6}快递名称：$v[expressName]<br />快递单号：$v[expressNum]{/if}</span></td>
       <td><span class="s1">平台担保</span>：<span class="dm_gold">$v[price]</span>元<br />
         <span class="s1">修改价格</span>：<span class='f_orange'>$lang[isPriceFit][$v[isPriceFit]]</span><br />
-        <span class="s1">奖励发布点</span>：$v[point]个</td>
+        <span class="s1">奖励兔粮</span>：$v[point]个</td>
       <td>掌柜：$v[nickname]<br />
 				商品：<span title="$v[title]" class="mouse">{cutstr $v[title],10}</span><br />
 				网址：<a href="javascript:;" onclick="return openPrdUrl('$v[itemurl]')" class="link_o">打开网址</a><br />　　　<a href='javascript:;' class='link_o' title='$v[tips]' onclick="alert('发布方的留言提醒：\n\n{echo string::formatAlert($v[tips])}');return false;">查看留言提醒</a></td>
@@ -69,7 +69,7 @@
 {/if}<br />-->　　　　　<a href='javascript:;' class='link_o' title='$v[datas][tips]' onclick="alert('发布方的留言提醒：\n\n{echo string::formatAlert($v[datas][tips])}');return false;">查看留言提醒</a></td>
 			<td>担保价：<span class="dm_gold">{echo is_array($v[datas][price])?array_sum($v[datas][price]):$v[datas][price]}</span>元<br />
         改价格：<span class='f_orange'>$lang[isPriceFit][$v[datas][isPriceFit]]</span><br />
-				<!--发布点：$v[datas][point]<br />
+				<!--兔粮：$v[datas][point]<br />
 				基/追点:{echo is_array($v[datas][pointExt])?array_sum($v[datas][pointExt]):$v[datas][pointExt]} / 0--></td>
 			<td>要求：$lang[times][$v[datas][times]],,{if $v[datas][isRemark]}带字,{/if}{if $v[datas][visitWay]}<span class='f_red'>来路</span>,{/if}{if $v[datas][isReal]}<span class='f_red'>实名</span>,{/if}{if $v[datas][isChat]}<span class='f_red f_b'>拍前聊</span>,{/if}{if $v[datas][isChatDone]}<span class='f_red'>聊后收</span>,{/if}{if $v[datas][isShare]}<span class='f_blue f_b'>分享</span><br />　　　　　{/if}
 			<!--<br />

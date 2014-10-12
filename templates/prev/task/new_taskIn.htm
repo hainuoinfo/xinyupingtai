@@ -91,7 +91,7 @@ var thisUrl='$thisUrl';
 				发布人QQ：<a href='tencent://message/?uin=$v[qq]'><img width='25' height='17' border='0' src='http://wpa.qq.com/pa?p=1:$v[qq]:17' alt='' /></a> $v[qq]</td>
 			<td><span class="s1">平台担保</span>：<span class="dm_gold">$v[price]</span>元<br />
           <span class="s1">修改价格</span>：<span class='f_orange'>$lang[isPriceFit][$v[isPriceFit]]</span><br />
-        <span class="s1">奖励发布点</span>：$v[point]个</td>
+        <span class="s1">奖励兔粮</span>：$v[point]个</td>
 			<td>掌柜：{if $v[status]>=4}{if !$v[visitWay] || ($v[visitWay] && $v[isVisit])}$v[nickname]{/if}{/if}<br />
 				商品：{if $v[status]>=4}{if !$v[visitWay] || ($v[visitWay] && $v[isVisit])}<span title="$v[title]" class="mouse">{cutstr $v[title],10}</span>{/if}{/if}<br />
 				网址：{if $v[status]>=4}
@@ -177,7 +177,7 @@ var thisUrl='$thisUrl';
 {if $showTaskTip}
 {if $showTaskTip==1}
 <script type="text/javascript">
-var ft = '<div class="dialog_lot f_b_red f_14">【注意】：<br />对于24/48/72小时好评时限的任务；从距离淘宝卖家发货时刻起计时，超过24/48/72小时后才能淘宝收货，时间未到就淘宝提前收货者，一经核实将无法获得任务奖励发布点，同时扣除力豪互刷网积分5分<br /><br /><span class="f_blue">请新人在淘宝上操作确认之前先看力豪互刷网平台上的提示</span></div><div class="f_b_green" style="padding-left:20px;text-align:left;">本信息在您完成5个接手任务后不再提示</div>';
+var ft = '<div class="dialog_lot f_b_red f_14">【注意】：<br />对于24/48/72小时好评时限的任务；从距离淘宝卖家发货时刻起计时，超过24/48/72小时后才能淘宝收货，时间未到就淘宝提前收货者，一经核实将无法获得任务奖励兔粮，同时扣除力豪互刷网积分5分<br /><br /><span class="f_blue">请新人在淘宝上操作确认之前先看力豪互刷网平台上的提示</span></div><div class="f_b_green" style="padding-left:20px;text-align:left;">本信息在您完成5个接手任务后不再提示</div>';
 ft += '<div style="padding-top:20px;"><a href="###" class="link_b" onclick="doCut();return false;">我已了解任务要求</a>　　　　<a href="#" class="link_o" target="_blank">我想多了解任务要求</a>';
 dialog(480, 320,'新手接任务须知','',ft);
 </script>

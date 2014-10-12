@@ -95,12 +95,12 @@ var sys_hash2='$sys_hash2';
 			   </LI>
                <LI style="margin-top: -2px;">|</LI>
                 <LI class="menu-item">
-               <DIV class="menu"><A style="margin: 0px;" class="menu-hd" tabIndex="0" href="{rewrite}/member/BuyPoint/">麦点：<b></b>
+               <DIV class="menu"><A style="margin: 0px;" class="menu-hd" tabIndex="0" href="{rewrite}/member/BuyPoint/">兔粮：<b></b>
                 <SPAN style="font-weight: 700;"></SPAN>$memberFields[fabudian]</A>
                 <DIV style="width: 88px; line-height: 1.7;" id="menu-0" class="menu-bd">
                 <DIV style="padding: 8px 5px;" class="menu-bd-panel">
-                <A href="{rewrite}/member/BuyPoint/" rel="nofollow" target="_top">购买麦点</A>
-                <A href="{rewrite}/member" rel="nofollow" target="_top">麦点明细</A>
+                <A href="{rewrite}/member/BuyPoint/" rel="nofollow" target="_top">购买兔粮</A>
+                <A href="{rewrite}/member" rel="nofollow" target="_top">兔粮明细</A>
            </DIV></DIV></DIV>
 		   </LI>
            <LI style="margin-top: -2px;">|</LI>
@@ -283,13 +283,13 @@ $(function(){
 <DIV id="wrap_foor">
   <UL class="list1">
     <LI class="c"><SPAN class="l1-n">1</SPAN>
-      <P class="l1-t">挑战麦点最低，疯狂到一颗价格0.1元，初始麦点价格为1元，活动折扣为1~9折</P>
+      <P class="l1-t">挑战兔粮最低，疯狂到一颗价格0.1元，初始兔粮价格为1元，活动折扣为1~9折</P>
     </LI>
     <LI class="c"><SPAN class="l1-n">2</SPAN>
-      <P class="l1-t">砸中地雷后，会根据打折卡立即扣款。扣款成功后麦点实时到帐</P>
+      <P class="l1-t">砸中地雷后，会根据打折卡立即扣款。扣款成功后兔粮实时到帐</P>
     </LI>
     <LI class="c"><SPAN class="l1-n">3</SPAN>
-      <P class="l1-t">一次性操作为50个麦点，请在账号内预留充足存款</P>
+      <P class="l1-t">一次性操作为50个兔粮，请在账号内预留充足存款</P>
     </LI>
     <LI class="c"><SPAN class="l1-n">4</SPAN>
       <P class="l1-t">花兔兔客服专线：400-6079159  活动最终解释权归花兔兔所有</P>
@@ -306,25 +306,25 @@ $(function(){
     </UL>
     <UL class="scrollBox">
       <LI> <A>qq38***</A><SPAN class="md">{echo date('Y-m-d',time())}</SPAN><SPAN 
-  class="md">获得了6折的麦点</SPAN></LI>
+  class="md">获得了6折的兔粮</SPAN></LI>
       <LI> <A>thj***</A><SPAN class="md">{echo date('Y-m-d',time())}</SPAN><SPAN 
-  class="md">获得了7折的麦点</SPAN></LI>
+  class="md">获得了7折的兔粮</SPAN></LI>
       <LI> <A>1063260***</A><SPAN class="md">{echo date('Y-m-d',time())}</SPAN><SPAN 
-  class="md">获得了5折的麦点</SPAN></LI>
+  class="md">获得了5折的兔粮</SPAN></LI>
       <LI> <A>Tiia***</A><SPAN class="md">{echo date('Y-m-d',time())}</SPAN><SPAN 
-  class="md">获得了5折的麦点</SPAN></LI>
+  class="md">获得了5折的兔粮</SPAN></LI>
       <LI> <A>lulichu***</A><SPAN class="md">{echo date('Y-m-d',time())}</SPAN><SPAN 
-  class="md">获得了5折的麦点</SPAN></LI>
+  class="md">获得了5折的兔粮</SPAN></LI>
       <LI> <A>lulichu***</A><SPAN class="md">{echo date('Y-m-d',time())}</SPAN><SPAN 
-  class="md">获得了6折的麦点</SPAN></LI>
+  class="md">获得了6折的兔粮</SPAN></LI>
       <LI> <A>阿拉丁***</A><SPAN class="md">{echo date('Y-m-d',time())}</SPAN><SPAN 
-  class="md">获得了5折的麦点</SPAN></LI>
+  class="md">获得了5折的兔粮</SPAN></LI>
       <LI> <A>阿拉丁***</A><SPAN class="md">{echo date('Y-m-d',time())}</SPAN><SPAN 
-  class="md">获得了2折的麦点</SPAN></LI>
+  class="md">获得了2折的兔粮</SPAN></LI>
       <LI> <A>阿拉丁***</A><SPAN class="md">{echo date('Y-m-d',time())}</SPAN><SPAN 
-  class="md">获得了4折的麦点</SPAN></LI>
+  class="md">获得了4折的兔粮</SPAN></LI>
       <LI> <A>lg46072***</A><SPAN class="md">{echo date('Y-m-d',time())}</SPAN><SPAN 
-  class="md">获得了6折的麦点</SPAN></LI>
+  class="md">获得了6折的兔粮</SPAN></LI>
     </UL>
   </DIV>
   <DIV class="guanggao">
@@ -412,7 +412,7 @@ $(document).ready(function(){
 				if(data.error){
 					var cont = "<div style='color:#666;font-size:13px;'><img src='/images/dilei/maidian.png' style='vertical-align: middle;'/>"+data.error+"</div>";
 				}else{
-					var cont =  "<div style='color:#666;font-size:13px;'><img src='/images/dilei/maidian.png' style='vertical-align: middle;'/>恭喜，您获得"+data.sale+"折打折卡，已成功购买50个麦点~<p style='color:red;'>友情提示：已购买50个麦点，已扣除金额"+data.money+"元，帐户剩余"+data.surplus+"元。</p></div>";
+					var cont =  "<div style='color:#666;font-size:13px;'><img src='/images/dilei/maidian.png' style='vertical-align: middle;'/>恭喜，您获得"+data.sale+"折打折卡，已成功购买50个兔粮~<p style='color:red;'>友情提示：已购买50个兔粮，已扣除金额"+data.money+"元，帐户剩余"+data.surplus+"元。</p></div>";
 					$(".kmain .moneyAll").text(data.surplus);
 					$(".kmain .maidianAll").text(data.maidian1);
 				}

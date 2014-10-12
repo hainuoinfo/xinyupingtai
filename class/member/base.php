@@ -459,7 +459,7 @@ class member_base{
 				$point = floor($point * 100 + 0.5) / 100;
 				if ($task['type'] == 4) $task['type'] = 1;
 				if ($task['freeTask']) $point *= 2;
-				self::addFabudian($uid, $point, $task['type'], '完成任务'.$task['id'].'奖励发布点');
+				self::addFabudian($uid, $point, $task['type'], '完成任务'.$task['id'].'奖励兔粮');
 			}
 		}
 		return false;
@@ -470,7 +470,7 @@ class member_base{
 			$point || $point = $task['point'];
 			if ($member = db::one('memberfields', '*', "uid='$uid'")) {
 				if ($task['type'] == 4) $task['type'] = 1;
-				self::addFabudian($uid, $point, $task['type'], '返还任务'.$task['id'].'的发布点');
+				self::addFabudian($uid, $point, $task['type'], '返还任务'.$task['id'].'的兔粮');
 			}
 		}
 		return false;

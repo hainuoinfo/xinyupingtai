@@ -87,7 +87,7 @@ echo javascript::get_js('WdatePicker', 'index');
 								<td align="right" class="f_b" valign="top">搜索提示：</td>
 								<td valign="top"><input name="visitTip_0" type="text" id="visitTip_0" value="$datas[visitTip_0]" maxlength="200" class="text_long" />
 								<div style="padding-top:5px; line-height:16px;" class="f_blue">此处填写提示信息，说明任务商品在关键字搜索结果列表中的位置….比如：第一页第8个 <br />
-										<span class="f_red">【注意：来路无效被客服终止将不返还发布点】</span></div></td>
+										<span class="f_red">【注意：来路无效被客服终止将不返还兔粮】</span></div></td>
 							</tr>
 						<tr>
 							<td align="right" class="f_b" valign="top">验证要求：</td>
@@ -111,7 +111,7 @@ echo javascript::get_js('WdatePicker', 'index');
 								<td align="right" class="f_b" valign="top">搜索提示：</td>
 								<td valign="top"><input name="visitTip_1" type="text" id="visitTip_1" value="$datas[visitTip_1]" maxlength="200" class="text_long" />
 								<div style="padding-top:5px; line-height:16px;" class="f_blue">此处填写提示信息，说明店铺在关键字搜索结果列表中的位置，商品在店铺首页中大概位置等等信息….比如：店铺在结果列表第二个，商品在店铺首页第二排中间一个等等 <br />
-										<span class="f_red">【注意：来路无效被客服终止将不返还发布点】</span></div></td>
+										<span class="f_red">【注意：来路无效被客服终止将不返还兔粮】</span></div></td>
 							</tr>
 						<tr>
 							<td align="right" class="f_b" valign="top">验证要求：</td>
@@ -131,7 +131,7 @@ echo javascript::get_js('WdatePicker', 'index');
 								<td width="120" align="right" class="f_b" valign="top">搜索提示：</td>
 								<td valign="top"><input name="visitTip_2" type="text" id="visitTip_2" value="$datas[visitTip_2]" maxlength="200" class="text_long" />
 								<div style="padding-top:5px; line-height:16px;" class="f_blue">此处填写提示信息，说明店铺在关键字搜索结果列表中的位置，商品在店铺首页中大概位置等等信息….比如：店铺在结果列表第二个，商品在店铺首页第二排中间一个等等 <br />
-										<span class="f_red">【注意：来路无效被客服终止将不返还发布点】</span></div></td>
+										<span class="f_red">【注意：来路无效被客服终止将不返还兔粮】</span></div></td>
 							</tr>
 						<tr>-->
 						<tr>
@@ -152,7 +152,7 @@ echo javascript::get_js('WdatePicker', 'index');
 			<tr>
 				<td align="right">访问次数：</td>
 				<td><input name="total" type="text" class="text_short" id="total" value="{if isset($datas[total])}$datas[total]{else}{cfg reflow,count_default}{/if}" />
-					每次来路需要<span class="f_b_red">{$__price_once}个</span>发布点，{cfg reflow,count_min}次来路起发布，<a href="#" target="_blank" class="link_o">来路销量指南</a></td>
+					每次来路需要<span class="f_b_red">{$__price_once}个</span>兔粮，{cfg reflow,count_min}次来路起发布，<a href="#" target="_blank" class="link_o">来路销量指南</a></td>
 			</tr>
 			<tr>
 				<td align="right">流量VIP：</td>
@@ -181,7 +181,7 @@ echo javascript::get_js('WdatePicker', 'index');
 							<label for="times_$__v[count]">
 								<input type="hidden" id="ipPoint$__v[count]" value="$__v[point]" />
 								<input type="radio" name="numIP" id="times_$__v[count]" value="$__v[count]"{if isset($datas[numIP]) && $datas[numIP] == $__v[count] || !isset($datas[numIP]) && $__v[check]} checked="checked"{/if} />
-								每IP$__v[count]次({if $__v[point] > 0}<span class="f_red">$__v[point]个</span>发布点/次{else}免费{/if})</label>
+								每IP$__v[count]次({if $__v[point] > 0}<span class="f_red">$__v[point]个</span>兔粮/次{else}免费{/if})</label>
 　　						{/loop}</td>
 						</tr>
 					<tr>
@@ -194,14 +194,14 @@ echo javascript::get_js('WdatePicker', 'index');
 							<label for="limits_$__v[count]">
 								<input type="hidden" id="userPoint$__v[count]" value="$__v[point]" />
 								<input type="radio" name="numUser" id="limits_$__v[count]" value="$__v[count]"{if isset($datas[numUser]) && $datas[numUser] == $__v[count] || !isset($datas[numUser]) && $__v[check]} checked="checked"{/if} />
-								每天$__v[count]次({if $__v[point] > 0}<span class="f_red">$__v[point]个</span>发布点/次{else}免费{/if})</label>
+								每天$__v[count]次({if $__v[point] > 0}<span class="f_red">$__v[point]个</span>兔粮/次{else}免费{/if})</label>
 　　						{/loop}</td>
 						</tr>
 					<tr>
 							<td align="right">计划发布时间：</td>
 							<td><input name="isPlan" type="checkbox" id="isPlan" value="1"{if isset($datas[isPlan]) && $datas[isPlan] == 1} checked="checked"{/if} />
 							<input type="text" name="planDate" id="planDate" class="text_normal" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'});" value="$datas[planDate]" readonly="readonly" />
-							平台额外收取<span class="f_red">{cfg reflow,price_planDate}个</span>发布点</td>
+							平台额外收取<span class="f_red">{cfg reflow,price_planDate}个</span>兔粮</td>
 						</tr>
 					<tr>
 							<td align="right">来路访问频率：</td>
@@ -226,9 +226,9 @@ echo javascript::get_js('WdatePicker', 'index');
 								$__list = explode(';', cfg::get('reflow', 'bidUp'));
 							}
 							{loop $__list $__k $__v}
-							<label><input type="radio" name="__bidUp" id="bidUp$__k" value="$__v"{if isset($datas[__bidUp]) && $datas[__bidUp] == $__v} checked="checked"{/if} onclick="setBidPoint()" />增加{$__v}个发布点</label>
+							<label><input type="radio" name="__bidUp" id="bidUp$__k" value="$__v"{if isset($datas[__bidUp]) && $datas[__bidUp] == $__v} checked="checked"{/if} onclick="setBidPoint()" />增加{$__v}个兔粮</label>
 							{/loop}
-							<label><input type="radio" name="__bidUp" id="bidUpC" value="c"{if isset($datas[__bidUp]) && $datas[__bidUp] == 'c'} checked="checked"{/if} onclick="setBidPoint()" />自定义发布点<input type="text" name="bidUpCus" id="bidUpCus" value="{echo isset($datas[bidUpCus]) && $datas[bidUpCus] > 0 ? $datas[bidUpCus] : ''}" size="4" maxlength="4" onchange="setBidPoint()" onpropertychange="setBidPoint()" /></label>
+							<label><input type="radio" name="__bidUp" id="bidUpC" value="c"{if isset($datas[__bidUp]) && $datas[__bidUp] == 'c'} checked="checked"{/if} onclick="setBidPoint()" />自定义兔粮<input type="text" name="bidUpCus" id="bidUpCus" value="{echo isset($datas[bidUpCus]) && $datas[bidUpCus] > 0 ? $datas[bidUpCus] : ''}" size="4" maxlength="4" onchange="setBidPoint()" onpropertychange="setBidPoint()" /></label>
 						</td>
 					</tr>
 				</table>
@@ -308,10 +308,10 @@ function checkForm() {
 	if (getObj("isPlan").checked && !isEmpty("planDate", "计划发布时间")) return false;
 	var bidUp = $('[name=__bidUp]').rVal();
 	if (bidUp == 'c') {
-		if (!isMoney('bidUpCus', '竞价排名发布点')) return false;
+		if (!isMoney('bidUpCus', '竞价排名兔粮')) return false;
 		bidUp = parseFloat($('#bidUpCus').val());
 		if (bidUp > 0 && (bidUp < {cfg reflow,bidUp_min} || bidUp > {cfg reflow,bidUp_max})) {
-			alert('竞价发布点范围{cfg reflow,bidUp_min}~{cfg reflow,bidUp_max}');
+			alert('竞价兔粮范围{cfg reflow,bidUp_min}~{cfg reflow,bidUp_max}');
 			$('#bidUpCus').focus();
 			return false;
 		}
@@ -332,7 +332,7 @@ function checkForm() {
 	{/if}
 	p += bidUp * n;
 	if (getObj("isPlan").checked) p += {cfg reflow,price_planDate};
-	var result = confirm("发布来路次数：" + getValue("total") + "\n" + "共需要发布点：" + p + "个\n\n注意：来路无效被客服终止将不返还发布点");
+	var result = confirm("发布来路次数：" + getValue("total") + "\n" + "共需要兔粮：" + p + "个\n\n注意：来路无效被客服终止将不返还兔粮");
 	if (result)
         return avoidReSubmit();
     return result;

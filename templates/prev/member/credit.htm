@@ -106,11 +106,11 @@ a.dilei1{margin-left: 20px;}
 <script type="text/javascript">
 function checkForm() {
    var checks = [
-		["isNumber", "num", "兑换发布点个数"],
+		["isNumber", "num", "兑换兔粮个数"],
 		["isEmpty", "optCode", "操作码"] ];
 	var result = doCheck(checks);
 	if (result && getValue("from") == getValue("to")) {
-	    alert("发布点不能兑换到相同的平台");
+	    alert("兔粮不能兑换到相同的平台");
 	    return false;
 	}
 	if (result)

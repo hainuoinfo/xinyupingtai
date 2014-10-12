@@ -1,6 +1,6 @@
 ﻿ALTER TABLE bf_task ADD COLUMN shareimage  varchar(255) null  COMMENT '分享图' AFTER share;
 ALTER TABLE bf_task MODIFY pinimage varchar(255) NULL;
-ALTER TABLE  `bf_log` ADD  `fabudian`  float(11,3) NOT NULL DEFAULT '0.00000'    COMMENT  '麦点' AFTER  `val`;
+ALTER TABLE  `bf_log` ADD  `fabudian`  float(11,3) NOT NULL DEFAULT '0.00000'    COMMENT  '兔粮' AFTER  `val`;
 ALTER TABLE  `bf_log` ADD  `tasktype` smallint NOT NULL DEFAULT '0.00000'   COMMENT  '任务类型' AFTER  `fabudian` ;
 ALTER TABLE  `bf_log` ADD  `totalmoney` float(11,3) NOT NULL DEFAULT '0.00000'   COMMENT  '存款' AFTER  `fabudian`;
 ALTER TABLE `bf_log` ADD `totalcredits` float(11,3) NOT NULL DEFAULT '0.00000' COMMENT '总积分数' AFTER `fabudian` ;
@@ -55,7 +55,7 @@ INSERT INTO `bf_members` VALUES ('3', '952c5e4fe106d5f8a08df8809e0348b9', '3', '
 
 ## 清理结束
 
-ALTER TABLE `bf_kill` ADD `updatetime` timestamp null COMMENT '上次更新时间' AFTER `name`;//自动初始化秒杀麦点
+ALTER TABLE `bf_kill` ADD `updatetime` timestamp null COMMENT '上次更新时间' AFTER `name`;//自动初始化秒杀兔粮
 #ALTER TABLE bf_kill MODIFY  `updatetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP  ON UPDATE CURRENT_TIMESTAMP COMMENT '上次更新时间';
 /* 2014年7月13日修正 */
 ALTER TABLE bf_task ADD COLUMN `isFMaxBTSCount` int(3) null COMMENT '限制接手人被投诉次数' after `FMaxBTSCount`;//发布任务
@@ -68,6 +68,6 @@ ALTER TABLE bf_task ADD COLUMN `Province` varchar(10000) null COMMENT '限制可
 update bf_task set cbxIsTip = 1 where tips is not null; #更新所有一直有提示的数据  更新 卖家提示相关数据
 2014年7月18日
 ALTER TABLE bf_log MODIFY `val` float(20,2) DEFAULT '0.00';
-ALTER TABLE bf_log MODIFY `fabudian` float(20,2) DEFAULT '0.00' COMMENT '麦点';
+ALTER TABLE bf_log MODIFY `fabudian` float(20,2) DEFAULT '0.00' COMMENT '兔粮';
 ALTER TABLE bf_log MODIFY `totalcredits` float(20,2) NOT NULL DEFAULT '0.00' COMMENT '总积分数';
 ALTER TABLE bf_log MODIFY `totalmoney` float(20,2) DEFAULT '0.00' COMMENT '存款';

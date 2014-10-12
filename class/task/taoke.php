@@ -89,7 +89,7 @@ class task_taoke{
 			if ($seller = task_seller::getSeller2(1, $datas['nickname'], $uid)) {
 				if ($itemid = self::checkUrl($datas['itemurl'])) {
 					//检查商品
-					if (!$sys_debug && !data_taobaoShop::exists($itemid)) return '您所发布点商品不存在';
+					if (!$sys_debug && !data_taobaoShop::exists($itemid)) return '您所兔粮商品不存在';
 					if (!data_taoke::exists($itemid)) return '您所发布的商品没有加入淘宝客推广！';
 					if (!$sys_debug && data_taobaoShop::getNick($itemid) != $datas['nickname']) return '淘宝地址对应的掌柜名与您所选的掌柜不一致';
 					
@@ -106,7 +106,7 @@ class task_taoke{
 					$datas = self::formatData($datas);
 					// THE END
 					if ($datas['price'] > 0) {
-						//计算发布点
+						//计算兔粮
 						
 						$point = $basePoint;
 						$point += $datas['pointExt'];
@@ -164,7 +164,7 @@ class task_taoke{
 								if ($j > 0) return true;
 								return 'insert_error';
 							}
-							return '淘宝区发布点不足，发布失败';
+							return '淘宝区兔粮不足，发布失败';
 						}
 						return '余额不足，发布失败';
 					}
@@ -319,9 +319,9 @@ class task_taoke{
 							db::update('membertask', 'outWaiting'.self::$taskId.'=outWaiting'.self::$taskId.'-1,out'.self::$taskId.'=out'.self::$taskId.'-1', "uid='$uid'");
 							//member_base::addMoney($uid, - $onePrice, '取消淘客区任务');
 							member_base::addMoney($uid, $task['price'], '取消淘客区任务');
-							//member_base::addMoney($uid, -0.2, '取消淘客区任务扣除0.2个发布点');
+							//member_base::addMoney($uid, -0.2, '取消淘客区任务扣除0.2个兔粮');
 							member_base::addFabudian($uid, $task['point'], $task['type'], '取消淘客区任务');
-							member_base::addFabudian($uid, -0.2, $task['type'], '取消淘客区任务扣除0.2个发布点');
+							member_base::addFabudian($uid, -0.2, $task['type'], '取消淘客区任务扣除0.2个兔粮');
 							task_base::addLog($id, '取消任务', '{susername}取消了任务{id}');
 							return true;
 						}
@@ -348,7 +348,7 @@ class task_taoke{
 							db::update('membertask', 'outWaiting'.self::$taskId.'=outWaiting'.self::$taskId.'+1,outing'.self::$taskId.'=outing'.self::$taskId.'-1', "uid='$uid'");
 							db::update('membertask', 'in'.self::$taskId.'=in'.self::$taskId.'-1,ining'.self::$taskId.'=ining'.self::$taskId.'-1', "uid='$task[buid]'");//更新买家任务数
 							db::update('buyers', 'tasking=tasking-1', "id='$task[bid]'");// 更新买号正在进行的任务
-							if ($getMoney) member_base::addMoney($uid, - $onePrice, '辞退任务'.$task['id'].'的第'.($task['reject'] + 1).'个接手人'.$task['busername'].', 扣除发布点 '.$onePrice.'个');
+							if ($getMoney) member_base::addMoney($uid, - $onePrice, '辞退任务'.$task['id'].'的第'.($task['reject'] + 1).'个接手人'.$task['busername'].', 扣除兔粮 '.$onePrice.'个');
 							return true;
 						}
 					}

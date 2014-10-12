@@ -223,7 +223,7 @@ class task_reflow{
 				}
 			} else {
 				$next = false;
-				$rs   = '发布点不足';
+				$rs   = '兔粮不足';
 			}
 		}
 		return $rs;

@@ -10,151 +10,166 @@
 }
 {sub ../header}
 <DIV class="cle"></DIV>
-<DIV id="content">
-{sub menu}
-<DIV class="right">
-{if $indexMessage}<div class='error_panel'><div>$indexMessage</div></div>{/if}
-	{if $_showmessage}<div class='msg_panel'><div>$_showmessage</div></div>{/if}
-<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%" height="187">
-  <TBODY>
-  <TR>
-    <TD class="vipsp_b1" height="115" width="10"></TD>
-    <TD class="vipsp_b2" vAlign="middle" align="left">
-      <DIV class="vip_tit"></DIV>
-      <P class="vip_text"></P>
-       <form name="myForm" method="post" id="myForm" onsubmit="return checkForm();">
-		<div>$sys_hash_code2</div>
-	  <INPUT id="viptype" name="viptype" value="1" type="hidden">
-      <UL class="vip_list">
-        <LI class="vip_dj1">一级VIP</LI>
-       <LI class="vip_dj2">
-		<SELECT name="months">
-		{eval
-		$list = cfg::getList('sys', 'vip_money_list');
-		}
-		{loop $list $v}
-		<OPTION value="$v[key]">$v[key]个月:$v[value]元</OPTION>
-		{/loop}
-		</SELECT>
-		</LI>
-        <LI><INPUT class="vip_dj3" value="提交查询内容" type="submit"></LI>
-		</UL>
-		</FORM>
-      <FORM id="myForm2" onsubmit="return checkForm();" method="post" name="myForm2">
-	   <div>$sys_hash_code2</div>
-	  <INPUT id="viptype" name="viptype" value="2" type="hidden">
-      <UL class="vip_list">
-        <LI class="vip_dj4">钻石VIP</LI>
-        <LI class="vip_dj2">
-		<SELECT name="months">
-		{eval
-		$list = cfg::getList('sys', 'jewel_vip_money_list');
-		}
-		{loop $list $v}
-		<OPTION value="$v[key]">$v[key]个月:$v[value]元</OPTION>
-		{/loop}
-		</SELECT>
-		</LI>
-        <LI><INPUT class="vip_dj3" value="提交查询内容" type="submit"></LI>
-		</UL>
-		</FORM>
-      <FORM id="myForm3" onsubmit="return checkForm();" method="post" name="myForm3">
-      <div>$sys_hash_code2</div>
-	  <INPUT id="viptype" name="viptype" value="3" type="hidden">
-      <UL class="vip_list">
-        <LI class="vip_dj5">皇冠VIP</LI>
-		
-        <LI class="vip_dj2">
-		<SELECT name="months">
-		{eval
-		$__list = cfg::getList('sys', 'crown_vip_money_list');
-		}
-		{loop $__list $__v}
-		<OPTION value="$__v[key]">$__v[key]个月:$__v[value]元</OPTION>
-		{/loop}
-		</SELECT>
-		</LI>
-		
-        <LI><INPUT class="vip_dj3" value="提交查询内容" type="submit"></LI>
-		</UL>
-		</FORM>
-	</TD>
-    <TD class="vipsp_b3" vAlign="middle" width="10" 
-align="left"></TD></TR>
-</TBODY>
-</TABLE>
-<TABLE style="margin-top: 15px;" border="0" cellSpacing="0" cellPadding="0" width="94%">
-  <TBODY>
-  <TR>
-    <TD>
-      <TABLE border="0" cellSpacing="0" cellPadding="0" width="98%">
-        <TBODY>
-        <TR>
-          <TD class="txjl_bg1" height="37" width="14"></TD>
-          <TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" 
-          vAlign="middle" width="435" align="left">&nbsp; vip特权 </TD>
-          <TD class="txjl_bg2" height="37" vAlign="middle" width="229" align="center"><A 
-            style="font-size: 12px;" class="chengse2" href="{rewrite}/member/vipinfo/">查看VIP特权表</A></TD>
-          <TD class="txjl_bg3" height="37" width="4"></TD>
-        </TR>
-        <TR>
-          <TD height="35">&nbsp;</TD>
-          <TD vAlign="middle" colSpan="2" align="left">
-            <TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
-              <TBODY>
-              <TR>
-                <TD class="vipsp_i1" height="55" width="30%">&nbsp;</TD>
-                <TD class="vipsp_i2" width="30%">&nbsp;</TD>
-                <TD class="vipsp_i3" width="30%">&nbsp;</TD></TR>
-              <TR>
-                <TD class="vipsp_i4" height="55">&nbsp;</TD>
-                <TD class="vipsp_i5">&nbsp;</TD>
-                <TD class="vipsp_i6">&nbsp;</TD></TR>
-              <TR>
-                <TD class="vipsp_i7" height="55">&nbsp;</TD>
-                <TD class="vipsp_i8">&nbsp;</TD>
-                <TD class="vipsp_i9">&nbsp;</TD></TR>
-              <TR>
-                <TD class="vipsp_i10" height="55">&nbsp;</TD>
-                <TD class="vipsp_i11">&nbsp;</TD>
-                <TD class="vipsp_i12">&nbsp;</TD></TR>
-              <TR>
-                <TD class="vipsp_i13" height="55">&nbsp;</TD>
-                <TD class="vipsp_i14">&nbsp;</TD>
-                <TD class="vipsp_i15">&nbsp;</TD></TR>
-              <TR>
-                <TD class="vipsp_i16" height="55">&nbsp;</TD>
-                <TD class="vipsp_i17">&nbsp;</TD>
-                <TD class="vipsp_i18">&nbsp;</TD></TR></TBODY></TABLE></TD>
-          <TD>&nbsp;</TD></TR></TBODY></TABLE></TD>
-    <TD vAlign="top" width="250" align="right">
-      <TABLE border="0" cellSpacing="0" cellPadding="0" width="246">
-        <TBODY>
-        <TR>
-          <TD class="vipsq_r1" height="38" align="left">最近加入VIP榜</TD></TR><?php$a=array($newVips);?>
-        <TR>
-          <TD class="vipsq_r2" height="309" vAlign="top" align="left">
-            {loop $vip_list $v}
-            <UL class="vipsq_user">
-              <LI><A class="vipsq_tx" href="{rewrite}/member/info/?username={echo string::getXin($v[username], 5)}"><IMG src="$memberFields[avatar]" width="50" height="50"></A></LI>
-              <LI><A class="lanse2 strong" href="{rewrite}/member/info/?username={echo string::getXin($v[username], 5)}" target="_blank">{echo string::getXin($v[username], 5)}</A>
-			  <A class="chengse2" href="{rewrite}/member/BuyPoint/">&nbsp;<SPAN class="STYLE1">购买VIP</SPAN></A></LI><LI>消费 {$v[money]} 元存款</LI>
-			</UL>
-           {/loop}
-            
-            </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV></DIV>
-<DIV class="cle"></DIV>
-<SCRIPT type="text/javascript">
-function checkForm() {
-        
-        if (confirm("您确定要开通VIP申请么？")) {
-		    return true;        
-		}else{
-		return false;
-		}
-		
-}
-</SCRIPT>
+<DIV id="content">{sub menu}
+	<DIV class="right">{if $indexMessage}
+		<div class='error_panel'>
+			<div>$indexMessage</div>
+		</div>{/if} {if $_showmessage}
+		<div class='msg_panel'>
+			<div>$_showmessage</div>
+		</div>{/if}
+		<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%" height="187">
+			<TBODY>
+				<TR>
+					<TD class="vipsp_b1" height="115" width="10"></TD>
+					<TD class="vipsp_b2" vAlign="middle" align="left">
+						<DIV class="vip_tit"></DIV>
+						<P class="vip_text"></P>
+						<form name="myForm" method="post" id="myForm" onsubmit="return checkForm();">
+							<div>$sys_hash_code2</div>
+							<INPUT id="viptype" name="viptype" value="1" type="hidden">
+							<UL class="vip_list">
+								<LI class="vip_dj1">一级VIP</LI>
+								<LI class="vip_dj2">
+									<SELECT name="months">{eval $list = cfg::getList('sys', 'vip_money_list'); } {loop $list $v}
+										<OPTION value="$v[key]">$v[key]个月:$v[value]元</OPTION>{/loop}</SELECT>
+								</LI>
+								<LI>
+									<INPUT class="vip_dj3" value="提交查询内容" type="submit">
+								</LI>
+							</UL>
+						</FORM>
+						<FORM id="myForm2" onsubmit="return checkForm();" method="post" name="myForm2">
+							<div>$sys_hash_code2</div>
+							<INPUT id="viptype" name="viptype" value="2" type="hidden">
+							<UL class="vip_list">
+								<LI class="vip_dj4">钻石VIP</LI>
+								<LI class="vip_dj2">
+									<SELECT name="months">{eval $list = cfg::getList('sys', 'jewel_vip_money_list'); } {loop $list $v}
+										<OPTION value="$v[key]">$v[key]个月:$v[value]元</OPTION>{/loop}</SELECT>
+								</LI>
+								<LI>
+									<INPUT class="vip_dj3" value="提交查询内容" type="submit">
+								</LI>
+							</UL>
+						</FORM>
+						<FORM id="myForm3" onsubmit="return checkForm();" method="post" name="myForm3">
+							<div>$sys_hash_code2</div>
+							<INPUT id="viptype" name="viptype" value="3" type="hidden">
+							<UL class="vip_list">
+								<LI class="vip_dj5">皇冠VIP</LI>
+								<LI class="vip_dj2">
+									<SELECT name="months">{eval $__list = cfg::getList('sys', 'crown_vip_money_list'); } {loop $__list $__v}
+										<OPTION value="$__v[key]">$__v[key]个月:$__v[value]元</OPTION>{/loop}</SELECT>
+								</LI>
+								<LI>
+									<INPUT class="vip_dj3" value="提交查询内容" type="submit">
+								</LI>
+							</UL>
+						</FORM>
+					</TD>
+					<TD class="vipsp_b3" vAlign="middle" width="10" align="left"></TD>
+				</TR>
+			</TBODY>
+		</TABLE>
+		<TABLE style="margin-top: 15px;" border="0" cellSpacing="0" cellPadding="0" width="94%">
+			<TBODY>
+				<TR>
+					<TD>
+						<TABLE border="0" cellSpacing="0" cellPadding="0" width="98%">
+							<TBODY>
+								<TR>
+									<TD class="txjl_bg1" height="37" width="14"></TD>
+									<TD style="color: rgb(51, 51, 51);" class="txjl_bg2" height="37" vAlign="middle" width="435" align="left">&nbsp; vip特权</TD>
+									<TD class="txjl_bg2" height="37" vAlign="middle" width="229" align="center">
+										<A style="font-size: 12px;" class="chengse2" href="{rewrite}/member/vipinfo/">查看VIP特权表</A>
+									</TD>
+									<TD class="txjl_bg3" height="37" width="4"></TD>
+								</TR>
+								<TR>
+									<TD height="35">&nbsp;</TD>
+									<TD vAlign="middle" colSpan="2" align="left">
+										<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+											<TBODY>
+												<TR>
+													<TD class="vipsp_i1" height="55" width="30%">&nbsp;</TD>
+													<TD class="vipsp_i2" width="30%">&nbsp;</TD>
+													<TD class="vipsp_i3" width="30%">&nbsp;</TD>
+												</TR>
+												<TR>
+													<TD class="vipsp_i4" height="55">&nbsp;</TD>
+													<TD class="vipsp_i5">&nbsp;</TD>
+													<TD class="vipsp_i6">&nbsp;</TD>
+												</TR>
+												<TR>
+													<TD class="vipsp_i7" height="55">&nbsp;</TD>
+													<TD class="vipsp_i8">&nbsp;</TD>
+													<TD class="vipsp_i9">&nbsp;</TD>
+												</TR>
+												<TR>
+													<TD class="vipsp_i10" height="55">&nbsp;</TD>
+													<TD class="vipsp_i11">&nbsp;</TD>
+													<TD class="vipsp_i12">&nbsp;</TD>
+												</TR>
+												<TR>
+													<TD class="vipsp_i13" height="55">&nbsp;</TD>
+													<TD class="vipsp_i14">&nbsp;</TD>
+													<TD class="vipsp_i15">&nbsp;</TD>
+												</TR>
+												<TR>
+													<TD class="vipsp_i16" height="55">&nbsp;</TD>
+													<TD class="vipsp_i17">&nbsp;</TD>
+													<TD class="vipsp_i18">&nbsp;</TD>
+												</TR>
+											</TBODY>
+										</TABLE>
+									</TD>
+									<TD>&nbsp;</TD>
+								</TR>
+							</TBODY>
+						</TABLE>
+					</TD>
+					<TD vAlign="top" width="250" align="right">
+						<TABLE border="0" cellSpacing="0" cellPadding="0" width="246">
+							<TBODY>
+								<TR>
+									<TD class="vipsq_r1" height="38" align="left">最近加入VIP榜</TD>
+								</TR>
+								<?php$a=array($newVips);?>
+									<TR>
+										<TD class="vipsq_r2" height="309" vAlign="top" align="left">{loop $vip_list $v}
+											<UL class="vipsq_user">
+												<LI>
+													<A class="vipsq_tx" href="{rewrite}/member/info/?username={echo string::getXin($v[username], 5)}">
+														<IMG src="$memberFields[avatar]" width="50" height="50">
+													</A>
+												</LI>
+												<LI>
+													<A class="lanse2 strong" href="{rewrite}/member/info/?username={echo string::getXin($v[username], 5)}" target="_blank">{echo string::getXin($v[username], 5)}</A>
+													 <A class="chengse2" href="{rewrite}/member/BuyPoint/">&nbsp;<SPAN class="STYLE1">购买VIP</SPAN></A>
+												</LI>
+												<LI>消费 {$v[money]} 元存款</LI>
+											</UL>{/loop}</TD>
+									</TR>
+							</TBODY>
+						</TABLE>
+					</TD>
+				</TR>
+			</TBODY>
+		</TABLE>
+	</DIV>
 </DIV>
 <DIV class="cle"></DIV>
-{sub ../footer}
+<SCRIPT type="text/javascript">
+	function checkForm() {
+	        
+	        if (confirm("您确定要开通VIP申请么？")) {
+			    return true;        
+			}else{
+			return false;
+			}
+			
+	}
+</SCRIPT>
+</DIV>
+<DIV class="cle"></DIV>{sub ../footer}

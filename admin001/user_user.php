@@ -7,8 +7,8 @@ $top_menu = array(
     /* 'add'   => '添加用户', */
     'add_credits' => '增加积分',
     'add_money' => '增加RMB',
-    'add_fabudian' => '增加发布点',
-    'minusPoint' => '扣除发布点',
+    'add_fabudian' => '增加兔粮',
+    'minusPoint' => '扣除兔粮',
     'edit' => array('name' => '编辑用户组', 'hide' => true),
     'view' => array('name' => '用户详情', 'hide' => true),
     'check' => array('name' => '审核用户', 'hide' => true)
@@ -90,7 +90,7 @@ switch ($method)
             $fabudian = (float) $fabudian;
             if ($uid = member_base::getUid($username))
             {
-                member_base::addFabudian($uid, $fabudian, $type, '后台增加' . language::get('qu' . $type) . '发布点');
+                member_base::addFabudian($uid, $fabudian, $type, '后台增加' . language::get('qu' . $type) . '兔粮');
                 admin::show_message('操作成功', $base_url);
             }
             else
@@ -113,13 +113,13 @@ switch ($method)
                     $pointOld = member_base::getPoint($uid, $type);
                     if ($count <= $pointOld)
                     {
-                        msg::sendSys($uid, '您的' . language::get('qu' . $type) . '区被管理员扣除了：' . $count . '个发布点' . ($remark ? "<br />理由如下：$remark" : ''));
+                        msg::sendSys($uid, '您的' . language::get('qu' . $type) . '区被管理员扣除了：' . $count . '个兔粮' . ($remark ? "<br />理由如下：$remark" : ''));
                         member_base::addFabudian($uid, - $count, $type, $remark);
                         admin::show_message('扣除成功', $base_url . '&method=' . $method);
                     }
                     else
                     {
-                        admin::show_message('该用户的' . language::get('qu' . $type) . '区发布点只有：' . $pointOld . '不足以扣除' . $count);
+                        admin::show_message('该用户的' . language::get('qu' . $type) . '区兔粮只有：' . $pointOld . '不足以扣除' . $count);
                     }
                 }
             }

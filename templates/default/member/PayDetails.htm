@@ -16,7 +16,7 @@
 <DIV class="right">
 <DIV class="bq_menu">
 <A {if $type==1} class="nov"{/if} href="{rewrite}/member/PayDetails/?type=1">存款</A>
-<A {if $type==2} class="nov"{/if} href="{rewrite}/member/PayDetails/?type=2">麦点</A>
+<A {if $type==2} class="nov"{/if} href="{rewrite}/member/PayDetails/?type=2">兔粮</A>
 <A {if $type==3} class="nov"{/if} href="{rewrite}/member/PayDetails/?type=3">积分</A>
 <A {if $type==4} class="nov"{/if} href="{rewrite}/member/PayDetails/?type=4">任务</A>
 <A {if $type==5} class="nov"{/if} href="{rewrite}/member/PayDetails/?type=5">充值</A>
@@ -72,13 +72,13 @@
   {/loop}
   </TBODY></TABLE>
 <DIV id="page">$multipage</DIV>
-  <!--麦点流动查询-->
+  <!--兔粮流动查询-->
   {elseif $type=='2'}
 
 <DIV class="f_text">
 <SPAN class="img"></SPAN>
-<P class="f16">麦点流动查询</P>
-<P>发布点就是麦点，在这里，查查您获得了多少麦点吧</P></DIV>
+<P class="f16">兔粮流动查询</P>
+<P>兔粮就是兔粮，在这里，查查您获得了多少兔粮吧</P></DIV>
 <TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
   <FORM>
   <INPUT id="type" name="type" value="$type" type="hidden">
@@ -108,7 +108,7 @@ align="center"></TD>
 	{if $v[type]=='fabudian'} 
   <TR>
     <TD class="x_xian" height="25">&nbsp;</TD>
-    <TD class="xuxian" vAlign="middle" width="10%" align="center">麦点</TD>
+    <TD class="xuxian" vAlign="middle" width="10%" align="center">兔粮</TD>
     <TD class="xuxian" vAlign="middle" width="33%" 
       align="center">$v[remark]</TD>
     <TD class="xuxian" vAlign="middle" width="15%" align="center"><STRONG 

@@ -85,7 +85,7 @@ validDomains[13]="http://zxn.taobao.com/";
 				<li>24-72小时确认任务：拍拍交易的物品为实际存在的物品，可能包含运费和物流等，需要1－3天后方能确认收货并评价。</li>
 				<li>要尽量保证平台任务担保价大于 (拍拍商品价格+快递运费)/2 ，否则接手人拍下商品后您的拍拍改价将会导致您的支付宝使用率低于50%既被拍拍视为信用炒作处理；</li>
 				<li>您发任务时，平台中的保证金不得少于任务价，成功发布任务将会在平台中扣押相应的任务保证金；接手人完成您的任务时等额的资金会作为商品款返回给您网店的帐户中；</li>
-				<li>您想发布任务的时候，必须保证您拥有相应的麦点，每次发布都会根据商品价格不同扣除相应的麦点数。您如果想让任务排名靠前就可以追加麦点奖励，追加的越多排名就越靠前；</li>
+				<li>您想发布任务的时候，必须保证您拥有相应的兔粮，每次发布都会根据商品价格不同扣除相应的兔粮数。您如果想让任务排名靠前就可以追加兔粮奖励，追加的越多排名就越靠前；</li>
 				<li class="chengse">请确认商品地址绝对正确，否则会造成不必要的纠纷。</li>
 				<li class="chengse">为了您的店铺安全，发布“实物任务”商品价格请大于10元！</li>
 			  </ul>
@@ -178,36 +178,36 @@ validDomains[13]="http://zxn.taobao.com/";
 					<br>
 					</div>
 					<div class="exp">
-					要求接手方缴纳保证金后成为平台的商保用户才可以接手，需额外支付<em>0.3</em>个麦点给接手方，——
+					要求接手方缴纳保证金后成为平台的商保用户才可以接手，需额外支付<em>0.3</em>个兔粮给接手方，——
 					<a href="{rewrite}/user/ensure/" target="_blank">我要立即加入商保</a>
 					</div>
 				</li>
 				
 				<li>
-					<div class="name">基本麦点：</div>
+					<div class="name">基本兔粮：</div>
 					<div class="value">
 					<input id="txtMinMPrice" class="txt" value="1" style="width:130px;color:#f50;background:#F0F0F0;" name="point" readonly="readonly" type="text">
-					  个麦点
+					  个兔粮
 					</div>
 					<div class="exp">
-					发布该价格任务需要扣除的麦点，不包括增值服务.   
+					发布该价格任务需要扣除的兔粮，不包括增值服务.   
 					<a target="_blank" href="{rewrite}/bbs/t122/">查看商品的价格与最底消耗额的关系</a>
 				
 						
 					<br>
-					您目前还有麦点
+					您目前还有兔粮
 					<em>$memberFields[fabudian]</em>
 					个，
 					<a target="_blank" href="{rewrite}/BuyPoint/">我要购买</a>
 					</div>
 				</li>
-				<li><div class="name">追加悬赏麦点：</div>
+				<li><div class="name">追加悬赏兔粮：</div>
 					<div class="value">
 					<input id="pointExt" class="txt" style="width:130px;color:#f50;"  name="pointExt" type="text" value="$datas[pointExt]">
-					  个麦点
+					  个兔粮
 					</div>
 					<div class="exp">
-					追加悬赏麦点数越多，更易被人接手，刷钻效率越高！  
+					追加悬赏兔粮数越多，更易被人接手，刷钻效率越高！  
 					</div>
 				</li>
 				<li>
@@ -218,13 +218,13 @@ validDomains[13]="http://zxn.taobao.com/";
 					<div class="value">
 					<select id="ddlOKDay" style="width:230px; height:20px;" name="ddlOKDay">
 					<option value="0" selected="selected">马上好评（虚拟任务）</option>
-					<option value="1">24小时好评实物任务(基本麦点×1.5+0)</option>
-					<option value="2">48小时好评实物任务(基本麦点×1.5+1)</option>
-					<option value="3">72小时好评实物任务(基本麦点×1.5+2)</option>
-					<option value="4">96小时好评实物任务(基本麦点×1.5+3)</option>
-					<option value="5">120小时好评实物任务(基本麦点×1.5+4)</option>
-					<option value="6">144小时好评实物任务(基本麦点×1.5+5)</option>
-					<option value="7">168小时好评实物任务(基本麦点×1.5+6)</option>
+					<option value="1">24小时好评实物任务(基本兔粮×1.5+0)</option>
+					<option value="2">48小时好评实物任务(基本兔粮×1.5+1)</option>
+					<option value="3">72小时好评实物任务(基本兔粮×1.5+2)</option>
+					<option value="4">96小时好评实物任务(基本兔粮×1.5+3)</option>
+					<option value="5">120小时好评实物任务(基本兔粮×1.5+4)</option>
+					<option value="6">144小时好评实物任务(基本兔粮×1.5+5)</option>
+					<option value="7">168小时好评实物任务(基本兔粮×1.5+6)</option>
 					</select>
 					<p id="pOKDes">
 					</p>
@@ -298,7 +298,7 @@ validDomains[13]="http://zxn.taobao.com/";
 									<div class="exp">
 									接手方接任务后，要您亲自审核后，接手方才可看到商品地址，对刷实物和规定旺旺聊天的商家很有用!可以事先QQ联系对方商量好。需要额外支付
 									<em>0.3</em>
-									个麦点给接手方
+									个兔粮给接手方
 									</div>
 							</li>
 							<li>
@@ -311,13 +311,13 @@ validDomains[13]="http://zxn.taobao.com/";
 									<em>强烈建议开启审核先使用QQ约定好</em>
 									。需额外支付
 									<em>1</em>
-									个麦点给接手方
+									个兔粮给接手方
 									</div>
 							</li>
 							<li>
                                   <div class="name">旺旺确认收货：</div>
                                   <div class="value short"><input id="cbxIsLHS" value="1" name="isChatDone"{if $datas[isChatDone]} checked="checked"{/if} type="checkbox"></div>
-                                  <div class="exp">要求接手方收货前登录旺旺与卖家确认收到“货物/服务”同时声明对收到“货物/服务”满意以作为收货证据，需额外支付<em>0.5</em>个麦点给接手方</div>
+                                  <div class="exp">要求接手方收货前登录旺旺与卖家确认收到“货物/服务”同时声明对收到“货物/服务”满意以作为收货证据，需额外支付<em>0.5</em>个兔粮给接手方</div>
                             </li>
                               <li>
                                   <div class="name">规定好评内容：</div>
@@ -325,7 +325,7 @@ validDomains[13]="http://zxn.taobao.com/";
                                   	<input id="cbxIsMsg" name="isRemark" value="1"{if $datas[isRemark]} checked="checked"{/if} type="checkbox">
                                     <textarea name="remark" id="txtMessage" onclick="if(this.value.indexOf('此处填写您希望接手')>=0) this.value='';this.style.color='#333';" title="此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”请不要填写“请带字好评”等引导的文字">{if $datas}$datas[remark]{else}此处填写您希望接手人对您的任务商品的评语内容，例如：“掌柜妹妹很热情，发货速度很快，商品拿到了,感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字{/if}</textarea>
                                   </div>
-                                  <div class="exp">您可以规定接手方在拍拍交易好评时填写规定的内容。额外支付的<em>0.1</em>个麦点将奖励给接手方</div>
+                                  <div class="exp">您可以规定接手方在拍拍交易好评时填写规定的内容。额外支付的<em>0.1</em>个兔粮将奖励给接手方</div>
                               </li>
                               <li>
                                   <div class="name">规定收货地址：</div>
@@ -349,7 +349,7 @@ validDomains[13]="http://zxn.taobao.com/";
 													 地址： <textarea name="cbxAddress" id="cbxAddress" style="margin-left:0px;" onclick="if(this.value.indexOf('此处填写您要求接手人')>=0) this.value='';this.style.color='#333';" title="此处填写您要求接手人的修改的收货地址，包含具体省、市、区及详细地址。">此处填写您要求接手人的修改的收货地址，包含具体省、市、区及详细地址，请不要填写“请带字好评”等引导的文字。</textarea>
 													</div>
                                                 </div>
-                      	                        <div style="color:#999;">您可以规定接手方在拍拍购买商品时填写您指定的收货地址。额外支付<em>0.1</em>个麦点将奖励给接手方</div>
+                      	                        <div style="color:#999;">您可以规定接手方在拍拍购买商品时填写您指定的收货地址。额外支付<em>0.1</em>个兔粮将奖励给接手方</div>
                                             </td>
                                         </tr>
                                     </tbody></table>
@@ -360,14 +360,14 @@ validDomains[13]="http://zxn.taobao.com/";
                                   <div class="value short">
                                   	<input id="pinimage" name="pinimage" value="1" type="checkbox">
                                   </div>
-                                  <div class="exp">您可以规定接手方好评后，必须上传截图证明好评内容。额外支付的<em>0.2</em>个麦点将奖励给接手方</div>
+                                  <div class="exp">您可以规定接手方好评后，必须上传截图证明好评内容。额外支付的<em>0.2</em>个兔粮将奖励给接手方</div>
                               </li>
 							  <li>
                                   <div class="name">购物分享：</div>
                                   <div class="value short">
                                   	<input id="isShare" name="isShare" value="1"{if $datas[isShare]} checked="checked"{/if} type="checkbox">
                                   </div>
-                                  <div class="exp">拍拍购物分享，分享内容同好评内容，额外支付<em>0.2</em>个麦点将奖励给接手方</div>
+                                  <div class="exp">拍拍购物分享，分享内容同好评内容，额外支付<em>0.2</em>个兔粮将奖励给接手方</div>
                               </li>
                               
                               <li>
@@ -389,14 +389,14 @@ validDomains[13]="http://zxn.taobao.com/";
 <div><label><input value="1"{if $datas[isBlack]} checked="checked"{/if} id="cbxIsFMaxBTSCount" name="isBlack" type="checkbox"></label><label class="labelstyle" style="width:160px;margin-left:10px;">接手人被有效投诉次数不大于</label><label class="labelstyle" style="width:50px"><input name="blackLvl" value="2"{if $datas[blackLvl]==2} checked='checked'{/if} type="radio">2</label><label class="labelstyle" style="width:50px"><input name="blackLvl" value="3"{if $datas[blackLvl]==3} checked='checked'{/if} type="radio">3</label><label class="labelstyle" style="width:50px"><input name="blackLvl" value="4"{if $datas[blackLvl]==4} checked='checked'{/if} type="radio">4</label></div>
 </div>
                                    
-          	                        <div style="color:#999;">您可以设置接手人的最低资质要求，系统将自动为您过滤掉不合格的接手人。每条任务需额外支付<em>0.5</em>个麦点给接手方。 <a target="_blank" href="{rewrite}/bbs/t1314/">如何设置筛选条件</a></div>
+          	                        <div style="color:#999;">您可以设置接手人的最低资质要求，系统将自动为您过滤掉不合格的接手人。每条任务需额外支付<em>0.5</em>个兔粮给接手方。 <a target="_blank" href="{rewrite}/bbs/t1314/">如何设置筛选条件</a></div>
                                   </div>
                               </li>
                               <li>
                                   <div class="name">限制接手人：</div>
                                   <div class="value longest">
-                                    <div id="divFMCount" style="margin-bottom:5px;"><div><label><input value="1"{if $datas[isLimit]} checked="checked"{/if} id="cbxIsFMaxMCount" name="isLimit" type="checkbox"></label> <input name="limit" value="1"{if !$datas || $datas[limit]==1} checked="checked"{/if} id="fmaxmc_1"price="0.5" type="radio"> 1天接1个(<em>0.5</em>个麦点)<input name="limit" value="2"{if !$datas || $datas[limit]==2} checked="checked"{/if} id="limit_2" price="0.2" id="fmaxmc_2" type="radio"> 1天接2个(<em>0.2</em>个麦点)<input name="limit" value="1"{if !$datas || $datas[limit]==1} checked="checked"{/if} id="limit_2" id="fmaxmc_3" type="radio"> 1周接1个(<em>1</em>个麦点)</div></div>
-                                    <div class="exp">您可以设置接手人在1天或一周内接手您发布任务的次数，需额外支付麦点</div>
+                                    <div id="divFMCount" style="margin-bottom:5px;"><div><label><input value="1"{if $datas[isLimit]} checked="checked"{/if} id="cbxIsFMaxMCount" name="isLimit" type="checkbox"></label> <input name="limit" value="1"{if !$datas || $datas[limit]==1} checked="checked"{/if} id="fmaxmc_1"price="0.5" type="radio"> 1天接1个(<em>0.5</em>个兔粮)<input name="limit" value="2"{if !$datas || $datas[limit]==2} checked="checked"{/if} id="limit_2" price="0.2" id="fmaxmc_2" type="radio"> 1天接2个(<em>0.2</em>个兔粮)<input name="limit" value="1"{if !$datas || $datas[limit]==1} checked="checked"{/if} id="limit_2" id="fmaxmc_3" type="radio"> 1周接1个(<em>1</em>个兔粮)</div></div>
+                                    <div class="exp">您可以设置接手人在1天或一周内接手您发布任务的次数，需额外支付兔粮</div>
                                   </div>
                               </li>
                               <li>
@@ -404,7 +404,7 @@ validDomains[13]="http://zxn.taobao.com/";
                                   <div class="value longest">
                                     <div id="divBaLevel" style="margin-bottom:5px;"><input id="isReal" value="1" name="isReal" type="checkbox">
 <input name="realname" value="1" id="isReal_1" type="radio"><label for="isReal_1">
-普通实名(<em>0.5</em>个麦点)
+普通实名(<em>0.5</em>个兔粮)
 </label></div>
                                    
                                     <div class="exp">限制接手买号必须是通过了支付宝实名认证才可以接手此任务</div>
@@ -415,7 +415,7 @@ validDomains[13]="http://zxn.taobao.com/";
                                   <div class="value longest">
                                     <input id="cbxIsTaoG" value="1" name="cbxIsTaoG" type="checkbox">
                                     <input name="txtTaoG" maxlength="3" id="txtTaoG" class="txt" style="width:40px;" type="text">
-                                    必须为10的倍数，最大不超过300，每10个淘金币需支付<em>0.1</em>个麦点给接手方
+                                    必须为10的倍数，最大不超过300，每10个淘金币需支付<em>0.1</em>个兔粮给接手方
                                   </div>
                                   <div class="exp"></div>
                               </li>
@@ -429,7 +429,7 @@ validDomains[13]="http://zxn.taobao.com/";
 							 <li>
                                   <div class="name">真实签收任务：</div>
                                   <div class="value longest"><input name="isSign" id="isSign" value="1" type="checkbox"> 
-                                    <label><input id="Express_1" name="Express" value="1" type="radio"> 全国(<em>1.5</em>个麦点)</label>　　<label><input id="Express_2" name="Express" value="2" cid="0" type="radio"> 同省[](<em>2</em>个麦点)</label> 　 不了解的用户请勿选择；<a href="{rewrite}/bbs/t1685/" target="_blank">了解详情</a>
+                                    <label><input id="Express_1" name="Express" value="1" type="radio"> 全国(<em>1.5</em>个兔粮)</label>　　<label><input id="Express_2" name="Express" value="2" cid="0" type="radio"> 同省[](<em>2</em>个兔粮)</label> 　 不了解的用户请勿选择；<a href="{rewrite}/bbs/t1685/" target="_blank">了解详情</a>
                                   </div>
                                   <div class="exp"></div>
                               </li>
@@ -442,7 +442,7 @@ validDomains[13]="http://zxn.taobao.com/";
 								  <input name="isMultiple" onclick="ChangeMultiple()" id="isMultiple" value="1" type="checkbox">
 								  多选省份
 								  </div>
-								  <div style="color:#999;">例如你指定北京和上海用户才可以接手，这样可避免重复用户交易，需额外支付<font color="red">0.5</font>个发布点</div>
+								  <div style="color:#999;">例如你指定北京和上海用户才可以接手，这样可避免重复用户交易，需额外支付<font color="red">0.5</font>个兔粮</div>
 								  </div>
 							</li>
                               <li>
@@ -458,7 +458,7 @@ validDomains[13]="http://zxn.taobao.com/";
                                             <input name="txtdelayhh" id="txtdelayhh" class="txt" style="width:20px;" value="12" maxlength="2" type="text">时
                                             <input name="txtdelaymm" id="txtdelaymm" class="txt" style="width:20px;" value="21" maxlength="2" type="text">分 显示在大厅
                                         </div>
-                                        <p>定时发布需额外支付<em>0.1</em>个麦点给接者</p> 
+                                        <p>定时发布需额外支付<em>0.1</em>个兔粮给接者</p> 
                                         <p>(设置延迟发布后，不论您是否在线，都会显示在任务大厅，请保持您的联系方式畅通，长时间不响应会被接手方投诉的)</p>
                                   </div>
                               </li>

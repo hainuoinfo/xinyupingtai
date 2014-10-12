@@ -265,7 +265,13 @@ cache::get_array('base');
 $base && extract($base);
 if ($web_rewrite == 1)
     $web_rewrite = true; // 强制指定路径重写功能
-cache::get_array('vars');
+cache::get_array('vars');//作用是创建全局变量数组$vars;
+//var_dump($vars);
+foreach($vars as $k2 =>$v2){
+	$GLOBALS[$k2]=$v2;
+}
+//var_dump($msg_vip_price);
+
 cache::get_array('userGroups');
 $userGroups2 = array();
 if ($userGroups) {

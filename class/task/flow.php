@@ -98,7 +98,7 @@ class task_flow{
 						db::update('memberfields', 'liuliang=liuliang-'.$flow, "uid='$uid'");
 						return true;
 					}
-					return '流量发布点不足';
+					return '流量兔粮不足';
 				}
 				return '发布任务数量超过'.$maxCount.'条';
 			}

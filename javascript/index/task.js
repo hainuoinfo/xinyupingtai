@@ -70,18 +70,19 @@ function IsGetTask() {
 }
 
 function IsDelTask() {
-    return confirm("取消该任务将返回您全部扣押的平台任务担保金和任务发布点，\n\n但要额外扣除0.2个发布点\n\n您确定取消发布该任务么？");
+    return confirm("取消该任务将返回您全部扣押的平台任务担保金和任务兔粮，\n\n但要额外扣除0.2个兔粮\n\n您确定取消发布该任务么？");
 }
 
 function IsReTask() {
-    return confirm("重新发布该任务将更新该任务发布时间从而使您的任务排名更加靠前，\n\n但是每重新发布一次扣除发布点0.5个，\n\n您确定要重新发布么？");
+    confirm("重新发布该任务将更新该任务发布时间从而使您的任务排名更加靠前，\n\r但是每重新发布一次扣除兔粮0.5个，\n\r您确定要重新发布么？\n\nps: 此功能正在研发中中，将面向VIP开放！");
+    return false;
 }
 
 function IsRejectTask(i) {
     if (i < 3)
         return confirm("您确定要辞退该接手人，将任务返回到“已发布，等待接手人”状态么？");
     else
-        return confirm("您已辞退" + i + "个该任务的接手人了，再辞退接手人需要额外支付0.2个发布点；\n\n您确定要辞退么？");
+        return confirm("您已辞退" + i + "个该任务的接手人了，再辞退接手人需要额外支付0.2个兔粮；\n\n您确定要辞退么？");
 }
 
 function IsOutTask(t, id) {
@@ -135,7 +136,7 @@ function IsSendTask() {
 }
 
 function IsReceiveAheadTask() {
-    return confirm("该任务为百分百真实任务，联盟要求发货满十二小时后才能确认收货\n\n您现在确认收货，在任务结束后只能得到一半任务发布点");
+    return confirm("该任务为百分百真实任务，联盟要求发货满十二小时后才能确认收货\n\n您现在确认收货，在任务结束后只能得到一半任务兔粮");
 }
 
 function IsReceiveTask(plat, isStr, isIP, isShared) {
@@ -155,14 +156,14 @@ function IsReceiveTask(plat, isStr, isIP, isShared) {
 }
 
 function IsConfirmTask(plat) {
-    return confirm("确认审核后，您的该任务担保金与发布点将发放到接手方账户。\n\n请您确认" + plat + "已经收到买方的全额货款，且已经收到对方好评！\n");
+    return confirm("确认审核后，您的该任务担保金与兔粮将发放到接手方账户。\n\n请您确认" + plat + "已经收到买方的全额货款，且已经收到对方好评！\n");
 }
 
 function IsGradeTask(h, plat) {
     if (h <= 0)
-        return confirm("确认交易好评后您将获得该任务全部奖励发布点。\n\n您确认" + plat + "上已经按照任务要求进行好评么？\n\n请真实提交，否则视为放弃申诉权！");
+        return confirm("确认交易好评后您将获得该任务全部奖励兔粮。\n\n您确认" + plat + "上已经按照任务要求进行好评么？\n\n请真实提交，否则视为放弃申诉权！");
     else
-        return confirm("该任务还未到规定好评期。\n\n现在提交好评您将只能获得50%的任务奖励发布点，确认提交好评么？");
+        return confirm("该任务还未到规定好评期。\n\n现在提交好评您将只能获得50%的任务奖励兔粮，确认提交好评么？");
 }
 
 function changeNewTip() {

@@ -542,31 +542,37 @@ switch ($m) {
 				else {
 					$datas = form::get('nickName', array('isTruth', 'int'));
 					$datas && extract($datas);
-					/* if (data_taobaoUser::usercheck($nickName)){ */
-						if (!db::exists('sellers', array('type' => $taskId, 'nickname' => $nickName))) {
-							if (db::insert('sellers', array(
-								'type'       => $taskId,
-								'uid'        => $uid,
-								'username'   => $member['username'],
-								'nickname'   => $nickName,
-								'truth'      => $isTruth,
-								'express'    => '',
-								'timestamp1' => $timestamp,
-								'status'     => 1
-							))) {
-								db::update('memberfields', 'sellers1=sellers1+1', "uid='$uid'");
-							$totalcount=db::data_count('sellers', "uid='$uid'");
-
-								//从第二次绑定掌柜开始每次绑定一个扣除五元
-							if($totalcount>0)
-								member_base::redMoney($uid,'5','添加掌柜扣除5元');
+					//查询绑定卖家的数量
+					$totalcount=db::data_count('sellers', "uid='$uid'");
+					//从第二次绑定掌柜(删除掉的也算)开始每次绑定一个扣除五元
+					if($memberFields['sellers1']>0 || $totalcount>0){
+						//如果卖家没有钱则退出返回错误信息
+						if($memberFields['money']<5)
+							$rs="添加失败，您的余额为".$memberFields['money']."元，不足5元！";
+						else
+							$redMoneyResult=member_base::redMoney($uid,'5','添加掌柜扣除5元');
+					}else{
+						/* if (data_taobaoUser::usercheck($nickName)){ */
+							if (!db::exists('sellers', array('type' => $taskId, 'nickname' => $nickName))) {
+								if (db::insert('sellers', array(
+									'type'       => $taskId,
+									'uid'        => $uid,
+									'username'   => $member['username'],
+									'nickname'   => $nickName,
+									'truth'      => $isTruth,
+									'express'    => '',
+									'timestamp1' => $timestamp,
+									'status'     => 1
+								))) {
+									db::update('memberfields', 'sellers1=sellers1+1', "uid='$uid'");
+								}
+							} else {
+								$rs = '很抱歉，该掌柜已经被别人绑定了';
 							}
-						} else {
-							$rs = '很抱歉，该掌柜已经被别人绑定了';
-						}
-					/* } else {
-						$rs = '淘宝平台上没有检测到该用户名';
-					} */
+						/* } else {
+							$rs = '淘宝平台上没有检测到该用户名';
+						} */
+					}
 				}
 			}
 			if ($rs === true) {

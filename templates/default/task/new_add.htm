@@ -30,8 +30,8 @@ echo javascript::get_js('WdatePicker', 'index');
       2. 如果您以前发布过任务，并且保存了任务模板，这次想发布相同的任务就可以选择【从任务模板中创建】，省时省力哦；<br />
       3. 要尽量保证 平台任务价 > (淘宝商品价格+快递运费)/2 ，否则接手人拍下商品后您的淘宝改价将会导致您的支付宝使用率低于50%既被淘宝视为信用炒作处理；<br />
       4. 你在平台中的存款中不得少于任务价，成功发布任务将会在平台中扣押相应的任务保证金；接手人完成您的任务时等额的资金会作为商品款返回给您网店的帐户中；<a href="/bbs/t45/" class="link_o">如何增加存款</a><br />
-      5. 您想发布任务的时候，必须保证您拥有相应的发布点数，每次发布都会根据商品价格不同扣除相应的发布点数。您如果想让任务排名靠前就可以追加竞价发布点，追加的越多排名就越靠前；
-        <a href="/bbs/t64/" target="_blank" class="link_o">如何赚取发布点</a>　<a href="/bbs/t30/" target="_blank" class="link_o">发布商品价格与扣除发布点数的对应关系</a><br />
+      5. 您想发布任务的时候，必须保证您拥有相应的兔粮数，每次发布都会根据商品价格不同扣除相应的兔粮数。您如果想让任务排名靠前就可以追加竞价兔粮，追加的越多排名就越靠前；
+        <a href="/bbs/t64/" target="_blank" class="link_o">如何赚取兔粮</a>　<a href="/bbs/t30/" target="_blank" class="link_o">发布商品价格与扣除兔粮数的对应关系</a><br />
       6. 禁止帮他人发布任务，这样会导致您的朋友无法在力豪互刷网平台发布。平台自检程序会不定时检测，已经发现将做限制权限处理；<a href="/info/agreement.html" target="_blank" class="link_o">平台服务条例</a><br />
       7. 任务要求区中可以选择您对交易好评时限，与店铺动态评分两方面要求；</p>
     <div class="pub_close"><a href="javascript:;" onclick="if($('#new_tip').is(':visible'))$('#new_tip').hide();else $('#new_tip').show();"><img src="{$weburl2}images/close2.gif" alt="隐藏/显示" /></a></div>
@@ -39,11 +39,11 @@ echo javascript::get_js('WdatePicker', 'index');
   {/if}
 	<div class="info2">
 			<div class="wel">尊敬的<span class='f_orange'> $member[truename]</span>{if $member[sex]==1}先生{elseif $member[sex]==2}女士{/if}，欢迎您！</div>
-			<div class="stat">VIP：{if $isVip}是{else}否{/if} , 卡信托：{if $isVip2}是{else}否{/if} ， 积分：<span class='f_b_org'>$memberFields[credits]</span> <img src='$memberLevel[icon]' alt='当前等级' /> ， <img src='{$weburl2}images/ico/ico_gold_2.gif' alt='' /> 存款余额：<span class='f_b_org'>$memberFields[money]</span>元 　　　　　<img src="{$weburl2}images/ico/ico_gold_3.gif" /> 淘宝发布点：<span class="f_b_org">$memberFields[fabudian1]</span>个</div>
+			<div class="stat">VIP：{if $isVip}是{else}否{/if} , 卡信托：{if $isVip2}是{else}否{/if} ， 积分：<span class='f_b_org'>$memberFields[credits]</span> <img src='$memberLevel[icon]' alt='当前等级' /> ， <img src='{$weburl2}images/ico/ico_gold_2.gif' alt='' /> 存款余额：<span class='f_b_org'>$memberFields[money]</span>元 　　　　　<img src="{$weburl2}images/ico/ico_gold_3.gif" /> 淘宝兔粮：<span class="f_b_org">$memberFields[fabudian1]</span>个</div>
 		</div>
 	{if $isFree}
 	<div class="pub_tip5">您当前选择了发布体验任务，本任务固定商品价格为1元，请注意淘宝商品的价格也为1元；<br />
-        体验任务是<strong>免费发布</strong>的，发布本任务不会扣除您的存款只扣除相应的发布点；</div>
+        体验任务是<strong>免费发布</strong>的，发布本任务不会扣除您的存款只扣除相应的兔粮；</div>
 	{/if}
 	<div class='tpl_from'><strong>从任务模板中创建：</strong>
 			<select name='fromTpl' class='task_slt' onchange='getTpl(this);'>
@@ -92,21 +92,21 @@ echo javascript::get_js('WdatePicker', 'index');
 					<td>如果您的商品价格加上邮费高于担保价，请勾选</td>
 				</tr>
 			<tr>
-					<td align="right">基本发布点：</td>
+					<td align="right">基本兔粮：</td>
 					<td><input name="point" type="text" class="task_text txt_d" id="point" readonly="readonly" value="1" /></td>
-					<td>发布该价格任务需要扣除发布点数 <a href="/bbs/t30/" target="_blank" class="link_o">基本发布商品价格与扣除基本发布点数的对应关系</a></td>
+					<td>发布该价格任务需要扣除兔粮数 <a href="/bbs/t30/" target="_blank" class="link_o">基本发布商品价格与扣除基本兔粮数的对应关系</a></td>
 				</tr>
 			<tr>
-					<td align="right">追加竞价发布点：</td>
+					<td align="right">追加竞价兔粮：</td>
 					<td><input name="pointExt" type="text" class="task_text" value="$datas[pointExt]" id="pointExt" /></td>
-					<td>发布点数越多排名越靠前，越快被人接手，刷钻效率越高！</td>
+					<td>兔粮数越多排名越靠前，越快被人接手，刷钻效率越高！</td>
 				</tr>
 		</table>
 			<div class="bar">任务要求信息区</div>
 			<table class="tbl" width="100%" border="0" cellspacing="0" cellpadding="6">
 			<tr>
 					<td width="120" align="right">好评时限要求：</td>
-					<td title="24、48、72小时好评平台强制接手方延迟收货"><label for='__times__0'><input name='times' type='radio' value='1' id='__times__0'{if !$datas || $datas[times]==1} checked='checked'{/if} />马上好评</label>&nbsp;&nbsp;<label for='__times__1000'><input name='times' type='radio' value='2' id='__times__1000'{if $datas[times]==2} checked='checked'{/if} /><span class='f_b_red'>24小时好评(基本发布点×1.8)</span></label>&nbsp;&nbsp;<label for='__times__2000'><input name='times' type='radio' value='3' id='__times__2000'{if $datas[times]==3} checked='checked'{/if} /><span class='f_b_red'>48小时好评(基本发布点×1.8+1)</span></label>&nbsp;&nbsp;<label for='__times__3000'><input name='times' type='radio' value='4' id='__times__3000'{if $datas[times]==4} checked='checked'{/if} /><span class='f_b_red'>72小时好评(基本发布点×1.8+2)</span></label>&nbsp;&nbsp;</td>
+					<td title="24、48、72小时好评平台强制接手方延迟收货"><label for='__times__0'><input name='times' type='radio' value='1' id='__times__0'{if !$datas || $datas[times]==1} checked='checked'{/if} />马上好评</label>&nbsp;&nbsp;<label for='__times__1000'><input name='times' type='radio' value='2' id='__times__1000'{if $datas[times]==2} checked='checked'{/if} /><span class='f_b_red'>24小时好评(基本兔粮×1.8)</span></label>&nbsp;&nbsp;<label for='__times__2000'><input name='times' type='radio' value='3' id='__times__2000'{if $datas[times]==3} checked='checked'{/if} /><span class='f_b_red'>48小时好评(基本兔粮×1.8+1)</span></label>&nbsp;&nbsp;<label for='__times__3000'><input name='times' type='radio' value='4' id='__times__3000'{if $datas[times]==4} checked='checked'{/if} /><span class='f_b_red'>72小时好评(基本兔粮×1.8+2)</span></label>&nbsp;&nbsp;</td>
 					<td width="30"><img src="{$weburl2}images/ico/tip2.gif" title="24、48、72小时好评平台强制接手方延迟收货" onclick="alert(this.title)" class="cursor" /></td>
 				</tr>
 			<tr>
@@ -123,7 +123,7 @@ echo javascript::get_js('WdatePicker', 'index');
 				</tr>
 		</table>
 			<div class="ex">
-			<div class="ex_top"><strong>任务增值功能区</strong><span class="f_orange">增值功能区中的功能需要额外支付发布点！详情请查看功能右侧注释；</span></div>
+			<div class="ex_top"><strong>任务增值功能区</strong><span class="f_orange">增值功能区中的功能需要额外支付兔粮！详情请查看功能右侧注释；</span></div>
 			<div class="ex_main">
 					<table class="tbl" width="100%" border="0" cellspacing="0" cellpadding="6">
 					<tr>
@@ -497,17 +497,17 @@ echo javascript::get_js('WdatePicker', 'index');
                                 <option value="很好的卖家。谢谢喽。我的同事们都很喜欢呢。下次再来哦 ">很好的卖家。谢谢喽。我的同事们都很喜欢呢。下次再来哦 </option>
                               </select>
 					        </p>
-				            <p>您可以规定接手方在淘宝交易好评时填写规定的内容。额外支付的<span class="f_b_red">0.1</span>个发布点</p>
+				            <p>您可以规定接手方在淘宝交易好评时填写规定的内容。额外支付的<span class="f_b_red">0.1</span>个兔粮</p>
 				            <p>将奖励给接手方</p></td>
 	</tr>
 					<tr>
 							<td align="right">购物分享</td>
 							<td><input name="isShare" type="checkbox" id="isShare" value="1"{if $datas[isShare]} checked="checked"{/if} /></td>
 							<td><input type="radio" name="share" value="1"{if !$datas || $datas[share]==1} checked='checked'{/if} id="share_1" />
-							<label for="share_1">非匿名分享(<span class="f_b_red">0.2</span>发布点)</label>
+							<label for="share_1">非匿名分享(<span class="f_b_red">0.2</span>兔粮)</label>
 　
 							<input type="radio" name="share" value="2"{if $datas[share]==2} checked="checked"{/if}  id="share_2" />
-							<label for="share_2">匿名分享(<span class="f_b_red">0.5</span>发布点)</label></td>
+							<label for="share_2">匿名分享(<span class="f_b_red">0.5</span>兔粮)</label></td>
 							<td><span class="f_b_red">【分享内容同好评内容】</span>，请认真填写好评内容；匿名分享的勾选了非匿名分享，接手人可不理会</td>
 					  </tr>
 					<tr>
@@ -519,41 +519,41 @@ echo javascript::get_js('WdatePicker', 'index');
 																	<tr>
 							<td align="right" class="f_b_red">店铺宝贝收藏：</td>
 							<td><input type="checkbox" id="isDbssc" value="1" name="isDbssc"{if $datas[isDbssc]} checked="checked"{/if} /></td>
-							<td colspan="2">要求接手方收藏您店铺和宝贝，需额外支付<span class="f_b_red">0.5</span>个发布点给接手方</td>
+							<td colspan="2">要求接手方收藏您店铺和宝贝，需额外支付<span class="f_b_red">0.5</span>个兔粮给接手方</td>
 						</tr>
 					<tr>
 							<td align="right">审核接手人：</td>
 							<td><input name="isVerify" type="checkbox" id="isVerify" value="1"{if $datas[isVerify]} checked="checked"{/if} /></td>
-							<td colspan="2">接手者接您任务后，要您亲自审核才可看到商品地址，对刷实物商家特别有用哦！额外支付的<span class="f_b_red">0.3</span>个发布点将奖励给接手方</td>
+							<td colspan="2">接手者接您任务后，要您亲自审核才可看到商品地址，对刷实物商家特别有用哦！额外支付的<span class="f_b_red">0.3</span>个兔粮将奖励给接手方</td>
 						</tr>
 					<tr>
 							<td align="right" class="f_b_green">限制接手人：</td>
 							<td><input name="isLimit" type="checkbox" id="isLimit" value="1"{if $datas[isLimit]} checked="checked"{/if} /></td>
 							<td colspan="2"><input type="radio" name="limit" value="1"{if !$datas || $datas[limit]==1} checked="checked"{/if} id="limit_1" />
-							<label for="limit_1">1天接1个(<span class="f_b_red">0.5</span>个发布点)</label>
+							<label for="limit_1">1天接1个(<span class="f_b_red">0.5</span>个兔粮)</label>
 　
 							<input type="radio" name="limit" value="2"{if !$datas || $datas[limit]==2} checked="checked"{/if} id="limit_2" />
-							<label for="limit_2">1天接2个(<span class="f_b_red">0.2</span>个发布点)</label>
-							限制同一天内接手人不允许重复接手相同掌柜的任务，需额外支付发布点</td>
+							<label for="limit_2">1天接2个(<span class="f_b_red">0.2</span>个兔粮)</label>
+							限制同一天内接手人不允许重复接手相同掌柜的任务，需额外支付兔粮</td>
 						</tr>
 					<!--<tr>
 							<td align="right" class="f_b_red">买号实名认证：</td>
 							<td><input name="isReal" type="checkbox" id="isReal" value="1"{if $datas[isReal]} checked="checked"{/if} /></td>
-							<td colspan="2">限制接手买号必须是通过了支付宝实名认证才可以绑定此任务；需额外支付<span class="f_b_red">0.5</span>个发布点给接手方</td>
+							<td colspan="2">限制接手买号必须是通过了支付宝实名认证才可以绑定此任务；需额外支付<span class="f_b_red">0.5</span>个兔粮给接手方</td>
 						</tr>-->				      <tr>
                             <td align="right" class="f_b_green">指定收货地址：</td>
                         <td><input name="isAddress" type="checkbox" id="isAddress" value="1"  /></td>
-                        <td colspan="2"><input type="text" name="address" id="address" class="text_long" value="" /> 额外支付<span class="f_b_red">0.5</span>个发布点给接手方</td>
+                        <td colspan="2"><input type="text" name="address" id="address" class="text_long" value="" /> 额外支付<span class="f_b_red">0.5</span>个兔粮给接手方</td>
                    </tr>
 					<tr>
 							<td align="right" class="f_b_red">需要旺旺聊天：</td>
 							<td><input type="checkbox" id="isChat" value="1" name="isChat"{if $datas[isChat]} checked="checked"{/if} /></td>
-							<td colspan="2">要求接手方先在旺旺上聊几句，需额外支付<span class="f_b_red">1</span>个发布点给接手方</td>
+							<td colspan="2">要求接手方先在旺旺上聊几句，需额外支付<span class="f_b_red">1</span>个兔粮给接手方</td>
 						</tr>
 					<tr>
 							<td align="right" class="f_b_red">旺旺确认收货：</td>
 							<td><input type="checkbox" id="isChatDone" value="1" name="isChatDone"{if $datas[isChatDone]} checked="checked"{/if} /></td>
-							<td colspan="2"> 要求接手方收货前登录旺旺与卖家确认到“货物/服务”同时声明对收到“货物/服务”满意以作为收货证据，需额外支付<span class="f_b_red">0.5</span>个发布点给接手方</td>
+							<td colspan="2"> 要求接手方收货前登录旺旺与卖家确认到“货物/服务”同时声明对收到“货物/服务”满意以作为收货证据，需额外支付<span class="f_b_red">0.5</span>个兔粮给接手方</td>
 						</tr>
 					<tr>
 						<td align="right" class="f_b_green">星级买号任务：</td>
@@ -563,7 +563,7 @@ echo javascript::get_js('WdatePicker', 'index');
 							$__buyerList = cfg::getList('sys', 'buyer_level_list');
 						}
 							{loop $__buyerList $__k $__v}
-							<input type="radio" name="lvlStar" value="$__v[key]"  id="lvlStar$__v[key]"{if !$datas && $__v[checked] || $datas && $datas[lvlStar] == $__v[key]} checked{/if} /><label for="lvlStar3">$__v[key]星(<span class="f_b_red">$__v[value]</span>个发布点)</label>　
+							<input type="radio" name="lvlStar" value="$__v[key]"  id="lvlStar$__v[key]"{if !$datas && $__v[checked] || $datas && $datas[lvlStar] == $__v[key]} checked{/if} /><label for="lvlStar3">$__v[key]星(<span class="f_b_red">$__v[value]</span>个兔粮)</label>　
 							{/loop}
 							 　<a href="#" target="_blank" class="link_b">了解星级买号>></a></td>
 					  </tr>
@@ -571,7 +571,7 @@ echo javascript::get_js('WdatePicker', 'index');
 					  <tr>
 						<td align="right" class="f_b_green">商保：</td>
 						<td><input type="checkbox" id="isEnsure" value="1" name="isEnsure"{if $datas[isEnsure]} checked{/if}  /><input type="hidden" name="ensurePoint" value="$ensurePoint" /></td>
-						<td colspan="2" class="f_b_green">要求接手方缴纳保证金后成为平台的商保用户才可以接手，需额外支付<span class="f_b_red">$ensurePoint</span>个发布点给接手方；<a href="#" target="_blank" class="link_b">了解保护发布方的商保>></a></td>
+						<td colspan="2" class="f_b_green">要求接手方缴纳保证金后成为平台的商保用户才可以接手，需额外支付<span class="f_b_red">$ensurePoint</span>个兔粮给接手方；<a href="#" target="_blank" class="link_b">了解保护发布方的商保>></a></td>
 					  </tr>
 					<tr>
 							<td align="right">接手人自动过滤：<br />
@@ -626,13 +626,13 @@ echo javascript::get_js('WdatePicker', 'index');
 									150
 									<input name="fameLvl" type="radio" id="radio15" value="220"{if $datas[fameLvl]==220} checked='checked'{/if} />
 									220</div></td>
-							<td>您可以设置接手人的最低资质要求，系统将自动为您过滤掉不合格的接手人。每条任务需额外支付<span class="f_b_red">0.1</span>个发布点</td>
+							<td>您可以设置接手人的最低资质要求，系统将自动为您过滤掉不合格的接手人。每条任务需额外支付<span class="f_b_red">0.1</span>个兔粮</td>
 						</tr>
 					<tr>
 							<td align="right">计划发布任务：</td>
 							<td><input name="isPlan" type="checkbox" id="isPlan" value="1"{if $datas[isPlan]} checked="checked"{/if}  /></td>
 							<td colspan="2"><input type="text" name="planDate" id="planDate" class="task_text" value="$datas[planDate]" readonly="readonly" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'});" />
-							设定任务计划发布的时间，平台将在您规定的时间自动为您发布到互动区。额外支付的<span class="f_b_red">0.1</span>个发布点</td>
+							设定任务计划发布的时间，平台将在您规定的时间自动为您发布到互动区。额外支付的<span class="f_b_red">0.1</span>个兔粮</td>
 						</tr>
 				</table>
 				</div>
@@ -677,8 +677,8 @@ function checkForm() {
         ['isEmpty', 'itemurl', '商品网址'],
         ['isStock', 'price', '商品价格'],
         ['isRange', 'price', '商品价格', 1,1999],
-        ['isNum', 'pointExt', '追加发布点'],
-        ['isRange', 'pointExt', '追加发布点', 0, 10],
+        ['isNum', 'pointExt', '追加兔粮'],
+        ['isRange', 'pointExt', '追加兔粮', 0, 10],
         ['isLength', 'tips', '留言提醒', 0, 100]];
     var result = doCheck(checks);            
     if (!result) return result;
@@ -802,7 +802,7 @@ function countPoint() {
     if (t == 2) s += '24小时好评';
     if (t == 3) s += '48小时好评';
     if (t == 4) s += '72小时好评';
-    return confirm(s + '\n商品价格：' + p2 + '\n耗发布点：' + p.toFixed(2));
+    return confirm(s + '\n商品价格：' + p2 + '\n耗兔粮：' + p.toFixed(2));
 }
 function cutPoint(obj) {
     if (obj.value <= 40)

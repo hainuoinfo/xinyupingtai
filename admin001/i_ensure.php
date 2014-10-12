@@ -146,7 +146,7 @@ switch($method){
 								member_base::sendPm($ensure['tuid'], '被维权任务'.$ensure['tid'].'成功', '维权结果', 'ensure_end');
 								member_base::sendSms($ensure['tuid'], '被维权任务'.$ensure['tid'].'成功', 'ensure_end');
 							}
-							//扣除附加的金钱和发布点
+							//扣除附加的金钱和兔粮
 							if ($sprice != 0) {
 								member_base::addMoney($task['suid'], $sprice, '维权任务'.$task['id'].'处理');
 							}

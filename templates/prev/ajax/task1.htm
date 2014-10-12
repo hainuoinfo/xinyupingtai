@@ -6,7 +6,7 @@
             <td class="rwdt_bt2" align="left" valign="middle" width="12%">发布人</td>
             <td class="rwdt_bt2" align="left" valign="middle" width="12%">任务价格</td>
             <td class="rwdt_bt2" align="center" valign="middle" width="23%">发布者要求</td>
-            <td class="rwdt_bt2" align="left" valign="middle" width="22%">悬赏麦点</td>
+            <td class="rwdt_bt2" align="left" valign="middle" width="22%">悬赏兔粮</td>
             <td class="rwdt_bt2" align="center" valign="middle" width="10%">操作</td>
             <td class="rwdt_bt3" align="center" valign="middle" width="10"></td>
           </tr>
@@ -39,9 +39,9 @@
 			{if $v[isChatDone]}<em title="任务需要模拟聊天后确认收货" class="rwdt_yq17">&nbsp;</em>{/if}
 			</td>
             <td align="left" width="22%"><span class="chengse2">
-			<strong>$v[point]个麦点</strong></span><br>
+			<strong>$v[point]个兔粮</strong></span><br>
 			{if $v[pointExt]>0} 
-			<font color="#fe5500">↑ 发布者追加了麦点{$v[pointExt]}个</font>
+			<font color="#fe5500">↑ 发布者追加了兔粮{$v[pointExt]}个</font>
 			{/if}
 			</td>
             <td width="10%"><p class="yred">{if $v[status]==1}<a class="qrw_btn" balid="0" onclick="taskin('$v[id]',false,this);" href="javascript:;" title=""></a>{else}任务进行中...{/if}</p></td>
@@ -77,9 +77,9 @@
 			{if $v[isChatDone]}<em title="任务需要模拟聊天后确认收货" class="rwdt_yq17">&nbsp;</em>{/if}
 			</td>
             <td align="left" width="22%"><span class="chengse2">
-			<strong>$v[point]个麦点</strong></span><br>
+			<strong>$v[point]个兔粮</strong></span><br>
 			{if $v[pointExt]>0} 
-			<font color="#fe5500">↑ 发布者追加了麦点{$v[pointExt]}个</font>
+			<font color="#fe5500">↑ 发布者追加了兔粮{$v[pointExt]}个</font>
 			{/if}
 			</td>
             <td width="10%"><p class="yred">{if $v[status]==1}<a class="qrw_btn" balid="0" onclick="taskin('$v[id]',false,this);" href="javascript:;" title=""></a>{else}任务进行中...{/if}</p></td>

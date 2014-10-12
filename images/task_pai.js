@@ -88,7 +88,7 @@ function GetDatingResult(result){
             if (result.itemList[i].isLHS)
                 htm+="<em class=\"chata\" title=\"此任务需要旺旺确认收货\">&nbsp;</em>";
             if (result.itemList[i].taoG>0)
-                htm+="<em class=\"golda\" title=\"此任务需要"+ result.itemList[i].taoG +"个淘麦点\">&nbsp;</em>";
+                htm+="<em class=\"golda\" title=\"此任务需要"+ result.itemList[i].taoG +"个淘兔粮\">&nbsp;</em>";
             if (result.itemList[i].isMsg)
                 htm+="<em class=\"anping\" title=\"按发布者提供的评语进行评价\">&nbsp;</em>";
             if (result.itemList[i].isMultiMsg)
@@ -104,16 +104,16 @@ function GetDatingResult(result){
             if (result.itemList[i].OKDay > 0)
             {
                 if (result.itemList[i].mPrice > result.itemList[i].vPrice)
-                    htm+="<em style=\"color:#090;\">"+result.itemList[i].mPrice.toFixed(2)+"&nbsp;个麦点</em><b>↑&nbsp;发布者增加了任务发布麦点"+Number(result.itemList[i].mPrice-result.itemList[i].vPrice).toFixed(2)+"个</b>";
+                    htm+="<em style=\"color:#090;\">"+result.itemList[i].mPrice.toFixed(2)+"&nbsp;个兔粮</em><b>↑&nbsp;发布者增加了任务发布兔粮"+Number(result.itemList[i].mPrice-result.itemList[i].vPrice).toFixed(2)+"个</b>";
                 else
-                    htm+="<em style=\"color:#090;\">"+result.itemList[i].mPrice.toFixed(2)+"&nbsp;个麦点</em>";
+                    htm+="<em style=\"color:#090;\">"+result.itemList[i].mPrice.toFixed(2)+"&nbsp;个兔粮</em>";
             }
             else
             {
                 if (result.itemList[i].mPrice > result.itemList[i].vPrice)
-                    htm+="<em>"+result.itemList[i].mPrice.toFixed(2)+"&nbsp;个麦点</em><b>↑&nbsp;发布者增加了任务发布麦点"+Number(result.itemList[i].mPrice-result.itemList[i].vPrice).toFixed(2)+"个</b>";
+                    htm+="<em>"+result.itemList[i].mPrice.toFixed(2)+"&nbsp;个兔粮</em><b>↑&nbsp;发布者增加了任务发布兔粮"+Number(result.itemList[i].mPrice-result.itemList[i].vPrice).toFixed(2)+"个</b>";
                 else
-                    htm+="<em>"+result.itemList[i].mPrice.toFixed(2)+"&nbsp;个麦点</em>";
+                    htm+="<em>"+result.itemList[i].mPrice.toFixed(2)+"&nbsp;个兔粮</em>";
             }
             htm+="</td>";
             htm+="<td class=\"do\">";
@@ -147,7 +147,7 @@ function GetDatingResult(result){
 var curMisIsDisWW=false;
 function taskin(mid,isDisWW,btn){
 	if(!curExam){
-        artDialog({content:"您还未通过新手考试，通过考试还能获得1个麦点哦！",id:"alarm",fixed:true,yesText:"立即去考试",lock:true},function(){
+        artDialog({content:"您还未通过新手考试，通过考试还能获得1个兔粮哦！",id:"alarm",fixed:true,yesText:"立即去考试",lock:true},function(){
             window.open("/member/exam/");
         });
         DisabledClose();

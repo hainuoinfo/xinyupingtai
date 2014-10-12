@@ -16,7 +16,7 @@
     5、在任务发布到互动区后，您可以通过点击已发收藏任务页面中的【暂停】按钮来控制店铺每日被收藏次数与被收藏时间，使您的收藏数据更真实！</div>
   <div class="info2">
     <div class="wel">尊敬的<span class='f_orange'> $member[truename]</span>{if $member[sex]==1}先生{elseif $member[sex]==2}女士{/if}，欢迎您！</div>
-    <div class="stat">VIP：{if $isVip}是{else}否{/if} , 卡信托：{if $isVip2}是{else}否{/if} ， 积分：<span class='f_b_org'>$memberFields[credits]</span> <img src='$memberLevel[icon]' alt='当前等级' /> ， <img src='{$weburl2}images/ico/ico_gold_2.gif' alt='' /> 存款余额：<span class='f_b_org'>$memberFields[money]</span>元 　　　　　<img src="{$weburl2}images/ico/ico_gold_3.gif" /> 淘宝发布点：<span class="f_b_org">$memberFields[fabudian1]</span>个</div>
+    <div class="stat">VIP：{if $isVip}是{else}否{/if} , 卡信托：{if $isVip2}是{else}否{/if} ， 积分：<span class='f_b_org'>$memberFields[credits]</span> <img src='$memberLevel[icon]' alt='当前等级' /> ， <img src='{$weburl2}images/ico/ico_gold_2.gif' alt='' /> 存款余额：<span class='f_b_org'>$memberFields[money]</span>元 　　　　　<img src="{$weburl2}images/ico/ico_gold_3.gif" /> 淘宝兔粮：<span class="f_b_org">$memberFields[fabudian1]</span>个</div>
   </div>
   <form name="myForm" method="post" id="myForm" onsubmit="return checkForm();">
 	<div>$sys_hash_code2</div>
@@ -57,7 +57,7 @@
       <tr>
         <td align="right">收藏次数：</td>
         <td><input name="total" type="text" class="text_normal" id="total" value="{echo $datas?$datas[total]:10}" /></td>
-        <td>每个收藏需要0.1个发布点, <a href="#" target="_blank" class="link_o">收藏安全指南</a></td>
+        <td>每个收藏需要0.1个兔粮, <a href="#" target="_blank" class="link_o">收藏安全指南</a></td>
       </tr>
     </table>
     <div class="publish">

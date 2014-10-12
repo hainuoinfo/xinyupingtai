@@ -2,7 +2,7 @@
 (!defined('IN_JB') || IN_JB!==true) && exit('error');
 class card{
 	public static $onePrice = array(), $names = array(
-		'', '单次发布点卡', '流量点卡', '单钻信托卡', '双钻信托卡', '三钻信托卡', '四钻信托卡', '五钻信托卡', '至尊皇冠卡', '24小时双倍积分卡', '双倍积分周卡', '预定任务次卡', '至尊VIP体验卡'
+		'', '单次兔粮卡', '流量点卡', '单钻信托卡', '双钻信托卡', '三钻信托卡', '四钻信托卡', '五钻信托卡', '至尊皇冠卡', '24小时双倍积分卡', '双倍积分周卡', '预定任务次卡', '至尊VIP体验卡'
 	),$names2 = array('', '单钻信托卡', '双钻信托卡', '三钻信托卡', '四钻信托卡', '五钻信托卡', '至尊皇冠卡');
 	public static function buy($uid, $cardType, $nums = 0){
 		global $timestamp;
@@ -10,7 +10,7 @@ class card{
 			$onePrice = self::$onePrice[$cardType];
 			switch ($cardType) {
 				case 0:
-					//系统奖励 单次发布点卡
+					//系统奖励 单次兔粮卡
 					if ($nums <= 0) return 'buy_count_error';
 					db::insert('card', array(
 						'type'      => 0,
@@ -24,29 +24,29 @@ class card{
 						'timestamp1' => $timestamp,
 						'timestamp3' => $timestamp + 86400 * 3
 					));
-					member_base::sendPm($uid, '恭喜您获得系统奖励的'.$nums.'张单次发布点卡', '网站提醒：系统奖励了'.$nums.'张单次发布点卡', 'luck');
-					member_base::sendSms($uid, '恭喜您获得系统奖励的'.$nums.'张单次发布点卡', 'luck');
+					member_base::sendPm($uid, '恭喜您获得系统奖励的'.$nums.'张单次兔粮卡', '网站提醒：系统奖励了'.$nums.'张单次兔粮卡', 'luck');
+					member_base::sendSms($uid, '恭喜您获得系统奖励的'.$nums.'张单次兔粮卡', 'luck');
 					return true;
 				break;
 				case 1:
-					//单次发布点卡
+					//单次兔粮卡
 					if ($nums <= 0) return 'buy_count_error';
 					$money = $onePrice * $nums;
 					if ($money > $member['attach']['money']) return 'money_error';
-					member_base::addMoney($uid, - $money, '购买'.$nums.'张单次发布点卡');
+					member_base::addMoney($uid, - $money, '购买'.$nums.'张单次兔粮卡');
 					db::insert('card', array(
 						'type'      => 1,
 						'cid'        => $cardType,
 						'uid'        => $uid,
 						'username'   => $member['base']['username'],
 						'money'      => $money,
-						'name'       => '单次发布点卡',
+						'name'       => '单次兔粮卡',
 						'total1'     => $nums,
 						'total2'     => $nums,
 						'timestamp1' => $timestamp
 					));
-					member_base::sendPm($uid, '购买了'.$nums.'张发布点卡', '网站提醒：购买了'.$nums.'张发布点卡', 'buy_points');
-					member_base::sendSms($uid, '购买了'.$nums.'张发布点卡', 'buy_points');
+					member_base::sendPm($uid, '购买了'.$nums.'张兔粮卡', '网站提醒：购买了'.$nums.'张兔粮卡', 'buy_points');
+					member_base::sendSms($uid, '购买了'.$nums.'张兔粮卡', 'buy_points');
 					return true;
 				break;
 				case 2:
@@ -292,13 +292,13 @@ class card{
 		if ($card['status'] == 2) return 'card_expire';
 		switch ($card['cid']) {
 			case 0:
-				member_base::addFabudian($card['uid'], $card['total1'], $flag, '激活系统奖励发布点卡');
+				member_base::addFabudian($card['uid'], $card['total1'], $flag, '激活系统奖励兔粮卡');
 				db::update('card', array('total2' => 0, 'timestamp2' => $timestamp, 'status' => 1), "id='$id'");
 				return true;
 			break;
 			case 1:
-				//单次发布点卡
-				member_base::addFabudian($card['uid'], $card['total1'], $flag, '激活单次发布点卡');
+				//单次兔粮卡
+				member_base::addFabudian($card['uid'], $card['total1'], $flag, '激活单次兔粮卡');
 				db::update('card', array('total2' => 0, 'timestamp2' => $timestamp, 'status' => 1), "id='$id'");
 				return true;
 			break;

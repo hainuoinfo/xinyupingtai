@@ -33,9 +33,9 @@ $task_tid =virtual::create_rand($v_num);
 $task_name=virtual::create_name($v_num);
 //随机价格
 $task_price=virtual::create_type(1,200,0,$v_num);
-//随机悬赏麦点
+//随机悬赏兔粮
 $task_fabudian=virtual::create_type(1,30,9,$v_num);
-//追加麦点
+//追加兔粮
 $task_maidian=virtual::create_fabudian(0,9,0,$v_num);
 //任务时间
  $task_claim =virtual::create_stype(0,6,$v_num);

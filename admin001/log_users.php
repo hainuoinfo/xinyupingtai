@@ -2,7 +2,7 @@
 $top_menu=array(
 	'credits'   => '积分日志',
 	'money'     => 'RMB日志',
-	'fabudian'  => '发布点日志',
+	'fabudian'  => '兔粮日志',
 	'vipLog'    => 'VIP消费记录',
 	'ensureLog' => '商保担保金记录'
 );
