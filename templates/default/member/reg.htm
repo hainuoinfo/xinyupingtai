@@ -70,7 +70,7 @@
 		</li>
 		<li>
 			<p class="tit3" id="tj">推荐人</p>
-			<p><input name="parent" id="parent" class="r_bk" onblur="check_parent()" maxlength="14" style="color:#999;" value="没有可不填写" onclick="if(this.value=='没有可不填写'){this.value='';}" type="text" emptyRunReg="false"></p>
+			<p><input name="parent" id="parent" class="r_bk" onblur="check_parent()" maxlength="14" style="color:#999;" value="<?php if($pusername) echo $pusername;else echo '没有可不填';?> " onclick="if(this.value=='没有可不填写'){this.value='';}" type="text" emptyRunReg="false"></p>
 			<div class="zq" id="tj_tip"></div>
 		</li>
 		

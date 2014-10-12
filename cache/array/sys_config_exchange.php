@@ -1,1 +1,1 @@
-<?php exit;?>a:7:{s:10:"point_user";s:3:"0.1";s:9:"point_vip";s:4:"0.05";s:10:"point_vip2";s:4:"0.08";s:10:"credit_min";s:4:"1000";s:12:"credit_point";s:3:"300";s:11:"money_point";s:3:"0.4";s:8:"yu_jifen";s:4:"1000";}
+<?php exit;?>a:6:{s:10:"point_user";s:3:"0.1";s:9:"point_vip";s:4:"0.05";s:10:"point_vip2";s:4:"0.08";s:10:"credit_min";s:4:"1000";s:12:"credit_point";s:3:"300";s:11:"money_point";s:3:"0.1";}

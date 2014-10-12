@@ -45,6 +45,8 @@ if ($operation == 'index'){
     }
 cache :: get_array('questions'); //提前获取验证问题信息
 $errorMessag = '对不起，您的存款不足！ 请<a href="/member/topup/"> 立即充值</a>';
+//获取一个兔粮兑换几元
+$oneMoney = cfg :: getMoney('exchange', 'money_point');
 switch($operation){
 case 'reg':
     $pusername = $_GET['pusername'];
@@ -1899,7 +1901,7 @@ case 'active':
                         checkPwd2();
                         $yu_jifen = cfg :: getInt('exchange', 'yu_jifen');
                         $ke_jifen = $memberFields[credits] - $yu_jifen ;
-                        $oneMoney = cfg :: getMoney('exchange', 'money_point');
+
                         if ($rs = form :: is_form_hash2()){
                             if ($rs === true){
                                 $datas = form :: get('num', 'type', 'jifen', 'sid');
