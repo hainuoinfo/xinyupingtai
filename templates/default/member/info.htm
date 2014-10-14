@@ -9,9 +9,9 @@
 	$title       = common::replaceVars($title);
 	$keywords    = common::replaceVars($keywords);
 	$description = common::replaceVars($description);
-	echo string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description));
+	string::getStaticCode(array('title' => $title, 'keywords' => $keywords, 'description' => $description));
 ?>
-{sub ../header}
+{sub ../headerbase}
 <DIV class="cle"></DIV>
 <DIV id="content">
 	<UL id="u_info">
