@@ -13,6 +13,7 @@
 	div  table ul{margin:0px;}
 	form{margin:0px;}
 	myForm myForm2 myForm3{float: left;}
+	ul.vip_list{margin:50px 0 0 10px;}
 	</style>
 <DIV class="cle"></DIV>
 <DIV id="content">{sub menu}
@@ -23,14 +24,14 @@
 		<div class='msg_panel'>
 			<div>$_showmessage</div>
 		</div>{/if}
-		<TABLE border="0"  style="margin: 15px 0 0 15px;" cellSpacing="0" cellPadding="0" width="715" height="187">
+		<TABLE border="0"  style="margin: 15px 0 0 15px;" cellSpacing="0" cellPadding="0" width="725" height="187">
 			<TBODY>
 				<TR>
 					<TD class="vipsp_b2" vAlign="middle" align="left">
 						<DIV class="vip_tit"></DIV>
 						<P class="vip_text"></P>
 						<form name="myForm" method="post" id="myForm"  onsubmit="return checkForm();">
-							<UL class="vip_list">
+							<UL class="vip_list" style="margin-left:0px;">
 								<LI class="vip_dj1">一级VIP</LI>
 								<LI class="vip_dj2">
 									<SELECT name="months">{eval $list = cfg::getList('sys', 'vip_money_list'); } {loop $list $v}
