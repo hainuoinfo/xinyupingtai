@@ -2540,7 +2540,7 @@ case 'active':
                                 $month = db :: data_count('members', $monthwhere);
                                 $day = db :: data_count('members', $monthwhere);
                                 if ($total > 0){
-                                    $query = $db -> query("select t1.id,t1.username,t1.rewordPoint2,t1.reg_timestamp,t2.credits,t2.vip,t2.vip2,t2.vip3,t3.inComplate,t3.outComplate from (select * from {$pre}members where $where order by reg_timestamp desc$limit) t1 left join {$pre}memberfields t2 on t2.uid=t1.id left join {$pre}membertask t3 on t3.uid=t2.uid");
+                                    $query = $db -> query("select t1.id,t1.username,t1.rewordPoint2,t1.reg_timestamp,t2.credits,t2.vip,t2.vip2,t2.vip3,t3.inComplate,t3.outComplate from (select * from {$pre}members where $where order by reg_timestamp desc $limit) t1 left join {$pre}memberfields t2 on t2.uid=t1.id left join {$pre}membertask t3 on t3.uid=t2.uid");
                                     while ($line = $db -> fetch_array($query)){
                                         $line['level'] = member_credit :: getLevel($line['credits']);
                                         $sList[] = $line;

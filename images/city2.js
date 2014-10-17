@@ -1,4 +1,4 @@
-﻿document.write('<select name="Province[]" multiple="multiple"  id="Province" >');
+document.write('<select name="Province[]" multiple="multiple"  id="Province" >');
 //document.write("<option value=></option>");
 document.write("<option value=北京市>北京市</option>");
 document.write("<option value=上海市>上海市</option>");

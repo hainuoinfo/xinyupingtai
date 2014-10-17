@@ -21,7 +21,7 @@
         <TBODY>
         <TR>
           <TD width="432">
-		  <INPUT id="txtlink" class="wdtg_inp" onFocus="this.select()" name="textfield" value="{echo common::getUrl('/member/reg.php?pusername='.urlencode($member[username]))} " type="text">
+		  <INPUT id="txtlink" onFocus="this.select()" style="padding: 5px;height: 30px;width: 432px;margin: 0px;" name="textfield" value="{echo common::getUrl('/member/reg.php?pusername='.urlencode($member[username]))} " type="text">
 		  </TD>
           <TD align="left"><A id="btncopy" class="wdtg_btn" href="javascript:;"></A></TD></TR></TBODY></TABLE></TD></TR>
   <TR>
@@ -54,7 +54,7 @@
                   <td class="phb_sx">{date $v[reg_timestamp]}</td>
                   <td class="phb_sx" align="center">$v[inComplate]</td>
                   <td class="phb_sx" align="center">$v[outComplate]</td>
-                  <td class="phb_sx">{if $v[rewordPoint2]>0}$v[rewordPoint2]{elseif $v[inComplate]+$v[outComplate]>=4}<a href="javascript:;" onclick="dialog(460,460,'激活兔粮卡','/dialog/reword/?suid=$v[id]');return false;" class="wdtg_ljf"> </a>{else}&nbsp;{/if}</td>
+                  <td class="phb_sx">{if $v[rewordPoint2]>0}$v[rewordPoint2]{elseif $v[inComplate]+$v[outComplate]>=10}<a href="javascript:;" onclick="dialog(460,460,'激活兔粮卡','/dialog/reword/?suid=$v[id]');return false;" class="wdtg_ljf"> </a>{else}&nbsp;{/if}</td>
 				  <td class="phb_sx"></td>
                 </tr>
                 {/loop}

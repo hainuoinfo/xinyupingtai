@@ -545,35 +545,37 @@ switch ($m) {
 					//查询绑定卖家的数量
 					$totalcount=db::data_count('sellers', "uid='$uid'");
 					//从第二次绑定掌柜(删除掉的也算)开始每次绑定一个扣除五元
-					if($memberFields['sellers1']>0 || $totalcount>0){
-						//如果卖家没有钱则退出返回错误信息
-						if($memberFields['money']<5)
+					if($totalcount>0 && $memberFields['money']<5)
+						//如果卖家没有钱则退出返回错
 							$rs="添加失败，您的余额为".$memberFields['money']."元，不足5元！";
-						else
-							$redMoneyResult=member_base::redMoney($uid,'5','添加掌柜扣除5元');
-					}else{
-						/* if (data_taobaoUser::usercheck($nickName)){ */
-							if (!db::exists('sellers', array('type' => $taskId, 'nickname' => $nickName))) {
-								if (db::insert('sellers', array(
-									'type'       => $taskId,
-									'uid'        => $uid,
-									'username'   => $member['username'],
-									'nickname'   => $nickName,
-									'truth'      => $isTruth,
-									'express'    => '',
-									'timestamp1' => $timestamp,
-									'status'     => 1
-								))) {
-									db::update('memberfields', 'sellers1=sellers1+1', "uid='$uid'");
-								}
-							} else {
-								$rs = '很抱歉，该掌柜已经被别人绑定了';
+					else
+						{
+					/* if (data_taobaoUser::usercheck($nickName)){ */
+						if (!db::exists('sellers', array('type' => $taskId, 'nickname' => $nickName))) {
+							if ($rs=db::insert('sellers', array(
+								'type'       => $taskId,
+								'uid'        => $uid,
+								'username'   => $member['username'],
+								'nickname'   => $nickName,
+								'truth'      => $isTruth,
+								'express'    => '',
+								'timestamp1' => $timestamp,
+								'status'     => 1
+							))) {
+								//扣除5元并增加统计数
+								if ($totalcount>0)
+									$redMoneyResult=member_base::redMoney($uid,'5','添加掌柜<<<<<'.$nickName.'>>>>>扣除5元');
+								
+								$rs=db::update('memberfields', 'sellers1=sellers1+1', "uid='$uid'");
 							}
-						/* } else {
-							$rs = '淘宝平台上没有检测到该用户名';
-						} */
+						} else {
+							$rs = '很抱歉，该掌柜已经被别人绑定了';
+						}
+					/* } else {
+						$rs = '淘宝平台上没有检测到该用户名';
+					} */
 					}
-				}
+				
 			}
 			if ($rs === true) {
 				common::setMsg('添加成功');
@@ -581,24 +583,24 @@ switch ($m) {
 			} else {
 				$indexMessage = language::get($rs);
 			}
+		}
+    }
 
-		  }
-
-			$del=$_GET['del'];
-			if($del){
-				if(task_seller::del($del, $uid)){
-					db::update('memberfields', 'sellers1=sellers1-1', "uid='$uid'");//删除绑定淘宝帐号是，刷新绑定的数量
-					//扣除5元钱
-					//db::update('memberfields', 'money=money-5', "uid='$uid'");
-					member_base::redMoney($uid,'5','删除掌柜扣除5元');
-				    common::setMsg('删除成功');
-				    common::goto_url($thisUrl);
-				}else{
-				     common::setMsg('删除失败');
-				}
-				print_r($del);
-		    }
-			$sList = db::get_list2('sellers', '*', "type='1' and uid='$uid'");
+	$del=$_GET['del'];
+	if($del){
+		if(task_seller::del($del, $uid)){
+			db::update('memberfields', 'sellers1=sellers1-1', "uid='$uid'");//删除绑定淘宝帐号是，刷新绑定的数量
+			//扣除5元钱
+			//db::update('memberfields', 'money=money-5', "uid='$uid'");
+			member_base::redMoney($uid,'5','删除掌柜<<<<<'.$nickName.'>>>>>扣除5元');
+		    common::setMsg('删除成功');
+		    common::goto_url($thisUrl);
+		}else{
+		     common::setMsg('删除失败');
+		}
+		print_r($del);
+    }
+	$sList = db::get_list2('sellers', '*', "type='1' and uid='$uid'");
 	break;
 	case 'tieBuyer'://绑定买家
 		checkPwd2();
