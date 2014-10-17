@@ -2540,7 +2540,7 @@ case 'active':
                                 $month = db :: data_count('members', $monthwhere);
                                 $day = db :: data_count('members', $monthwhere);
                                 if ($total > 0){
-                                    $query = $db -> query("select t1.id,t1.username,t1.rewordPoint2,t1.reg_timestamp,t2.credits,t2.vip,t2.vip2,t2.vip3,t3.inComplate,t3.outComplate from (select * from {$pre}members where $where order by reg_timestamp desc $limit) t1 left join {$pre}memberfields t2 on t2.uid=t1.id left join {$pre}membertask t3 on t3.uid=t2.uid");
+                                    $query = $db -> query("SELECT m.id,m.username,m.rewordPoint1,m.reg_timestamp,t.inComplate,t.outComplate,f.credits,f.vip,f.vip2,f.vip3 FROM bf_members m,bf_membertask t,bf_memberfields f WHERE t.uid=m.id and f.uid=m.id and m.parent=4");
                                     while ($line = $db -> fetch_array($query)){
                                         $line['level'] = member_credit :: getLevel($line['credits']);
                                         $sList[] = $line;
@@ -2548,13 +2548,12 @@ case 'active':
                                     }
                                 member_base :: upCache();
                                 $total_month = db :: data_count('members', 'childMonth>0');
-                                $query_month = $db -> query("select t1.username,t1.monthCount,t1.childMonth,t1.rewordPointMonth,t2.credits,t2.vip,t2.vip2,t2.isEnsure from {$pre}members t1 left join {$pre}memberfields t2 on t2.uid=t1.id where t1.childMonth>0 order by t1.childMonth desc limit 0,10");
+                                $query_month = $db -> query("SELECT id,username,truename,childMonth,rewordPointMonth FROM bf_members ORDER BY childMonth DESC,rewordPointMonth DESC LIMIT 0,10");
                                 while ($line_month = $db -> fetch_array($query_month)){
-                                    $line_month['level'] = member_credit :: getLevel($line_month['credits']);
-                                    $sList_month[] = $line_month;
+                                        $sList_month[] = $line_month;
                                     }
                                 $total_top = db :: data_count('members');
-                                $query_top = $db -> query("select t1.username,t1.child2,t1.rewordPoint1,t2.credits,t2.vip,t2.vip2,t2.isEnsure from {$pre}members t1 left join {$pre}memberfields t2 on t2.uid=t1.id order by t1.child2 desc limit 0,10");
+                                $query_top = $db -> query("SELECT 	id,username,truename,child1,rewordPoint1 FROM 	bf_members ORDER BY child1 DESC,rewordPoint1 DESC LIMIT 0,10");
                                 while ($line_top = $db -> fetch_array($query_top)){
                                     $line_top['level'] = member_credit :: getLevel($line_top['credits']);
                                     $sList_top[] = $line_top;
@@ -2564,36 +2563,12 @@ case 'active':
                                 if ($total){
                                     $multipage = multi_page :: parse($total, $pagesize, $page, $baseUrl . '?t=' . $t . '&page={page}', $pageStyle, 10, 'member1');
                                     }
-                                $tops = array();
-                                $query = $db -> query("
-select
-t2.username username1,t3.credits credits1,t3.vip vip1,t3.vip2 vip21,t3.isEnsure isEnsure1,t1.username username2,t1.credits credits2,t1.vip vip2,t1.vip2 vip22,t1.isEnsure isEnsure2,t1.reg_timestamp
-from
-(select t1.*,t2.credits,t2.vip,t2.vip2,t2.isEnsure from
-(select
-id,username,parent,reg_timestamp
-from
-{$pre}members 
-where
-parent>0 and status='1' order by reg_timestamp desc limit 10) t1 
-left join
-{$pre}memberfields t2 
-on
-t2.uid=t1.id) t1
-left join
-{$pre}members t2
-on
-t2.id=t1.parent
-left join
-{$pre}memberfields t3
-on
-t3.uid=t2.id
-");
-                                while ($line = $db -> fetch_array($query)){
-                                    $line['level1'] = member_credit :: getLevel($line['credits1']);
-                                    $line['level2'] = member_credit :: getLevel($line['credits2']);
-                                    $tops[] = $line;
-                                    }
+                                //$tops = array();
+                                //$query = $db -> query("SELECT	id,username,truename,child1,rewordPoint1 FROM 	{$pre}members  WHERE 	id IN ( SELECT	parent		FROM	{$pre}members	WHERE	`status` >= 0 and parent>0	GROUP BY parent	) ORDER BY child1  DESC,rewordPoint1 DESC");
+                                //while ($line = $db -> fetch_array($query)){
+                                //    $line['level2'] = member_credit :: getLevel($line['credits2']);
+                                //    $tops[] = $line;
+                                //    }
                                 break;
                             case 'ensure':
                                 $ts = array('index', 'join', 'joinPay', 'in', 'out', 'exit');

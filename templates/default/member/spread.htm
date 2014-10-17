@@ -69,7 +69,7 @@
         <LI class="phb_sx">用户名<SPAN class="phb_md">收益</SPAN><SPAN class="phb_md1">推广人数</SPAN></LI>
 		{loop $sList_month $v}
         <LI class="phb_name">
-		<SPAN class="phb_nameico1"></SPAN>
+		<SPAN class="phb_nameico{$i++}"></SPAN>
 		<SPAN style="width: 120px; float: left; display: block;"><A href="{rewrite}/member/info/?username=$v[username]" target="_blank">$v[username]</A></SPAN>
 		<SPAN style="width: 80px; text-align: center; float: left; display: block;" class="chengse2">$v[childMonth]</SPAN>
 		<SPAN style="width: 57px; text-align: center; float: left; display: block;" class="chengse2">$v[rewordPointMonth]</SPAN>
@@ -85,6 +85,7 @@
       <UL style="background: rgb(255, 255, 255); border: currentColor;" class="phb_t2">
         <LI class="phb_sx">用户名<SPAN class="phb_md">收益</SPAN><SPAN class="phb_md1">推广人数</SPAN>
 		</LI>
+		<?php $i=1;?>
 		{loop $sList_top $v}
         <LI class="phb_name">
 		<SPAN class="phb_nameico{$i++}"></SPAN>
@@ -93,7 +94,7 @@
         target="_blank">$v[username]</A>
 		</SPAN>
 		<SPAN style="width: 80px; text-align: center; float: left; display: block;" 
-        class="chengse2">$v[child2]
+        class="chengse2">$v[child1]
 		</SPAN>
 		<SPAN style="width: 57px; text-align: center; float: left; display: block;" 
         class="chengse2">$v[rewordPoint1]
