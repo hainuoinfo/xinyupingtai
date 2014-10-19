@@ -109,7 +109,7 @@ $(document).ready(function(){
 	        var goodsUrl=$("#txtGoodsUrl").val();
 	        var validGoodsUrl=goodsUrl.toLowerCase();
 	        if(!IsURL(validGoodsUrl)|| !ValidDomainF(validGoodsUrl) || validGoodsUrl.indexOf("combo")>0){
-		        artDialog({content:"对不起，您还未输入商品URL地址或者地址有错误。（特别注意：此地址为您店铺需要买方拍的商品地址，而非拍拍店地址）",id:"alarm",yesText:"确定",noText:"查看URL地址帮助"},function(){ToMao();},function(){window.open("http://www.damaihu.com.cn/bbs/t1288/");});
+		        artDialog({content:"对不起，您还未输入商品URL地址或者地址有错误。（特别注意：此地址为您店铺需要买方拍的商品地址，而非拍拍店地址）",id:"alarm",yesText:"确定",noText:"查看URL地址帮助"},function(){ToMao();},function(){window.open("http://www.huatutu.com.cn/bbs/t1288/");});
 				$(".ui_close").hide();
 		        return false;
 	        }else{

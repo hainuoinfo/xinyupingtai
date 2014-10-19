@@ -61,7 +61,7 @@ function createqq() {
     html += "<div class=\"cle\">&nbsp;</div>";
     html += "<li>";
     html += "<span class='kf2gre'>&nbsp;企业QQ：</span>";
-    html += "<div><img border=\"0\" SRC='/images/pa.gif'><a class='kf2gre' href='javascript:;' onclick=\"javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=4006079159&eid=218808P8z8p8y8z808R8p&o=www.damaihu.com.cn&q=7&ref='+document.location, '_blank', 'height=544, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');\">企业QQ</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class=\"kf2gre\" target=\"_blank\" href=\"" + webnoticeurl + "/\">" + webnoticetit + "</a>";
+    html += "<div><img border=\"0\" SRC='/images/pa.gif'><a class='kf2gre' href='javascript:;' onclick=\"javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=4006079159&eid=218808P8z8p8y8z808R8p&o=www.huatutu.com.cn&q=7&ref='+document.location, '_blank', 'height=544, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');\">企业QQ</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class=\"kf2gre\" target=\"_blank\" href=\"" + webnoticeurl + "/\">" + webnoticetit + "</a>";
     html += "</div>";
     html += "</li>";
     html += "<div class=\"cle\">&nbsp;</div>";
